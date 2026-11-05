@@ -26,19 +26,31 @@ FORBIDDEN = FORBIDDEN_CREATION + FORBIDDEN_OVERWRITE
 
 
 class EnrichmentImmutabilityTests(unittest.TestCase):
-    def test_uses_proven_gemini_alias_first_then_provider_ids_as_fallback(self):
-        # L'alias a réellement produit les enrichissements des 30 et 31 octobre
-        # (51/51, 47/47, 64/64 dans les journaux de production).
-        self.assertEqual(
-            enrich.MODELS_TO_TRY,
-            [
-                "gemini-flash-lite-latest",
-                "gemini-3.5-flash-lite",
-                "gemini-flash-latest",
-                "gemini-3.8-flash",
-            ],
-        )
-        self.assertEqual(enrich.MODELS_TO_TRY[0], "gemini-flash-lite-latest")
+    def test_uses_only_the_proven_gemini_model(self):
+        # Le run #937 a appliqué 40/40 avec cet alias en 2 min 04.
+        self.assertEqual(enrich.MODELS_TO_TRY, ["gemini-flash-lite-latest"])
+
+    def test_transient_503_retries_the_same_gemini_model(self):
+        calls = []
+
+        class FlakyModels:
+            def generate_content(self, **kwargs):
+                calls.append(kwargs["model"])
+                if len(calls) == 1:
+                    raise RuntimeError("503 UNAVAILABLE: temporary capacity issue")
+                return type("Response", (), {"text": json.dumps([{
+                    "id": 0, "market": "BTTS", "selection": "Yes", "probability": 0.60,
+                }])})()
+
+        class Client:
+            models = FlakyModels()
+
+        with patch.object(enrich.time, "sleep") as sleep:
+            result = enrich._call_gemini_chunk(Client(), [{"home": "Home", "away": "Away"}], 0)
+
+        self.assertEqual(calls, ["gemini-flash-lite-latest", "gemini-flash-lite-latest"])
+        self.assertEqual(len(result), 1)
+        sleep.assert_called_once_with(enrich.RETRY_DELAY)
 
     def test_zero_provider_enrichments_warns_fails_and_keeps_local_fallback(self):
         class FailingModels:

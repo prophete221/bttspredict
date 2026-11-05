@@ -26,17 +26,10 @@ import sys
 import time
 from pathlib import Path
 
-# Ordre éprouvé en production les 30 et 31 octobre 2026 : l'alias maintenu par
-# Google « gemini-flash-lite-latest » a appliqué 51/51, 47/47 puis 64/64
-# enrichissements (journaux des runs 41032681104, 41099406774, 41220424533).
-# Les IDs explicites 2.5 renvoyant 404 « no longer available to new users »,
-# ils sont remplacés par les IDs recommandés par l'API comme secours uniquement.
-MODELS_TO_TRY = [
-    "gemini-flash-lite-latest",
-    "gemini-3.5-flash-lite",
-    "gemini-flash-latest",
-    "gemini-3.8-flash",
-]
+# Modèle unique vérifié sur le run de production #937 (41133809785) : 40/40
+# décisions en 2 min 04; un 503 transitoire sur un lot a réussi au retry.
+# Garder le même alias comme seule voie Gemini; le fallback métier reste local.
+MODELS_TO_TRY = ["gemini-flash-lite-latest"]
 PREDICTIONS_FILE = Path(__file__).parent.parent / "public" / "predictions.json"
 MAX_RETRIES = 2
 RETRY_DELAY = 5

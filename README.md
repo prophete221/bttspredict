@@ -2,7 +2,7 @@
 
 > **Production :** [https://bttspredict.com](https://bttspredict.com) · **Langues :** français, anglais, arabe · **Public :** amateurs de football, avec une expérience mobile prioritaire, notamment en Afrique de l’Ouest.
 
-BTTSPredict est une plateforme d’information et de pronostics football, avec des liens d’affiliation vers des bookmakers partenaires. Ce n’est pas un bookmaker : le site ne prend pas de mises et ne garantit aucun résultat. Ce README décrit le produit, ses pages et les règles du propriétaire afin qu’un directeur artistique puisse proposer une direction globale sans devoir parcourir les fichiers du dépôt.
+BTTSPredict est une plateforme d’information et de pronostics football, avec des liens d’affiliation vers des bookmakers partenaires. Ce n’est pas un bookmaker : le site ne prend pas de mises et ne garantit aucun résultat. Ce README documente les fonctions visibles, les routes, les données, les limites opérationnelles, les règles du propriétaire et le brief de design afin de donner une référence factuelle du produit actuel.
 
 ## Le projet en bref
 
@@ -12,11 +12,21 @@ Les données quotidiennes sont publiées dans des fichiers publics, notamment `p
 
 L’appellation « AI Combo Builder » désigne un outil interactif de combinés. Son mécanisme actuel est déterministe, pas un chatbot ni une IA conversationnelle. Dans le code de référence, l’utilisateur choisit une cote cible (1,80 / 2,50 / 3,00 / 5,00 / 8,00) et un nombre de matchs de 2 à 5; l’outil assemble des sélections disponibles sur des rencontres à venir et affiche des estimations combinées. Toute mise ou tout retour affiché doit être clairement présenté comme une simulation, jamais comme un gain attendu ou garanti.
 
+## Fonctionnalités et parcours utilisateur actuels
+
+- **Accueil et Match Center (`/`) :** les composants client chargent les flux publics `/predictions.json` et `/win-history.json`. Le tableau permet de filtrer par période (aujourd’hui, demain, semaine), marché et compétition, distingue les rencontres à venir et terminées, puis mène à l’analyse de match lorsqu’elle existe. Les heures sont présentées dans le contexte GMT/Dakar; le compte à rebours local se rafraîchit périodiquement.
+- **Tableaux de pronostics :** `/btts/predictions/today` (avec l’alias `/pronostics`) regroupe les marchés par rencontre et propose des filtres; `/over-2-5/predictions/today` affiche les sélections Over 2,5; `/btts-and-over-2-5-predictions-today` rassemble BTTS et Over 2,5. Les interfaces lisent les probabilités publiées, elles ne les recalculent pas dans le navigateur. Les champs disponibles varient selon les données du match.
+- **Score exact et pages de match :** `/ai-correct-score-predictions` affiche les estimations disponibles dans les données publiques; le mot « AI » dans l’URL n’assure pas qu’un modèle soit appelé en temps réel ni que le score soit exact. `/match/{slug}` présente une analyse construite à partir des données de la rencontre et des archives disponibles; une page n’est générée que lorsqu’un match correspondant existe.
+- **Demain :** `/btts/predictions/tomorrow` est actuellement une page d’information qui renvoie vers le tableau du jour après publication; elle ne constitue pas un flux autonome de prédictions pour demain.
+- **Combinés :** le Combo Builder tourne localement dans le navigateur. Il choisit 2 à 5 matchs à venir, évite de reprendre deux fois le même match, assemble des sélections selon des objectifs de cote prédéfinis et permet de copier le résumé. Les cotes et totaux combinés peuvent être estimés; il ne consulte pas les cotes en direct et ne crée ni ticket bookmaker ni pari.
+- **Résultats, historique et statistiques :** `/resultats-verifies`, `/historique` et `/statistiques` lisent l’historique public. Les pages BTTS et Over 2,5 ont aussi leurs routes de statistiques. Une rencontre peut rester en attente si aucun score final n’est rapproché; les tendances dépendent du volume retenu et ne prédisent pas les résultats futurs.
+- **Navigation :** la barre supérieure relie Match Center, tableaux de pronostics, scores exacts, résultats, statistiques, historique, méthodologie et VIP. La navigation basse mobile privilégie l’accueil, les pronostics et le VIP. Les liens vers les pages légales, guides partenaires et pages d’information sont regroupés dans les menus et pieds de page.
+
 ## État du site et du travail de design
 
-Le sitemap public consulté le **4 novembre 2026** contient **61 URL** : 19 familles disponibles en français, anglais et arabe (57 URL), plus 4 familles uniquement en français. Le français utilise les chemins sans préfixe, l’anglais `/en` et l’arabe `/ar`.
+Le sitemap public consulté le **4 novembre 2026** contenait **61 URL** : 19 familles disponibles en français, anglais et arabe (57 URL), plus 4 familles uniquement en français. Le générateur source `src/app/sitemap.ts` suit cette même structure. Le français utilise les chemins sans préfixe, l’anglais `/en` et l’arabe `/ar`; le nombre observé en production est un instantané daté, à vérifier après toute publication.
 
-La dernière publication de l’application confirmée dans le suivi du propriétaire est le run **#1041**, commit `466cc84`. Le `main` du dépôt a ensuite reçu `582eeff` (`chore: auto-update data`), un commit de données de pronostics. Des corrections produit et essais visuels sont conservés dans un worktree local séparé; ils ne constituent pas une refonte approuvée ou publiée. Les douze anciennes maquettes alternatives ont été rejetées. Le travail visuel sur le Match Center et le tableau quotidien est en pause pendant que Meta formule une direction unique pour l’ensemble du site.
+À la révision de ce README, la dernière publication publique confirmée est le run **#1041**, commit `466cc84`. La branche `main` a depuis avancé avec des correctifs produit, le commit de données `3feeab87` et les changements Gemini/VIP. Le run **#1048** (`42033003173`) a été annulé avant le transfert; le run **#1049** (`42037614558`) a obtenu 0/37 décisions Gemini après 24 erreurs fournisseur 503 et conservé le fallback local. Il a ensuite passé le build et atteint la préparation FTP, puis a été annulé avant le transfert des fichiers. Ces runs ne prouvent pas que leurs versions sont en ligne. Un commit, un build réussi ou des artefacts locaux ne prouvent pas une publication : vérifier une conclusion FTP réussie et les pages publiques avant d’annoncer une version plus récente. Des essais visuels locaux ne constituent pas une refonte approuvée ou publiée. Les douze anciennes maquettes alternatives ont été rejetées. Le travail visuel sur le Match Center et le tableau quotidien est en pause pendant que Meta formule une direction unique pour l’ensemble du site.
 
 **Aucune direction artistique globale n’est actuellement sélectionnée ou publiée.** Le propriétaire veut d’abord lire la proposition de Meta, puis faire réaliser un aperçu local par l’équipe BTTSPredict. Il décidera ensuite s’il approuve l’aperçu ou demande des modifications. Rien ne sera publié ni déployé avant son approbation explicite des captures finales en FR/EN/AR, sur mobile et desktop.
 
@@ -40,9 +50,39 @@ npm run build           # build Next.js / export statique
 npm run start           # sert le dossier exporté, si disponible
 ```
 
+## Analyse des pronostics avec Gemini
+
+Le workflow utilise `google-genai==2.34.0` et `gemini-flash-lite-latest` comme unique modèle Gemini. Les demandes sont traitées séquentiellement par lots de trois matchs, avec deux retries supplémentaires au maximum; le délai normal de retry est de 5 secondes et celui des réponses de limitation de débit est de 20 secondes. Le budget d’analyse du script est de 420 secondes et l’étape GitHub Actions a un timeout de 10 minutes. Aucun autre fournisseur n’est ajouté.
+
+Gemini reste la source principale. Le script exploite les statistiques déjà disponibles (sans calcul de Poisson), demande une décision BTTS/Over 2,5/combinaison ou une abstention, puis valide la réponse selon le schéma et les garde-fous du code. Une réponse exploitable, y compris une abstention explicite, est conservée. Le calcul empirique local ne sert que pour un match lorsque Gemini échoue ou ne fournit pas de résultat exploitable; ce n’est pas un second fournisseur d’IA.
+
+Repère historique, et non promesse de durée ou de performance : au run GitHub Actions **#937** (`41133809785`), Gemini a traité **40/40** décisions en **2 min 04 s**; deux matchs ont utilisé le fallback empirique local. Un 503 transitoire sur un lot a été récupéré par le retry du même modèle. Les prochaines exécutions doivent être contrôlées dans leurs propres journaux.
+
+## Données, résultats et cycle de publication
+
+Le site est exporté en pages statiques. Les interfaces lisent des fichiers JSON publics au lieu de recalculer les pronostics à chaque visite : `public/predictions.json` pour les matchs et sélections libres, `public/win-history.json` pour les résultats et statistiques, et `public/predictions-archive/` pour les instantanés de pronostics. La route `/predictions.json` et les scripts de nettoyage limitent l’export aux données autorisées; les champs VIP et les combos VIP ne doivent pas être exposés dans les JSON publics, archives, HTML ou JavaScript.
+
+Le workflow complet `.github/workflows/deploy.yml` commence par limiter les archives aux 90 fichiers récents, puis `scripts/quick-update-predictions.mjs` interroge les calendriers et statistiques ESPN pour aujourd’hui et une fenêtre de dates à venir. Les plafonds configurés sont jusqu’à 24 matchs gratuits du jour et 8 par jour futur, avec au plus cinq jours futurs; le nombre réel dépend des calendriers, des statistiques disponibles, des règles de qualité et de la disponibilité de la source. La validation vérifie notamment la date Dakar, l’horodatage, le schéma et les bornes. Une journée sans données admissibles peut rester vide plutôt que d’inventer des rencontres.
+
+Après l’enrichissement Gemini, `scripts/finalize-predictions.mjs` archive et protège les sélections déjà publiées selon les règles d’immutabilité du projet. `scripts/verify-results.mjs` cherche les scores finaux ESPN, avec TheSportsDB en secours, et conserve un état en attente si le score ou le match n’est pas rapproché; le rapprochement des noms est heuristique et des vérifications peuvent manquer en cas d’indisponibilité ou de timeout. `scripts/update-win-history.mjs` agrège l’historique, déduplique les entrées et applique une période de grâce de 48 heures. Les cas non vérifiables restent dans les archives mais ne sont pas comptés comme gagnés ou perdus dans les totaux publics. L’élagage et la vérification sont bornés aux 90 archives conservées.
+
+La collecte de transferts et la mise à jour du contexte d’équipes sont des étapes auxiliaires « best effort »; elles ne garantissent ni fraîcheur ni exhaustivité. Avant publication, le workflow relance les tests, le lint et le typecheck, valide les données, construit l’export statique, corrige les attributs `lang` des pages EN/AR et commet les données générées.
+
+## Déclencheurs et déploiement
+
+Le workflow principal s’exécute sur les push vers `main` (hors push limité aux fichiers `public/**`), selon un calendrier toutes les trois heures, et sur lancement manuel en mode `full` ou `code`. Les pull requests exécutent des contrôles — tests, lint, typecheck et build — sans déployer. Les exécutions d’une même référence sont sérialisées; un run en cours n’est pas annulé par un nouveau run. Le mode `code` saute la collecte et l’enrichissement des données, mais construit et déploie le code selon l’allowlist prévue.
+
+La publication utilise un plan différentiel, une pré-vérification FTP, un manifeste et une allowlist de fichiers validés. Elle attend cinq minutes avant l’envoi pour limiter la fréquence des accès, n’effectue pas de miroir ni de suppression générale, et limite les suppressions de pages anciennes aux chemins Match EN/AR autorisés. `robots.txt` et `sitemap.xml` sont sauvegardés avant transfert et peuvent être restaurés si celui-ci échoue; `.htaccess` est traité séparément après l’envoi principal. Les preuves de déploiement sont conservées comme artefact, puis IndexNow est tenté sans bloquer le site. Seule une étape FTP réussie suivie d’un contrôle public confirme que le nouveau site est en ligne.
+
+## Langues, navigation et SEO technique
+
+Le français est la locale par défaut et conserve les chemins sans préfixe; l’anglais utilise `/en`, l’arabe `/ar`. `src/lib/i18n.ts` fixe le sens arabe en RTL et `LanguageSwitcher` s’appuie sur le chemin courant. Les pages localisées sont définies sous `src/app/[locale]`; le script `scripts/fix-html-lang.mjs` ajuste les attributs de langue du HTML exporté. La présence d’une route localisée ne garantit pas que chaque libellé de chaque composant soit traduit : vérifier les écrans FR/EN/AR, en particulier les formulaires et composants réutilisés.
+
+Le sitemap source comporte 23 familles : 19 avec variantes FR/EN/AR et quatre en français seulement; les entrées localisées reçoivent des alternates hreflang dans le générateur. Les métadonnées et canonicals sont toutefois définis page par page et ne sont pas tous configurés de façon uniforme. Le fichier source `public/robots.txt` autorise le crawl général, exclut `/api/` et `/admin`, et déclare le sitemap. La route de détail Match, les alias `/pronostics` et `/linebet-promo-code`, les JSON et les archives sont des routes ou données auxiliaires, pas nécessairement des URL du sitemap.
+
 ## Inventaire complet des routes canoniques du sitemap
 
-Le tableau ci-dessous liste les **23 familles** du sitemap public. Pour les 19 familles marquées « FR/EN/AR », le chemin indiqué est celui du français; le chemin anglais est `/en` + ce chemin et le chemin arabe `/ar` + ce chemin. Exemple : `/vip`, `/en/vip`, `/ar/vip`. L’accueil est l’exception : `/`, `/en`, `/ar`. Les quatre dernières lignes sont en français seulement. Cette notation couvre les 61 URL du sitemap sans répéter chaque variante trois fois.
+Le tableau ci-dessous liste les **23 familles** du sitemap source. Pour les 19 familles marquées « FR/EN/AR », le chemin indiqué est celui du français; le chemin anglais est `/en` + ce chemin et le chemin arabe `/ar` + ce chemin. Exemple : `/vip`, `/en/vip`, `/ar/vip`. L’accueil est l’exception : `/`, `/en`, `/ar`. Les quatre dernières lignes sont en français seulement. Cette notation correspond à 61 URL dans la source vérifiée; le sitemap effectivement en production doit être contrôlé après déploiement.
 
 | Famille et chemin français | Langues dans le sitemap | Fonction de la page |
 |---|---|---|
@@ -66,7 +106,7 @@ Le tableau ci-dessous liste les **23 familles** du sitemap public. Pour les 19 f
 | `/mentions-legales` | FR/EN/AR | Mentions légales. |
 | `/jouer-responsable` | FR/EN/AR | Jeu responsable, mentions 18+ et ressources d’aide. |
 | `/btts-c-est-quoi` | FR seulement | Guide pédagogique expliquant le marché BTTS. |
-| `/btts/predictions/tomorrow` | FR seulement | Pronostics BTTS à venir pour le lendemain. |
+| `/btts/predictions/tomorrow` | FR seulement | Page d’information qui renvoie vers le tableau du jour après publication; pas de flux indépendant de pronostics de demain. |
 | `/btts/statistics` | FR seulement | Statistiques consacrées au marché BTTS. |
 | `/over-2-5/statistics` | FR seulement | Statistiques consacrées au marché Over 2,5. |
 
@@ -77,6 +117,7 @@ Autres familles présentes dans le code mais **hors des 61 URL du sitemap** : le
 Ces choix sont la référence pour toute proposition de contenu ou de design et prévalent sur les formulations anciennes visibles sur certaines pages publiques ou dans le code.
 
 - **Pronostics gratuits :** BTTS, Over 2,5 et scores exacts. Pas d’inscription forcée pour les consulter. Les cartes peuvent montrer discrètement les logos ou liens partenaires dans cet ordre : **1xBet → Linebet → MelBet → 888Starz**. Aucun code promo dans les cartes gratuites, les popups, la navigation générale ou la page VIP générale; les codes sont réservés aux pages promotionnelles dédiées.
+- **Teaser VIP dans chaque carte gratuite :** afficher exactement deux marchés VIP génériques et verrouillés. Le bouton « Débloquer » ouvre le formulaire VIP existant; l’approbation manuelle du propriétaire reste obligatoire. Ne pas y montrer de vrais marchés, sélections, cotes, probabilités ou métadonnées VIP : les autres marchés VIP et les pronostics VIP futurs restent privés et ne doivent pas apparaître dans les exports publics.
 - **Aperçu VIP :** marchés éventuellement floutés ou verrouillés; ne pas révéler les vrais choix VIP ni les cotes avant le déblocage.
 - **Accès VIP :** service à vie après création d’un nouveau compte 1xBet ou Linebet via le parcours et le code du propriétaire, avec approbation manuelle. Un dépôt est requis pour le VIP, mais aucun montant n’est spécifié dans ce brief. BTTSPredict ne demande ni pièce d’identité, ni contrôle d’identité, ni identifiant de joueur. Le coupon quotidien est délivré par e-mail ou WhatsApp; cela ne doit pas devenir une demande d’identifiant ou une vérification d’identité. Certaines versions encore visibles du parcours VIP contiennent un seuil de dépôt chiffré et une vérification WhatsApp avec identifiant : ce texte ancien n’est pas approuvé et ne doit pas être repris. Ne mentionner aucun dépôt dans un popup ou une page promotionnelle; n’inventer aucun montant. La page VIP générale peut renvoyer vers la page promo dédiée pour obtenir le code, sans l’afficher.
 - **Promotions :** le propriétaire confirme un bonus de **300 % dans le monde entier** pour les quatre partenaires. Ne pas ajouter de plafond, tours gratuits, durée, condition ou autre terme non confirmé. La page Linebet actuellement visible mentionne « 100 free spins »; c’est du contenu observé, **pas une condition vérifiée**, et il ne faut pas le reprendre. Ne présente pas les offres comme garanties au-delà du 300 % confirmé; invite à vérifier les conditions officielles du partenaire.
@@ -92,6 +133,12 @@ Ces choix sont la référence pour toute proposition de contenu ou de design et 
 
 - **Transparence :** ne jamais inventer une probabilité, statistique, cote, sélection, résultat, avantage ou promesse de gain. Éviter « sûr », « garanti » et « immanquable ». Les performances passées ne garantissent pas les résultats futurs.
 - **Jeu responsable :** mention visible 18+, avertissement que les paris comportent un risque, ton non pressant et ressources de prévention accessibles dans toutes les langues.
+
+### Comportement actuel des liens partenaires et du parcours VIP
+
+Les pages de promotion ouvrent les sites partenaires via des liens externes affiliés, marqués dans le code comme liens sponsorisés et non suivis par les moteurs de recherche. Le suivi interne mesure des actions de l’entonnoir (par exemple l’affichage ou le clic d’un CTA) selon les règles de consentement analytics; il ne confirme pas qu’un compte a été créé, qu’un dépôt a eu lieu ou qu’un partenaire a validé une conversion. Ces vérifications relèvent de l’opérateur. BTTSPredict ne prend pas de pari, ne détient pas de fonds et ne traite pas les transactions du bookmaker.
+
+La page VIP est une présentation publique avec aperçu verrouillé et un formulaire/parcours de demande. Un clic, un formulaire ou une déclaration ne débloque rien automatiquement : l’approbation du propriétaire reste manuelle. Une étape peut ouvrir WhatsApp avec un texte prérempli, mais le site ne l’envoie pas à la place de l’utilisateur. Le code actuel contient encore certaines étapes historiques qui ne constituent ni une vérification opérateur ni une condition approuvée; elles ne doivent pas être reformulées comme des exigences officielles. La sélection des lignes VIP s’appuie sur des marqueurs VIP explicites; les tests de frontière publique vérifient le retrait des champs VIP et combos des exports. Cette séparation des données ne doit pas être présentée comme un système complet de comptes ou d’autorisations côté serveur.
 
 ### SEO à protéger
 
