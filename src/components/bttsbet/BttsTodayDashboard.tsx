@@ -15,10 +15,9 @@
  * Fields consumed (no recalculation, no fabrication):
  *   match, league, date, time, homeLogo, awayLogo,
  *   home, away,
- *   bttsProb, over25Prob,                  ← Poisson probabilities (0..1)
- *   homeLambda, awayLambda,                ← buts attendus modélisés (λ du modèle Poisson,
- *                                              issus des buts réels récents ESPN — PAS des xG d'un fournisseur)
- *   xgHome, xgAway, xgTotal,               ← fallback affichage λ
+ *   bttsProb, over25Prob,                  ← published market probabilities (0..1)
+ *   homeLambda, awayLambda,                ← recent goals-scored averages (legacy field names)
+ *   xgHome, xgAway, xgTotal,               ← fallback fields for those averages
  *   reliabilityScore,                      ← 0..100 data confidence (NOT a win chance)
  *   dataSource, dataQuality,               ← ESPN_TEAM_SCHEDULE | LEAGUE_FALLBACK ; HIGH|MEDIUM|LOW
  *   matchCountHome, matchCountAway,        ← real ESPN matches analysed per team
@@ -34,7 +33,7 @@ import { generateMatchSlug } from '@/lib/match-slug'
 import { useLanguage } from './LanguageSwitcher'
 import { translationsFor, type Locale, localizedPath } from '@/lib/i18n'
 import { getDakarDateString, getDakarMatchStatus, getDakarDayDiff } from '@/lib/dakar-date'
-import { AFFILIATE } from '@/lib/constants'
+import BookmakerCardLinks from './BookmakerCardLinks'
 import ShareAnalysisButton from './ShareAnalysisButton'
 
 // ─── Palette (V3 — bleu analyse, sémantique WIN/LOST/PENDING) ────────────────
@@ -97,17 +96,13 @@ interface RawPrediction {
 
 interface DashboardLabels {
   exactScore: string
-  projection: string
   source: string
-  quality: string
   matches: string
-  dataConfidence: string
   aiAnalysis: string
   score: string
-  xgHome: string
-  xgAway: string
-  xgTotal: string
-  xgHint: string
+  goalsHome: string
+  goalsAway: string
+  goalsTotal: string
   openMatch: string
 }
 
@@ -152,6 +147,8 @@ interface MatchData {
 
 type FilterType = 'all' | 'BTTS' | 'O2.5' | 'HIGH' | 'VIP'
 
+type QuickFilter = 'all' | 'today' | 'btts60' | 'over60'
+
 type CardStatus = 'live' | 'scheduled' | 'finished'
 
 // ─── AI Combo of the Day — selection type ───────────────────────────────
@@ -168,14 +165,21 @@ interface ComboPick {
 }
 
 // ─── Helpers ────────────────────────────────────────────────────────────
-function fmtPct(p?: number): string {
+function fmtPct(p: number | undefined, locale: Locale = 'fr'): string {
   if (p == null || !Number.isFinite(p)) return '—'
-  return `${(p * 100).toFixed(1)}%`
+  return new Intl.NumberFormat(locale === 'en' ? 'en-GB' : locale === 'ar' ? 'ar' : 'fr-FR', {
+    style: 'percent',
+    minimumFractionDigits: 1,
+    maximumFractionDigits: 1,
+  }).format(p)
 }
 
-function fmtNum(n?: number, digits = 2): string {
+function fmtNum(n: number | undefined, locale: Locale, digits = 2): string {
   if (n == null || !Number.isFinite(n)) return '—'
-  return n.toFixed(digits)
+  return new Intl.NumberFormat(locale === 'en' ? 'en-GB' : locale === 'ar' ? 'ar' : 'fr-FR', {
+    minimumFractionDigits: digits,
+    maximumFractionDigits: digits,
+  }).format(n)
 }
 
 function fmtInt(n?: number): string {
@@ -202,20 +206,11 @@ function passesFilter(match: MatchData, activeFilter: FilterType): boolean {
   return true
 }
 
-function normalizeDataSource(s?: string): string {
+function normalizeDataSource(s: string | undefined, locale: Locale): string {
   if (!s) return '—'
-  if (s === 'ESPN_TEAM_SCHEDULE') return 'ESPN TEAM SCHEDULE'
-  if (s === 'LEAGUE_FALLBACK') return 'LEAGUE FALLBACK'
-  return s.toUpperCase().replace(/_/g, ' ')
-}
-
-function qualityColor(q?: string): string {
-  if (!q) return C.textSec
-  const u = q.toUpperCase()
-  if (u === 'HIGH') return C.success
-  if (u === 'MEDIUM') return C.warning
-  if (u === 'LOW') return C.danger
-  return C.textSec
+  if (s === 'ESPN_TEAM_SCHEDULE') return 'ESPN'
+  if (s === 'LEAGUE_FALLBACK') return locale === 'en' ? 'League data' : locale === 'ar' ? 'بيانات البطولة' : 'Données de la ligue'
+  return s
 }
 
 function hasSufficientData(match: MatchData): boolean {
@@ -293,14 +288,14 @@ function TeamLogo({ src, name }: { src?: string; name: string }) {
 }
 
 // ─── ProbBar — barre de probabilité animée (marché BTTS / Over 2.5) ─────
-function ProbBar({ label, value, color, dim }: { label: string; value?: number; color: string; dim?: boolean }) {
+function ProbBar({ label, value, color, dim, locale }: { label: string; value?: number; color: string; dim?: boolean; locale: Locale }) {
   const noData = value == null || !Number.isFinite(value) || dim
   return (
     <div className="btx-prob">
       <div className="btx-prob__head">
         <span className="btx-prob__label">{label}</span>
         <span className="btx-prob__value" style={{ ['--pc' as string]: color, opacity: noData ? 0.45 : 1 }}>
-          {noData ? '—' : fmtPct(value)}
+          {noData ? '—' : fmtPct(value, locale)}
         </span>
       </div>
       <div className="btx-bar" style={{ opacity: noData ? 0.4 : 1 }}>
@@ -346,12 +341,11 @@ function StatusChip({ status, time, lang, date }: { status: CardStatus; time: st
 }
 
 // ─── Match Card — premium V3 (glass, liseré statut, sheen, barres animées) ──
-function MatchCard({ match, index, status, lang, insufficientDataLabel, labels, now }: {
+function MatchCard({ match, index, status, lang, labels, now }: {
   match: MatchData
   index: number
   status: CardStatus
   lang: Locale
-  insufficientDataLabel: string
   labels: DashboardLabels
   now: number
 }) {
@@ -379,13 +373,10 @@ function MatchCard({ match, index, status, lang, insufficientDataLabel, labels, 
     : fine === 'finished' ? 'rgba(107, 122, 140, 0.55)'
     : 'rgba(47, 125, 255, 0.8)'
 
-  const dataSourceLabel = normalizeDataSource(match.dataSource)
-  const quality = match.dataQuality?.toUpperCase() || '—'
-  const qualityColorVal = qualityColor(match.dataQuality)
+  const dataSourceLabel = normalizeDataSource(match.dataSource, lang)
   const sufficientData = hasSufficientData(match)
 
   const matchPath = localizedPath(`/match/${generateMatchSlug(match.home, match.away, match.date)}`, lang)
-  const dataConfidence = match.reliabilityScore == null ? '—' : `${Math.round(match.reliabilityScore)}%`
 
   return (
     <article
@@ -420,33 +411,29 @@ function MatchCard({ match, index, status, lang, insufficientDataLabel, labels, 
 
         {/* ─── PROBABILITÉS — barres animées ─── */}
         <div className="btx-probs">
-          <ProbBar label="BTTS" value={match.bttsProb} color="#34D399" dim={!sufficientData} />
-          <ProbBar label="Over 2.5" value={match.over25Prob} color="#FBBF24" dim={!sufficientData} />
+          <ProbBar label="BTTS" value={match.bttsProb} color="#34D399" dim={!sufficientData} locale={lang} />
+          <ProbBar label="Over 2.5" value={match.over25Prob} color="#FBBF24" dim={!sufficientData} locale={lang} />
         </div>
 
-        {/* ─── λ buts attendus modélisés ─── */}
+        {/* ─── Moyennes récentes de buts marqués ─── */}
         <div className="btx-lambdas">
           <div className="btx-lambda">
-            <span className="btx-lambda__label">{labels.xgHome}</span>
-            <span className="btx-lambda__value">{sufficientData ? fmtNum(match.homeLambda ?? match.xgHome) : '—'}</span>
+            <span className="btx-lambda__label">{labels.goalsHome}</span>
+            <span className="btx-lambda__value">{sufficientData ? fmtNum(match.homeLambda ?? match.xgHome, lang) : '—'}</span>
           </div>
           <div className="btx-lambda">
-            <span className="btx-lambda__label">{labels.xgAway}</span>
-            <span className="btx-lambda__value">{sufficientData ? fmtNum(match.awayLambda ?? match.xgAway) : '—'}</span>
+            <span className="btx-lambda__label">{labels.goalsAway}</span>
+            <span className="btx-lambda__value">{sufficientData ? fmtNum(match.awayLambda ?? match.xgAway, lang) : '—'}</span>
           </div>
           <div className="btx-lambda">
-            <span className="btx-lambda__label">{labels.xgTotal}</span>
+            <span className="btx-lambda__label">{labels.goalsTotal}</span>
             <span className="btx-lambda__value">
-              {sufficientData ? fmtNum(match.xgTotal ?? ((match.homeLambda ?? match.xgHome ?? 0) + (match.awayLambda ?? match.xgAway ?? 0))) : '—'}
+              {sufficientData ? fmtNum(match.xgTotal ?? ((match.homeLambda ?? match.xgHome ?? 0) + (match.awayLambda ?? match.xgAway ?? 0)), lang) : '—'}
             </span>
           </div>
         </div>
-        <p className="btx-score__hint" style={{ margin: '-0.4rem 0.9rem 0.85rem' }}>
-          {labels.xgHint}
-        </p>
-
         {/* ─── SCORE EXACT ─── */}
-        <div className="btx-score">
+        {(match.aiExactScore || match.exactScoreProb) && <div className="btx-score">
           <div className="btx-score__head">
             <span className="btx-score__label">{labels.exactScore}</span>
             {match.exactScoreProb && <span className="btx-score__prob">{match.exactScoreProb}</span>}
@@ -454,36 +441,17 @@ function MatchCard({ match, index, status, lang, insufficientDataLabel, labels, 
           <div className="btx-score__value">
             {match.aiExactScore ? match.aiExactScore : '— —'}
           </div>
-          <p className="btx-score__hint">
-            {match.aiExactScore || match.exactScoreProb ? labels.projection : insufficientDataLabel}
-          </p>
-        </div>
+        </div>}
 
-        {/* ─── MÉTA : source / qualité / échantillon ─── */}
+        {/* ─── MÉTA : source / matchs pris en compte ─── */}
         <div className="btx-meta">
           <span className="btx-chip">
             {labels.source} <b style={{ ['--cc' as string]: '#7DB5FF' }}>{dataSourceLabel}</b>
           </span>
           <span className="btx-chip">
-            {labels.quality} <b style={{ ['--cc' as string]: qualityColorVal }}>{quality}</b>
-          </span>
-          <span className="btx-chip">
             {fmtInt(match.matchCountHome)} + {fmtInt(match.matchCountAway)} {labels.matches}
           </span>
         </div>
-
-        {/* ─── CONFIANCE DES DONNÉES ─── */}
-        {match.reliabilityScore != null && Number.isFinite(match.reliabilityScore) && (
-          <div className="btx-conf">
-            <div className="btx-conf__head">
-              <span className="btx-conf__label">{labels.dataConfidence}</span>
-              <span className="btx-conf__value">{Math.round(match.reliabilityScore)}%</span>
-            </div>
-            <div className="btx-bar">
-              <span className="btx-bar__fill" style={{ ['--w' as string]: `${Math.min(100, Math.max(0, match.reliabilityScore)).toFixed(1)}%` }} />
-            </div>
-          </div>
-        )}
 
         {/* ─── ANALYSE IA GEMINI ─── */}
         {(match.aiAnalysis || match.aiKeyFact || match.aiBttsView || match.aiOver25View) && (
@@ -591,9 +559,8 @@ function MatchCard({ match, index, status, lang, insufficientDataLabel, labels, 
                 league={match.league}
                 date={match.date}
                 time={match.time}
-                bttsProbability={fmtPct(match.bttsProb)}
-                over25Probability={fmtPct(match.over25Prob)}
-                dataConfidence={dataConfidence}
+                bttsProbability={fmtPct(match.bttsProb, lang)}
+                over25Probability={fmtPct(match.over25Prob, lang)}
                 exactScore={match.aiExactScore}
                 exactScoreProbability={match.exactScoreProb}
                 path={matchPath}
@@ -618,9 +585,8 @@ function MatchCard({ match, index, status, lang, insufficientDataLabel, labels, 
               league={match.league}
               date={match.date}
               time={match.time}
-              bttsProbability={fmtPct(match.bttsProb)}
-              over25Probability={fmtPct(match.over25Prob)}
-              dataConfidence={dataConfidence}
+              bttsProbability={fmtPct(match.bttsProb, lang)}
+              over25Probability={fmtPct(match.over25Prob, lang)}
               exactScore={match.aiExactScore}
               exactScoreProbability={match.exactScoreProb}
               path={matchPath}
@@ -628,6 +594,12 @@ function MatchCard({ match, index, status, lang, insufficientDataLabel, labels, 
             />
           </div>
         )}
+        <BookmakerCardLinks
+          locale={lang}
+          compact
+          placement="dashboard-match-card"
+          context={{ match: match.key }}
+        />
       </div>
     </article>
   )
@@ -649,12 +621,6 @@ function ComboPickRow({ pick, index, lang }: { pick: ComboPick; index: number; l
         <div className="btx-combo-row__meta">
           {pick.match.league} · {pick.match.time || '--:--'}
           {lang === 'fr' ? ` · choix ${rank}` : lang === 'en' ? ` · pick ${rank}` : ` · اختيار ${rank}`}
-        </div>
-        <div className="btx-combo-row__foot">
-          <span>{normalizeDataSource(pick.match.dataSource)} · {pick.dataQuality}</span>
-          <span>
-            {lang === 'fr' ? 'Confiance' : lang === 'ar' ? 'الثقة' : 'Confidence'} <span className="btx-combo-row__conf">{Math.round(pick.reliabilityScore)}%</span>
-          </span>
         </div>
       </div>
       <span className="btx-market-chip" style={{ ['--mc' as string]: marketColor }}>{pick.market}</span>
@@ -681,6 +647,17 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
   const [matches, setMatches] = useState<MatchData[]>([])
   const [loading, setLoading] = useState(true)
   const [activeFilter, setActiveFilter] = useState<FilterType>('all')
+  const [quickFilter, setQuickFilter] = useState<QuickFilter>('all')
+  const selectMetric = (metric: QuickFilter) => {
+    setActiveFilter('all')
+    setQuickFilter(current => current === metric ? 'all' : metric)
+    window.requestAnimationFrame(() => {
+      const target = document.getElementById('btx-dashboard-grid')
+      if (!target) return
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      target.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start' })
+    })
+  }
   useEffect(() => {
     if (window.location.hash !== '#opportunities') return
     const frame = window.requestAnimationFrame(() => setActiveFilter('HIGH'))
@@ -819,10 +796,6 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
     // On utilise matches.length qui correspond exactement à ce qui est rendu dans la grille.
     const bttsHigh = matches.filter(m => (m.bttsProb ?? 0) >= 0.6).length
     const overHigh = matches.filter(m => (m.over25Prob ?? 0) >= 0.6).length
-    const highQuality = matches.filter(m => (m.dataQuality || '').toUpperCase() === 'HIGH').length
-    const avgReliability = matches.length > 0
-      ? Math.round(matches.reduce((s, m) => s + (m.reliabilityScore ?? 0), 0) / matches.length)
-      : null
 
     // todayCount = number of active/scheduled matches for today (Africa/Dakar).
     // Finished matches remain visible in their own section but are not counted as current selections.
@@ -831,8 +804,6 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
       total: matches.length,
       bttsHigh,
       overHigh,
-      highQuality,
-      avgReliability,
     }
   }, [matches, scheduledTodayMatches, liveTodayMatches])
 
@@ -915,8 +886,19 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
     { id: 'all', label: t.predictions.all },
     { id: 'BTTS', label: 'BTTS' },
     { id: 'O2.5', label: 'Over 2.5' },
-    { id: 'HIGH', label: lang === 'fr' ? 'Meilleures opportunités' : lang === 'en' ? 'Top opportunities' : 'أفضل الفرص' },
+    { id: 'HIGH', label: lang === 'fr' ? 'Données mieux étayées' : lang === 'en' ? 'Better-supported data' : 'بيانات أكثر توثيقاً' },
   ]
+
+  const passesMetricFilter = (match: MatchData) => {
+    if (quickFilter === 'btts60') return (match.bttsProb ?? 0) >= 0.6
+    if (quickFilter === 'over60') return (match.over25Prob ?? 0) >= 0.6
+    return true
+  }
+  const passesDashboardFilters = (match: MatchData) => passesFilter(match, activeFilter) && passesMetricFilter(match)
+  const visibleTodayMatches = [...liveTodayMatches, ...scheduledTodayMatches].filter(passesDashboardFilters)
+  const visibleFinishedMatches = quickFilter === 'today' ? [] : finishedTodayMatches.filter(passesDashboardFilters)
+  const visibleUpcomingMatches = quickFilter === 'today' ? [] : upcomingMatches.filter(passesDashboardFilters)
+  const hasVisibleMatches = visibleTodayMatches.length + visibleFinishedMatches.length + visibleUpcomingMatches.length > 0
 
   const filteredMatches = useMemo(() => {
     return matches.filter(m => {
@@ -927,16 +909,11 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
     })
   }, [matches, activeFilter])
 
-  const insufficientDataLabel = lang === 'fr'
-    ? 'Projection masquée : échantillon de données insuffisant.'
-    : lang === 'en'
-      ? 'Projection hidden: insufficient data sample.'
-      : 'تم إخفاء التوقع: عينة البيانات غير كافية.'
   const labels: DashboardLabels = lang === 'fr'
-    ? { exactScore: 'Score exact proposé', projection: 'Projection issue des données disponibles, sans garantie de résultat.', source: 'Source', quality: 'Qualité', matches: 'matchs', dataConfidence: 'Confiance des données', aiAnalysis: 'Notre analyse du match', score: 'Score', xgHome: 'λ domicile', xgAway: 'λ extérieur', xgTotal: 'λ total', xgHint: 'Buteurs attendus modélisés (λ) : moyennes de buts récents (ESPN) converties par notre modèle statistique. Pas des xG de fournisseur.', openMatch: 'Ouvrir la page du match' }
+    ? { exactScore: 'Score exact proposé', source: 'Source', matches: 'matchs récents', aiAnalysis: 'Notre analyse du match', score: 'Score', goalsHome: 'Buts/match · domicile', goalsAway: 'Buts/match · extérieur', goalsTotal: 'Total des moyennes', openMatch: 'Ouvrir la page du match' }
     : lang === 'en'
-      ? { exactScore: 'Proposed exact score', projection: 'Projection based on available data, with no result guaranteed.', source: 'Source', quality: 'Quality', matches: 'matches', dataConfidence: 'Data confidence', aiAnalysis: 'Our match analysis', score: 'Score', xgHome: 'Home λ', xgAway: 'Away λ', xgTotal: 'Total λ', xgHint: 'Modeled expected goals (λ): recent real goals averages (ESPN) converted through our statistical model. Not provider xG.', openMatch: 'Open match page' }
-      : { exactScore: 'النتيجة الدقيقة المقترحة', projection: 'توقع مبني على البيانات المتاحة دون ضمان للنتيجة.', source: 'المصدر', quality: 'الجودة', matches: 'مباريات', dataConfidence: 'موثوقية البيانات', aiAnalysis: 'تحليلنا للمباراة', score: 'النتيجة', xgHome: 'λ صاحب الأرض', xgAway: 'λ الضيف', xgTotal: 'إجمالي λ', xgHint: 'أهداف متوقعة نمذجة (λ) من متوسطات أهداف حقيقية حديثة (ESPN) عبر نموذجنا الإحصائي.', openMatch: 'فتح صفحة المباراة' }
+      ? { exactScore: 'Proposed exact score', source: 'Source', matches: 'recent matches', aiAnalysis: 'Our match analysis', score: 'Score', goalsHome: 'Goals/game · home team', goalsAway: 'Goals/game · away team', goalsTotal: 'Combined average', openMatch: 'Open match page' }
+      : { exactScore: 'النتيجة المقترحة', source: 'المصدر', matches: 'مباريات حديثة', aiAnalysis: 'تحليل المباراة', score: 'النتيجة', goalsHome: 'أهداف/مباراة · المضيف', goalsAway: 'أهداف/مباراة · الضيف', goalsTotal: 'مجموع المتوسطين', openMatch: 'فتح صفحة المباراة' }
 
   // ─── Révélation au scroll (IntersectionObserver, gate .btx3d) ─────────
   // Sans JS : cartes toujours visibles (progressive enhancement).
@@ -979,17 +956,16 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
     )
     cards.forEach(c => io.observe(c))
     return () => io.disconnect()
-  }, [loading, activeFilter, filteredMatches, liveTodayMatches, scheduledTodayMatches, finishedTodayMatches, upcomingMatches, now])
+  }, [loading, activeFilter, quickFilter, filteredMatches, liveTodayMatches, scheduledTodayMatches, finishedTodayMatches, upcomingMatches, now])
 
   // ─── Compteurs animés du header ────────────────────────────────────────
   const animCount = useCountUp(stats.todayCount, !loading)
   const animBtts = useCountUp(stats.bttsHigh, !loading)
   const animOver = useCountUp(stats.overHigh, !loading)
-  const animReliability = useCountUp(stats.avgReliability ?? 0, !loading && stats.avgReliability != null)
 
   // ─── Render ───────────────────────────────────────────────────────────
   return (
-    <section id="btts-today-dashboard" ref={sectionRef} className="max-w-[1200px] mx-auto px-3 sm:px-4 py-4 sm:py-6">
+    <section id="btts-today-dashboard" ref={sectionRef} className="fi-today-dashboard max-w-[1200px] mx-auto px-3 sm:px-4 py-4 sm:py-6">
 
       {/* ─── HERO ─── */}
       <div className="btx-hero btx-rev p-4 sm:p-5 mb-4" style={{ ['--d' as string]: '0ms' }}>
@@ -998,7 +974,6 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
             <span className="btx-eyebrow">
               <span className="btx-eyebrow-dot" aria-hidden="true" />
               BTTSPredict
-              <span style={{ opacity: 0.65, fontWeight: 600 }}>· AI + Statistical Engine</span>
             </span>
             <h2 className="btx-title">
               {lang === 'fr' ? <>Pronostics <em>du jour</em></> : lang === 'en' ? <>Today’s <em>predictions</em></> : <>توقعات <em>اليوم</em></>}
@@ -1019,43 +994,36 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
         </div>
 
         {/* ─── Stats réelles ─── */}
-        <div className="btx-stats mt-4">
-          <div className="btx-stat" style={{ ['--glow' as string]: 'rgba(47, 125, 255, 0.16)' }}>
+        <div className="btx-stats mt-4" role="group" aria-label={lang === 'fr' ? 'Filtres rapides des pronostics' : lang === 'en' ? 'Quick prediction filters' : 'مرشحات سريعة للتوقعات'}>
+          <button type="button" className={`btx-stat${quickFilter === 'today' ? ' is-selected' : ''}`} aria-pressed={quickFilter === 'today'} aria-controls="btx-dashboard-grid" aria-describedby="btx-metric-help" aria-label={lang === 'fr' ? `Afficher les ${animCount} matchs du jour` : lang === 'en' ? `Show ${animCount} matches today` : `عرض ${animCount} مباراة اليوم`} onClick={() => selectMetric('today')}>
             <div className="btx-stat__label">{lang === 'fr' ? 'Matchs du jour' : lang === 'en' ? 'Matches today' : 'مباريات اليوم'}</div>
             <div className="btx-stat__value" style={{ ['--accent' as string]: '#F2F6FA' }}>{animCount}</div>
-          </div>
-          <div className="btx-stat" style={{ ['--glow' as string]: 'rgba(52, 211, 153, 0.16)' }}>
-            <div className="btx-stat__label">BTTS ≥ 60%</div>
-            <div className="btx-stat__value" style={{ ['--accent' as string]: '#34D399' }}>{animBtts}</div>
-          </div>
-          <div className="btx-stat" style={{ ['--glow' as string]: 'rgba(251, 191, 36, 0.15)' }}>
-            <div className="btx-stat__label">Over 2.5 ≥ 60%</div>
-            <div className="btx-stat__value" style={{ ['--accent' as string]: '#FBBF24' }}>{animOver}</div>
-          </div>
-          <div className="btx-stat" style={{ ['--glow' as string]: 'rgba(47, 125, 255, 0.16)' }}>
-            <div className="btx-stat__label">{lang === 'fr' ? 'Confiance moyenne' : lang === 'en' ? 'Avg. confidence' : 'متوسط الثقة'}</div>
-            <div className="btx-stat__value" style={{ ['--accent' as string]: '#7DB5FF' }}>
-              {stats.avgReliability != null ? `${animReliability}` : '—'}
-              {stats.avgReliability != null && <span className="btx-stat__unit">%</span>}
+          </button>
+          <button type="button" className={`btx-stat${quickFilter === 'btts60' ? ' is-selected' : ''}`} aria-pressed={quickFilter === 'btts60'} aria-controls="btx-dashboard-grid" aria-describedby="btx-metric-help" aria-label={lang === 'fr' ? `Filtrer les matchs avec BTTS à 60 % ou plus : ${animBtts}` : lang === 'en' ? `Filter matches with BTTS at 60 percent or higher: ${animBtts}` : `تصفية المباريات ذات BTTS بنسبة 60٪ أو أكثر: ${animBtts}`} onClick={() => selectMetric('btts60')}>
+            <div className="btx-stat__label">
+              {lang === 'fr' ? 'Matchs BTTS ≥ 60%' : lang === 'en' ? 'Matches with BTTS ≥ 60%' : 'مباريات BTTS ≥ 60%'}
             </div>
-          </div>
+            <div className="btx-stat__value" style={{ ['--accent' as string]: '#34D399' }}>{animBtts}</div>
+          </button>
+          <button type="button" className={`btx-stat${quickFilter === 'over60' ? ' is-selected' : ''}`} aria-pressed={quickFilter === 'over60'} aria-controls="btx-dashboard-grid" aria-describedby="btx-metric-help" aria-label={lang === 'fr' ? `Filtrer les matchs Over 2.5 à 60 % ou plus : ${animOver}` : lang === 'en' ? `Filter matches with Over 2.5 at 60 percent or higher: ${animOver}` : `تصفية مباريات Over 2.5 بنسبة 60٪ أو أكثر: ${animOver}`} onClick={() => selectMetric('over60')}>
+            <div className="btx-stat__label">
+              {lang === 'fr' ? 'Matchs Over 2.5 ≥ 60%' : lang === 'en' ? 'Matches with Over 2.5 ≥ 60%' : 'مباريات Over 2.5 ≥ 60%'}
+            </div>
+            <div className="btx-stat__value" style={{ ['--accent' as string]: '#FBBF24' }}>{animOver}</div>
+          </button>
         </div>
 
-        <div className="btx-reliability">
-          <span className="btx-reliability__label">
-            {lang === 'fr' ? 'Qualité des données' : lang === 'en' ? 'Data quality' : 'جودة البيانات'}
-          </span>
-          <span className="btx-reliability__note">
-            {lang === 'fr'
-              ? 'Indicateur de qualité des données disponibles — ce n’est pas une probabilité de réussite.'
-              : lang === 'en'
-                ? 'Indicator of available data quality — this is not a probability of success.'
-                : 'مؤشر جودة البيانات المتاحة — وليس احتمالاً للنجاح.'}
-          </span>
-        </div>
+        <p id="btx-metric-help" className="btx-period-note">
+          {lang === 'fr'
+            ? 'Touchez un indicateur pour filtrer. Les seuils BTTS et Over 2.5 s’appliquent à tous les matchs affichés.'
+            : lang === 'en'
+              ? 'Tap a metric to filter. BTTS and Over 2.5 thresholds apply to all listed matches.'
+              : 'اضغط على مؤشر للتصفية. تنطبق عتبات BTTS وOver 2.5 على جميع المباريات المعروضة.'}
+        </p>
+
       </div>
 
-      <div className="btx-dashboard-grid">
+      <div id="btx-dashboard-grid" className="btx-dashboard-grid">
         <aside className="btx-dashboard-insights">
       {/* ─── AI COMBO OF THE DAY ─── */}
       {/* Deterministic selection — NO Gemini call from client, NO recalculation. */}
@@ -1066,16 +1034,8 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
           <div className="btx-combo__head">
             <span className="btx-combo__icon" aria-hidden="true">✦</span>
             <div className="flex-1 min-w-0">
-              <div className="btx-combo__kicker">AI COMBO</div>
               <div className="btx-combo__title">
-                {lang === 'fr' ? 'Combo IA du jour' : lang === 'en' ? 'AI Combo of the Day' : 'تركيبة الذكاء الاصطناعي لليوم'}
-              </div>
-              <div className="btx-combo__note">
-                {lang === 'fr'
-                  ? 'Sélection déterministe basée sur les données disponibles — ne garantit aucun résultat.'
-                  : lang === 'en'
-                    ? 'Deterministic selection based on available data — no result is guaranteed.'
-                    : 'اختيار محدد يعتمد على البيانات المتاحة — لا توجد ضمانات لأي نتيجة.'}
+                {lang === 'fr' ? 'Sélections du jour' : lang === 'en' ? "Today's picks" : 'اختيارات اليوم'}
               </div>
             </div>
           </div>
@@ -1084,13 +1044,6 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
           {combo.length < 3 ? (
             <div className="btx-empty" style={{ padding: '1.4rem 1rem' }}>
               <p className="btx-empty__title">{t.predictions.noCombo}</p>
-              <p className="btx-empty__sub">
-                {lang === 'fr'
-                  ? 'Conditions : qualité des données différente de LOW, fiabilité ≥ 70 %, BTTS ou Over 2.5 ≥ 65 %.'
-                  : lang === 'en'
-                    ? 'Eligibility: data quality is not LOW, reliability ≥ 70%, BTTS or Over 2.5 ≥ 65%.'
-                    : 'الشروط: جودة البيانات ليست منخفضة، الموثوقية ≥ 70%، وBTTS أو Over 2.5 ≥ 65%.'}
-              </p>
             </div>
           ) : (
             <div>
@@ -1107,10 +1060,10 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
 
           <p className="btx-disclaimer" style={{ marginTop: '0.8rem' }}>
             {lang === 'fr'
-              ? 'Sélection IA basée sur les sorties du modèle statistique. Aucun pari n’est garanti.'
+              ? 'Aucun résultat n’est garanti.'
               : lang === 'en'
-                ? 'AI selection based on statistical model outputs. No bet is guaranteed.'
-              : 'اختيار الذكاء الاصطناعي مبني على مخرجات النموذج الإحصائي. لا توجد ضمانات لأي رهان.'}
+                ? 'No result is guaranteed.'
+              : 'لا توجد ضمانات لأي نتيجة.'}
           </p>
         </div>
       )}
@@ -1124,34 +1077,13 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
           <span className="btx-partner-rail__eyebrow">{lang === 'fr' ? 'Partenaires' : lang === 'en' ? 'Partners' : 'الشركاء'}</span>
           <p>
             {lang === 'fr'
-              ? 'Codes 1xBet et Linebet : vérifie les conditions et la disponibilité auprès de chaque opérateur.'
+              ? 'Liens partenaires — vérifiez les conditions et la disponibilité auprès de chaque opérateur.'
               : lang === 'en'
-                ? '1xBet and Linebet codes: check terms and availability with each operator.'
-                : 'رموز 1xBet وLinebet: تحقق من الشروط والتوفر لدى كل مشغل.'}
+                ? 'Partner links — check each operator’s terms and availability.'
+                : 'روابط الشركاء — تحقق من الشروط والتوافر لدى كل مشغّل.'}
           </p>
         </div>
-        <div className="btx-partner-rail__actions">
-          <a
-            href={AFFILIATE.oneXbet}
-            onClick={() => trackAffiliateAction('1xbet', 'signup_cta_click', 'dashboard-banner')}
-            target="_blank"
-            rel="sponsored nofollow noopener noreferrer"
-            className="btx-partner-rail__link btx-partner-rail__link--primary"
-            data-cta="dashboard-1xbet-signup"
-          >
-            {lang === 'fr' ? "S'inscrire · vipbtts (1xBet)" : lang === 'en' ? 'Sign up · vipbtts (1xBet)' : 'تسجيل · vipbtts (1xBet)'}
-          </a>
-          <a
-            href={AFFILIATE.linebet}
-            onClick={() => trackAffiliateAction('linebet', 'signup_cta_click', 'dashboard-banner')}
-            target="_blank"
-            rel="sponsored nofollow noopener noreferrer"
-            className="btx-partner-rail__link"
-            data-cta="dashboard-linebet-signup"
-          >
-            {lang === 'fr' ? "S'inscrire · VISION221 (Linebet)" : lang === 'en' ? 'Sign up · VISION221 (Linebet)' : 'تسجيل · VISION221 (Linebet)'}
-          </a>
-        </div>
+        <BookmakerCardLinks locale={lang} placement="dashboard-partner-rail" compact />
       </section>
 
         </aside>
@@ -1161,7 +1093,7 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
         {filters.map(f => (
           <button
             key={f.id}
-            onClick={() => setActiveFilter(f.id)}
+            onClick={() => { setQuickFilter('all'); setActiveFilter(f.id) }}
             aria-pressed={activeFilter === f.id}
             className={`btx-filter${activeFilter === f.id ? ' is-active' : ''}`}
           >
@@ -1169,16 +1101,6 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
           </button>
         ))}
       </div>
-      {activeFilter === 'HIGH' && (
-        <p className="btx-opportunity-note">
-          {lang === 'fr'
-            ? 'Filtre basé sur une fiabilité des données ≥ 80/100 — ce n’est pas une probabilité de gain.'
-            : lang === 'en'
-              ? 'Filtered by data reliability ≥ 80/100 — this is not a probability of winning.'
-              : 'يعتمد هذا الفلتر على موثوقية البيانات ≥ 80/100، وليس على احتمال الفوز.'}
-        </p>
-      )}
-
         </aside>
         <div className="btx-dashboard-feed">
       {/* ─── SECTIONS MATCHS ─── */}
@@ -1192,51 +1114,47 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
           <div className="mb-7">
             <h3 className="btx-section-title">
               {lang === 'fr' ? 'Aujourd’hui' : lang === 'en' ? 'Today' : 'اليوم'}
-              <span className={`btx-count-pill${(scheduledTodayMatches.length + liveTodayMatches.length) > 0 ? ' btx-count-pill--green' : ' btx-count-pill--muted'}`}>
-                {scheduledTodayMatches.length + liveTodayMatches.length}
+              <span className={`btx-count-pill${visibleTodayMatches.length > 0 ? ' btx-count-pill--green' : ' btx-count-pill--muted'}`}>
+                {visibleTodayMatches.length}
               </span>
             </h3>
-            {scheduledTodayMatches.length === 0 && liveTodayMatches.length === 0 ? (
+            {visibleTodayMatches.length === 0 && quickFilter === 'all' && activeFilter === 'all' && liveTodayMatches.length + scheduledTodayMatches.length === 0 && visibleUpcomingMatches.length > 0 ? (
               <div className="btx-empty">
                 <p className="btx-empty__title">{lang === 'fr' ? 'Aucun match disponible aujourd’hui' : lang === 'en' ? 'No match available today' : 'لا توجد مباريات متاحة اليوم'}</p>
                 <p className="btx-empty__sub">{lang === 'fr' ? 'Revenez plus tard ou consultez les matchs à venir ci-dessous.' : lang === 'en' ? 'Come back later or check the upcoming matches below.' : 'عد لاحقاً أو راجع المباريات القادمة أدناه.'}</p>
               </div>
-            ) : (
+            ) : visibleTodayMatches.length > 0 ? (
               <div className="btx-grid">
-                {[...liveTodayMatches, ...scheduledTodayMatches]
-                  .filter(m => passesFilter(m, activeFilter))
-                  .map((m, i) => (
+                {visibleTodayMatches.map((m, i) => (
                     <MatchCard
                       key={`today-${m.key}`}
                       match={m}
                       index={i}
                       status="scheduled"
                       lang={lang}
-                      insufficientDataLabel={insufficientDataLabel}
                       labels={labels}
                       now={now}
                     />
-                  ))}
+                ))}
               </div>
-            )}
+            ) : null}
           </div>
 
-          {finishedTodayMatches.length > 0 && (
+          {visibleFinishedMatches.length > 0 && (
             <div className="mb-7">
               <h3 className="btx-section-title" style={{ color: C.textSec }}>
                 {/* Conservé pour cohérence i18n et tests d'acceptance */}
                 {lang === 'fr' ? 'Terminés aujourd’hui' : lang === 'en' ? 'Finished today' : 'انتهت اليوم'}
-                <span className="btx-count-pill btx-count-pill--muted">{finishedTodayMatches.length}</span>
+                <span className="btx-count-pill btx-count-pill--muted">{visibleFinishedMatches.length}</span>
               </h3>
               <div className="btx-grid" style={{ opacity: 0.82 }}>
-                {finishedTodayMatches.filter(m => passesFilter(m, activeFilter)).map((m, i) => (
+                {visibleFinishedMatches.map((m, i) => (
                   <MatchCard
                     key={`finished-${m.key}`}
                     match={m}
                     index={i}
                     status="finished"
                     lang={lang}
-                    insufficientDataLabel={insufficientDataLabel}
                     labels={labels}
                     now={now}
                   />
@@ -1246,33 +1164,30 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
           )}
 
           {/* ─── À venir (autres jours) ─── */}
-          {upcomingMatches.length > 0 && (
+          {visibleUpcomingMatches.length > 0 && (
             <div className="mb-7">
               <h3 className="btx-section-title">
                 {lang === 'fr' ? 'À venir' : lang === 'en' ? 'Upcoming' : 'القادمة'}
-                <span className="btx-count-pill">{upcomingMatches.length}</span>
+                <span className="btx-count-pill">{visibleUpcomingMatches.length}</span>
               </h3>
               <div className="btx-grid">
-                {upcomingMatches
-                  .filter(m => passesFilter(m, activeFilter))
-                  .map((m, i) => (
+                {visibleUpcomingMatches.map((m, i) => (
                     <MatchCard
                       key={`upcoming-${m.key}`}
                       match={m}
                       index={i}
                       status="scheduled"
                       lang={lang}
-                      insufficientDataLabel={insufficientDataLabel}
                       labels={labels}
                       now={now}
                     />
-                  ))}
+                ))}
               </div>
             </div>
           )}
 
           {/* Empty state when both sections are empty under current filter */}
-          {scheduledTodayMatches.length === 0 && liveTodayMatches.length === 0 && upcomingMatches.length === 0 && (
+          {!hasVisibleMatches && (
             <div className="btx-empty">
               <p className="btx-empty__title">{lang === 'fr' ? 'Aucun match sous ce filtre' : lang === 'en' ? 'No matches under this filter' : 'لا توجد مباريات ضمن هذا الفلتر'}</p>
               <p className="btx-empty__sub">{lang === 'fr' ? 'Essayez un autre filtre ou revenez plus tard.' : lang === 'en' ? 'Try another filter or come back later.' : 'جرّب فلترًا آخر أو عد لاحقاً.'}</p>

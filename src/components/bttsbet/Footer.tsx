@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { usePathname } from 'next/navigation'
 import { useLanguage } from './LanguageSwitcher'
 import { localizedPath, translationsFor, type Locale } from '@/lib/i18n'
 import { LEGAL, FAQ_ITEMS, LONASE } from '@/lib/constants'
@@ -14,8 +15,17 @@ export default function Footer({ initialLocale }: { initialLocale?: Locale } = {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const { lang: detectedLang } = useLanguage()
   const lang = initialLocale ?? detectedLang
+  const pathname = usePathname()
   const t = translationsFor(lang)
   const home = localizedPath('/', lang)
+  const visibleFaqItems = lang === 'fr'
+    ? pathname === '/'
+      ? [...FAQ_ITEMS.slice(0, 3), {
+          q: 'Où trouver les codes et les informations promotionnelles des partenaires ?',
+          a: 'Consulte le guide promotionnel dédié à chaque bookmaker pour le code et le lien correspondants. Vérifie directement auprès de l’opérateur l’applicabilité et les autres modalités avant toute démarche.',
+        }]
+      : FAQ_ITEMS.slice(0, 4)
+    : t.faqItems
 
   const productLinks = [
     { label: t.home2.ftMatchs, href: `${home}#matchs` },
@@ -37,11 +47,11 @@ export default function Footer({ initialLocale }: { initialLocale?: Locale } = {
         <div className="max-w-[1280px] mx-auto">
           {/* ═══ Bloc marque + liens plateforme ═══ */}
           <div className="hp-footer-brand">
-            <div className="hp-footer-brand__id">
-              <a href={home} className="flex items-center gap-2.5" aria-label={lang === 'en' ? 'BTTSPredict Match Intelligence — home' : lang === 'ar' ? 'BTTSPredict Match Intelligence — الرئيسية' : 'BTTSPredict Match Intelligence — accueil'}>
-                <img src="/favicon.svg" alt="" width={31} height={31} className="bp-brand-icon rounded" />
-                <span>
-                  <span className="nav-brand-name block text-sm font-bold text-papier tracking-tight">BTTSPredict</span>
+          <div className="hp-footer-brand__id">
+            <a href={home} className="flex items-center gap-2.5" aria-label={lang === 'en' ? 'BTTSPredict Match Intelligence — home' : lang === 'ar' ? 'BTTSPredict Match Intelligence — الرئيسية' : 'BTTSPredict Match Intelligence — accueil'}>
+              <img src="/brand/bttspredict-logo-3d-final.png" alt="" width={31} height={31} className="bp-brand-icon rounded" />
+              <span>
+                <span className="nav-brand-name block text-sm font-bold text-papier tracking-tight">BTTSPredict</span>
                   <span className="nav-brand-sub block">Match Intelligence</span>
                 </span>
               </a>
@@ -87,7 +97,7 @@ export default function Footer({ initialLocale }: { initialLocale?: Locale } = {
               <h3 className="text-base font-bold text-papier">{t.common.faq}</h3>
             </div>
             <div className="space-y-2">
-              {(lang === 'fr' ? FAQ_ITEMS.slice(0, 4) : t.faqItems).map((item, i) => (
+              {visibleFaqItems.map((item, i) => (
                 <div key={item.q} className="rounded-xl overflow-hidden" style={{ backgroundColor: '#141C25', border: '1px solid #223041' }}>
                   <button onClick={() => setOpenFaq(openFaq === i ? null : i)} aria-expanded={openFaq === i} className="w-full text-left px-4 py-3.5 text-sm font-semibold text-papier hover:bg-white/[0.03] transition-colors">
                     {item.q}

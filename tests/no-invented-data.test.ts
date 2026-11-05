@@ -3,7 +3,6 @@ import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { humanMethodLabel } from '@/lib/predictionQuality'
 import { statusLabel, confidenceLabel } from '@/lib/predictionPresentation'
-import { onlyVipFixtures } from '@/lib/vipPredictions'
 
 /**
  * Gardes anti-régression du chantier audit-conversion-batch.
@@ -41,31 +40,34 @@ describe('no invented data — fallbacks interdits', () => {
     expect(source).not.toContain('BTTSPredict AI')
     // URL interne, tracking et CTA affiliés conservés
     expect(source).toContain('generateMatchSlug')
-    const ctaStart = source.lastIndexOf('<PremiumButton', source.indexOf('data-cta="match-card-linebet-signup"'))
-    const ctaEnd = source.indexOf('</PremiumButton>', ctaStart)
-    const linebetCta = source.slice(ctaStart, ctaEnd)
-    expect(linebetCta).toContain('trackingPlacement="match-card-secondary"')
-    expect(linebetCta).not.toContain('onClick=')
-    expect(source).toContain('sponsored')
+    expect(source).toContain("import BookmakerCardLinks from './BookmakerCardLinks'")
+    expect(source).toContain('placement="free-prediction-card"')
+    const partnerLinks = readSource('src/components/bttsbet/BookmakerCardLinks.tsx')
+    expect(partnerLinks).toContain('rel="sponsored nofollow noopener noreferrer"')
+    expect(partnerLinks).toContain("trackAffiliateAction(id, 'signup_cta_click', placement")
   })
 
-  it('vip/page.tsx ne consomme que des données explicitement VIP', () => {
+  it('la page VIP ne lit aucune donnée de pronostics depuis le flux public', () => {
     const source = readSource('src/app/vip/page.tsx')
-
-    expect(source).toContain('onlyVipFixtures')
-    // L'assemblage gratuit (vipPreview + free + predictions) est interdit
-    expect(source).not.toMatch(/vipPreview\s*\|\|\s*\[\]/)
-    expect(source).not.toMatch(/\.\.\.\(payload\.free/)
-    expect(source).not.toMatch(/\.\.\.\(payload\.predictions/)
-    // Message d'absence de sélection VIP exigé par le propriétaire
-    // (formulation « pour le moment » depuis le repli VIP vers les jours à venir)
-    expect(source).toContain('Aucune sélection VIP disponible pour le moment')
-    // Parcours VIP mis à jour (2026-11) : bookmaker au choix — 1xbet (vipbtts,
-    // prioritaire, casse exacte de l'affiliateur) ou Linebet (VISION221) —
-    // dépôt minimum, vérification WhatsApp
-    expect(source).toContain("code: 'vipbtts'")
-    expect(source).toContain("code: 'VISION221'")
-    expect(source).toContain("VIP_DEPOSIT = '10 €'")
+    expect(source).not.toContain("fetch('/predictions.json'")
+    expect(source).not.toContain('onlyVipFixtures')
+    expect(source).not.toContain('vipPreview')
+    expect(source).toContain('Seul le propriétaire ouvre l’accès')
+    expect(source).toContain('Access locked')
+    expect(source).toContain('الوصول مقفل')
+    expect(source).toContain('role="dialog"')
+    expect(source).toContain('flow.wizardPending')
+    // Parcours VIP : guide partenaire puis validation manuelle, sans code,
+    // dépôt chiffré ni demande d'ID/document dans les textes actifs.
+    expect(source).toContain('function makeCodeFreeCopy')
+    expect(source).toContain("guide: '/code-promo-1xbet'")
+    expect(source).toContain("guide: '/code-promo-linebet-senegal'")
+    const codeFreeCopy = source.slice(source.indexOf('function makeCodeFreeCopy'), source.indexOf('/* ────────────────────────── Page'))
+    expect(codeFreeCopy).not.toContain('vipbtts')
+    expect(codeFreeCopy).not.toContain('VISION221')
+    expect(codeFreeCopy).not.toContain('10 €')
+    expect(source).toContain('Cette page VIP générale ne publie pas de codes.')
+    expect(source).toContain('N’envoie ni ID joueur ni document d’identité')
     expect(source).toContain('whatsapp_click')
   })
 
@@ -93,12 +95,12 @@ describe('no invented data — fallbacks interdits', () => {
     expect(source).toMatch(/snapshotPublishedAt/)
   })
 
-  it('le pipeline ne publie pour VIP que des métadonnées de fixture', () => {
+  it('le pipeline quotidien ne publie aucune sélection VIP', () => {
     const source = readSource('scripts/quick-update-predictions.mjs')
-
-    expect(source).toMatch(/\.map\(publicVipFixture\)/)
-    expect(source).not.toMatch(/\.map\(p => \(\{ \.\.\.p, vip: true \}\)\)/)
-    expect(source).not.toContain('vipMirror')
+    expect(source).not.toContain('vipPreview')
+    expect(source).not.toContain('vipCount')
+    expect(source).not.toContain('publicVipFixture')
+    expect(source).toContain('no VIP data')
   })
 
   it('i18n remplace « Fiabilité » par « Qualité des données » dans les 3 langues', () => {
@@ -133,25 +135,25 @@ describe('no invented data — libellés humains (runtime)', () => {
 })
 
 describe('no invented data — payload réel (public/predictions.json)', () => {
-  it('aucune ligne du payload réel n\'entre dans l\'espace VIP sans flag explicite', () => {
+  it('le payload public réel ne contient ni preview ni compteur VIP', () => {
     const raw = readFileSync(resolve(__dirname, '..', 'public', 'predictions.json'), 'utf8')
     const payload = JSON.parse(raw) as Record<string, unknown>
-    const rows = onlyVipFixtures(payload)
-
-    for (const row of rows) {
-      const explicit = row.vip === true || row.isVip === true || row.tier?.toString().toUpperCase() === 'VIP'
-      expect(explicit, `ligne VIP sans flag: ${row.home}`).toBe(true)
-    }
-
-    // Aucun match gratuit (free / predictions) ne fuite dans l'espace VIP
-    const freeLike = [
+    expect(payload).not.toHaveProperty('vip')
+    expect(payload).not.toHaveProperty('vipPreview')
+    expect(payload).not.toHaveProperty('vipPredictions')
+    expect(payload.stats).not.toHaveProperty('vipCount')
+    const serialized = JSON.stringify(payload)
+    expect(serialized).not.toContain('vipPreview')
+    expect(serialized).not.toContain('vipPredictions')
+    expect(serialized).not.toContain('vipCount')
+    const publicRows = [
       ...((payload.free as Array<Record<string, unknown>>) ?? []),
       ...((payload.predictions as Array<Record<string, unknown>>) ?? []),
     ]
-    const freeKeys = new Set(freeLike.map((m) => String(m.id ?? `${m.home}-${m.date ?? m.match}`)))
-    for (const row of rows as Array<Record<string, unknown>>) {
-      const key = String(row.id ?? `${row.home}-${row.date ?? row.match}`)
-      expect(freeKeys.has(key), `match gratuit en VIP: ${String(row.home)}`).toBe(false)
+    for (const row of publicRows) {
+      expect(row.vip).not.toBe(true)
+      expect(row.isVip).not.toBe(true)
+      expect(String(row.tier || '').toUpperCase()).not.toBe('VIP')
     }
   })
 })

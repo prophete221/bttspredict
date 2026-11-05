@@ -103,13 +103,13 @@ export default function PromoLandingShell(p: PromoLandingProps) {
     copy: p.labels?.copy ?? (p.lang === 'en' ? 'Copy code' : p.lang === 'ar' ? 'نسخ الرمز' : 'Copier le code'),
     copied: p.labels?.copied ?? (p.lang === 'en' ? 'Copied!' : p.lang === 'ar' ? 'تم النسخ!' : 'Copié !'),
     copyFailed: p.labels?.copyFailed ?? (p.lang === 'en' ? 'Copy failed — select the code' : p.lang === 'ar' ? 'فشل النسخ' : 'Copie échouée — sélectionne le code'),
-    signup: p.labels?.signup ?? (p.lang === 'en' ? `Sign up on ${p.brand}` : p.lang === 'ar' ? `سجّل على ${p.brand}` : `S'inscrire sur ${p.brand}`),
+    signup: p.labels?.signup ?? (p.lang === 'en' ? `Open ${p.brand}` : p.lang === 'ar' ? `افتح ${p.brand}` : `Consulter ${p.brand}`),
     download: p.labels?.download ?? (p.lang === 'en' ? 'Download APK' : p.lang === 'ar' ? 'تحميل APK' : 'Télécharger l’APK'),
     codeLabel: p.labels?.codeLabel ?? (p.lang === 'en' ? 'Promo code' : p.lang === 'ar' ? 'رمز ترويجي' : 'Code promo'),
-    howTitle: p.labels?.howTitle ?? (p.lang === 'en' ? 'How to activate' : p.lang === 'ar' ? 'كيفية التفعيل' : 'Comment activer'),
+    howTitle: p.labels?.howTitle ?? (p.lang === 'en' ? 'Using the code' : p.lang === 'ar' ? 'استخدام الرمز' : 'Utiliser le code'),
     faqTitle: p.labels?.faqTitle ?? (p.lang === 'en' ? 'FAQ' : p.lang === 'ar' ? 'الأسئلة الشائعة' : 'FAQ'),
-    others: p.labels?.others ?? (p.lang === 'en' ? 'Other partners' : p.lang === 'ar' ? 'شركاء آخرون' : 'Autres partenaires'),
-    stickySignup: p.labels?.stickySignup ?? (p.lang === 'en' ? 'Sign up' : p.lang === 'ar' ? 'سجّل' : "S'inscrire"),
+    others: p.labels?.others ?? (p.lang === 'en' ? 'Other offers' : p.lang === 'ar' ? 'عروض أخرى' : 'Autres offres'),
+    stickySignup: p.labels?.stickySignup ?? (p.lang === 'en' ? 'Open' : p.lang === 'ar' ? 'افتح' : 'Ouvrir'),
     responsible: p.labels?.responsible ?? (p.lang === 'en' ? 'Play responsibly' : p.lang === 'ar' ? 'العب بمسؤولية' : 'Jouez responsable'),
   }
 
@@ -164,7 +164,7 @@ export default function PromoLandingShell(p: PromoLandingProps) {
         <div className="absolute inset-0 opacity-[0.035]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #fff 1px, transparent 0)', backgroundSize: '28px 28px' }} />
       </div>
 
-      <main className="promo-main relative z-10 mx-auto w-full max-w-3xl px-4 pb-32 pt-10 sm:pt-14">
+      <main className="promo-main relative z-10 mx-auto w-full max-w-3xl px-4 pb-14 pt-7 sm:pt-12">
         {/* Hero */}
         <section className="promo-main__story text-center">
           <motion.p
@@ -262,7 +262,12 @@ export default function PromoLandingShell(p: PromoLandingProps) {
                 className="rounded-xl py-3.5 text-center text-sm font-bold text-white transition-transform active:scale-[0.98]"
                 style={{ backgroundColor: accent, boxShadow: `0 8px 28px ${accent}44` }}
               >
-                {L.signup} →
+                <span className="inline-flex items-center justify-center gap-2">
+                  <span className="grid h-7 w-7 place-items-center rounded-md bg-white p-0.5">
+                    <img src={p.logo} alt="" width={24} height={24} className="h-6 w-6 object-contain" />
+                  </span>
+                  <span>{L.signup} →</span>
+                </span>
               </a>
               <a
                 href={p.downloadUrl}
@@ -277,7 +282,10 @@ export default function PromoLandingShell(p: PromoLandingProps) {
                   background: `${accent}14`,
                 }}
               >
-                {L.download}
+                <span className="inline-flex items-center justify-center gap-2">
+                  <img src="/logos/google-play.svg" alt="" aria-hidden="true" width={22} height={22} className="h-6 w-6 object-contain" />
+                  <span>{L.download}</span>
+                </span>
               </a>
             </div>
           </motion.div>
@@ -314,15 +322,15 @@ export default function PromoLandingShell(p: PromoLandingProps) {
           >
             {[
               p.lang === 'en'
-                ? ['Exact code', 'Enter the code exactly as shown — case sensitive.']
+                ? ['Exact code', 'Use the code with the capitalization shown.']
                 : p.lang === 'ar'
-                  ? ['رمز دقيق', 'أدخل الرمز كما هو ظاهر — حساس لحالة الأحرف.']
-                  : ['Code exact', 'Saisis le code exactement comme indiqué — casse sensible.'],
+                  ? ['الرمز الدقيق', 'استخدم الرمز بنفس الأحرف المعروضة.']
+                  : ['Code exact', 'Utilise le code avec la casse affichée.'],
               p.lang === 'en'
-                ? ['Official terms', 'Bonus rules are those displayed by the operator after sign-up.']
+                ? ['Offer', '300% worldwide, with more cashback and weekly bonuses.']
                 : p.lang === 'ar'
-                  ? ['شروط رسمية', 'تطبق شروط المكافأة المعروضة من المشغل بعد التسجيل.']
-                  : ['Conditions officielles', 'Les règles bonus sont celles affichées par l’opérateur après inscription.'],
+                  ? ['العرض', '300% حول العالم، مع استرداد نقدي أكبر ومكافآت أسبوعية.']
+                  : ['Offre', '300 % worldwide, avec davantage de cashback et des bonus hebdomadaires.'],
               p.lang === 'en'
                 ? ['18+ only', 'Play responsibly. Availability depends on local regulation.']
                 : p.lang === 'ar'
@@ -432,42 +440,10 @@ export default function PromoLandingShell(p: PromoLandingProps) {
           </FadeIn>
         )}
 
-        <p className="promo-main__responsible mt-12 text-center text-[11px] text-[#6B7A8C]">
+      <p className="promo-main__responsible mt-12 text-center text-[11px] text-[#6B7A8C]">
           18+ · {L.responsible} · {p.lang === 'en' ? 'No future result is guaranteed.' : p.lang === 'ar' ? 'لا توجد ضمانات مستقبلية.' : 'Aucun résultat futur n’est garanti.'}
         </p>
       </main>
-
-      {/* Sticky mobile CTA */}
-      <div
-        className="promo-sticky-mobile-cta fixed bottom-0 left-0 right-0 z-40 border-t border-white/5 px-3 py-2.5 backdrop-blur-xl md:hidden"
-        style={{
-          background: 'rgba(7, 11, 18, 0.92)',
-          paddingBottom: 'max(0.65rem, env(safe-area-inset-bottom))',
-        }}
-      >
-        <div className="mx-auto flex max-w-3xl items-center gap-2">
-          <button
-            type="button"
-            onClick={handleCopy}
-            className="h-12 shrink-0 rounded-xl px-3 font-mono text-sm font-bold"
-            style={{ border: `1px solid ${accent}55`, background: '#111827', color: copied ? '#34D399' : '#F2F6FA' }}
-            data-cta={`promo-sticky-copy-${p.bookmakerId}`}
-          >
-            {copied ? '✓' : p.code}
-          </button>
-          <a
-            href={p.signupUrl}
-            target="_blank"
-            rel="sponsored nofollow noopener noreferrer"
-            onClick={() => trackAffiliateAction(p.bookmakerId, 'signup_cta_click', `promo-sticky-${p.lang}`)}
-            data-cta={`promo-sticky-signup-${p.bookmakerId}`}
-            className="flex h-12 flex-1 items-center justify-center rounded-xl text-sm font-bold text-white"
-            style={{ background: accent, boxShadow: `0 8px 24px ${accent}44` }}
-          >
-            {L.stickySignup} · {p.code}
-          </a>
-        </div>
-      </div>
     </div>
   )
 }

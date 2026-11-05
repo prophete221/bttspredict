@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { useLanguage } from '@/components/bttsbet/LanguageSwitcher'
 import { translationsFor, localizedPath } from '@/lib/i18n'
 import AnimatedTitle from '@/components/bttsbet/HeroWordmark'
+import BookmakerCardLinks from '@/components/bttsbet/BookmakerCardLinks'
 
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
@@ -186,6 +187,9 @@ export default function AICorrectScorePage() {
                       <span>λ Home: <strong className="text-[#9DABBB] font-mono">{m.lambdaHome.toFixed(2)}</strong></span>
                       <span>λ Away: <strong className="text-[#9DABBB] font-mono">{m.lambdaAway.toFixed(2)}</strong></span>
                     </div>
+                  </div>
+                  <div className="px-3 pb-3">
+                    <BookmakerCardLinks locale={lang} placement="exact-score-card" compact />
                   </div>
                 </div>
               ))}

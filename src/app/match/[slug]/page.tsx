@@ -5,10 +5,12 @@ import { generateMatchSlug, loadAllMatches, getMatchBySlug, getVerifiedHistoryFo
 import type { TeamFormSummary } from '@/lib/matches'
 import Link from 'next/link'
 import MatchAnalyticsCharts from '@/components/bttsbet/MatchAnalyticsCharts'
+import MatchDashboardTabs, { type DashboardTab } from '@/components/bttsbet/MatchDashboardTabs'
 import MatchViewTracker from '@/components/bttsbet/MatchViewTracker'
 import TeamContext from '@/components/bttsbet/TeamContext'
 import { localizedPath, type Locale } from '@/lib/i18n'
 import { getDynamicMatchSlugs } from '@/lib/match-page-ssg'
+import { matchMetricLabels } from '@/lib/matchMetricLabels'
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -93,6 +95,60 @@ const MATCH_COPY: Record<Locale, {
 }
 
 const FORM_LETTERS: Record<string, 'W' | 'D' | 'L'> = { V: 'W', N: 'D', D: 'L', W: 'W' }
+
+/**
+ * Libellés du dashboard de match (onglets + tuiles). Aucune valeur n’est
+ * inventée : les tuiles ne s’affichent que si le JSON publié contient la donnée.
+ */
+const DASHBOARD_COPY: Record<Locale, {
+  eyebrow: string
+  title: string
+  source: string
+  aria: string
+  btts: string
+  over: string
+  goals: string
+  sample: string
+  reliability: string
+  tabs: { overview: string; form: string; news: string; odds: string; data: string; all: string }
+}> = {
+  fr: {
+    eyebrow: 'Tableau du match',
+    title: 'Dashboard interactif',
+    source: 'Données publiées du match',
+    aria: 'Onglets du dashboard du match',
+    btts: 'BTTS estimé',
+    over: 'Over 2,5 estimé',
+    goals: 'Total de buts estimé',
+    sample: 'Matchs analysés',
+    reliability: 'Fiabilité des données',
+    tabs: { overview: 'Synthèse', form: 'Forme', news: 'Actualités', odds: 'Cotes', data: 'Données', all: 'Tout' },
+  },
+  en: {
+    eyebrow: 'Match dashboard',
+    title: 'Interactive dashboard',
+    source: 'Published match data',
+    aria: 'Match dashboard tabs',
+    btts: 'Estimated BTTS',
+    over: 'Estimated Over 2.5',
+    goals: 'Estimated total goals',
+    sample: 'Matches analysed',
+    reliability: 'Data reliability',
+    tabs: { overview: 'Overview', form: 'Form', news: 'Team news', odds: 'Odds', data: 'Data', all: 'All' },
+  },
+  ar: {
+    eyebrow: 'لوحة المباراة',
+    title: 'لوحة تفاعلية',
+    source: 'بيانات المباراة المنشورة',
+    aria: 'علامات تبويب لوحة المباراة',
+    btts: 'احتمال BTTS',
+    over: 'احتمال Over 2.5',
+    goals: 'إجمالي الأهداف المقدّر',
+    sample: 'المباريات المحللة',
+    reliability: 'موثوقية البيانات',
+    tabs: { overview: 'الملخص', form: 'الأداء', news: 'الأخبار', odds: 'الأسعار', data: 'البيانات', all: 'الكل' },
+  },
+}
 
 interface Last5Record {
   date: string
@@ -233,6 +289,10 @@ export default async function MatchPage({ params }: PageProps) {
 
   if (!match) notFound()
   const copy = MATCH_COPY[locale]
+  const metricCopy = matchMetricLabels(locale)
+  const numberLocale = locale === 'en' ? 'en-GB' : locale === 'ar' ? 'ar' : 'fr-FR'
+  const formatGoals = (value: number) => new Intl.NumberFormat(numberLocale, { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(value)
+  const formatPercent = (value: number) => new Intl.NumberFormat(numberLocale, { style: 'percent', minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(value)
 
   const { home, away, league, date, time, homeLogo, awayLogo, predictions } = match
   const verifiedHistory = getVerifiedHistoryForMatch(home, away, date)
@@ -295,17 +355,23 @@ export default async function MatchPage({ params }: PageProps) {
       ] as const).filter(item => typeof item.value === 'number' && Number.isFinite(item.value))
     : []
 
-  // Probabilités du modèle en pourcentage (0..1 → 0..100).
-  const toPercent = (value?: number) => (typeof value === 'number' && Number.isFinite(value) ? Math.round(value * 100) : null)
-  const bttsPercent = toPercent(match.bttsProb)
-  const overPercent = toPercent(match.over25Prob)
-
   // Vraie date de publication/vérification issue des données (verifiedAt, sinon
   // la date de publication du snapshot). Aucune date codée en dur.
   const publishedDateRaw = verified[0]?.verifiedAt || match.lastUpdated || null
   const publishedDateLabel = publishedDateRaw
     ? new Date(publishedDateRaw).toLocaleDateString(locale === 'ar' ? 'ar' : locale === 'en' ? 'en-GB' : 'fr-FR', { dateStyle: 'long' })
     : null
+
+  // Dashboard du match : onglets sur les panneaux effectivement rendus.
+  const dash = DASHBOARD_COPY[locale]
+  const dashboardTabs: DashboardTab[] = [
+    { id: 'overview', label: dash.tabs.overview, panels: ['charts'] },
+    { id: 'form', label: dash.tabs.form, panels: ['form'] },
+    { id: 'news', label: dash.tabs.news, panels: ['news'] },
+    ...(oddsItems.length > 0 ? [{ id: 'odds', label: dash.tabs.odds, panels: ['odds'] }] : []),
+    { id: 'data', label: dash.tabs.data, panels: ['data'] },
+    { id: 'all', label: dash.tabs.all, panels: ['charts', 'form', 'news', 'data', 'odds'] },
+  ]
 
   // Breadcrumb JSON-LD
   const breadcrumbJsonLd = {
@@ -335,7 +401,7 @@ export default async function MatchPage({ params }: PageProps) {
       <Navbar />
       <MatchViewTracker match={`${home} vs ${away}`} league={league} />
 
-      <main id="main-content" className="flex-1">
+      <main id="main-content" className="flex-1" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
         {/* Breadcrumb */}
         <nav aria-label={copy.breadcrumb} className="max-w-4xl mx-auto px-4 pt-6 pb-2 text-xs text-[#9DABBB]">
           <Link href={localizedPath('/', locale)} className="hover:text-[#2F7DFF]">{copy.home}</Link>
@@ -345,25 +411,22 @@ export default async function MatchPage({ params }: PageProps) {
           <span className="text-[#9DABBB]">{home} vs {away}</span>
         </nav>
 
-        <article className="max-w-6xl mx-auto px-4 py-8">
+        <article className="max-w-6xl mx-auto px-4 py-4 sm:py-6">
           {/* HERO — en-tête visuel du match */}
-          <header className="relative mb-10 overflow-hidden rounded-3xl border border-[#223041] shadow-[0_24px_80px_rgba(0,0,0,0.35)]" style={{ background: 'linear-gradient(140deg, #13223B 0%, #141C25 48%, #0E141B 100%)' }}>
+          <header className="relative mb-4 overflow-hidden rounded-2xl border border-[#223041] shadow-[0_18px_44px_rgba(0,0,0,0.22)]" style={{ background: 'linear-gradient(140deg, #13223B 0%, #141C25 48%, #0E141B 100%)' }}>
             <div aria-hidden="true" className="pointer-events-none absolute -top-32 left-1/2 h-64 w-[42rem] -translate-x-1/2 rounded-full opacity-25 blur-3xl" style={{ background: 'radial-gradient(closest-side, #2F7DFF, transparent)' }} />
 
-            <div className="relative flex flex-wrap items-center justify-center gap-2 px-4 pt-6 text-[11px] font-bold uppercase tracking-wider sm:pt-8">
+            <div className="relative flex flex-wrap items-center justify-center gap-2 px-4 pt-4 text-[11px] font-bold uppercase tracking-wider sm:pt-5">
               {league && <span className="rounded-full border border-[#223041] bg-[#10161D] px-3 py-1 text-[#9DABBB]">{league}</span>}
               <span className="rounded-full border border-[#223041] bg-[#10161D] px-3 py-1 font-mono text-[#9DABBB]">{date}{time ? ` · ${time}` : ''}</span>
-              {match.dataQuality && (
-                <span className="rounded-full px-3 py-1" style={{ backgroundColor: 'rgba(52, 211, 153, 0.12)', color: '#34D399' }}>{match.dataQuality}</span>
-              )}
             </div>
 
-            <div className="relative grid grid-cols-[1fr_auto_1fr] items-center gap-2 px-3 py-7 sm:gap-6 sm:px-8 sm:py-9">
+            <div className="relative grid grid-cols-[1fr_auto_1fr] items-center gap-2 px-3 py-4 sm:gap-6 sm:px-8 sm:py-5">
               <div className="flex flex-col items-center gap-3 text-center">
                 {homeLogo ? (
-                  <img src={homeLogo} alt={`Logo ${home}`} width={84} height={84} className="h-14 w-14 rounded-2xl bg-[#10161D] object-contain p-1 ring-1 ring-[#223041] sm:h-20 sm:w-20" decoding="async" />
+                  <img src={homeLogo} alt={`Logo ${home}`} width={84} height={84} className="h-12 w-12 rounded-xl bg-[#10161D] object-contain p-1 ring-1 ring-[#223041] sm:h-16 sm:w-16" decoding="async" />
                 ) : (
-                  <div aria-hidden="true" className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#10161D] text-lg font-black text-[#9DABBB] ring-1 ring-[#223041] sm:h-20 sm:w-20">{home.slice(0, 2).toUpperCase()}</div>
+                  <div aria-hidden="true" className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#10161D] text-lg font-black text-[#9DABBB] ring-1 ring-[#223041] sm:h-16 sm:w-16">{home.slice(0, 2).toUpperCase()}</div>
                 )}
                 <span className="text-sm font-bold leading-tight sm:text-lg">{home}</span>
               </div>
@@ -379,35 +442,19 @@ export default async function MatchPage({ params }: PageProps) {
 
               <div className="flex flex-col items-center gap-3 text-center">
                 {awayLogo ? (
-                  <img src={awayLogo} alt={`Logo ${away}`} width={84} height={84} className="h-14 w-14 rounded-2xl bg-[#10161D] object-contain p-1 ring-1 ring-[#223041] sm:h-20 sm:w-20" decoding="async" />
+                  <img src={awayLogo} alt={`Logo ${away}`} width={84} height={84} className="h-12 w-12 rounded-xl bg-[#10161D] object-contain p-1 ring-1 ring-[#223041] sm:h-16 sm:w-16" decoding="async" />
                 ) : (
-                  <div aria-hidden="true" className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#10161D] text-lg font-black text-[#9DABBB] ring-1 ring-[#223041] sm:h-20 sm:w-20">{away.slice(0, 2).toUpperCase()}</div>
+                  <div aria-hidden="true" className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#10161D] text-lg font-black text-[#9DABBB] ring-1 ring-[#223041] sm:h-16 sm:w-16">{away.slice(0, 2).toUpperCase()}</div>
                 )}
                 <span className="text-sm font-bold leading-tight sm:text-lg">{away}</span>
               </div>
             </div>
 
-            {(bttsPercent != null || overPercent != null) && (
-              <div className="relative flex flex-wrap items-center justify-center gap-2 pb-6 sm:pb-8">
-                {bttsPercent != null && (
-                  <span className="inline-flex items-center gap-2 rounded-full border border-[#223041] bg-[#10161D]/80 px-3.5 py-1.5 text-xs font-bold">
-                    <span className="text-[#9DABBB]">BTTS</span>
-                    <span className="font-mono text-sm text-[#2F7DFF]">{bttsPercent}%</span>
-                  </span>
-                )}
-                {overPercent != null && (
-                  <span className="inline-flex items-center gap-2 rounded-full border border-[#223041] bg-[#10161D]/80 px-3.5 py-1.5 text-xs font-bold">
-                    <span className="text-[#9DABBB]">Over 2.5</span>
-                    <span className="font-mono text-sm text-[#2F7DFF]">{overPercent}%</span>
-                  </span>
-                )}
-              </div>
-            )}
           </header>
 
           {/* 1. PRONOSTICS DU MODÈLE */}
-          <section className="mb-10">
-            <div className="match-analysis-title-row mb-6 flex items-end justify-between gap-3">
+          <section className="mb-4">
+            <div className="match-analysis-title-row mb-3 flex items-end justify-between gap-3">
               <div>
                 <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#2F7DFF]">{copy.intelligence}</p>
                 <h1 className="mt-1 text-2xl font-bold sm:text-3xl" style={{ fontFamily: 'Poppins, sans-serif' }}>
@@ -418,7 +465,7 @@ export default async function MatchPage({ params }: PageProps) {
               <span className="match-analysis-published text-right text-xs uppercase tracking-wider text-[#9DABBB]">{copy.published}{publishedDateLabel ? ` · ${publishedDateLabel}` : ''}</span>
             </div>
 
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+            <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
               {marketPredictions.map((p, i) => {
                 const market = (p.type || p.market || '').toLowerCase()
                 const isBtts = market.includes('btts')
@@ -427,15 +474,16 @@ export default async function MatchPage({ params }: PageProps) {
                 const isWon = p.status === 'WON'
                 const isLost = p.status === 'LOST'
                 const isPending = !p.status || p.status === 'PENDING'
-                const probPercent = Number.isFinite(p.proba) && p.proba > 0 && p.proba <= 1 ? Math.round(p.proba * 100) : null
+                const probability = Number.isFinite(p.proba) && p.proba >= 0 && p.proba <= 1 ? p.proba : null
+                const probPercent = probability == null ? null : formatPercent(probability)
 
                 return (
-                  <div key={i} className="rounded-2xl border border-[#223041] bg-[#141C25] p-5">
+                  <div key={i} className="rounded-2xl border border-[#223041] bg-[#141C25] p-4 sm:p-5">
                     <div className="mb-3 flex items-center justify-between">
                       <span className="text-xs font-bold uppercase tracking-wider text-[#2F7DFF]">{label}</span>
                       {probPercent != null && (
                         <span className="rounded px-2 py-0.5 font-mono text-xs font-bold" style={{ backgroundColor: 'rgba(47, 125, 255, 0.12)', color: '#2F7DFF' }}>
-                          {probPercent}%
+                          {probPercent}
                         </span>
                       )}
                     </div>
@@ -449,8 +497,8 @@ export default async function MatchPage({ params }: PageProps) {
                     </div>
 
                     {probPercent != null && (
-                      <div className="mb-4 h-2 w-full overflow-hidden rounded-full border border-[#223041] bg-[#10161D]" role="img" aria-label={`${label} : ${probPercent}%`}>
-                        <div className="h-full rounded-full" style={{ width: `${probPercent}%`, background: 'linear-gradient(90deg, #1B4DBF, #2F7DFF)' }} />
+                      <div className="mb-4 h-2 w-full overflow-hidden rounded-full border border-[#223041] bg-[#10161D]" role="img" aria-label={`${label} : ${probPercent}`}>
+                        <div className="h-full rounded-full" style={{ width: `${probability == null ? 0 : Math.min(100, Math.max(0, probability * 100))}%`, background: 'linear-gradient(90deg, #1B4DBF, #2F7DFF)' }} />
                       </div>
                     )}
 
@@ -462,18 +510,62 @@ export default async function MatchPage({ params }: PageProps) {
               })}
             </div>
 
-            <p className="mt-4 text-center text-xs leading-relaxed text-[#9DABBB]">
-              {copy.noFuture}
-            </p>
           </section>
 
+          {/* DASHBOARD DU MATCH — en-tête + tuiles calculées sur les données publiées */}
+          <section className="match-dash__head" aria-labelledby="match-dashboard-title">
+            <div className="match-dash__head-top">
+              <div>
+                <p className="match-dash__eyebrow">{dash.eyebrow}</p>
+                <h2 id="match-dashboard-title" className="match-dash__title">{dash.title}</h2>
+              </div>
+              <span className="match-dash__source">{dash.source}</span>
+            </div>
+            <div className="match-dash__kpis">
+              {typeof match.bttsProb === 'number' && (
+                <div className="match-dash__kpi">
+                  <b>{formatPercent(match.bttsProb)}</b>
+                  <span>{dash.btts}</span>
+                </div>
+              )}
+              {typeof match.over25Prob === 'number' && (
+                <div className="match-dash__kpi">
+                  <b>{formatPercent(match.over25Prob)}</b>
+                  <span>{dash.over}</span>
+                </div>
+              )}
+              {typeof match.xgTotal === 'number' && (
+                <div className="match-dash__kpi">
+                  <b>{formatGoals(match.xgTotal)}</b>
+                  <span>{dash.goals}</span>
+                </div>
+              )}
+              {match.matchCountHome != null && match.matchCountAway != null && (
+                <div className="match-dash__kpi">
+                  <b>{match.matchCountHome} + {match.matchCountAway}</b>
+                  <span>{dash.sample}</span>
+                </div>
+              )}
+              {typeof match.reliabilityScore === 'number' && (
+                <div className="match-dash__kpi">
+                  <b>{formatGoals(match.reliabilityScore)} %</b>
+                  <span>{dash.reliability}</span>
+                </div>
+              )}
+            </div>
+          </section>
+
+          <MatchDashboardTabs tabs={dashboardTabs} ariaLabel={dash.aria}>
           {/* 2. COTES DU MARCHÉ (affichées seulement si présentes) */}
           {oddsItems.length > 0 && (
-            <section className="mb-10" aria-labelledby="match-odds">
-              <div className="mb-4 flex flex-wrap items-baseline justify-between gap-2">
-                <h2 id="match-odds" className="text-xl font-bold" style={{ fontFamily: 'Poppins, sans-serif' }}>{copy.oddsSection}</h2>
+            <details className="match-dashboard-panel" data-panel="odds" open dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+              <summary className="match-dashboard-panel__summary">{copy.oddsSection}</summary>
+              <div className="match-dashboard-panel__content">
+              <section className="mb-0" aria-labelledby="match-odds">
+                <h2 id="match-odds" className="sr-only">{copy.oddsSection}</h2>
+                <div className="mb-3 flex flex-wrap items-baseline justify-end gap-2">
                 {match.odds?.provider && <span className="text-xs uppercase tracking-wider text-[#9DABBB]">{match.odds.provider}</span>}
-              </div>
+                </div>
               <div className="grid grid-cols-3 gap-2 sm:grid-cols-5">
                 {oddsItems.map(item => (
                   <div key={item.label} className="rounded-xl border border-[#223041] bg-[#141C25] p-3 text-center">
@@ -483,13 +575,18 @@ export default async function MatchPage({ params }: PageProps) {
                 ))}
               </div>
               <p className="mt-2 text-xs text-[#6B7A8C]">{copy.oddsNote}</p>
-            </section>
+              </section>
+              </div>
+            </details>
           )}
 
           {/* 3. ACTUALITÉS & INFOS CLÉS (analyse éditoriale du pipeline) */}
           {hasNews && (
-            <section className="mb-10" aria-labelledby="match-news">
-              <h2 id="match-news" className="text-xl font-bold" style={{ fontFamily: 'Poppins, sans-serif' }}>{copy.newsSection}</h2>
+            <details className="match-dashboard-panel" data-panel="news" open dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+              <summary className="match-dashboard-panel__summary">{copy.newsSection}</summary>
+              <div className="match-dashboard-panel__content">
+              <section className="mb-0" aria-labelledby="match-news">
+              <h2 id="match-news" className="sr-only">{copy.newsSection}</h2>
               <p className="mb-4 mt-1 text-xs text-[#9DABBB]">{copy.newsSub}</p>
               <div className="space-y-3">
                 {keyFactText && (
@@ -502,13 +599,18 @@ export default async function MatchPage({ params }: PageProps) {
                 {oddsInsightText && <NewsCard label={copy.oddsInsightLabel} text={oddsInsightText} accent="#34D399" />}
                 {analysisText && <NewsCard label={copy.analysis} text={analysisText} />}
               </div>
-            </section>
+              </section>
+              </div>
+            </details>
           )}
 
           {/* 4. FORME DES ÉQUIPES — comparaison détaillée (VISIBLE, données ESPN) */}
           {hasTeamForm && (
-            <section className="mb-10" aria-labelledby="match-team-form">
-              <h2 id="match-team-form" className="text-xl font-bold" style={{ fontFamily: 'Poppins, sans-serif' }}>{copy.formSection}</h2>
+            <details className="match-dashboard-panel" data-panel="form" open dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+              <summary className="match-dashboard-panel__summary">{copy.formSection}</summary>
+              <div className="match-dashboard-panel__content">
+              <section className="mb-0" aria-labelledby="match-team-form">
+              <h2 id="match-team-form" className="sr-only">{copy.formSection}</h2>
               <p className="mb-4 mt-1 text-xs text-[#9DABBB]">{copy.formSub}</p>
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {([
@@ -560,14 +662,19 @@ export default async function MatchPage({ params }: PageProps) {
                   <span className="font-mono font-bold text-[#F2F6FA]">{match.formBtts}%</span>
                 </div>
               )}
-            </section>
+              </section>
+              </div>
+            </details>
           )}
 
           {/* 5. DERNIÈRE MINUTE — historique détaillé des 5 derniers matchs
               de chaque équipe (données réelles ESPN ; section masquée si absentes) */}
           {(match.last5Home?.length || match.last5Away?.length) ? (
-            <section className="mb-10" aria-labelledby="match-last-minute">
-              <h2 id="match-last-minute" className="text-xl font-bold mb-1" style={{ fontFamily: 'Poppins, sans-serif' }}>{copy.lastMinute}</h2>
+            <details className="match-dashboard-panel" data-panel="form" open dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+              <summary className="match-dashboard-panel__summary">{copy.lastMinute}</summary>
+              <div className="match-dashboard-panel__content">
+              <section className="mb-0" aria-labelledby="match-last-minute">
+              <h2 id="match-last-minute" className="sr-only">{copy.lastMinute}</h2>
               <p className="text-xs text-[#9DABBB] mb-4">{copy.lastMinuteSub}</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {([
@@ -611,25 +718,35 @@ export default async function MatchPage({ params }: PageProps) {
                   </div>
                 ))}
               </div>
-            </section>
+              </section>
+              </div>
+            </details>
           ) : null}
 
           {/* 6. ESTIMATIONS DU MODÈLE (graphiques) */}
-          <section className="mb-10" aria-label={copy.intelligence}>
-            <MatchAnalyticsCharts
-              bttsProb={match.bttsProb}
-              over25Prob={match.over25Prob}
-              homeLambda={match.homeLambda}
-              awayLambda={match.awayLambda}
-              xgTotal={match.xgTotal}
-              lang={locale}
-            />
-          </section>
+          <details className="match-dashboard-panel" data-panel="charts" open dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+              <summary className="match-dashboard-panel__summary">{locale === 'en' ? 'Charts and trends' : locale === 'ar' ? 'الرسوم والاتجاهات' : 'Graphiques et tendances'}</summary>
+            <div className="match-dashboard-panel__content">
+              <section className="mb-0" aria-label={copy.intelligence}>
+                <MatchAnalyticsCharts
+                  bttsProb={match.bttsProb}
+                  over25Prob={match.over25Prob}
+                  homeLambda={match.homeLambda}
+                  awayLambda={match.awayLambda}
+                  xgTotal={match.xgTotal}
+                  lang={locale}
+                />
+              </section>
+            </div>
+          </details>
 
           {/* 7. DONNÉES UTILISÉES */}
           {hasUsageData && (
-            <section className="mb-10" aria-labelledby="match-data-used">
-              <h2 id="match-data-used" className="text-xl font-bold mb-1" style={{ fontFamily: 'Poppins, sans-serif' }}>{copy.dataUsed}</h2>
+            <details className="match-dashboard-panel" data-panel="data" open dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+              <summary className="match-dashboard-panel__summary">{copy.dataUsed}</summary>
+              <div className="match-dashboard-panel__content">
+              <section className="mb-0" aria-labelledby="match-data-used">
+              <h2 id="match-data-used" className="sr-only">{copy.dataUsed}</h2>
               <p className="text-xs text-[#9DABBB] mb-4">{copy.dataUsedDesc}</p>
               <div className="rounded-2xl border border-[#223041] bg-[#141C25] p-4 sm:p-5">
                 <dl className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
@@ -644,64 +761,46 @@ export default async function MatchPage({ params }: PageProps) {
                   </div>
                   {hasLambda && (
                     <div className="rounded-xl bg-[#10161D] border border-[#223041] p-3">
-                      <dt className="text-xs uppercase tracking-wider text-[#9DABBB] font-bold">{locale === 'en' ? 'Home / away goals estimate' : locale === 'ar' ? 'تقدير أهداف المضيف / الضيف' : 'Buts estimés domicile / extérieur'}</dt>
+                      <dt className="text-xs uppercase tracking-wider text-[#9DABBB] font-bold">{metricCopy.teamGoals}</dt>
                       <dd className="text-lg font-bold text-[#F2F6FA] font-mono mt-1">
                         {match.homeLambda != null && match.awayLambda != null
-                          ? `${match.homeLambda.toFixed(2)} / ${match.awayLambda.toFixed(2)}`
+                          ? `${formatGoals(match.homeLambda)} / ${formatGoals(match.awayLambda)}`
                           : '—'}
                       </dd>
-                      <dd className="text-xs text-[#6B7A8C]">{copy.lambdaLabel.toLowerCase()}</dd>
                     </div>
                   )}
                   {match.xgTotal != null && (
                     <div className="rounded-xl bg-[#10161D] border border-[#223041] p-3">
-                      <dt className="text-xs uppercase tracking-wider text-[#9DABBB] font-bold">{copy.xgTotalLabel}</dt>
-                      <dd className="text-lg font-bold text-[#F2F6FA] font-mono mt-1">{match.xgTotal.toFixed(2)}</dd>
-                      <dd className="text-xs text-[#6B7A8C]">{copy.modelSource}</dd>
+                      <dt className="text-xs uppercase tracking-wider text-[#9DABBB] font-bold">{metricCopy.combinedGoals}</dt>
+                      <dd className="text-lg font-bold text-[#F2F6FA] font-mono mt-1">{formatGoals(match.xgTotal)}</dd>
                     </div>
                   )}
                   <div className="rounded-xl bg-[#10161D] border border-[#223041] p-3">
-                    <dt className="text-xs uppercase tracking-wider text-[#9DABBB] font-bold">Source</dt>
+                    <dt className="text-xs uppercase tracking-wider text-[#9DABBB] font-bold">{locale === 'en' ? 'Data source' : locale === 'ar' ? 'مصدر البيانات' : 'Source des données'}</dt>
                     <dd className="text-sm font-bold text-[#F2F6FA] mt-1 break-words">{match.dataSource || 'ESPN'}</dd>
-                    <dd className="text-xs text-[#6B7A8C]">{match.dataQuality || ''}</dd>
                   </div>
                 </dl>
-                <p className="text-xs text-[#9DABBB] mt-3 leading-relaxed">{copy.lambdaHint}</p>
+                <p className="text-xs text-[#9DABBB] mt-3 leading-relaxed">{metricCopy.teamGoalsDescription}</p>
               </div>
-            </section>
+              </section>
+              </div>
+            </details>
           )}
 
           {/* 8. CONTEXTE DES ÉQUIPES (actualités de sources ouvertes quand disponibles) */}
-          <TeamContext home={home} away={away} locale={locale} />
-
-          {/* 9. QUALITÉ DES DONNÉES — transparence (mission) */}
-          {hasUsageData && (
-            <section
-              className="rounded-[16px] bg-[#10161D] border border-[#223041] p-4 sm:p-5 mb-10"
-              aria-label={locale === 'en' ? 'Data quality' : locale === 'ar' ? 'جودة البيانات' : 'Qualité des données'}
-            >
-              <h2 className="text-sm font-bold text-[#F2F6FA] mb-3">{locale === 'en' ? 'Data quality' : locale === 'ar' ? 'جودة البيانات' : 'Qualité des données'}</h2>
-              <dl className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-center">
-                <div className="rounded-lg bg-[#141C25] border border-[#223041] p-2">
-                  <dt className="text-xs uppercase tracking-wider text-[#9DABBB] font-bold">{locale === 'en' ? 'Quality' : locale === 'ar' ? 'الجودة' : 'Qualité'}</dt>
-                  <dd className="text-xs font-bold text-[#F2F6FA] mt-1">{match.dataQuality || copy.notAvailable}</dd>
-                </div>
-                <div className="rounded-lg bg-[#141C25] border border-[#223041] p-2">
-                  <dt className="text-xs uppercase tracking-wider text-[#9DABBB] font-bold">Source</dt>
-                  <dd className="text-xs font-bold text-[#F2F6FA] mt-1">{match.dataSource || copy.notAvailable}</dd>
-                </div>
-              </dl>
-              <p className="text-xs text-[#9DABBB] mt-3">
-                {copy.qualityNote}
-              </p>
-            </section>
-          )}
+          <details className="match-dashboard-panel" data-panel="news" open dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+              <summary className="match-dashboard-panel__summary">{locale === 'en' ? 'Recent team news' : locale === 'ar' ? 'أخبار الفريقين' : 'Actualités des équipes'}</summary>
+            <div className="match-dashboard-panel__content">
+              <TeamContext home={home} away={away} locale={locale} />
+            </div>
+          </details>
 
           {/* 10. Vérification */}
-          <section className="mb-10">
-            <h2 className="text-xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-              {copy.verification}
-            </h2>
+          <details className="match-dashboard-panel" data-panel="data" open dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+              <summary className="match-dashboard-panel__summary">{copy.verification}</summary>
+            <div className="match-dashboard-panel__content">
+            <section className="mb-0" aria-labelledby="match-verification">
+            <h2 id="match-verification" className="sr-only">{copy.verification}</h2>
             <div className="p-4 rounded-xl" style={{ backgroundColor: '#141C25', border: '1px solid #223041' }}>
               <div className="grid grid-cols-3 gap-4 text-center">
                 <div>
@@ -731,7 +830,10 @@ export default async function MatchPage({ params }: PageProps) {
                 {copy.source}
               </p>
             </div>
-          </section>
+            </section>
+            </div>
+          </details>
+          </MatchDashboardTabs>
 
           {/* Liens internes */}
           <section className="mb-10">

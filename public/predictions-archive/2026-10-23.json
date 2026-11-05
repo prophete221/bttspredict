@@ -7867,87 +7867,12 @@
       "status": "PENDING"
     }
   ],
-  "vipPreview": [
-    {
-      "vip": true,
-      "id": "stokecit-vs-bristolc-2026-10-24",
-      "home": "Stoke City",
-      "away": "Bristol City",
-      "league": "Championship",
-      "date": "2026-10-24",
-      "time": "14:00"
-    },
-    {
-      "vip": true,
-      "id": "racingsa-vs-espanyol-2026-10-24",
-      "home": "Racing Santander",
-      "away": "Espanyol",
-      "league": "LaLiga",
-      "date": "2026-10-24",
-      "time": "14:15"
-    },
-    {
-      "vip": true,
-      "id": "redbulln-vs-intermia-2026-10-24",
-      "home": "Red Bull New York",
-      "away": "Inter Miami CF",
-      "league": "MLS",
-      "date": "2026-10-24",
-      "time": "21:30"
-    },
-    {
-      "vip": true,
-      "id": "portsmou-vs-millwall-2026-10-24",
-      "home": "Portsmouth",
-      "away": "Millwall",
-      "league": "Championship",
-      "date": "2026-10-24",
-      "time": "11:30"
-    },
-    {
-      "vip": true,
-      "id": "dcunited-vs-fccincin-2026-10-24",
-      "home": "D.C. United",
-      "away": "FC Cincinnati",
-      "league": "MLS",
-      "date": "2026-10-24",
-      "time": "23:30"
-    },
-    {
-      "vip": true,
-      "id": "sheffiel-vs-derbycou-2026-10-24",
-      "home": "Sheffield United",
-      "away": "Derby County",
-      "league": "Championship",
-      "date": "2026-10-24",
-      "time": "11:30"
-    },
-    {
-      "vip": true,
-      "id": "cardiffc-vs-birmingh-2026-10-24",
-      "home": "Cardiff City",
-      "away": "Birmingham City",
-      "league": "Championship",
-      "date": "2026-10-24",
-      "time": "14:00"
-    },
-    {
-      "vip": true,
-      "id": "antwerp-vs-royalcha-2026-10-24",
-      "home": "Antwerp",
-      "away": "Royal Charleroi SC",
-      "league": "Jupiler Pro League",
-      "date": "2026-10-24",
-      "time": "14:00"
-    }
-  ],
   "stats": {
     "avgReliability": 80.1,
     "totalAnalyzed": 153,
     "totalRejected": 2,
     "totalAccepted": 151,
-    "freeCount": 42,
-    "vipCount": 8
+    "freeCount": 42
   },
   "predictions": [
     {

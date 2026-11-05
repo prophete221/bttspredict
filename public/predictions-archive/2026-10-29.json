@@ -9469,87 +9469,12 @@
       "status": "PENDING"
     }
   ],
-  "vipPreview": [
-    {
-      "vip": true,
-      "id": "svelvers-vs-mainz-2026-10-30",
-      "home": "SV Elversberg",
-      "away": "Mainz",
-      "league": "Bundesliga",
-      "date": "2026-10-30",
-      "time": "19:30"
-    },
-    {
-      "vip": true,
-      "id": "zultewar-vs-clubbrug-2026-10-30",
-      "home": "Zulte-Waregem",
-      "away": "Club Brugge",
-      "league": "Jupiler Pro League",
-      "date": "2026-10-30",
-      "time": "19:45"
-    },
-    {
-      "vip": true,
-      "id": "arminiab-vs-tsveintr-2026-10-30",
-      "home": "Arminia Bielefeld",
-      "away": "TSV Eintracht Braunschweig",
-      "league": "2. Bundesliga",
-      "date": "2026-10-30",
-      "time": "17:30"
-    },
-    {
-      "vip": true,
-      "id": "middlesb-vs-charlton-2026-10-31",
-      "home": "Middlesbrough",
-      "away": "Charlton Athletic",
-      "league": "Championship",
-      "date": "2026-10-31",
-      "time": "15:00"
-    },
-    {
-      "vip": true,
-      "id": "bologna-vs-monza-2026-10-31",
-      "home": "Bologna",
-      "away": "Monza",
-      "league": "Serie A",
-      "date": "2026-10-31",
-      "time": "14:00"
-    },
-    {
-      "vip": true,
-      "id": "brentfor-vs-nottingh-2026-10-31",
-      "home": "Brentford",
-      "away": "Nottingham Forest",
-      "league": "Premier League",
-      "date": "2026-10-31",
-      "time": "15:00"
-    },
-    {
-      "vip": true,
-      "id": "levante-vs-atlticom-2026-10-31",
-      "home": "Levante",
-      "away": "Atlético Madrid",
-      "league": "LaLiga",
-      "date": "2026-10-31",
-      "time": "13:00"
-    },
-    {
-      "vip": true,
-      "id": "barcelon-vs-alavs-2026-10-31",
-      "home": "Barcelona",
-      "away": "Alavés",
-      "league": "LaLiga",
-      "date": "2026-10-31",
-      "time": "20:00"
-    }
-  ],
   "stats": {
     "avgReliability": 79.19,
     "totalAnalyzed": 154,
     "totalRejected": 5,
     "totalAccepted": 149,
-    "freeCount": 42,
-    "vipCount": 8
+    "freeCount": 42
   },
   "predictions": [
     {

@@ -12,7 +12,6 @@ type ShareAnalysisButtonProps = {
   time: string
   bttsProbability: string
   over25Probability: string
-  dataConfidence: string
   exactScore?: string
   exactScoreProbability?: string
   path: string
@@ -30,10 +29,10 @@ export default function ShareAnalysisButton(props: ShareAnalysisButtonProps) {
   const handleShare = async () => {
     const url = `${window.location.origin}${props.path}`
     const metrics = props.locale === 'en'
-      ? [`BTTS probability: ${props.bttsProbability}`, `Over 2.5 probability: ${props.over25Probability}`, `Data reliability: ${props.dataConfidence}`]
+      ? [`BTTS probability: ${props.bttsProbability}`, `Over 2.5 probability: ${props.over25Probability}`]
       : props.locale === 'ar'
-        ? [`احتمال BTTS: ${props.bttsProbability}`, `احتمال Over 2.5: ${props.over25Probability}`, `موثوقية البيانات: ${props.dataConfidence}`]
-        : [`Probabilité BTTS : ${props.bttsProbability}`, `Probabilité Over 2,5 : ${props.over25Probability}`, `Fiabilité des données : ${props.dataConfidence}`]
+        ? [`احتمال BTTS: ${props.bttsProbability}`, `احتمال Over 2.5: ${props.over25Probability}`]
+        : [`Probabilité BTTS : ${props.bttsProbability}`, `Probabilité Over 2,5 : ${props.over25Probability}`]
     const score = props.exactScore
       ? `${props.locale === 'en' ? 'Projected exact score' : props.locale === 'ar' ? 'النتيجة الدقيقة المتوقعة' : 'Score exact proposé'}: ${props.exactScore}${props.exactScoreProbability ? ` (${props.exactScoreProbability})` : ''}`
       : ''

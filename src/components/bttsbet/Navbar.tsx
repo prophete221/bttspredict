@@ -1,357 +1,286 @@
 'use client'
 
-import { useState, useCallback, useEffect } from 'react'
+import { useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { BOOKMAKERS } from '@/lib/constants'
 import LanguageSwitcher, { useLanguage } from './LanguageSwitcher'
-import { localizedPath, translationsFor } from '@/lib/i18n'
+import { localizedPath, translationsFor, type Locale } from '@/lib/i18n'
 import { trackAffiliateCodeCopy } from '@/lib/affiliateTracking'
 import { copyTextToClipboard } from '@/lib/clipboard'
+import { GlobalNavigationContext } from './NavigationContext'
 
-/**
- * Navbar BTTSPredict — header plateforme « football intelligence ».
- *
- * - Navigation produit : Matchs du jour (#matchs), Résultats, Historique,
- *   Méthode, Statistiques — uniquement des pages/ancres réelles.
- * - Statut données : point vert « Données mises à jour aujourd’hui »
- *   AFFICHÉ UNIQUEMENT SI VRAI (date de predictions.json == aujourd’hui, UTC — Dakar = UTC+0).
- * - Droite : code partenaire uniquement dans sa page dédiée, langues, CTA pronostics.
- * - Mobile : logo + menu (drawer) + CTA compact.
- */
-export default function Navbar() {
+type NavLink = { id: string; label: Record<Locale, string>; href: string; icon: string }
+type NavGroup = { id: string; label: Record<Locale, string>; links: NavLink[] }
+
+const copy = (lang: Locale, fr: string, en: string, ar: string) => ({ fr, en, ar })[lang]
+
+function NavIcon({ kind }: { kind: string }) {
+  const common = { viewBox: '0 0 24 24', 'aria-hidden': true as const }
+  switch (kind) {
+    case 'home': return <svg {...common}><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg>
+    case 'btts': return <svg {...common}><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3.2"/><path d="M12 2v3M22 12h-3M12 22v-3M2 12h3"/></svg>
+    case 'over': return <svg {...common}><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg>
+    case 'combined': return <svg {...common}><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5M3 16l9 5 9-5"/></svg>
+    case 'score': return <svg {...common}><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M3 16v3a2 2 0 0 0 2 2h3"/><path d="M8 12h8M12 8v8"/></svg>
+    case 'trophy': return <svg {...common}><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4Z"/><path d="M7 6H4v2a4 4 0 0 0 4 4M17 6h3v2a4 4 0 0 1-4 4"/></svg>
+    case 'stats': return <svg {...common}><path d="M4 20V11M10 20V4M16 20v-6M22 20H2"/></svg>
+    case 'history': return <svg {...common}><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+    case 'method': return <svg {...common}><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><circle cx="12" cy="12" r="5"/><path d="m12 9 1.7 3-3 1.7"/></svg>
+    case 'vip': return <svg {...common}><path d="m3 8 5 3 4-7 4 7 5-3-1.5 10h-15L3 8Z"/><path d="M6 21h12"/></svg>
+    case 'info': return <svg {...common}><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
+    default: return <svg {...common}><circle cx="12" cy="12" r="8"/></svg>
+  }
+}
+
+function NavItems({ groups, lang, isActive, onNavigate, partnerRoutes }: {
+  groups: NavGroup[]
+  lang: Locale
+  isActive: (href: string) => boolean
+  onNavigate?: () => void
+  partnerRoutes: Record<string, string>
+}) {
+  const partnerIds = ['1xbet', 'linebet', 'melbet', '888starz'] as const
+  return (
+    <>
+      {groups.map(group => (
+        <section className="fi-nav-group" key={group.id} aria-label={group.label[lang]}>
+          <p className="fi-nav-group__label">{group.label[lang]}</p>
+          {group.links.map(link => (
+            <a
+              className="fi-nav-link"
+              href={link.href}
+              key={link.id}
+              aria-current={isActive(link.href) ? 'page' : undefined}
+              onClick={onNavigate}
+              title={link.label[lang]}
+            >
+              <span className="fi-nav-icon"><NavIcon kind={link.icon} /></span>
+              <span className="fi-nav-link__label">{link.label[lang]}</span>
+            </a>
+          ))}
+          {group.id === 'partners' && partnerIds.map(id => {
+            const partner = BOOKMAKERS.find(item => item.id === id)
+            if (!partner) return null
+            const name: Record<typeof id, string> = { '1xbet': '1xBet', linebet: 'Linebet', melbet: 'MelBet', '888starz': '888Starz' }
+            return (
+              <a className="fi-nav-link fi-nav-partner" href={partnerRoutes[id]} key={id} onClick={onNavigate} title={name[id]}>
+                <span className="fi-nav-partner__logo"><img src={partner.logoFull} alt={`${name[id]} logo`} loading="lazy" /></span>
+                <span className="fi-nav-link__label">{name[id]}</span>
+                <span className="fi-nav-partner__external" aria-hidden="true">↗</span>
+              </a>
+            )
+          })}
+        </section>
+      ))}
+    </>
+  )
+}
+
+export default function Navbar({ global = false }: { global?: boolean }) {
+  const insideGlobalShell = useContext(GlobalNavigationContext)
+  if (insideGlobalShell && !global) return null
+  return <NavigationContent />
+}
+
+function NavigationContent() {
   const { lang } = useLanguage()
   const t = translationsFor(lang)
-  const pathname = usePathname()
-  const home = localizedPath('/', lang)
-  const pageLinks = [
-    { label: t.nav.matchs, href: `${home}#matchs` },
-    { label: lang === 'fr' ? 'Meilleures opportunités' : lang === 'ar' ? 'أفضل الفرص' : 'Top opportunities', href: `${localizedPath('/btts/predictions/today', lang)}#opportunities` },
-    { label: t.nav.results, href: localizedPath('/resultats-verifies', lang) },
-    { label: t.nav.history, href: localizedPath('/historique', lang) },
-    { label: t.nav.methodology, href: localizedPath('/methodologie', lang) },
-    { label: t.nav.stats2, href: localizedPath('/statistiques', lang) },
-  ]
-  const partnerLinks = [
-    { label: '1xBet', href: localizedPath('/code-promo-1xbet', lang), code: 'vipbtts', primary: true },
-    { label: 'Linebet', href: localizedPath('/code-promo-linebet-senegal', lang), code: 'VISION221', primary: true },
-    { label: 'Melbet', href: localizedPath('/code-promo-melbet', lang), code: 'Bttswin', primary: false },
-    { label: '888Starz', href: localizedPath('/bonus-888starz', lang), code: 'btts221', primary: false },
-  ]
+  const pathname = usePathname() || '/'
   const [copied, setCopied] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [collapsed, setCollapsed] = useState(false)
   const [dataToday, setDataToday] = useState(false)
 
-  // Statut données — strictement factuel : date(lastUpdated) == aujourd’hui (UTC)
+  const paths = useMemo(() => ({
+    home: localizedPath('/', lang),
+    btts: localizedPath('/btts/predictions/today', lang),
+    over: localizedPath('/over-2-5/predictions/today', lang),
+    combined: localizedPath('/btts-and-over-2-5-predictions-today', lang),
+    score: localizedPath('/ai-correct-score-predictions', lang),
+    results: localizedPath('/resultats-verifies', lang),
+    stats: localizedPath('/statistiques', lang),
+    history: localizedPath('/historique', lang),
+    method: localizedPath('/methodologie', lang),
+    vip: localizedPath('/vip', lang),
+    promo1xbet: localizedPath('/code-promo-1xbet', lang),
+    promolinebet: localizedPath('/code-promo-linebet-senegal', lang),
+    promomelbet: localizedPath('/code-promo-melbet', lang),
+    promo888: localizedPath('/bonus-888starz', lang),
+    guide: localizedPath('/btts-c-est-quoi', lang),
+    responsible: localizedPath('/jouer-responsable', lang),
+    terms: localizedPath('/cgu', lang),
+    privacy: localizedPath('/politique-confidentialite', lang),
+    legal: localizedPath('/mentions-legales', lang),
+  }), [lang])
+
+  const groups = useMemo<NavGroup[]>(() => [
+    {
+      id: 'workspace', label: { fr: 'Espace de travail', en: 'Workspace', ar: 'مساحة العمل' }, links: [
+        { id: 'home', label: { fr: 'Match Center', en: 'Match Center', ar: 'مركز المباريات' }, href: `${paths.home}#matchs`, icon: 'home' },
+        { id: 'btts', label: { fr: 'Pronostics BTTS', en: 'BTTS predictions', ar: 'توقعات BTTS' }, href: paths.btts, icon: 'btts' },
+        { id: 'opportunities', label: { fr: 'Meilleures opportunités', en: 'Top opportunities', ar: 'أفضل الفرص' }, href: `${paths.btts}#opportunities`, icon: 'btts' },
+        { id: 'over', label: { fr: 'Pronostics Over 2,5', en: 'Over 2.5 predictions', ar: 'توقعات أكثر من 2.5' }, href: paths.over, icon: 'over' },
+        { id: 'combined', label: { fr: 'Vue combinée', en: 'Combined view', ar: 'عرض مشترك' }, href: paths.combined, icon: 'combined' },
+        { id: 'score', label: { fr: 'Scores exacts', en: 'Exact scores', ar: 'النتائج الدقيقة' }, href: paths.score, icon: 'score' },
+      ],
+    },
+    {
+      id: 'analysis', label: { fr: 'Analyse', en: 'Analysis', ar: 'التحليل' }, links: [
+        { id: 'results', label: { fr: 'Résultats vérifiés', en: 'Verified results', ar: 'النتائج الموثقة' }, href: paths.results, icon: 'trophy' },
+        { id: 'stats', label: { fr: 'Statistiques', en: 'Statistics', ar: 'الإحصائيات' }, href: paths.stats, icon: 'stats' },
+        { id: 'history', label: { fr: 'Historique', en: 'History', ar: 'السجل' }, href: paths.history, icon: 'history' },
+        { id: 'method', label: { fr: 'Méthodologie', en: 'Methodology', ar: 'المنهجية' }, href: paths.method, icon: 'method' },
+      ],
+    },
+    {
+      id: 'service', label: { fr: 'Services', en: 'Services', ar: 'الخدمات' }, links: [
+        { id: 'vip', label: { fr: 'Accès VIP', en: 'VIP access', ar: 'دخول VIP' }, href: paths.vip, icon: 'vip' },
+      ],
+    },
+    { id: 'partners', label: { fr: 'Partenaires', en: 'Partners', ar: 'الشركاء' }, links: [] },
+    {
+      id: 'information', label: { fr: 'Informations', en: 'Information', ar: 'معلومات' }, links: [
+        { id: 'guide', label: { fr: 'Guide BTTS', en: 'BTTS guide', ar: 'دليل BTTS' }, href: paths.guide, icon: 'info' },
+        { id: 'responsible', label: { fr: 'Jeu responsable', en: 'Responsible play', ar: 'اللعب المسؤول' }, href: paths.responsible, icon: 'info' },
+        { id: 'terms', label: { fr: 'Conditions', en: 'Terms', ar: 'الشروط' }, href: paths.terms, icon: 'info' },
+        { id: 'privacy', label: { fr: 'Confidentialité', en: 'Privacy', ar: 'الخصوصية' }, href: paths.privacy, icon: 'info' },
+        { id: 'legal', label: { fr: 'Mentions légales', en: 'Legal notice', ar: 'إشعار قانوني' }, href: paths.legal, icon: 'info' },
+      ],
+    },
+  ], [paths])
+
+  const partnerRoutes = useMemo(() => ({ '1xbet': paths.promo1xbet, linebet: paths.promolinebet, melbet: paths.promomelbet, '888starz': paths.promo888 }), [paths])
+  const flatLinks = groups.flatMap(group => group.links)
+  const activePage = flatLinks.find(link => isActive(link.href))
+  const pageTitle = activePage?.label[lang] ?? (lang === 'ar' ? 'مساحة التحليل' : lang === 'en' ? 'Analysis workspace' : 'Espace d’analyse')
+
+  const currentPartner = useMemo(() => {
+    if (pathname.includes('code-promo-1xbet')) return BOOKMAKERS.find(item => item.id === '1xbet')
+    if (pathname.includes('code-promo-linebet-senegal') || pathname.includes('linebet-promo-code')) return BOOKMAKERS.find(item => item.id === 'linebet')
+    if (pathname.includes('code-promo-melbet')) return BOOKMAKERS.find(item => item.id === 'melbet')
+    if (pathname.includes('bonus-888starz')) return BOOKMAKERS.find(item => item.id === '888starz')
+    return undefined
+  }, [pathname])
+
   useEffect(() => {
     let cancelled = false
     fetch('/predictions.json')
-      .then(r => (r.ok ? r.json() : null))
-      .then(d => {
-        if (cancelled || !d?.lastUpdated) return
-        const updatedDay = String(d.lastUpdated).slice(0, 10)
-        setDataToday(updatedDay === new Date().toISOString().slice(0, 10))
+      .then(response => response.ok ? response.json() : null)
+      .then(data => {
+        if (cancelled || !data?.lastUpdated) return
+        setDataToday(String(data.lastUpdated).slice(0, 10) === new Date().toISOString().slice(0, 10))
       })
       .catch(() => {})
     return () => { cancelled = true }
   }, [])
 
-  /* Code promo contextuel par page : casse exacte de chaque bookmaker.
-     1xbet et Linebet prioritaires ; Melbet et 888Starz contextuels. */
-  const is888Page = pathname?.includes('bonus-888starz') ?? false
-  const is1xbetPage = pathname?.includes('code-promo-1xbet') ?? false
-  const isMelbetPage = pathname?.includes('code-promo-melbet') ?? false
-  const isLinebetPage = pathname?.includes('code-promo-linebet-senegal') || pathname?.includes('linebet-promo-code')
-  const navPartnerId = is1xbetPage ? '1xbet' : isMelbetPage ? 'melbet' : is888Page ? '888starz' : isLinebetPage ? 'linebet' : null
-  const navPromoCode = navPartnerId ? BOOKMAKERS.find(bookmaker => bookmaker.id === navPartnerId)?.promoCode ?? '' : ''
-  const navPartner: 'linebet' | '888starz' | '1xbet' | 'melbet' = navPartnerId ?? 'linebet'
+  useEffect(() => {
+    if (!menuOpen) return
+    const closeOnEscape = (event: KeyboardEvent) => { if (event.key === 'Escape') setMenuOpen(false) }
+    window.addEventListener('keydown', closeOnEscape)
+    return () => window.removeEventListener('keydown', closeOnEscape)
+  }, [menuOpen])
 
   const copyCode = useCallback(async () => {
-    // « Copié » n'est affiché que si la copie a réellement réussi
-    const ok = await copyTextToClipboard(navPromoCode)
+    if (!currentPartner) return
+    const ok = await copyTextToClipboard(currentPartner.promoCode)
     if (!ok) return
-    trackAffiliateCodeCopy(navPartner, 'navbar-promo-code')
+    trackAffiliateCodeCopy(currentPartner.id, 'global-navigation-promo-code')
     setCopied(true)
     navigator.vibrate?.(15)
-    setTimeout(() => setCopied(false), 2000)
-  }, [navPromoCode, navPartner])
+    window.setTimeout(() => setCopied(false), 2000)
+  }, [currentPartner])
 
-  const isActive = (href: string) => {
-    const clean = href.split('#')[0]
-    if (clean === '/' || clean === localizedPath('/', lang)) return pathname === clean || pathname === ''
-    return pathname === clean || pathname.startsWith(clean + '/')
+  function isActive(href: string) {
+    const clean = href.split('#')[0].replace(/\/$/, '') || '/'
+    const current = pathname.replace(/\/$/, '') || '/'
+    if (clean === paths.home.replace(/\/$/, '') || clean === '') return current === clean
+    return current === clean || current.startsWith(`${clean}/`)
   }
 
+  const appName = 'BTTSPredict'
+  const menuLabel = copy(lang, 'Navigation principale', 'Main navigation', 'التنقل الرئيسي')
+  const mobileOpenLabel = copy(lang, 'Ouvrir le menu', 'Open menu', 'فتح القائمة')
+  const mobileCloseLabel = copy(lang, 'Fermer le menu', 'Close menu', 'إغلاق القائمة')
+  const partnerHeading = copy(lang, 'Partenaires', 'Partners', 'الشركاء')
+  const footerLabel = copy(lang, 'Données du site', 'Site data', 'بيانات الموقع')
+  const copiedText = copy(lang, '✓ Copié', '✓ Copied', '✓ تم النسخ')
+  const copyCodeLabel = currentPartner ? copy(lang, `Copier le code ${currentPartner.promoCode}`, `Copy code ${currentPartner.promoCode}`, `نسخ الرمز ${currentPartner.promoCode}`) : ''
+  const titleLabel = copy(lang, 'Espace d’analyse', 'Analysis workspace', 'مساحة التحليل')
+
   return (
-    <>
-      <nav
-        className="sticky top-0 z-50 navbar-blur"
-        aria-label={lang === 'en' ? 'Main navigation' : lang === 'ar' ? 'التنقل الرئيسي' : 'Navigation principale'}
-        style={{
-          backgroundColor: '#0B131C',
-          borderBottom: '1px solid rgba(219, 230, 234, 0.14)',
-          backdropFilter: 'blur(18px) saturate(140%)',
-          WebkitBackdropFilter: 'blur(18px) saturate(140%)',
-        }}
-      >
-        <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
-          <div className="flex items-center justify-between h-[60px] min-[801px]:h-[72px] gap-3">
-            {/* Logo */}
-            <a
-              href={home}
-              className="nav-brand flex items-center gap-2 flex-shrink-0"
-              aria-label={`BTTSPredict Match Intelligence — ${t.nav.home}`}
-            >
-              <img src="/favicon.svg" alt="" width={31} height={31} className="bp-brand-icon flex-shrink-0 rounded" />
-              <span className="min-w-0">
-                <span className="nav-brand-name block text-sm font-bold leading-tight text-papier tracking-tight">BTTSPredict</span>
-                <span className="nav-brand-sub block max-[359px]:hidden text-[10px] font-semibold uppercase tracking-[0.18em] leading-none">Match Intelligence</span>
-              </span>
-            </a>
+    <div className={`fi-navigation${collapsed ? ' is-collapsed' : ''}`}>
+      <aside className="fi-sidebar" data-collapsed={collapsed ? 'true' : 'false'} aria-label={menuLabel}>
+        <a className="fi-sidebar__brand" href={paths.home} aria-label={`${appName} — ${groups[0].links[0].label[lang]}`}>
+          <img src="/brand/bttspredict-logo-3d-final.png?v=20261104b" alt="" width="44" height="44" />
+          <span className="fi-brand-copy"><strong>{appName}</strong><small>FOOTBALL INTELLIGENCE</small></span>
+        </a>
+        <nav className="fi-sidebar__scroll" aria-label={menuLabel}>
+          <NavItems groups={groups} lang={lang} isActive={isActive} partnerRoutes={partnerRoutes} />
+        </nav>
+        <div className="fi-sidebar__foot" title={footerLabel}>
+          <span className={`fi-status-dot${dataToday ? ' is-fresh' : ''}`} aria-hidden="true" />
+          <span className="fi-sidebar__foot-note">{footerLabel}</span>
+          <span className="fi-sidebar__foot-age">{dataToday ? copy(lang, 'À JOUR', 'UPDATED', 'محدّث') : '18+'}</span>
+        </div>
+      </aside>
 
-            {/* Nav produit — desktop */}
-            <div className="nav-main hidden min-[801px]:flex items-center flex-1 justify-center">
-              {pageLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  aria-current={isActive(link.href) ? 'page' : undefined}
-                  className="nav-main__link whitespace-nowrap transition-colors"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
-
-            {/* Actions droite */}
-            <div className="flex items-center gap-2">
-              {/* Statut données — seulement si techniquement vrai */}
-              {dataToday && (
-                <span
-                  className="hidden min-[1100px]:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-[11px] font-semibold whitespace-nowrap"
-                  style={{ color: '#86E9BC', backgroundColor: 'rgba(52, 211, 153, 0.08)', border: '1px solid rgba(52, 211, 153, 0.22)' }}
-                  title={t.home2.statusUpdated}
-                >
-                  <span className="hp-status-dot" aria-hidden="true" />
-                  {t.home2.statusUpdated}
-                </span>
-              )}
-              <div className="hidden min-[801px]:block"><LanguageSwitcher compact /></div>
-              {navPartnerId && <button
-                onClick={copyCode}
-                className="hidden items-center px-2.5 py-1.5 rounded-lg text-xs font-mono font-semibold transition-colors"
-                style={{
-                  border: '1px solid rgba(47, 125, 255, 0.45)',
-                  backgroundColor: 'rgba(47, 125, 255, 0.10)',
-                  color: copied ? '#34D399' : '#4A90FF',
-                }}
-                aria-label={lang === 'en' ? `Copy promo code ${navPromoCode}` : lang === 'ar' ? `انسخ الرمز الترويجي ${navPromoCode}` : `Copier le code promo ${navPromoCode}`}
-              >
-                {copied ? (lang === 'en' ? '✓ Copied' : lang === 'ar' ? '✓ تم النسخ' : '✓ Copié') : navPromoCode}
-              </button>}
-
-              {/* CTA principal — desktop */}
-              <a
-                href={`${home}#matchs`}
-                data-cta="navbar-open-picks"
-                className="hidden min-[1100px]:inline-flex items-center px-3.5 h-9 rounded-lg text-[13px] font-bold whitespace-nowrap transition-all hp-cta-primary"
-              >
-                {t.nav.ctaPronostics}
-              </a>
-
-              {/* Hamburger — mobile/tablette */}
-              <button
-                onClick={() => setMenuOpen(!menuOpen)}
-                className="min-[801px]:hidden flex items-center justify-center w-9 h-9 rounded-lg text-papier hover:bg-white/[0.06] transition-colors"
-                aria-label={t.nav.openMenu}
-                aria-expanded={menuOpen}
-              >
-                {menuOpen ? (
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="18" y1="6" x2="6" y2="18" />
-                    <line x1="6" y1="6" x2="18" y2="18" />
-                  </svg>
-                ) : (
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="3" y1="6" x2="21" y2="6" />
-                    <line x1="3" y1="12" x2="21" y2="12" />
-                    <line x1="3" y1="18" x2="21" y2="18" />
-                  </svg>
-                )}
-              </button>
-            </div>
+      <header className="fi-topbar">
+        <div className="fi-topbar__left">
+          <button
+            type="button"
+            className="fi-icon-button fi-mobile-menu"
+            aria-label={menuOpen ? mobileCloseLabel : mobileOpenLabel}
+            aria-expanded={menuOpen}
+            aria-controls="fi-mobile-navigation"
+            onClick={() => setMenuOpen(value => !value)}
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d={menuOpen ? 'M6 6l12 12M18 6 6 18' : 'M4 6h16M4 12h16M4 18h16'} /></svg>
+          </button>
+          <a className="fi-mobile-brand" href={paths.home} aria-label={`${appName} — ${groups[0].links[0].label[lang]}`}>
+            <img src="/brand/bttspredict-logo-3d-final.png?v=20261104b" alt="" width="32" height="32" /><strong>{appName}</strong><span>FOOTBALL INTELLIGENCE</span>
+          </a>
+          <div className="fi-topbar__context">
+            <span className="fi-topbar__overline">{titleLabel}</span>
+            <span className="fi-topbar__divider" aria-hidden="true" />
+            <span className="fi-topbar__page">{pageTitle}</span>
           </div>
         </div>
-      </nav>
-
-      {/* === DRAWER MOBILE — design plateforme === */}
-      {menuOpen && (
-        <>
-          <div
-            className="nav-drawer-backdrop fixed inset-0 z-[60] min-[801px]:hidden"
-            style={{ backgroundColor: 'rgba(3, 6, 12, 0.72)', backdropFilter: 'blur(6px)' }}
-            onClick={() => setMenuOpen(false)}
-            aria-hidden="true"
-          />
-
-          <div
-            className="nav-drawer fixed top-0 left-0 right-0 z-[70] min-[801px]:hidden flex flex-col"
-            style={{
-              maxHeight: 'min(94vh, 720px)',
-              background: 'linear-gradient(165deg, #0E1624 0%, #0A1018 55%, #080D14 100%)',
-              borderBottomLeftRadius: 24,
-              borderBottomRightRadius: 24,
-              borderBottom: '1px solid rgba(59, 130, 246, 0.22)',
-              boxShadow: '0 28px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(148,163,184,0.06)',
-            }}
-            role="dialog"
-            aria-modal="true"
-            aria-label={t.nav.menu}
+        <div className="fi-topbar__actions">
+          {dataToday && <span className="fi-topbar__fresh"><span className="fi-status-dot" aria-hidden="true" />{copy(lang, 'Données actualisées', 'Data updated', 'تم تحديث البيانات')}</span>}
+          {currentPartner && <button type="button" onClick={copyCode} className="fi-topbar__promo" aria-label={copyCodeLabel}>{copied ? copiedText : currentPartner.promoCode}</button>}
+          <LanguageSwitcher compact />
+          <a className="fi-topbar__vip" href={paths.vip} aria-label={copy(lang, 'Ouvrir l’accès VIP', 'Open VIP access', 'فتح دخول VIP')}>
+            <NavIcon kind="vip" /><span>{t.nav.vip}</span>
+          </a>
+          <button
+            type="button"
+            className="fi-icon-button fi-collapse-toggle"
+            aria-label={collapsed ? copy(lang, 'Développer la navigation', 'Expand navigation', 'توسيع القائمة') : copy(lang, 'Replier la navigation', 'Collapse navigation', 'طيّ القائمة')}
+            aria-expanded={!collapsed}
+            onClick={() => setCollapsed(value => !value)}
+            title={collapsed ? copy(lang, 'Développer la navigation', 'Expand navigation', 'توسيع القائمة') : copy(lang, 'Replier la navigation', 'Collapse navigation', 'طيّ القائمة')}
           >
-            {/* Header */}
-            <div
-              className="flex items-center justify-between px-4 py-3.5 flex-shrink-0"
-              style={{ borderBottom: '1px solid rgba(51, 65, 85, 0.45)' }}
-            >
-              <div className="flex items-center gap-2.5 min-w-0">
-                <img src="/favicon.svg" alt="" width={31} height={31} className="bp-brand-icon rounded flex-shrink-0" />
-                <div className="min-w-0">
-                  <span className="block text-sm font-bold text-papier leading-tight">BTTSPredict</span>
-                  <span className="nav-brand-sub block text-[9px] font-semibold uppercase tracking-[0.16em] leading-none mt-0.5">Match Intelligence</span>
-                </div>
-              </div>
-              <div className="flex items-center gap-2">
-                <LanguageSwitcher compact />
-              <button
-                onClick={() => setMenuOpen(false)}
-                className="w-9 h-9 flex items-center justify-center rounded-xl text-cendre hover:text-papier transition-colors flex-shrink-0"
-                style={{ backgroundColor: 'rgba(148, 163, 184, 0.08)', border: '1px solid rgba(51, 65, 85, 0.5)' }}
-                aria-label={t.nav.closeMenu}
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="18" y1="6" x2="6" y2="18" />
-                  <line x1="6" y1="6" x2="18" y2="18" />
-                </svg>
-              </button>
-              </div>
-            </div>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d={collapsed ? 'M9 5l7 7-7 7' : 'M15 5l-7 7 7 7'} /></svg>
+          </button>
+        </div>
+      </header>
 
-            <div className="overflow-y-auto flex-1 overscroll-contain">
-              {/* Liens principaux en grille */}
-              <nav className="nav-drawer-main px-3 pt-3 pb-2" aria-label={t.nav.menu}>
-                <p className="px-1 pb-2 text-[10px] font-bold uppercase tracking-[0.18em]" style={{ color: '#64748B' }}>
-                  {lang === 'en' ? 'Navigate' : lang === 'ar' ? 'تصفح' : 'Navigation'}
-                </p>
-                <div className="grid grid-cols-1 gap-1.5">
-                  {pageLinks.map((link) => {
-                    const active = isActive(link.href)
-                    return (
-                      <a
-                        key={link.href}
-                        href={link.href}
-                        onClick={() => setMenuOpen(false)}
-                        className="flex items-center justify-between gap-3 px-3.5 py-3 rounded-xl text-sm font-semibold transition-all"
-                        style={
-                          active
-                            ? {
-                                color: '#F8FAFC',
-                                background: 'linear-gradient(135deg, rgba(59,130,246,0.22), rgba(34,211,238,0.08))',
-                                border: '1px solid rgba(59, 130, 246, 0.4)',
-                                boxShadow: '0 0 0 1px rgba(59,130,246,0.08) inset',
-                              }
-                            : {
-                                color: '#CBD5E1',
-                                backgroundColor: 'rgba(15, 23, 42, 0.65)',
-                                border: '1px solid rgba(51, 65, 85, 0.55)',
-                              }
-                        }
-                      >
-                        <span>{link.label}</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ opacity: active ? 1 : 0.35 }}>
-                          <polyline points="9 18 15 12 9 6" />
-                        </svg>
-                      </a>
-                    )
-                  })}
-                </div>
-              </nav>
-
-              {dataToday && (
-                <div className="px-4 py-2">
-                  <span
-                    className="inline-flex items-center gap-1.5 text-[11px] font-semibold px-2.5 py-1 rounded-full"
-                    style={{ color: '#6EE7B7', backgroundColor: 'rgba(16, 185, 129, 0.12)', border: '1px solid rgba(16, 185, 129, 0.28)' }}
-                  >
-                    <span className="hp-status-dot" aria-hidden="true" />
-                    {t.home2.statusUpdated}
-                  </span>
-                </div>
-              )}
-
-              {/* Partenaires */}
-              <div className="px-3 pt-2 pb-1">
-                <p className="px-1 pb-2 text-[10px] font-bold uppercase tracking-[0.18em]" style={{ color: '#64748B' }}>
-                  {lang === 'en' ? 'Partners' : lang === 'ar' ? 'شركاء' : 'Partenaires'}
-                </p>
-                <div className="grid grid-cols-2 gap-2">
-                  {partnerLinks.map((link) => (
-                    <a
-                      key={link.href}
-                      href={link.href}
-                      onClick={() => setMenuOpen(false)}
-                      className="flex flex-col items-center justify-center gap-0.5 px-2.5 py-3 rounded-2xl text-center transition-all active:scale-[0.98]"
-                      style={{
-                        color: '#F1F5F9',
-                        background: link.primary
-                          ? 'linear-gradient(145deg, rgba(27,110,243,0.22) 0%, rgba(15,23,42,0.95) 100%)'
-                          : 'rgba(15, 23, 42, 0.88)',
-                        border: link.primary
-                          ? '1px solid rgba(59, 130, 246, 0.45)'
-                          : '1px solid rgba(51, 65, 85, 0.65)',
-                        boxShadow: link.primary ? '0 0 20px rgba(27,110,243,0.12)' : 'none',
-                      }}
-                    >
-                      <span className="text-sm font-bold leading-tight">{link.label}</span>
-                      <span className="text-[10px] font-mono font-semibold tracking-wide" style={{ color: link.primary ? '#93C5FD' : '#94A3B8' }}>
-                        {link.code}
-                      </span>
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* CTA sticky bas du drawer */}
-            <div
-              className="px-3 pt-2 pb-3 flex-shrink-0 grid gap-2"
-              style={{
-                borderTop: '1px solid rgba(51, 65, 85, 0.45)',
-                background: 'linear-gradient(180deg, transparent, rgba(12, 18, 28, 0.95))',
-                paddingBottom: 'max(0.75rem, env(safe-area-inset-bottom))',
-              }}
-            >
-              <a
-                href={`${home}#matchs`}
-                onClick={() => setMenuOpen(false)}
-                className="inline-flex items-center justify-center w-full px-3 py-3 rounded-xl text-sm font-bold hp-cta-primary"
-                style={{ borderRadius: 12 }}
-              >
-                {t.nav.ctaPronostics}
-              </a>
-              {navPartnerId && <button
-                onClick={() => { copyCode(); setMenuOpen(false) }}
-                className="w-full px-3 py-3 rounded-xl text-sm font-mono font-semibold text-center transition-colors"
-                style={{
-                  border: '1px solid rgba(59, 130, 246, 0.45)',
-                  backgroundColor: 'rgba(59, 130, 246, 0.12)',
-                  color: copied ? '#34D399' : '#93C5FD',
-                }}
-              >
-                {copied ? (lang === 'en' ? '✓ Copied' : lang === 'ar' ? '✓ تم النسخ' : '✓ Copié') : navPromoCode}
-              </button>}
-            </div>
+      {menuOpen && <>
+        <button type="button" className="fi-nav-backdrop" aria-label={mobileCloseLabel} onClick={() => setMenuOpen(false)} />
+        <aside className="fi-nav-drawer" id="fi-mobile-navigation" role="dialog" aria-modal="true" aria-label={menuLabel}>
+          <div className="fi-nav-drawer__head">
+            <a className="fi-mobile-brand" href={paths.home} onClick={() => setMenuOpen(false)}>
+              <img src="/brand/bttspredict-logo-3d-final.png?v=20261104b" alt="" width="32" height="32" /><strong>{appName}</strong>
+            </a>
+            <div className="fi-topbar__actions"><LanguageSwitcher compact /><button type="button" className="fi-icon-button" aria-label={mobileCloseLabel} onClick={() => setMenuOpen(false)}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg></button></div>
           </div>
-        </>
-      )}
-    </>
+          <nav className="fi-nav-drawer__scroll" aria-label={menuLabel}>
+            <NavItems groups={groups} lang={lang} isActive={isActive} onNavigate={() => setMenuOpen(false)} partnerRoutes={partnerRoutes} />
+          </nav>
+          <div className="fi-nav-drawer__foot"><div className="fi-sidebar__foot"><span className={`fi-status-dot${dataToday ? ' is-fresh' : ''}`} aria-hidden="true"/><span className="fi-sidebar__foot-note">{footerLabel}</span><span className="fi-sidebar__foot-age">{dataToday ? copy(lang, 'À JOUR', 'UPDATED', 'محدّث') : '18+'}</span></div></div>
+        </aside>
+      </>}
+    </div>
   )
 }

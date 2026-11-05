@@ -14682,87 +14682,12 @@
       "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
     }
   ],
-  "vipPreview": [
-    {
-      "vip": true,
-      "id": "staderen-vs-olympiac-2026-11-04",
-      "home": "Stade Rennais",
-      "away": "Olympiacos",
-      "league": "UEFA Europa League",
-      "date": "2026-11-04",
-      "time": "15:30"
-    },
-    {
-      "vip": true,
-      "id": "fenerbah-vs-liverpoo-2026-11-04",
-      "home": "Fenerbahce",
-      "away": "Liverpool",
-      "league": "UEFA Champions League",
-      "date": "2026-11-04",
-      "time": "17:45"
-    },
-    {
-      "vip": true,
-      "id": "bristolc-vs-wolverha-2026-11-04",
-      "home": "Bristol City",
-      "away": "Wolverhampton Wanderers",
-      "league": "Championship",
-      "date": "2026-11-04",
-      "time": "20:00"
-    },
-    {
-      "vip": true,
-      "id": "kvkortri-vs-kvmechel-2026-11-04",
-      "home": "KV Kortrijk",
-      "away": "KV Mechelen",
-      "league": "Jupiler Pro League",
-      "date": "2026-11-04",
-      "time": "19:30"
-    },
-    {
-      "vip": true,
-      "id": "anderlec-vs-rbsalzbu-2026-11-05",
-      "home": "Anderlecht",
-      "away": "RB Salzburg",
-      "league": "UEFA Europa League",
-      "date": "2026-11-05",
-      "time": "17:45"
-    },
-    {
-      "vip": true,
-      "id": "celtavig-vs-unionstg-2026-11-05",
-      "home": "Celta Vigo",
-      "away": "Union St.-Gilloise",
-      "league": "UEFA Europa League",
-      "date": "2026-11-05",
-      "time": "20:00"
-    },
-    {
-      "vip": true,
-      "id": "agf-vs-braga-2026-11-05",
-      "home": "AGF",
-      "away": "Braga",
-      "league": "UEFA Conference League",
-      "date": "2026-11-05",
-      "time": "17:45"
-    },
-    {
-      "vip": true,
-      "id": "crystalp-vs-tsghoffe-2026-11-05",
-      "home": "Crystal Palace",
-      "away": "TSG Hoffenheim",
-      "league": "UEFA Europa League",
-      "date": "2026-11-05",
-      "time": "17:45"
-    }
-  ],
   "stats": {
     "avgReliability": 79.8,
     "totalAnalyzed": 190,
     "totalRejected": 27,
     "totalAccepted": 163,
-    "freeCount": 56,
-    "vipCount": 8
+    "freeCount": 56
   },
   "predictions": [
     {

@@ -35,23 +35,28 @@ describe('frontière publique des données VIP', () => {
     expect(publicPredictionPayload(payload).free[0]).toEqual(row)
   })
 
-  it('ne publie que le calendrier VIP sur une liste blanche, jamais de choix imbriqué', () => {
-    const safe = publicPredictionPayload({ free: [free, vip], predictions: [free, vip], vipPreview: [vip], vip: [vip], combos: [{ legs: [vip] }] })
+  it('retire entièrement les fixtures et choix VIP de tous les niveaux exportés', () => {
+    const safe = publicPredictionPayload({ free: [free, vip], predictions: [free, vip], vipPreview: [vip], vip: [vip], vipPredictions: [vip], stats: { freeCount: 1, vipCount: 1 }, combos: [{ legs: [vip] }] })
     expect(safe.free).toEqual([free])
     expect(safe.predictions).toEqual([free])
-    expect(safe.vipPreview).toEqual([{ vip: true, id: 'private', home: 'Private', away: 'Away', date: '2026-10-21' }])
+    expect(safe).not.toHaveProperty('vipPreview')
     expect(safe).not.toHaveProperty('vip')
+    expect(safe).not.toHaveProperty('vipPredictions')
+    expect(safe.stats).toEqual({ freeCount: 1 })
     expect(safe).not.toHaveProperty('combos')
-    expect(JSON.stringify(safe)).not.toContain('Private selection')
+    expect(JSON.stringify(safe)).not.toContain('Private')
+    expect(JSON.stringify(safe)).not.toContain('VIP')
   })
   it('nettoie aussi les archives et les combinés, de façon idempotente', () => {
     const root = workspace(), publicDir = path.join(root, 'public')
-    const payload = { free: [free], predictions: [free], vipPreview: [vip] }
+    const payload = { free: [free], predictions: [free], vipPreview: [vip], stats: { vipCount: 1 } }
     fs.writeFileSync(path.join(publicDir, 'predictions.json'), JSON.stringify(payload))
     fs.writeFileSync(path.join(publicDir, 'predictions-archive', '2026-10-21.json'), JSON.stringify(payload))
     fs.writeFileSync(path.join(publicDir, 'vip-combos.json'), JSON.stringify({ combos: [vip] }))
     expect(sanitizePublicData(publicDir)).toBe(3)
     expect(sanitizePublicData(publicDir)).toBe(0)
+    expect(fs.readFileSync(path.join(publicDir, 'predictions.json'), 'utf8')).not.toContain('vipPreview')
+    expect(fs.readFileSync(path.join(publicDir, 'predictions-archive', '2026-10-21.json'), 'utf8')).not.toContain('vipPreview')
     expect(fs.readFileSync(path.join(publicDir, 'predictions-archive', '2026-10-21.json'), 'utf8')).not.toContain('ai_exact_score')
     expect(JSON.parse(fs.readFileSync(path.join(publicDir, 'vip-combos.json'), 'utf8')).combos).toEqual([])
   })

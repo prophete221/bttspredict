@@ -13397,87 +13397,12 @@
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.43 · N 4.8 · 2 5.5"
     }
   ],
-  "vipPreview": [
-    {
-      "vip": true,
-      "id": "queenspa-vs-burnley-2026-11-03",
-      "home": "Queens Park Rangers",
-      "away": "Burnley",
-      "league": "Championship",
-      "date": "2026-11-03",
-      "time": "19:45"
-    },
-    {
-      "vip": true,
-      "id": "westbrom-vs-southamp-2026-11-03",
-      "home": "West Bromwich Albion",
-      "away": "Southampton",
-      "league": "Championship",
-      "date": "2026-11-03",
-      "time": "20:00"
-    },
-    {
-      "vip": true,
-      "id": "galatasa-vs-vfbstutt-2026-11-03",
-      "home": "Galatasaray",
-      "away": "VfB Stuttgart",
-      "league": "UEFA Champions League",
-      "date": "2026-11-03",
-      "time": "17:45"
-    },
-    {
-      "vip": true,
-      "id": "blackbur-vs-stokecit-2026-11-03",
-      "home": "Blackburn Rovers",
-      "away": "Stoke City",
-      "league": "Championship",
-      "date": "2026-11-03",
-      "time": "19:45"
-    },
-    {
-      "vip": true,
-      "id": "portsmou-vs-swanseac-2026-11-03",
-      "home": "Portsmouth",
-      "away": "Swansea City",
-      "league": "Championship",
-      "date": "2026-11-03",
-      "time": "19:45"
-    },
-    {
-      "vip": true,
-      "id": "birmingh-vs-millwall-2026-11-03",
-      "home": "Birmingham City",
-      "away": "Millwall",
-      "league": "Championship",
-      "date": "2026-11-03",
-      "time": "20:00"
-    },
-    {
-      "vip": true,
-      "id": "watford-vs-lincolnc-2026-11-03",
-      "home": "Watford",
-      "away": "Lincoln City",
-      "league": "Championship",
-      "date": "2026-11-03",
-      "time": "19:45"
-    },
-    {
-      "vip": true,
-      "id": "prestonn-vs-sheffiel-2026-11-03",
-      "home": "Preston North End",
-      "away": "Sheffield United",
-      "league": "Championship",
-      "date": "2026-11-03",
-      "time": "19:45"
-    }
-  ],
   "stats": {
     "avgReliability": 79.71,
     "totalAnalyzed": 197,
     "totalRejected": 27,
     "totalAccepted": 170,
-    "freeCount": 47,
-    "vipCount": 8
+    "freeCount": 47
   },
   "predictions": [
     {

@@ -5,13 +5,10 @@ import { notFound } from 'next/navigation'
 import { isLocale, LOCALE_META, type Locale, translationsFor } from '@/lib/i18n'
 import AnimatedTitle from '@/components/bttsbet/HeroWordmark'
 import VipButtons from '@/components/bttsbet/VipButtons'
-import { AFFILIATE } from '@/lib/constants'
 
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
 const FreePredictions = dynamic(() => import('@/components/bttsbet/FreePredictions'), { loading: () => null })
-const StickyCTABar = dynamic(() => import('@/components/bttsbet/StickyCTABar'), { loading: () => null })
-const PartnerSignupBand = dynamic(() => import('@/components/bttsbet/PartnerSignupBand'), { loading: () => null })
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale: value } = await params
@@ -31,7 +28,6 @@ export default async function LocalizedOver25TodayPage({ params }: { params: Pro
   const { locale: value } = await params
   if (!isLocale(value) || value === 'fr') notFound()
   const t = translationsFor(value)
-  const isEn = value === 'en'
   const isAr = value === 'ar'
   return (
     <div className="page-design page-design--over25 min-h-screen bg-[#0B0F14] flex flex-col text-[#F2F6FA]">
@@ -50,33 +46,11 @@ export default async function LocalizedOver25TodayPage({ params }: { params: Pro
           </div>
         </section>
 
-        {/* Conversion strip — no SEO title change, only conversion CTA */}
-        <section className="over25-partner-strip max-w-5xl mx-auto px-4 pb-6" aria-label="Partner promo codes">
-          <div className="rounded-2xl p-5 border" style={{ backgroundColor: '#101a26', borderColor: 'rgba(27, 110, 243, 0.35)' }}>
-            <p className="text-sm sm:text-base font-bold mb-1" style={{ color: '#F2F6FA' }}>
-              {isAr ? 'رموز الشركاء — 300% + 100 لفة مجانية' : isEn ? 'Partner promo codes — 300% + 100 free spins' : 'Codes promo — 300% + 100 free spins'}
-            </p>
-            <p className="text-xs text-[#9DABBB] mb-4">
-              {isAr ? 'سجّل عبر رابطنا، أدخل الرمز بدقة. 18+.' : isEn ? 'Sign up via our link and enter the exact code. 18+.' : 'Inscris-toi via notre lien et entre le code exact. 18+.'}
-            </p>
-            <div className="grid gap-2 sm:grid-cols-2">
-              <a href={AFFILIATE.oneXbet} target="_blank" rel="sponsored nofollow noopener noreferrer" data-cta="over25-signup-1xbet" className="rounded-xl py-3 px-4 text-center text-sm font-bold" style={{ backgroundColor: '#1B6EF3', color: '#FFFFFF' }}>
-                {isAr ? 'سجّل 1xbet · Vipbtts' : isEn ? 'Sign up 1xbet · Vipbtts' : 'S’inscrire 1xbet · Vipbtts'}
-              </a>
-              <a href={AFFILIATE.linebet} target="_blank" rel="sponsored nofollow noopener noreferrer" data-cta="over25-signup-linebet" className="rounded-xl py-3 px-4 text-center text-sm font-bold" style={{ backgroundColor: '#2F7DFF', color: '#FFFFFF' }}>
-                {isAr ? 'سجّل Linebet · VISION221' : isEn ? 'Sign up Linebet · VISION221' : 'S’inscrire Linebet · VISION221'}
-              </a>
-            </div>
-          </div>
-        </section>
-
-        <PartnerSignupBand locale={value as Locale} />
         <section className="over25-results-section page-design__feed max-w-5xl mx-auto px-4 pb-12">
           <FreePredictions />
         </section>
       </main>
       <Footer />
-      <StickyCTABar />
     </div>
   )
 }

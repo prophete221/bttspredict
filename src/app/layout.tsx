@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import dynamic from "next/dynamic";
 import localFont from "next/font/local";
 import "./globals.css";
+import "./football-intelligence.css";
+import ApplicationNavigationShell from "@/components/bttsbet/ApplicationNavigationShell";
 import LegacyCredentialCleanup from "@/components/bttsbet/LegacyCredentialCleanup";
 
 const BottomNavigation = dynamic(() => import("@/components/bttsbet/BottomNavigation"), { loading: () => null });
@@ -16,23 +18,22 @@ const GiftPopup = dynamic(() => import("@/components/bttsbet/GiftPopup"), { load
 //
 // Files downloaded from fonts.googleapis.com (latin subset) and stored locally.
 // Design v2 : vrais poids chargés — plus de faux gras (synthetic bold) partout.
-// Inter & JetBrains Mono sont servis en fontes VARIABLES (1 fichier = tous les poids).
-const poppins = localFont({
-  variable: "--font-display",
-  src: [
-    { path: "./fonts/poppins-400.woff2", weight: "400", style: "normal" },
-    { path: "./fonts/poppins-500.woff2", weight: "500", style: "normal" },
-    { path: "./fonts/poppins-600.woff2", weight: "600", style: "normal" },
-    { path: "./fonts/poppins-700.woff2", weight: "700", style: "normal" },
-  ],
-  display: 'swap',
-});
+// Inter sert le latin; Noto Sans Arabic est embarquée sous SIL OFL 1.1 pour les glyphes arabes.
 
 const inter = localFont({
   variable: "--font-body",
   src: "./fonts/inter-var.woff2",
   display: 'swap',
   weight: '400 700',
+});
+
+const notoArabic = localFont({
+  variable: "--font-arabic",
+  src: [
+    { path: "./fonts/NotoSansArabic-Regular.ttf", weight: "400", style: "normal" },
+    { path: "./fonts/NotoSansArabic-Bold.ttf", weight: "700", style: "normal" },
+  ],
+  display: 'swap',
 });
 
 const jetbrainsMono = localFont({
@@ -112,13 +113,13 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0B0F14",
+  themeColor: "#001E28",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
   minimumScale: 1,
   viewportFit: "cover",
-  colorScheme: "dark",
+  colorScheme: "light",
 };
 
 export default function RootLayout({
@@ -127,7 +128,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className="dark" suppressHydrationWarning>
+    <html lang="fr" suppressHydrationWarning>
       <head>
         <meta name="format-detection" content="telephone=no" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -190,15 +191,15 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${poppins.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased`}
+        className={`${inter.variable} ${notoArabic.variable} ${jetbrainsMono.variable} antialiased`}
       >
         <LegacyCredentialCleanup />
         <AnalyticsLoader />
-        {children}
+        <ApplicationNavigationShell>{children}</ApplicationNavigationShell>
         <BottomNavigation />
         <CookieConsent />
         <GiftPopup />
-        <div aria-hidden="true" className="lg:hidden" style={{ height: 'calc(64px + env(safe-area-inset-bottom, 0px))' }} />
+        <div aria-hidden="true" className="lg:hidden" style={{ height: 'calc(78px + env(safe-area-inset-bottom, 0px))' }} />
       </body>
     </html>
   );

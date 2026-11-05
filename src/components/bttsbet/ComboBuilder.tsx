@@ -170,13 +170,18 @@ export default function ComboBuilder({ items, lang }: { items: ComboSource[]; la
   }
 
   return (
-    <div className="combox rounded-2xl border border-[#223041] bg-gradient-to-b from-[#141C25] to-[#10161D] p-4 sm:p-5 mb-6" data-component="combo-builder">
-      {/* En-tête */}
-      <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-3">
-        <span className="text-[11px] font-bold uppercase tracking-wider text-[#2F7DFF]">{t.eyebrow}</span>
-        <h3 className="text-lg font-bold text-[#F2F6FA]" style={{ fontFamily: 'Poppins, sans-serif' }}>{t.title}</h3>
-      </div>
-      <p className="text-xs text-[#9DABBB] mb-4 leading-relaxed">{t.subtitle}</p>
+    <details className="combox rounded-2xl border border-[#223041] bg-gradient-to-b from-[#141C25] to-[#10161D] p-3 sm:p-4 mb-3" data-component="combo-builder" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
+      <summary className="cursor-pointer rounded-lg text-left text-[#F2F6FA] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#63C6D7]">
+        <span className="flex items-center justify-between gap-3">
+          <span className="text-sm sm:text-base font-bold">
+            {lang === 'fr' ? 'Préparer un combiné' : lang === 'en' ? 'Build a combo' : 'إعداد تركيبة'}
+          </span>
+          <span className="shrink-0 text-xs text-[#75CDD2]">
+            {lang === 'fr' ? 'Options' : lang === 'en' ? 'Options' : 'الإعدادات'}
+          </span>
+        </span>
+      </summary>
+      <div className="pt-3">
 
       {/* Contrôles : cote cible + nombre de matchs */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
@@ -268,6 +273,7 @@ export default function ComboBuilder({ items, lang }: { items: ComboSource[]; la
           <p className="text-[10px] text-[#5B6B7C] mt-2">{t.minProbLabel} : ≥ 65 % · {t.selections} : {candidates.length}</p>
         </div>
       )}
-    </div>
+      </div>
+    </details>
   )
 }

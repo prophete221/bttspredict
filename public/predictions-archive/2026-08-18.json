@@ -748,14 +748,12 @@
       "awayLambda": 1.25
     }
   ],
-  "vipPreview": [],
   "stats": {
     "avgReliability": 72.23,
     "totalAnalyzed": 75,
     "totalRejected": 0,
     "totalAccepted": 75,
-    "freeCount": 12,
-    "vipCount": 8
+    "freeCount": 12
   },
   "predictions": [
     {

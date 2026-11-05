@@ -13597,96 +13597,12 @@
       "status": "PENDING"
     }
   ],
-  "vipPreview": [
-    {
-      "vip": true,
-      "id": "fiorenti-vs-atalanta-2026-10-29",
-      "home": "Fiorentina",
-      "away": "Atalanta",
-      "league": "Serie A",
-      "date": "2026-10-29",
-      "time": "19:45"
-    },
-    {
-      "vip": true,
-      "id": "frosinon-vs-lecce-2026-10-29",
-      "home": "Frosinone",
-      "away": "Lecce",
-      "league": "Serie A",
-      "date": "2026-10-29",
-      "time": "17:30"
-    },
-    {
-      "vip": true,
-      "id": "stlouisc-vs-portland-2026-10-29",
-      "home": "St. Louis CITY SC",
-      "away": "Portland Timbers",
-      "league": "MLS",
-      "date": "2026-10-29",
-      "time": "00:30"
-    },
-    {
-      "vip": true,
-      "id": "svelvers-vs-mainz-2026-10-30",
-      "home": "SV Elversberg",
-      "away": "Mainz",
-      "league": "Bundesliga",
-      "date": "2026-10-30",
-      "time": "19:30"
-    },
-    {
-      "vip": true,
-      "id": "zultewar-vs-clubbrug-2026-10-30",
-      "home": "Zulte-Waregem",
-      "away": "Club Brugge",
-      "league": "Jupiler Pro League",
-      "date": "2026-10-30",
-      "time": "19:45"
-    },
-    {
-      "vip": true,
-      "id": "arminiab-vs-tsveintr-2026-10-30",
-      "home": "Arminia Bielefeld",
-      "away": "TSV Eintracht Braunschweig",
-      "league": "2. Bundesliga",
-      "date": "2026-10-30",
-      "time": "17:30"
-    },
-    {
-      "vip": true,
-      "id": "brentfor-vs-nottingh-2026-10-31",
-      "home": "Brentford",
-      "away": "Nottingham Forest",
-      "league": "Premier League",
-      "date": "2026-10-31",
-      "time": "15:00"
-    },
-    {
-      "vip": true,
-      "id": "levante-vs-atlticom-2026-10-31",
-      "home": "Levante",
-      "away": "Atlético Madrid",
-      "league": "LaLiga",
-      "date": "2026-10-31",
-      "time": "13:00"
-    },
-    {
-      "vip": true,
-      "id": "bologna-vs-monza-2026-10-31",
-      "home": "Bologna",
-      "away": "Monza",
-      "league": "Serie A",
-      "date": "2026-10-31",
-      "time": "14:00"
-    }
-  ],
   "stats": {
     "avgReliability": 79.75,
     "totalAnalyzed": 165,
     "totalRejected": 2,
     "totalAccepted": 163,
-    "freeCount": 56,
-    "vipCount": 8
+    "freeCount": 56
   },
   "predictions": [
     {

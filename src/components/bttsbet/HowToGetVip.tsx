@@ -58,7 +58,7 @@ const STEPS = [
 const VIP_FAQ = [
   {
     q: "Quelle est la durée d'accès VIP ?",
-    a: "L'accès VIP est valable 30 jours à partir de l'activation. Tu peux le renouveler en gardant ton compte 1xbet/Linebet actif avec le code vipbtts ou VISION221.",
+    a: "L'accès VIP est valable 30 jours à partir de l'activation. Tu peux le renouveler en gardant ton compte 1xbet/Linebet actif avec le code vipbtts ou VISION221",
   },
   {
     q: "Qu'est-ce qui est inclus dans le VIP ?",

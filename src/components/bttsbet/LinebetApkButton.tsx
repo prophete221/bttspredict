@@ -21,11 +21,10 @@ export default function LinebetApkButton() {
         color: '#2F7DFF',
       }}
     >
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-        <polyline points="7 10 12 15 17 10" />
-        <line x1="12" y1="15" x2="12" y2="3" />
-      </svg>
+      <img src="/logos/google-play.svg" alt="" aria-hidden="true" width="18" height="18" className="h-5 w-5 shrink-0 object-contain" />
+      <span className="grid h-6 w-6 shrink-0 place-items-center rounded bg-white p-0.5">
+        <img src="/logos/linebet-logo.jpg" alt="" width="20" height="20" className="h-5 w-5 object-contain" />
+      </span>
       Télécharger l'APK Linebet (Android)
     </a>
   )

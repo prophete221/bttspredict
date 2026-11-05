@@ -4,6 +4,7 @@ import { cleanup, fireEvent, render } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { AFFILIATE, BOOKMAKERS } from '@/lib/constants'
 import PartnerSignupBand from '@/components/bttsbet/PartnerSignupBand'
+import BookmakerCardLinks from '@/components/bttsbet/BookmakerCardLinks'
 import PremiumButton from '@/components/bttsbet/PremiumButton'
 
 const affiliateLinks = {
@@ -46,7 +47,7 @@ describe('real partner CTA event paths', () => {
       const link = container.querySelector<HTMLAnchorElement>(`[data-cta="partner-band-${partner.id}"]`)
       expect(link, `CTA manquant pour ${partner.id}`).not.toBeNull()
       expect(link?.getAttribute('href')).toBe(affiliateLinks[partner.id])
-      expect(link?.textContent).toContain(partner.promoCode)
+      expect(link?.textContent).not.toContain(partner.promoCode)
       gtag.mockClear()
 
       fireEvent.click(link as HTMLAnchorElement)
@@ -57,6 +58,28 @@ describe('real partner CTA event paths', () => {
         affiliate_action: 'signup_cta_click',
         affiliate_placement: `partner-band-${partner.id}`,
       }))
+    }
+  })
+
+  it('renders official bookmaker logos on prediction cards and tracks each actual click once', () => {
+    const { container } = render(<BookmakerCardLinks locale="fr" placement="free-prediction-card" />)
+
+    for (const partner of BOOKMAKERS) {
+      const link = container.querySelector<HTMLAnchorElement>(`[data-cta="free-prediction-card-${partner.id}"]`)
+      expect(link, `CTA manquant pour ${partner.id}`).not.toBeNull()
+      expect(link?.getAttribute('href')).toBe(partner.signupLink)
+      expect(link?.querySelector('img')?.getAttribute('src')).toBe(partner.logoFull)
+      expect(link?.textContent).not.toContain(partner.promoCode)
+
+      fireEvent.click(link as HTMLAnchorElement)
+
+      expect(gtag, `un clic doit produire exactement un hit (${partner.id})`).toHaveBeenCalledTimes(1)
+      expect(gtag).toHaveBeenCalledWith('event', 'affiliate_funnel_action', expect.objectContaining({
+        affiliate_partner: partner.id,
+        affiliate_action: 'signup_cta_click',
+        affiliate_placement: 'free-prediction-card',
+      }))
+      gtag.mockClear()
     }
   })
 
@@ -71,13 +94,13 @@ describe('real partner CTA event paths', () => {
           onClick={callback}
           data-cta="animated-linebet-test"
         >
-          Linebet · VISION221
+          Linebet · Visiter
         </PremiumButton>
       </StrictMode>,
     )
     const link = container.querySelector<HTMLAnchorElement>('[data-cta="animated-linebet-test"]')
     expect(link?.getAttribute('href')).toBe(AFFILIATE.linebet)
-    expect(link?.textContent).toContain('VISION221')
+    expect(link?.textContent).toContain('Linebet')
     expect(gtag).not.toHaveBeenCalled()
 
     fireEvent.pointerOver(link as HTMLAnchorElement)

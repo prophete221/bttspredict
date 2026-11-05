@@ -1,4 +1,4 @@
-import { getDakarMatchStatus } from './dakar-date'
+import { getDakarDateString, getDakarMatchStatus } from './dakar-date'
 
 export type MatchPageCandidate = {
   slug: string
@@ -15,19 +15,20 @@ export function assertUniqueMatchSlugs(slugs: readonly string[]): void {
   }
 }
 
-/** Build only pages for matches that have not finished in Africa/Dakar time. */
+/** Build upcoming/live routes plus today's fixtures still linked from Match Center. */
 export function getDynamicMatchSlugs(
   matches: readonly MatchPageCandidate[],
   now = new Date(),
 ): string[] {
   const slugs = matches.map(match => match.slug)
   assertUniqueMatchSlugs(slugs)
+  const today = getDakarDateString(now)
   return matches
-    .filter(match => getDakarMatchStatus(match.date, match.time, now) !== 'finished')
+    .filter(match => match.date === today || getDakarMatchStatus(match.date, match.time, now) !== 'finished')
     .map(match => match.slug)
 }
 
-/** Localized routes mirror the same active-match set; French uses the root route. */
+/** Localized routes mirror the same published-match set; French uses the root route. */
 export function getLocalizedMatchStaticParams(
   matches: readonly MatchPageCandidate[],
   locales: readonly string[],

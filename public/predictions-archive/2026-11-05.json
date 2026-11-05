@@ -7876,87 +7876,12 @@
       "status": "PENDING"
     }
   ],
-  "vipPreview": [
-    {
-      "vip": true,
-      "id": "willemii-vs-peczwoll-2026-11-06",
-      "home": "Willem II",
-      "away": "PEC Zwolle",
-      "league": "Eredivisie",
-      "date": "2026-11-06",
-      "time": "19:00"
-    },
-    {
-      "vip": true,
-      "id": "everton-vs-coventry-2026-11-06",
-      "home": "Everton",
-      "away": "Coventry City",
-      "league": "Premier League",
-      "date": "2026-11-06",
-      "time": "20:00"
-    },
-    {
-      "vip": true,
-      "id": "fcfamali-vs-arouca-2026-11-06",
-      "home": "FC Famalicao",
-      "away": "Arouca",
-      "league": "Liga Portugal",
-      "date": "2026-11-06",
-      "time": "20:45"
-    },
-    {
-      "vip": true,
-      "id": "venezia-vs-udinese-2026-11-06",
-      "home": "Venezia",
-      "away": "Udinese",
-      "league": "Serie A",
-      "date": "2026-11-06",
-      "time": "19:45"
-    },
-    {
-      "vip": true,
-      "id": "philadel-vs-torontof-2026-11-07",
-      "home": "Philadelphia Union",
-      "away": "Toronto FC",
-      "league": "MLS",
-      "date": "2026-11-07",
-      "time": "21:00"
-    },
-    {
-      "vip": true,
-      "id": "ajauxerr-vs-parisfc-2026-11-07",
-      "home": "AJ Auxerre",
-      "away": "Paris FC",
-      "league": "Ligue 1",
-      "date": "2026-11-07",
-      "time": "18:00"
-    },
-    {
-      "vip": true,
-      "id": "stjohnst-vs-dundee-2026-11-07",
-      "home": "St Johnstone",
-      "away": "Dundee",
-      "league": "Scottish Premiership",
-      "date": "2026-11-07",
-      "time": "15:00"
-    },
-    {
-      "vip": true,
-      "id": "redbulln-vs-atlantau-2026-11-07",
-      "home": "Red Bull New York",
-      "away": "Atlanta United FC",
-      "league": "MLS",
-      "date": "2026-11-07",
-      "time": "21:00"
-    }
-  ],
   "stats": {
     "avgReliability": 79.87,
     "totalAnalyzed": 158,
     "totalRejected": 23,
     "totalAccepted": 135,
-    "freeCount": 37,
-    "vipCount": 8
+    "freeCount": 37
   },
   "predictions": [
     {

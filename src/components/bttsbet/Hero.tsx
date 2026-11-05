@@ -5,8 +5,10 @@ import { useScrollAnimation } from '@/hooks/useAnimations'
 import { useLanguage } from './LanguageSwitcher'
 import { translationsFor, type Locale, localizedPath } from '@/lib/i18n'
 import { generateMatchSlug } from '@/lib/match-slug'
+import { matchMetricLabels } from '@/lib/matchMetricLabels'
 import AnimatedTitle from './HeroWordmark'
 import MovingGradientButton from './MovingGradientButton'
+import BookmakerCardLinks from './BookmakerCardLinks'
 import { getDakarDayDiff, hasDakarKickoffPassed } from '@/lib/dakar-date'
 
 /**
@@ -99,6 +101,7 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
   const { lang: detectedLang } = useLanguage()
   const lang = initialLocale ?? detectedLang
   const t = translationsFor(lang)
+  const metricLabels = matchMetricLabels(lang)
 
   const [featured, setFeatured] = useState<FeedItem | null>(null)
   const [ready, setReady] = useState(false)
@@ -288,20 +291,23 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
                     </div>
                   )}
 
-                  {(m.xgTotal !== undefined || m.formBTTS !== undefined || m.reliabilityScore !== undefined) && (
+                  {(m.xgTotal !== undefined || m.formBTTS !== undefined) && (
                     <div className="hp-live__data">
                       {m.xgHome !== undefined && m.xgAway !== undefined && (
-                        <span><i>{t.home2.mcXg}</i> {num(m.xgHome)}/{num(m.xgAway)}</span>
+                        <span title={metricLabels.teamGoalsDescription}><i>{metricLabels.teamGoals}</i> {num(m.xgHome)}/{num(m.xgAway)}</span>
                       )}
                       {m.xgTotal !== undefined && (
-                        <span><i>Σ xG</i> {num(m.xgTotal, 1)}</span>
+                        <span title={metricLabels.combinedGoalsDescription}><i>{metricLabels.combinedGoals}</i> {num(m.xgTotal, 1)}</span>
                       )}
                       {m.formBTTS !== undefined && (
-                        <span><i>{t.home2.mcForm}</i> {m.formBTTS}%</span>
+                        <span title={metricLabels.recentBttsDescription}><i>{metricLabels.recentBtts}</i> {m.formBTTS}%</span>
                       )}
-                      {m.reliabilityScore !== undefined && (
-                        <span><i>{t.home2.mcReliability}</i> {num(m.reliabilityScore, 1)}%</span>
-                      )}
+                    </div>
+                  )}
+
+                  {(picks.length > 0 || m.ai_exact_score) && (
+                    <div className="hp-live__bookmakers">
+                      <BookmakerCardLinks locale={lang} placement="hero-featured-match" />
                     </div>
                   )}
 

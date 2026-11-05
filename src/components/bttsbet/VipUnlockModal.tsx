@@ -370,7 +370,7 @@ export default function VipUnlockModal({
 
                 {/* WhatsApp support */}
                 <a
-                  href={`https://wa.me/15406704172?text=${encodeURIComponent("Bonjour, je souhaite demander la validation de mon accès VIP avec le code VISION221. Merci de confirmer les conditions applicables.")}`}
+                  href={`https://wa.me/15406704172?text=${encodeURIComponent("Bonjour, je souhaite demander la validation de mon accès VIP avec le code VISION221 et merci de confirmer les conditions applicables.")}`}
                   target="_blank"
                   rel="noopener"
                   className="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg text-xs font-bold mb-3"

@@ -3,15 +3,6 @@ export function isVipRow(row) {
   return row?.vip === true || row?.isVip === true || String(row?.tier || '').toUpperCase() === 'VIP'
 }
 
-const FIXTURE_FIELDS = ['id', 'home', 'away', 'league', 'date', 'time', 'kickoff']
-export function publicVipFixture(row) {
-  const fixture = { vip: true }
-  for (const field of FIXTURE_FIELDS) {
-    if (typeof row?.[field] === 'string') fixture[field] = row[field]
-  }
-  return fixture
-}
-
 const LEGACY_AI_CHOICES = [
   'ai_exact_score', 'exact_score_prob', 'ai_btts_prob', 'ai_over25_prob',
   'ai_winner', 'ai_winner_prob', 'ai_team_over15', 'ai_double_chance', 'ai_main_prediction', 'ai_risk',
@@ -38,28 +29,28 @@ function withoutLegacyAiChoices(row) {
 }
 
 export function publicPredictionPayload(payload, { retireLegacyAiNumbers = false } = {}) {
-  if (Array.isArray(payload)) return payload.filter(row => !isVipRow(row))
+  if (Array.isArray(payload)) return payload.filter(row => !isVipRow(row)).map(stripVipFields)
   if (!payload || typeof payload !== 'object') return payload
-  const result = { ...payload }
-  const vipRows = [payload.vip, payload.vipPredictions, payload.vipPreview]
-    .filter(Array.isArray).flat().filter(isVipRow)
-  const seen = new Set()
-  const previews = vipRows.filter(row => {
-    const key = row.id || `${row.home}|${row.away}|${row.date}`
-    if (seen.has(key)) return false
-    seen.add(key)
-    return true
-  }).map(publicVipFixture)
-  if (['vip', 'vipPredictions', 'vipPreview'].some(field => field in payload)) result.vipPreview = previews
-  delete result.vip
-  delete result.vipPredictions
-  // Ces conteneurs ne sont jamais distribués par le site statique.
-  delete result.combos
+  const result = stripVipFields(payload)
   for (const field of ['free', 'predictions']) {
-    if (Array.isArray(payload[field])) result[field] = payload[field].filter(row => !isVipRow(row) && (!retireLegacyAiNumbers || sufficientRecordedEvidence(row))).map(row => retireLegacyAiNumbers ? withoutLegacyAiChoices(row) : row)
+    if (Array.isArray(payload[field])) result[field] = payload[field].filter(row => !isVipRow(row) && (!retireLegacyAiNumbers || sufficientRecordedEvidence(row))).map(row => stripVipFields(retireLegacyAiNumbers ? withoutLegacyAiChoices(row) : row))
   }
   if (retireLegacyAiNumbers && Array.isArray(result.free) && result.stats) {
     result.stats = { ...result.stats, freeCount: result.free.length }
   }
   return result
+}
+
+// Le verrou CSS/JS n'est jamais un contrôle d'accès. Un export statique ne doit
+// contenir aucune donnée VIP, même dans les archives, les compteurs ou les objets imbriqués.
+function stripVipFields(value) {
+  if (Array.isArray(value)) return value.filter(row => !isVipRow(row)).map(stripVipFields)
+  if (!value || typeof value !== 'object') return value
+  const safe = {}
+  for (const [key, child] of Object.entries(value)) {
+    if (/vip|combo/i.test(key)) continue
+    if (key === 'tier' && String(child).toUpperCase() === 'VIP') continue
+    safe[key] = stripVipFields(child)
+  }
+  return safe
 }

@@ -57,7 +57,7 @@ function getDailyCote(sportId: string, min: number, max: number): number {
 }
 
 const WHATSAPP_NUMBER = '+15406704172'
-const WHATSAPP_MSG = "Bonjour, j'ai confirmé mon inscription et mon dépôt sur Linebet/888starz avec le code VISION221. Je veux débloquer mon accès VIP."
+const WHATSAPP_MSG = "Bonjour, j'ai confirmé mon inscription et mon dépôt sur Linebet/888starz avec le code VISION221 et je veux débloquer mon accès VIP."
 
 export default function VipSports() {
   const [ref, isVisible] = useScrollAnimation()

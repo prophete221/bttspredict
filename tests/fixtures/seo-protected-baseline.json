@@ -1,0 +1,105 @@
+{
+  "home_fr": {
+    "path": "/index.html",
+    "title": "BTTSPredict — Pronostics BTTS du jour et Over 2,5",
+    "description": "Pronostics BTTS du jour sur des matchs internationaux, avec sélections horodatées, historique public et méthode documentée. 18+.",
+    "canonical": "https://bttspredict.com",
+    "hreflang": [
+      [
+        "ar",
+        "https://bttspredict.com/ar"
+      ],
+      [
+        "en",
+        "https://bttspredict.com/en"
+      ],
+      [
+        "fr",
+        "https://bttspredict.com"
+      ],
+      [
+        "x-default",
+        "https://bttspredict.com"
+      ]
+    ]
+  },
+  "home_en": {
+    "path": "/en.html",
+    "title": "BTTS Predictions Today &amp; Over 2.5 | BTTSPredict",
+    "description": "BTTS, Over 2.5 and correct-score analysis, published before kick-off and tracked to the verified result.",
+    "canonical": "https://bttspredict.com/en",
+    "hreflang": [
+      [
+        "ar",
+        "https://bttspredict.com/ar"
+      ],
+      [
+        "en",
+        "https://bttspredict.com/en"
+      ],
+      [
+        "fr",
+        "https://bttspredict.com"
+      ],
+      [
+        "x-default",
+        "https://bttspredict.com"
+      ]
+    ]
+  },
+  "btts_over25_en": {
+    "path": "/en/btts-and-over-2-5-predictions-today.html",
+    "title": "BTTS and Over 2.5 Predictions Today | BTTSPredict",
+    "description": "Combined BTTS and Over 2.5 predictions for international matches.",
+    "canonical": "https://bttspredict.com/en/btts-and-over-2-5-predictions-today",
+    "hreflang": []
+  },
+  "over25_today_en": {
+    "path": "/en/over-2-5/predictions/today.html",
+    "title": "Over 2.5 Predictions Today — Goal Analysis | BTTSPredict",
+    "description": "Over 2.5 goals predictions for international football matches, with statistical analysis and daily updates. No future result is guaranteed. 18+.",
+    "canonical": "https://bttspredict.com/en/over-2-5/predictions/today",
+    "hreflang": [
+      [
+        "ar",
+        "https://bttspredict.com/ar/over-2-5/predictions/today"
+      ],
+      [
+        "en",
+        "https://bttspredict.com/en/over-2-5/predictions/today"
+      ],
+      [
+        "fr",
+        "https://bttspredict.com/over-2-5/predictions/today"
+      ],
+      [
+        "x-default",
+        "https://bttspredict.com/over-2-5/predictions/today"
+      ]
+    ]
+  },
+  "ai_score_en": {
+    "path": "/en/ai-correct-score-predictions.html",
+    "title": "AI Correct Score Predictions — Exact Scores | BTTSPredict",
+    "description": "Exact-score probabilities calculated with a Poisson model. Statistical estimates, not guarantees. 18+.",
+    "canonical": "https://bttspredict.com/en/ai-correct-score-predictions",
+    "hreflang": [
+      [
+        "ar",
+        "https://bttspredict.com/ar/ai-correct-score-predictions"
+      ],
+      [
+        "en",
+        "https://bttspredict.com/en/ai-correct-score-predictions"
+      ],
+      [
+        "fr-SN",
+        "https://bttspredict.com/ai-correct-score-predictions"
+      ],
+      [
+        "x-default",
+        "https://bttspredict.com/ai-correct-score-predictions"
+      ]
+    ]
+  }
+}

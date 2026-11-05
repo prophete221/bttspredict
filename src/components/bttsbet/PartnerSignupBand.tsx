@@ -5,10 +5,10 @@ import { trackAffiliateAction } from '@/lib/affiliateTracking'
 import { localizedPath, type Locale } from '@/lib/i18n'
 
 const PARTNER_CHOICES = [
-  { id: '1xbet' as const, name: '1xBet', href: AFFILIATE.oneXbet, code: BOOKMAKERS.find((item) => item.id === '1xbet')?.promoCode ?? '' },
-  { id: 'linebet' as const, name: 'Linebet', href: AFFILIATE.linebet, code: BOOKMAKERS.find((item) => item.id === 'linebet')?.promoCode ?? '' },
-  { id: 'melbet' as const, name: 'MelBet', href: AFFILIATE.melbet, code: BOOKMAKERS.find((item) => item.id === 'melbet')?.promoCode ?? '' },
-  { id: '888starz' as const, name: '888Starz', href: AFFILIATE.star888, code: BOOKMAKERS.find((item) => item.id === '888starz')?.promoCode ?? '' },
+  { id: '1xbet' as const, name: '1xBet', href: AFFILIATE.oneXbet, logo: BOOKMAKERS.find((item) => item.id === '1xbet')?.logoFull ?? '/logos/1xbet-logo.png' },
+  { id: 'linebet' as const, name: 'Linebet', href: AFFILIATE.linebet, logo: BOOKMAKERS.find((item) => item.id === 'linebet')?.logoFull ?? '/logos/linebet-logo.jpg' },
+  { id: 'melbet' as const, name: 'MelBet', href: AFFILIATE.melbet, logo: BOOKMAKERS.find((item) => item.id === 'melbet')?.logoFull ?? '/logos/melbet-logo.jpg' },
+  { id: '888starz' as const, name: '888Starz', href: AFFILIATE.star888, logo: BOOKMAKERS.find((item) => item.id === '888starz')?.logoFull ?? '/logos/888starz-logo.jpg' },
 ] as const
 
 /** Bandeau d’affiliation compact, hiérarchie éditoriale distincte des pages VIP. */
@@ -43,7 +43,10 @@ export default function PartnerSignupBand({ locale = 'en' }: { locale?: Locale }
                 ? { background: 'linear-gradient(135deg, #D5FF7D, #B9E759)', color: '#10150B', boxShadow: '0 8px 22px rgba(197,243,106,0.16)' }
                 : { background: 'rgba(255,255,255,0.045)', border: '1px solid rgba(255,255,255,0.12)', color: '#E7ECE8' }}
             >
-              <span className="text-sm font-bold">{partner.name} · <code dir="ltr" style={{ font: 'inherit', textTransform: 'none' }}>{partner.code}</code></span>
+              <span className="inline-flex items-center gap-2 text-sm font-bold">
+                <span className="grid h-7 w-7 place-items-center rounded bg-white p-0.5"><img src={partner.logo} alt="" width="24" height="24" className="h-6 w-6 object-contain" /></span>
+                {partner.name}
+              </span>
               <span className="mt-0.5 text-[11px] opacity-80">{signup}</span>
             </a>
           ))}
@@ -60,7 +63,8 @@ export default function PartnerSignupBand({ locale = 'en' }: { locale?: Locale }
               data-cta={`partner-band-${partner.id}`}
               className="flex min-h-10 items-center justify-center gap-1 rounded-lg border border-white/10 bg-white/[0.025] px-2 py-2 text-center text-[11px] font-semibold text-[#AEB9B5] hover:border-[#C5F36A]/40 hover:text-[#F3F6EE]"
             >
-              <span>{partner.name}</span><code dir="ltr" style={{ fontFamily: 'ui-monospace, monospace', textTransform: 'none' }}>{partner.code}</code>
+              <span className="grid h-6 w-6 place-items-center rounded bg-white p-0.5"><img src={partner.logo} alt="" width="20" height="20" className="h-5 w-5 object-contain" /></span>
+              <span>{partner.name}</span>
             </a>
           ))}
         </div>

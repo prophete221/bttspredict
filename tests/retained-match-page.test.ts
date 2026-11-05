@@ -7,7 +7,7 @@ import {
   getDynamicMatchSlugs,
   getLocalizedMatchStaticParams,
 } from '@/lib/match-page-ssg'
-import { getDakarMatchStatus } from '@/lib/dakar-date'
+import { getDakarDateString, getDakarMatchStatus } from '@/lib/dakar-date'
 import { MatchVerificationRegistrySchema } from '@/lib/match-verification-registry'
 import { loadAllMatches } from '@/lib/matches'
 import { translationsFor } from '@/lib/i18n'
@@ -129,7 +129,7 @@ const TEST_NOW = new Date('2026-11-04T10:00:00.000Z')
 const dynamicSlugs = getDynamicMatchSlugs(sourceMatches, TEST_NOW)
 
 describe('Match static export cleanup', () => {
-  it('excludes finished matches and keeps upcoming or live matches using Dakar time', () => {
+  it('keeps today’s finished fixtures for linked details and excludes older finished matches', () => {
     const candidates = [
       { slug: 'yesterday-vs-team-2026-11-03', date: '2026-11-03', time: '19:00' },
       { slug: 'today-finished-vs-team-2026-11-04', date: '2026-11-04', time: '06:00' },
@@ -140,6 +140,7 @@ describe('Match static export cleanup', () => {
     ]
     expect(getDakarMatchStatus('2026-11-04', '09:00', TEST_NOW)).toBe('live')
     expect(getDynamicMatchSlugs(candidates, TEST_NOW)).toEqual([
+      'today-finished-vs-team-2026-11-04',
       'today-live-vs-team-2026-11-04',
       'today-upcoming-vs-team-2026-11-04',
       'tomorrow-vs-team-2026-11-05',
@@ -147,11 +148,11 @@ describe('Match static export cleanup', () => {
     ])
   })
 
-  it('keeps current source slugs unique and creates localized params only for active matches', () => {
+  it('keeps current source slugs unique and creates localized params for linked and active matches', () => {
     const sourceSlugs = sourceMatches.map(match => match.slug)
     expect(new Set(sourceSlugs).size).toBe(sourceSlugs.length)
     expect(dynamicSlugs).toEqual(sourceMatches
-      .filter(match => getDakarMatchStatus(match.date, match.time, TEST_NOW) !== 'finished')
+      .filter(match => match.date === getDakarDateString(TEST_NOW) || getDakarMatchStatus(match.date, match.time, TEST_NOW) !== 'finished')
       .map(match => match.slug))
     expect(() => getDynamicMatchSlugs([...sourceMatches, sourceMatches[0]], TEST_NOW)).toThrow(/Duplicate match slug/)
 

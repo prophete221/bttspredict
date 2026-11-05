@@ -10591,87 +10591,12 @@
       "status": "PENDING"
     }
   ],
-  "vipPreview": [
-    {
-      "vip": true,
-      "id": "charlott-vs-cfmontra-2026-10-28",
-      "home": "Charlotte FC",
-      "away": "CF Montréal",
-      "league": "MLS",
-      "date": "2026-10-28",
-      "time": "23:30"
-    },
-    {
-      "vip": true,
-      "id": "intermia-vs-fccincin-2026-10-28",
-      "home": "Inter Miami CF",
-      "away": "FC Cincinnati",
-      "league": "MLS",
-      "date": "2026-10-28",
-      "time": "23:30"
-    },
-    {
-      "vip": true,
-      "id": "venezia-vs-internaz-2026-10-28",
-      "home": "Venezia",
-      "away": "Internazionale",
-      "league": "Serie A",
-      "date": "2026-10-28",
-      "time": "17:30"
-    },
-    {
-      "vip": true,
-      "id": "parma-vs-udinese-2026-10-28",
-      "home": "Parma",
-      "away": "Udinese",
-      "league": "Serie A",
-      "date": "2026-10-28",
-      "time": "17:30"
-    },
-    {
-      "vip": true,
-      "id": "genoa-vs-juventus-2026-10-28",
-      "home": "Genoa",
-      "away": "Juventus",
-      "league": "Serie A",
-      "date": "2026-10-28",
-      "time": "19:45"
-    },
-    {
-      "vip": true,
-      "id": "stmirren-vs-hibernia-2026-10-28",
-      "home": "St Mirren",
-      "away": "Hibernian",
-      "league": "Scottish Premiership",
-      "date": "2026-10-28",
-      "time": "19:45"
-    },
-    {
-      "vip": true,
-      "id": "stjohnst-vs-motherwe-2026-10-28",
-      "home": "St Johnstone",
-      "away": "Motherwell",
-      "league": "Scottish Premiership",
-      "date": "2026-10-28",
-      "time": "19:45"
-    },
-    {
-      "vip": true,
-      "id": "newengla-vs-redbulln-2026-10-28",
-      "home": "New England Revolution",
-      "away": "Red Bull New York",
-      "league": "MLS",
-      "date": "2026-10-28",
-      "time": "23:30"
-    }
-  ],
   "stats": {
     "avgReliability": 79.57,
     "totalAnalyzed": 150,
     "totalRejected": 0,
     "totalAccepted": 150,
-    "freeCount": 43,
-    "vipCount": 8
+    "freeCount": 43
   },
   "predictions": [
     {

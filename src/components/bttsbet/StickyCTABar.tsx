@@ -8,7 +8,7 @@ import { useLanguage } from './LanguageSwitcher'
 
 /**
  * StickyCTABar — mobile only, après 15 % de défilement.
- * Ordre : 1xBet vipbtts, puis Linebet VISION221.
+ * Ordre : 1xBet, puis Linebet; les codes restent sur les guides dédiés.
  * MelBet et 888Starz restent dans le menu et les blocs dédiés.
  */
 export default function StickyCTABar() {
@@ -18,9 +18,9 @@ export default function StickyCTABar() {
   const [dismissed, setDismissed] = useState(false)
 
   const labels = useMemo(() => {
-    if (langKey === 'en') return { xbet: '1xBet · vipbtts', linebet: 'Linebet · VISION221', close: 'Close' }
-    if (langKey === 'ar') return { xbet: '1xBet · vipbtts', linebet: 'Linebet · VISION221', close: 'إغلاق' }
-    return { xbet: '1xBet · vipbtts', linebet: 'Linebet · VISION221', close: 'Fermer' }
+    return {
+      close: langKey === 'en' ? 'Close' : langKey === 'ar' ? 'إغلاق' : 'Fermer',
+    }
   }, [langKey])
 
   useEffect(() => {
@@ -76,7 +76,10 @@ export default function StickyCTABar() {
                 boxShadow: '0 8px 20px rgba(197, 243, 106, 0.22)',
               }}
             >
-              {labels.xbet}
+              <span className="inline-flex items-center justify-center gap-2">
+                <span className="grid h-7 w-7 place-items-center rounded bg-white p-0.5"><img src="/logos/1xbet-logo.png" alt="" width="24" height="24" className="h-6 w-6 object-contain" /></span>
+                <span>1xBet</span>
+              </span>
             </a>
             <a
               href={AFFILIATE.linebet}
@@ -91,7 +94,10 @@ export default function StickyCTABar() {
                 border: '1px solid rgba(255,255,255,0.14)',
               }}
             >
-              {labels.linebet}
+              <span className="inline-flex items-center justify-center gap-2">
+                <span className="grid h-7 w-7 place-items-center rounded bg-white p-0.5"><img src="/logos/linebet-logo.jpg" alt="" width="24" height="24" className="h-6 w-6 object-contain" /></span>
+                <span>Linebet</span>
+              </span>
             </a>
             <button
               type="button"

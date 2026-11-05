@@ -1,81 +1,33 @@
 'use client'
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { createPortal } from 'react-dom'
 import dynamic from 'next/dynamic'
-import { AFFILIATE } from '@/lib/constants'
-import { onlyVipFixtures } from '@/lib/vipPredictions'
 import { useLanguage } from '@/components/bttsbet/LanguageSwitcher'
-import VipWinHistory from './VipWinHistory'
 import { localizedPath, type Locale } from '@/lib/i18n'
-import { trackAffiliateAction, trackAffiliateCodeCopy } from '@/lib/affiliateTracking'
+import { trackAffiliateAction } from '@/lib/affiliateTracking'
 import AnimatedTitle from '@/components/bttsbet/HeroWordmark'
-import { copyTextToClipboard } from '@/lib/clipboard'
 import './vip.css'
 
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
 const ErrorBoundary = dynamic(() => import('@/components/bttsbet/ErrorBoundary'), { loading: () => null })
 
-/* ────────────────── Parcours VIP — 1xbet ou Linebet ──────────────────
-   Déblocage : création d'un NOUVEAU compte chez le bookmaker choisi avec
-   son code promo — vipbtts (1xbet, partenaire prioritaire) ou VISION221
-   (Linebet) — + dépôt minimum de 10 €, puis vérification WhatsApp.
-   (btts221 = code 888Starz, voir /bonus-888starz)
+/* ────────────────── Parcours VIP — 1xBet ou Linebet ───────────────────
+   L’inscription et les conditions sont consultées sur les guides promo
+   dédiés; l’accès VIP fait ensuite l’objet d’une validation manuelle.
    ──────────────────────────────────────────────────────────────────── */
 type VipBook = '1xbet' | 'linebet'
 
-const VIP_PARTNERS: Record<VipBook, { brand: string; code: string; signup: string }> = {
-  '1xbet': { brand: '1xbet', code: 'vipbtts', signup: AFFILIATE.oneXbet },
-  linebet: { brand: 'Linebet', code: 'VISION221', signup: AFFILIATE.linebet },
+const VIP_PARTNERS: Record<VipBook, { brand: string; guide: string }> = {
+  '1xbet': { brand: '1xBet', guide: '/code-promo-1xbet' },
+  linebet: { brand: 'Linebet', guide: '/code-promo-linebet-senegal' },
 }
 const VIP_BOOKS: VipBook[] = ['1xbet', 'linebet'] // ordre de priorité d'affichage
 const VIP_LOGOS: Record<VipBook, string> = {
   '1xbet': '/logos/1xbet-logo.png',
   linebet: '/logos/linebet-logo.jpg',
 }
-const VIP_DEPOSIT = '10 €'
-const VIP_DEPOSIT_XOF = '≈ 6 560 XOF'
-
 const WHATSAPP_NUMBER = '15406704172' // inchangé
-
-/* ────────────────────────── Types & helpers ────────────────────────── */
-
-type PredictionFixture = {
-  id?: string
-  home?: string
-  away?: string
-  league?: string
-  date?: string
-  time?: string
-  kickoff?: string
-}
-
-function dakarDate(date = new Date()) {
-  return new Intl.DateTimeFormat('en-CA', {
-    timeZone: 'Africa/Dakar',
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-  }).format(date)
-}
-
-function formatKickoff(value: string, lang: Locale) {
-  const date = new Date(value)
-  if (Number.isNaN(date.getTime())) return '—'
-  return new Intl.DateTimeFormat(lang === 'ar' ? 'ar' : lang === 'en' ? 'en-GB' : 'fr-FR', {
-    timeZone: 'Africa/Dakar',
-    day: '2-digit',
-    month: 'short',
-    hour: '2-digit',
-    minute: '2-digit',
-  }).format(date)
-}
-
-function fixtureKickoff(fixture: PredictionFixture) {
-  const raw = fixture.kickoff || (fixture.date && fixture.time ? `${fixture.date}T${fixture.time}:00Z` : '')
-  return { raw, timestamp: Date.parse(raw) }
-}
 
 /* Effet 3D : inclinaison douce au survol / au doigt (désactivée si prefers-reduced-motion) */
 /* Le ref est créé dans le composant (pattern standard) et passé en paramètre :
@@ -140,382 +92,308 @@ const Icon = {
   ),
 }
 
-/* ────────────────────────── Copy FR / EN / AR ────────────────────────── */
+type VipPageText = {
+  eyebrow: string; freeLink: string; trust1: string; trust2: string; trust3: string
+  memberTop: string; memberKind: string; memberPerks: string; memberVerified: string; selected: string
+  benefitsEyebrow: string; benefitsTitle: string
+  b1Title: string; b1Desc: string; b2Title: string; b2Desc: string
+  b3Title: string; b3Desc: string; b4Title: string; b4Desc: string
+  b5Title: string; b5Desc: string; b6Title: string; b6Desc: string
+  trustEyebrow: string; trustTitle: string; trustDesc: string; trustLink: string
+  faqTitle: string; faq1Q: string; faq1A: string; faq2Q: string; faq2A: string
+  faq3Q: string; faq3A: string; faq4Q: string; faq4A: string; faq5Q: string; faq5A: string
+  finalTitle: string; finalDesc: string; responsible: string; footerNote: string
+}
 
-const makeCopy = (brand: string, code: string) => ({
+const VIP_PAGE_COPY: Record<Locale, VipPageText> = {
   fr: {
-    eyebrow: 'Accès VIP privé',
-    title: 'Débloque ton accès VIP en 4 étapes claires',
-    heroSub: `Copie le code ${code}, crée ton nouveau compte ${brand}, dépose au minimum ${VIP_DEPOSIT} — et fais vérifier ton accès sur WhatsApp pour entrer dans l’espace VIP.`,
-    ctaUnlock: 'Débloquer mon accès',
-    freeLink: 'Pronostics gratuits',
-    trustLink: 'Historique public',
-    trust1: 'Scores vérifiés ESPN',
-    trust2: 'Historique 100 % public',
-    trust3: 'Pronos publiés avant le coup d’envoi',
-    memberTop: 'BTTSPredict',
-    memberKind: 'Carte de présentation',
-    memberPerks: 'BTTS · Over 2.5 · Score exact',
-    memberVerified: 'Aperçu VIP',
-    unlockEyebrow: 'Système de déblocage',
-    unlockTitle: 'Comment débloquer ton accès VIP ?',
-    unlockSub: 'Aucune ambiguïté : voici exactement les 4 conditions à remplir, dans l’ordre. Chaque étape est vérifiée avant l’activation de ton accès.',
-    cardSub: 'Toute la procédure est dans cette carte VIP. Clique sur chaque étape : une fenêtre détaillée s’ouvre avec les instructions exactes et les bons boutons.',
-    progressDone: 'étapes validées',
-    stepOpen: 'Ouvrir',
-    stepDone: 'Fait',
-    close: 'Fermer',
-    next: 'Étape suivante',
-    modalStep: 'Étape {n} sur 4',
-    cond1Short: `Copie le code ${code} — 1 clic`,
-    cond2Short: `Colle-le lors de ton inscription ${brand}`,
-    cond3Short: `Dépôt minimum de ${VIP_DEPOSIT} — obligatoire`,
-    cond4Short: 'Message pré-rempli + ton ID joueur',
-    m2NoBook: 'Copie d’abord ton code à l’étape 1.',
-    m2Paste: 'Où coller le code ?',
-    m2Where: `Dans le champ « Code promo » du formulaire d’inscription ${brand} (ou dans ton compte, section code promo).`,
-    m3Confirm: `Je confirme : dépôt de ${VIP_DEPOSIT} effectué`,
-    m4Id: 'Ajoute ton ID joueur dans le message WhatsApp avant d’envoyer.',
-    m4After: 'Dès que l’équipe confirme ton inscription et ton dépôt, ton accès VIP est activé et les combinés se déverrouillent.',
-    matchesTitle: 'Les prochains matchs VIP',
-    matchesSub: 'Les affiches analysées par le moteur. La sélection reste verrouillée jusqu’à la vérification de ton accès.',
-    conditionsTitle: 'Conditions de déblocage',
-    cond1Title: 'Copie ton code promo',
-    cond1Desc: `Clique sur la carte de ton bookmaker (1xbet ou Linebet) : ton code promo est copié automatiquement dans ton presse-papiers.`,
-    cond2Title: `Colle le code lors de ton inscription ${brand}`,
-    cond2Desc: `Colle ${code} dans le champ « Code promo » pendant ton inscription sur ${brand}. Tu peux aussi le recopier manuellement avec le bouton prévu.`,
-    cond3Title: `Crée ton compte et dépose au minimum ${VIP_DEPOSIT}`,
-    cond3Desc: `Inscris-toi via le bouton ${brand} avec ton code promo, puis effectue un dépôt minimum de ${VIP_DEPOSIT} (${VIP_DEPOSIT_XOF}). Ce dépôt est obligatoire : sans lui, la vérification ne peut pas aboutir.`,
-    cond4Title: 'Fais vérifier ton accès sur WhatsApp',
-    cond4Desc: 'Clique sur le bouton de vérification : WhatsApp s’ouvre avec un message pré-rempli (bookmaker + code). Ajoute ton ID joueur et envoie — l’équipe active ton accès après contrôle.',
-    depositLabel: 'Dépôt minimum requis',
-    depositValue: VIP_DEPOSIT,
-    depositNote: `${VIP_DEPOSIT_XOF} · Obligatoire — sans ce dépôt minimum, l’accès VIP ne peut pas être activé.`,
-    chooseTitle: 'Choisis ton bookmaker — le clic copie ton code promo',
-    chooseHint: 'Le clic copie automatiquement ton code promo',
-    autoCopied: 'Code copié automatiquement',
-    selected: 'Sélectionné',
-    tapToCopy: 'Copier le code',
-    codeLabel: 'Ton code promo',
-    codeIdle: `Clique pour copier ${code}`,
-    copyBtn: 'Copier le code',
-    copiedBtn: 'Copié',
-    signup: `Créer mon compte ${brand}`,
-    newBadge: 'Nouveau',
-    alt1xbet: 'Plutôt 1xbet ? Code vipbtts →',
-    altLinebet: 'Plutôt Linebet ? Code VISION221 →',
-    signupWith: 'Inscription avec le code collé',
-    needBookmaker: 'Copie d’abord ton code ci-dessus',
-    verify: 'Vérifier mon accès sur WhatsApp',
-    verifyHint: 'Redirection WhatsApp avec message pré-rempli : ton bookmaker + ton code promo. Ajoute simplement ton ID joueur avant d’envoyer.',
-    checklistTitle: 'Ta progression',
-    check1: 'Code promo copié',
-    check2: `Compte ${brand} créé avec le code`,
-    check3: `Dépôt de ${VIP_DEPOSIT} effectué (chez ${brand})`,
-    check4: 'Demande WhatsApp envoyée',
-    done: 'Fait',
-    todo: 'À faire',
-    combosEyebrow: 'Aperçu VIP',
-    combosTitle: 'Les matchs sont visibles. La sélection reste verrouillée.',
-    combosIntro: 'Voici les prochaines affiches analysées. Le marché et la sélection VIP se déverrouillent après vérification de ton accès.',
-    kickoff: 'Coup d’envoi',
-    locked: 'Sélection verrouillée',
-    lockedCta: 'Débloquer',
-    combosEmpty: 'Aucune sélection VIP disponible pour le moment.',
-    benefitsEyebrow: 'Ce que tu débloques',
-    benefitsTitle: 'Un espace VIP complet, pas juste une liste',
-    b1Title: 'Pronos VIP du jour',
-    b1Desc: 'BTTS, Over 2.5 et score exact analysés par notre modèle statistique, publiés avant le coup d’envoi.',
-    b2Title: 'Combinés exclusifs',
-    b2Desc: 'Des combinés construits sur les sélections VIP, réservés aux membres vérifiés.',
-    b3Title: 'Indice de confiance',
-    b3Desc: 'Chaque pronostic affiche la probabilité calculée par le modèle (xG + forme récente).',
-    b4Title: 'Historique transparent',
-    b4Desc: 'Tous les pronos, gagnés et perdus, restent consultables publiquement sur la page historique.',
-    b5Title: 'Liberté totale',
-    b5Desc: `Utilise tes pronos sur ${brand} ou ton bookmaker habituel — tu restes maître de tes mises.`,
-    b6Title: 'Support WhatsApp',
-    b6Desc: 'Une question sur ton accès ou ton code promo ? Une réponse directe sur WhatsApp.',
-    trustEyebrow: 'Confiance & transparence',
-    trustTitle: 'Vérifiable — pas des promesses',
-    trustDesc: 'Chaque prono est archivé avec son résultat réel, scores vérifiés via ESPN. Rien n’est filtré : les pronos perdus restent visibles au même titre que les gagnants. Aucun gain n’est garanti — le pari sportif comporte toujours un risque.',
+    eyebrow: 'Accès VIP privé', freeLink: 'Pronostics gratuits', trust1: 'Scores vérifiés ESPN',
+    trust2: 'Historique public', trust3: 'Pronos publiés avant le coup d’envoi',
+    memberTop: 'BTTSPredict', memberKind: 'Demande à approuver', memberPerks: 'BTTS · Over 2.5 · Score exact', memberVerified: 'Accès verrouillé', selected: 'Sélectionné',
+    benefitsEyebrow: 'Espace VIP', benefitsTitle: 'Contenu réservé après approbation du propriétaire',
+    b1Title: 'Pronostics VIP', b1Desc: 'Les pronostics VIP ne sont accessibles qu’après confirmation personnelle du propriétaire.',
+    b2Title: 'Sélections', b2Desc: 'Aucune sélection, cote ou signal VIP n’est diffusé dans cette page publique.',
+    b3Title: 'Indicateurs', b3Desc: 'Les métriques sont présentées avec leur définition et selon les données disponibles.',
+    b4Title: 'Historique transparent', b4Desc: 'Consulte l’historique public des pronostics et de leurs résultats.',
+    b5Title: 'Tu gardes le contrôle', b5Desc: 'La demande d’accès ne passe aucun pari et ne collecte aucun fonds.',
+    b6Title: 'Contact', b6Desc: 'La demande de revue manuelle se fait sur WhatsApp; l’approbation reste une décision du propriétaire.',
+    trustEyebrow: 'Confiance & transparence', trustTitle: 'Vérifiable — pas des promesses',
+    trustDesc: 'Les pronostics publics restent consultables avec leurs résultats. Aucun gain n’est garanti; les paris sportifs comportent des risques.', trustLink: 'Historique public',
     faqTitle: 'Questions fréquentes',
-    faq1Q: `Pourquoi un dépôt minimum de ${VIP_DEPOSIT} ?`,
-    faq1A: `L’accès VIP est financé par notre partenaire bookmaker. Le dépôt minimum de ${VIP_DEPOSIT} (${VIP_DEPOSIT_XOF}), effectué avec ton code promo ${code} lors de la création de ton compte ${brand}, conditionne l’activation de ton accès : c’est ce qui confirme que ton compte partenaire est réellement actif. Sans ce dépôt, la vérification ne peut pas aboutir — c’est la règle, appliquée à tout le monde.`,
-    faq2Q: 'Le code promo n’a pas été copié, que faire ?',
-    faq2A: `Clique à nouveau sur la carte ${brand} : le code ${code} est recopié automatiquement. Tu peux aussi utiliser le bouton « Copier le code ». En dernier recours, saisis-le manuellement : ${code}, en respectant exactement sa casse.`,
-    faq3Q: 'Combien de temps prend la vérification ?',
-    faq3A: 'Envoie ta demande sur WhatsApp avec ton ID joueur après ton dépôt. La vérification est traitée dans la journée, aux heures de publication des pronos. Tu reçois une confirmation dès que ton accès est activé.',
-    faq4Q: 'Mes données sont-elles en sécurité ?',
-    faq4A: 'Ton ID joueur reste dans le message WhatsApp que tu choisis d’envoyer : BTTSPredict ne le reçoit pas via le site. Aucune donnée bancaire ne transite par nos pages — le dépôt se fait directement chez le bookmaker.',
-    faq5Q: 'Des gains sont-ils garantis ?',
-    faq5A: 'Non. Aucun résultat n’est garanti dans les paris sportifs. L’historique public affiche gagnés ET perdus, sans filtrage. Ne mise jamais plus que ce que tu peux te permettre de perdre (18+).',
-    finalTitle: 'Prêt à entrer dans l’espace VIP ?',
-    finalDesc: `Copie le code ${code}, crée ton compte ${brand}, dépose au minimum ${VIP_DEPOSIT} et fais vérifier ton accès sur WhatsApp. 4 étapes, zéro ambiguïté.`,
-    finalCta: 'Débloquer mon accès',
+    faq1Q: 'Les offres sont-elles identiques partout ?', faq1A: 'Non. Les informations et conditions peuvent varier selon l’opérateur et le pays. Consulte le guide dédié et les informations actuelles de l’opérateur.',
+    faq2Q: 'Où trouver le code promo ?', faq2A: 'Les codes exacts figurent uniquement sur les guides promo dédiés de 1xBet et Linebet. Cette page VIP générale ne publie pas de codes.',
+    faq3Q: 'Qui décide de l’accès VIP ?', faq3A: 'Le propriétaire examine chaque demande et doit confirmer personnellement. Après approbation, les coupons VIP sont envoyés chaque jour par email ou WhatsApp.',
+    faq4Q: 'Faut-il fournir un ID joueur ou une pièce d’identité ?', faq4A: 'Non. N’envoie ni ID joueur ni document d’identité pour demander l’accès VIP.',
+    faq5Q: 'Des gains sont-ils garantis ?', faq5A: 'Non. Aucun résultat n’est garanti dans les paris sportifs. Ne mise jamais plus que ce que tu peux te permettre de perdre (18+).',
+    finalTitle: 'Demander l’accès VIP', finalDesc: 'Suis les étapes, puis attends la décision personnelle du propriétaire. Le VIP reste verrouillé tant qu’il n’a pas confirmé.',
     responsible: '18+ · Les paris sportifs comportent des risques : endettement, isolement, dépendance. Pour être aidé : 09 74 75 13 13 (gratuit, France) ou begambleaware.org. Aucun gain n’est garanti.',
     footerNote: 'BTTSPredict est un site informatif et d’affiliation : nous ne prenons pas de paris et ne collectons aucun fonds.',
   },
   en: {
-    eyebrow: 'Private VIP access',
-    title: 'Unlock your VIP access in 4 clear steps',
-    heroSub: `Copy the ${code} code, create your new ${brand} account, deposit at least ${VIP_DEPOSIT} — and get your access verified on WhatsApp to step into the VIP space.`,
-    ctaUnlock: 'Unlock my access',
-    freeLink: 'Free predictions',
-    trustLink: 'Public history',
-    trust1: 'ESPN-verified scores',
-    trust2: '100% public history',
-    trust3: 'Picks published before kick-off',
-    memberTop: 'BTTSPredict',
-    memberKind: 'Preview card',
-    memberPerks: 'BTTS · Over 2.5 · Exact score',
-    memberVerified: 'VIP preview',
-    unlockEyebrow: 'Unlock system',
-    unlockTitle: 'How to unlock your VIP access?',
-    unlockSub: 'Zero guesswork: these are the exact 4 conditions to meet, in order. Each step is checked before your access is activated.',
-    cardSub: 'The whole process lives in this VIP card. Tap any step: a detailed popup opens with the exact instructions and the right buttons.',
-    progressDone: 'steps completed',
-    stepOpen: 'Open',
-    stepDone: 'Done',
-    close: 'Close',
-    next: 'Next step',
-    modalStep: 'Step {n} of 4',
-    cond1Short: `Copy the ${code} code — 1 tap`,
-    cond2Short: `Paste it during your ${brand} sign-up`,
-    cond3Short: `Minimum ${VIP_DEPOSIT} deposit — mandatory`,
-    cond4Short: 'Pre-filled message + your player ID',
-    m2NoBook: 'Copy your code in step 1 first.',
-    m2Paste: 'Where to paste the code?',
-    m2Where: `In the “Promo code” field of the ${brand} sign-up form (or in your account, promo code section).`,
-    m3Confirm: `I confirm: ${VIP_DEPOSIT} deposit made`,
-    m4Id: 'Add your player ID to the WhatsApp message before sending.',
-    m4After: 'As soon as the team confirms your sign-up and deposit, your VIP access is activated and the combos unlock.',
-    matchesTitle: 'Upcoming VIP matches',
-    matchesSub: 'The fixtures analysed by the engine. The selection stays locked until your access is verified.',
-    conditionsTitle: 'Unlock conditions',
-    cond1Title: 'Copy your promo code',
-    cond1Desc: `Tap your bookmaker's card (1xbet or Linebet): your promo code is automatically copied to your clipboard.`,
-    cond2Title: `Paste the code during your ${brand} sign-up`,
-    cond2Desc: `Paste ${code} in the “Promo code” field while registering on ${brand}. You can also copy it manually with the dedicated button.`,
-    cond3Title: `Create your account and deposit at least ${VIP_DEPOSIT}`,
-    cond3Desc: `Sign up through the ${brand} button with your promo code, then make a minimum deposit of ${VIP_DEPOSIT} (${VIP_DEPOSIT_XOF}). This deposit is mandatory: without it, verification cannot go through.`,
-    cond4Title: 'Get your access verified on WhatsApp',
-    cond4Desc: 'Tap the verification button: WhatsApp opens with a pre-filled message (bookmaker + code). Add your player ID and send — the team activates your access after review.',
-    depositLabel: 'Minimum deposit required',
-    depositValue: VIP_DEPOSIT,
-    depositNote: `${VIP_DEPOSIT_XOF} · Mandatory — without this minimum deposit, VIP access cannot be activated.`,
-    chooseTitle: 'Pick your bookmaker — one tap copies your promo code',
-    chooseHint: 'Tapping copies your promo code automatically',
-    autoCopied: 'Code copied automatically',
-    selected: 'Selected',
-    tapToCopy: 'Tap to copy',
-    codeLabel: 'Your promo code',
-    codeIdle: `Tap to copy ${code}`,
-    copyBtn: 'Copy code',
-    copiedBtn: 'Copied',
-    signup: `Create my ${brand} account`,
-    newBadge: 'New',
-    alt1xbet: 'Prefer 1xbet? Code vipbtts →',
-    altLinebet: 'Prefer Linebet? Code VISION221 →',
-    signupWith: 'Sign-up with the pasted code',
-    needBookmaker: 'Copy your code above first',
-    verify: 'Verify my access on WhatsApp',
-    verifyHint: 'Redirects to WhatsApp with a pre-filled message: your bookmaker + your promo code. Just add your player ID before sending.',
-    checklistTitle: 'Your progress',
-    check1: 'Promo code copied',
-    check2: `${brand} account created with the code`,
-    check3: `${VIP_DEPOSIT} deposit made (with ${brand})`,
-    check4: 'WhatsApp request sent',
-    done: 'Done',
-    todo: 'To do',
-    combosEyebrow: 'VIP preview',
-    combosTitle: 'Matches are visible. The selection stays locked.',
-    combosIntro: 'Here are the next analysed fixtures. The VIP market and selection unlock once your access is verified.',
-    kickoff: 'Kick-off',
-    locked: 'Selection locked',
-    lockedCta: 'Unlock',
-    combosEmpty: 'No VIP selection available right now.',
-    benefitsEyebrow: 'What you unlock',
-    benefitsTitle: 'A complete VIP space, not just a list',
-    b1Title: 'Daily VIP picks',
-    b1Desc: 'BTTS, Over 2.5 and exact score analysed by our statistical model, published before kick-off.',
-    b2Title: 'Exclusive combos',
-    b2Desc: 'Combos built from VIP selections, reserved for verified members.',
-    b3Title: 'Confidence index',
-    b3Desc: 'Every pick shows the probability computed by the model (xG + recent form).',
-    b4Title: 'Transparent history',
-    b4Desc: 'All picks, wins and losses, stay publicly visible on the history page.',
-    b5Title: 'Full freedom',
-    b5Desc: `Use your picks on ${brand} or your usual bookmaker — you stay in control of your stakes.`,
-    b6Title: 'WhatsApp support',
-    b6Desc: 'A question about your access or promo code? A direct answer on WhatsApp.',
-    trustEyebrow: 'Trust & transparency',
-    trustTitle: 'Verifiable — not promises',
-    trustDesc: 'Every pick is archived with its real result, scores verified via ESPN. Nothing is filtered: losing picks stay visible just like winners. No profit is guaranteed — sports betting always carries risk.',
+    eyebrow: 'Private VIP access', freeLink: 'Free predictions', trust1: 'ESPN-verified scores',
+    trust2: 'Public history', trust3: 'Picks published before kick-off',
+    memberTop: 'BTTSPredict', memberKind: 'Request pending review', memberPerks: 'BTTS · Over 2.5 · Exact score', memberVerified: 'Access locked', selected: 'Selected',
+    benefitsEyebrow: 'VIP area', benefitsTitle: 'Content reserved until owner approval',
+    b1Title: 'VIP predictions', b1Desc: 'VIP predictions are available only after the owner personally confirms access.',
+    b2Title: 'Selections', b2Desc: 'No VIP selections, odds or signals are distributed on this public page.',
+    b3Title: 'Indicators', b3Desc: 'Metrics are shown with their definitions and according to available data.',
+    b4Title: 'Transparent history', b4Desc: 'Review the public history of predictions and their results.',
+    b5Title: 'You stay in control', b5Desc: 'An access request does not place bets or collect funds.',
+    b6Title: 'Contact', b6Desc: 'Request a manual review on WhatsApp; approval remains the owner’s decision.',
+    trustEyebrow: 'Trust & transparency', trustTitle: 'Verifiable — not promises',
+    trustDesc: 'Public predictions remain available with their results. No wins are guaranteed; sports betting carries risks.', trustLink: 'Public history',
     faqTitle: 'Frequently asked questions',
-    faq1Q: `Why a ${VIP_DEPOSIT} minimum deposit?`,
-    faq1A: `VIP access is funded by our bookmaker partner. The ${VIP_DEPOSIT} minimum deposit (${VIP_DEPOSIT_XOF}), made with your promo code ${code} when creating your ${brand} account, conditions the activation of your access: it confirms your partner account is actually active. Without this deposit, verification cannot go through — that rule applies to everyone.`,
-    faq2Q: 'The promo code wasn’t copied, what now?',
-    faq2A: `Tap the ${brand} card again: the ${code} code is copied again automatically. You can also use the “Copy code” button. As a last resort, type it manually: ${code}, in capitals.`,
-    faq3Q: 'How long does verification take?',
-    faq3A: 'Send your request on WhatsApp with your player ID after your deposit. Verification is handled within the day, during pick publishing hours. You receive a confirmation once your access is activated.',
-    faq4Q: 'Is my data safe?',
-    faq4A: 'Your player ID stays inside the WhatsApp message you choose to send: BTTSPredict does not receive it through the site. No banking data goes through our pages — the deposit happens directly with the bookmaker.',
-    faq5Q: 'Are winnings guaranteed?',
-    faq5A: 'No. No result is guaranteed in sports betting. The public history shows wins AND losses, unfiltered. Never bet more than you can afford to lose (18+).',
-    finalTitle: 'Ready to step into the VIP space?',
-    finalDesc: `Copy the ${code} code, create your ${brand} account, deposit at least ${VIP_DEPOSIT} and get your access verified on WhatsApp. 4 steps, zero guesswork.`,
-    finalCta: 'Unlock my access',
-    responsible: '18+ · Sports betting carries risks: debt, isolation, addiction. For help: begambleaware.org. No profit is guaranteed.',
-    footerNote: 'BTTSPredict is an informational and affiliate website: we do not take bets and we do not collect funds.',
+    faq1Q: 'Are offers the same everywhere?', faq1A: 'No. Information and terms can vary by operator and country. Check the dedicated guide and the operator’s current information.',
+    faq2Q: 'Where can I find the promo code?', faq2A: 'Exact codes are only on the dedicated 1xBet and Linebet promo guides. This general VIP page does not publish codes.',
+    faq3Q: 'Who decides VIP access?', faq3A: 'The owner reviews each request and must personally confirm it. After approval, VIP coupons are sent daily by email or WhatsApp.',
+    faq4Q: 'Do I need to provide a player ID or identity document?', faq4A: 'No. Do not send a player ID or identity document when requesting VIP access.',
+    faq5Q: 'Are wins guaranteed?', faq5A: 'No. No result is guaranteed in sports betting. Never stake more than you can afford to lose (18+).',
+    finalTitle: 'Request VIP access', finalDesc: 'Follow the steps, then wait for the owner’s personal decision. VIP stays locked until the owner confirms.',
+    responsible: '18+ · Sports betting carries risks including debt, isolation and addiction. For help: begambleaware.org. No wins are guaranteed.',
+    footerNote: 'BTTSPredict is an informational and affiliate site: we do not take bets or collect funds.',
   },
   ar: {
-    eyebrow: 'وصول VIP خاص',
-    title: 'افتح وصولك إلى VIP في 4 خطوات واضحة',
-    heroSub: `انسخ الرمز ${code}، أنشئ حساب ${brand} جديداً، أودع ${VIP_DEPOSIT} على الأقل — ثم اطلب التحقق من وصولك عبر واتساب لدخول فضاء VIP.`,
-    ctaUnlock: 'افتح وصولي',
-    freeLink: 'توقعات مجانية',
-    trustLink: 'السجل العام',
-    trust1: 'نتائج موثقة من ESPN',
-    trust2: 'سجل عام 100%',
-    trust3: 'توقعات منشورة قبل انطلاق المباراة',
-    memberTop: 'BTTSPredict',
-    memberKind: 'بطاقة للعرض',
-    memberPerks: 'BTTS · أكثر من 2.5 · النتيجة الدقيقة',
-    memberVerified: 'معاينة VIP',
-    unlockEyebrow: 'نظام الفتح',
-    unlockTitle: 'كيف تفتح وصولك إلى VIP؟',
-    unlockSub: 'بلا أي غموض: هذه هي الشروط الأربعة المطلوبة بالترتيب. يتم التحقق من كل خطوة قبل تفعيل وصولك.',
-    cardSub: 'الإجراء كامل داخل بطاقة VIP هذه. اضغط على كل خطوة: تُفتح نافذة مفصلة بالتعليمات الدقيقة والأزرار المناسبة.',
-    progressDone: 'خطوات مكتملة',
-    stepOpen: 'فتح',
-    stepDone: 'منجز',
-    close: 'إغلاق',
-    next: 'الخطوة التالية',
-    modalStep: 'الخطوة {n} من 4',
-    cond1Short: `انسخ الرمز ${code} — بضغطة واحدة`,
-    cond2Short: `الصقه عند التسجيل في ${brand}`,
-    cond3Short: `إيداع أدنى ${VIP_DEPOSIT} — إلزامي`,
-    cond4Short: 'رسالة جاهزة + معرّف لاعبك',
-    m2NoBook: 'انسخ رمزك أولاً في الخطوة 1.',
-    m2Paste: 'أين تلصق الرمز؟',
-    m2Where: `في حقل «الرمز الترويجي» في استمارة التسجيل لدى ${brand} (أو في حسابك، قسم الرمز الترويجي).`,
-    m3Confirm: `أؤكد: تم إيداع ${VIP_DEPOSIT}`,
-    m4Id: 'أضف معرّف لاعبك في رسالة واتساب قبل الإرسال.',
-    m4After: 'بمجرد أن يؤكد الفريق التسجيل والإيداع، يُفعَّل وصولك إلى VIP وتُفتح التركيبات.',
-    matchesTitle: 'مباريات VIP القادمة',
-    matchesSub: 'المواجهات التي حللها المحرك. يبقى الاختيار مقفلاً حتى يتم التحقق من وصولك.',
-    conditionsTitle: 'شروط الفتح',
-    cond1Title: 'انسخ رمزك الترويجي',
-    cond1Desc: `اضغط على بطاقة شركة المراهنات (1xbet أو Linebet): يُنسخ رمزك الترويجي تلقائياً إلى الحافظة.`,
-    cond2Title: `الصق الرمز عند التسجيل في ${brand}`,
-    cond2Desc: `الصق ${code} في حقل «الرمز الترويجي» أثناء تسجيلك في ${brand}. يمكنك أيضاً نسخه يدوياً عبر الزر المخصص.`,
-    cond3Title: `أنشئ حسابك وأودع ${VIP_DEPOSIT} على الأقل`,
-    cond3Desc: `سجّل عبر زر ${brand} باستخدام رمزك الترويجي، ثم أجرِ إيداعاً بحد أدنى ${VIP_DEPOSIT} (${VIP_DEPOSIT_XOF}). هذا الإيداع إلزامي: بدونه لا يمكن إتمام التحقق.`,
-    cond4Title: 'اطلب التحقق من وصولك عبر واتساب',
-    cond4Desc: 'اضغط زر التحقق: يفتح واتساب برسالة جاهزة (الشركة + الرمز). أضف معرّف لاعبك وأرسل — يقوم الفريق بتفعيل وصولك بعد المراجعة.',
-    depositLabel: 'الحد الأدنى للإيداع مطلوب',
-    depositValue: VIP_DEPOSIT,
-    depositNote: `${VIP_DEPOSIT_XOF} · إلزامي — بدون هذا الإيداع لا يمكن تفعيل وصول VIP.`,
-    chooseTitle: 'اختر شركة المراهنات — بضغطة واحدة يُنسخ رمزك الترويجي',
-    chooseHint: 'الضغط ينسخ رمزك الترويجي تلقائياً',
-    autoCopied: 'تم نسخ الرمز تلقائياً',
-    selected: 'محدد',
-    tapToCopy: 'اضغط لنسخ الرمز',
-    codeLabel: 'رمزك الترويجي',
-    codeIdle: `اضغط لنسخ ${code}`,
-    copyBtn: 'نسخ الرمز',
-    copiedBtn: 'تم النسخ',
-    signup: `أنشئ حساب ${brand}`,
-    newBadge: 'جديد',
-    alt1xbet: 'تفضّل 1xbet؟ الرمز vipbtts →',
-    altLinebet: 'تفضّل Linebet؟ الرمز VISION221 →',
-    signupWith: 'التسجيل بالرمز المنسوخ',
-    needBookmaker: 'انسخ رمزك أولاً بالأعلى',
-    verify: 'تحقق من وصولي عبر واتساب',
-    verifyHint: 'تحويل إلى واتساب برسالة جاهزة: شركتك + رمزك الترويجي. أضف فقط معرّف لاعبك قبل الإرسال.',
-    checklistTitle: 'تقدمك',
-    check1: 'تم نسخ الرمز الترويجي',
-    check2: `تم إنشاء حساب ${brand} بالرمز`,
-    check3: `تم إيداع ${VIP_DEPOSIT} (لدى ${brand})`,
-    check4: 'تم إرسال طلب واتساب',
-    done: 'منجز',
-    todo: 'للإنجاز',
-    combosEyebrow: 'معاينة VIP',
-    combosTitle: 'المباريات ظاهرة. الاختيار يبقى مقفلاً.',
-    combosIntro: 'هذه المواجهات القادمة التي تم تحليلها. يُفتح سوق واختيار VIP بعد التحقق من وصولك.',
-    kickoff: 'انطلاق المباراة',
-    locked: 'الاختيار مقفل',
-    lockedCta: 'فتح',
-    combosEmpty: 'لا توجد اختيارات VIP متاحة حالياً.',
-    benefitsEyebrow: 'ماذا تفتح',
-    benefitsTitle: 'فضاء VIP كامل، وليس مجرد قائمة',
-    b1Title: 'توقعات VIP اليومية',
-    b1Desc: 'BTTS وأكثر من 2.5 والنتيجة الدقيقة يحللها نموذجنا الإحصائي وتُنشر قبل انطلاق المباريات.',
-    b2Title: 'تركيبات حصرية',
-    b2Desc: 'تركيبات مبنية على اختيارات VIP، محجوزة للأعضاء الموثقين.',
-    b3Title: 'مؤشر الثقة',
-    b3Desc: 'كل توقع يعرض الاحتمالية المحسوبة من النموذج (xG + الفورمة الحديثة).',
-    b4Title: 'سجل شفاف',
-    b4Desc: 'كل التوقعات، الرابحة والخاسرة، تبقى متاحة للعموم في صفحة السجل.',
-    b5Title: 'حرية كاملة',
-    b5Desc: `استخدم توقعاتك على ${brand} أو شركتك المعتادة — أنت من يتحكم في رهاناتك.`,
-    b6Title: 'دعم واتساب',
-    b6Desc: 'سؤال حول وصولك أو رمزك الترويجي؟ إجابة مباشرة عبر واتساب.',
-    trustEyebrow: 'الثقة والشفافية',
-    trustTitle: 'قابل للتحقق — لا وعود',
-    trustDesc: 'كل توقعة تُؤرشف بنتيجتها الحقيقية، مع نتائج موثقة من ESPN. لا يوجد أي ترشيح: التوقعات الخاسرة تبقى ظاهرة كالرابحة. لا يوجد ربح مضمون — المراهنات الرياضية تنطوي دائماً على مخاطر.',
+    eyebrow: 'وصول VIP خاص', freeLink: 'التوقعات المجانية', trust1: 'نتائج موثقة من ESPN',
+    trust2: 'سجل عام', trust3: 'تُنشر التوقعات قبل انطلاق المباراة',
+    memberTop: 'BTTSPredict', memberKind: 'طلب بانتظار المراجعة', memberPerks: 'BTTS · Over 2.5 · النتيجة الدقيقة', memberVerified: 'الوصول مقفل', selected: 'تم الاختيار',
+    benefitsEyebrow: 'مساحة VIP', benefitsTitle: 'محتوى محجوز حتى موافقة المالك',
+    b1Title: 'توقعات VIP', b1Desc: 'لا تتاح توقعات VIP إلا بعد تأكيد المالك الوصول شخصياً.',
+    b2Title: 'الاختيارات', b2Desc: 'لا تُنشر اختيارات VIP أو الاحتمالات أو الإشارات في هذه الصفحة العامة.',
+    b3Title: 'المؤشرات', b3Desc: 'تُعرض المقاييس مع تعريفاتها وحسب البيانات المتاحة.',
+    b4Title: 'سجل شفاف', b4Desc: 'راجع السجل العام للتوقعات ونتائجها.',
+    b5Title: 'أنت من يقرر', b5Desc: 'طلب الوصول لا يضع رهانات ولا يجمع أموالاً.',
+    b6Title: 'التواصل', b6Desc: 'يُطلب إجراء المراجعة اليدوية عبر واتساب؛ وتبقى الموافقة قراراً للمالك.',
+    trustEyebrow: 'الثقة والشفافية', trustTitle: 'قابل للتحقق — لا وعود',
+    trustDesc: 'تبقى التوقعات العامة متاحة مع نتائجها. لا يوجد ربح مضمون؛ وتنطوي المراهنات الرياضية على مخاطر.', trustLink: 'السجل العام',
     faqTitle: 'الأسئلة الشائعة',
-    faq1Q: `لماذا إيداع أدنى ${VIP_DEPOSIT}؟`,
-    faq1A: `يتم تمويل وصول VIP من قبل شريكنا شركة المراهنات. الإيداع الأدنى ${VIP_DEPOSIT} (${VIP_DEPOSIT_XOF}) باستخدام رمزك الترويجي ${code} عند إنشاء حسابك في ${brand} هو شرط تفعيل وصولك: فهو يؤكد أن حسابك لدى الشريك نشط فعلاً. بدون هذا الإيداع لا يمكن إتمام التحقق — قاعدة مطبقة على الجميع.`,
-    faq2Q: 'لم يُنسخ الرمز الترويجي، ماذا أفعل؟',
-    faq2A: `اضغط مرة أخرى على بطاقة ${brand}: يُنسخ الرمز ${code} تلقائياً من جديد. يمكنك أيضاً استخدام زر «نسخ الرمز». وكحل أخير، أدخله يدوياً: ${code} بأحرف كبيرة.`,
-    faq3Q: 'كم يستغرق التحقق؟',
-    faq3A: 'أرسل طلبك عبر واتساب مع معرّف لاعبك بعد الإيداع. تُعالج عملية التحقق خلال اليوم، في أوقات نشر التوقعات. تتلقى تأكيداً بمجرد تفعيل وصولك.',
-    faq4Q: 'هل بياناتي آمنة؟',
-    faq4A: 'يبقى معرّف لاعبك داخل رسالة واتساب التي تختار إرسالها: لا يستلمه BTTSPredict عبر الموقع. ولا تمر أي بيانات بنكية عبر صفحاتنا — الإيداع يتم مباشرة لدى شركة المراهنات.',
-    faq5Q: 'هل الأرباح مضمونة؟',
-    faq5A: 'لا. لا نتيجة مضمونة في المراهنات الرياضية. السجل العام يعرض الرابح والخاسر بلا ترشيح. لا تراهن أبداً بأكثر مما يمكنك تحمل خسارته (18+).',
-    finalTitle: 'جاهز للدخول إلى فضاء VIP؟',
-    finalDesc: `انسخ الرمز ${code}، أنشئ حسابك في ${brand}، أودع ${VIP_DEPOSIT} على الأقل واطلب التحقق عبر واتساب. 4 خطوات، بلا غموض.`,
-    finalCta: 'افتح وصولي',
-    responsible: '18+ · تنطوي المراهنات الرياضية على مخاطر: المديونية، العزلة، الإدمان. للمساعدة: begambleaware.org. لا يوجد ربح مضمون.',
-    footerNote: 'BTTSPredict موقع معلوماتي وتسويق بالعمولة: نحن لا نقبل الرهانات ولا نجمع أموالاً.',
+    faq1Q: 'هل العروض متطابقة في كل مكان؟', faq1A: 'لا. قد تختلف المعلومات والشروط حسب المشغل والبلد. راجع الدليل المخصص والمعلومات الحالية لدى المشغل.',
+    faq2Q: 'أين أجد الرمز الترويجي؟', faq2A: 'توجد الرموز الدقيقة فقط في دليلي العرض المخصصين لـ 1xBet وLinebet. لا تنشر صفحة VIP العامة هذه أي رموز.',
+    faq3Q: 'من يقرر الوصول إلى VIP؟', faq3A: 'يراجع المالك كل طلب ويجب أن يؤكد الموافقة شخصياً. بعد الموافقة، تُرسل قسائم VIP يومياً عبر البريد الإلكتروني أو واتساب.',
+    faq4Q: 'هل يجب تقديم رقم لاعب أو وثيقة هوية؟', faq4A: 'لا. لا ترسل رقم لاعب أو وثيقة هوية عند طلب الوصول إلى VIP.',
+    faq5Q: 'هل الأرباح مضمونة؟', faq5A: 'لا. لا توجد نتيجة مضمونة في المراهنات الرياضية. لا تراهن بأكثر مما يمكنك تحمل خسارته (18+).',
+    finalTitle: 'اطلب الوصول إلى VIP', finalDesc: 'اتبع الخطوات ثم انتظر القرار الشخصي من المالك. يبقى VIP مقفلاً حتى يؤكد المالك الموافقة.',
+    responsible: '18+ · تنطوي المراهنات الرياضية على مخاطر تشمل الديون والعزلة والإدمان. للمساعدة: begambleaware.org. لا يوجد ربح مضمون.',
+    footerNote: 'BTTSPredict موقع معلوماتي وتسويق بالعمولة: لا نقبل الرهانات ولا نجمع الأموال.',
   },
-})
+}
+
+function makeCodeFreeCopy(_brand: string, lang: Locale): VipPageText {
+  return VIP_PAGE_COPY[lang]
+}
+
+/* ────────────── Parcours VIP — 3 étapes, ordre explicite ──────────────
+   Les codes et les conditions restent sur les pages promo dédiées.
+   La demande d'accès se fait sur WhatsApp, validée manuellement.
+   ──────────────────────────────────────────────────────────────────── */
+type VipFlowCopy = {
+  eyebrow: string
+  title: string
+  sub: string
+  step1Title: string
+  step1Text: string
+  step1Note: string
+  step2Title: string
+  step2Text: string
+  step2Note: string
+  step2Action: string
+  choosePartner: string
+  step3Title: string
+  step3Text: string
+  step3Action: string
+  step3Note: string
+  guidePanelTitle: string
+  guidePanelText: string
+  accessPanelTitle: string
+  accessPanelText: string
+  panelCta: string
+  deliveryText: string
+  previewEyebrow: string
+  previewTitle: string
+  previewSub: string
+  previewCta: string
+  heroCta: string
+  finalCta: string
+  statusTitle: string
+  statusText: string
+  wizardStart: string
+  wizardTitle: string
+  wizardProgress: string
+  wizardSteps: { title: string; body: string }[]
+  wizardBack: string
+  wizardContinue: string
+  wizardClose: string
+  wizardGuide: string
+  wizardRequest: string
+  wizardPending: string
+}
+
+const VIP_FLOW: Record<Locale, VipFlowCopy> = {
+  fr: {
+    eyebrow: 'Parcours d’accès',
+    title: 'Demander l’accès VIP en 4 étapes',
+    sub: 'Choisis un partenaire, consulte son guide promo, crée un nouveau compte avec le code exact, puis demande la revue du propriétaire. Le VIP reste fermé jusqu’à sa confirmation personnelle.',
+    step1Title: 'Choisis ton bookmaker',
+    step1Text: 'Deux partenaires seulement : 1xBet ou Linebet. Ouvre la page promo du partenaire : le code exact et les conditions à jour y sont publiés.',
+    step1Note: 'Les codes ne sont pas affichés sur cette page VIP.',
+    step2Title: 'Crée un nouveau compte avec le code exact',
+    step2Text: 'L’inscription doit être un nouveau compte chez ce partenaire. Recopie le code tel qu’il apparaît sur la page promo, sans le modifier.',
+    step2Note: 'La création d’un compte ne donne pas accès au VIP.',
+    step2Action: 'Ouvrir le guide {brand}',
+    choosePartner: 'Partenaire choisi',
+    step3Title: 'Demande la validation de ton accès',
+    step3Text: 'Envoie ton bookmaker sur WhatsApp et confirme que tu as créé un nouveau compte avec le code exact de la page promo. Le propriétaire valide la demande manuellement.',
+    step3Action: 'Demander la validation sur WhatsApp',
+    step3Note: 'Aucune pièce d’identité n’est demandée.',
+    guidePanelTitle: 'Guides promo — code et conditions',
+    guidePanelText: 'Le code exact et les conditions de chaque opérateur figurent sur ces pages dédiées. Vérifie-les avant de t’inscrire.',
+    accessPanelTitle: 'Accès VIP — demande et validation',
+    accessPanelText: 'La demande d’accès se fait sur WhatsApp, puis validation manuelle par le propriétaire. Aucun document d’identité n’est demandé.',
+    panelCta: 'Ouvrir WhatsApp',
+    deliveryText: 'Après validation, les coupons VIP arrivent chaque jour par email ou WhatsApp.',
+    previewEyebrow: 'Contenu VIP protégé',
+    previewTitle: 'Aucun pronostic VIP n’est publié sur cette page',
+    previewSub: 'Les sélections, cotes et signaux VIP ne sont pas inclus dans les fichiers publics. Ils restent inaccessibles tant que tu n’as pas reçu la confirmation personnelle du propriétaire.',
+    previewCta: 'Voir la procédure',
+    heroCta: 'Commencer la procédure',
+    finalCta: 'Demander mon accès VIP',
+    statusTitle: 'Accès verrouillé',
+    statusText: 'Aucun clic ni formulaire ne débloque le VIP automatiquement. Seul le propriétaire ouvre l’accès après avoir confirmé personnellement ta demande.',
+    wizardStart: 'Ouvrir la procédure interactive',
+    wizardTitle: 'Demande d’accès VIP',
+    wizardProgress: 'Étape {current} sur 4',
+    wizardSteps: [
+      { title: '1. Choisir le bookmaker', body: 'Seuls 1xBet et Linebet sont éligibles. Choisis le partenaire concerné. Ce choix ne crée pas de compte et ne déverrouille rien.' },
+      { title: '2. Consulter le guide promo', body: 'Ouvre la page promo dédiée au partenaire choisi. Elle contient le code exact et les informations à jour. Cette page VIP générale ne révèle aucun code.' },
+      { title: '3. Créer un nouveau compte', body: 'Sur le site du partenaire, crée un nouveau compte en suivant son guide et en utilisant exactement le code qui y est affiché. Le site BTTSPredict ne vérifie pas cette action et elle ne donne pas accès au VIP.' },
+      { title: '4. Demander une revue et attendre', body: 'Envoie une demande sur WhatsApp en précisant le partenaire et que tu as créé un nouveau compte avec le code du guide. Ne transmets ni ID joueur ni document d’identité. Le propriétaire examine la demande et doit confirmer personnellement; jusque-là, le VIP reste verrouillé.' },
+    ],
+    wizardBack: 'Retour',
+    wizardContinue: 'Continuer',
+    wizardClose: 'Fermer',
+    wizardGuide: 'Ouvrir le guide {brand}',
+    wizardRequest: 'Demander une revue sur WhatsApp',
+    wizardPending: 'Après l’envoi de la demande, attends la décision personnelle du propriétaire. Cette page ne confirme pas l’envoi et ne peut pas déverrouiller le VIP.',
+  },
+  en: {
+    eyebrow: 'Access path',
+    title: 'Request VIP access in 4 steps',
+    sub: 'Choose a partner, read its promo guide, create a new account with the exact code, then request the owner’s review. VIP stays closed until the owner personally confirms.',
+    step1Title: 'Pick your bookmaker',
+    step1Text: 'Two partners only: 1xBet or Linebet. Open the partner promo page: the exact code and current terms are published there.',
+    step1Note: 'Codes are not displayed on this VIP page.',
+    step2Title: 'Create a new account with the exact code',
+    step2Text: 'Registration must be a new account with that partner. Copy the code exactly as shown on the promo page, without changing it.',
+    step2Note: 'Creating an account does not grant VIP access.',
+    step2Action: 'Open the {brand} guide',
+    choosePartner: 'Selected partner',
+    step3Title: 'Request access validation',
+    step3Text: 'Send your bookmaker on WhatsApp and confirm you created a new account with the exact code from the promo page. The owner validates the request manually.',
+    step3Action: 'Request validation on WhatsApp',
+    step3Note: 'No identity document is required.',
+    guidePanelTitle: 'Promo guides — code and terms',
+    guidePanelText: 'Each operator’s exact code and terms are on these dedicated pages. Check them before signing up.',
+    accessPanelTitle: 'VIP access — request and validation',
+    accessPanelText: 'Access requests go through WhatsApp, then manual validation by the owner. No identity document is requested.',
+    panelCta: 'Open WhatsApp',
+    deliveryText: 'Once validated, VIP coupons arrive every day by email or WhatsApp.',
+    previewEyebrow: 'Protected VIP content',
+    previewTitle: 'No VIP picks are published on this page',
+    previewSub: 'VIP selections, odds and signals are not included in public files. They stay inaccessible until you receive the owner’s personal confirmation.',
+    previewCta: 'View the procedure',
+    heroCta: 'Start the procedure',
+    finalCta: 'Request my VIP access',
+    statusTitle: 'Access locked',
+    statusText: 'No click or form automatically unlocks VIP. Only the owner opens access after personally confirming your request.',
+    wizardStart: 'Open the interactive procedure',
+    wizardTitle: 'VIP access request',
+    wizardProgress: 'Step {current} of 4',
+    wizardSteps: [
+      { title: '1. Choose a bookmaker', body: 'Only 1xBet and Linebet are eligible. Choose the partner concerned. This choice does not create an account or unlock anything.' },
+      { title: '2. Read the promo guide', body: 'Open the dedicated promo page for your chosen partner. It contains the exact code and current information. This general VIP page does not reveal any code.' },
+      { title: '3. Create a new account', body: 'On the partner’s site, create a new account by following its guide and using the exact code shown there. BTTSPredict does not verify this action and it does not grant VIP access.' },
+      { title: '4. Request a review and wait', body: 'Send a WhatsApp request stating the partner and that you created a new account with the guide’s code. Do not send a player ID or identity document. The owner reviews the request and must personally confirm; until then VIP remains locked.' },
+    ],
+    wizardBack: 'Back',
+    wizardContinue: 'Continue',
+    wizardClose: 'Close',
+    wizardGuide: 'Open the {brand} guide',
+    wizardRequest: 'Request a review on WhatsApp',
+    wizardPending: 'After sending the request, wait for the owner’s personal decision. This page cannot confirm the request was sent or unlock VIP.',
+  },
+  ar: {
+    eyebrow: 'مسار الوصول',
+    title: 'طلب الوصول إلى VIP في 4 خطوات',
+    sub: 'اختر شريكاً، وراجع دليل العرض، وأنشئ حساباً جديداً بالرمز الدقيق، ثم اطلب مراجعة المالك. يبقى VIP مغلقاً حتى يؤكد المالك ذلك شخصياً.',
+    step1Title: 'اختر شركة المراهنات',
+    step1Text: 'شريكان فقط: 1xBet أو Linebet. افتح صفحة العرض الخاصة بالشريك: يُنشر فيها الرمز الدقيق والشروط الحالية.',
+    step1Note: 'لا تُعرض الرموز في صفحة VIP هذه.',
+    step2Title: 'أنشئ حساباً جديداً بالرمز الدقيق',
+    step2Text: 'يجب أن يكون التسجيل حساباً جديداً لدى هذا الشريك. انسخ الرمز كما يظهر في صفحة العرض دون تغييره.',
+    step2Note: 'إنشاء حساب لا يمنح الوصول إلى VIP.',
+    step2Action: 'افتح دليل {brand}',
+    choosePartner: 'الشريك المختار',
+    step3Title: 'اطلب التحقق من وصولك',
+    step3Text: 'أرسل اسم شركة المراهنات عبر واتساب وأكّد أنك أنشأت حساباً جديداً بالرمز الدقيق من صفحة العرض. يوافق المالك على الطلب يدوياً.',
+    step3Action: 'اطلب التحقق عبر واتساب',
+    step3Note: 'لا يُطلب أي مستند هوية.',
+    guidePanelTitle: 'أدلة العروض — الرمز والشروط',
+    guidePanelText: 'الرمز الدقيق وشروط كل مشغل موجودة في هذه الصفحات المخصصة. راجعها قبل التسجيل.',
+    accessPanelTitle: 'الوصول إلى VIP — الطلب والتحقق',
+    accessPanelText: 'يُقدَّم طلب الوصول عبر واتساب، ثم تحقق يدوي من المالك. لا يُطلب أي مستند هوية.',
+    panelCta: 'افتح واتساب',
+    deliveryText: 'بعد التحقق، تصل تركيبات VIP كل يوم عبر البريد الإلكتروني أو واتساب.',
+    previewEyebrow: 'محتوى VIP محمي',
+    previewTitle: 'لا تُنشر توقعات VIP في هذه الصفحة',
+    previewSub: 'لا تُضمّن اختيارات VIP أو الاحتمالات أو الإشارات في الملفات العامة. وتبقى غير متاحة حتى تتلقى تأكيداً شخصياً من المالك.',
+    previewCta: 'اعرض الإجراءات',
+    heroCta: 'ابدأ الإجراءات',
+    finalCta: 'اطلب وصولي إلى VIP',
+    statusTitle: 'الوصول مقفل',
+    statusText: 'لا تفتح أي ضغطة أو نموذج الوصول إلى VIP تلقائياً. المالك وحده يفتح الوصول بعد تأكيد طلبك شخصياً.',
+    wizardStart: 'افتح الإجراءات التفاعلية',
+    wizardTitle: 'طلب الوصول إلى VIP',
+    wizardProgress: 'الخطوة {current} من 4',
+    wizardSteps: [
+      { title: '1. اختر شركة المراهنات', body: 'الشريكان المؤهلان فقط هما 1xBet وLinebet. اختر الشريك المعني. هذا الاختيار لا ينشئ حساباً ولا يفتح أي محتوى.' },
+      { title: '2. راجع دليل العرض', body: 'افتح صفحة العرض المخصصة للشريك المختار. تحتوي على الرمز الدقيق والمعلومات الحالية. لا تكشف صفحة VIP العامة أي رمز.' },
+      { title: '3. أنشئ حساباً جديداً', body: 'على موقع الشريك، أنشئ حساباً جديداً باتباع دليله واستخدام الرمز نفسه كما هو معروض. لا يتحقق موقع BTTSPredict من هذه الخطوة ولا تمنح الوصول إلى VIP.' },
+      { title: '4. اطلب المراجعة وانتظر', body: 'أرسل طلباً عبر واتساب واذكر الشريك وأنك أنشأت حساباً جديداً باستخدام رمز الدليل. لا ترسل رقم لاعب أو وثيقة هوية. يراجع المالك الطلب ويجب أن يؤكد شخصياً؛ وحتى ذلك الحين يبقى VIP مقفلاً.' },
+    ],
+    wizardBack: 'رجوع',
+    wizardContinue: 'متابعة',
+    wizardClose: 'إغلاق',
+    wizardGuide: 'افتح دليل {brand}',
+    wizardRequest: 'اطلب المراجعة عبر واتساب',
+    wizardPending: 'بعد إرسال الطلب، انتظر القرار الشخصي من المالك. لا تؤكد هذه الصفحة إرسال الطلب ولا يمكنها فتح VIP.',
+  },
+}
 
 /* ────────────────────────── Page ────────────────────────── */
+
+/* Titre de la section procédure : distinct du titre du hero pour éviter un
+   doublon de H1/H2 identiques dans la page. */
+const FLOW_HEADING: Record<Locale, string> = {
+  fr: 'La procédure, étape par étape',
+  en: 'The procedure, step by step',
+  ar: 'الإجراءات خطوة بخطوة',
+}
 
 export default function VipPage() {
   const { lang: detectedLang } = useLanguage()
   const lang: Locale = detectedLang
 
-  /* Bookmaker sélectionné — 1xbet par défaut (partenaire prioritaire),
-     Linebet en alternative. Tout le texte de la page s'adapte au choix. */
+  /* Partenaire sélectionné — 1xBet ou Linebet. */
   const [book, setBook] = useState<VipBook>('1xbet')
+  const [partnerChosen, setPartnerChosen] = useState(false)
   const partner = VIP_PARTNERS[book]
-  const text = useMemo(() => makeCopy(partner.brand, partner.code)[lang], [partner, lang])
+  const text = useMemo(() => makeCodeFreeCopy(partner.brand, lang), [partner, lang])
+  const flow = VIP_FLOW[lang]
 
-  const [codeSelected, setCodeSelected] = useState(false)
-  const [copied, setCopied] = useState(false)
-  const [signupOpened, setSignupOpened] = useState(false)
-  const [depositConfirmed, setDepositConfirmed] = useState(false)
-  const [verifyOpened, setVerifyOpened] = useState(false)
-  const [openStep, setOpenStep] = useState<1 | 2 | 3 | 4 | null>(null)
   const [toast, setToast] = useState('')
-  const [fixtures, setFixtures] = useState<PredictionFixture[]>([])
-
-  /* La modale est portée dans le shell .vipx (hors de <main>) : les sections
-     animées (main > section → pd-fade-up, fill-mode both) gardent un transform
-     qui piègerait un position:fixed en tant que bloc contenant — la modale
-     serait ancrée à la section au lieu du viewport (bug mobile constaté).
-     Le shell .vipx n'a aucun transform : la modale y est fixée au viewport
-     tout en héritant des variables CSS --vipx-*.
-     L'élément est mémorisé via un callback ref dans un state (jamais lu
-     pendant le rendu via ref.current — règle react-hooks/refs). */
-  const [shellEl, setShellEl] = useState<HTMLDivElement | null>(null)
+  const [wizardStep, setWizardStep] = useState<1 | 2 | 3 | 4 | null>(null)
 
   const memberCardRef = useRef<HTMLDivElement | null>(null)
+  const wizardRef = useRef<HTMLDivElement | null>(null)
   const memberTilt = useTilt(memberCardRef, 9)
 
   useEffect(() => {
@@ -529,116 +407,58 @@ export default function VipPage() {
     trackAffiliateAction('platform', 'vip_page_view', 'vip-page-visit')
   }, [])
 
-  /* Fenêtres pop : Escape ferme + scroll bloqué tant qu'une étape est ouverte */
   useEffect(() => {
-    if (openStep === null) return
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setOpenStep(null)
-    }
-    window.addEventListener('keydown', onKey)
-    const previous = document.body.style.overflow
+    if (wizardStep === null) return
+    const previousOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
-    return () => {
-      window.removeEventListener('keydown', onKey)
-      document.body.style.overflow = previous
+    const focusFirst = () => wizardRef.current?.querySelector<HTMLElement>('button:not([disabled]), a[href]')?.focus()
+    const focusTimer = window.setTimeout(focusFirst, 0)
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        event.preventDefault()
+        setWizardStep(null)
+      }
+      if (event.key !== 'Tab' || !wizardRef.current) return
+      const items = [...wizardRef.current.querySelectorAll<HTMLElement>('button:not([disabled]), a[href]')]
+      if (!items.length) return
+      const first = items[0]
+      const last = items[items.length - 1]
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus() }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus() }
     }
-  }, [openStep])
-
-  /* Aperçu VIP : uniquement les fixtures explicitement marquées VIP par la source de données.
-     Jamais de contenu gratuit (free / predictions / vipPreview non flagué) dans cet espace —
-     seule une donnée explicitement VIP (payload.vip / payload.vipPredictions, flag vip) est retenue.
-     Sélections du jour d'abord, puis prochains matchs à venir (kickoff futur) lorsque le jour
-     n'offre plus de sélection exclusive — l'aperçu reste toujours rempli et honnête. */
-  useEffect(() => {
-    let cancelled = false
-    fetch('/predictions.json', { cache: 'no-store' })
-      .then((response) => (response.ok ? (response.json() as Promise<{ date?: string; vip?: PredictionFixture[]; vipPredictions?: PredictionFixture[] }>) : null))
-      .then((payload) => {
-        if (cancelled || !payload || payload.date !== dakarDate()) return
-        const rows = onlyVipFixtures(payload)
-        const seen = new Set<string>()
-        const upcoming: PredictionFixture[] = []
-        for (const fixture of rows) {
-          const home = fixture.home?.trim()
-          const away = fixture.away?.trim()
-          const { raw, timestamp } = fixtureKickoff(fixture)
-          if (!home || !away || !Number.isFinite(timestamp) || timestamp <= Date.now()) continue
-          const key = `${home.toLowerCase()}|${away.toLowerCase()}|${timestamp}`
-          if (seen.has(key)) continue
-          seen.add(key)
-          upcoming.push({ ...fixture, kickoff: raw })
-          if (upcoming.length >= 4) break
-        }
-        // Les matchs du jour d'abord, puis les jours suivants (chronologie réelle).
-        upcoming.sort((a, b) => Date.parse(a.kickoff || '') - Date.parse(b.kickoff || ''))
-        if (!cancelled) setFixtures(upcoming)
-      })
-      .catch(() => {
-        if (!cancelled) setFixtures([])
-      })
+    window.addEventListener('keydown', onKeyDown)
     return () => {
-      cancelled = true
+      window.clearTimeout(focusTimer)
+      window.removeEventListener('keydown', onKeyDown)
+      document.body.style.overflow = previousOverflow
     }
-  }, [])
+  }, [wizardStep])
 
-  /* Clic carte bookmaker = sélection + COPIE AUTOMATIQUE du code promo
-     (le toast ne confirme que si la copie a réellement réussi) */
-  const activateCode = async (target: VipBook) => {
-    const p = VIP_PARTNERS[target]
+  /* Le choix du partenaire ne copie ni ne révèle de code sur cette page. */
+  const selectPartner = (target: VipBook) => {
     setBook(target)
-    setCodeSelected(true)
+    setPartnerChosen(true)
     trackAffiliateAction(target, 'partner_select', 'vip-page')
-    const ok = await copyTextToClipboard(p.code)
-    if (ok) {
-      setCopied(true)
-      trackAffiliateCodeCopy(target, 'vip-promo-card')
-      setToast(`${p.code} — ${text.autoCopied}`)
-    } else {
-      setCopied(false)
-      setToast(`${p.code} — ${text.copyBtn}`)
-    }
+    setToast(`${VIP_PARTNERS[target].brand} — ${text.selected}`)
   }
 
-  const manualCopy = async () => {
-    const ok = await copyTextToClipboard(partner.code)
-    if (ok) {
-      setCopied(true)
-      setCodeSelected(true)
-      trackAffiliateCodeCopy(book, 'vip-code-chip')
-      setToast(`${partner.code} — ${text.copiedBtn}`)
-    }
-  }
+  const openWizard = (step: 1 | 2 | 3 | 4 = 1) => setWizardStep(step)
 
   /* Bouton de vérification → redirection WhatsApp (message pré-rempli) */
   const openVerification = () => {
     trackAffiliateAction(book, 'whatsapp_click', 'vip-verify')
-    setVerifyOpened(true)
     const message =
       lang === 'en'
-        ? `Hello BTTSPredict, I would like to verify my VIP access. Bookmaker: ${partner.brand}. Promo code used: ${partner.code}. Minimum deposit of ${VIP_DEPOSIT} made. My player ID: `
+        ? `Hello BTTSPredict, I would like to request a manual review of my VIP access. Partner: ${partner.brand}. I created a new account using the exact code from its promo guide. VIP access remains locked until the owner personally approves this request.`
         : lang === 'ar'
-          ? `مرحباً BTTSPredict، أرغب في التحقق من وصولي إلى VIP. شركة المراهنات: ${partner.brand}. الرمز الترويجي المستخدم: ${partner.code}. تم الإيداع الأدنى ${VIP_DEPOSIT}. معرّف لاعبي: `
-          : `Bonjour BTTSPredict, je souhaite faire vérifier mon accès VIP. Bookmaker : ${partner.brand}. Code promo utilisé : ${partner.code}. Dépôt minimum de ${VIP_DEPOSIT} effectué. Mon ID joueur : `
+          ? `مرحباً BTTSPredict، أود طلب مراجعة يدوية لوصولي إلى VIP. الشريك: ${partner.brand}. أنشأت حساباً جديداً بالرمز الدقيق من دليل العرض. يبقى الوصول إلى VIP مقفلاً حتى موافقة المالك شخصياً.`
+          : `Bonjour BTTSPredict, je demande une revue manuelle de mon accès VIP. Partenaire : ${partner.brand}. J’ai créé un nouveau compte avec le code exact de son guide promo. L’accès VIP reste verrouillé jusqu’à votre approbation personnelle.`
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
     window.open(url, '_blank', 'noopener,noreferrer')
-    setOpenStep(null)
-  }
-
-  const steps = [
-    { n: 1 as const, title: text.cond1Title, short: text.cond1Short, done: codeSelected },
-    { n: 2 as const, title: text.cond2Title, short: text.cond2Short, done: signupOpened },
-    { n: 3 as const, title: text.cond3Title, short: text.cond3Short, done: depositConfirmed },
-    { n: 4 as const, title: text.cond4Title, short: text.cond4Short, done: verifyOpened },
-  ]
-  const doneCount = steps.filter((step) => step.done).length
-
-  const openStepModal = (n: 1 | 2 | 3 | 4) => {
-    trackAffiliateAction(book, 'vip_unlock_open', `vip-step-${n}`)
-    setOpenStep(n)
   }
 
   return (
-    <div className="vipx" dir={lang === 'ar' ? 'rtl' : 'ltr'} ref={setShellEl}>
+    <div className="vipx" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
       <ErrorBoundary><Navbar /></ErrorBoundary>
 
       {toast && <div className="vipx-toast" role="status"><Icon.check /> {toast}</div>}
@@ -650,10 +470,10 @@ export default function VipPage() {
           <div className="vipx-hero__grid vipx-shell">
             <div className="vipx-hero__copy">
               <span className="vipx-eyebrow"><i aria-hidden="true" />{text.eyebrow}</span>
-              <AnimatedTitle as="h1" text={text.title} accentColor="#E8C268" />
-              <p className="vipx-hero__sub">{text.heroSub}</p>
+              <AnimatedTitle as="h1" text={flow.title} accentColor="#29D4B0" />
+              <p className="vipx-hero__sub">{flow.sub}</p>
               <div className="vipx-hero__cta">
-                <a className="vipx-btn vipx-btn--gold" href="#deblocage" onClick={() => setOpenStep(1)}>{text.ctaUnlock}<span aria-hidden="true">→</span></a>
+                <button type="button" className="vipx-btn vipx-btn--gold" onClick={() => openWizard(1)}>{flow.heroCta}<span aria-hidden="true">→</span></button>
                 <a className="vipx-btn vipx-btn--ghost" href={localizedPath('/btts/predictions/today', lang)}>{text.freeLink}</a>
               </div>
               <ul className="vipx-hero__trust">
@@ -686,224 +506,141 @@ export default function VipPage() {
           </div>
         </section>
 
-        {/* ═══════════ CARTE VIP — PROCÉDURE COMPLÈTE ═══════════ */}
-        <section id="deblocage" className="vipx-unlock vipx-shell">
+                {/* ═══════════ PARCOURS VIP — 3 ÉTAPES DANS L'ORDRE ═══════════ */}
+        <section id="parcours" className="vipx-flow vipx-shell">
           <header className="vipx-section-head">
-            <span className="vipx-eyebrow"><i aria-hidden="true" />{text.unlockEyebrow}</span>
-            <h2>{text.unlockTitle}</h2>
-            <p>{text.cardSub}</p>
+            <span className="vipx-eyebrow"><i aria-hidden="true" />{flow.eyebrow}</span>
+            <h2>{FLOW_HEADING[lang]}</h2>
+            <p>{flow.sub}</p>
           </header>
 
-          <article className="vipx-card">
-            <div className="vipx-card__head">
-              <span className="vipx-card__badge"><Icon.crown />VIP</span>
-              <div className="vipx-card__progress">
-                <strong>{doneCount} / 4</strong>
-                <span>{text.progressDone}</span>
-                <div className="vipx-card__bar" aria-hidden="true"><i style={{ width: `${Math.round((doneCount / 4) * 100)}%` }} /></div>
-              </div>
+          <div className="vipx-flow__status" role="note">
+            <Icon.lock />
+            <div>
+              <strong>{flow.statusTitle}</strong>
+              <span>{flow.statusText}</span>
             </div>
+          </div>
 
-            {/* Étapes cliquables — chaque clic ouvre une fenêtre pop détaillée */}
-            <ol className="vipx-steps">
-              {steps.map((step) => (
-                <li key={step.n}>
-                  <button type="button" className={`vipx-step${step.done ? ' is-done' : ''}`} onClick={() => openStepModal(step.n)} aria-haspopup="dialog">
-                    <span className="vipx-step__num" aria-hidden="true">{step.done ? <Icon.check /> : step.n}</span>
-                    <span className="vipx-step__body">
-                      <strong>{step.title}</strong>
-                      <small>{step.short}</small>
-                    </span>
-                    <span className="vipx-step__cta">{step.done ? text.stepDone : text.stepOpen}<span aria-hidden="true">→</span></span>
-                  </button>
-                </li>
-              ))}
-            </ol>
+          <button type="button" className="vipx-btn vipx-btn--gold vipx-flow__start" onClick={() => openWizard(1)}>
+            {flow.wizardStart}<span aria-hidden="true">→</span>
+          </button>
 
-            {/* Matchs VIP affichés dans la carte — noms d'équipes floutés :
-                l'affiche intrigue, l'identité des équipes reste exclusive VIP */}
-            <div className="vipx-card__matches">
-              <div className="vipx-card__matches-head">
-                <h4><Icon.target />{text.matchesTitle}</h4>
-              </div>
-              <p className="vipx-card__matches-sub">{text.matchesSub}</p>
-              {fixtures.length > 0 ? (
-                <ul className="vipx-matches">
-                  {fixtures.map((fixture, index) => {
-                    const { raw } = fixtureKickoff(fixture)
-                    return (
-                      <li key={`${fixture.home}-${fixture.away}-${raw}-${index}`}>
-                        <div className="vipx-matches__teams">
-                          <small>{fixture.league?.trim() || 'Football'}</small>
-                          <strong aria-hidden="true">
-                            <span className="vipx-blur">{fixture.home}</span>
-                            {' '}<span className="vipx-matches__vs">vs</span>{' '}
-                            <span className="vipx-blur">{fixture.away}</span>
-                          </strong>
-                        </div>
-                        <div className="vipx-matches__right">
-                          <time dateTime={raw}>{formatKickoff(raw, lang)}</time>
-                          <span className="vipx-matches__hidden"><Icon.lock />VIP</span>
-                        </div>
-                      </li>
-                    )
-                  })}
-                </ul>
-              ) : (
-                <p className="vipx-matches__empty" role="status">{text.combosEmpty}</p>
-              )}
-              <div className="vipx-matches__locked">
-                <Icon.lock />
-                <span>{text.locked}</span>
-                <button type="button" className="vipx-btn vipx-btn--gold vipx-btn--sm" onClick={() => openStepModal(1)}>{text.lockedCta}</button>
-              </div>
-            </div>
-
-            {/* Vérification WhatsApp — toujours visible en bas de carte */}
-            <div className="vipx-card__footer">
-              <button type="button" className="vipx-btn vipx-btn--wa vipx-btn--block" onClick={openVerification} disabled={!codeSelected} data-cta="vip-verify-whatsapp">
-                <Icon.whatsapp />{text.verify}
-              </button>
-              <p className="vipx-card__hint">{text.verifyHint}</p>
-            </div>
-          </article>
-
-          {/* Fenêtres pop détaillées — une par étape (portées hors de <main> : voir shellEl) */}
-          {openStep !== null && shellEl && createPortal(
-            <div className="vipx-modal" role="dialog" aria-modal="true" onClick={(e) => { if (e.target === e.currentTarget) setOpenStep(null) }}>
-              <div className="vipx-modal__panel">
-                <button type="button" className="vipx-modal__close" onClick={() => setOpenStep(null)} aria-label={text.close}>&times;</button>
-                <span className="vipx-modal__step">{text.modalStep.replace('{n}', String(openStep))}</span>
-
-                {openStep === 1 && (
-                  <>
-                    <h3 className="vipx-modal__title">{text.cond1Title}</h3>
-                    <div className="vipx-modal__body">
-                      <p>{text.cond1Desc}</p>
-                      <div className="vipx-bookmakers" role="group" aria-label={text.chooseTitle}>
-                        {VIP_BOOKS.map((id) => {
-                          const p = VIP_PARTNERS[id]
-                          const isSel = book === id
-                          return (
-                            <button
-                              key={id}
-                              type="button"
-                              onClick={() => activateCode(id)}
-                              className={`vipx-bookmaker${isSel ? ' is-selected' : ''}`}
-                              aria-pressed={isSel}
-                            >
-                              <span className="vipx-bookmaker__logo" aria-hidden="true">
-                                <img src={VIP_LOGOS[id]} alt="" />
-                              </span>
-                              <span className="vipx-bookmaker__body">
-                                <strong>{p.brand}{id === '1xbet' && <span className="vipx-bookmaker__new">{text.newBadge}</span>}</strong>
-                                <small className="vipx-bookmaker__code">{p.code}</small>
-                              </span>
-                              <span className={`vipx-bookmaker__state${isSel && copied ? ' is-on' : ''}`}>
-                                {isSel && copied ? <><Icon.check />{text.autoCopied}</> : <><Icon.copy />{text.tapToCopy}</>}
-                              </span>
-                            </button>
-                          )
-                        })}
-                      </div>
-                      {codeSelected && copied && (
-                        <p className="vipx-modal__ok"><Icon.check />{partner.code} — {text.autoCopied}</p>
-                      )}
-                    </div>
-                  </>
-                )}
-
-                {openStep === 2 && (
-                  <>
-                    <h3 className="vipx-modal__title">{text.cond2Title}</h3>
-                    <div className="vipx-modal__body">
-                      {codeSelected ? (
-                        <>
-                          <p>{text.cond2Desc}</p>
-                          <div className="vipx-code">
-                            <div className="vipx-code__body">
-                              <span>{text.codeLabel}</span>
-                              <strong>{partner.code}</strong>
-                            </div>
-                            <button type="button" className="vipx-code__copy" onClick={manualCopy}>
-                              {copied ? <Icon.check /> : <Icon.copy />}{copied ? text.copiedBtn : text.copyBtn}
-                            </button>
-                          </div>
-                          <p><strong>{text.m2Paste}</strong> {text.m2Where}</p>
-                          <a
-                            href={partner.signup}
-                            target="_blank"
-                            rel="sponsored nofollow noopener noreferrer"
-                            className="vipx-btn vipx-btn--gold vipx-btn--block"
-                            onClick={() => { setSignupOpened(true); trackAffiliateAction(book, 'signup_cta_click', 'vip-modal-step2') }}
-                            data-cta="vip-modal-signup"
-                          >
-                            {text.signup}<span aria-hidden="true">↗</span>
-                          </a>
-                          {/* Conversion croisée : l'autre partenaire prioritaire reste accessible */}
-                          <a
-                            href={book === '1xbet' ? localizedPath('/code-promo-linebet-senegal', lang) : localizedPath('/code-promo-1xbet', lang)}
-                            className="vipx-modal__alt"
-                          >
-                            {book === '1xbet' ? text.altLinebet : text.alt1xbet}
-                          </a>
-                        </>
-                      ) : (
-                        <p className="vipx-modal__warn"><Icon.lock />{text.m2NoBook}</p>
-                      )}
-                    </div>
-                  </>
-                )}
-
-                {openStep === 3 && (
-                  <>
-                    <h3 className="vipx-modal__title">{text.cond3Title}</h3>
-                    <div className="vipx-modal__body">
-                      <p>{text.cond3Desc}</p>
-                      <div className="vipx-deposit">
-                        <span className="vipx-deposit__label">{text.depositLabel}</span>
-                        <strong className="vipx-deposit__value">{text.depositValue}</strong>
-                        <span className="vipx-deposit__note">{text.depositNote}</span>
-                      </div>
-                      <button
-                        type="button"
-                        className={`vipx-btn vipx-btn--block ${depositConfirmed ? 'vipx-btn--ghost' : 'vipx-btn--gold'}`}
-                        onClick={() => setDepositConfirmed(true)}
-                        disabled={depositConfirmed}
-                      >
-                        {depositConfirmed ? <><Icon.check />{text.stepDone}</> : text.m3Confirm}
-                      </button>
-                    </div>
-                  </>
-                )}
-
-                {openStep === 4 && (
-                  <>
-                    <h3 className="vipx-modal__title">{text.cond4Title}</h3>
-                    <div className="vipx-modal__body">
-                      <p>{text.cond4Desc}</p>
-                      <p><strong>{text.m4Id}</strong></p>
-                      <button type="button" className="vipx-btn vipx-btn--wa vipx-btn--block" onClick={openVerification} disabled={!codeSelected}>
-                        <Icon.whatsapp />{text.verify}
-                      </button>
-                      <p>{text.m4After}</p>
-                    </div>
-                  </>
-                )}
-
-                <div className="vipx-modal__foot">
-                  {openStep < 4 ? (
-                    <button type="button" className="vipx-btn vipx-btn--gold" onClick={() => setOpenStep((openStep + 1) as 1 | 2 | 3 | 4)}>
-                      {text.next}<span aria-hidden="true">→</span>
-                    </button>
-                  ) : (
-                    <button type="button" className="vipx-btn vipx-btn--ghost" onClick={() => setOpenStep(null)}>{text.close}</button>
-                  )}
+          <ol className="vipx-flow__steps">
+            <li className="vipx-flow__step">
+              <span className="vipx-flow__num" aria-hidden="true">1</span>
+              <div className="vipx-flow__body">
+                <h3>{flow.step1Title}</h3>
+                <p>{flow.step1Text}</p>
+                <p className="vipx-flow__note"><Icon.shield />{flow.step1Note}</p>
+                <div className="vipx-flow__actions">
+                  {VIP_BOOKS.map((id) => (
+                    <a
+                      key={id}
+                      href={localizedPath(VIP_PARTNERS[id].guide, lang)}
+                      className="vipx-flow__guide"
+                      data-cta={`vip-guide-${id}`}
+                    >
+                      <img src={VIP_LOGOS[id]} alt="" width={64} height={26} loading="lazy" />
+                      <span>{VIP_PARTNERS[id].brand}</span>
+                      <span aria-hidden="true">↗</span>
+                    </a>
+                  ))}
                 </div>
               </div>
-            </div>,
-            shellEl
-          )}
+            </li>
+
+            <li className="vipx-flow__step">
+              <span className="vipx-flow__num" aria-hidden="true">2</span>
+              <div className="vipx-flow__body">
+                <h3>{flow.step2Title}</h3>
+                <p>{flow.step2Text}</p>
+                <p className="vipx-flow__note vipx-flow__note--warn"><Icon.lock />{flow.step2Note}</p>
+                <div className="vipx-flow__switch" role="group" aria-label={flow.choosePartner}>
+                  {VIP_BOOKS.map((id) => (
+                    <button
+                      key={id}
+                      type="button"
+                      aria-pressed={partnerChosen && book === id}
+                      className={`vipx-flow__chip${partnerChosen && book === id ? ' is-on' : ''}`}
+                      onClick={() => selectPartner(id)}
+                    >
+                      {VIP_PARTNERS[id].brand}
+                    </button>
+                  ))}
+                </div>
+                <div className="vipx-flow__actions">
+                  <a
+                    href={localizedPath(partner.guide, lang)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="vipx-btn vipx-btn--gold vipx-btn--sm"
+                    data-cta="vip-step2-guide"
+                  >
+                    {flow.step2Action.replace('{brand}', partner.brand)}<span aria-hidden="true">↗</span>
+                  </a>
+                </div>
+              </div>
+            </li>
+
+            <li className="vipx-flow__step vipx-flow__step--accent">
+              <span className="vipx-flow__num" aria-hidden="true">3</span>
+              <div className="vipx-flow__body">
+                <h3>{flow.step3Title}</h3>
+                <p>{flow.step3Text}</p>
+                <button
+                  type="button"
+                  className="vipx-btn vipx-btn--wa vipx-btn--block"
+                  onClick={() => openWizard(1)}
+                  data-cta="vip-verify-whatsapp"
+                >
+                  <Icon.whatsapp />{flow.step3Action}
+                </button>
+                <p className="vipx-flow__note"><Icon.clock />{flow.step3Note}</p>
+              </div>
+            </li>
+          </ol>
+
+          {/* Deux blocs distincts : guides promo d'un côté, accès VIP de l'autre */}
+          <div className="vipx-flow__panels">
+            <article className="vipx-flow__panel">
+              <h3><Icon.target />{flow.guidePanelTitle}</h3>
+              <p>{flow.guidePanelText}</p>
+              <ul className="vipx-flow__links">
+                {VIP_BOOKS.map((id) => (
+                  <li key={id}>
+                    <a href={localizedPath(VIP_PARTNERS[id].guide, lang)}>
+                      {VIP_PARTNERS[id].brand}<span aria-hidden="true"> →</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </article>
+            <article className="vipx-flow__panel vipx-flow__panel--accent">
+              <h3><Icon.crown />{flow.accessPanelTitle}</h3>
+              <p>{flow.accessPanelText}</p>
+              <p className="vipx-flow__delivery"><Icon.spark />{flow.deliveryText}</p>
+              <button type="button" className="vipx-btn vipx-btn--gold vipx-btn--sm" onClick={() => openWizard(1)} data-cta="vip-panel-procedure">
+                {flow.wizardStart}<span aria-hidden="true">→</span>
+              </button>
+            </article>
+          </div>
+        </section>
+
+        {/* ═══════════ APERÇU DES MATCHS VIP ═══════════ */}
+        <section className="vipx-preview vipx-shell">
+          <header className="vipx-section-head">
+            <span className="vipx-eyebrow"><i aria-hidden="true" />{flow.previewEyebrow}</span>
+            <h2>{flow.previewTitle}</h2>
+            <p>{flow.previewSub}</p>
+          </header>
+          <div className="vipx-preview__card">
+            <div className="vipx-matches__locked" role="status">
+              <Icon.lock />
+              <span>{flow.wizardPending}</span>
+              <button type="button" className="vipx-btn vipx-btn--gold vipx-btn--sm" onClick={() => openWizard(1)}>{flow.previewCta}</button>
+            </div>
+          </div>
         </section>
 
         {/* ═══════════ BÉNÉFICES ═══════════ */}
@@ -921,9 +658,6 @@ export default function VipPage() {
             <article><span className="vipx-benefits__icon"><Icon.users /></span><h3>{text.b6Title}</h3><p>{text.b6Desc}</p></article>
           </div>
         </section>
-
-        {/* ═══════════ HISTORIQUE VIP — 15 dernières victoires vérifiées ═══════════ */}
-        <VipWinHistory />
 
         {/* ═══════════ CONFIANCE ═══════════ */}
         <section className="vipx-trust vipx-shell">
@@ -969,12 +703,97 @@ export default function VipPage() {
           <div className="vipx-final__card vipx-shell">
             <h2>{text.finalTitle}</h2>
             <p>{text.finalDesc}</p>
-            <a className="vipx-btn vipx-btn--gold" href="#deblocage">{text.finalCta}<span aria-hidden="true">→</span></a>
+            <button type="button" className="vipx-btn vipx-btn--gold" onClick={() => openWizard(1)}>{flow.finalCta}<span aria-hidden="true">→</span></button>
             <p className="vipx-final__responsible">{text.responsible}</p>
             <p className="vipx-final__note">{text.footerNote}</p>
           </div>
         </section>
       </main>
+
+      {wizardStep !== null && (
+        <div
+          className="vipx-wizard"
+          onMouseDown={(event) => { if (event.target === event.currentTarget) setWizardStep(null) }}
+        >
+          <section
+            className="vipx-wizard__panel"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="vipx-wizard-title"
+            aria-describedby="vipx-wizard-body"
+            ref={wizardRef}
+            dir={lang === 'ar' ? 'rtl' : 'ltr'}
+          >
+            <button type="button" className="vipx-wizard__close" onClick={() => setWizardStep(null)} aria-label={flow.wizardClose}>×</button>
+            <p className="vipx-wizard__progress-label">{flow.wizardProgress.replace('{current}', String(wizardStep))}</p>
+            <div className="vipx-wizard__progress" role="progressbar" aria-valuemin={1} aria-valuemax={4} aria-valuenow={wizardStep} aria-label={flow.wizardProgress.replace('{current}', String(wizardStep))}>
+              <i style={{ width: `${wizardStep * 25}%` }} />
+            </div>
+
+            <h2 id="vipx-wizard-title">{flow.wizardTitle}</h2>
+            <div className="vipx-wizard__content" id="vipx-wizard-body" aria-live="polite">
+              <h3>{flow.wizardSteps[wizardStep - 1].title}</h3>
+              <p>{flow.wizardSteps[wizardStep - 1].body}</p>
+
+              {wizardStep === 1 && (
+                <div className="vipx-flow__switch" role="group" aria-label={flow.choosePartner}>
+                  {VIP_BOOKS.map((id) => (
+                    <button
+                      key={id}
+                      type="button"
+                      aria-pressed={partnerChosen && book === id}
+                      className={`vipx-flow__chip${partnerChosen && book === id ? ' is-on' : ''}`}
+                      onClick={() => selectPartner(id)}
+                    >
+                      <img src={VIP_LOGOS[id]} alt="" width={56} height={24} />
+                      {VIP_PARTNERS[id].brand}
+                    </button>
+                  ))}
+                </div>
+              )}
+
+              {(wizardStep === 2 || wizardStep === 3) && (
+                <a
+                  className="vipx-btn vipx-btn--gold vipx-btn--block"
+                  href={localizedPath(partner.guide, lang)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cta={`vip-wizard-guide-step-${wizardStep}`}
+                >
+                  {flow.wizardGuide.replace('{brand}', partner.brand)}<span aria-hidden="true">↗</span>
+                </a>
+              )}
+
+              {wizardStep === 4 && (
+                <>
+                  <button type="button" className="vipx-btn vipx-btn--wa vipx-btn--block" onClick={openVerification} data-cta="vip-wizard-whatsapp">
+                    <Icon.whatsapp />{flow.wizardRequest}
+                  </button>
+                  <p className="vipx-wizard__pending"><Icon.lock />{flow.wizardPending}</p>
+                </>
+              )}
+            </div>
+
+            <div className="vipx-wizard__footer">
+              <button type="button" className="vipx-btn vipx-btn--ghost" onClick={() => wizardStep === 1 ? setWizardStep(null) : setWizardStep((wizardStep - 1) as 1 | 2 | 3)}>
+                {wizardStep === 1 ? flow.wizardClose : flow.wizardBack}
+              </button>
+              {wizardStep < 4 ? (
+                <button
+                  type="button"
+                  className="vipx-btn vipx-btn--gold"
+                  disabled={wizardStep === 1 && !partnerChosen}
+                  onClick={() => setWizardStep((wizardStep + 1) as 2 | 3 | 4)}
+                >
+                  {flow.wizardContinue}<span aria-hidden="true">→</span>
+                </button>
+              ) : (
+                <button type="button" className="vipx-btn vipx-btn--ghost" onClick={() => setWizardStep(null)}>{flow.wizardClose}</button>
+              )}
+            </div>
+          </section>
+        </div>
+      )}
 
       <ErrorBoundary><Footer /></ErrorBoundary>
     </div>

@@ -13530,87 +13530,12 @@
       "status": "PENDING"
     }
   ],
-  "vipPreview": [
-    {
-      "vip": true,
-      "id": "middlesb-vs-charlton-2026-10-31",
-      "home": "Middlesbrough",
-      "away": "Charlton Athletic",
-      "league": "Championship",
-      "date": "2026-10-31",
-      "time": "15:00"
-    },
-    {
-      "vip": true,
-      "id": "bologna-vs-monza-2026-10-31",
-      "home": "Bologna",
-      "away": "Monza",
-      "league": "Serie A",
-      "date": "2026-10-31",
-      "time": "14:00"
-    },
-    {
-      "vip": true,
-      "id": "brentfor-vs-nottingh-2026-10-31",
-      "home": "Brentford",
-      "away": "Nottingham Forest",
-      "league": "Premier League",
-      "date": "2026-10-31",
-      "time": "15:00"
-    },
-    {
-      "vip": true,
-      "id": "levante-vs-atlticom-2026-10-31",
-      "home": "Levante",
-      "away": "Atlético Madrid",
-      "league": "LaLiga",
-      "date": "2026-10-31",
-      "time": "13:00"
-    },
-    {
-      "vip": true,
-      "id": "barcelon-vs-alavs-2026-10-31",
-      "home": "Barcelona",
-      "away": "Alavés",
-      "league": "LaLiga",
-      "date": "2026-10-31",
-      "time": "20:00"
-    },
-    {
-      "vip": true,
-      "id": "ajaxamst-vs-azalkmaa-2026-10-31",
-      "home": "Ajax Amsterdam",
-      "away": "AZ Alkmaar",
-      "league": "Eredivisie",
-      "date": "2026-10-31",
-      "time": "20:00"
-    },
-    {
-      "vip": true,
-      "id": "scrheind-vs-svjoskor-2026-10-31",
-      "home": "SC Rheindorf Altach",
-      "away": "SV Josko Ried",
-      "league": "Austrian Bundesliga",
-      "date": "2026-10-31",
-      "time": "16:00"
-    },
-    {
-      "vip": true,
-      "id": "columbus-vs-dcunited-2026-10-31",
-      "home": "Columbus Crew",
-      "away": "D.C. United",
-      "league": "MLS",
-      "date": "2026-10-31",
-      "time": "18:00"
-    }
-  ],
   "stats": {
     "avgReliability": 78.94,
     "totalAnalyzed": 187,
     "totalRejected": 27,
     "totalAccepted": 160,
-    "freeCount": 51,
-    "vipCount": 8
+    "freeCount": 51
   },
   "predictions": [
     {

@@ -225,7 +225,7 @@ export default function CGUPage() {
                 </h2>
                 <div className="space-y-3 text-cendre text-sm leading-relaxed">
                   <p>
-                    BTTSPredict participe au programme d&apos;affiliation de Linebet. À ce titre, le site diffuse des liens sponsorisés vers la plateforme Linebet. Lorsqu&apos;un utilisateur s&apos;inscrit sur Linebet via un lien d&apos;affiliation présent sur BTTSPredict et utilise le code promo VISION221, BTTSPredict perçoit une commission d&apos;affiliation.
+                    BTTSPredict participe au programme d&apos;affiliation de Linebet. À ce titre, le site diffuse des liens sponsorisés vers la plateforme Linebet. Lorsqu&apos;un utilisateur s&apos;inscrit sur Linebet via un lien d&apos;affiliation présent sur BTTSPredict et y saisit le code promo VISION221 alors BTTSPredict perçoit une commission d&apos;affiliation.
                   </p>
                   <p>
                     Cette relation d&apos;affiliation n&apos;affecte en aucune manière l&apos;objectivité des pronostics diffusés sur le site. Les analyses et recommandations sont générées indépendamment par notre algorithme d&apos;analyse statistique et ne sont pas influencées par notre partenariat avec Linebet.

@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
+import { usePathname } from 'next/navigation'
 import { useLanguage } from './LanguageSwitcher'
 import { translationsFor, type Locale, localizedPath } from '@/lib/i18n'
 import { AFFILIATE, BOOKMAKERS } from '@/lib/constants'
@@ -139,12 +140,18 @@ export function LeagueCoverage({ initialLocale }: { initialLocale?: Locale } = {
 export function PartnerCard({ initialLocale }: { initialLocale?: Locale } = {}) {
   const { lang: detectedLang } = useLanguage()
   const lang = initialLocale ?? detectedLang
+  const pathname = usePathname()
+  const showCodes = false
   const t = translationsFor(lang)
   const primaryCode = codeForPartner('1xbet')
   const linebetCode = codeForPartner('linebet')
   const melbetCode = codeForPartner('melbet')
   const star888Code = codeForPartner('888starz')
   const [copied, setCopied] = useState(false)
+  const withDiscreetCode = (text: string, code: string) => {
+    const index = text.indexOf(code)
+    return index < 0 ? text : <>{text.slice(0, index)}<code className="promo-code-discreet" dir="ltr">{code}</code>{text.slice(index + code.length)}</>
+  }
 
   const copyCode = async () => {
     if (!primaryCode) return
@@ -162,27 +169,30 @@ export function PartnerCard({ initialLocale }: { initialLocale?: Locale } = {}) 
         <div className="hp-partner">
           {/* hp-partner__intro — NE PAS nommer hp-partner__copy (réservé au bouton copier) */}
           <div className="hp-partner__intro">
+            <span className="inline-flex rounded-full border border-white/15 bg-white/[.04] px-2.5 py-1 text-[10px] font-bold uppercase tracking-[.16em] text-[#B9C0CA]">
+              {lang === 'en' ? 'Advertisement' : lang === 'ar' ? 'إعلان' : 'Publicité'}
+            </span>
             <p className="hp-eyebrow hp-eyebrow--partner">{t.home2.ptEyebrow}</p>
             <p className="hp-partner__title">
               <span className="hp-partner__brand" aria-hidden="true">1XBET</span>
-              <code dir="ltr" style={{ textTransform: 'none' }}>{primaryCode}</code>
+              {showCodes && <code dir="ltr" style={{ textTransform: 'none' }}>{primaryCode}</code>}
             </p>
-            <p className="hp-partner__text">{t.home2.ptText}</p>
+            <p className="hp-partner__text">{showCodes ? withDiscreetCode(t.home2.ptText, primaryCode) : lang === 'ar' ? 'راجع دليل الشريك للاطلاع على المعلومات والشروط الحالية.' : lang === 'fr' ? 'Consultez le guide partenaire pour connaître les informations et conditions actuelles.' : 'See the partner guide for current information and terms.'}</p>
             <p className="hp-partner__free">{t.home2.ptFree}</p>
           </div>
           <div className="hp-partner__actions">
-            <div className="hp-partner__code">
-              <code dir="ltr" style={{ textTransform: 'none' }}>{primaryCode}</code>
-              <button
-                type="button"
-                onClick={copyCode}
-                className={`hp-partner__copy${copied ? ' is-copied' : ''}`}
-                aria-label={`Copier le code 1xBet ${primaryCode}`}
-                data-cta="partner-copy-vipbtts"
-              >
-                {copied ? '✓' : t.hero.copy}
-              </button>
-            </div>
+            {showCodes && <div className="hp-partner__code">
+                <code dir="ltr" style={{ textTransform: 'none' }}>{primaryCode}</code>
+                <button
+                  type="button"
+                  onClick={copyCode}
+                  className={`hp-partner__copy${copied ? ' is-copied' : ''}`}
+                  aria-label={`Copier le code 1xBet ${primaryCode}`}
+                  data-cta="partner-copy-vipbtts"
+                >
+                  {copied ? '✓' : t.hero.copy}
+                </button>
+              </div>}
             <div className="grid gap-2 w-full">
               <MovingGradientButton
                 href={AFFILIATE.oneXbet}
@@ -191,7 +201,8 @@ export function PartnerCard({ initialLocale }: { initialLocale?: Locale } = {}) 
                 dataCta="partner-signup-home-1xbet"
                 onClick={() => trackAffiliateAction('1xbet', 'signup_cta_click', 'home-partner-1xbet')}
               >
-                {t.home2.ptCta}
+                <span className="grid h-7 w-7 place-items-center rounded bg-white p-0.5"><img src="/logos/1xbet-logo.png" alt="" width="24" height="24" className="h-6 w-6 object-contain" /></span>
+                {showCodes ? withDiscreetCode(t.home2.ptCta, primaryCode) : lang === 'ar' ? 'زيارة 1xBet' : lang === 'fr' ? 'Consulter 1xBet' : 'Visit 1xBet'}
                 <span className="hp-btn-arrow" aria-hidden="true">→</span>
               </MovingGradientButton>
               <a
@@ -207,7 +218,8 @@ export function PartnerCard({ initialLocale }: { initialLocale?: Locale } = {}) 
                   boxShadow: '0 10px 28px rgba(27, 110, 243, 0.35)',
                 }}
               >
-                {lang === 'fr' ? `Linebet · code ${linebetCode}` : lang === 'en' ? `Linebet · code ${linebetCode}` : `Linebet · ${linebetCode}`}
+                <span className="grid h-7 w-7 place-items-center rounded bg-white p-0.5"><img src="/logos/linebet-logo.jpg" alt="" width="24" height="24" className="h-6 w-6 object-contain" /></span>
+                {showCodes ? (lang === 'fr' ? <>Linebet · code <code className="promo-code-discreet" dir="ltr">{linebetCode}</code></> : lang === 'en' ? <>Linebet · code <code className="promo-code-discreet" dir="ltr">{linebetCode}</code></> : <>Linebet · <code className="promo-code-discreet" dir="ltr">{linebetCode}</code></>) : lang === 'ar' ? 'زيارة Linebet' : lang === 'fr' ? 'Consulter Linebet' : 'Visit Linebet'}
                 <span aria-hidden="true">→</span>
               </a>
             </div>
@@ -220,7 +232,8 @@ export function PartnerCard({ initialLocale }: { initialLocale?: Locale } = {}) 
                 data-cta="home-partner-melbet-signup"
                 className="flex min-h-10 items-center justify-center gap-1 rounded-lg border border-white/10 bg-white/[0.025] px-2 py-2 text-center text-xs font-semibold text-[#AEB9B5]"
               >
-                MelBet <code dir="ltr" style={{ fontFamily: 'ui-monospace, monospace', textTransform: 'none' }}>{melbetCode}</code>
+                <span className="grid h-6 w-6 place-items-center rounded bg-white p-0.5"><img src="/logos/melbet-logo.jpg" alt="" width="20" height="20" className="h-5 w-5 object-contain" /></span>
+                MelBet{showCodes && <> <code dir="ltr" style={{ fontFamily: 'ui-monospace, monospace', textTransform: 'none' }}>{melbetCode}</code></>}
               </a>
               <a
                 href={AFFILIATE.star888}
@@ -230,7 +243,8 @@ export function PartnerCard({ initialLocale }: { initialLocale?: Locale } = {}) 
                 data-cta="home-partner-888starz-signup"
                 className="flex min-h-10 items-center justify-center gap-1 rounded-lg border border-white/10 bg-white/[0.025] px-2 py-2 text-center text-xs font-semibold text-[#AEB9B5]"
               >
-                888Starz <code dir="ltr" style={{ fontFamily: 'ui-monospace, monospace', textTransform: 'none' }}>{star888Code}</code>
+                <span className="grid h-6 w-6 place-items-center rounded bg-white p-0.5"><img src="/logos/888starz-logo.jpg" alt="" width="20" height="20" className="h-5 w-5 object-contain" /></span>
+                888Starz{showCodes && <> <code dir="ltr" style={{ fontFamily: 'ui-monospace, monospace', textTransform: 'none' }}>{star888Code}</code></>}
               </a>
             </div>
             <p className="hp-partner__mentions">{t.home2.ptMentions}</p>
@@ -240,11 +254,13 @@ export function PartnerCard({ initialLocale }: { initialLocale?: Locale } = {}) 
               style={{ color: '#9CC6FF' }}
               data-cta="home-partner-1xbet-link"
             >
-              {lang === 'fr'
-                ? 'Guide code promo 1xBet (vipbtts)'
-                : lang === 'en'
-                  ? '1xBet promo code guide (vipbtts)'
-                  : 'دليل رمز 1xBet (vipbtts)'}
+              {showCodes
+                ? lang === 'fr'
+                  ? <>Guide code promo 1xBet (<code className="promo-code-discreet" dir="ltr">vipbtts</code>)</>
+                  : lang === 'en'
+                    ? <>1xBet promo code guide (<code className="promo-code-discreet" dir="ltr">vipbtts</code>)</>
+                    : <>دليل رمز 1xBet (<code className="promo-code-discreet" dir="ltr">vipbtts</code>)</>
+                : lang === 'fr' ? 'Guide promo 1xBet' : lang === 'ar' ? 'دليل 1xBet' : '1xBet guide'}
               <span aria-hidden="true">→</span>
             </a>
           </div>

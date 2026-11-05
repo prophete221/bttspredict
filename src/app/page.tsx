@@ -13,8 +13,6 @@ const LeagueCoverage = dynamic(() => import('@/components/bttsbet/HomeEditorial'
 const PartnerCard = dynamic(() => import('@/components/bttsbet/HomeEditorial').then(m => ({ default: m.PartnerCard })), { loading: () => null })
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
 const ErrorBoundary = dynamic(() => import('@/components/bttsbet/ErrorBoundary'), { loading: () => null })
-const StickyCTABar = dynamic(() => import('@/components/bttsbet/StickyCTABar'), { loading: () => null })
-
 // Tâche 002 — Title et description SEO alignés sur le Prompt Maître.
 // Title : 49 chars (limite soft 60) — description : 139 chars (limite soft 150).
 // Anti-récidive: checkSeo() lance une erreur build-time si title > 60 ou desc > 150.
@@ -94,10 +92,10 @@ const faqJsonLd = {
     },
     {
       '@type': 'Question',
-      name: 'Comment utiliser le code promo VISION221 ?',
+      name: 'Quel code partenaire et quelle offre sont confirmés pour Linebet ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Inscrivez-vous sur Linebet via notre lien de parrainage, puis saisissez le code promo VISION221 lors de votre inscription ou dans la section Code Promo de votre compte pour recevoir un bonus exclusif sur votre premier dépôt.",
+        text: 'L’offre partenaire confirmée pour Linebet est de 300 % worldwide et le code exact est VISION221 (voir le guide dédié). Vérifiez directement auprès de Linebet les autres modalités et l’applicabilité.',
       },
     },
     {
@@ -282,9 +280,6 @@ export default function Home() {
 
         <ErrorBoundary><Footer /></ErrorBoundary>
       </main>
-
-      {/* Sticky CTA Bar — mobile only, appears after 60% scroll */}
-      <StickyCTABar />
 
     </div>
   )

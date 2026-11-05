@@ -19,9 +19,10 @@ describe('affiliate and VIP consistency', () => {
     expect(linebet?.promoCode).toBe('VISION221')
     expect(melbet?.promoCode).toBe('Bttswin')
     expect(star888?.promoCode).toBe('btts221')
-    expect(VIP_POLICY.partner).toBe('1xbet ou Linebet')
-    expect(VIP_POLICY.promoCode).toContain('vipbtts')
-    expect(VIP_POLICY.promoCode).toContain(linebet?.promoCode ?? '')
+    expect(VIP_POLICY.partners).toEqual(['1xbet', 'linebet'])
+    expect(VIP_POLICY.access).toBe('locked')
+    expect(VIP_POLICY.approval).toBe('manual-owner-confirmation')
+    expect(VIP_POLICY.publicData).toBe('none')
   })
 
   it('keeps affiliate destinations present for all partners', () => {

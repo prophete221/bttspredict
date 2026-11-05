@@ -3,37 +3,39 @@ import { notFound } from 'next/navigation'
 import LocalizedPromoClient from '@/components/bttsbet/LocalizedPromoClient'
 import { SUPPORTED_LOCALES, type Locale } from '@/lib/i18n'
 import { buildPromoFaqJsonLd } from '@/lib/promo-faq'
-import { PROMO_CURRENT_YEAR } from '@/lib/promo-build-date.generated'
 
-export function generateStaticParams() { return SUPPORTED_LOCALES.filter(locale => locale !== 'fr').map(locale => ({ locale })) }
 const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'code-promo-melbet'
-const YEAR = PROMO_CURRENT_YEAR
+const FR_URL = `${SITE_URL}/${SLUG}`
+const EN_URL = `${SITE_URL}/en/${SLUG}`
+const AR_URL = `${SITE_URL}/ar/${SLUG}`
+
+export function generateStaticParams() {
+  return SUPPORTED_LOCALES.filter((locale) => locale !== 'fr').map((locale) => ({ locale }))
+}
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  if (locale === 'en') return {
-    title: `Melbet Promo Code Bttswin: 300% + 100 Free Spins`,
-    description: `Melbet promo code Bttswin: 300% bonus + 100 free spins, no wagering requirements. ${YEAR} sign-up guide, 18+.`,
-    keywords: ['melbet promo code', 'melbet promo code Bttswin', 'code bttswin', 'melbet 300 bonus', 'melbet welcome bonus', 'melbet 100 free spins', 'melbet apk', 'bttswin'],
+  const isEnglish = locale === 'en'
+  if (!isEnglish && locale !== 'ar') return {}
+  const title = isEnglish ? 'Melbet Promo Code Bttswin · 300% Worldwide' : 'رمز Melbet Bttswin · 300% حول العالم'
+  const description = isEnglish
+    ? 'Melbet promo code Bttswin: 300% worldwide, more cashback and weekly bonuses. 18+.'
+    : 'رمز Melbet الترويجي Bttswin: مكافأة 300% حول العالم، مع استرداد نقدي أكبر ومكافآت أسبوعية. +18.'
+  return {
+    title,
+    description,
+    keywords: isEnglish
+      ? ['Melbet promo code', 'Bttswin', 'Melbet 300% worldwide']
+      : ['رمز Melbet الترويجي', 'Bttswin', 'Melbet 300% حول العالم'],
     alternates: {
-      canonical: `${SITE_URL}/en/${SLUG}`,
-      languages: { fr: `${SITE_URL}/${SLUG}`, en: `${SITE_URL}/en/${SLUG}`, ar: `${SITE_URL}/ar/${SLUG}`, 'x-default': `${SITE_URL}/${SLUG}` },
+      canonical: isEnglish ? EN_URL : AR_URL,
+      languages: { fr: FR_URL, en: EN_URL, ar: AR_URL, 'x-default': FR_URL },
     },
     robots: { index: true, follow: true },
   }
-  if (locale === 'ar') return {
-    title: `رمز Melbet الترويجي Bttswin: 300% + 100 لفة مجانية`,
-    description: `رمز Melbet الترويجي Bttswin: مكافأة 300% + 100 لفة مجانية، بدون شروط مراهنة. دليل ${YEAR}، 18+.`,
-    keywords: ['رمز Melbet الترويجي', 'كود Bttswin', 'مكافأة Melbet 300', 'Melbet 100 لفة مجانية', 'Melbet تسجيل', 'Melbet apk', 'Bttswin'],
-    alternates: {
-      canonical: `${SITE_URL}/ar/${SLUG}`,
-      languages: { fr: `${SITE_URL}/${SLUG}`, en: `${SITE_URL}/en/${SLUG}`, ar: `${SITE_URL}/ar/${SLUG}`, 'x-default': `${SITE_URL}/${SLUG}` },
-    },
-    robots: { index: true, follow: true },
-  }
-  return {}
 }
+
 export default async function LocalizedMelbetPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
   if (!SUPPORTED_LOCALES.includes(locale as Locale) || locale === 'fr') notFound()
@@ -41,10 +43,7 @@ export default async function LocalizedMelbetPage({ params }: { params: Promise<
   const faqLd = buildPromoFaqJsonLd('melbet', lang)
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <LocalizedPromoClient bookmaker="melbet" />
     </>
   )

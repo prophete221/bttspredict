@@ -4,10 +4,11 @@ import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { useLanguage } from './LanguageSwitcher'
 import { translationsFor, type Locale, localizedPath } from '@/lib/i18n'
 import { generateMatchSlug } from '@/lib/match-slug'
+import { matchMetricLabels } from '@/lib/matchMetricLabels'
 import { getDakarDayDiff, getDakarMatchStatus, parseDakarDateTime } from '@/lib/dakar-date'
 import { KICKOFF_I18N } from '@/lib/i18n-extras'
 import ComboBuilder from './ComboBuilder'
-
+import BookmakerCardLinks from './BookmakerCardLinks'
 // useLayoutEffect isomorphe (évite le warning SSR React)
 const useIsoLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect
 
@@ -295,6 +296,7 @@ function MatchCard({ m, index, lang, results, nowTs }: {
   nowTs: number
 }) {
   const t = translationsFor(lang)
+  const metricLabels = matchMetricLabels(lang)
   const cardRef = useRef<HTMLElement | null>(null)
   const tiltRaf = useRef(0)
   const tiltPointer = useRef({ x: 0, y: 0 })
@@ -498,18 +500,17 @@ function MatchCard({ m, index, lang, results, nowTs }: {
       )}
 
       {/* Ligne 4 : synthèse données réelles */}
-      {(m.xgTotal !== undefined || m.formBTTS !== undefined || m.reliabilityScore !== undefined) && (
+      {(m.xgTotal !== undefined || m.formBTTS !== undefined) && (
         <div className="hp-mc-data">
           {m.xgHome !== undefined && m.xgAway !== undefined && (
-            <span title={lang === 'en' ? 'Home / away xG' : lang === 'ar' ? 'xG صاحب الأرض / الضيف' : 'xG domicile / extérieur'}><i>{t.home2.mcXg}</i> {num(m.xgHome)}/{num(m.xgAway)}</span>
+            <span title={metricLabels.teamGoalsDescription}><i>{metricLabels.teamGoals}</i> {num(m.xgHome)}/{num(m.xgAway)}</span>
           )}
-          {m.xgTotal !== undefined && <span title={lang === 'en' ? 'Total xG' : lang === 'ar' ? 'إجمالي xG' : 'xG total'}><i>Σ</i> {num(m.xgTotal, 1)}</span>}
-          {m.formBTTS !== undefined && <span title={t.home2.mcForm}><i>{t.home2.mcForm}</i> {m.formBTTS}%</span>}
-          {m.reliabilityScore !== undefined && (
-            <span title={t.home2.mcReliability}><i>{t.home2.mcReliability}</i> {num(m.reliabilityScore, 1)}%</span>
-          )}
+          {m.xgTotal !== undefined && <span title={metricLabels.combinedGoalsDescription}><i>{metricLabels.combinedGoals}</i> {num(m.xgTotal, 1)}</span>}
+          {m.formBTTS !== undefined && <span title={metricLabels.recentBttsDescription}><i>{metricLabels.recentBtts}</i> {m.formBTTS}%</span>}
         </div>
       )}
+
+      <BookmakerCardLinks locale={lang} placement="home-match-card" compact />
 
       {/* Ligne 5 : publication + analyse */}
       <div className="hp-mc-foot">

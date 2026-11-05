@@ -3,38 +3,39 @@ import { notFound } from 'next/navigation'
 import LocalizedPromoClient from '@/components/bttsbet/LocalizedPromoClient'
 import { SUPPORTED_LOCALES, type Locale } from '@/lib/i18n'
 import { buildPromoFaqJsonLd } from '@/lib/promo-faq'
-import { PROMO_CURRENT_YEAR, PROMO_REVIEW_DATE } from '@/lib/promo-build-date.generated'
 
-export function generateStaticParams() { return SUPPORTED_LOCALES.filter(locale => locale !== 'fr').map(locale => ({ locale })) }
 const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'bonus-888starz'
-const REVIEW_DATE = PROMO_REVIEW_DATE
-const YEAR = PROMO_CURRENT_YEAR
+const FR_URL = `${SITE_URL}/${SLUG}`
+const EN_URL = `${SITE_URL}/en/${SLUG}`
+const AR_URL = `${SITE_URL}/ar/${SLUG}`
+
+export function generateStaticParams() {
+  return SUPPORTED_LOCALES.filter((locale) => locale !== 'fr').map((locale) => ({ locale }))
+}
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  if (locale === 'en') return {
-    title: `888Starz Promo Code btts221: 300% + 100 Spins`,
-    description: `888Starz promo code btts221: 300% bonus + 100 free spins, no wagering requirements, from a €1 deposit. ${YEAR} sign-up guide, 18+.`,
-    keywords: ['888starz promo code', '888starz bonus', '888starz code', '888starz btts221', '888starz Senegal', 'btts221', '888starz 300 bonus', '888starz free spins'],
+  const isEnglish = locale === 'en'
+  if (!isEnglish && locale !== 'ar') return {}
+  const title = isEnglish ? '888Starz Promo Code btts221 · 300% Worldwide' : 'رمز 888Starz btts221 · 300% حول العالم'
+  const description = isEnglish
+    ? '888Starz promo code btts221: 300% worldwide, more cashback and weekly bonuses. 18+.'
+    : 'رمز 888Starz الترويجي btts221: مكافأة 300% حول العالم، مع استرداد نقدي أكبر ومكافآت أسبوعية. +18.'
+  return {
+    title,
+    description,
+    keywords: isEnglish
+      ? ['888Starz promo code', 'btts221', '888Starz 300% worldwide']
+      : ['رمز 888Starz الترويجي', 'btts221', '888Starz 300% حول العالم'],
     alternates: {
-      canonical: `${SITE_URL}/en/${SLUG}`,
-      languages: { fr: `${SITE_URL}/${SLUG}`, en: `${SITE_URL}/en/${SLUG}`, ar: `${SITE_URL}/ar/${SLUG}`, 'x-default': `${SITE_URL}/${SLUG}` },
+      canonical: isEnglish ? EN_URL : AR_URL,
+      languages: { fr: FR_URL, en: EN_URL, ar: AR_URL, 'x-default': FR_URL },
     },
     robots: { index: true, follow: true },
   }
-  if (locale === 'ar') return {
-    title: `رمز 888Starz الترويجي btts221: 300% + 100 لفة مجانية`,
-    description: `رمز 888Starz الترويجي btts221: مكافأة 300% + 100 لفة مجانية، بدون شروط مراهنة، بدءاً من إيداع 1 يورو. دليل ${YEAR}، 18+.`,
-    keywords: ['رمز 888Starz الترويجي', 'مكافأة 888Starz', 'كود 888Starz', 'btts221', '888Starz btts221'],
-    alternates: {
-      canonical: `${SITE_URL}/ar/${SLUG}`,
-      languages: { fr: `${SITE_URL}/${SLUG}`, en: `${SITE_URL}/en/${SLUG}`, ar: `${SITE_URL}/ar/${SLUG}`, 'x-default': `${SITE_URL}/${SLUG}` },
-    },
-    robots: { index: true, follow: true },
-  }
-  return {}
 }
+
 export default async function Localized888StarzPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
   if (!SUPPORTED_LOCALES.includes(locale as Locale) || locale === 'fr') notFound()
@@ -42,11 +43,8 @@ export default async function Localized888StarzPage({ params }: { params: Promis
   const faqLd = buildPromoFaqJsonLd('888starz', lang)
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
-      />
-      <LocalizedPromoClient bookmaker="888starz" reviewDate={REVIEW_DATE} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
+      <LocalizedPromoClient bookmaker="888starz" />
     </>
   )
 }

@@ -3,9 +3,8 @@
 import { useState, useEffect, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useScrollAnimation } from '@/hooks/useAnimations'
-import { AFFILIATE } from '@/lib/constants'
 import { resolveTeamLogo } from '@/lib/teamLogos'
-import PremiumButton from './PremiumButton'
+import BookmakerCardLinks from './BookmakerCardLinks'
 import { useLanguage } from './LanguageSwitcher'
 import { translationsFor, type Locale, localizedPath } from '@/lib/i18n'
 import { generateMatchSlug } from '@/lib/match-slug'
@@ -559,28 +558,11 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
                 {/* CTA — ordre définitif : partenaire principal 1xBet, puis Linebet. */}
                 <div>
                   <div className="text-xs uppercase tracking-widest font-semibold text-cendre mb-2">{t.predictions.betMatch}</div>
-                  <div className="flex flex-col gap-2">
-                    <a
-                      href={AFFILIATE.oneXbet}
-                      target="_blank"
-                      rel="sponsored nofollow noopener noreferrer"
-                      onClick={() => trackAffiliateAction('1xbet', 'signup_cta_click', 'match-card-primary', { match: match.match, market: 'BTTS', lang })}
-                      data-cta="match-card-1xbet-signup"
-                      className="flex min-h-10 items-center justify-center rounded-xl bg-[#C5F36A] px-3 text-center text-sm font-bold text-[#10150B]"
-                    >
-                      1xBet · vipbtts
-                    </a>
-                    <PremiumButton
-                      variant="linebet"
-                      href={AFFILIATE.linebet}
-                      size="sm"
-                      fullWidth
-                      trackingPlacement="match-card-secondary"
-                      data-cta="match-card-linebet-signup"
-                    >
-                      Linebet · VISION221
-                    </PremiumButton>
-                  </div>
+                  <BookmakerCardLinks
+                    locale={lang}
+                    placement="free-prediction-card"
+                    context={{ match: match.match, market: 'BTTS' }}
+                  />
                 </div>
               </div>
             </motion.div>

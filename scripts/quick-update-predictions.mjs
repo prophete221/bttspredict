@@ -9,7 +9,6 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 import { validatePredictionPayload } from './validate-predictions.mjs'
 import { deriveFormBtts, hasSufficientTeamStats } from './prediction-model.mjs'
-import { publicVipFixture } from './public-predictions.mjs'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -31,7 +30,6 @@ const FUTURE_DAYS = 7        // look ahead 7 days to ensure we always have match
 const MAX_FREE_TODAY = 24     // matchs du jour en accès libre (budget Gemini ≈ 6 chunks)
 const MAX_PER_DAY_UPCOMING = 8 // matchs publiés par jour à venir (J+1..J+N)
 const MAX_UPCOMING_DAYS = 5   // profondeur « À venir » affichée
-const MAX_VIP = 8            // show up to 8 VIP matches (toujours des matchs du jour)
 const DISPLAY_TZ = 'Africa/Dakar'  // Senegal timezone = UTC+0 (GMT)
 const MIN_KICKOFF_LEAD_MINUTES = 30 // safety buffer for long enrichment/verification steps
 
@@ -767,31 +765,13 @@ async function quickUpdate() {
   }
   const free = [...freeToday, ...freeUpcoming]
 
-  // Aucun choix privé n'est publié sans accès sécurisé : le preview n'expose que
-  // l'identité du match et les métadonnées de fixture explicitement autorisées.
-  // Aperçu VIP : d'abord les sélections du jour non publiées en accès libre ;
-  // si le jour est pauvre (ex. jeudis Europa où tout le jour est déjà en free),
-  // complété par les meilleures affiches à venir — l'aperçu VIP ne doit jamais
-  // être vide (la page VIP reste sinon sans sélection à présenter).
-  const freeKeys = new Set(free.map(p => `${p.home}|${p.away}|${p.date}`))
-  const notInFree = (list) => list.filter(p => !freeKeys.has(`${p.home}|${p.away}|${p.date}`))
-  const upcomingAll = scored.filter(p => typeof p.date === 'string' && p.date > today)
-  const vipPreview = [...notInFree(todayMatches), ...notInFree(upcomingAll)]
-    .sort((a, b) => {
-      const dateCmp = (a.date || '').localeCompare(b.date || '')
-      if (dateCmp !== 0) return dateCmp
-      return b.reliabilityScore - a.reliabilityScore
-    })
-    .slice(0, MAX_VIP)
-    .map(publicVipFixture)
-
   // ─── LOG RESULTS ───
   console.log(`\n[v91] ===== RESULTS =====`)
   console.log(`Total analysed: ${uniqueMatches.length}`)
   console.log(`Rejected (very low proba): ${rejected}`)
   console.log(`Published: ${scored.length}`)
   console.log(`Free published: ${free.length} (du jour: ${freeToday.length}/${MAX_FREE_TODAY}, à venir: ${freeUpcoming.length}, max ${MAX_PER_DAY_UPCOMING}/jour sur ${MAX_UPCOMING_DAYS} jours)`)
-  console.log(`VIP preview: ${vipPreview.length} (max ${MAX_VIP}, sélections du jour)`)
+  console.log('VIP selections are not included in this public JSON export.')
 
   console.log(`\n--- REJECTED (first 10) ---`)
   rejectionReasons.slice(0, 10).forEach(r => console.log(r))
@@ -810,14 +790,12 @@ async function quickUpdate() {
     lastUpdated: new Date().toISOString(),
     source: 'ESPN + TheSportsDB',
     free: free,
-    vipPreview: vipPreview,
     stats: {
       avgReliability: avgReliability,
       totalAnalyzed: uniqueMatches.length,
       totalRejected: rejected,
       totalAccepted: scored.length,
       freeCount: free.length,
-      vipCount: vipPreview.length,
     },
     // Backward compat: predictions = free
     predictions: free,
@@ -834,7 +812,7 @@ async function quickUpdate() {
     throw new Error(`[v91] Refusing to publish invalid predictions:\n${validationErrors.join('\n')}`)
   }
   writeJsonAtomically(PREDICTIONS_FILE, predictionsData)
-  console.log(`\n[v91] Written to predictions.json (${free.length} free, ${vipPreview.length} VIP)`)
+  console.log(`\n[v91] Written to predictions.json (${free.length} public free predictions; no VIP data)`)
   console.log(`[v91] File size: ${(fs.statSync(PREDICTIONS_FILE).size / 1024).toFixed(1)} KB`)
   console.log('[v91] Archive finalization is deferred until enrichment is complete.')
 

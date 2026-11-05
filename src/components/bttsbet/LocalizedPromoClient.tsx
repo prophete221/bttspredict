@@ -1,12 +1,11 @@
 'use client'
 
-// Garantie campagne: sans condition de mise / no wagering requirements
-
 import { AFFILIATE } from '@/lib/constants'
 import { useLanguage } from './LanguageSwitcher'
 import Navbar from './Navbar'
 import PromoLandingShell from './PromoLandingShell'
 import { getPromoFaq, type PromoBookmakerId } from '@/lib/promo-faq'
+import Star888PromoClient from './Star888PromoClient'
 
 type BookmakerId = PromoBookmakerId
 
@@ -58,10 +57,10 @@ const INFO: Record<BookmakerId, {
 }
 
 const CROSS: { id: BookmakerId; label: Record<'fr' | 'en' | 'ar', string>; href: string }[] = [
-  { id: '1xbet', label: { fr: 'Code promo 1xBet', en: '1xBet promo code', ar: 'رمز 1xBet' }, href: '/code-promo-1xbet' },
-  { id: 'linebet', label: { fr: 'Code promo Linebet', en: 'Linebet promo code', ar: 'رمز Linebet' }, href: '/code-promo-linebet-senegal' },
-  { id: 'melbet', label: { fr: 'Code promo Melbet', en: 'Melbet promo code', ar: 'رمز Melbet' }, href: '/code-promo-melbet' },
-  { id: '888starz', label: { fr: 'Bonus 888Starz', en: '888Starz bonus', ar: 'بونص 888Starz' }, href: '/bonus-888starz' },
+  { id: '1xbet', label: { fr: 'Guide 1xBet', en: '1xBet guide', ar: 'دليل 1xBet' }, href: '/code-promo-1xbet' },
+  { id: 'linebet', label: { fr: 'Guide Linebet', en: 'Linebet guide', ar: 'دليل Linebet' }, href: '/code-promo-linebet-senegal' },
+  { id: 'melbet', label: { fr: 'Guide Melbet', en: 'Melbet guide', ar: 'دليل Melbet' }, href: '/code-promo-melbet' },
+  { id: '888starz', label: { fr: 'Guide 888Starz', en: '888Starz guide', ar: 'دليل 888Starz' }, href: '/bonus-888starz' },
 ]
 
 export default function LocalizedPromoClient({
@@ -76,49 +75,52 @@ export default function LocalizedPromoClient({
   const info = INFO[bookmaker]
   const faq = getPromoFaq(bookmaker, langKey)
 
+  if (bookmaker === '888starz') {
+    return (
+      <>
+        <Navbar />
+        <Star888PromoClient lang={langKey} showDownload />
+      </>
+    )
+  }
+
   const copy =
     langKey === 'en'
       ? {
-          badge: 'best promo code — 300% + 100 Free Spins',
-          title: `${info.brand} promo code ${info.code}`,
-          intro: `Use code ${info.code} when you register via our partner link to unlock the offer announced by ${info.brand}. Enter the code exactly as shown. Final terms are those displayed by the operator after sign-up.`,
-          offerHeadline: '300% + 100 free spins',
-          offerSub: 'As announced by the partner campaign — no wagering requirement per announcement. Always check operator terms. 18+.',
-          benefits: ['300% bonus', '100 Free Spins', 'Exact code required', 'Android & iOS app', '18+ responsible'],
+          badge: `${info.brand.toUpperCase()} OFFER`,
+          title: `Best ${info.brand} promo code · more cashback & weekly bonuses`,
+          intro: `${info.brand}: 300% worldwide, with more cashback and weekly bonuses. Exact code: ${info.code}`,
+          offerHeadline: '300% worldwide',
+          offerSub: 'More cashback and weekly bonuses.',
+          benefits: ['300% worldwide', 'More cashback and weekly bonuses', `Exact code: ${info.code}`, `${info.brand} link`],
           steps: [
-            { n: '01', title: 'Open our partner link', desc: `Use « Sign up on ${info.brand} » so the partner account is attributed correctly.` },
-            { n: '02', title: `Enter ${info.code}`, desc: 'Type the code in the promo field before your first deposit — case sensitive.' },
-            { n: '03', title: 'Read the terms', desc: 'Check eligibility, country and timing on the operator site before depositing.' },
-            { n: '04', title: 'Deposit & activate', desc: 'Follow only the official instructions after registration. Download the APK if needed.' },
+            { n: '01', title: `Open ${info.brand}`, desc: 'Use the link shown on this page.' },
+            { n: '02', title: 'Promo code', desc: `Exact code: ${info.code}` },
           ],
         }
       : langKey === 'ar'
         ? {
-            badge: 'أفضل رمز — 300% + 100 لفة مجانية',
-            title: `رمز ${info.brand} ${info.code}`,
-            intro: `استخدم الرمز ${info.code} عند التسجيل عبر رابط الشريك لتفعيل العرض المعلن من ${info.brand}. أدخل الرمز بدقة. الشروط النهائية هي ما يعرضه المشغل بعد التسجيل.`,
-            offerHeadline: '300% + 100 لفة مجانية',
-            offerSub: 'حسب إعلان حملة الشريك — بدون شرط رهان وفق الإعلان. راجع شروط المشغل دائمًا. 18+.',
-            benefits: ['بونص 300%', '100 لفة مجانية', 'رمز دقيق إلزامي', 'تطبيق Android و iOS', '18+ بمسؤولية'],
+            badge: `عرض ${info.brand}`,
+            title: `أفضل رمز ترويجي لـ ${info.brand} · استرداد نقدي أكبر ومكافآت أسبوعية`,
+            intro: `${info.brand}: مكافأة 300% حول العالم، مع استرداد نقدي أكبر ومكافآت أسبوعية. الرمز الدقيق: ${info.code}`,
+            offerHeadline: '300% حول العالم',
+            offerSub: 'استرداد نقدي أكبر ومكافآت أسبوعية.',
+            benefits: ['300% حول العالم', 'استرداد نقدي أكبر ومكافآت أسبوعية', `الرمز الدقيق: ${info.code}`, `رابط ${info.brand}`],
             steps: [
-              { n: '01', title: 'افتح رابط الشريك', desc: `استخدم « سجّل على ${info.brand} » ليُحتسب الحساب الشريك.` },
-              { n: '02', title: `أدخل ${info.code}`, desc: 'أدخل الرمز في خانة الترويج قبل أول إيداع — حساس لحالة الأحرف.' },
-              { n: '03', title: 'اقرأ الشروط', desc: 'تحقق من الأهلية والبلد والتوقيت على موقع المشغل قبل الإيداع.' },
-              { n: '04', title: 'أودع وفعّل', desc: 'اتبع التعليمات الرسمية فقط بعد التسجيل. حمّل APK عند الحاجة.' },
+              { n: '01', title: `افتح ${info.brand}`, desc: 'استخدم الرابط الظاهر في هذه الصفحة.' },
+              { n: '02', title: 'الرمز الترويجي', desc: `الرمز الدقيق: ${info.code}` },
             ],
           }
         : {
-            badge: 'Meilleur code promo — 300% + 100 Free Spins',
-            title: `Code promo ${info.brand} ${info.code}`,
-            intro: `Utilise le code ${info.code} à l’inscription via notre lien partenaire pour activer l’offre annoncée par ${info.brand}. Respecte la casse exacte.`,
-            offerHeadline: '300% + 100 free spins',
-            offerSub: 'Sans condition de mise selon l’annonce partenaire. Conditions affichées par l’opérateur. 18+.',
-            benefits: ['Bonus 300%', '100 Free Spins', 'Code exact obligatoire', 'App Android & iOS', 'Jeu responsable 18+'],
+            badge: `OFFRE ${info.brand.toUpperCase()}`,
+            title: `Meilleur code promo ${info.brand} · plus de cashback et bonus hebdomadaires`,
+            intro: `${info.brand} : bonus 300 % worldwide, davantage de cashback et des bonus hebdomadaires. Code exact : ${info.code}`,
+            offerHeadline: '300 % worldwide',
+            offerSub: 'Davantage de cashback et des bonus hebdomadaires.',
+            benefits: ['300 % worldwide', 'Plus de cashback et bonus hebdomadaires', `Code exact : ${info.code}`, `Lien ${info.brand}`],
             steps: [
-              { n: '01', title: 'Ouvre le lien partenaire', desc: `Ouvre ${info.brand} avec notre lien partenaire pour que l’offre soit bien attribuée.` },
-              { n: '02', title: `Entre le code ${info.code}`, desc: 'Saisis le code exact (casse sensible) dans le champ promo avant le premier dépôt.' },
-              { n: '03', title: 'Vérifie les conditions', desc: 'Suis les conditions affichées par l’opérateur après inscription.' },
-              { n: '04', title: 'Dépose et active', desc: 'Optionnel : installe l’APK officiel via le bouton de téléchargement.' },
+              { n: '01', title: `Ouvre ${info.brand}`, desc: 'Utilise le lien affiché sur cette page.' },
+              { n: '02', title: 'Code promo', desc: `Code exact : ${info.code}` },
             ],
           }
 

@@ -1348,87 +1348,12 @@
       "awayLambda": 1.5
     }
   ],
-  "vipPreview": [
-    {
-      "vip": true,
-      "id": "boltonwa-vs-middlesb-2026-10-23",
-      "home": "Bolton Wanderers",
-      "away": "Middlesbrough",
-      "league": "Championship",
-      "date": "2026-10-23",
-      "time": "19:00"
-    },
-    {
-      "vip": true,
-      "id": "svdarmst-vs-stpauli-2026-10-23",
-      "home": "SV Darmstadt 98",
-      "away": "St. Pauli",
-      "league": "2. Bundesliga",
-      "date": "2026-10-23",
-      "time": "16:30"
-    },
-    {
-      "vip": true,
-      "id": "vflbochu-vs-vflwolfs-2026-10-23",
-      "home": "VfL Bochum",
-      "away": "VfL Wolfsburg",
-      "league": "2. Bundesliga",
-      "date": "2026-10-23",
-      "time": "16:30"
-    },
-    {
-      "vip": true,
-      "id": "torino-vs-monza-2026-10-23",
-      "home": "Torino",
-      "away": "Monza",
-      "league": "Serie A",
-      "date": "2026-10-23",
-      "time": "18:45"
-    },
-    {
-      "vip": true,
-      "id": "ipswicht-vs-nottingh-2026-10-23",
-      "home": "Ipswich Town",
-      "away": "Nottingham Forest",
-      "league": "Premier League",
-      "date": "2026-10-23",
-      "time": "19:00"
-    },
-    {
-      "vip": true,
-      "id": "alavs-vs-mlaga-2026-10-23",
-      "home": "Alavés",
-      "away": "Málaga",
-      "league": "LaLiga",
-      "date": "2026-10-23",
-      "time": "19:00"
-    },
-    {
-      "vip": true,
-      "id": "kvkortri-vs-kvmechel-2026-10-23",
-      "home": "KV Kortrijk",
-      "away": "KV Mechelen",
-      "league": "Jupiler Pro League",
-      "date": "2026-10-23",
-      "time": "18:45"
-    },
-    {
-      "vip": true,
-      "id": "goaheade-vs-telstar-2026-10-23",
-      "home": "Go Ahead Eagles",
-      "away": "Telstar",
-      "league": "Eredivisie",
-      "date": "2026-10-23",
-      "time": "18:00"
-    }
-  ],
   "stats": {
     "avgReliability": 79.44,
     "totalAnalyzed": 134,
     "totalRejected": 1,
     "totalAccepted": 133,
-    "freeCount": 12,
-    "vipCount": 8
+    "freeCount": 12
   },
   "predictions": [
     {
