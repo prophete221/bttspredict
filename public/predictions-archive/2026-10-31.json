@@ -31483,7 +31483,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 2.05 · N 4.1 · 2 3",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-05T01:16:08.313Z"
     },
     {
       "id": "fcporto-vs-napoli-2026-11-04",
@@ -31699,7 +31701,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 2.15 · N 3.65 · 2 3.15 · O2.5 1.77",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "4-1",
+      "verifiedAt": "2026-11-05T01:16:08.321Z"
     },
     {
       "id": "cardiffc-vs-westhamu-2026-11-04",
@@ -31907,7 +31911,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-3",
+      "verifiedAt": "2026-11-05T01:16:08.318Z"
     },
     {
       "id": "wrexham-vs-middlesb-2026-11-04",
@@ -32115,7 +32121,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-11-05T01:16:08.314Z"
     },
     {
       "id": "lens-vs-como-2026-11-04",
@@ -32330,7 +32338,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 2.9 · N 3.95 · 2 2.15",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-9",
+      "verifiedAt": "2026-11-05T01:16:08.317Z"
     },
     {
       "id": "aekathen-vs-realmadr-2026-11-04",
@@ -32545,7 +32555,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 8 · N 6 · 2 1.3",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-3",
+      "verifiedAt": "2026-11-05T01:16:08.314Z"
     },
     {
       "id": "staderen-vs-olympiac-2026-11-04",
@@ -32974,7 +32986,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 4.9 · N 4.5 · 2 1.59",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-2",
+      "verifiedAt": "2026-11-05T01:16:08.315Z"
     },
     {
       "id": "fcmidtjy-vs-ajaxamst-2026-11-05",
@@ -35329,7 +35343,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 2.9 · N 3.95 · 2 2.15",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-9",
+      "verifiedAt": "2026-11-05T01:16:08.314Z"
     },
     {
       "id": "scrheind-vs-svjoskor-2026-10-31",
@@ -39654,7 +39670,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 5.25 · N 4.9 · 2 1.5",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-3",
+      "verifiedAt": "2026-11-05T01:16:08.315Z"
     },
     {
       "id": "staderen-vs-olympiac-2026-11-04",
@@ -41166,7 +41184,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 2.05 · N 4.1 · 2 3",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-05T01:16:08.320Z"
     },
     {
       "id": "wrexham-vs-middlesb-2026-11-04",
@@ -41379,7 +41399,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 4 · N 3.95 · 2 1.8 · O2.5 1.67",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-11-05T01:16:08.317Z"
     },
     {
       "id": "borussia-vs-realbeti-2026-11-04",
@@ -41592,7 +41614,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.71 · N 4.2 · 2 4.3",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-05T01:16:08.314Z"
     },
     {
       "id": "celtavig-vs-unionstg-2026-11-05",
