@@ -81,4 +81,40 @@ describe('validatePredictionPayload', () => {
       vipPreview: [],
     }, { today: '2026-08-12', requireTimestamp: true })).toEqual([])
   })
+
+  test('accepte un pick publié uniquement avec une source Gemini explicite', () => {
+    expect(validatePredictionPayload(payload({
+      ai_source: 'gemini-stats-v1',
+      ai_abstain: false,
+      modelEngine: 'gemini-stats-v1',
+      predictions: [{ type: 'BTTS', prediction: 'Oui', proba: 0.64 }],
+    }), { today: '2026-08-12', requireGemini: true })).toEqual([])
+  })
+
+  test('refuse un pick local même si ses probabilités et sa forme paraissent valides', () => {
+    const errors = validatePredictionPayload(payload({
+      ai_source: 'local-empirical-v1',
+      ai_abstain: false,
+      modelEngine: 'local-empirical-v1',
+    }), { today: '2026-08-12', requireGemini: true })
+    expect(errors).toContain('prediction[0].ai_source must be gemini-stats-v1 for published picks')
+  })
+
+  test('accepte une abstention explicite sans aucune valeur de pick', () => {
+    const row = { ...validPrediction, ai_abstain: true }
+    for (const key of ['prediction', 'proba', 'confidence', 'bttsProb', 'over25Prob'] as const) delete (row as Record<string, unknown>)[key]
+    expect(validatePredictionPayload({
+      date: '2026-08-12',
+      lastUpdated: '2026-08-12T12:00:00.000Z',
+      free: [row],
+    }, { today: '2026-08-12', requireTimestamp: true, requireGemini: true })).toEqual([])
+  })
+
+  test('refuse les anciennes probabilités empiriques laissées sur une abstention', () => {
+    const stale = payload({ ai_abstain: true, ai_source: 'gemini-stats-v1' })
+    delete (stale.free[0] as Record<string, unknown>).prediction
+    delete (stale.free[0] as Record<string, unknown>).confidence
+    const errors = validatePredictionPayload(stale, { today: '2026-08-12', requireGemini: true })
+    expect(errors).toContain('prediction[0].proba must be absent for a no-pick abstention')
+  })
 })

@@ -6,15 +6,14 @@ BTTSPredict — Analyse AI des pronostics (stats → Gemini → décision)
 Remplace l'ancien rôle « texte cosmétique autour du Poisson ».
 
 Flux :
-  1. Lit public/predictions.json (stats empiriques déjà collectées par
-     quick-update-predictions.mjs : forme, taux BTTS/Over, buts moyens, cotes).
-  2. Envoie à Gemini UNIQUEMENT ces données (pas de λ Poisson).
-  3. Gemini choisit marché (BTTS / OVER_25 / BOTH / ABSTAIN), sens Oui/Non,
-     proba bornée, et rédige l'analyse.
-  4. Le code applique garde-fous (échantillon, bornes proba, abstention).
+  1. Lit les matchs et statistiques observées par quick-update-predictions.mjs.
+  2. Retire immédiatement tout pick préexistant et écrit un état sûr « ABSTAIN ».
+  3. Envoie à Gemini uniquement les données empiriques (pas de λ Poisson).
+  4. Publie un pick seulement si Gemini fournit une décision utilisable.
+     Sinon, le match et ses données restent, sans sélection ni source inventée.
 
 Variable : GEMINI_API_KEY
-Sans clé : fallback local basé sur les taux empiriques déjà présents.
+Sans clé, erreur fournisseur, JSON invalide ou abstention : aucun pick local.
 """
 
 from __future__ import annotations
@@ -31,7 +30,7 @@ from pathlib import Path
 
 # Modèle unique vérifié sur le run de production #937 (41133809785) : 40/40
 # décisions en 2 min 04; un 503 transitoire sur un lot a réussi au retry.
-# Garder le même alias comme seule voie Gemini; le fallback métier reste local.
+# Garder le même alias comme seule voie Gemini; aucun fallback de pronostic local.
 MODELS_TO_TRY = ["gemini-flash-lite-latest"]
 PREDICTIONS_FILE = Path(__file__).parent.parent / "public" / "predictions.json"
 MAX_RETRIES = 2
@@ -52,7 +51,7 @@ try:
     from google import genai
     from google.genai.errors import APIError as GeminiAPIError
 except ImportError:
-    print("[analyze] google-genai not installed — local fallback only")
+    print("[analyze] google-genai not installed — no Gemini picks will be published")
     genai = None
     GeminiAPIError = None
 
@@ -60,7 +59,7 @@ except ImportError:
 def get_client():
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key or genai is None:
-        print("[analyze] GEMINI_API_KEY missing or SDK absent — local fallback only")
+        print("[analyze] GEMINI_API_KEY missing or SDK absent — no Gemini picks will be published")
         return None
     # google-genai==2.34.0 uses one SDK attempt when retry_options is absent;
     # the bounded retry policy below is the sole retry layer.
@@ -99,8 +98,8 @@ def build_match_payload(m: dict, idx: int) -> dict:
         "form_away": form_away,
         "goals_avg_home": m.get("xgHome") or m.get("homeLambda"),
         "goals_avg_away": m.get("xgAway") or m.get("awayLambda"),
-        "empirical_btts": m.get("bttsProb"),
-        "empirical_over25": m.get("over25Prob"),
+        "empirical_btts": m.get("empiricalBttsRate", m.get("bttsProb")),
+        "empirical_over25": m.get("empiricalOver25Rate", m.get("over25Prob")),
         "formBTTS": m.get("formBTTS"),
         "standings_home": m.get("standingsHome"),
         "standings_away": m.get("standingsAway"),
@@ -127,7 +126,7 @@ Il n'y a PAS de modèle Poisson. Tu dois analyser ces stats et produire un prono
 
 # TÂCHE
 Pour chaque match, choisis :
-- market: "BTTS" | "OVER_25" | "BOTH" | "ABSTAIN"
+- market: "BTTS" | "OVER_25" | "ABSTAIN"
 - selection: "Yes" | "No" | null (null si ABSTAIN)
 - probability: nombre entre {PROBA_MIN} et {PROBA_MAX} (estimation calibrée, pas 90%+)
 - confidence: "low" | "medium" | "high"
@@ -143,7 +142,7 @@ Pour chaque match, choisis :
 2. Si sample_home ou sample_away < {MIN_SAMPLE}, ou data_quality LOW avec signaux contradictoires → ABSTAIN.
 3. Si les taux empiriques BTTS et Over sont tous deux < 0.45 sans autre signal fort → ABSTAIN.
 4. Préfère ABSTAIN plutôt qu'un Oui faible.
-5. Si BOTH: selection s'applique au marché le plus solide; indique le principal dans primary_reasons[0].
+5. Choisis un seul marché. Ne combine jamais BTTS et Over 2.5 à partir d'une seule probabilité.
 6. probability doit être cohérente avec les taux empiriques (±0.15 max d'écart sauf justification dans reasons).
 7. Réponds UNIQUEMENT un tableau JSON valide.
 
@@ -189,21 +188,51 @@ def selection_to_fr(sel) -> str | None:
 
 
 def sample_ok(m: dict) -> bool:
-    sh = m.get("matchCountHome") or 0
-    sa = m.get("matchCountAway") or 0
+    sh = m.get("matchCountHome")
+    sa = m.get("matchCountAway")
+    if sh is None:
+        sh = m.get("sampleHome")
+    if sa is None:
+        sa = m.get("sampleAway")
+    if sh is None or sa is None:
+        return False
     try:
         sh, sa = int(sh), int(sa)
     except (TypeError, ValueError):
-        return True  # si absent, on laisse Gemini / empirique
-    if sh == 0 and sa == 0:
-        return True
+        return False
     return sh >= MIN_SAMPLE and sa >= MIN_SAMPLE
+
+
+def mark_no_gemini_pick(match: dict) -> None:
+    """Clear every current pick and mark an honest abstention before API calls."""
+    if match.get("empiricalBttsRate") is None and match.get("bttsProb") is not None:
+        match["empiricalBttsRate"] = match["bttsProb"]
+    if match.get("empiricalOver25Rate") is None and match.get("over25Prob") is not None:
+        match["empiricalOver25Rate"] = match["over25Prob"]
+
+    pick_fields = (
+        "prediction", "proba", "confidence", "predictions", "bttsProb", "over25Prob",
+        "bttsProbDisplay", "over25ProbDisplay", "estimatedCote", "estimatedCoteOver",
+        "estimatedCoteBTTS", "ai_source", "ai_market", "ai_abstain", "modelEngine",
+        "ai_confidence", "ai_key_fact", "ai_key_fact_en", "ai_analysis", "ai_analysis_en",
+        "ai_form_summary", "ai_form_summary_en", "ai_reasons", "ai_risks", "ai_exact_score",
+        "exact_score_prob", "ai_btts_view", "ai_over25_view", "ai_btts_prob",
+        "ai_over25_prob", "ai_winner", "ai_winner_prob", "winner", "winner_prob",
+        "team_over15", "ai_team_over15", "double_chance", "ai_double_chance",
+        "ai_main_prediction", "ai_risk", "ai_odds_insight", "ai_absences", "ai_absences_en",
+    )
+    for field in pick_fields:
+        match.pop(field, None)
+    match["ai_abstain"] = True
+    match["ai_market"] = "ABSTAIN"
 
 
 def apply_analysis(match: dict, item: dict) -> bool:
     """Applique décision AI + textes, avec garde-fous."""
     if item.get("id") is None:
         return False
+
+    mark_no_gemini_pick(match)
 
     market = str(item.get("market") or "ABSTAIN").upper().replace("OVER25", "OVER_25")
     selection = selection_to_fr(item.get("selection"))
@@ -236,14 +265,13 @@ def apply_analysis(match: dict, item: dict) -> bool:
     match["ai_confidence"] = confidence
     match["modelEngine"] = "gemini-stats-v1"
 
-    if market == "ABSTAIN" or not sample_ok(match) or proba is None or selection is None:
+    # An explicit Gemini abstention, or any decision rejected by guardrails,
+    # remains a no-pick. Never retain the pre-Gemini empirical market rows.
+    match["ai_source"] = "gemini-stats-v1"
+    if market not in ("BTTS", "OVER_25") or not sample_ok(match) or proba is None or selection is None:
         match["ai_abstain"] = True
         match["ai_market"] = "ABSTAIN"
-        # conserve empirique déjà présent pour affichage soft, sans forcer un Oui marketing
-        has_usable_analysis = bool(match.get("ai_analysis") or match.get("ai_key_fact"))
-        if has_usable_analysis:
-            match["ai_source"] = "gemini-stats-v1"
-        return has_usable_analysis
+        return True
 
     match["ai_abstain"] = False
     match["ai_market"] = market
@@ -271,7 +299,7 @@ def apply_analysis(match: dict, item: dict) -> bool:
         else:
             preds.append(payload)
 
-    if market in ("BTTS", "BOTH"):
+    if market == "BTTS":
         upsert_pred("BTTS", selection, proba)
         match["bttsProb"] = proba
         if market == "BTTS" or not match.get("type"):
@@ -280,78 +308,16 @@ def apply_analysis(match: dict, item: dict) -> bool:
             match["proba"] = proba
             match["confidence"] = conf_pct
 
-    if market in ("OVER_25", "BOTH"):
-        # Pour BOTH on peut garder selection sur les deux ; sinon Oui/Non Over dédié
-        over_sel = selection
-        over_p = proba
-        if market == "BOTH" and match.get("over25Prob"):
-            # léger ancrage empirique over si fourni par empirique initial
-            try:
-                emp = float(match.get("over25Prob"))
-                over_p = clamp_proba((proba + emp) / 2) or proba
-            except (TypeError, ValueError):
-                pass
-        upsert_pred("OVER", over_sel, over_p)
-        match["over25Prob"] = over_p
-        if market == "OVER_25":
-            match["type"] = "Over 2.5"
-            match["prediction"] = over_sel
-            match["proba"] = over_p
-            match["confidence"] = int(round(over_p * 100))
+    if market == "OVER_25":
+        upsert_pred("OVER", selection, proba)
+        match["over25Prob"] = proba
+        match["type"] = "Over 2.5"
+        match["prediction"] = selection
+        match["proba"] = proba
+        match["confidence"] = int(round(proba * 100))
 
     match["ai_source"] = "gemini-stats-v1"
     return True
-
-
-def local_decision(m: dict) -> dict:
-    """Fallback sans API : décision à partir des taux empiriques uniquement."""
-    btts = float(m.get("bttsProb") or 0)
-    over = float(m.get("over25Prob") or 0)
-    home = m.get("home") or "?"
-    away = m.get("away") or "?"
-
-    if not sample_ok(m) or max(btts, over) < 0.45:
-        market, sel, proba, conf = "ABSTAIN", None, None, "low"
-    elif over >= btts and over >= 0.52:
-        market, sel, proba, conf = "OVER_25", "Yes" if over >= 0.5 else "No", min(PROBA_MAX, max(PROBA_MIN, over)), "medium"
-    elif btts >= 0.52:
-        market, sel, proba, conf = "BTTS", "Yes" if btts >= 0.5 else "No", min(PROBA_MAX, max(PROBA_MIN, btts)), "medium"
-    else:
-        market, sel, proba, conf = "ABSTAIN", None, None, "low"
-
-    analysis = (
-        f"Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). "
-        f"BTTS empirique {(btts*100):.1f}%, Over 2.5 empirique {(over*100):.1f}% pour {home} vs {away}. "
-        f"Décision : {market}."
-    )
-    analysis_en = (
-        f"Analysis based on recent empirical form rates only (no Poisson model). "
-        f"Empirical BTTS {(btts*100):.1f}%, Over 2.5 {(over*100):.1f}% for {home} vs {away}. "
-        f"Decision: {market}."
-    )
-    return {
-        "id": 0,
-        "market": market,
-        "selection": sel,
-        "probability": proba,
-        "confidence": conf,
-        "primary_reasons": [
-            f"Empirical BTTS rate ~{(btts*100):.0f}%",
-            f"Empirical Over 2.5 rate ~{(over*100):.0f}%",
-        ],
-        "risks": ["Sample limited to recent matches; form can shift quickly."],
-        "key_fact": f"Form signals BTTS {(btts*100):.0f}% / Over {(over*100):.0f}%",
-        "analysis_fr": analysis,
-        "analysis_en": analysis_en,
-        "form_summary_fr": analysis[:180],
-        "form_summary_en": analysis_en[:180],
-    }
-
-
-def apply_local_fallback(match: dict) -> None:
-    item = local_decision(match)
-    apply_analysis(match, item)
-    match["ai_source"] = "local-empirical-v1"
 
 
 def _http_status_code(error: Exception) -> int | None:
@@ -467,9 +433,9 @@ def _call_gemini_chunk(
                 code = _http_status_code(e)
                 if code not in RETRYABLE_HTTP_CODES:
                     if code is None:
-                        print("[analyze] non-retryable error; use local fallback")
+                        print("[analyze] non-retryable error; fixture remains a no-pick abstention")
                     else:
-                        print(f"[analyze] non-retryable HTTP {code}; use local fallback")
+                        print(f"[analyze] non-retryable HTTP {code}; fixture remains a no-pick abstention")
                     break
                 if attempt >= MAX_RETRIES:
                     print(
@@ -505,7 +471,7 @@ def call_gemini_batch(
     out = []
     for i in range(0, len(matches), CHUNK_SIZE):
         if time.time() - started > ENRICH_TIME_BUDGET_S:
-            print("[analyze] time budget reached — remaining matches use local fallback")
+            print("[analyze] time budget reached — remaining matches stay no-pick abstentions")
             break
         chunk = matches[i : i + CHUNK_SIZE]
         part = _call_gemini_chunk(client, chunk, id_offset=i, provider_errors=provider_errors)
@@ -523,6 +489,16 @@ def call_gemini_batch(
     return out
 
 
+def save_payload(data: dict, matches: list[dict]) -> None:
+    data["free"] = matches
+    data["predictions"] = matches
+    tmp = PREDICTIONS_FILE.with_suffix(PREDICTIONS_FILE.suffix + ".tmp")
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+        f.write("\n")
+    os.replace(tmp, PREDICTIONS_FILE)
+
+
 def main():
     print("[analyze] BTTSPredict Gemini stats analysis v1 (no Poisson)")
 
@@ -538,16 +514,30 @@ def main():
         print("[analyze] no matches")
         return
 
+    # Fail closed before network access. If Gemini times out or the process is
+    # interrupted, the workflow still sees a valid no-pick payload, never local picks.
+    for match in free_matches:
+        if isinstance(match, dict):
+            mark_no_gemini_pick(match)
+    data["analysisEngine"] = "unavailable"
+    save_payload(data, free_matches)
+
     client = get_client()
+    provider_errors: list[tuple[str, str]] = []
     gemini_provider_failure = False
+    applied = 0
     if client is not None:
-        provider_errors: list[tuple[str, str]] = []
-        enrichments = call_gemini_batch(client, free_matches, provider_errors)
-        applied = 0
+        try:
+            enrichments = call_gemini_batch(client, free_matches, provider_errors)
+        except Exception as exc:  # a provider/SDK failure must not restore local picks
+            print(f"[analyze] Gemini batch failed ({type(exc).__name__}); all unmatched fixtures remain abstentions")
+            enrichments = []
+            provider_errors.append((MODELS_TO_TRY[0], type(exc).__name__))
+
         for item in enrichments:
             try:
                 idx = int(item.get("id"))
-            except (TypeError, ValueError):
+            except (AttributeError, TypeError, ValueError):
                 continue
             if 0 <= idx < len(free_matches):
                 if apply_analysis(free_matches[idx], item):
@@ -564,47 +554,29 @@ def main():
             })
             code_summary = f"; codes API: {', '.join(error_codes)}" if error_codes else ""
             print(
-                "::warning::Gemini n'a appliqué aucun enrichissement malgré "
+                "::warning::Gemini n'a fourni aucun résultat exploitable malgré "
                 f"{len(provider_errors)} erreur(s) fournisseur{code_summary}. "
-                f"Modèles essayés : {failed_models}. Le fallback empirique local est conservé."
+                f"Modèles essayés : {failed_models}. Aucun pick local ne sera publié."
             )
     else:
-        print("[analyze] no client — full local empirical fallback")
+        print("[analyze] no Gemini client — all fixtures remain no-pick abstentions")
 
-    fb = 0
-    for match in free_matches:
-        if not match.get("ai_analysis") or match.get("ai_source") is None:
-            apply_local_fallback(match)
-            fb += 1
-        # absences / odds templates légers
-        if not match.get("ai_absences"):
-            match["ai_absences"] = "Aucune donnée d'effectif fournie — absences non évaluées."
-            match["ai_absences_en"] = "No squad data provided — absences not assessed."
-        if not match.get("ai_odds_insight"):
-            odds = match.get("odds") or {}
-            if odds.get("home"):
-                match["ai_odds_insight"] = (
-                    f"Cotes marché ({odds.get('provider') or 'book'}): "
-                    f"1 {odds.get('home')} · N {odds.get('draw')} · 2 {odds.get('away')}"
-                    + (f" · O2.5 {odds.get('over25')}" if odds.get("over25") else "")
-                )
-            else:
-                match["ai_odds_insight"] = "Cotes marché indisponibles — jugement sur stats de forme uniquement."
-    if fb:
-        print(f"[analyze] local fallback on {fb} matches")
-
-    data["free"] = free_matches
-    data["predictions"] = free_matches
-    data["analysisEngine"] = "gemini-stats-v1"
-    tmp = PREDICTIONS_FILE.with_suffix(PREDICTIONS_FILE.suffix + ".tmp")
-    with open(tmp, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
-        f.write("\n")
-    os.replace(tmp, PREDICTIONS_FILE)
+    gemini_picks = sum(
+        1 for match in free_matches
+        if match.get("ai_source") == "gemini-stats-v1"
+        and not match.get("ai_abstain")
+        and isinstance(match.get("predictions"), list)
+        and len(match["predictions"]) > 0
+    )
+    abstentions = sum(1 for match in free_matches if match.get("ai_abstain") is True)
+    no_response = sum(1 for match in free_matches if not match.get("ai_source"))
+    data["analysisEngine"] = "gemini-stats-v1" if no_response < len(free_matches) else "unavailable"
+    save_payload(data, free_matches)
+    print(f"[analyze] Gemini picks={gemini_picks}; abstentions={abstentions}; no Gemini response={no_response}")
     print(f"[analyze] saved {PREDICTIONS_FILE}")
     print("[analyze] done.")
-    if gemini_provider_failure:
-        sys.exit(1)
+    # Provider outages are valid no-pick outcomes. Keep the warning visible,
+    # but allow validation, build and deployment of the abstention-only feed.
 
 
 if __name__ == "__main__":

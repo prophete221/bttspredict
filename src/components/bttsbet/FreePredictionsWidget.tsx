@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation'
 import BookmakerCardLinks from './BookmakerCardLinks'
 import VipMarketTeaser from './VipMarketTeaser'
 import { localizedPath, type Locale } from '@/lib/i18n'
+import { getGeminiPicks } from '@/lib/gemini-predictions'
 
 interface Prediction {
   match: string
@@ -14,6 +15,7 @@ interface Prediction {
   type: string
   prediction: string
   confidence: number
+  proba: number
   homeLogo?: string
   awayLogo?: string
   homeTeam?: string
@@ -43,10 +45,19 @@ export default function FreePredictionsWidget() {
       .then(data => {
         const preds = data.free || data.predictions || []
         const today = new Date().toLocaleDateString('sv-SE', { timeZone: 'Africa/Dakar' })
-        let todayPreds = preds.filter((p: Prediction) => p.date === today).slice(0, 4)
+        const geminiPicks = (Array.isArray(preds) ? preds : []).flatMap((row: Record<string, unknown>) =>
+          getGeminiPicks(row).map(pick => ({
+            ...row,
+            type: pick.type,
+            prediction: pick.prediction,
+            confidence: pick.confidence ?? Math.round(pick.proba * 100),
+            proba: pick.proba,
+          })) as Prediction[],
+        )
+        let todayPreds = geminiPicks.filter((p: Prediction) => p.date === today).slice(0, 4)
         // Si la journée est vide, montrer les prochains matchs (évite "0 pronostic")
         if (todayPreds.length === 0) {
-          todayPreds = preds
+          todayPreds = geminiPicks
             .filter((p: Prediction) => (p.date || '') >= today)
             .slice(0, 4)
         }
@@ -118,7 +129,7 @@ function PredictionCard({ pred, locale }: { pred: Prediction; locale: Locale }) 
   const home = teams[0]?.trim() || ''
   const away = teams[1]?.trim() || ''
   const isBTTS = pred.type === 'BTTS'
-  const proba = isBTTS ? pred.analysis?.bttsProb ?? pred.confidence / 100 : pred.analysis?.over25Prob ?? pred.confidence / 100
+  const proba = pred.proba
   const probaPercent = Math.round(proba * 1000) / 10 // 1 décimale
   const probaColor = isBTTS ? '#2F7DFF' : '#2F7DFF' // assombri cyan #2F7DFF → #2F7DFF
   const isLive = false // could be derived from time vs now

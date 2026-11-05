@@ -466,6 +466,11 @@ export default async function MatchPage({ params }: PageProps) {
             </div>
 
             <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+              {marketPredictions.length === 0 && (
+                <p className="rounded-2xl border border-[#223041] bg-[#141C25] p-4 text-sm text-[#9DABBB] md:col-span-2" role="status">
+                  {locale === 'en' ? 'No Gemini pick is published for this match.' : locale === 'ar' ? 'لا يوجد ترشيح منشور من Gemini لهذه المباراة.' : 'Aucun pick Gemini n’est publié pour ce match.'}
+                </p>
+              )}
               {marketPredictions.map((p, i) => {
                 const market = (p.type || p.market || '').toLowerCase()
                 const isBtts = market.includes('btts')

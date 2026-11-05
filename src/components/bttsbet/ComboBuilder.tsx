@@ -6,6 +6,7 @@ import { localizedPath } from '@/lib/i18n'
 import { COMBO_I18N } from '@/lib/i18n-extras'
 import { generateMatchSlug } from '@/lib/match-slug'
 import { hasDakarKickoffPassed } from '@/lib/dakar-date'
+import { getGeminiPicks } from '@/lib/gemini-predictions'
 
 /**
  * ComboBuilder — Générateur de Combiné Intelligente (AI Combo Builder).
@@ -18,8 +19,9 @@ import { hasDakarKickoffPassed } from '@/lib/dakar-date'
  *    proche de la cote cible, en ne retenant QUE les probabilités ≥ 65 % et en
  *    maximisant la probabilité combinée à qualité de cote égale.
  *
- * Données 100 % réelles (predictions.json) : BTTS et Over 2.5 du modèle Poisson,
- * cotes bookmaker ESPN/DraftKings quand disponibles, estimation Poisson sinon.
+ * Picks candidats : décisions de marché attribuées à Gemini uniquement.
+ * Les cotes réelles Over 2.5 sont utilisées quand elles existent; sinon le
+ * calcul d'une cote implicite utilise la seule probabilité fournie par Gemini.
  * Un seul pick par match ; recherche exhaustive bornée (≤ C(16,5) = 4 368
  * combinaisons) exécutée côté client, sans aucun appel réseau.
  */
@@ -33,10 +35,9 @@ interface ComboSource {
   time: string
   homeLogo?: string
   awayLogo?: string
-  bttsProb?: number
-  over25Prob?: number
-  estimatedCoteBTTS?: number
-  estimatedCoteOver?: number
+  ai_source?: string
+  ai_abstain?: boolean
+  predictions?: unknown[]
   odds?: { provider?: string; over25?: number | null } | null
 }
 
@@ -68,6 +69,7 @@ const round2 = (v: number) => Math.round(v * 100) / 100
 /** Candidats réels : un pick BTTS + un pick Over 2.5 par match à venir, prob ≥ 65 %. */
 function buildCandidates(items: ComboSource[], lang: Locale): ComboPick[] {
   const yes = lang === 'en' ? 'Yes' : lang === 'ar' ? 'نعم' : 'Oui'
+  const no = lang === 'en' ? 'No' : lang === 'ar' ? 'لا' : 'Non'
   const picks: ComboPick[] = []
   for (const m of items || []) {
     if (!m.home || !m.away || !m.date) continue
@@ -79,16 +81,20 @@ function buildCandidates(items: ComboSource[], lang: Locale): ComboPick[] {
       date: m.date, time: m.time, homeLogo: m.homeLogo, awayLogo: m.awayLogo, href,
     }
 
-    const bttsProb = m.bttsProb ?? 0
-    const bttsOdds = m.estimatedCoteBTTS ?? (bttsProb > 0 ? round2(1 / bttsProb) : 0)
-    if (bttsProb >= MIN_PROB && bttsOdds > 1.01) {
-      picks.push({ ...base, key: `${m.home}|${m.away}|${m.date}|BTTS`, market: 'BTTS', prob: bttsProb, odds: bttsOdds, label: yes })
-    }
-
-    const o25Prob = m.over25Prob ?? 0
-    const o25Odds = m.odds?.over25 ?? m.estimatedCoteOver ?? (o25Prob > 0 ? round2(1 / o25Prob) : 0)
-    if (o25Prob >= MIN_PROB && o25Odds > 1.01) {
-      picks.push({ ...base, key: `${m.home}|${m.away}|${m.date}|O25`, market: 'O2.5', prob: o25Prob, odds: o25Odds, label: yes })
+    for (const pick of getGeminiPicks(m)) {
+      if (pick.proba < MIN_PROB) continue
+      const market = pick.market
+      const actualOdds = market === 'O2.5' ? m.odds?.over25 : undefined
+      const odds = actualOdds && actualOdds > 1.01 ? actualOdds : round2(1 / pick.proba)
+      if (odds <= 1.01) continue
+      picks.push({
+        ...base,
+        key: `${m.home}|${m.away}|${m.date}|${market}`,
+        market,
+        prob: pick.proba,
+        odds,
+        label: pick.prediction === 'Oui' ? yes : no,
+      })
     }
   }
   // Meilleures probabilités d'abord, volume borné pour la recherche exhaustive.

@@ -12,7 +12,9 @@
  * Data sources (read-only):
  *   - public/predictions.json (fields already produced by the engine)
  *
- * Fields consumed (no recalculation, no fabrication):
+ * Current picks are read only from rows tagged as Gemini; empirical form data
+ * remains context and is never turned into a frontend selection.
+ * Fields consumed:
  *   match, league, date, time, homeLogo, awayLogo,
  *   home, away,
  *   bttsProb, over25Prob,                  ← published market probabilities (0..1)
@@ -36,6 +38,7 @@ import { getDakarDateString, getDakarMatchStatus, getDakarDayDiff } from '@/lib/
 import BookmakerCardLinks from './BookmakerCardLinks'
 import ShareAnalysisButton from './ShareAnalysisButton'
 import VipMarketTeaser from './VipMarketTeaser'
+import { getGeminiPicks, getGeminiProbability, type GeminiPrediction } from '@/lib/gemini-predictions'
 
 // ─── Palette (V3 — bleu analyse, sémantique WIN/LOST/PENDING) ────────────────
 const C = {
@@ -66,6 +69,10 @@ interface RawPrediction {
   type?: string
   prediction?: string
   confidence?: number
+  proba?: number
+  predictions?: unknown[]
+  ai_source?: string
+  ai_abstain?: boolean
   bttsProb?: number
   over25Prob?: number
   homeLambda?: number
@@ -118,6 +125,9 @@ interface MatchData {
   awayLogo?: string
   bttsProb?: number
   over25Prob?: number
+  aiPicks: GeminiPrediction[]
+  aiSource?: string
+  aiAbstain?: boolean
   homeLambda?: number
   awayLambda?: number
   xgHome?: number
@@ -159,6 +169,7 @@ type CardStatus = 'live' | 'scheduled' | 'finished'
 interface ComboPick {
   match: MatchData
   market: 'BTTS' | 'OVER 2.5'
+  selection: 'Oui' | 'Non'
   probability: number        // Real value from predictions.json (0..1) — untouched
   reliabilityScore: number   // Real value from predictions.json (0..100)
   dataQuality: string         // Real value from predictions.json (HIGH | MEDIUM | LOW)
@@ -201,8 +212,8 @@ function fmtDate(dateStr?: string): string {
 }
 
 function passesFilter(match: MatchData, activeFilter: FilterType): boolean {
-  if (activeFilter === 'BTTS') return (match.bttsProb ?? 0) >= 0.5
-  if (activeFilter === 'O2.5') return (match.over25Prob ?? 0) >= 0.5
+  if (activeFilter === 'BTTS') return match.aiPicks.some(pick => pick.market === 'BTTS')
+  if (activeFilter === 'O2.5') return match.aiPicks.some(pick => pick.market === 'O2.5')
   if (activeFilter === 'HIGH') return (match.reliabilityScore ?? 0) >= 80
   return true
 }
@@ -376,6 +387,8 @@ function MatchCard({ match, index, status, lang, labels, now }: {
 
   const dataSourceLabel = normalizeDataSource(match.dataSource, lang)
   const sufficientData = hasSufficientData(match)
+  const bttsPick = match.aiPicks.find(pick => pick.market === 'BTTS')
+  const over25Pick = match.aiPicks.find(pick => pick.market === 'O2.5')
 
   const matchPath = localizedPath(`/match/${generateMatchSlug(match.home, match.away, match.date)}`, lang)
 
@@ -412,9 +425,26 @@ function MatchCard({ match, index, status, lang, labels, now }: {
 
         {/* ─── PROBABILITÉS — barres animées ─── */}
         <div className="btx-probs">
-          <ProbBar label="BTTS" value={match.bttsProb} color="#34D399" dim={!sufficientData} locale={lang} />
-          <ProbBar label="Over 2.5" value={match.over25Prob} color="#FBBF24" dim={!sufficientData} locale={lang} />
+          <ProbBar
+            label={`BTTS${bttsPick ? ` · ${bttsPick.prediction === 'Oui' ? (lang === 'en' ? 'Yes' : lang === 'ar' ? 'نعم' : 'Oui') : (lang === 'en' ? 'No' : lang === 'ar' ? 'لا' : 'Non')}` : ''}`}
+            value={bttsPick?.proba}
+            color="#34D399"
+            dim={!sufficientData || !bttsPick}
+            locale={lang}
+          />
+          <ProbBar
+            label={`Over 2.5${over25Pick ? ` · ${over25Pick.prediction === 'Oui' ? (lang === 'en' ? 'Yes' : lang === 'ar' ? 'نعم' : 'Oui') : (lang === 'en' ? 'No' : lang === 'ar' ? 'لا' : 'Non')}` : ''}`}
+            value={over25Pick?.proba}
+            color="#FBBF24"
+            dim={!sufficientData || !over25Pick}
+            locale={lang}
+          />
         </div>
+        {match.aiPicks.length === 0 && (
+          <p className="mt-2 text-center text-[11px] text-[#9DABBB]" role="status">
+            {lang === 'en' ? 'No Gemini pick published for this match.' : lang === 'ar' ? 'لم يتم نشر ترشيح من Gemini لهذه المباراة.' : 'Aucun pick Gemini publié pour ce match.'}
+          </p>
+        )}
 
         {/* ─── Moyennes récentes de buts marqués ─── */}
         <div className="btx-lambdas">
@@ -625,7 +655,7 @@ function ComboPickRow({ pick, index, lang }: { pick: ComboPick; index: number; l
           {lang === 'fr' ? ` · choix ${rank}` : lang === 'en' ? ` · pick ${rank}` : ` · اختيار ${rank}`}
         </div>
       </div>
-      <span className="btx-market-chip" style={{ ['--mc' as string]: marketColor }}>{pick.market}</span>
+      <span className="btx-market-chip" style={{ ['--mc' as string]: marketColor }}>{pick.market} · {pick.selection}</span>
       <span className="btx-combo-row__prob" style={{ ['--mc' as string]: marketColor }}>
         {(pick.probability * 100).toFixed(1)}%
       </span>
@@ -685,10 +715,12 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
         // the date matches the site's local day, even if the user's browser uses another TZ.
         const todayStr = getDakarDateString()
 
-        // Group by match (predictions.json stores one row per market — BTTS or Over 2.5)
+        // Group by match; only authenticated Gemini market rows become picks.
         const map = new Map<string, MatchData>()
         for (const p of raw) {
           const key = p.match || `${p.home || ''} vs ${p.away || ''} ${p.date || ''}`
+          const aiPicks = getGeminiPicks(p)
+          const isGeminiResponse = p.ai_source === 'gemini-stats-v1'
           if (!map.has(key)) {
             map.set(key, {
               key,
@@ -699,8 +731,11 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
               time: p.time || '--:--',
               homeLogo: p.homeLogo,
               awayLogo: p.awayLogo,
-              bttsProb: p.bttsProb,
-              over25Prob: p.over25Prob,
+              bttsProb: getGeminiProbability(aiPicks, 'BTTS'),
+              over25Prob: getGeminiProbability(aiPicks, 'O2.5'),
+              aiPicks,
+              aiSource: isGeminiResponse ? p.ai_source : undefined,
+              aiAbstain: p.ai_abstain,
               homeLambda: p.homeLambda,
               awayLambda: p.awayLambda,
               xgHome: p.xgHome,
@@ -711,28 +746,32 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
               dataQuality: p.dataQuality,
               matchCountHome: p.matchCountHome,
               matchCountAway: p.matchCountAway,
-              aiExactScore: p.ai_exact_score,
-              exactScoreProb: p.exact_score_prob,
-              aiBttsView: p.ai_btts_view,
-              aiOver25View: p.ai_over25_view,
-              aiKeyFact: p.ai_key_fact,
-              aiAnalysis: p.ai_analysis,
-              aiFormSummary: p.ai_form_summary,
-              aiAbsences: p.ai_absences,
-              aiOddsInsight: p.ai_odds_insight,
-              aiKeyFactEn: p.ai_key_fact_en,
-              aiAnalysisEn: p.ai_analysis_en,
-              aiFormSummaryEn: p.ai_form_summary_en,
-              aiAbsencesEn: p.ai_absences_en,
-              aiOddsInsightEn: p.ai_odds_insight_en,
+              aiExactScore: undefined,
+              exactScoreProb: undefined,
+              aiBttsView: undefined,
+              aiOver25View: undefined,
+              aiKeyFact: isGeminiResponse ? p.ai_key_fact : undefined,
+              aiAnalysis: isGeminiResponse ? p.ai_analysis : undefined,
+              aiFormSummary: isGeminiResponse ? p.ai_form_summary : undefined,
+              aiAbsences: isGeminiResponse ? p.ai_absences : undefined,
+              aiOddsInsight: isGeminiResponse ? p.ai_odds_insight : undefined,
+              aiKeyFactEn: isGeminiResponse ? p.ai_key_fact_en : undefined,
+              aiAnalysisEn: isGeminiResponse ? p.ai_analysis_en : undefined,
+              aiFormSummaryEn: isGeminiResponse ? p.ai_form_summary_en : undefined,
+              aiAbsencesEn: isGeminiResponse ? p.ai_absences_en : undefined,
+              aiOddsInsightEn: isGeminiResponse ? p.ai_odds_insight_en : undefined,
               odds: p.odds || null,
             })
           } else {
-            // Merge missing fields from sibling row (BTTS row may carry bttsProb,
-            // Over 2.5 row may carry over25Prob)
+            // Merge only Gemini markets from sibling rows; local rate fields are ignored.
             const existing = map.get(key)!
-            if (existing.bttsProb == null && p.bttsProb != null) existing.bttsProb = p.bttsProb
-            if (existing.over25Prob == null && p.over25Prob != null) existing.over25Prob = p.over25Prob
+            for (const pick of aiPicks) {
+              if (!existing.aiPicks.some(current => current.market === pick.market)) existing.aiPicks.push(pick)
+            }
+            existing.bttsProb = getGeminiProbability(existing.aiPicks, 'BTTS')
+            existing.over25Prob = getGeminiProbability(existing.aiPicks, 'O2.5')
+            if (!existing.aiSource && isGeminiResponse) existing.aiSource = p.ai_source
+            if (existing.aiAbstain !== false) existing.aiAbstain = p.ai_abstain
             if (existing.homeLambda == null && p.homeLambda != null) existing.homeLambda = p.homeLambda
             if (existing.awayLambda == null && p.awayLambda != null) existing.awayLambda = p.awayLambda
             if (existing.reliabilityScore == null && p.reliabilityScore != null) existing.reliabilityScore = p.reliabilityScore
@@ -740,20 +779,16 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
             if (existing.dataQuality == null && p.dataQuality != null) existing.dataQuality = p.dataQuality
             if (existing.matchCountHome == null && p.matchCountHome != null) existing.matchCountHome = p.matchCountHome
             if (existing.matchCountAway == null && p.matchCountAway != null) existing.matchCountAway = p.matchCountAway
-            if (existing.aiExactScore == null && p.ai_exact_score != null) existing.aiExactScore = p.ai_exact_score
-            if (existing.exactScoreProb == null && p.exact_score_prob != null) existing.exactScoreProb = p.exact_score_prob
-            if (existing.aiBttsView == null && p.ai_btts_view != null) existing.aiBttsView = p.ai_btts_view
-            if (existing.aiOver25View == null && p.ai_over25_view != null) existing.aiOver25View = p.ai_over25_view
-            if (existing.aiKeyFact == null && p.ai_key_fact != null) existing.aiKeyFact = p.ai_key_fact
-            if (existing.aiAnalysis == null && p.ai_analysis != null) existing.aiAnalysis = p.ai_analysis
-            if (existing.aiFormSummary == null && p.ai_form_summary != null) existing.aiFormSummary = p.ai_form_summary
-            if (existing.aiAbsences == null && p.ai_absences != null) existing.aiAbsences = p.ai_absences
-            if (existing.aiOddsInsight == null && p.ai_odds_insight != null) existing.aiOddsInsight = p.ai_odds_insight
-            if (existing.aiKeyFactEn == null && p.ai_key_fact_en != null) existing.aiKeyFactEn = p.ai_key_fact_en
-            if (existing.aiAnalysisEn == null && p.ai_analysis_en != null) existing.aiAnalysisEn = p.ai_analysis_en
-            if (existing.aiFormSummaryEn == null && p.ai_form_summary_en != null) existing.aiFormSummaryEn = p.ai_form_summary_en
-            if (existing.aiAbsencesEn == null && p.ai_absences_en != null) existing.aiAbsencesEn = p.ai_absences_en
-            if (existing.aiOddsInsightEn == null && p.ai_odds_insight_en != null) existing.aiOddsInsightEn = p.ai_odds_insight_en
+            if (isGeminiResponse && existing.aiKeyFact == null && p.ai_key_fact != null) existing.aiKeyFact = p.ai_key_fact
+            if (isGeminiResponse && existing.aiAnalysis == null && p.ai_analysis != null) existing.aiAnalysis = p.ai_analysis
+            if (isGeminiResponse && existing.aiFormSummary == null && p.ai_form_summary != null) existing.aiFormSummary = p.ai_form_summary
+            if (isGeminiResponse && existing.aiAbsences == null && p.ai_absences != null) existing.aiAbsences = p.ai_absences
+            if (isGeminiResponse && existing.aiOddsInsight == null && p.ai_odds_insight != null) existing.aiOddsInsight = p.ai_odds_insight
+            if (isGeminiResponse && existing.aiKeyFactEn == null && p.ai_key_fact_en != null) existing.aiKeyFactEn = p.ai_key_fact_en
+            if (isGeminiResponse && existing.aiAnalysisEn == null && p.ai_analysis_en != null) existing.aiAnalysisEn = p.ai_analysis_en
+            if (isGeminiResponse && existing.aiFormSummaryEn == null && p.ai_form_summary_en != null) existing.aiFormSummaryEn = p.ai_form_summary_en
+            if (isGeminiResponse && existing.aiAbsencesEn == null && p.ai_absences_en != null) existing.aiAbsencesEn = p.ai_absences_en
+            if (isGeminiResponse && existing.aiOddsInsightEn == null && p.ai_odds_insight_en != null) existing.aiOddsInsightEn = p.ai_odds_insight_en
             if (existing.odds == null && p.odds != null) existing.odds = p.odds
           }
         }
@@ -809,13 +844,12 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
     }
   }, [matches, scheduledTodayMatches, liveTodayMatches])
 
-  // ─── AI COMBO OF THE DAY — deterministic selection from real data only ──
-  // Eligibility filter (NO recalculation — uses predictions.json values as-is):
+  // ─── AI COMBO OF THE DAY — deterministic selection from Gemini picks ───
+  // Eligibility filter:
   //   1. dataQuality !== 'LOW' (and must be a known value)
   //   2. reliabilityScore >= 70
-  //   3. bttsProb >= 0.65 OR over25Prob >= 0.65
-  // For each qualifying match, the market with the higher qualifying probability
-  // is selected (deterministic — no randomization).
+  //   3. An explicit Gemini pick with proba >= 0.65 exists.
+  // At most one Gemini market per match is selected (highest Gemini probability).
   // Sort order (deterministic, stable):
   //   1. reliabilityScore DESC
   //   2. selected probability DESC
@@ -837,29 +871,17 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
       const rs = m.reliabilityScore ?? 0
       if (!Number.isFinite(rs) || rs < 70) continue
 
-      const btts = m.bttsProb ?? 0
-      const over = m.over25Prob ?? 0
-
-      const bttsQualifies = Number.isFinite(btts) && btts >= 0.65
-      const overQualifies = Number.isFinite(over) && over >= 0.65
-
-      if (!bttsQualifies && !overQualifies) continue
-
-      let market: 'BTTS' | 'OVER 2.5'
-      let probability: number
-      if (bttsQualifies && overQualifies) {
-        if (btts >= over) { market = 'BTTS'; probability = btts }
-        else { market = 'OVER 2.5'; probability = over }
-      } else if (bttsQualifies) {
-        market = 'BTTS'; probability = btts
-      } else {
-        market = 'OVER 2.5'; probability = over
-      }
+      const selected = m.aiPicks
+        .filter(pick => Number.isFinite(pick.proba) && pick.proba >= 0.65)
+        .sort((a, b) => b.proba - a.proba)[0]
+      if (!selected) continue
+      const market: 'BTTS' | 'OVER 2.5' = selected.market === 'BTTS' ? 'BTTS' : 'OVER 2.5'
 
       candidates.push({
         match: m,
         market,
-        probability,
+        selection: selected.prediction,
+        probability: selected.proba,
         reliabilityScore: rs,
         dataQuality: dq,
         matchCountTotal: (m.matchCountHome ?? 0) + (m.matchCountAway ?? 0),
@@ -902,14 +924,7 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
   const visibleUpcomingMatches = quickFilter === 'today' ? [] : upcomingMatches.filter(passesDashboardFilters)
   const hasVisibleMatches = visibleTodayMatches.length + visibleFinishedMatches.length + visibleUpcomingMatches.length > 0
 
-  const filteredMatches = useMemo(() => {
-    return matches.filter(m => {
-      if (activeFilter === 'BTTS') return (m.bttsProb ?? 0) >= 0.5
-      if (activeFilter === 'O2.5') return (m.over25Prob ?? 0) >= 0.5
-      if (activeFilter === 'HIGH') return (m.reliabilityScore ?? 0) >= 80
-      return true
-    })
-  }, [matches, activeFilter])
+  const filteredMatches = useMemo(() => matches.filter(m => passesFilter(m, activeFilter)), [matches, activeFilter])
 
   const labels: DashboardLabels = lang === 'fr'
     ? { exactScore: 'Score exact proposé', source: 'Source', matches: 'matchs récents', aiAnalysis: 'Notre analyse du match', score: 'Score', goalsHome: 'Buts/match · domicile', goalsAway: 'Buts/match · extérieur', goalsTotal: 'Total des moyennes', openMatch: 'Ouvrir la page du match' }

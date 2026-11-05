@@ -46,7 +46,9 @@ describe('archive finalization immutability', () => {
     const predictionsFile = path.join(root, 'predictions.json')
     const published = {
       id: 'fixture-1', type: 'BTTS', date: '2026-11-01', home: 'A', away: 'B',
-      proba: 0.61, confidence: 61, ai_analysis: 'First editorial text',
+      prediction: 'Oui', proba: 0.61, confidence: 61, ai_analysis: 'First editorial text',
+      predictions: [{ type: 'BTTS', prediction: 'Oui', proba: 0.61 }],
+      ai_source: 'gemini-stats-v1', ai_abstain: false, modelEngine: 'gemini-stats-v1',
     }
     writePayload(predictionsFile, { date: '2026-11-01', free: [published], predictions: [published], vipPreview: [] })
     finalizeArchive({ predictionsFile, archiveDir })
@@ -115,7 +117,9 @@ describe('archive finalization immutability', () => {
     const predictionsFile = path.join(root, 'predictions.json')
     const legacyOk = {
       id: 'lg-1', type: 'BTTS', date: '2026-11-01', home: 'C', away: 'D',
-      proba: 0.55, confidence: 55, matchCountHome: 8, matchCountAway: 7, ai_analysis: 'Original text',
+      prediction: 'Oui', proba: 0.55, confidence: 55, matchCountHome: 8, matchCountAway: 7, ai_analysis: 'Original text',
+      predictions: [{ type: 'BTTS', prediction: 'Oui', proba: 0.55 }],
+      ai_source: 'gemini-stats-v1', ai_abstain: false, modelEngine: 'gemini-stats-v1',
     }
     writePayload(predictionsFile, { date: '2026-11-01', free: [legacyOk], predictions: [legacyOk], vipPreview: [] })
     finalizeArchive({ predictionsFile, archiveDir })
@@ -126,6 +130,32 @@ describe('archive finalization immutability', () => {
     finalizeArchive({ predictionsFile, archiveDir })
 
     expect(readJson(predictionsFile).free[0]).toMatchObject({ proba: 0.55, confidence: 55, ai_analysis: 'Original text' })
+  })
+
+  it('does not re-inject an archived local pick into today when the current Gemini result abstains', () => {
+    const root = tempDir()
+    const archiveDir = path.join(root, 'archive')
+    const predictionsFile = path.join(root, 'predictions.json')
+    const localPick = {
+      id: 'local-1', type: 'BTTS', date: '2026-11-01', home: 'E', away: 'F',
+      prediction: 'Oui', proba: 0.68, bttsProb: 0.68,
+      ai_source: 'local-empirical-v1', ai_abstain: false,
+    }
+    writePayload(predictionsFile, { date: '2026-11-01', free: [localPick], predictions: [localPick], vipPreview: [] })
+    finalizeArchive({ predictionsFile, archiveDir })
+
+    const abstention = {
+      id: 'local-1', type: 'BTTS', date: '2026-11-01', home: 'E', away: 'F',
+      ai_abstain: true, ai_market: 'ABSTAIN',
+    }
+    writePayload(predictionsFile, { date: '2026-11-01', free: [abstention], predictions: [abstention], vipPreview: [] })
+    finalizeArchive({ predictionsFile, archiveDir })
+
+    expect(readJson(predictionsFile).free[0]).toMatchObject({ ai_abstain: true, ai_market: 'ABSTAIN' })
+    expect(readJson(predictionsFile).free[0]).not.toHaveProperty('prediction')
+    expect(readJson(predictionsFile).free[0]).not.toHaveProperty('bttsProb')
+    // Existing archive facts remain unchanged; only the current public feed is fail-closed.
+    expect(readJson(path.join(archiveDir, '2026-11-01.json')).free[0]).toMatchObject(localPick)
   })
 })
 

@@ -201,7 +201,7 @@ jobs:
         continue-on-error: true
       - name: Validate predictions dataset before build
         if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
-        run: node scripts/validate-predictions.mjs public/predictions.json --require-timestamp
+        run: node scripts/validate-predictions.mjs public/predictions.json --require-timestamp --require-gemini
 
       - name: Build static export
         run: npm run build -- --webpack

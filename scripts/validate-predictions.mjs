@@ -6,6 +6,14 @@ function rowsFromPayload(payload) {
   return Array.isArray(payload?.free) ? payload.free : Array.isArray(payload?.predictions) ? payload.predictions : []
 }
 
+function pickRows(row) {
+  const nested = Array.isArray(row?.predictions)
+    ? row.predictions.filter(item => item && typeof item === 'object')
+    : []
+  if (nested.length) return nested
+  return typeof row?.prediction === 'string' && row.prediction.trim() ? [row] : []
+}
+
 function validatePreviewRows(payload, today, errors) {
   if (!Array.isArray(payload?.vipPreview)) return
   payload.vipPreview.forEach((fixture, index) => {
@@ -29,6 +37,7 @@ export function validatePredictionPayload(payload, options = {}) {
   const today = options.today || new Date().toLocaleDateString('sv-SE', { timeZone: 'Africa/Dakar' })
   const requireTimestamp = options.requireTimestamp === true
   const checkKickoff = options.checkKickoff === true
+  const requireGemini = options.requireGemini === true
   const now = options.now instanceof Date ? options.now : new Date()
 
   if (!payload || typeof payload !== 'object') {
@@ -46,15 +55,48 @@ export function validatePredictionPayload(payload, options = {}) {
 
   rows.forEach((prediction, index) => {
     const prefix = `prediction[${index}]`
-    for (const field of ['id', 'match', 'home', 'away', 'league', 'date', 'type', 'prediction']) {
+    for (const field of ['id', 'match', 'home', 'away', 'league', 'date']) {
       if (typeof prediction?.[field] !== 'string' || prediction[field].trim() === '') {
         errors.push(`${prefix}.${field} is required`)
       }
     }
     if (!ISO_DATE.test(prediction?.date || '')) errors.push(`${prefix}.date must be YYYY-MM-DD`)
     else if (prediction.date < today) errors.push(`${prefix}.date is older than Africa/Dakar today`)
-    if (typeof prediction?.proba !== 'number' || prediction.proba < 0 || prediction.proba > 1) {
-      errors.push(`${prefix}.proba must be between 0 and 1`)
+    const picks = pickRows(prediction)
+    if (requireGemini) {
+      if (picks.length === 0) {
+        if (prediction?.ai_abstain !== true) errors.push(`${prefix}.ai_abstain must be true when no Gemini pick is published`)
+        if (prediction?.ai_source && prediction.ai_source !== 'gemini-stats-v1') {
+          errors.push(`${prefix}.ai_source must not identify a non-Gemini source`)
+        }
+        for (const field of ['proba', 'confidence', 'bttsProb', 'over25Prob', 'bttsProbDisplay', 'over25ProbDisplay']) {
+          if (prediction?.[field] !== undefined) errors.push(`${prefix}.${field} must be absent for a no-pick abstention`)
+        }
+      } else {
+        if (prediction?.ai_source !== 'gemini-stats-v1') errors.push(`${prefix}.ai_source must be gemini-stats-v1 for published picks`)
+        if (prediction?.ai_abstain !== false) errors.push(`${prefix}.ai_abstain must be false when a Gemini pick is published`)
+        if (prediction?.modelEngine !== 'gemini-stats-v1') errors.push(`${prefix}.modelEngine must be gemini-stats-v1 for published picks`)
+        picks.forEach((pick, pickIndex) => {
+          const pickPrefix = picks.length > 1 ? `${prefix}.predictions[${pickIndex}]` : prefix
+          if (typeof pick?.type !== 'string' || pick.type.trim() === '') errors.push(`${pickPrefix}.type is required for a Gemini pick`)
+          if (typeof pick?.prediction !== 'string' || !['Oui', 'Non', 'Yes', 'No'].includes(pick.prediction)) {
+            errors.push(`${pickPrefix}.prediction must be a Gemini Yes/No selection`)
+          }
+          const probability = pick?.proba ?? (String(pick?.type || '').toLowerCase().includes('btts') ? pick?.bttsProb : pick?.over25Prob)
+          if (typeof probability !== 'number' || probability < 0 || probability > 1) {
+            errors.push(`${pickPrefix}.proba must be between 0 and 1`)
+          }
+        })
+      }
+    } else if (picks.length > 0) {
+      for (const field of ['type', 'prediction']) {
+        if (typeof prediction?.[field] !== 'string' || prediction[field].trim() === '') {
+          errors.push(`${prefix}.${field} is required`)
+        }
+      }
+      if (typeof prediction?.proba !== 'number' || prediction.proba < 0 || prediction.proba > 1) {
+        errors.push(`${prefix}.proba must be between 0 and 1`)
+      }
     }
     if (typeof prediction?.reliabilityScore !== 'number' || prediction.reliabilityScore < 0 || prediction.reliabilityScore > 100) {
       errors.push(`${prefix}.reliabilityScore must be between 0 and 100`)
@@ -84,6 +126,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   const payload = JSON.parse(await import('node:fs/promises').then(fs => fs.readFile(file, 'utf8')))
   const errors = validatePredictionPayload(payload, {
     requireTimestamp: process.argv.includes('--require-timestamp'),
+    requireGemini: process.argv.includes('--require-gemini'),
     checkKickoff: true,
   })
   if (errors.length > 0) {

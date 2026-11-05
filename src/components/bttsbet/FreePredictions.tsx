@@ -13,6 +13,7 @@ import { humanMethodLabel, predictionQuality, type PredictionQuality as DataQual
 import { analysisHeading } from '@/lib/predictionPresentation'
 import { getDakarDayDiff, getDakarMatchStatus, parseDakarDateTime } from '@/lib/dakar-date'
 import VipMarketTeaser from './VipMarketTeaser'
+import { getGeminiPicks } from '@/lib/gemini-predictions'
 
 // ─── Helpers ────────────────────────────────────────────────────────────
 function getMatchStatus(date: string, time?: string): 'live' | 'upcoming' | 'past' {
@@ -53,7 +54,7 @@ function formatDateShort(dateStr: string, lang: 'fr' | 'en' | 'ar' = 'fr') {
 interface Prediction {
   type: string
   prediction: string
-  confidence: number
+  confidence?: number
   bttsProb?: number
   over25Prob?: number
   homeLambda?: number
@@ -99,28 +100,8 @@ function parseMatchesPayload(data: { free?: unknown[]; predictions?: unknown[]; 
   const matchMap = new Map<string, MatchData>()
   for (const p of rawPredictions) {
     const rowQuality: DataQuality = predictionQuality(p as never)
-    const predsRaw = Array.isArray(p.predictions) && (p.predictions as unknown[]).length > 0
-      ? (p.predictions as Array<Record<string, unknown>>)
-      : null
-    const preds = predsRaw
-      ? predsRaw.map(pr => ({
-          type: String(pr.type || ''),
-          prediction: String(pr.prediction || ''),
-          confidence: Number(pr.confidence || 0),
-          bttsProb: (pr.bttsProb as number | undefined) ?? (p.bttsProb as number | undefined),
-          over25Prob: (pr.over25Prob as number | undefined) ?? (p.over25Prob as number | undefined),
-          homeLambda: (pr.homeLambda as number | undefined) ?? (p.homeLambda as number | undefined) ?? (p.xgHome as number | undefined),
-          awayLambda: (pr.awayLambda as number | undefined) ?? (p.awayLambda as number | undefined) ?? (p.xgAway as number | undefined),
-        }))
-      : [{
-          type: String(p.type || 'BTTS'),
-          prediction: String(p.prediction || ''),
-          confidence: Number(p.confidence || 0),
-          bttsProb: p.bttsProb as number | undefined,
-          over25Prob: p.over25Prob as number | undefined,
-          homeLambda: (p.homeLambda as number | undefined) ?? (p.xgHome as number | undefined),
-          awayLambda: (p.awayLambda as number | undefined) ?? (p.xgAway as number | undefined),
-        }]
+    const preds = getGeminiPicks(p)
+    const isGeminiResponse = p.ai_source === 'gemini-stats-v1'
     const key = String(p.match || '')
     if (!key || matchMap.has(key)) continue
     matchMap.set(key, {
@@ -135,21 +116,22 @@ function parseMatchesPayload(data: { free?: unknown[]; predictions?: unknown[]; 
       reliabilityScore: p.reliabilityScore as number | undefined,
       xgTotal: p.xgTotal as number | undefined,
       analysis: p.analysis as string | undefined,
-      aiKeyFact: p.ai_key_fact as string | undefined,
-      aiAnalysis: p.ai_analysis as string | undefined,
-      aiFormSummary: p.ai_form_summary as string | undefined,
-      aiAbsences: p.ai_absences as string | undefined,
-      aiOddsInsight: p.ai_odds_insight as string | undefined,
-      aiKeyFactEn: p.ai_key_fact_en as string | undefined,
-      aiAnalysisEn: p.ai_analysis_en as string | undefined,
-      aiFormSummaryEn: p.ai_form_summary_en as string | undefined,
-      aiAbsencesEn: p.ai_absences_en as string | undefined,
-      aiOddsInsightEn: p.ai_odds_insight_en as string | undefined,
+      aiKeyFact: isGeminiResponse ? p.ai_key_fact as string | undefined : undefined,
+      aiAnalysis: isGeminiResponse ? p.ai_analysis as string | undefined : undefined,
+      aiFormSummary: isGeminiResponse ? p.ai_form_summary as string | undefined : undefined,
+      aiAbsences: isGeminiResponse ? p.ai_absences as string | undefined : undefined,
+      aiOddsInsight: isGeminiResponse ? p.ai_odds_insight as string | undefined : undefined,
+      aiKeyFactEn: isGeminiResponse ? p.ai_key_fact_en as string | undefined : undefined,
+      aiAnalysisEn: isGeminiResponse ? p.ai_analysis_en as string | undefined : undefined,
+      aiFormSummaryEn: isGeminiResponse ? p.ai_form_summary_en as string | undefined : undefined,
+      aiAbsencesEn: isGeminiResponse ? p.ai_absences_en as string | undefined : undefined,
+      aiOddsInsightEn: isGeminiResponse ? p.ai_odds_insight_en as string | undefined : undefined,
       odds: (p.odds as MatchData['odds']) || null,
-      aiExactScore: p.ai_exact_score as string | undefined,
-      exactScoreProb: p.exact_score_prob as string | undefined,
-      aiBttsProb: p.ai_btts_prob as string | undefined,
-      aiOver25Prob: p.ai_over25_prob as string | undefined,
+      // The current Gemini schema does not publish exact-score picks.
+      aiExactScore: undefined,
+      exactScoreProb: undefined,
+      aiBttsProb: undefined,
+      aiOver25Prob: undefined,
     })
   }
   const all = [...matchMap.values()].sort((a, b) => {
@@ -233,55 +215,6 @@ function TeamLogo({ src, name, size = 48 }: { src?: string; name: string; size?:
   )
 }
 
-// ─── Prediction Card — main component (rich, with BTTS + O2.5 separately) ─
-// ─── Poisson: recompute a missing market ONLY from real lambdas ─────────
-// If a match has BTTS but not Over 2.5 (or vice versa) AND the payload
-// carries real expected goals, we compute the missing market from those
-// real lambdas. No invented lambda, no clamped percentage: without real
-// inputs the card shows an honest "Données insuffisantes" state.
-
-function poissonP(k: number, lambda: number): number {
-  return Math.pow(lambda, k) * Math.exp(-lambda) / factorial(k)
-}
-
-function factorial(n: number): number {
-  let r = 1
-  for (let i = 2; i <= n; i++) r *= i
-  return r
-}
-
-/**
- * Compute P(Over 2.5) from home/away lambdas.
- * P(Over 2.5) = 1 - P(0) - P(1) - P(2) where P(total) = sum over i+j=total of P_home(i)*P_away(j)
- */
-function computeOver25(homeLambda: number, awayLambda: number): number {
-  // P(total goals = n) = sum_{i=0..n} P_home(i) * P_away(n-i)
-  const pTotal = (n: number): number => {
-    let sum = 0
-    for (let i = 0; i <= n; i++) {
-      const j = n - i
-      sum += poissonP(i, homeLambda) * poissonP(j, awayLambda)
-    }
-    return sum
-  }
-  // P(Over 2.5) = 1 - P(0) - P(1) - P(2)
-  return Math.max(0, Math.min(1, 1 - pTotal(0) - pTotal(1) - pTotal(2)))
-}
-
-/**
- * Compute P(BTTS) from home/away lambdas.
- * P(BTTS) = 1 - P(home=0) - P(away=0) + P(home=0 AND away=0)
- * P(home=0) = exp(-homeLambda), P(away=0) = exp(-awayLambda)
- * P(home=0 AND away=0) = exp(-homeLambda) * exp(-awayLambda)
- */
-function computeBtts(homeLambda: number, awayLambda: number): number {
-  const pHome0 = Math.exp(-homeLambda)
-  const pAway0 = Math.exp(-awayLambda)
-  const pBoth0 = pHome0 * pAway0
-  // P(BTTS) = 1 - P(home=0) - P(away=0) + P(both=0)
-  return Math.max(0, Math.min(1, 1 - pHome0 - pAway0 + pBoth0))
-}
-
 // ─── PredictionCard ──────────────────────────────────────────────────────
 function PredictionCard({ match, index, initialLocale }: { match: MatchData; index: number; initialLocale?: Locale }) {
   const [expanded, setExpanded] = useState(false)
@@ -311,43 +244,15 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
   const timeUntil = getTimeUntil(match.date, match.time)
   const dateLabel = formatDateShort(match.date, lang)
 
-  // ─── Données réelles uniquement — aucun lambda inventé, aucun clamp ──
-  // Les lignes affichées proviennent du payload réel (pipeline Poisson v92
-  // sur données ESPN). Un marché manquant est recalculé uniquement si des
-  // lambdas réels existent ; sinon l'état est "Données insuffisantes".
-
-  // Get predictions data
+  // Current market picks are accepted only from authenticated Gemini rows.
   const rawBtts = match.predictions.find(p => p.type === 'BTTS')
-  const rawOver25 = match.predictions.find(p => p.type.includes('Over'))
-
-  // Extract real lambdas (from either prediction — they're the same model)
-  const homeLambda = rawBtts?.homeLambda ?? rawOver25?.homeLambda
-  const awayLambda = rawBtts?.awayLambda ?? rawOver25?.awayLambda
-
-  // Build BTTS prediction (use existing, or compute from real lambdas only)
-  const bttsProb = rawBtts?.bttsProb ?? (homeLambda != null && awayLambda != null ? computeBtts(homeLambda, awayLambda) : undefined)
-  const bttsPred = rawBtts ?? (bttsProb != null && homeLambda != null && awayLambda != null ? {
-    type: 'BTTS',
-    prediction: bttsProb >= 0.48 ? 'Oui' : 'Non',
-    confidence: Math.round(bttsProb * 100),
-    bttsProb,
-    homeLambda,
-    awayLambda,
-  } : null)
-
-  // Build Over 2.5 prediction (use existing, or compute from real lambdas only)
-  const over25Prob = rawOver25?.over25Prob ?? (homeLambda != null && awayLambda != null ? computeOver25(homeLambda, awayLambda) : undefined)
-  const over25Pred = rawOver25 ?? (over25Prob != null && homeLambda != null && awayLambda != null ? {
-    type: 'Over 2.5',
-    prediction: over25Prob >= 0.49 ? 'Oui' : 'Non',
-    confidence: Math.round(over25Prob * 100),
-    over25Prob,
-    homeLambda,
-    awayLambda,
-  } : null)
+  const rawOver25 = match.predictions.find(p => p.type === 'Over 2.5')
+  const bttsPred = rawBtts ?? null
+  const over25Pred = rawOver25 ?? null
+  const hasGeminiPick = Boolean(bttsPred || over25Pred)
 
   // Qualité des données — libellé humain, jamais un pourcentage inventé
-  const dataQuality: DataQuality = match.quality ?? (bttsPred || over25Pred ? 'limited' : 'insufficient')
+  const dataQuality: DataQuality = match.quality ?? (hasGeminiPick ? 'limited' : 'insufficient')
 
   return (
     <motion.div
@@ -438,9 +343,11 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
             </div>
           </div>
 
-          {/* Qualité des données — « Basé sur les données récentes » / « Données limitées » / « Données insuffisantes »
-              (affiché uniquement quand les données sont réellement insuffisantes pour le dernier cas) */}
-          <p className="text-[11px] text-cendre mt-2 text-center">{humanMethodLabel(dataQuality, lang)}</p>
+          <p className="text-[11px] text-cendre mt-2 text-center">
+            {hasGeminiPick
+              ? humanMethodLabel(dataQuality, lang)
+              : lang === 'en' ? 'No Gemini pick published for this match.' : lang === 'ar' ? 'لم يتم نشر ترشيح من Gemini لهذه المباراة.' : 'Aucun pick Gemini publié pour ce match.'}
+          </p>
         </div>
         <VipMarketTeaser locale={lang} />
 

@@ -9,6 +9,7 @@ import { getDakarDayDiff, getDakarMatchStatus, parseDakarDateTime } from '@/lib/
 import { KICKOFF_I18N } from '@/lib/i18n-extras'
 import ComboBuilder from './ComboBuilder'
 import BookmakerCardLinks from './BookmakerCardLinks'
+import { getGeminiPicks } from '@/lib/gemini-predictions'
 // useLayoutEffect isomorphe (évite le warning SSR React)
 const useIsoLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect
 
@@ -29,6 +30,7 @@ interface MarketPick {
   type: string
   prediction: string
   confidence?: number
+  proba?: number
 }
 
 interface FeedItem {
@@ -56,6 +58,8 @@ interface FeedItem {
   over25Prob?: number
   estimatedCoteBTTS?: number
   estimatedCoteOver?: number
+  ai_source?: string
+  ai_abstain?: boolean
 }
 
 interface HistoryRecord {
@@ -127,7 +131,10 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
     ]).then(([pred, hist]) => {
       if (cancelled) return
       const raw: FeedItem[] = pred?.free || pred?.predictions || []
-      setItems(Array.isArray(raw) ? raw : [])
+      setItems(Array.isArray(raw) ? raw.map(item => ({
+        ...item,
+        predictions: getGeminiPicks(item),
+      })) : [])
       if (pred?.lastUpdated) setDataDate(String(pred.lastUpdated).slice(0, 10))
       const map = new Map<string, HistoryRecord>()
       const recs: HistoryRecord[] = hist?.history || []
@@ -319,10 +326,7 @@ function MatchCard({ m, index, lang, results, nowTs }: {
     ? formatCountdown(kickoffMs - nowTs, lang)
     : null
 
-  const picks: MarketPick[] = (m.predictions?.length
-    ? m.predictions
-    : m.type ? [{ type: m.type, prediction: m.prediction || '', confidence: m.confidence }] : []
-  ).slice(0, 3)
+  const picks: MarketPick[] = getGeminiPicks(m).slice(0, 3)
 
   const matchHref = m.home && m.away && m.date
     ? localizedPath(`/match/${generateMatchSlug(m.home, m.away, m.date)}`, lang)
@@ -458,8 +462,8 @@ function MatchCard({ m, index, lang, results, nowTs }: {
         </div>
       )}
 
-      {/* Ligne 3 : marchés du modèle */}
-      {(picks.length > 0 || m.ai_exact_score) && (
+      {/* Ligne 3 : picks Gemini uniquement */}
+      {picks.length > 0 && (
         <div className="hp-mc-picks">
           {picks.map(p => {
             const typeUp = (p.type || '').toUpperCase()
@@ -479,14 +483,12 @@ function MatchCard({ m, index, lang, results, nowTs }: {
               </span>
             )
           })}
-          {m.ai_exact_score && (
-            <span className="hp-pick is-exact">
-              <b>{t.home2.mcExact}</b>
-              <span>{m.ai_exact_score}</span>
-              {m.exact_score_prob && <i>{m.exact_score_prob}</i>}
-            </span>
-          )}
         </div>
+      )}
+      {picks.length === 0 && (
+        <p className="hp-mc-result__label" role="status">
+          {lang === 'en' ? 'No Gemini pick published for this match.' : lang === 'ar' ? 'لم يتم نشر ترشيح من Gemini لهذه المباراة.' : 'Aucun pick Gemini publié pour ce match.'}
+        </p>
       )}
 
       {/* Ligne 3bis : cotes réelles du marché (gratuit — ESPN/bookmaker) */}

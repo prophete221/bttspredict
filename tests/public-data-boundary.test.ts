@@ -63,7 +63,7 @@ describe('frontière publique des données VIP', () => {
   it('les pages match reprennent exactement les champs du flux courant et ses marchés', () => {
     const root = workspace()
     fs.writeFileSync(path.join(root, 'public', 'predictions-archive', '2026-10-21.json'), JSON.stringify({ predictions: [{ ...free, proba: 0.9, ai_analysis: 'Ancien texte' }] }))
-    fs.writeFileSync(path.join(root, 'public', 'predictions.json'), JSON.stringify({ lastUpdated: '2026-10-21T10:00:00Z', free: [{ ...free, ai_analysis: 'Texte actuel', predictions: [{ type: 'BTTS', prediction: 'Oui', proba: 0.54, confidence: 54 }, { type: 'Over 2.5', prediction: 'Non', proba: 0.42, confidence: 42 }] }, vip] }))
+    fs.writeFileSync(path.join(root, 'public', 'predictions.json'), JSON.stringify({ lastUpdated: '2026-10-21T10:00:00Z', free: [{ ...free, ai_source: 'gemini-stats-v1', ai_abstain: false, modelEngine: 'gemini-stats-v1', ai_analysis: 'Texte actuel', predictions: [{ type: 'BTTS', prediction: 'Oui', proba: 0.54, confidence: 54 }, { type: 'Over 2.5', prediction: 'Non', proba: 0.42, confidence: 42 }] }, vip] }))
     vi.spyOn(process, 'cwd').mockReturnValue(root)
     const matches = [...loadAllMatches().values()]
     expect(matches).toHaveLength(1)

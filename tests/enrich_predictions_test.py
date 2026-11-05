@@ -21,7 +21,7 @@ FORBIDDEN_CREATION = (
     "ai_odds_insight",
 )
 # Champs empiriques intouchables : jamais écrasés par un item Gemini
-FORBIDDEN_OVERWRITE = ("xgHome", "xgAway", "estimatedCote")
+FORBIDDEN_OVERWRITE = ("xgHome", "xgAway")
 FORBIDDEN = FORBIDDEN_CREATION + FORBIDDEN_OVERWRITE
 
 
@@ -190,7 +190,7 @@ class EnrichmentImmutabilityTests(unittest.TestCase):
         self.assertEqual(client.models.calls, 1)
         sleep.assert_not_called()
 
-    def test_zero_provider_enrichments_warns_fails_and_keeps_local_fallback(self):
+    def test_zero_provider_enrichments_warns_fails_and_keeps_no_pick_abstentions(self):
         class FailingModels:
             def generate_content(self, **_kwargs):
                 raise FakeGeminiAPIError(503)
@@ -213,14 +213,20 @@ class EnrichmentImmutabilityTests(unittest.TestCase):
                 patch.object(enrich.time, "sleep"),
                 redirect_stdout(output),
             ):
-                with self.assertRaises(SystemExit) as raised:
-                    enrich.main()
+                enrich.main()
 
-            self.assertEqual(raised.exception.code, 1)
             saved = json.loads(predictions_file.read_text(encoding="utf-8"))
-            self.assertEqual(saved["free"][0]["ai_source"], "local-empirical-v1")
+            self.assertEqual(saved["analysisEngine"], "unavailable")
+            row = saved["free"][0]
+            self.assertTrue(row["ai_abstain"])
+            self.assertEqual(row["ai_market"], "ABSTAIN")
+            self.assertNotIn("ai_source", row)
+            for field in ("prediction", "predictions", "proba", "confidence", "bttsProb", "over25Prob"):
+                self.assertNotIn(field, row)
+            self.assertEqual(row["empiricalBttsRate"], 0.60)
+            self.assertEqual(row["empiricalOver25Rate"], 0.70)
             self.assertIn("Gemini applied 0/1", output.getvalue())
-            self.assertIn("::warning::Gemini n'a appliqué aucun enrichissement", output.getvalue())
+            self.assertIn("::warning::Gemini n'a fourni aucun résultat exploitable", output.getvalue())
             self.assertIn("codes API: 503", output.getvalue())
 
     def test_successful_gemini_enrichment_does_not_raise(self):
@@ -239,6 +245,7 @@ class EnrichmentImmutabilityTests(unittest.TestCase):
             predictions_file = Path(directory) / "predictions.json"
             predictions_file.write_text(json.dumps({"free": [{
                 "match": "Home FC vs Away FC", "home": "Home FC", "away": "Away FC",
+                "matchCountHome": 5, "matchCountAway": 6,
                 "bttsProb": 0.60, "over25Prob": 0.70,
             }]}), encoding="utf-8")
             output = io.StringIO()
@@ -252,6 +259,9 @@ class EnrichmentImmutabilityTests(unittest.TestCase):
 
             saved = json.loads(predictions_file.read_text(encoding="utf-8"))
             self.assertEqual(saved["free"][0]["ai_source"], "gemini-stats-v1")
+            self.assertFalse(saved["free"][0]["ai_abstain"])
+            self.assertEqual(len(saved["free"][0]["predictions"]), 1)
+            self.assertNotIn("over25Prob", saved["free"][0])
             self.assertIn("Gemini applied 1/1", output.getvalue())
 
     def test_gemini_abstention_is_not_replaced_by_local_fallback(self):
@@ -329,12 +339,15 @@ class EnrichmentImmutabilityTests(unittest.TestCase):
         }
 
         self.assertTrue(enrich.apply_analysis(match, hostile))
-        # probabilité refusée → ABSTAIN, aucune valeur existante écrasée
+        # probabilité refusée → ABSTAIN, les valeurs empiriques restent du contexte
         self.assertTrue(match["ai_abstain"])
         self.assertEqual(match["ai_market"], "ABSTAIN")
-        for key in ("proba", "confidence", "bttsProb", "over25Prob", "xgHome", "xgAway",
-                    "estimatedCote", "predictions"):
+        for key in ("proba", "confidence", "bttsProb", "over25Prob", "estimatedCote", "predictions"):
+            self.assertNotIn(key, match, key)
+        for key in ("xgHome", "xgAway"):
             self.assertEqual(match[key], before[key], key)
+        self.assertEqual(match["empiricalBttsRate"], before["bttsProb"])
+        self.assertEqual(match["empiricalOver25Rate"], before["over25Prob"])
         # seuls les champs narratifs autorisés sont écrits
         self.assertEqual(match["ai_analysis"], hostile["analysis_fr"])
         self.assertEqual(match["ai_analysis_en"], hostile["analysis_en"])
@@ -348,7 +361,10 @@ class EnrichmentImmutabilityTests(unittest.TestCase):
 
     def test_probability_is_clamped_into_allowed_band(self):
         """La probabilité fournie par Gemini est bornée à [PROBA_MIN, PROBA_MAX]."""
-        match = {"home": "Home FC", "away": "Away FC", "bttsProb": 0.6, "over25Prob": 0.7}
+        match = {
+            "home": "Home FC", "away": "Away FC", "matchCountHome": 6, "matchCountAway": 5,
+            "bttsProb": 0.6, "over25Prob": 0.7,
+        }
         item = {
             "id": 0,
             "market": "BTTS",
@@ -365,36 +381,35 @@ class EnrichmentImmutabilityTests(unittest.TestCase):
         self.assertTrue(enrich.PROBA_MIN <= match["proba"] <= enrich.PROBA_MAX)
         self.assertEqual(match["confidence"], int(round(enrich.PROBA_MAX * 100)))
 
-    def test_fallback_stays_within_empirical_rates_and_bounds(self):
-        """Le fallback local ne décide qu'à partir des taux empiriques, borné,
-        et ne fabrique jamais de champ interdit."""
-        decision = enrich.local_decision({
-            "home": "Home FC", "away": "Away FC", "bttsProb": 0.6, "over25Prob": 0.7,
+    def test_no_local_decision_or_fallback_functions_exist(self):
+        self.assertFalse(hasattr(enrich, "local_decision"))
+        self.assertFalse(hasattr(enrich, "apply_local_fallback"))
+
+    def test_ambiguous_both_market_response_is_rejected_as_abstention(self):
+        match = {"bttsProb": 0.60, "over25Prob": 0.70}
+        accepted = enrich.apply_analysis(match, {
+            "id": 0, "market": "BOTH", "selection": "Yes", "probability": 0.66,
         })
-        self.assertIn(decision["market"], ("BTTS", "OVER_25", "BOTH", "ABSTAIN"))
-        if decision["probability"] is not None:
-            self.assertTrue(enrich.PROBA_MIN <= decision["probability"] <= enrich.PROBA_MAX)
-        self.assertTrue(set(FORBIDDEN).isdisjoint(decision))
+        self.assertTrue(accepted)
+        self.assertTrue(match["ai_abstain"])
+        self.assertEqual(match["ai_source"], "gemini-stats-v1")
+        self.assertNotIn("predictions", match)
+        self.assertNotIn("bttsProb", match)
+        self.assertNotIn("over25Prob", match)
 
-        # taux empiriques exagérés → bornés, jamais recopiés tels quels
-        hot = enrich.local_decision({
-            "home": "A", "away": "B", "bttsProb": 0.95, "over25Prob": 0.10,
+    def test_gemini_pick_requires_at_least_four_observed_matches_per_team(self):
+        self.assertFalse(enrich.sample_ok({}))
+        self.assertFalse(enrich.sample_ok({"matchCountHome": 4, "matchCountAway": 3}))
+        self.assertFalse(enrich.sample_ok({"matchCountHome": 0, "matchCountAway": 0}))
+        self.assertTrue(enrich.sample_ok({"matchCountHome": 4, "matchCountAway": 4}))
+
+        insufficient = {"matchCountHome": 8, "matchCountAway": 3, "bttsProb": 0.65}
+        enrich.apply_analysis(insufficient, {
+            "id": 0, "market": "BTTS", "selection": "Yes", "probability": 0.65,
         })
-        self.assertEqual(hot["market"], "BTTS")
-        self.assertEqual(hot["probability"], enrich.PROBA_MAX)
-
-        # application : aucun champ interdit créé, source tracée
-        match = {"home": "Home FC", "away": "Away FC", "bttsProb": 0.6, "over25Prob": 0.7}
-        enrich.apply_local_fallback(match)
-        for key in FORBIDDEN_CREATION:
-            self.assertNotIn(key, match, key)
-        self.assertEqual(match["ai_source"], "local-empirical-v1")
-
-        # taux faibles → ABSTAIN explicite, pas de Oui marketing
-        weak = {"home": "H", "away": "A", "bttsProb": 0.30, "over25Prob": 0.35}
-        enrich.apply_local_fallback(weak)
-        self.assertTrue(weak["ai_abstain"])
-        self.assertEqual(weak["ai_market"], "ABSTAIN")
+        self.assertTrue(insufficient["ai_abstain"])
+        self.assertNotIn("predictions", insufficient)
+        self.assertNotIn("prediction", insufficient)
 
     def test_prompt_bounds_gemini_decision_fields(self):
         prompt = enrich.build_batch_prompt([{"home": "A", "away": "B", "bttsProb": 0.6, "over25Prob": 0.5}])
@@ -408,6 +423,7 @@ class EnrichmentImmutabilityTests(unittest.TestCase):
         # garde-fous anti-hallucination et abstention présents
         self.assertIn("N'invente AUCUNE stat", prompt)
         self.assertIn("ABSTAIN", prompt)
+        self.assertNotIn('"BOTH"', prompt)
         self.assertIn("Réponds UNIQUEMENT un tableau JSON valide", prompt)
         # clamp_proba : refus hors [0.40, 0.90], borne dans [PROBA_MIN, PROBA_MAX]
         self.assertIsNone(enrich.clamp_proba(0.99))

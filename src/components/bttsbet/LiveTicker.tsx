@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { formatDakarDateLabel, getDakarDateString, getDakarMatchStatus, parseDakarDateTime } from '@/lib/dakar-date'
+import { getGeminiPicks } from '@/lib/gemini-predictions'
 
 type Match = {
   match: string
@@ -66,7 +67,15 @@ export default function LiveTicker() {
     fetch('/predictions.json')
       .then(r => r.json())
       .then(data => {
-        const preds: Match[] = data.predictions || []
+        const rows: Record<string, unknown>[] = data.free || data.predictions || []
+        const preds: Match[] = (Array.isArray(rows) ? rows : []).flatMap(row =>
+          getGeminiPicks(row).map(pick => ({
+            ...row,
+            type: pick.type,
+            prediction: pick.prediction,
+            confidence: pick.confidence ?? Math.round(pick.proba * 100),
+          })) as Match[],
+        )
         // Filter: only show matches that are upcoming OR live
         // This excludes ALL finished matches (past dates, or today with past time > 2.5h ago)
         const visible = preds.filter(m => {

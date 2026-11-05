@@ -21,10 +21,10 @@ const frozenMetadata = {
 }
 const hash = (value: string) => createHash('sha256').update(value).digest('hex')
 // Hash mis à jour le 2026-11-05 à la demande explicite du propriétaire :
-// correction C (accueil) — le pilier « analyse structurée » ne mentionne plus
-// des « xG » fournisseur mais la forme récente et les buts attendus (λ), en
-// FR/EN/AR. Aucun titre, URL, canonical ni libellé de navigation modifié.
-const frozenI18nWithoutPartnerCta = '83b70016aba0434d21ad0a88541adfc41cdecdb0853b98642668d20d8872c76b'
+// C corrige la copie xG/λ; D ajoute un résumé global de preuve dynamique et
+// clarifie le statut du Score exact en FR/EN/AR. Aucun titre, URL, canonical
+// ni libellé de navigation SEO n'est modifié.
+const frozenI18nWithoutPartnerCta = '84373fa141fd59d06805058c0a0a6c4cf3f1fa1a21382449006cca99f4581e46'
 
 describe('owner-requested SEO preservation', () => {
   it.each(Object.entries(frozenFiles))('preserves %s byte for byte', (file, expected) => {

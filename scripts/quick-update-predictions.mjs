@@ -603,10 +603,6 @@ async function quickUpdate() {
       (h2hScore * 0.10)
     ).toFixed(2)
 
-    // Estimated odds (informational) — fallback quand aucune cote bookmaker réelle
-    const estimatedCoteBTTS = +(1 / Math.max(0.20, bttsProbRaw)).toFixed(2)
-    const estimatedCoteOver = +(1 / Math.max(0.20, over25ProbRaw)).toFixed(2)
-
     // ─── Forme réelle des deux équipes (5 derniers matchs ESPN) ───
     const formHome = homeStats.available && homeStats.form ? homeStats.form : null
     const formAway = awayStats.available && awayStats.form ? awayStats.form : null
@@ -626,30 +622,7 @@ async function quickUpdate() {
     const analysis = `${formBits.join(' · ')}.${rankBits.length ? ` Classement : ${rankBits.join(', ')}.` : ''} Stats empiriques (forme récente) : buts moy. ${xgTotal}, BTTS ${(bttsProbRaw*100).toFixed(1)}%, Over 2.5 ${(over25ProbRaw*100).toFixed(1)}%. Affinage AI ensuite.${oddsBit} Fiabilité ${reliability}%.`
     const matchId = genMatchId(m.home, m.away, m.date)
 
-    // Build TWO predictions: BTTS + Over 2.5 (so component has both)
-    const bttsPrediction = {
-      type: 'BTTS',
-      prediction: bttsProbRaw >= 0.50 ? 'Oui' : 'Non',
-      confidence: Math.round(bttsProbRaw * 100),
-      bttsProb: +bttsProbRaw.toFixed(4),
-      homeLambda: xgHome,
-      awayLambda: xgAway,
-      modelEngine: 'empirical-form+gemini',
-      statsOnly: true,
-    }
-
-    const over25Prediction = {
-      type: 'Over 2.5',
-      prediction: over25ProbRaw >= 0.50 ? 'Oui' : 'Non',
-      confidence: Math.round(over25ProbRaw * 100),
-      over25Prob: +over25ProbRaw.toFixed(4),
-      homeLambda: xgHome,
-      awayLambda: xgAway,
-      modelEngine: 'empirical-form+gemini',
-      statsOnly: true,
-    }
-
-    // MAIN prediction object — contains everything the component needs
+    // Fixture/data candidate only: no selection is created before Gemini responds.
     const prediction = {
       id: matchId,
       match: m.match,
@@ -657,15 +630,11 @@ async function quickUpdate() {
       away: m.away,
       league: m.league,
       date: m.date,
+      // Stable fixture identity for archive/result joins; not a market pick.
       type: 'BTTS',
-      prediction: bttsPrediction.prediction,
-      proba: +bttsProbRaw.toFixed(4),
-      bttsProbDisplay: `${(bttsProbRaw * 100).toFixed(2)}%`,
-      over25ProbDisplay: `${(over25ProbRaw * 100).toFixed(2)}%`,
-      confidence: bttsPrediction.confidence,
       time: m.time || '',
       matchSemantic: matchId,
-      source: 'poisson-v92-real-data',
+      source: 'empirical-form-data',
       homeLogo: m.homeLogo,
       awayLogo: m.awayLogo,
       tier: assignTier(reliability),
@@ -682,24 +651,17 @@ async function quickUpdate() {
       xgTotal: xgTotal,
       formBTTS: deriveFormBtts(homeStats, awayStats),
       analysis: analysis,
-      // ─── DATA FIELDS the component needs ───
-      // PromoVip reads these via p.analysis?.X (we mirror them here too)
+      // Observed recent-form rates provided to Gemini; these are not picks.
       analysisData: {
-        bttsProb: +bttsProbRaw.toFixed(4),
-        over25Prob: +over25ProbRaw.toFixed(4),
+        empiricalBttsRate: +bttsProbRaw.toFixed(4),
+        empiricalOver25Rate: +over25ProbRaw.toFixed(4),
         homeLambda: xgHome,
         awayLambda: xgAway,
         xgTotal: xgTotal,
       },
-      estimatedCote: estimatedCoteBTTS,
-      estimatedCoteOver: estimatedCoteOver,
       // ─── Cotes réelles du marché (sans clé API — ESPN/DraftKings) ───
-      // odds = cotes bookmaker réelles quand disponibles, sinon null
-      // (le frontend affiche alors la cote estimée Poisson en secours)
       odds: m.odds || null,
-      oddsSource: m.odds?.provider || 'ESTIMATION_POISSON',
-      estimatedCoteBTTS,
-      estimatedCoteOver,
+      oddsSource: m.odds?.provider || null,
       // ─── Forme réelle (5 derniers matchs) + classement — pour l'analyse AI ───
       formHome,
       formAway,
@@ -722,14 +684,10 @@ async function quickUpdate() {
       } : {}),
       standingsHome: m.standingsHome || null,
       standingsAway: m.standingsAway || null,
-      // ─── BOTH predictions array (so FreePredictions has both BTTS + Over 2.5) ───
-      predictions: [bttsPrediction, over25Prediction],
-      // Mirror key fields at top-level so the component reads them directly
-      bttsProb: +bttsProbRaw.toFixed(4),
-      over25Prob: +over25ProbRaw.toFixed(4),
+      empiricalBttsRate: +bttsProbRaw.toFixed(4),
+      empiricalOver25Rate: +over25ProbRaw.toFixed(4),
       homeLambda: xgHome,
       awayLambda: xgAway,
-      modelEngine: 'empirical-form+gemini',
       statsOnly: true,
     }
 
@@ -777,7 +735,7 @@ async function quickUpdate() {
   rejectionReasons.slice(0, 10).forEach(r => console.log(r))
 
   console.log(`\n--- FREE (${free.length}) ---`)
-  free.forEach(p => console.log(`  ${p.match} | ${p.date} ${p.time} | ${p.league} | BTTS ${p.bttsProbDisplay} | O2.5 ${p.over25ProbDisplay} | xG ${p.xgTotal} | Rel ${p.reliabilityScore}`))
+  free.forEach(p => console.log(`  ${p.match} | ${p.date} ${p.time} | ${p.league} | empirical BTTS ${p.empiricalBttsRate} | empirical O2.5 ${p.empiricalOver25Rate} | xG ${p.xgTotal} | Rel ${p.reliabilityScore}`))
 
   // ─── Calculate stats ───
   const avgReliability = scored.length > 0

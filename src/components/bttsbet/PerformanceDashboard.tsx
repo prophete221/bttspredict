@@ -57,6 +57,14 @@ function periodStats(hist: WinHistory, period: Period) {
   return { finished, won, lost, rate: finished ? Math.round((won / finished) * 1000) / 10 : undefined }
 }
 
+function formatTrackingDate(value: string, locale: string): string {
+  const date = new Date(`${value}T12:00:00Z`)
+  if (!Number.isFinite(date.getTime())) return value
+  return new Intl.DateTimeFormat(locale, {
+    day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Africa/Dakar',
+  }).format(date)
+}
+
 export default function PerformanceDashboard({ initialLocale }: { initialLocale?: Locale } = {}) {
   const { lang: detectedLang } = useLanguage()
   const lang = initialLocale ?? detectedLang
@@ -91,6 +99,18 @@ export default function PerformanceDashboard({ initialLocale }: { initialLocale?
   const trendMax = Math.max(...trend.map(p => p.rate), 100)
 
   const num = (v: number) => v.toLocaleString(loc)
+  const trackingStart = hist?.trackingPeriod?.from ?? hist?.trackingPeriod?.startDate
+  const proofText = global && trackingStart &&
+    typeof global.total === 'number' && typeof global.won === 'number' &&
+    typeof global.lost === 'number' && typeof global.rate === 'number'
+      ? t.home2.perfProof(
+        num(global.total),
+        num(global.won),
+        num(global.lost),
+        global.rate.toLocaleString(loc, { minimumFractionDigits: 1 }),
+        formatTrackingDate(trackingStart, loc),
+      )
+      : null
 
   return (
     <section id="performance" className="hp-section" style={{ scrollMarginTop: '72px' }}>
@@ -98,7 +118,12 @@ export default function PerformanceDashboard({ initialLocale }: { initialLocale?
         <div className="hp-sect-head">
           <div>
             <h2 className="hp-sect-title">{t.home2.perfTitle}</h2>
-            <p className="hp-sect-sub">{t.home2.perfSubtitle}</p>
+            <p className="hp-sect-sub">
+              {proofText || t.home2.perfSubtitle}
+              {proofText && (
+                <> <a href={localizedPath('/historique', lang)} className="text-primary underline underline-offset-2">{t.home2.perfExplore}</a></>
+              )}
+            </p>
           </div>
           {/* Sélecteur de période */}
           <div className="hp-chips" role="tablist" aria-label={t.home2.perfSubtitle}>

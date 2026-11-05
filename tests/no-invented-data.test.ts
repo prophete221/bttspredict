@@ -26,11 +26,14 @@ describe('no invented data — fallbacks interdits', () => {
     expect(source).not.toMatch(/\b0\.62\b/) // probabilité par défaut
   })
 
-  it('FreePredictions.tsx n\'affiche un état insuffisant que sur données réellement insuffisantes', () => {
+  it('FreePredictions.tsx n\'affiche que les picks Gemini et aucune sélection locale', () => {
     const source = readSource('src/components/bttsbet/FreePredictions.tsx')
-    // Le calcul d'un marché manquant exige des lambdas réels
-    expect(source).toMatch(/homeLambda != null && awayLambda != null \? computeBtts/)
-    expect(source).toMatch(/homeLambda != null && awayLambda != null \? computeOver25/)
+    // Les deux marchés viennent exclusivement du filtre de décisions Gemini.
+    expect(source).toContain('const preds = getGeminiPicks(p)')
+    expect(source).not.toMatch(/computeBtts|computeOver25|local_decision|apply_local_fallback/i)
+    expect(source).toMatch(/bttsPred \? \(bttsPred\.prediction/)
+    expect(source).toMatch(/over25Pred \? \(over25Pred\.prediction/)
+    expect(source).toContain(": '—'")
     // Libellés humains branchés
     expect(source).toContain('humanMethodLabel')
     expect(source).toContain('predictionQuality')
@@ -82,6 +85,35 @@ describe('no invented data — fallbacks interdits', () => {
     expect(source).toContain('BreadcrumbList')
     expect(source).toContain('SportsEvent')
     expect(source).toContain('bttspredict.com/match/')
+  })
+
+  it('le bandeau de preuve d’accueil est tiré du suivi public et lié à l’historique', () => {
+    const dashboard = readSource('src/components/bttsbet/PerformanceDashboard.tsx')
+    const translations = readSource('src/lib/i18n.ts')
+
+    expect(dashboard).toContain("fetch('/win-history.json')")
+    expect(dashboard).toContain('global.total')
+    expect(dashboard).toContain('global.won')
+    expect(dashboard).toContain('global.lost')
+    expect(dashboard).toContain('global.rate')
+    expect(dashboard).toContain('trackingPeriod?.startDate')
+    expect(dashboard).toContain("localizedPath('/historique', lang)")
+    expect(translations).toContain('perfProof:')
+    expect(translations).toContain('Aucun résultat Score exact vérifié à ce jour')
+    expect(translations).toContain('No exact-score results verified yet')
+    expect(translations).toContain('لم تُوثّق أي نتائج للنتيجة الدقيقة حتى الآن')
+  })
+
+  it('la méthodologie clarifie les coupes UEFA et les exclusions en FR/EN/AR', () => {
+    const french = readSource('src/app/methodologie/page.tsx')
+    const localized = readSource('src/app/methodologie/LocalizedMethodologieClient.tsx')
+
+    expect(french).toContain('Ligue des champions, Ligue Europa, Ligue Conference')
+    expect(french).toContain('compétitions de sélections nationales et les matchs amicaux')
+    expect(localized).toContain('UEFA club competitions (Champions League, Europa League and Conference League)')
+    expect(localized).toContain('National-team competitions and friendlies are excluded')
+    expect(localized).toContain('مسابقات الأندية التابعة للاتحاد الأوروبي')
+    expect(localized).toContain('تُستبعد مسابقات المنتخبات الوطنية والمباريات الودية')
   })
 
   it('matches.ts expose la date de publication réelle du snapshot', () => {

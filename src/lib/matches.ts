@@ -15,6 +15,7 @@ import path from 'path'
 import { generateMatchSlug } from './match-slug'
 import { isVipRow, observedFormBtts } from '../../scripts/public-predictions.mjs'
 import { getProba, getConfidence } from './predictions'
+import { getGeminiPicks, getGeminiProbability } from './gemini-predictions'
 
 export { generateMatchSlug } from './match-slug'
 
@@ -122,6 +123,8 @@ export interface MatchData {
     source?: string
   }>
   aiExactScore?: string
+  aiSource?: string
+  aiAbstain?: boolean
   exactScoreProb?: string
   aiBttsProb?: string
   aiOver25Prob?: string
@@ -188,6 +191,8 @@ export function loadAllMatches(): Map<string, MatchData> {
     const refreshed = new Set<string>()
     for (const p of rows) {
       if (isVipRow(p)) continue
+      const acceptedPicks = getGeminiPicks(p)
+      const isGeminiResponse = p.ai_source === 'gemini-stats-v1'
       const home = p.home || '', away = p.away || '', date = (p.date || '').slice(0, 10)
       if (!home || !away || !date) continue
       const slug = generateMatchSlug(home, away, date)
@@ -198,9 +203,13 @@ export function loadAllMatches(): Map<string, MatchData> {
         matches.set(slug, {
           slug, home, away, date, league: p.league || '', time: p.time || '',
           homeLogo: p.homeLogo, awayLogo: p.awayLogo, predictions: [],
-          // Les anciens chiffres Gemini ne constituent pas des sorties du modèle.
-          aiKeyFact: p.ai_key_fact, aiAnalysis: p.ai_analysis,
-          bttsProb: p.bttsProb, over25Prob: p.over25Prob,
+          // Empirical rates are context, never published market probabilities.
+          aiSource: isGeminiResponse ? p.ai_source : undefined,
+          aiAbstain: p.ai_abstain === true,
+          aiKeyFact: isGeminiResponse ? p.ai_key_fact : undefined,
+          aiAnalysis: isGeminiResponse ? p.ai_analysis : undefined,
+          bttsProb: getGeminiProbability(acceptedPicks, 'BTTS'),
+          over25Prob: getGeminiProbability(acceptedPicks, 'O2.5'),
           homeLambda: p.homeLambda, awayLambda: p.awayLambda, xgTotal: p.xgTotal,
           dataQuality: p.dataQuality, dataSource: p.dataSource,
           matchCountHome: p.matchCountHome, matchCountAway: p.matchCountAway,
@@ -212,18 +221,22 @@ export function loadAllMatches(): Map<string, MatchData> {
           standingsHome: p.standingsHome || undefined,
           standingsAway: p.standingsAway || undefined,
           odds: p.odds || undefined,
-          aiAbsences: p.ai_absences || undefined,
-          aiOddsInsight: p.ai_odds_insight || undefined,
-          aiKeyFactEn: p.ai_key_fact_en || undefined,
-          aiAnalysisEn: p.ai_analysis_en || undefined,
-          aiAbsencesEn: p.ai_absences_en || undefined,
-          aiOddsInsightEn: p.ai_odds_insight_en || undefined,
+          aiAbsences: isGeminiResponse ? p.ai_absences || undefined : undefined,
+          aiOddsInsight: isGeminiResponse ? p.ai_odds_insight || undefined : undefined,
+          aiKeyFactEn: isGeminiResponse ? p.ai_key_fact_en || undefined : undefined,
+          aiAnalysisEn: isGeminiResponse ? p.ai_analysis_en || undefined : undefined,
+          aiAbsencesEn: isGeminiResponse ? p.ai_absences_en || undefined : undefined,
+          aiOddsInsightEn: isGeminiResponse ? p.ai_odds_insight_en || undefined : undefined,
           reliabilityScore: p.reliabilityScore || undefined,
         })
         refreshed.add(slug)
       }
       const match = matches.get(slug)!
-      const markets = Array.isArray(p.predictions) && p.predictions.length ? p.predictions : [p]
+      if (current) {
+        if (isGeminiResponse) match.aiSource = p.ai_source
+        match.aiAbstain = acceptedPicks.length ? false : p.ai_abstain === true
+      }
+      const markets = acceptedPicks
       for (const market of markets) {
         if (isVipRow(market)) continue
         const type = market.type || market.market || p.type || p.market || ''
@@ -232,7 +245,8 @@ export function loadAllMatches(): Map<string, MatchData> {
         const combined = { ...p, ...market, type, proba: probability ?? p.proba }
         const row = {
           type, market: type, prediction: market.prediction || p.prediction || '',
-          proba: getProba(combined), confidence: getConfidence(combined),
+          proba: current ? (typeof market.proba === 'number' ? market.proba : getProba(combined)) : getProba(combined),
+          confidence: current ? (typeof market.confidence === 'number' ? market.confidence : Math.round((market.proba || 0) * 100)) : getConfidence(combined),
           tier: market.tier || p.tier || 'STANDARD', status: market.status || p.status,
           isWon: market.isWon ?? p.isWon, finalScore: market.finalScore || p.finalScore,
           verifiedAt: market.verifiedAt || p.verifiedAt, source: market.source || p.source || '',

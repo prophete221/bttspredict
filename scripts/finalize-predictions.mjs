@@ -25,6 +25,22 @@ function predictionRows(payload) {
   return Array.isArray(payload?.free) ? payload.free : Array.isArray(payload?.predictions) ? payload.predictions : []
 }
 
+function hasGeminiPick(row) {
+  if (row?.ai_source !== 'gemini-stats-v1' || row?.ai_abstain !== false) return false
+  const nested = Array.isArray(row.predictions) && row.predictions.some((pick) =>
+    pick && typeof pick.prediction === 'string' && pick.prediction.trim(),
+  )
+  return Boolean(nested || (typeof row.prediction === 'string' && row.prediction.trim()))
+}
+
+function isGeminiAbstention(row) {
+  if (row?.ai_source !== 'gemini-stats-v1' || row?.ai_abstain !== true) return false
+  const nested = Array.isArray(row.predictions) && row.predictions.some((pick) =>
+    pick && typeof pick.prediction === 'string' && pick.prediction.trim(),
+  )
+  return !nested && !(typeof row.prediction === 'string' && row.prediction.trim())
+}
+
 function resultUpdates(...lists) {
   const updates = new Map()
   for (const list of lists) {
@@ -70,6 +86,22 @@ function freezeCurrentRows(rows, firstPublications, updates) {
     const key = predictionKey(row)
     const first = key ? firstPublications.get(key) : null
     if (!first) return structuredClone(row)
+    // Never carry a pre-Gemini/local market pick into the current public feed.
+    // Keep the archive file itself immutable; use today's Gemini response or
+    // explicit abstention only in predictions.json.
+    if (!hasGeminiPick(first)) return structuredClone(row)
+    // An earlier valid Gemini publication remains the first publication if a
+    // later refresh abstains or the provider is temporarily unavailable.
+    if (isGeminiAbstention(row) || !hasGeminiPick(row)) {
+      const preserved = structuredClone(first)
+      const allowed = updates.get(key)
+      if (allowed) {
+        for (const field of RESULT_FIELDS) {
+          if (Object.hasOwn(allowed, field)) preserved[field] = allowed[field]
+        }
+      }
+      return preserved
+    }
     // Politique « withhold insufficient evidence » : une publication héritée
     // dont les compteurs de preuve sont insuffisants (< 4 matchs réels par
     // équipe — ancien régime à moyennes de ligue fabriquées) n'est PAS
