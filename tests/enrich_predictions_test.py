@@ -77,6 +77,7 @@ class EnrichmentImmutabilityTests(unittest.TestCase):
 
         client = Client()
         with (
+            patch.object(enrich, "MODELS_TO_TRY", ["gemini-flash-lite-latest"]),
             patch.object(enrich, "GeminiAPIError", FakeGeminiAPIError),
             patch.object(enrich.time, "sleep") as sleep,
             patch.object(enrich.random, "uniform", return_value=0.0),
@@ -102,6 +103,7 @@ class EnrichmentImmutabilityTests(unittest.TestCase):
 
                 client = Client()
                 with (
+                    patch.object(enrich, "MODELS_TO_TRY", ["gemini-flash-lite-latest"]),
                     patch.object(enrich, "GeminiAPIError", FakeGeminiAPIError),
                     patch.object(enrich.time, "sleep") as sleep,
                 ):
@@ -164,7 +166,10 @@ class EnrichmentImmutabilityTests(unittest.TestCase):
             models = FailingModels()
 
         client = Client()
-        with patch.object(enrich.time, "sleep") as sleep:
+        with (
+            patch.object(enrich, "MODELS_TO_TRY", ["gemini-flash-lite-latest"]),
+            patch.object(enrich.time, "sleep") as sleep,
+        ):
             result = enrich._call_gemini_chunk(client, [{"home": "Home", "away": "Away"}], 0)
 
         self.assertEqual(result, [])
@@ -183,7 +188,10 @@ class EnrichmentImmutabilityTests(unittest.TestCase):
             models = InvalidModels()
 
         client = Client()
-        with patch.object(enrich.time, "sleep") as sleep:
+        with (
+            patch.object(enrich, "MODELS_TO_TRY", ["gemini-flash-lite-latest"]),
+            patch.object(enrich.time, "sleep") as sleep,
+        ):
             result = enrich._call_gemini_chunk(client, [{"home": "Home", "away": "Away"}], 0)
 
         self.assertEqual(result, [])
