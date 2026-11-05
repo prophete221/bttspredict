@@ -216,7 +216,16 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
               </li>
               <li>
                 <span className="hp-hero__trust-k">{lang === 'en' ? 'Method' : lang === 'ar' ? 'المنهج' : 'Méthode'}</span>
-                <span className="hp-hero__trust-v">{lang === 'en' ? 'Model + xG' : lang === 'ar' ? 'نموذج + xG' : 'Modèle + xG'}</span>
+                <span
+                  className="hp-hero__trust-v"
+                  title={lang === 'en'
+                    ? 'λ = expected goals modelled from recent form (no third-party xG feed)'
+                    : lang === 'ar'
+                      ? 'λ = الأهداف المتوقعة المحسوبة من اللياقة الحديثة (دون بيانات xG من طرف ثالث)'
+                      : 'λ = buts attendus modélisés sur la forme récente (aucune donnée xG tierce)'}
+                >
+                  {lang === 'en' ? 'Recent form + λ' : lang === 'ar' ? 'اللياقة الحديثة + λ' : 'Forme récente + λ'}
+                </span>
               </li>
               <li>
                 <span className="hp-hero__trust-k">{lang === 'en' ? 'Timezone' : lang === 'ar' ? 'التوقيت' : 'Fuseau'}</span>

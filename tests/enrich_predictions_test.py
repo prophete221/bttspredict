@@ -6,7 +6,7 @@ import tempfile
 import unittest
 from contextlib import redirect_stdout
 from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import call, patch
 
 SCRIPT = Path(__file__).resolve().parents[1] / "scripts" / "enrich_predictions.py"
 SPEC = importlib.util.spec_from_file_location("enrich_predictions", SCRIPT)
@@ -25,6 +25,14 @@ FORBIDDEN_OVERWRITE = ("xgHome", "xgAway", "estimatedCote")
 FORBIDDEN = FORBIDDEN_CREATION + FORBIDDEN_OVERWRITE
 
 
+class FakeGeminiAPIError(Exception):
+    def __init__(self, code, response=None, details=None):
+        self.code = code
+        self.response = response
+        self.details = details or {"error": {"code": code}}
+        super().__init__(f"{code} fake Gemini API error")
+
+
 class EnrichmentImmutabilityTests(unittest.TestCase):
     def test_uses_only_the_proven_gemini_model(self):
         # Le run #937 a appliqué 40/40 avec cet alias en 2 min 04.
@@ -37,7 +45,7 @@ class EnrichmentImmutabilityTests(unittest.TestCase):
             def generate_content(self, **kwargs):
                 calls.append(kwargs["model"])
                 if len(calls) == 1:
-                    raise RuntimeError("503 UNAVAILABLE: temporary capacity issue")
+                    raise FakeGeminiAPIError(503)
                 return type("Response", (), {"text": json.dumps([{
                     "id": 0, "market": "BTTS", "selection": "Yes", "probability": 0.60,
                 }])})()
@@ -45,17 +53,147 @@ class EnrichmentImmutabilityTests(unittest.TestCase):
         class Client:
             models = FlakyModels()
 
-        with patch.object(enrich.time, "sleep") as sleep:
+        with (
+            patch.object(enrich, "GeminiAPIError", FakeGeminiAPIError),
+            patch.object(enrich.time, "sleep") as sleep,
+            patch.object(enrich.random, "uniform", return_value=0.10),
+        ):
             result = enrich._call_gemini_chunk(Client(), [{"home": "Home", "away": "Away"}], 0)
 
         self.assertEqual(calls, ["gemini-flash-lite-latest", "gemini-flash-lite-latest"])
         self.assertEqual(len(result), 1)
-        sleep.assert_called_once_with(enrich.RETRY_DELAY)
+        sleep.assert_called_once_with(1.1)
+
+    def test_three_transient_503_attempts_do_not_sleep_after_the_final_try(self):
+        class FailingModels:
+            calls = 0
+
+            def generate_content(self, **_kwargs):
+                self.calls += 1
+                raise FakeGeminiAPIError(503)
+
+        class Client:
+            models = FailingModels()
+
+        client = Client()
+        with (
+            patch.object(enrich, "GeminiAPIError", FakeGeminiAPIError),
+            patch.object(enrich.time, "sleep") as sleep,
+            patch.object(enrich.random, "uniform", return_value=0.0),
+        ):
+            result = enrich._call_gemini_chunk(client, [{"home": "Home", "away": "Away"}], 0)
+
+        self.assertEqual(result, [])
+        self.assertEqual(client.models.calls, enrich.MAX_RETRIES + 1)
+        self.assertEqual(sleep.call_args_list, [call(1.0), call(2.0)])
+
+    def test_permanent_4xx_is_not_retried(self):
+        for code in (400, 401, 403, 404):
+            with self.subTest(code=code):
+                class FailingModels:
+                    calls = 0
+
+                    def generate_content(self, **_kwargs):
+                        self.calls += 1
+                        raise FakeGeminiAPIError(code)
+
+                class Client:
+                    models = FailingModels()
+
+                client = Client()
+                with (
+                    patch.object(enrich, "GeminiAPIError", FakeGeminiAPIError),
+                    patch.object(enrich.time, "sleep") as sleep,
+                ):
+                    result = enrich._call_gemini_chunk(client, [{"home": "Home", "away": "Away"}], 0)
+
+                self.assertEqual(result, [])
+                self.assertEqual(client.models.calls, 1)
+                sleep.assert_not_called()
+
+    def test_429_honors_retry_after_with_bounded_jitter(self):
+        response = type("HttpResponse", (), {"headers": {"Retry-After": "7"}})()
+
+        class FlakyModels:
+            calls = 0
+
+            def generate_content(self, **kwargs):
+                self.calls += 1
+                if self.calls == 1:
+                    raise FakeGeminiAPIError(429, response=response)
+                return type("Response", (), {"text": json.dumps([{
+                    "id": 0, "market": "BTTS", "selection": "Yes", "probability": 0.60,
+                }])})()
+
+        class Client:
+            models = FlakyModels()
+
+        client = Client()
+        with (
+            patch.object(enrich, "GeminiAPIError", FakeGeminiAPIError),
+            patch.object(enrich.time, "sleep") as sleep,
+            patch.object(enrich.random, "uniform", return_value=0.0),
+        ):
+            result = enrich._call_gemini_chunk(client, [{"home": "Home", "away": "Away"}], 0)
+
+        self.assertEqual(len(result), 1)
+        sleep.assert_called_once_with(7.0)
+
+    def test_retry_after_is_capped_by_the_backoff_limit(self):
+        response = type("HttpResponse", (), {"headers": {"Retry-After": "120"}})()
+        error = FakeGeminiAPIError(429, response=response)
+        with (
+            patch.object(enrich, "GeminiAPIError", FakeGeminiAPIError),
+            patch.object(enrich.random, "uniform", return_value=0.0),
+        ):
+            delay = enrich._retry_delay_seconds(0, error)
+        self.assertEqual(delay, enrich.RETRY_MAX_DELAY_S)
+
+    def test_status_text_without_structured_code_is_not_retried(self):
+        class TextOnlyError(RuntimeError):
+            pass
+
+        class FailingModels:
+            calls = 0
+
+            def generate_content(self, **_kwargs):
+                self.calls += 1
+                raise TextOnlyError("503 UNAVAILABLE")
+
+        class Client:
+            models = FailingModels()
+
+        client = Client()
+        with patch.object(enrich.time, "sleep") as sleep:
+            result = enrich._call_gemini_chunk(client, [{"home": "Home", "away": "Away"}], 0)
+
+        self.assertEqual(result, [])
+        self.assertEqual(client.models.calls, 1)
+        sleep.assert_not_called()
+
+    def test_invalid_json_response_is_not_retried(self):
+        class InvalidModels:
+            calls = 0
+
+            def generate_content(self, **_kwargs):
+                self.calls += 1
+                return type("Response", (), {"text": "not json"})()
+
+        class Client:
+            models = InvalidModels()
+
+        client = Client()
+        with patch.object(enrich.time, "sleep") as sleep:
+            result = enrich._call_gemini_chunk(client, [{"home": "Home", "away": "Away"}], 0)
+
+        self.assertEqual(result, [])
+        self.assertEqual(client.models.calls, 1)
+        sleep.assert_not_called()
 
     def test_zero_provider_enrichments_warns_fails_and_keeps_local_fallback(self):
         class FailingModels:
             def generate_content(self, **_kwargs):
-                raise RuntimeError("503 UNAVAILABLE: temporary provider capacity issue")
+                raise FakeGeminiAPIError(503)
 
         class Client:
             models = FailingModels()
@@ -70,8 +208,8 @@ class EnrichmentImmutabilityTests(unittest.TestCase):
             with (
                 patch.object(enrich, "PREDICTIONS_FILE", predictions_file),
                 patch.object(enrich, "get_client", return_value=Client()),
+                patch.object(enrich, "GeminiAPIError", FakeGeminiAPIError),
                 patch.object(enrich, "MAX_RETRIES", 0),
-                patch.object(enrich, "RETRY_DELAY", 0),
                 patch.object(enrich.time, "sleep"),
                 redirect_stdout(output),
             ):

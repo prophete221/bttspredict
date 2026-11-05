@@ -1,6 +1,6 @@
 # Rapport — SEO, marchés VIP verrouillés et correction Gemini
 
-**État :** la base distante `main` est `dd54e40a`. Le commit source local `5a82d16c1bd60f23b326d017a81356a5df940b6f` contient la correction Gemini alignée sur #937 et le README complet; il n’a pas encore été poussé ou déployé. Les vérifications locales sont réussies; le push et le run complet unique restent à faire.
+**État prépublication (5 novembre 2026, 14:36 UTC) :** `origin/main` est toujours `83da0ff05335b4414c136105fd649be431afcf9e`; le run #1050 a été annulé avant build et FTP. La nouvelle correction des retries, ses tests, le README mis à jour et ce supplément sont locaux; aucun nouveau commit ni push n’a encore été créé. Le propriétaire a autorisé un seul déploiement après vérifications finales.
 
 ## État observé avant le premier correctif (5 novembre 2026 — historique)
 
@@ -71,5 +71,31 @@ La méthode est ramenée au chemin effectivement attesté par #937 : `gemini-fla
 - `npx tsc --noEmit` : réussi. ESLint : **0 erreur**; un avertissement existant pour une directive `eslint-disable` inutilisée dans `src/components/bttsbet/BottomNavigation.tsx:22`.
 - `npm run build -- --webpack` : réussi, **184 pages statiques** générées. Les avertissements CSS Tailwind présents dans `src/app/globals.css` restent non bloquants.
 - README : documentation complète du fonctionnement source-confirmé — parcours, routes, données, vérification des résultats, workflow/FTP, locales/SEO, affiliation, VIP et teaser — avec le repère #937. Aucun contenu SEO, URL ou canonical du site n’a été modifié.
-- Commit source prêt à publier sur `main` : `5a82d16c1bd60f23b326d017a81356a5df940b6f` (`fix(gemini): restore run 937 method and document current site`); le bit exécutable historique de `scripts/enrich_predictions.py` est préservé.
-- `git diff --check` : réussi. Push, nouveau workflow, Gemini en production, commit de données, FTP et rendu public restent à confirmer.
+- Commit source poussé sur `main` : `5a82d16c1bd60f23b326d017a81356a5df940b6f` (`fix(gemini): restore run 937 method and document current site`); le bit exécutable historique de `scripts/enrich_predictions.py` est préservé. Le commit de rapport prépublication est `83da0ff05335b4414c136105fd649be431afcf9e`.
+- `git diff --check` : réussi. Résultat du push et du run #1050 détaillé ci-dessous; le rendu public n’a pas reçu les fichiers de cette révision.
+
+## Supplément — résultat final du run #1050 (5 novembre 2026)
+
+- Le push unique a envoyé les commits `5a82d16c1bd60f23b326d017a81356a5df940b6f` et `83da0ff05335b4414c136105fd649be431afcf9e` sur `main`. Il a déclenché un seul run principal, **#1050**, ID `42042448424`, HEAD `83da0ff05335b4414c136105fd649be431afcf9e`.
+- Le journal complet indique **Gemini applied 0/37**, **39 erreurs fournisseur 503** avec l’unique alias `gemini-flash-lite-latest`, puis `local fallback on 37 matches`. Le step s’est affiché comme réussi grâce à `continue-on-error`, bien que le script ait signalé l’absence de tout enrichissement Gemini.
+- La finalisation, la vérification des résultats, l’agrégation d’historique et les exclusions publiques ont réussi; les tests de régression, tests Python, lint et typecheck ont également réussi. L’étape `Update open licensed team context` était active puis a été annulée. La cause de l’annulation n’est pas établie.
+- Après cette annulation, validation finale, build statique, correction `lang`, commit des données, manifeste, préflight et allowlist FTP, transfert FTP, `.htaccess` et IndexNow ont tous été ignorés. Aucun commit de données n’a été créé; le SHA distant `main` demeure `83da0ff05335b4414c136105fd649be431afcf9e`.
+- **Déploiement : non effectué.** Le site en production n’a pas reçu le teaser ni le changement Gemini de cette révision; la dernière publication confirmée demeure le run #1041 dans le suivi existant. La vérification de la proposition Perplexity sur un « nouveau site » est suspendue jusqu’à une publication autorisée et un contrôle public.
+- Au moment de la consignation initiale du résultat #1050, aucun nouvel essai, changement de fournisseur ou correction de méthode n’avait été lancé; la correction autorisée ultérieurement est détaillée ci-dessous.
+
+## Audit des affirmations publiques et corrections C/F (5 novembre 2026, 14:50 UTC)
+
+Vérification faite sur le site réellement en ligne avant toute édition. Les valeurs ci-dessous proviennent des pages publiques et des fichiers `predictions.json` / `win-history.json` servis en production.
+
+- **C — confirmé.** L'accueil affichait « Modèle + xG » dans la bande de signaux du hero, et la carte « Analyse structurée » annonçait « Forme, buts, BTTS, xG et modèle statistique ». Or la méthodologie indique que les λ sont estimés à partir des buts récents et ne sont pas des xG fournis par un tiers; dans `predictions.json`, `xgHome`/`xgAway` sont égaux aux λ du modèle. Correction appliquée : « Forme récente + λ » (FR), « Recent form + λ » (EN), « اللياقة الحديثة + λ » (AR), avec une infobulle précisant que λ est modélisé sur la forme récente sans flux xG tiers; le pilier d'analyse parle désormais de forme récente, buts marqués/encaissés et buts attendus (λ).
+- **D — prémisse fausse, non modifié.** La section « Des résultats consultables » affiche déjà 476 matchs terminés, 381 gagnés, 95 perdus et 80,0 % en production. Le texte « Suivi en cours de constitution » ne s'applique qu'à la ligne **Score exact**, qui n'a effectivement aucune archive vérifiée. Remplacer ce libellé par les chiffres globaux aurait introduit une affirmation inexacte; il est conservé tel quel.
+- **E — déjà en place, non modifié.** `/statistiques` affiche « Dernière mise à jour des données : 5 nov. 2026, 11:36 », calculée depuis `generatedAt` de `win-history.json` (`StatistiquesClient.tsx`, variable `updatedLabel`). Aucun ajout nécessaire.
+- **F — confirmé.** La page méthodologie affirmait exclure les compétitions « internationales » alors que 13 des 37 pronostics publics du 5 novembre étaient en UEFA Conference League (7) et UEFA Europa League (6). La section 6 distingue maintenant les coupes européennes de clubs, incluses lorsque les données des deux équipes sont suffisantes, des compétitions de sélections nationales, matchs amicaux et coupes nationales atypiques, qui restent exclues.
+- **Non retenu.** « Plateforme N°1 Mondiale » et « surbets » restent inchangés sur décision explicite du propriétaire (options A et B non approuvées). Aucune URL, canonical, redirection, métadonnée ou copie SEO protégée n'a été modifiée.
+
+### Validation de cette révision
+- `npm test` : **47 fichiers, 385 tests réussis**. L'empreinte i18n figée de `tests/seo-preservation.test.ts` a été mise à jour pour la seule copie approuvée (pilier d'analyse), avec commentaire daté; le garde-fou reste actif sur tout le reste.
+- `PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover` : tests Gemini/fallback réussis.
+- `npx tsc --noEmit` : réussi. ESLint : 0 erreur, un avertissement préexistant (`BottomNavigation.tsx:22`).
+- `npm run build -- --webpack` : réussi, 184 pages; l'export contient « Forme récente + λ » (FR/EN/AR) et ne contient plus « Modèle + xG »; la méthodologie contient la nouvelle politique UEFA.
+- Export public : `robots.txt` sans directive `Host`, sitemap inchangé à 61 URL, `predictions.json` sans champ VIP et les trois pages de pronostics ne contiennent aucun libellé VIP dans le HTML initial.

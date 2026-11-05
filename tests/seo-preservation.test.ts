@@ -20,7 +20,11 @@ const frozenMetadata = {
   'src/app/methodologie/page.tsx': '406a3795d7e897bff73c0fa74d5bbd14d28414cbb1040bca19f563fbd88ba434',
 }
 const hash = (value: string) => createHash('sha256').update(value).digest('hex')
-const frozenI18nWithoutPartnerCta = '259340f24a09cf0742ee0ae9f0257737096bc95b1a5f51cf40f62d7a5015790a'
+// Hash mis à jour le 2026-11-05 à la demande explicite du propriétaire :
+// correction C (accueil) — le pilier « analyse structurée » ne mentionne plus
+// des « xG » fournisseur mais la forme récente et les buts attendus (λ), en
+// FR/EN/AR. Aucun titre, URL, canonical ni libellé de navigation modifié.
+const frozenI18nWithoutPartnerCta = '83b70016aba0434d21ad0a88541adfc41cdecdb0853b98642668d20d8872c76b'
 
 describe('owner-requested SEO preservation', () => {
   it.each(Object.entries(frozenFiles))('preserves %s byte for byte', (file, expected) => {

@@ -21,9 +21,12 @@ from __future__ import annotations
 
 import json
 import os
+import random
 import re
 import sys
 import time
+from datetime import datetime, timezone
+from email.utils import parsedate_to_datetime
 from pathlib import Path
 
 # Modèle unique vérifié sur le run de production #937 (41133809785) : 40/40
@@ -32,8 +35,12 @@ from pathlib import Path
 MODELS_TO_TRY = ["gemini-flash-lite-latest"]
 PREDICTIONS_FILE = Path(__file__).parent.parent / "public" / "predictions.json"
 MAX_RETRIES = 2
-RETRY_DELAY = 5
-RATE_LIMIT_WAIT = 20
+RETRY_BASE_DELAY_S = 1.0
+RATE_LIMIT_BASE_DELAY_S = 5.0
+RETRY_MAX_DELAY_S = 20.0
+RETRY_JITTER_MAX_S = 1.5
+RETRY_JITTER_FRACTION = 0.25
+RETRYABLE_HTTP_CODES = frozenset({429, 500, 502, 503, 504})
 CHUNK_SIZE = 3  # plus petit = JSON plus fiable
 MAX_OUTPUT_TOKENS = 8192
 ENRICH_TIME_BUDGET_S = 420
@@ -43,9 +50,11 @@ MIN_SAMPLE = 4
 
 try:
     from google import genai
+    from google.genai.errors import APIError as GeminiAPIError
 except ImportError:
     print("[analyze] google-genai not installed — local fallback only")
     genai = None
+    GeminiAPIError = None
 
 
 def get_client():
@@ -53,6 +62,8 @@ def get_client():
     if not api_key or genai is None:
         print("[analyze] GEMINI_API_KEY missing or SDK absent — local fallback only")
         return None
+    # google-genai==2.34.0 uses one SDK attempt when retry_options is absent;
+    # the bounded retry policy below is the sole retry layer.
     return genai.Client(api_key=api_key)
 
 
@@ -343,6 +354,91 @@ def apply_local_fallback(match: dict) -> None:
     match["ai_source"] = "local-empirical-v1"
 
 
+def _http_status_code(error: Exception) -> int | None:
+    """Read the SDK's structured APIError.code; never infer status from text."""
+    if GeminiAPIError is not None and isinstance(error, GeminiAPIError):
+        code = error.code
+    else:
+        code = getattr(error, "code", None)
+    if code is None:
+        response = getattr(error, "response", None)
+        code = getattr(response, "status_code", None)
+    try:
+        code = int(code)
+    except (TypeError, ValueError):
+        return None
+    return code if 100 <= code <= 599 else None
+
+
+def _parse_retry_after(value, allow_http_date: bool = False) -> float | None:
+    if isinstance(value, bool) or value is None:
+        return None
+    if isinstance(value, (int, float)):
+        return max(0.0, float(value))
+    text = str(value).strip()
+    if not text:
+        return None
+    try:
+        return max(0.0, float(text))
+    except ValueError:
+        duration = re.fullmatch(r"(\d+(?:\.\d+)?)s", text, re.IGNORECASE)
+        if duration:
+            return max(0.0, float(duration.group(1)))
+    if allow_http_date:
+        try:
+            retry_at = parsedate_to_datetime(text)
+            if retry_at.tzinfo is None:
+                retry_at = retry_at.replace(tzinfo=timezone.utc)
+            return max(0.0, retry_at.timestamp() - time.time())
+        except (TypeError, ValueError, OverflowError):
+            pass
+    return None
+
+
+def _provider_retry_after_seconds(error: Exception) -> float | None:
+    response = getattr(error, "response", None)
+    headers = getattr(response, "headers", None)
+    if headers is not None:
+        try:
+            delay = _parse_retry_after(headers.get("Retry-After"), allow_http_date=True)
+        except (AttributeError, TypeError):
+            delay = None
+        if delay is not None:
+            return delay
+
+    details = getattr(error, "details", None)
+    if not isinstance(details, dict):
+        return None
+    error_details = details.get("error", details)
+    if not isinstance(error_details, dict):
+        return None
+    candidates = [error_details.get("retryDelay")]
+    entries = error_details.get("details", [])
+    if isinstance(entries, list):
+        for entry in entries:
+            if isinstance(entry, dict):
+                candidates.append(entry.get("retryDelay"))
+    for candidate in candidates:
+        delay = _parse_retry_after(candidate)
+        if delay is not None:
+            return delay
+    return None
+
+
+def _retry_delay_seconds(retry_index: int, error: Exception) -> float:
+    code = _http_status_code(error)
+    base = RETRY_BASE_DELAY_S * (2 ** max(0, retry_index))
+    if code == 429:
+        base = max(base, RATE_LIMIT_BASE_DELAY_S * (2 ** max(0, retry_index)))
+    provider_delay = _provider_retry_after_seconds(error)
+    if provider_delay is not None:
+        base = max(base, provider_delay)
+    base = min(RETRY_MAX_DELAY_S, max(0.0, base))
+    jitter_limit = min(RETRY_JITTER_MAX_S, base * RETRY_JITTER_FRACTION)
+    jitter = random.uniform(0.0, jitter_limit) if jitter_limit > 0 else 0.0
+    return min(RETRY_MAX_DELAY_S, base + jitter)
+
+
 def _call_gemini_chunk(
     client, matches: list, id_offset: int, provider_errors: list[tuple[str, str]] | None = None
 ) -> list:
@@ -363,21 +459,42 @@ def _call_gemini_chunk(
                         "max_output_tokens": MAX_OUTPUT_TOKENS,
                     },
                 )
-                result = json.loads(response.text or "")
-                if isinstance(result, list) and result:
-                    print(f"[analyze] ✅ {len(result)} decisions from {model_name}")
-                    return result
-            except json.JSONDecodeError as e:
-                print(f"[analyze] JSON error attempt {attempt+1}: {e}")
             except Exception as e:
                 err = str(e)
                 print(f"[analyze] error attempt {attempt+1}: {err[:200]}")
                 if provider_errors is not None:
                     provider_errors.append((model_name, err))
-                if "429" in err or "RESOURCE_EXHAUSTED" in err:
-                    time.sleep(RATE_LIMIT_WAIT)
-                    continue
-            time.sleep(RETRY_DELAY)
+                code = _http_status_code(e)
+                if code not in RETRYABLE_HTTP_CODES:
+                    if code is None:
+                        print("[analyze] non-retryable error; use local fallback")
+                    else:
+                        print(f"[analyze] non-retryable HTTP {code}; use local fallback")
+                    break
+                if attempt >= MAX_RETRIES:
+                    print(
+                        f"[analyze] transient HTTP {code}; retries exhausted "
+                        f"after {attempt + 1} attempts"
+                    )
+                    break
+                delay = _retry_delay_seconds(attempt, e)
+                print(
+                    f"[analyze] retrying transient HTTP {code} in {delay:.2f}s "
+                    f"(attempt {attempt + 2}/{MAX_RETRIES + 1})"
+                )
+                time.sleep(delay)
+                continue
+
+            try:
+                result = json.loads(response.text or "")
+            except json.JSONDecodeError as e:
+                print(f"[analyze] invalid JSON response from {model_name}; no retry: {e}")
+                return []
+            if isinstance(result, list) and result:
+                print(f"[analyze] ✅ {len(result)} decisions from {model_name}")
+                return result
+            print(f"[analyze] unusable response from {model_name}; no retry")
+            return []
     return []
 
 

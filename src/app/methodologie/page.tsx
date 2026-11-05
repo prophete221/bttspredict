@@ -152,7 +152,8 @@ export default function MethodologiePage() {
                 <li>• Le moteur couvre les compétitions disponibles dans les données de prédiction.</li>
                 <li>• Chaque match est analysé à partir de la dynamique offensive et défensive récente des deux équipes, sur leurs derniers matchs.</li>
                 <li>• Le moteur s&apos;appuie sur les données disponibles des équipes pour produire ses estimations.</li>
-                <li>• Les compétitions aux formats atypiques (coupes nationales, internationales, matchs amicaux) sont volontairement exclues pour préserver la qualité des pronostics.</li>
+                <li>• Les coupes européennes de clubs (Ligue des champions, Ligue Europa, Ligue Conference) sont incluses lorsque les données des deux équipes sont suffisantes.</li>
+                <li>• Les compétitions de sélections nationales et les matchs amicaux sont volontairement exclus, de même que les coupes nationales aux formats atypiques, pour préserver la qualité des pronostics.</li>
                 <li>• Chaque pronostic est accompagné d'un indice de confiance transparent, basé sur la qualité des données disponibles.</li>
               </ul>
             </div>
