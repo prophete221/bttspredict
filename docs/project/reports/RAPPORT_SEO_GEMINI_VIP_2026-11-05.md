@@ -1,11 +1,11 @@
 # Rapport — SEO, marchés VIP verrouillés et correction Gemini
 
-**État :** validation locale en cours; aucun commit ni déploiement issu de cette mission à ce stade.
+**État :** la base distante `main` est `dd54e40a`. Le commit source local `5a82d16c1bd60f23b326d017a81356a5df940b6f` contient la correction Gemini alignée sur #937 et le README complet; il n’a pas encore été poussé ou déployé. Les vérifications locales sont réussies; le push et le run complet unique restent à faire.
 
-## Faits vérifiés
+## État observé avant le premier correctif (5 novembre 2026 — historique)
 
 - `https://bttspredict.com/robots.txt` et `https://bttspredict.com/sitemap.xml` répondaient en HTTP 200 lors de la vérification. Le sitemap en ligne contenait 61 URL uniques; les 61 réponses vérifiées étaient HTTP 200 sans redirection. Les alternatives linguistiques étaient présentes et les routes protégées `/`, `/en`, `/en/btts-and-over-2-5-predictions-today`, `/en/over-2-5/predictions/today` et `/en/ai-correct-score-predictions` figuraient dans le sitemap.
-- Le sitemap source et ses URL/canonicals ont été laissés inchangés, puisqu’aucune lacune n’a été trouvée. `robots.txt` conservait `Allow: /`, les exclusions `/api/` et `/admin`, et l’adresse du sitemap. La directive `Host: https://bttspredict.com` a été retirée; la préférence de domaine est déjà appliquée par les redirections 301 HTTPS/non-www de `.htaccess`.
+- Le sitemap source et ses URL/canonicals ont été laissés inchangés, puisqu’aucune lacune n’a été trouvée. Dans la correction locale, `public/robots.txt` conservait `Allow: /`, les exclusions `/api/` et `/admin`, et l’adresse du sitemap; la directive `Host: https://bttspredict.com` a été retirée. Cette modification locale n’était pas encore en production à ce stade; la préférence de domaine est appliquée par les redirections 301 HTTPS/non-www de `.htaccess`.
 - La vérification locale `scripts/verify-seo.mjs` a relevé une description de 187 caractères sur `statistiques.html` (limite interne : 160). Aucun titre, texte, URL, canonical ou redirect de cette page n’a été modifié; une décision séparée est nécessaire si une correction éditoriale est souhaitée.
 - La source `public/predictions.json` ne contenait pas de clé VIP. L’endpoint exporté incluait seulement un tableau `vipPreview` vide; le champ est retiré de la réponse publique par précaution. Le teaser prévu affiche des libellés génériques seulement, sans affiche, sélection, cote, signal ni probabilité.
 
@@ -16,12 +16,12 @@
 - [Google — spécification robots.txt](https://developers.google.com/crawling/docs/robots-txt/robots-txt-spec) : champs pris en charge par Google (`user-agent`, `allow`, `disallow`, `sitemap`) et limites d’application par hôte/protocole/port.
 - Contrôles en ligne du [robots.txt](https://bttspredict.com/robots.txt) et du [sitemap](https://bttspredict.com/sitemap.xml).
 
-## Tests et décisions en attente
+## Premier état de tests et décisions en attente (historique, avant correction Gemini #937)
 
 - Tests ciblés du teaser, des routes et de la frontière des données VIP : 26 tests réussis avant l’ajout du contrôle de l’endpoint public.
 - Tests complets : 384 tests JavaScript/TypeScript et 12 tests Python réussis avant le dernier changement de l’endpoint; `npx tsc --noEmit` réussi; ESLint n’a signalé aucune erreur et un avertissement préexistant dans `BottomNavigation.tsx`.
-- Build Next.js : réussi, 184 pages générées. Le contrôle SEO post-build reste en échec sur la description de 187 caractères de `/statistiques`.
-- Commit final, résultat Gemini, exécution GitHub Actions et contrôles de mise en ligne : à renseigner après la publication autorisée.
+- Build Next.js : réussi, 184 pages générées. L’audit SEO séparé a signalé la description de 187 caractères de `/statistiques` (hors échec du build); elle n’a pas été modifiée.
+- À ce stade antérieur, commit final, résultat Gemini, exécution GitHub Actions et mise en ligne restaient à faire; les suppléments ci-dessous consignent l’avancement ultérieur.
 
 
 ## Supplément — validation prépublication (5 novembre 2026, 13:06 UTC)
@@ -43,6 +43,33 @@ Gemini demeure le moteur principal, avec les deux IDs recommandés par les répo
 - Vérification du JSON exporté : 37 pronostics gratuits; aucune clé `vip`, `vipPreview`, `vipPredictions`, `vipCount` ou `ai_exact_score`. `out/robots.txt` conserve le sitemap et ne contient plus de directive `Host`.
 - `git diff --check` : réussi. Le HTML initial des routes gratuites n’inclut pas les cartes, qui sont montées par les composants clients après hydratation; la couverture du composant et des points de montage a été vérifiée par les tests et la source.
 
-### État avant push et décisions
+### État avant le premier push de cette mission (5 novembre, 13:06 UTC — historique)
 
 Au moment de cette mise à jour, le commit source existe localement mais n’est pas encore poussé. Le dernier run GitHub Actions observé, `42013125937`, s’est terminé avec succès sur l’ancien commit `6d2e8a34…`; il ne contenait pas ce correctif. Aucun run de cette mission n’est encore lancé. Le push autorisé de la branche `main` doit déclencher une seule exécution complète; le build distant, le résultat Gemini, le transfert et les contrôles publics restent à confirmer. La cause d’une éventuelle limite de quota Gemini après remplacement de la clé appartient au projet fournisseur et n’est pas établie par les tests locaux.
+
+
+## Supplément — journal exact du run #937 et correction Gemini (5 novembre 2026)
+
+### Faits confirmés par le journal fourni
+
+- Le run GitHub Actions **#937** (ID `41133809785`, commit `407c7180767d879496178d58465d1eb7348476d2`) a terminé avec succès en 2 h 24 min 59 s. Son étape Gemini a duré **2 min 04 s**.
+- `gemini-flash-lite-latest` a traité 40 pronostics en lots séquentiels de 3 (dernier lot d’un match). Une erreur 503 est apparue sur le lot 13–15, puis le retry du même modèle a réussi. Le journal confirme **40/40** décisions Gemini et **2** fallbacks empiriques locaux.
+- Le run #937 et le run annulé **#1049** (`42037614558`, commit `dd54e40a3b00a762c084ab1c571bd2750f513360`) ont tous deux installé `google-genai 2.34.0`. Le journal fourni ensuite pour #1049 indique **0/37** décisions Gemini, **24** erreurs fournisseur 503, puis l’activation du fallback local sur les 37 matchs. Le step Gemini a terminé en erreur, mais `continue-on-error` a laissé le workflow poursuivre le build et la préparation FTP. Le run a été annulé avant le transfert des fichiers; aucun déploiement FTP de cette révision n’est confirmé.
+- La cause d’une différence de disponibilité du service ou de compte API entre ces exécutions n’est pas établie. La clé n’a pas été consultée ni modifiée.
+
+### Correction adoptée
+
+La méthode est ramenée au chemin effectivement attesté par #937 : `gemini-flash-lite-latest` comme **unique** modèle Gemini; lots de 3, `MAX_RETRIES=2`, délai de retry de 5 s, attente 20 s pour les réponses de limitation de débit, budget d’enrichissement de 420 s et timeout GitHub de 10 min restent inchangés. Le SDK est épinglé à `google-genai==2.34.0`, la version observée au run #937, et les sorties Python sont rendues non bufferisées afin que les prochains logs montrent les tentatives avant la fin de l’étape. Le fallback empirique demeure local et n’intervient que si Gemini ne fournit pas de résultat exploitable; une abstention Gemini utilisable est conservée. Aucun autre fournisseur n’est ajouté.
+
+À l’état de la première note de correction, le patch aligné sur #937 était encore local et non publié; ce constat est historique. Les contrôles et l’extension complète du README sont consignés plus bas. Le résultat Gemini du prochain run, le commit de données, le transfert FTP et le site public restent à vérifier jusqu’à la fin de cette publication.
+
+
+### Contrôles de cette révision (5 novembre 2026, avant publication)
+
+- Python : **13 tests réussis**, dont le test simulant un 503 transitoire puis un retry réussi sur le même alias Gemini.
+- Vitest : **47 fichiers et 385 tests réussis**.
+- `npx tsc --noEmit` : réussi. ESLint : **0 erreur**; un avertissement existant pour une directive `eslint-disable` inutilisée dans `src/components/bttsbet/BottomNavigation.tsx:22`.
+- `npm run build -- --webpack` : réussi, **184 pages statiques** générées. Les avertissements CSS Tailwind présents dans `src/app/globals.css` restent non bloquants.
+- README : documentation complète du fonctionnement source-confirmé — parcours, routes, données, vérification des résultats, workflow/FTP, locales/SEO, affiliation, VIP et teaser — avec le repère #937. Aucun contenu SEO, URL ou canonical du site n’a été modifié.
+- Commit source prêt à publier sur `main` : `5a82d16c1bd60f23b326d017a81356a5df940b6f` (`fix(gemini): restore run 937 method and document current site`); le bit exécutable historique de `scripts/enrich_predictions.py` est préservé.
+- `git diff --check` : réussi. Push, nouveau workflow, Gemini en production, commit de données, FTP et rendu public restent à confirmer.
