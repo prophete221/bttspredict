@@ -18,10 +18,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params
   const isEnglish = locale === 'en'
   if (!isEnglish && locale !== 'ar') return {}
-  const title = isEnglish ? '1xBet Promo Code vipbtts · 300% Worldwide' : 'رمز 1xBet vipbtts · 300% حول العالم'
+  const title = isEnglish ? '1xBet Promo Code vipbtts for a 300% Worldwide Offer' : 'رمز 1xBet الترويجي vipbtts لعرض عالمي بنسبة 300%'
   const description = isEnglish
-    ? '1xBet promo code vipbtts: 300% worldwide, more cashback and weekly bonuses. 18+.'
-    : 'رمز 1xBet الترويجي vipbtts: مكافأة 300% حول العالم، مع استرداد نقدي أكبر ومكافآت أسبوعية. +18.'
+    ? '1xBet promo code vipbtts for its 300% worldwide offer, plus extra cashback and weekly bonuses. 18+. Please gamble responsibly.'
+    : 'رمز 1xBet الترويجي vipbtts لعرض 300% المتاح عالميًا، مع استرداد نقدي إضافي ومكافآت أسبوعية. للبالغين 18+، والعب بمسؤولية.'
   return {
     title,
     description,

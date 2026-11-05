@@ -205,12 +205,12 @@ export default function StatistiquesClient() {
         <div className="rounded-2xl border border-[#223041] bg-[#141C25] p-5">
           <div className="text-xs uppercase tracking-wider text-[#9DABBB] font-bold">{copy.kpiOverall}</div>
           <div className="mt-1 text-3xl font-bold text-[#F2F6FA] font-mono">{fmtPct(stats.rate.toFixed(1), lang)} %</div>
-          <div className="mt-1 text-xs text-[#9DABBB]">{stats.won} WIN / {stats.lost} LOST — {stats.total} {copy.kpiVerified.toLowerCase()}</div>
+          <div className="mt-1 text-xs text-[#9DABBB]"><span className="tracking-win-text">{stats.won} WIN</span> / {stats.lost} LOST — {stats.total} {copy.kpiVerified.toLowerCase()}</div>
         </div>
         <div className="rounded-2xl border border-[#2F7DFF]/40 bg-[#141C25] p-5">
           <div className="text-xs uppercase tracking-wider text-[#2F7DFF] font-bold">{copy.kpiGold}</div>
           <div className="mt-1 text-3xl font-bold text-[#F2F6FA] font-mono">{fmtPct(stats.gold.rate.toFixed(1), lang)} %</div>
-          <div className="mt-1 text-xs text-[#9DABBB]">{stats.gold.won} WIN / {stats.gold.lost} LOST — {stats.gold.total} {lang === 'fr' ? `vérifié${stats.gold.total > 1 ? 's' : ''}` : lang === 'ar' ? 'موثقة' : 'verified'}</div>
+          <div className="mt-1 text-xs text-[#9DABBB]"><span className="tracking-win-text">{stats.gold.won} WIN</span> / {stats.gold.lost} LOST — {stats.gold.total} {lang === 'fr' ? `vérifié${stats.gold.total > 1 ? 's' : ''}` : lang === 'ar' ? 'موثقة' : 'verified'}</div>
         </div>
         <div className="rounded-2xl border border-[#223041] bg-[#141C25] p-5">
           <div className="text-xs uppercase tracking-wider text-[#9DABBB] font-bold">{copy.kpiVerified}</div>
@@ -283,7 +283,7 @@ export default function StatistiquesClient() {
                 {leagues.map(l => (
                   <tr key={l.league} className="border-b border-[#223041]/50">
                     <td className="py-2.5 px-2 text-[#F2F6FA] font-medium">{l.league}</td>
-                    <td className="py-2.5 px-2 text-center font-mono" style={{ color: '#34D399' }}>{l.won}</td>
+                    <td className="py-2.5 px-2 text-center font-mono tracking-win-text" style={{ color: '#34D399' }}>{l.won}</td>
                     <td className="py-2.5 px-2 text-center font-mono" style={{ color: '#F87171' }}>{l.lost}</td>
                     <td className="py-2.5 px-2 text-center font-mono text-[#F2F6FA]">
                       {l.rate !== null ? `${fmtPct(l.rate.toFixed(1), lang)} %` : '—'}

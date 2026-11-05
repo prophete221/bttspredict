@@ -40,7 +40,7 @@ export function RateBar({ label, rate, won, lost, lang, color = '#2F7DFF', note 
         )}
       </div>
       <div className="mt-1 text-xs text-[#9DABBB]">
-        {won} WIN · {lost} LOST · {total} {verifiedWord}
+        <span className="tracking-win-text">{won} WIN</span> · {lost} LOST · {total} {verifiedWord}
         {total > 0 && total < 30 && (
           <span className="ml-2 px-1.5 py-0.5 rounded text-[12px]" style={{ backgroundColor: 'rgba(251,191,36,0.12)', color: '#FBBF24' }}>
             {lang === 'fr' ? 'échantillon faible' : lang === 'ar' ? 'عينة صغيرة' : 'small sample'}
@@ -71,13 +71,13 @@ export function CompositionBar({ won, lost, pending = 0, unverifiable = 0, label
     <div>
       <div className="h-4 rounded-full overflow-hidden flex border border-[#223041]" role="img"
         aria-label={`${won} WIN, ${lost} LOST${pending > 0 ? `, ${pending} ${pendingWord}` : ''}${unverifiable > 0 ? `, ${unverifiable} ${unverifiableWord}` : ''} / ${total} ${verifiedWord}`}>
-        <div style={{ width: seg(won), backgroundColor: '#34D399' }} />
+        <div className="tracking-win-fill" style={{ width: seg(won), backgroundColor: '#34D399' }} />
         <div style={{ width: seg(lost), backgroundColor: '#F87171' }} />
         {pending > 0 && <div style={{ width: seg(pending), backgroundColor: '#FBBF24' }} />}
         {unverifiable > 0 && <div style={{ width: seg(unverifiable), backgroundColor: '#55637A' }} />}
       </div>
       <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-[#9DABBB]">
-        <span><span className="inline-block w-2 h-2 rounded-full mr-1 align-middle" style={{ backgroundColor: '#34D399' }} />{labels.won} : {won}</span>
+        <span className="tracking-win-text"><span className="inline-block w-2 h-2 rounded-full mr-1 align-middle tracking-win-dot" style={{ backgroundColor: '#34D399' }} />{labels.won} : {won}</span>
         <span><span className="inline-block w-2 h-2 rounded-full mr-1 align-middle" style={{ backgroundColor: '#F87171' }} />{labels.lost} : {lost}</span>
         {pending > 0 && labels.pending && (
           <span><span className="inline-block w-2 h-2 rounded-full mr-1 align-middle" style={{ backgroundColor: '#FBBF24' }} />{labels.pending} : {pending}</span>
@@ -116,9 +116,9 @@ export function CumulativeLine({ points, lang }: {
             <text x={PAD_L - 6} y={y(t) + 4} textAnchor="end" fontSize="11" fill="#6B7A8C">{t}</text>
           </g>
         ))}
-        <path d={path('cumWon')} fill="none" stroke="#34D399" strokeWidth="2.5" />
+        <path className="tracking-win-svg-stroke" d={path('cumWon')} fill="none" stroke="#34D399" strokeWidth="2.5" />
         <path d={path('cumLost')} fill="none" stroke="#F87171" strokeWidth="2.5" />
-        <text x={x(points.length - 1)} y={y(points[points.length - 1].cumWon) - 6} textAnchor="end" fontSize="11" fill="#34D399" fontWeight="bold">
+        <text className="tracking-win-svg-fill" x={x(points.length - 1)} y={y(points[points.length - 1].cumWon) - 6} textAnchor="end" fontSize="11" fill="#34D399" fontWeight="bold">
           {points[points.length - 1].cumWon} WIN
         </text>
         <text x={x(points.length - 1)} y={y(points[points.length - 1].cumLost) + 14} textAnchor="end" fontSize="11" fill="#F87171" fontWeight="bold">
@@ -153,7 +153,7 @@ export function DailyBars({ days, lang }: {
           <div key={d.date} className="flex-1 flex flex-col items-center justify-end h-full min-w-0"
             title={`${d.date} — ${d.won} WIN / ${d.lost} LOST`}>
             <div className="w-full flex flex-col justify-end" style={{ height: `${((d.won + d.lost) / max) * 100}%`, minHeight: '4px' }}>
-              {d.won > 0 && <div className="w-full rounded-t-sm" style={{ height: `${(d.won / (d.won + d.lost)) * 100}%`, backgroundColor: '#34D399' }} />}
+              {d.won > 0 && <div className="w-full rounded-t-sm tracking-win-fill" style={{ height: `${(d.won / (d.won + d.lost)) * 100}%`, backgroundColor: '#34D399' }} />}
               {d.lost > 0 && <div className="w-full" style={{ height: `${(d.lost / (d.won + d.lost)) * 100}%`, backgroundColor: '#F87171' }} />}
             </div>
             <div className="text-[12px] text-[#6B7A8C] mt-1 hidden sm:block truncate w-full text-center">{d.date.slice(5)}</div>

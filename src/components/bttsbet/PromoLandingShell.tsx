@@ -44,6 +44,12 @@ export type PromoLandingProps = {
 
 const ease = [0.22, 1, 0.36, 1] as const
 
+function renderTitleWithCode(title: string, code: string) {
+  const index = title.indexOf(code)
+  if (index < 0) return title
+  return <>{title.slice(0, index)}<bdi dir="ltr">{code}</bdi>{title.slice(index + code.length)}</>
+}
+
 function FadeIn({
   children,
   className = '',
@@ -182,10 +188,10 @@ export default function PromoLandingShell(p: PromoLandingProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, delay: 0.08, ease }}
-            className="promo-story__title mt-5 text-3xl font-black leading-tight sm:text-5xl"
+            className="promo-story__title mt-5 min-w-0 break-words text-3xl font-black leading-tight sm:text-5xl [overflow-wrap:anywhere]"
             style={{ fontFamily: 'Poppins, sans-serif' }}
           >
-            {p.title}
+            {renderTitleWithCode(p.title, p.code)}
           </motion.h1>
 
           <motion.div
@@ -237,7 +243,7 @@ export default function PromoLandingShell(p: PromoLandingProps) {
               }}
               aria-label={`${p.code} — ${L.copy}`}
             >
-              <span className="relative z-10 font-mono text-2xl font-black tracking-[0.25em] text-white sm:text-3xl">{p.code}</span>
+              <span dir="ltr" className="relative z-10 font-mono text-2xl font-black tracking-[0.25em] text-white sm:text-3xl">{p.code}</span>
               <span className="relative z-10 mt-1 block text-[11px] font-bold uppercase tracking-wider text-white/80">
                 {copied ? L.copied : L.copy}
               </span>
@@ -249,7 +255,7 @@ export default function PromoLandingShell(p: PromoLandingProps) {
               />
             </button>
             {copyFailed && (
-              <p className="mt-2 text-xs text-[#F87171]" role="alert">{L.copyFailed} ({p.code})</p>
+              <p className="mt-2 text-xs text-[#F87171]" role="alert">{L.copyFailed}</p>
             )}
 
             <div className="mt-4 grid gap-2 sm:grid-cols-2">

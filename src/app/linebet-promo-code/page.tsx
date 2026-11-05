@@ -22,7 +22,7 @@ const TARGET = '/code-promo-linebet-senegal'
 const SITE_URL = 'https://bttspredict.com'
 
 export const metadata: Metadata = {
-  title: 'Code Promo Linebet Sénégal',
+  title: 'Code Promo Linebet VISION221 Sénégal',
   description: 'Code promo Linebet Sénégal. Conditions et montants à vérifier auprès de l\'opérateur. Lien d\'affiliation rémunéré. 18+.',
   robots: { index: true, follow: true },
   alternates: {
@@ -57,7 +57,7 @@ export default function LinebetPromoCodePage() {
     >
       <div style={{ maxWidth: '500px' }}>
         <h1 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '1rem', color: '#F2F6FA' }}>
-          Linebet Promo Code Sénégal
+          Linebet Promo Code VISION221 Sénégal
         </h1>
         <p style={{ fontSize: '0.875rem', marginBottom: '1.5rem', color: '#9DABBB', lineHeight: 1.6 }}>
           Le code promo <strong style={{ color: '#2F7DFF' }}>VISION221</strong> est disponible sur la page principale.

@@ -27,14 +27,14 @@ export default function MelbetClient(_props: { reviewDate?: string } = {}) {
       signupUrl={AFFILIATE.melbet}
       downloadUrl={AFFILIATE.melbetDownload}
       lang="fr"
-      title={`Meilleur code promo ${BRAND} · cashback et bonus hebdomadaires`}
+      title="Code promo Melbet Bttswin : bonus mondial de 300 %"
       badge="OFFRE MELBET"
-      intro="Bonus 300 % worldwide, davantage de cashback et des bonus hebdomadaires. Code exact : Bttswin"
-      offerHeadline="300 % worldwide"
-      offerSub="300 % worldwide, avec davantage de cashback et des bonus hebdomadaires."
-      benefits={['300 % worldwide', 'Plus de cashback et bonus hebdomadaires', 'Code exact : Bttswin', 'Lien Melbet']}
+      intro="Retrouvez le code exact Bttswin et les informations sur l’offre Melbet de 300 %, annoncée dans le monde entier."
+      offerHeadline="Bonus mondial de 300 %"
+      offerSub="Plus de cashback et des bonus hebdomadaires."
+      benefits={['Bonus mondial de 300 %', 'Plus de cashback et des bonus hebdomadaires', 'Code exact Bttswin', 'Lien Melbet']}
       steps={[
-        { n: '01', title: 'Ouvre Melbet', desc: 'Utilise le lien affiché sur cette page.' },
+        { n: '01', title: 'Consulter Melbet', desc: 'Ouvrez Melbet via le lien affiché sur cette page.' },
         { n: '02', title: 'Code promo', desc: 'Code exact : Bttswin' },
       ]}
       faq={getPromoFaq('melbet', 'fr')}

@@ -449,7 +449,7 @@ function MatchCard({ m, index, lang, results, nowTs }: {
           {hasResult ? (
             <>
               <span className="hp-mc-result__score">{record?.finalScore}</span>
-              <span className="hp-mc-result__badge">{won ? t.home2.mcWon : lost ? t.home2.mcLost : ''}</span>
+              <span className={`hp-mc-result__badge${won ? ' tracking-win-badge' : ''}`}>{won ? t.home2.mcWon : lost ? t.home2.mcLost : ''}</span>
               <span className="hp-mc-result__label">{t.home2.mcFinalScore}</span>
             </>
           ) : (

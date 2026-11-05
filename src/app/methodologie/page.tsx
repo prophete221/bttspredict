@@ -140,9 +140,6 @@ export default function MethodologiePage() {
               <li className="flex items-start gap-2"><span className="text-[#2F7DFF]">✓</span> <span>Vérification post-match via les sources publiques.</span></li>
               <li className="flex items-start gap-2"><span className="text-[#2F7DFF]">✓</span> <span>Gestion automatique des données manquantes (voir section 7).</span></li>
             </ul>
-            <p className="text-xs text-[#9DABBB] mt-3 leading-relaxed">
-              ⚠️ Il n'y a pas de validation humaine de chaque pronostic. Le modèle est exécuté automatiquement plusieurs fois par jour via GitHub Actions.
-            </p>
           </section>
 
           {/* Section 6 — Couverture et robustesse */}

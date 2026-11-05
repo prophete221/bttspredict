@@ -7,10 +7,12 @@ import { checkSeo } from '@/lib/seo'
 const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'code-promo-linebet-senegal'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
-const TITLE = 'Code promo Linebet VISION221 : 300% worldwide'
-const DESCRIPTION = 'Code promo Linebet VISION221 : bonus 300% worldwide, davantage de cashback et des bonus hebdomadaires. 18+.'
+const TITLE = 'Linebet Sénégal : code promo VISION221 et offre à 300 %'
+const DESCRIPTION = 'Code promo Linebet VISION221 : offre mondiale de 300 %, cashback et bonus hebdomadaires. 18+.'
+const OPEN_GRAPH_TITLE = 'Code promo Linebet VISION221 300% worldwide'
+const OPEN_GRAPH_DESCRIPTION = 'Code promo Linebet VISION221 : bonus 300% worldwide, davantage de cashback et des bonus hebdomadaires. 18+.'
 
-checkSeo(SLUG, TITLE, DESCRIPTION)
+if (process.env.NODE_ENV === 'production') checkSeo(SLUG, TITLE, DESCRIPTION)
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -26,8 +28,8 @@ export const metadata: Metadata = {
     },
   },
   robots: { index: true, follow: true },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: PAGE_URL, siteName: 'BTTSPredict', type: 'article', locale: 'fr_SN', images: [{ url: '/og-image.png', width: 1200, height: 630, alt: TITLE }] },
-  twitter: { card: 'summary_large_image', title: TITLE, description: DESCRIPTION, images: ['/og-image.png'] },
+  openGraph: { title: OPEN_GRAPH_TITLE, description: OPEN_GRAPH_DESCRIPTION, url: PAGE_URL, siteName: 'BTTSPredict', type: 'article', locale: 'fr_SN', images: [{ url: '/og-image.png', width: 1200, height: 630, alt: OPEN_GRAPH_TITLE }] },
+  twitter: { card: 'summary_large_image', title: OPEN_GRAPH_TITLE, description: OPEN_GRAPH_DESCRIPTION, images: ['/og-image.png'] },
 }
 
 function articleJsonLd() {

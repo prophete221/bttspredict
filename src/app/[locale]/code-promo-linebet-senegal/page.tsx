@@ -18,10 +18,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params
   const isEnglish = locale === 'en'
   if (!isEnglish && locale !== 'ar') return {}
-  const title = isEnglish ? 'Linebet Promo Code VISION221 · 300% Worldwide' : 'رمز Linebet VISION221 · 300% حول العالم'
+  const title = isEnglish ? 'Linebet Promo Code VISION221 for a 300% Worldwide Offer' : 'رمز Linebet الترويجي VISION221 لعرض عالمي بنسبة 300%'
   const description = isEnglish
-    ? 'Linebet promo code VISION221: 300% worldwide, more cashback and weekly bonuses. 18+.'
-    : 'رمز Linebet الترويجي VISION221: مكافأة 300% حول العالم، مع استرداد نقدي أكبر ومكافآت أسبوعية. +18.'
+    ? 'Linebet promo code VISION221 for its 300% worldwide offer, plus extra cashback and weekly bonuses. 18+. Please gamble responsibly.'
+    : 'رمز Linebet الترويجي VISION221 لعرض 300% المتاح عالميًا، مع استرداد نقدي إضافي ومكافآت أسبوعية. للبالغين 18+، والعب بمسؤولية.'
   return {
     title,
     description,

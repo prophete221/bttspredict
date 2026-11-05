@@ -27,14 +27,14 @@ export default function LinebetClient(_props: { reviewDate?: string } = {}) {
       signupUrl={AFFILIATE.linebet}
       downloadUrl={AFFILIATE.linebetDownload}
       lang="fr"
-      title={`Meilleur code promo ${BRAND} · cashback et bonus hebdomadaires`}
+      title="Code promo Linebet Sénégal VISION221 : offre mondiale à 300 %"
       badge="OFFRE LINEBET"
-      intro="Bonus 300 % worldwide, davantage de cashback et des bonus hebdomadaires. Code exact : VISION221"
-      offerHeadline="300 % worldwide"
-      offerSub="300 % worldwide, avec davantage de cashback et des bonus hebdomadaires."
-      benefits={['300 % worldwide', 'Plus de cashback et bonus hebdomadaires', 'Code exact : VISION221', 'Lien Linebet']}
+      intro="Retrouvez le code exact VISION221 et les détails de l’offre mondiale de 300 % de Linebet."
+      offerHeadline="Offre mondiale à 300 %"
+      offerSub="Plus de cashback et des bonus hebdomadaires."
+      benefits={['Offre mondiale à 300 %', 'Plus de cashback et des bonus hebdomadaires', 'Code exact VISION221', 'Lien Linebet']}
       steps={[
-        { n: '01', title: 'Ouvre Linebet', desc: 'Utilise le lien affiché sur cette page.' },
+        { n: '01', title: 'Consulter Linebet', desc: 'Ouvrez Linebet via le lien affiché sur cette page.' },
         { n: '02', title: 'Code promo', desc: 'Code exact : VISION221' },
       ]}
       faq={getPromoFaq('linebet', 'fr')}

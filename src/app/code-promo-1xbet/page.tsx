@@ -7,8 +7,10 @@ import { checkSeo } from '@/lib/seo'
 const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'code-promo-1xbet'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
-const TITLE = 'Code promo 1xBet vipbtts : 300% worldwide'
-const DESCRIPTION = 'Code promo 1xBet vipbtts : bonus 300% worldwide, davantage de cashback et des bonus hebdomadaires. 18+.'
+const TITLE = 'Code promo 1xBet vipbtts : offre mondiale à 300 %'
+const DESCRIPTION = 'Code promo 1xBet vipbtts : offre mondiale de 300 %, plus de cashback et des bonus hebdomadaires. 18+ ; jouez de manière responsable.'
+const OPEN_GRAPH_TITLE = 'Code promo 1xBet vipbtts 300% worldwide'
+const OPEN_GRAPH_DESCRIPTION = 'Code promo 1xBet vipbtts : bonus 300% worldwide, davantage de cashback et des bonus hebdomadaires. 18+.'
 
 checkSeo(SLUG, TITLE, DESCRIPTION)
 
@@ -26,8 +28,8 @@ export const metadata: Metadata = {
     },
   },
   robots: { index: true, follow: true },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: PAGE_URL, siteName: 'BTTSPredict', type: 'article', locale: 'fr_FR', images: [{ url: '/og-image.png', width: 1200, height: 630, alt: TITLE }] },
-  twitter: { card: 'summary_large_image', title: TITLE, description: DESCRIPTION, images: ['/og-image.png'] },
+  openGraph: { title: OPEN_GRAPH_TITLE, description: OPEN_GRAPH_DESCRIPTION, url: PAGE_URL, siteName: 'BTTSPredict', type: 'article', locale: 'fr_FR', images: [{ url: '/og-image.png', width: 1200, height: 630, alt: OPEN_GRAPH_TITLE }] },
+  twitter: { card: 'summary_large_image', title: OPEN_GRAPH_TITLE, description: OPEN_GRAPH_DESCRIPTION, images: ['/og-image.png'] },
 }
 
 function articleJsonLd() {

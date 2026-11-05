@@ -37,7 +37,7 @@ export const AFFILIATE = {
 
 // L’accès VIP reste verrouillé jusqu’à une confirmation manuelle du propriétaire.
 export const VIP_POLICY = {
-  partners: ['1xbet', 'linebet'],
+  partners: ['1xbet', 'linebet', 'melbet', '888starz'],
   access: 'locked',
   approval: 'manual-owner-confirmation',
   publicData: 'none',

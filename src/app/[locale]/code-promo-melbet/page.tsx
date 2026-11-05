@@ -18,10 +18,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params
   const isEnglish = locale === 'en'
   if (!isEnglish && locale !== 'ar') return {}
-  const title = isEnglish ? 'Melbet Promo Code Bttswin · 300% Worldwide' : 'رمز Melbet Bttswin · 300% حول العالم'
+  const title = isEnglish ? 'Melbet Promo Code Bttswin for a 300% Worldwide Offer' : 'رمز Melbet الترويجي Bttswin لعرض عالمي بنسبة 300%'
   const description = isEnglish
-    ? 'Melbet promo code Bttswin: 300% worldwide, more cashback and weekly bonuses. 18+.'
-    : 'رمز Melbet الترويجي Bttswin: مكافأة 300% حول العالم، مع استرداد نقدي أكبر ومكافآت أسبوعية. +18.'
+    ? 'Melbet promo code Bttswin for its 300% worldwide offer, plus extra cashback and weekly bonuses. 18+. Please gamble responsibly.'
+    : 'رمز Melbet الترويجي Bttswin لعرض 300% المتاح عالميًا، مع استرداد نقدي إضافي ومكافآت أسبوعية. للبالغين 18+، والعب بمسؤولية.'
   return {
     title,
     description,

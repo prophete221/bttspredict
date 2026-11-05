@@ -372,7 +372,7 @@ export default function ResultatsClient({ initialData }: { initialData?: any }) 
                     <td className="rv-cell rv-cell--proba">{probaPct}</td>
                     <td className="rv-cell rv-cell--score">{h.finalScore || h.score || '-'}</td>
                     <td className="rv-cell rv-cell--result">
-                      <span className={`rv-badge rv-badge--${isWon ? 'win' : 'loss'}${tableVisible ? ' is-visible' : ''}`} style={{ transitionDelay: `${60 + rowDelay}ms` }}>
+                      <span className={`rv-badge rv-badge--${isWon ? 'win' : 'loss'}${tableVisible ? ' is-visible' : ''}${isWon ? ' tracking-win-badge' : ''}`} style={{ transitionDelay: `${60 + rowDelay}ms` }}>
                         <span className="rv-badge__dot" aria-hidden="true" />
                         {isWon ? 'WIN' : 'LOST'}
                       </span>

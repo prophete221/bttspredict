@@ -10,8 +10,9 @@ import { localizedPath, type Locale } from '@/lib/i18n'
  * pour donner un accès direct à l'offre VIP et à l'historique VIP.
  *
  * « Historique VIP » pointe vers la section Historique VIP affichée DANS la
- * page VIP (/{locale}/vip#historique-vip) : les 15 dernières victoires
- * vérifiées du suivi public — PAS l'historique principal /historique.
+ * page VIP (/{locale}/vip#historique-vip). Elle reprend l'historique principal
+ * mais ne montre que les résultats gagnants, regroupés par jour; les pertes,
+ * attentes et picks à venir sont exclus de ce teaser.
  *
  * Libellés trilingues inline (fr / en / ar) — i18n.ts reste gelé, les
  * ajouts ponctuels vivent dans le composant. La langue vient de l'URL

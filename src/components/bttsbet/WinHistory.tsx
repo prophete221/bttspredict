@@ -169,7 +169,7 @@ export default function WinHistory() {
                     <span className="text-[#F2F6FA] font-mono flex-shrink-0">{h.finalScore || h.score || '-'}</span>
                     <span
                       className={`px-1.5 py-0.5 rounded text-[9px] font-bold flex-shrink-0 ${
-                        isWon ? 'bg-[#34D399]/14 text-[#34D399]' : 'bg-[#F87171]/14 text-[#F87171]'
+                        isWon ? 'tracking-win-badge bg-[#34D399]/14 text-[#34D399]' : 'bg-[#F87171]/14 text-[#F87171]'
                       }`}
                     >
                       {isWon ? 'W' : 'L'}

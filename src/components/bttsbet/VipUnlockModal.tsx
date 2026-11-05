@@ -1,423 +1,329 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { SITE, AFFILIATE } from '@/lib/constants'
+import { BOOKMAKERS } from '@/lib/constants'
 import { trackAffiliateAction, trackAffiliateCodeCopy } from '@/lib/affiliateTracking'
 import { copyTextToClipboard } from '@/lib/clipboard'
+import { localizedPath, type Locale } from '@/lib/i18n'
+import { useLanguage } from './LanguageSwitcher'
 
-const STORAGE_KEY = 'bttsbet_vip_unlocked'
-const ID_HASH_KEY = 'bttsbet_vip_id_hash'
+const WHATSAPP_NUMBER = '15406704172'
+type PartnerId = typeof BOOKMAKERS[number]['id']
+type Step = 1 | 2 | 3 | 4 | 5 | 6 | 7
 
-type Step = 'conditions' | 'success'
+const GUIDE_PATHS: Record<PartnerId, string> = {
+  '1xbet': '/code-promo-1xbet',
+  linebet: '/code-promo-linebet-senegal',
+  melbet: '/code-promo-melbet',
+  '888starz': '/bonus-888starz-btts221',
+}
 
-async function sha256(text: string): Promise<string> {
-  if (typeof crypto !== 'undefined' && crypto.subtle) {
-    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text))
-    return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('')
-  }
-  let h = 0
-  for (let i = 0; i < text.length; i++) { h = ((h << 5) - h) + text.charCodeAt(i); h |= 0 }
-  return Math.abs(h).toString(16)
+const LABELS: Record<Locale, {
+  title: string; intro: string; step: string; choose: string; priority: string
+  copyCode: string; copied: string; guide: string; signup: string
+  registerCheck: string; depositCheck: string; depositNote: string
+  accountId: string; accountPlaceholder: string; accountHelp: string
+  whatsapp: string; whatsappNote: string; openWhatsapp: string; opened: string
+  waitTitle: string; waitBody: string; manualGate: string
+  back: string; next: string; close: string; locked: string
+  noAuto: string; messageTitle: string; messageBody: (brand: string, code: string, id: string) => string
+  partnerNames: Record<PartnerId, string>
+}> = {
+  fr: {
+    title: 'Demande d’accès VIP',
+    intro: 'L’accès à vie reste verrouillé jusqu’à la confirmation manuelle du propriétaire.',
+    step: 'Étape {current} sur 7', choose: 'Choisis un bookmaker', priority: 'Prioritaire',
+    copyCode: 'Copie le code promo exact', copied: 'Copié', guide: 'Voir le guide promo', signup: 'Ouvrir le site du bookmaker',
+    registerCheck: 'Je confirme avoir terminé l’inscription avec le code exact du guide.',
+    depositCheck: 'Je confirme avoir déposé au moins 3 $ sur le compte bookmaker.',
+    depositNote: 'Dépôt minimum : 3 $ sur le compte bookmaker. Vérifie les conditions actuelles de l’opérateur. Aucun fonds n’est collecté ici.',
+    accountId: 'Identifiant du compte bookmaker', accountPlaceholder: 'Saisis uniquement l’identifiant du compte',
+    accountHelp: 'Cet identifiant précède immédiatement l’étape WhatsApp. N’envoie aucun document d’identité, mot de passe, PIN ou code OTP.',
+    whatsapp: 'Vérification via WhatsApp', whatsappNote: 'Le bouton prépare un message à relire. Il n’est pas envoyé automatiquement; tu gardes le contrôle de l’envoi.',
+    openWhatsapp: 'Ouvrir WhatsApp', opened: 'WhatsApp ouvert dans un nouvel onglet.',
+    waitTitle: 'Attendre l’approbation manuelle',
+    waitBody: 'Après avoir envoyé ta demande dans WhatsApp, attends la confirmation personnelle du propriétaire. Aucun clic, formulaire ou dépôt ne déverrouille le VIP.',
+    manualGate: 'Aucune activation automatique', back: 'Retour', next: 'Continuer', close: 'Fermer', locked: 'Accès verrouillé',
+    noAuto: 'Le VIP reste verrouillé jusqu’à la validation personnelle du propriétaire.',
+    messageTitle: 'Message prérempli',
+    messageBody: (brand, code, id) => `Bonjour BTTSPredict, je demande une vérification manuelle de mon accès VIP à vie. Partenaire : ${brand}. Code promo utilisé : ${code}. Inscription confirmée : oui. Dépôt confirmé : oui. Identifiant de mon compte bookmaker : ${id}. Merci de valider personnellement ma demande.`,
+    partnerNames: { '1xbet': '1xBet', linebet: 'Linebet', melbet: 'MelBet', '888starz': '888Starz' },
+  },
+  en: {
+    title: 'VIP access request',
+    intro: 'Lifetime access stays locked until the owner manually approves it.',
+    step: 'Step {current} of 7', choose: 'Choose a bookmaker', priority: 'Priority',
+    copyCode: 'Copy the exact promo code', copied: 'Copied', guide: 'View promo guide', signup: 'Open bookmaker site',
+    registerCheck: 'I confirm that I completed registration using the exact code in the guide.',
+    depositCheck: 'I confirm that I deposited at least $3 on my bookmaker account.',
+    depositNote: 'Minimum deposit: $3 on your bookmaker account. Check the operator’s current terms. No funds are collected here.',
+    accountId: 'Bookmaker account ID', accountPlaceholder: 'Enter only the bookmaker account identifier',
+    accountHelp: 'This identifier is entered immediately before WhatsApp. Do not send identity documents, passwords, PINs or OTPs.',
+    whatsapp: 'WhatsApp verification', whatsappNote: 'The button prepares a message for you to review. It is not sent automatically; you control whether to send it.',
+    openWhatsapp: 'Open WhatsApp', opened: 'WhatsApp opened in a new tab.',
+    waitTitle: 'Wait for manual approval',
+    waitBody: 'After sending your request in WhatsApp, wait for the owner’s personal confirmation. No click, form or deposit unlocks VIP.',
+    manualGate: 'No automatic activation', back: 'Back', next: 'Continue', close: 'Close', locked: 'Access locked',
+    noAuto: 'VIP remains locked until the owner personally approves the request.',
+    messageTitle: 'Prefilled message',
+    messageBody: (brand, code, id) => `Hello BTTSPredict, I am requesting a manual review of my lifetime VIP access. Partner: ${brand}. Promo code used: ${code}. Registration confirmed: yes. Deposit confirmed: yes. Bookmaker account ID: ${id}. Please review and approve my request personally.`,
+    partnerNames: { '1xbet': '1xBet', linebet: 'Linebet', melbet: 'MelBet', '888starz': '888Starz' },
+  },
+  ar: {
+    title: 'طلب الوصول إلى VIP',
+    intro: 'يظل الوصول مدى الحياة مقفلاً حتى موافقة المالك يدوياً.',
+    step: 'الخطوة {current} من 7', choose: 'اختر شركة مراهنات', priority: 'أولوية',
+    copyCode: 'انسخ الرمز الترويجي الدقيق', copied: 'تم النسخ', guide: 'عرض دليل العرض', signup: 'افتح موقع شركة المراهنات',
+    registerCheck: 'أؤكد أنني أكملت التسجيل باستخدام الرمز الدقيق في الدليل.',
+    depositCheck: 'أؤكد أنني أودعت 3 دولارات على الأقل في حساب شركة المراهنات.',
+    depositNote: 'الحد الأدنى للإيداع: 3 دولارات في حساب شركة المراهنات. تحقق من الشروط الحالية للمشغل. لا تُجمع أي أموال هنا.',
+    accountId: 'معرّف حساب شركة المراهنات', accountPlaceholder: 'أدخل معرّف الحساب فقط',
+    accountHelp: 'يُدخل هذا المعرّف مباشرة قبل خطوة واتساب. لا ترسل وثائق هوية أو كلمات مرور أو PIN أو رموز OTP.',
+    whatsapp: 'التحقق عبر واتساب', whatsappNote: 'يجهّز الزر رسالة لمراجعتها. لا تُرسل تلقائياً؛ أنت تتحكم في إرسالها.',
+    openWhatsapp: 'افتح واتساب', opened: 'تم فتح واتساب في علامة تبويب جديدة.',
+    waitTitle: 'انتظر الموافقة اليدوية',
+    waitBody: 'بعد إرسال الطلب عبر واتساب، انتظر تأكيد المالك شخصياً. لا يؤدي أي نقر أو نموذج أو إيداع إلى فتح VIP.',
+    manualGate: 'لا يوجد تفعيل تلقائي', back: 'رجوع', next: 'متابعة', close: 'إغلاق', locked: 'الوصول مقفل',
+    noAuto: 'يظل VIP مقفلاً حتى يوافق المالك على الطلب شخصياً.',
+    messageTitle: 'رسالة جاهزة',
+    messageBody: (brand, code, id) => `مرحباً BTTSPredict، أطلب مراجعة يدوية لوصولي مدى الحياة إلى VIP. الشريك: ${brand}. الرمز المستخدم: ${code}. تم تأكيد التسجيل: نعم. تم تأكيد الإيداع: نعم. معرّف حسابي لدى شركة المراهنات: ${id}. يرجى مراجعة طلبي والموافقة عليه شخصياً.`,
+    partnerNames: { '1xbet': '1xBet', linebet: 'Linebet', melbet: 'MelBet', '888starz': '888Starz' },
+  },
 }
 
 export default function VipUnlockModal({
   isOpen,
   onClose,
-  title = 'Prépare ta demande VIP',
+  title,
 }: {
   isOpen: boolean
   onClose: () => void
   title?: string
 }) {
+  const { lang } = useLanguage()
+  const copy = LABELS[lang]
   const modalRef = useRef<HTMLDivElement>(null)
-  const [step, setStep] = useState<Step>('conditions')
-  const [selectedBookmaker, setSelectedBookmaker] = useState<'1xbet' | 'linebet' | '888starz' | null>(null)
-  const [playerId, setPlayerId] = useState('')
-  const [verificationError, setVerificationError] = useState('')
-  const [isUnlocking, setIsUnlocking] = useState(false)
-  const [alreadyUnlocked, setAlreadyUnlocked] = useState(false)
+  const onCloseRef = useRef(onClose)
+  const [step, setStep] = useState<Step>(1)
+  const [selectedBookmaker, setSelectedBookmaker] = useState<PartnerId | null>(null)
+  const [registrationConfirmed, setRegistrationConfirmed] = useState(false)
+  const [depositConfirmed, setDepositConfirmed] = useState(false)
+  const [accountId, setAccountId] = useState('')
   const [copied, setCopied] = useState(false)
+  const [whatsappOpened, setWhatsappOpened] = useState(false)
 
-  // Get the correct code based on selected bookmaker
-  // 1xbet (vipbtts) et Linebet (VISION221) sont les partenaires prioritaires.
-  const currentCode = selectedBookmaker === 'linebet' ? 'VISION221' : selectedBookmaker === '888starz' ? 'btts221' : 'vipbtts'
-  const bookmakerLabel = selectedBookmaker === 'linebet' ? 'Linebet' : selectedBookmaker === '888starz' ? '888starz' : '1xbet'
-
-  const copyCode = async () => {
-    if (!selectedBookmaker) return
-    const copiedSuccessfully = await copyTextToClipboard(currentCode)
-    if (!copiedSuccessfully) return
-    trackAffiliateCodeCopy(selectedBookmaker, 'vip-modal-code')
-    setCopied(true)
-    navigator.vibrate?.(15)
-    setTimeout(() => setCopied(false), 2000)
-  }
+  useEffect(() => { onCloseRef.current = onClose }, [onClose])
 
   useEffect(() => {
-    const handleEsc = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
-    if (isOpen) {
-      window.addEventListener('keydown', handleEsc)
-      queueMicrotask(() => {
-        try {
-          const stored = localStorage.getItem(STORAGE_KEY)
-          if (stored === 'true') setAlreadyUnlocked(true)
-        } catch {}
-        setStep('conditions')
-        setSelectedBookmaker(null)
-        setPlayerId('')
-        setVerificationError('')
-      })
+    if (!isOpen) return
+    setStep(1)
+    setSelectedBookmaker(null)
+    setRegistrationConfirmed(false)
+    setDepositConfirmed(false)
+    setAccountId('')
+    setCopied(false)
+    setWhatsappOpened(false)
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') onCloseRef.current()
     }
-    return () => window.removeEventListener('keydown', handleEsc)
-  }, [isOpen, onClose])
+    window.addEventListener('keydown', handleKeyDown)
+    window.setTimeout(() => modalRef.current?.querySelector<HTMLElement>('button:not([disabled]), a[href], input')?.focus(), 0)
+    return () => {
+      document.body.style.overflow = previousOverflow
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [isOpen])
 
-  const handleBackdropClick = (e: React.MouseEvent) => {
-    if (e.target === e.currentTarget) onClose()
+  const partner = selectedBookmaker ? BOOKMAKERS.find((item) => item.id === selectedBookmaker) : undefined
+  const selectPartner = (id: PartnerId) => {
+    setSelectedBookmaker(id)
+    setRegistrationConfirmed(false)
+    setDepositConfirmed(false)
+    setAccountId('')
+    setCopied(false)
+    setWhatsappOpened(false)
   }
 
-  const handleVerify = async () => {
-    setVerificationError('')
-    if (!selectedBookmaker) { setVerificationError('Sélectionne un bookmaker'); return }
-    if (!playerId.trim()) { setVerificationError('Saisis ton ID joueur'); return }
-    if (playerId.trim().length < 3) { setVerificationError('ID trop court (minimum 3 caractères)'); return }
-    setIsUnlocking(true)
-    try {
-      const idHash = await sha256(selectedBookmaker + ':' + playerId.trim())
-      try {
-        localStorage.setItem(STORAGE_KEY, 'true')
-        localStorage.setItem(ID_HASH_KEY, idHash)
-        localStorage.setItem('bttsbet_vip_bookmaker', selectedBookmaker)
-      } catch {}
-      const whatsappText = `Bonjour BTTSPredict, je souhaite demander la validation de mon accès VIP. Bookmaker: ${selectedBookmaker ?? '1xbet'}. ID joueur: ${playerId.trim()}. Code promo: ${currentCode}. Merci de confirmer les conditions applicables.`
-      const whatsappUrl = `https://wa.me/15406704172?text=${encodeURIComponent(whatsappText)}`
-      setTimeout(() => {
-        setIsUnlocking(false)
-        setStep('success')
-        window.location.assign(whatsappUrl)
-      }, 1200)
-    } catch { setVerificationError('Erreur de vérification. Réessaie.'); setIsUnlocking(false) }
+  const copyCode = async () => {
+    if (!partner) return
+    const ok = await copyTextToClipboard(partner.promoCode)
+    if (!ok) return
+    trackAffiliateCodeCopy(partner.id, 'vip-access-flow')
+    setCopied(true)
+    window.setTimeout(() => setCopied(false), 1800)
+  }
+
+  const openWhatsApp = () => {
+    if (!partner || accountId.trim().length < 3) return
+    const message = copy.messageBody(copy.partnerNames[partner.id], partner.promoCode, accountId.trim())
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
+    trackAffiliateAction(partner.id, 'whatsapp_click', 'vip-manual-review')
+    window.open(url, '_blank', 'noopener,noreferrer')
+    setWhatsappOpened(true)
+  }
+
+  const canContinue =
+    (step === 1 && Boolean(partner)) ||
+    (step === 2 && Boolean(partner) && copied) ||
+    (step === 3 && registrationConfirmed) ||
+    (step === 4 && depositConfirmed) ||
+    (step === 5 && accountId.trim().length >= 3) ||
+    (step === 6 && whatsappOpened)
+
+  const close = () => onCloseRef.current()
+  const back = () => step === 1 ? close() : setStep((step - 1) as Step)
+  const next = () => {
+    if (!canContinue || step >= 7) return
+    setStep((step + 1) as Step)
   }
 
   return (
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed inset-0 z-[60] flex items-center justify-center p-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={handleBackdropClick}
-          style={{ backgroundColor: '#FFFFFF' }}
+          className="fixed inset-0 z-[80] flex items-center justify-center p-3 sm:p-5"
+          initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+          onClick={(event) => { if (event.target === event.currentTarget) close() }}
+          style={{ backgroundColor: 'rgba(5, 10, 17, 0.88)', backdropFilter: 'blur(8px)' }}
         >
-          <motion.div
+          <motion.section
             ref={modalRef}
-            initial={{ scale: 0.95, y: 10 }}
-            animate={{ scale: 1, y: 0 }}
-            exit={{ scale: 0.95, y: 10 }}
-            transition={{ duration: 0.2 }}
-            className="relative w-full max-w-md max-h-[90vh] overflow-y-auto rounded-2xl"
-            style={{
-              backgroundColor: '#FFFFFF',
-              border: '1px solid rgba(127, 162, 198, 0.30)',
-              boxShadow: '0 24px 80px rgba(7, 17, 26, 0.8)',
-            }}
-            onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="vip-access-title"
+            dir={lang === 'ar' ? 'rtl' : 'ltr'}
+            initial={{ scale: 0.97, y: 12 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.97, y: 12 }}
+            transition={{ duration: 0.18 }}
+            className="vip-access-flow relative w-full max-w-xl max-h-[92vh] overflow-y-auto rounded-2xl"
+            style={{ background: 'linear-gradient(155deg, #182331 0%, #0d141d 100%)', border: '1px solid rgba(127,162,198,.3)', boxShadow: '0 24px 80px rgba(0,0,0,.65)', color: '#F2F6FA' }}
+            onClick={(event) => event.stopPropagation()}
           >
-            {/* Close button */}
-            <button
-              onClick={onClose}
-              className="absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center z-10"
-              style={{ backgroundColor: '#141C25', border: '1px solid rgba(244, 247, 251,0.1)' }}
-              aria-label="Fermer"
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F2F6FA" strokeWidth="2" strokeLinecap="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
-            </button>
-
-            {/* ═══ CONDITIONS STEP ═══ */}
-            {step === 'conditions' && (
-              <div className="p-5 sm:p-6">
-                {/* Header */}
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-                    style={{ backgroundColor: '#141C25', border: '1px solid rgba(47, 125, 255,0.3)' }}>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2F7DFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-papier">{title}</h3>
-                    <p className="text-[11px] text-[#9DABBB]">Un parcours clair en 3 étapes, puis une demande WhatsApp</p>
-                  </div>
+            <button type="button" onClick={close} aria-label={copy.close} className="vip-access-flow__close">×</button>
+            <div className="p-5 sm:p-7">
+              <div className="flex items-start gap-3 pr-9">
+                <span className="vip-access-flow__badge" aria-hidden="true">
+                  <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </span>
+                <div>
+                  <h2 id="vip-access-title" className="text-lg sm:text-xl font-bold">{title || copy.title}</h2>
+                  <p className="mt-1 text-xs leading-relaxed" style={{ color: '#AAB7C5' }}>{copy.intro}</p>
                 </div>
+              </div>
 
-                {alreadyUnlocked && (
-                  <div className="mb-4 p-3 rounded-lg flex items-center gap-2" style={{ backgroundColor: 'rgba(47, 125, 255,0.1)', border: '1px solid rgba(47, 125, 255,0.3)' }}>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F7DFF" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-                    <span className="text-xs text-[#2F7DFF] font-semibold">Une demande VIP a déjà été préparée sur cet appareil.</span>
+              <div className="mt-5" aria-label={copy.step.replace('{current}', String(step))}>
+                <div className="flex items-center justify-between text-[11px] font-semibold" style={{ color: '#B9C6D4' }}>
+                  <span>{copy.step.replace('{current}', String(step))}</span>
+                  <span>{Math.round((step / 7) * 100)}%</span>
+                </div>
+                <div className="mt-2 h-1.5 overflow-hidden rounded-full" style={{ background: 'rgba(255,255,255,.09)' }}>
+                  <div className="h-full rounded-full transition-all" style={{ width: `${(step / 7) * 100}%`, background: 'linear-gradient(90deg,#6FA8FF,#34D399)' }} />
+                </div>
+              </div>
+
+              <div className="mt-5 min-h-[230px]" aria-live="polite">
+                {step === 1 && (
+                  <div>
+                    <h3 className="text-sm font-bold">1. {copy.choose}</h3>
+                    <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      {BOOKMAKERS.map((item, index) => (
+                        <button
+                          key={item.id} type="button" aria-pressed={selectedBookmaker === item.id}
+                          onClick={() => selectPartner(item.id)}
+                          className="vip-access-flow__partner"
+                          style={{ borderColor: selectedBookmaker === item.id ? '#7DB5FF' : 'rgba(255,255,255,.12)', background: selectedBookmaker === item.id ? 'rgba(125,181,255,.12)' : 'rgba(255,255,255,.035)' }}
+                        >
+                          <img src={item.logoFull} alt="" width={48} height={34} />
+                          <span className="vip-access-flow__partner-name">{copy.partnerNames[item.id]}</span>
+                          {index < 2 && <span className="vip-access-flow__priority">{copy.priority}</span>}
+                          {selectedBookmaker === item.id && <span aria-hidden="true" className="vip-access-flow__check">✓</span>}
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 )}
 
-                {/* Step 1 — Bookmaker + Code promo copiable */}
-                <div className="mb-4">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ backgroundColor: '#141C25', color: '#2F7DFF', border: '1px solid rgba(47, 125, 255,0.3)' }}>1</span>
-                    <span className="text-sm font-semibold text-papier">Choisis ton bookmaker</span>
+                {step === 2 && partner && (
+                  <div>
+                    <h3 className="text-sm font-bold">2. {copy.copyCode}</h3>
+                    <p className="mt-1 text-xs" style={{ color: '#AAB7C5' }}>{copy.partnerNames[partner.id]}</p>
+                    <button type="button" onClick={copyCode} className="vip-access-flow__code">
+                      <span className="font-mono text-xl font-black tracking-wider">{partner.promoCode}</span>
+                      <span className="text-xs font-bold">{copied ? copy.copied : copy.copyCode}</span>
+                    </button>
+                    <a className="vip-access-flow__text-link" href={localizedPath(GUIDE_PATHS[partner.id], lang)} target="_blank" rel="noopener noreferrer">{copy.guide} ↗</a>
                   </div>
+                )}
 
-                  {/* Big copyable code promo — always visible */}
-                  <button
-                    onClick={copyCode}
-                    className="w-full mb-3 p-4 rounded-xl flex items-center justify-between transition-all"
-                    style={{
-                      backgroundColor: '#141C25',
-                      border: '1px solid rgba(127, 162, 198, 0.30)',
-                      boxShadow: copied ? '0 0 20px rgba(47, 125, 255, 0.2)' : 'none',
-                    }}
-                    aria-label={`Copier le code promo ${currentCode}`}
-                  >
-                    <div>
-                      <div className="text-[10px] uppercase tracking-widest font-bold mb-1" style={{ color: '#9DABBB' }}>
-                        Code promo {selectedBookmaker === '888starz' ? '(minuscules)' : '(casse exacte)'}
-                      </div>
-                      <div className="font-mono text-2xl font-black tracking-[0.1em]" style={{ color: '#2F7DFF' }}>
-                        {currentCode}
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-1.5 px-3 py-2 rounded-lg" style={{ backgroundColor: copied ? 'rgba(47, 125, 255, 0.15)' : 'rgba(47, 125, 255, 0.1)' }}>
-                      {copied ? (
-                        <><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2F7DFF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg><span className="text-xs font-bold text-[#2F7DFF]">Copié !</span></>
-                      ) : (
-                        <><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2F7DFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg><span className="text-xs font-bold text-[#2F7DFF]">Copier</span></>
-                      )}
-                    </div>
-                  </button>
-
-                  {/* 1xbet — partenaire prioritaire (carte en tête) */}
-                  <button
-                    type="button"
-                    onClick={() => setSelectedBookmaker('1xbet')}
-                    className="w-full p-3 rounded-lg text-left mb-2 transition-all"
-                    style={{
-                      backgroundColor: selectedBookmaker === '1xbet' ? 'rgba(47, 125, 255, 0.15)' : 'rgba(244, 247, 251, 0.05)',
-                      border: selectedBookmaker === '1xbet' ? '1px solid #2F7DFF' : '1px solid #9DABBB',
-                    }}
-                  >
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <div className="flex items-center gap-2 mb-1">
-                          <span className="flex h-6 w-10 items-center justify-center rounded bg-white px-1">
-                            <img src="/logos/1xbet-logo.png" alt="Logo 1xbet" width={520} height={296} className="max-h-4 w-auto object-contain" />
-                          </span>
-                          <span className="text-sm font-bold text-papier">1xbet</span>
-                          <span className="text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded" style={{ backgroundColor: 'rgba(47, 125, 255, 0.15)', color: '#2F7DFF' }}>Nouveau</span>
-                          {selectedBookmaker === '1xbet' && (
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2F7DFF" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
-                          )}
-                        </div>
-                        <div className="text-[11px] text-[#2F7DFF]">
-                          Code : <span className="font-mono font-bold text-[#2F7DFF]">vipbtts</span>
-                        </div>
-                      </div>
-                      <span className="text-[10px] font-semibold px-2 py-1 rounded" style={{ backgroundColor: 'rgba(232, 194, 104, 0.12)', color: '#E8C268' }}>Partenaire officiel</span>
-                    </div>
-                  </button>
-
-                  {/* Linebet */}
-                  <button
-                    type="button"
-                    onClick={() => setSelectedBookmaker('linebet')}
-                    className="w-full p-3 rounded-lg text-left mb-2 transition-all"
-                    style={{
-                      backgroundColor: selectedBookmaker === 'linebet' ? 'rgba(47, 125, 255, 0.15)' : 'rgba(244, 247, 251, 0.05)',
-                      border: selectedBookmaker === 'linebet' ? '1px solid #2F7DFF' : '1px solid #9DABBB',
-                    }}
-                  >
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <div className="flex items-center gap-2 mb-1">
-                          <span className="flex h-6 w-10 items-center justify-center rounded bg-white px-1">
-                            <img src="/logos/linebet-logo.jpg" alt="Logo Linebet" width={560} height={222} className="max-h-4 w-auto object-contain" />
-                          </span>
-                          <span className="text-sm font-bold text-papier">Linebet</span>
-                          {selectedBookmaker === 'linebet' && (
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2F7DFF" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
-                          )}
-                        </div>
-                        <div className="text-[11px] text-[#2F7DFF]">
-                          Code : <span className="font-mono font-bold text-[#2F7DFF]">VISION221</span>
-                        </div>
-                      </div>
-                      <span className="text-[10px] font-semibold px-2 py-1 rounded" style={{ backgroundColor: 'rgba(232, 194, 104, 0.12)', color: '#E8C268' }}>Partenaire officiel</span>
-                    </div>
-                  </button>
-
-                  {/* 888starz */}
-                  <button
-                    type="button"
-                    onClick={() => setSelectedBookmaker('888starz')}
-                    className="w-full p-3 rounded-lg text-left transition-all"
-                    style={{
-                      backgroundColor: selectedBookmaker === '888starz' ? 'rgba(47, 125, 255, 0.15)' : 'rgba(244, 247, 251, 0.05)',
-                      border: selectedBookmaker === '888starz' ? '1px solid #2F7DFF' : '1px solid #9DABBB',
-                    }}
-                  >
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <div className="flex items-center gap-2 mb-1">
-                          <span className="flex h-6 w-10 items-center justify-center rounded bg-white px-1">
-                            <img src="/logos/888starz-logo.jpg" alt="Logo 888Starz" width={520} height={455} className="max-h-4 w-auto object-contain" />
-                          </span>
-                          <span className="text-sm font-bold text-papier">888Starz</span>
-                          {selectedBookmaker === '888starz' && (
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2F7DFF" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
-                          )}
-                        </div>
-                        <div className="text-[11px] text-[#2F7DFF]">
-                          Code : <span className="font-mono font-bold text-[#2F7DFF]">btts221</span>
-                        </div>
-                      </div>
-                      <span className="text-[10px] font-semibold px-2 py-1 rounded" style={{ backgroundColor: 'rgba(232, 194, 104, 0.12)', color: '#E8C268' }}>Partenaire officiel</span>
-                    </div>
-                  </button>
-                </div>
-
-                {/* Step 2 — Deposit */}
-                <div className="mb-4 flex gap-3">
-                  <span className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style={{ backgroundColor: '#141C25', color: '#2F7DFF', border: '1px solid rgba(47, 125, 255,0.3)' }}>2</span>
-                  <div className="text-sm text-[#2F7DFF]">
-                    Effectue un <span className="text-papier font-semibold">dépôt minimum de 3 000 XOF</span> avec le code promo.
+                {step === 3 && partner && (
+                  <div>
+                    <h3 className="text-sm font-bold">3. {lang === 'en' ? 'Confirm registration' : lang === 'ar' ? 'تأكيد التسجيل' : 'Confirmer l’inscription'}</h3>
+                    <p className="mt-2 text-xs leading-relaxed" style={{ color: '#AAB7C5' }}>{copy.registerCheck}</p>
+                    <a className="vip-access-flow__text-link" href={partner.signupLink} target="_blank" rel="sponsored nofollow noopener noreferrer">{copy.signup} · {copy.partnerNames[partner.id]} ↗</a>
+                    <label className="vip-access-flow__checkrow"><input type="checkbox" checked={registrationConfirmed} onChange={(event) => setRegistrationConfirmed(event.target.checked)} /> <span>{copy.registerCheck}</span></label>
                   </div>
-                </div>
+                )}
 
-                {/* Step 3 — ID */}
-                <div className="mb-4 flex gap-3">
-                  <span className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style={{ backgroundColor: '#141C25', color: '#2F7DFF', border: '1px solid rgba(47, 125, 255,0.3)' }}>3</span>
-                                      <div className="text-sm text-[#2F7DFF]">
-                    <span className="text-papier font-semibold">Saisis ton ID joueur</span> pour préparer le message WhatsApp.
-                    <span className="block mt-1 text-[10px] text-[#9DABBB]">🔒 BTTSPredict ne reçoit pas ton ID : il est inclus dans le message WhatsApp que tu choisis d’envoyer.</span>
+                {step === 4 && (
+                  <div>
+                    <h3 className="text-sm font-bold">4. {lang === 'en' ? 'Confirm deposit' : lang === 'ar' ? 'تأكيد الإيداع' : 'Confirmer le dépôt'}</h3>
+                    <p className="mt-2 text-xs leading-relaxed" style={{ color: '#AAB7C5' }}>{copy.depositNote}</p>
+                    <label className="vip-access-flow__checkrow"><input type="checkbox" checked={depositConfirmed} onChange={(event) => setDepositConfirmed(event.target.checked)} /> <span>{copy.depositCheck}</span></label>
                   </div>
+                )}
 
-                </div>
+                {step === 5 && (
+                  <div>
+                    <h3 className="text-sm font-bold">5. {copy.accountId}</h3>
+                    <label htmlFor="vip-bookmaker-account-id" className="vip-access-flow__field-label">{copy.accountId}</label>
+                    <input
+                      id="vip-bookmaker-account-id" type="text" autoComplete="off" spellCheck={false}
+                      maxLength={80} value={accountId} placeholder={copy.accountPlaceholder}
+                      onChange={(event) => setAccountId(event.target.value)}
+                      className="vip-access-flow__input"
+                    />
+                    <p className="mt-2 text-[11px] leading-relaxed" style={{ color: '#AAB7C5' }}>{copy.accountHelp}</p>
+                  </div>
+                )}
 
-                {/* ID input */}
-                <div className="mb-4">
-                  <label className="block text-[11px] uppercase tracking-widest font-bold text-[#9DABBB] mb-2">
-                    ID joueur {selectedBookmaker ? `(${selectedBookmaker})` : ''}
-                  </label>
-                  <input
-                    type="text"
-                    value={playerId}
-                    onChange={(e) => setPlayerId(e.target.value)}
-                    placeholder={selectedBookmaker ? `Ton ID ${selectedBookmaker}` : 'Sélectionne un bookmaker ↑'}
-                    disabled={!selectedBookmaker}
-                    className="w-full px-3 py-2.5 rounded-lg text-sm text-papier"
-                    style={{
-                      backgroundColor: '#141C25',
-                      border: selectedBookmaker ? '1px solid rgba(244, 247, 251,0.12)' : '1px solid #9DABBB',
-                      opacity: selectedBookmaker ? 1 : 0.5,
-                    }}
-                  />
-                  {verificationError && <p className="text-[11px] text-[#2F7DFF] mt-1.5">{verificationError}</p>}
-                </div>
+                {step === 6 && partner && (
+                  <div>
+                    <h3 className="text-sm font-bold">6. {copy.whatsapp}</h3>
+                    <p className="mt-2 text-xs leading-relaxed" style={{ color: '#AAB7C5' }}>{copy.whatsappNote}</p>
+                    <div className="vip-access-flow__summary"><span>{copy.partnerNames[partner.id]}</span><span>{partner.promoCode}</span><span className="truncate">{accountId.trim()}</span></div>
+                    <button type="button" onClick={openWhatsApp} className="vip-access-flow__whatsapp">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.5 4.1 1.6 5.9L.2 24l6.5-1.7a11.9 11.9 0 0 0 5.4 1.3h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.1-3.5-8.3ZM12.2 21.6c-1.7 0-3.3-.5-4.7-1.3l-.3-.2-3.8 1 1-3.7-.2-.4a9.7 9.7 0 0 1-1.5-5.2c0-5.3 4.3-9.6 9.6-9.6 2.6 0 5 1 6.8 2.8a9.6 9.6 0 0 1 2.8 6.8c0 5.3-4.3 9.6-9.7 9.6Zm5.3-7.2c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.8-.7-1.4-1.6-1.6-1.9-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.1-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2.1 3.2 5.1 4.5.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4s-.2-.2-.6-.4Z"/></svg>
+                      {copy.openWhatsapp}
+                    </button>
+                    {whatsappOpened && <p className="mt-2 text-xs" style={{ color: '#86EFAC' }}>{copy.opened}</p>}
+                  </div>
+                )}
 
-                {/* Buttons */}
-                <div className="grid grid-cols-2 gap-2 mb-4">
-                  {selectedBookmaker === '1xbet' && (
-                    <a href={AFFILIATE.oneXbet} rel="sponsored nofollow noopener noreferrer" target="_blank"
-                      onClick={() => trackAffiliateAction('1xbet', 'signup_cta_click', 'vip-modal-1xbet')}
-                      className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg text-xs font-bold"
-                      style={{ backgroundColor: '#2F7DFF', color: '#FFFFFF' }}>
-                      Inscription 1xbet →
-                    </a>
-                  )}
-                  {selectedBookmaker === 'linebet' && (
-                    <a href={AFFILIATE.linebet} rel="sponsored nofollow noopener noreferrer" target="_blank"
-                      onClick={() => trackAffiliateAction('linebet', 'signup_cta_click', 'vip-modal-linebet')}
-                      className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg text-xs font-bold"
-                      style={{ backgroundColor: '#2F7DFF', color: '#FFFFFF' }}>
-                      Inscription Linebet →
-                    </a>
-                  )}
-                  {selectedBookmaker === '888starz' && (
-                    <a href={AFFILIATE.star888} rel="sponsored nofollow noopener noreferrer" target="_blank"
-                      onClick={() => trackAffiliateAction('888starz', 'signup_cta_click', 'vip-modal-888starz')}
-                      className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg text-xs font-bold"
-                      style={{ backgroundColor: '#2F7DFF', color: '#FFFFFF' }}>
-                      Inscription 888starz →
-                    </a>
-                  )}
-                  <button
-                    onClick={handleVerify}
-                    disabled={isUnlocking || !selectedBookmaker || !playerId.trim()}
-                    className="flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg text-xs font-bold transition-all"
-                    style={{
-                      backgroundColor: !selectedBookmaker || !playerId.trim() ? '#141C25' : '#2F7DFF',
-                      color: !selectedBookmaker || !playerId.trim() ? '#9DABBB' : '#FFFFFF',
-                      cursor: !selectedBookmaker || !playerId.trim() ? 'not-allowed' : 'pointer',
-                    }}
-                  >
-                    {isUnlocking ? 'Préparation…' : '✓ Préparer ma demande'}
-                  </button>
-                </div>
-
-                {/* Privacy */}
-                <div className="p-3 rounded-lg" style={{ backgroundColor: '#141C25', border: '1px solid rgba(244, 247, 251, 0.08)' }}>
-                  <p className="text-[10px] text-[#9DABBB] leading-relaxed">
-                    <span className="text-[#2F7DFF] font-semibold">Transparence :</span> ton ID n'est pas envoyé à BTTSPredict. Il est inséré dans le message WhatsApp ouvert après ta demande.
-                  </p>
-                </div>
-
-                {/* WhatsApp support */}
-                <a
-                  href={`https://wa.me/15406704172?text=${encodeURIComponent("Bonjour, je souhaite demander la validation de mon accès VIP avec le code VISION221 et merci de confirmer les conditions applicables.")}`}
-                  target="_blank"
-                  rel="noopener"
-                  className="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg text-xs font-bold mb-3"
-                  style={{
-                    backgroundColor: 'rgba(47, 125, 255, 0.1)',
-                    border: '1px solid rgba(127, 162, 198, 0.30)',
-                    color: '#2F7DFF',
-                  }}
-                  onClick={() => trackAffiliateAction(selectedBookmaker ?? '1xbet', 'whatsapp_click', 'vip-modal-whatsapp')}
-                >
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#2F7DFF"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01-1.87-1.87-4.36-2.91-7.01-2.91zm0 1.67c2.2 0 4.27.86 5.82 2.42 1.56 1.56 2.42 3.63 2.42 5.82 0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31c-.81-1.29-1.24-2.79-1.24-4.34 0-4.54 3.7-8.24 8.24-8.24z"/></svg>
-                  Déjà inscrit ? Demander la vérification via WhatsApp
-                </a>
-
-                {/* Footer */}
-                <p className="text-[10px] text-[#9DABBB] text-center mt-3">
-                  18+ | Jeu responsable | Aucune donnée collectée
-                </p>
+                {step === 7 && (
+                  <div>
+                    <h3 className="text-sm font-bold">7. {copy.waitTitle}</h3>
+                    <p className="mt-2 text-xs leading-relaxed" style={{ color: '#AAB7C5' }}>{copy.waitBody}</p>
+                    <div className="vip-access-flow__manual">
+                      <span aria-hidden="true">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-3.6 8-10V5l-8-3-8 3v7c0 6.4 8 10 8 10z" /><path d="m9 12 2 2 4-4" /></svg>
+                      </span>
+                      <strong>{copy.manualGate}</strong>
+                      <small>{copy.noAuto}</small>
+                    </div>
+                  </div>
+                )}
               </div>
-            )}
 
-            {/* ═══ SUCCESS STEP ═══ */}
-            {step === 'success' && (
-              <div className="p-6 text-center">
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 0.5, type: 'spring' }}
-                  className="w-20 h-20 mx-auto mb-4 rounded-full flex items-center justify-center"
-                  style={{ backgroundColor: 'rgba(47, 125, 255,0.1)', border: '2px solid #2F7DFF' }}
-                >
-                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#2F7DFF" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
-                </motion.div>
-                <h3 className="text-xl font-bold text-papier mb-2">Demande VIP préparée</h3>
-                <p className="text-sm text-[#2F7DFF] mb-4">
-                  Ton message WhatsApp est prêt pour <span className="text-papier font-semibold">{bookmakerLabel}</span>. La validation finale dépend du support et des conditions du partenaire.
-                </p>
-                <button
-                  onClick={onClose}
-                  className="w-full px-4 py-3 rounded-xl text-sm font-bold"
-                  style={{ backgroundColor: '#2F7DFF', color: '#FFFFFF' }}
-                >
-                  Retourner à l’espace VIP →
-                </button>
+              <div className="mt-5 flex items-center justify-between gap-3 border-t pt-4" style={{ borderColor: 'rgba(255,255,255,.1)' }}>
+                <button type="button" onClick={step === 1 ? close : back} className="vip-access-flow__secondary">{step === 1 ? copy.close : copy.back}</button>
+                {step < 7 ? (
+                  <button type="button" disabled={!canContinue} onClick={next} className="vip-access-flow__primary" style={{ opacity: canContinue ? 1 : 0.48 }}>{copy.next} <span aria-hidden="true">→</span></button>
+                ) : <button type="button" onClick={close} className="vip-access-flow__primary">{copy.close}</button>}
               </div>
-            )}
-          </motion.div>
+            </div>
+          </motion.section>
         </motion.div>
       )}
     </AnimatePresence>

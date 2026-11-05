@@ -11,11 +11,23 @@ const SOURCES = [
   'src/app/code-promo-1xbet/XbetClient.tsx',
   'src/app/code-promo-linebet-senegal/LinebetClient.tsx',
   'src/app/code-promo-melbet/MelbetClient.tsx',
+  'src/app/code-promo-1xbet/page.tsx',
+  'src/app/code-promo-linebet-senegal/page.tsx',
+  'src/app/code-promo-melbet/page.tsx',
+  'src/app/bonus-888starz/page.tsx',
+  'src/app/bonus-888starz-btts221/page.tsx',
+  'src/app/[locale]/code-promo-1xbet/page.tsx',
+  'src/app/[locale]/code-promo-linebet-senegal/page.tsx',
+  'src/app/[locale]/code-promo-melbet/page.tsx',
+  'src/app/[locale]/bonus-888starz/page.tsx',
+  'src/app/[locale]/bonus-888starz-btts221/page.tsx',
+  'src/components/bttsbet/LocalizedPromoClient.tsx',
   'src/app/bonus-888starz/Star888Client.tsx',
   'src/components/bttsbet/Star888PromoClient.tsx',
   'src/components/bttsbet/Btts221PromoClient.tsx',
   'src/app/page.tsx',
   'src/app/cgu/page.tsx',
+  'src/app/linebet-promo-code/page.tsx',
 ]
 
 /** Handlers de copie : l’argument doit être une variable de code, jamais une phrase. */

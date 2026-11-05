@@ -43,7 +43,7 @@ export default function BTTSPredictionsTomorrowPage() {
               Comment accéder aux pronostics BTTS de demain ?
             </h2>
             <p className="text-sm text-[#9DABBB] leading-relaxed mb-3">
-              Les pronostics de demain sont disponibles sur la page <Link href="/btts/predictions/today" className="text-[#2F7DFF] underline">Pronostics du jour</Link> dès qu'ils sont publiés par le moteur. La page est mise à jour automatiquement 4 fois par jour via GitHub Actions.
+              Les pronostics de demain sont disponibles sur la page <Link href="/btts/predictions/today" className="text-[#2F7DFF] underline">Pronostics du jour</Link> dès leur publication.
             </p>
             <p className="text-sm text-[#9DABBB] leading-relaxed">
               Vous pouvez filtrer par date (aujourd'hui, demain, 7 jours) directement sur la page des pronostics.

@@ -180,18 +180,18 @@ export default function HistoriqueClient() {
             <div className="p-5 rounded-2xl" style={{ backgroundColor: '#141C25', border: '1px solid #223041' }}>
               <div className="text-xs uppercase tracking-wider text-[#9DABBB] font-bold mb-2">{t.rateGlobal}</div>
               <div className="text-3xl font-bold text-[#F2F6FA] mb-1">{stats.rate}%</div>
-              <div className="text-xs text-[#9DABBB]">{stats.won} {t.winShort} · {stats.lost} {t.loseShort} · {stats.total} {t.verifiedWord}</div>
+              <div className="text-xs text-[#9DABBB]"><span className="tracking-win-text">{stats.won} {t.winShort}</span> · {stats.lost} {t.loseShort} · {stats.total} {t.verifiedWord}</div>
             </div>
             <div className="p-5 rounded-2xl" style={{ backgroundColor: '#141C25', border: '1px solid #223041' }}>
               <div className="text-xs uppercase tracking-wider text-[#9DABBB] font-bold mb-2">BTTS</div>
               <div className="text-3xl font-bold text-[#2F7DFF] mb-1">{stats.byType.btts.rate}%</div>
-              <div className="text-xs text-[#9DABBB]">{stats.byType.btts.won} {t.winShort} · {stats.byType.btts.lost} {t.loseShort} · {stats.byType.btts.total} {t.verifiedWord}</div>
+              <div className="text-xs text-[#9DABBB]"><span className="tracking-win-text">{stats.byType.btts.won} {t.winShort}</span> · {stats.byType.btts.lost} {t.loseShort} · {stats.byType.btts.total} {t.verifiedWord}</div>
             </div>
             <div className="p-5 rounded-2xl" style={{ backgroundColor: '#141C25', border: '1px solid #223041' }}>
               <div className="text-xs uppercase tracking-wider text-[#9DABBB] font-bold mb-2">Over 2.5</div>
               <div className="text-3xl font-bold text-[#2F7DFF] mb-1">{stats.byType.over25.rate}%</div>
               <div className="text-xs text-[#9DABBB]">
-                {stats.byType.over25.won} {t.winShort} · {stats.byType.over25.lost} {t.loseShort} · {stats.byType.over25.total} {t.verifiedWord}
+                <span className="tracking-win-text">{stats.byType.over25.won} {t.winShort}</span> · {stats.byType.over25.lost} {t.loseShort} · {stats.byType.over25.total} {t.verifiedWord}
                 {stats.byType.over25.total > 0 && stats.byType.over25.total < 30 && (
                   <span className="ml-2 px-1.5 py-0.5 rounded text-[12px]" style={{ backgroundColor: 'rgba(251,191,36,0.12)', color: '#FBBF24' }}>
                     {lang === 'fr' ? 'échantillon faible' : lang === 'en' ? 'small sample' : 'عينة صغيرة'}
@@ -275,9 +275,9 @@ export default function HistoriqueClient() {
                       <td className="py-2 px-3 text-center text-[#9DABBB]">{h.finalScore}</td>
                       <td className="py-2 px-3 text-center">
                         {isWon ? (
-                          <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-full text-xs font-bold"
+                          <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-full text-xs font-bold tracking-win-badge"
                             style={{ backgroundColor: 'rgba(52, 211, 153, 0.13)', color: '#34D399' }}>
-                            <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ backgroundColor: '#34D399' }} aria-hidden="true" />
+                            <span className="inline-block w-1.5 h-1.5 rounded-full tracking-win-dot" style={{ backgroundColor: '#34D399' }} aria-hidden="true" />
                             {t.wonBadge}
                           </span>
                         ) : isLost ? (

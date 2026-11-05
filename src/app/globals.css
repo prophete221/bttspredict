@@ -11207,14 +11207,8 @@ body { background-color: #0a111a !important; color: #f1efe8; }
 }
 
 @media (max-width: 767px) {
-  .promo-sticky-mobile-cta {
-    bottom: calc(70px + env(safe-area-inset-bottom, 0px)) !important;
-    background: rgba(16, 26, 37, 0.98) !important;
-    border-top-color: rgba(219, 230, 234, 0.16) !important;
-    padding-bottom: 0.65rem !important;
-  }
   .promo-shell > main.promo-main {
-    padding-bottom: calc(154px + env(safe-area-inset-bottom, 0px)) !important;
+    padding-bottom: calc(44px + env(safe-area-inset-bottom, 0px)) !important;
   }
   .page-design--over25 #main-content,
   .page-design--score-exact #main-content,
@@ -11393,4 +11387,289 @@ body { background-color: #0a111a !important; color: #f1efe8; }
 
 @media (min-width: 640px) {
   #btts-today-dashboard .btx-stats { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+}
+
+
+/* Résultats de suivi : un pari gagné reste vert dans toutes les palettes du site. */
+#main-content .tracking-win-text {
+  color: #34D399 !important;
+  -webkit-text-fill-color: #34D399 !important;
+  text-shadow: none !important;
+}
+#main-content .tracking-win-badge {
+  color: #34D399 !important;
+  -webkit-text-fill-color: #34D399 !important;
+  background-color: rgba(52, 211, 153, 0.12) !important;
+  border: 1px solid rgba(52, 211, 153, 0.34) !important;
+  text-shadow: none !important;
+}
+#main-content .tracking-win-dot,
+#main-content .tracking-win-fill {
+  background-color: #34D399 !important;
+}
+#main-content .tracking-win-svg-stroke { stroke: #34D399 !important; }
+#main-content .tracking-win-svg-fill { fill: #34D399 !important; }
+#main-content .hp-kpi.is-won .hp-kpi__value {
+  color: #34D399 !important;
+  -webkit-text-fill-color: #34D399 !important;
+}
+#main-content .rv-row--win:hover { box-shadow: inset 3px 0 0 #34D399 !important; }
+[dir='rtl'] #main-content .rv-row--win:hover { box-shadow: inset -3px 0 0 #34D399 !important; }
+
+
+/* Modal d’accès VIP : parcours manuel à sept étapes. */
+.vip-access-flow__close {
+  position: absolute;
+  inset-block-start: 12px;
+  inset-inline-end: 12px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(205, 221, 226, .25);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .05);
+  color: #F2F6FA;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.vip-access-flow__badge {
+  display: grid;
+  place-items: center;
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(52, 211, 153, .3);
+  border-radius: 13px;
+  background: rgba(52, 211, 153, .1);
+  color: #6EE7B7;
+}
+.vip-access-flow__partner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  min-height: 62px;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 14px;
+  color: #F2F6FA;
+  text-align: start;
+  cursor: pointer;
+  transition: border-color .16s ease, background-color .16s ease, transform .16s ease;
+}
+.vip-access-flow__partner:hover { border-color: rgba(125, 181, 255, .6) !important; transform: translateY(-1px); }
+.vip-access-flow__partner:focus-visible,
+.vip-access-flow__close:focus-visible,
+.vip-access-flow__primary:focus-visible,
+.vip-access-flow__secondary:focus-visible,
+.vip-access-flow__code:focus-visible,
+.vip-access-flow__whatsapp:focus-visible { outline: 2px solid #7DB5FF; outline-offset: 3px; }
+.vip-access-flow__partner img {
+  flex: 0 0 42px;
+  width: 42px;
+  height: 32px;
+  object-fit: contain;
+  border-radius: 5px;
+}
+.vip-access-flow__partner-name { font-size: .9rem; font-weight: 750; }
+.vip-access-flow__priority {
+  margin-inline-start: auto;
+  color: #9EC5FF;
+  font-size: .61rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.vip-access-flow__check { margin-inline-start: auto; color: #6EE7B7; font-weight: 900; }
+.vip-access-flow__code {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  margin-block-start: 16px;
+  padding: 16px;
+  border: 1px dashed rgba(125, 181, 255, .55);
+  border-radius: 14px;
+  background: rgba(125, 181, 255, .08);
+  color: #F2F6FA;
+  text-align: start;
+  cursor: pointer;
+}
+.vip-access-flow__text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-block-start: 12px;
+  color: #9EC5FF;
+  font-size: .8rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.vip-access-flow__checkrow {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-block-start: 18px;
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 13px;
+  background: rgba(255, 255, 255, .035);
+  color: #E1E8EF;
+  font-size: .82rem;
+  line-height: 1.5;
+  cursor: pointer;
+}
+.vip-access-flow__checkrow input { flex: 0 0 auto; width: 17px; height: 17px; margin-block-start: 1px; accent-color: #34D399; }
+.vip-access-flow__field-label { display: block; margin-block-start: 18px; color: #D5DFE9; font-size: .8rem; font-weight: 700; }
+.vip-access-flow__input {
+  display: block;
+  width: 100%;
+  min-height: 48px;
+  margin-block-start: 8px;
+  padding: 12px 14px;
+  border: 1px solid rgba(205, 221, 226, .24);
+  border-radius: 12px;
+  background: rgba(4, 9, 15, .55);
+  color: #F2F6FA;
+  font-size: 16px;
+}
+.vip-access-flow__input::placeholder { color: #8797A8; }
+.vip-access-flow__input:focus-visible { outline: 2px solid #7DB5FF; outline-offset: 2px; border-color: transparent; }
+.vip-access-flow__summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-block-start: 14px;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, .035);
+  color: #C6D1DC;
+  font-size: .74rem;
+}
+.vip-access-flow__summary span:last-child { grid-column: 1 / -1; }
+.vip-access-flow__whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  min-height: 48px;
+  margin-block-start: 14px;
+  padding: 12px 16px;
+  border: 1px solid rgba(110, 231, 183, .45);
+  border-radius: 12px;
+  background: #087C5B;
+  color: white;
+  font-size: .9rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+.vip-access-flow__whatsapp:hover { background: #07936A; }
+.vip-access-flow__manual {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  margin-block-start: 20px;
+  padding: 18px;
+  border: 1px solid rgba(110, 231, 183, .22);
+  border-radius: 14px;
+  background: rgba(52, 211, 153, .07);
+  text-align: center;
+}
+.vip-access-flow__manual > span { display: grid; place-items: center; color: #6EE7B7; }
+.vip-access-flow__manual > span svg { width: 26px; height: 26px; }
+.vip-access-flow__manual strong { color: #D8F6E7; font-size: .92rem; }
+.vip-access-flow__manual small { color: #AAB7C5; font-size: .75rem; line-height: 1.5; }
+.vip-access-flow__primary,
+.vip-access-flow__secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 10px 16px;
+  border-radius: 11px;
+  font-size: .83rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+.vip-access-flow__primary { border: 1px solid rgba(125, 181, 255, .45); background: #2167B4; color: #fff; }
+.vip-access-flow__primary:disabled { cursor: not-allowed; }
+.vip-access-flow__secondary { border: 1px solid rgba(205, 221, 226, .2); background: transparent; color: #D2DCE5; }
+@media (max-width: 420px) {
+  .vip-access-flow__priority { font-size: .55rem; }
+  .vip-access-flow__partner { gap: 7px; padding: 9px 8px; }
+  .vip-access-flow__partner img { flex-basis: 34px; width: 34px; height: 29px; }
+  .vip-access-flow__partner-name { font-size: .8rem; }
+  .vip-access-flow__code { align-items: flex-start; flex-direction: column; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vip-access-flow__partner { transition: none; }
+  .vip-access-flow__partner:hover { transform: none; }
+}
+
+
+/* Contraste renforcé du panneau partenaire de l’accueil. */
+.hp-partner__intro > span:first-child {
+  color: #F2F6FA !important;
+  background: #1A2938 !important;
+  border-color: #70869A !important;
+}
+.hp-partner__eyebrow,
+.hp-partner__brand { color: #79D8EE !important; }
+.hp-partner__text { color: #E0E8F0 !important; }
+.hp-partner__free,
+.hp-partner__mentions { color: #C5D0DB !important; }
+.hp-partner__mentions { font-size: 0.78rem !important; }
+.hp-partner .hp-partner__actions a[data-cta="partner-signup-home-1xbet"] {
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  background: linear-gradient(135deg, #174E75, #123957) !important;
+  background-color: #174E75 !important;
+  border: 1px solid #8BCBEA !important;
+  box-shadow: 0 8px 22px rgba(10, 55, 86, 0.42) !important;
+}
+.hp-partner .hp-partner__actions a[data-cta="home-partner-linebet-signup"] {
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  background: linear-gradient(135deg, #1E4F91, #163963) !important;
+  background-color: #1E4F91 !important;
+  border: 1px solid #9AC8FF !important;
+  box-shadow: 0 8px 22px rgba(17, 57, 111, 0.38) !important;
+}
+.hp-partner .hp-partner__actions a[data-cta="partner-signup-home-1xbet"] *,
+.hp-partner .hp-partner__actions a[data-cta="home-partner-linebet-signup"] * {
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+}
+.hp-partner .hp-partner__actions a[data-cta="home-partner-melbet-signup"],
+.hp-partner .hp-partner__actions a[data-cta="home-partner-888starz-signup"] {
+  color: #F2F6FA !important;
+  background: #182634 !important;
+  border-color: #60768A !important;
+}
+.hp-partner .hp-partner__actions a[data-cta="home-partner-melbet-signup"] *,
+.hp-partner .hp-partner__actions a[data-cta="home-partner-888starz-signup"] * {
+  color: #F2F6FA !important;
+  -webkit-text-fill-color: #F2F6FA !important;
+}
+/* Le lien « Guide promo » héritait d'un fond noir (#151515) de l'ancienne règle
+   .hp-partner__actions a : on le remet à plat sur la carte, en bleu clair lisible. */
+.hp-partner .hp-partner__actions a[data-cta="home-partner-1xbet-link"] {
+  background: transparent !important;
+  border: 0 !important;
+  padding: 0 !important;
+  color: #9CC6FF !important;
+  -webkit-text-fill-color: #9CC6FF !important;
+  text-decoration-color: currentColor !important;
+}
+.hp-partner .hp-partner__actions a[data-cta="home-partner-1xbet-link"]:hover {
+  color: #C7DEFF !important;
+  -webkit-text-fill-color: #C7DEFF !important;
 }

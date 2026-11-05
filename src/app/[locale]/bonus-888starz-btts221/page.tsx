@@ -19,10 +19,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params
   const isEnglish = locale === 'en'
   if (!isEnglish && locale !== 'ar') notFound()
-  const title = isEnglish ? '888Starz Promo Code btts221 · 300% Worldwide' : 'رمز 888Starz btts221 · 300% حول العالم'
+  const title = isEnglish ? '888Starz btts221 Promo Code for a 300% Worldwide Bonus' : 'رمز 888Starz btts221 الترويجي وعرض عالمي بنسبة 300%'
   const description = isEnglish
-    ? '888Starz promo code btts221: 300% worldwide, more cashback and weekly bonuses. 18+.'
-    : 'رمز 888Starz الترويجي btts221: مكافأة 300% حول العالم، مع استرداد نقدي أكبر ومكافآت أسبوعية. +18.'
+    ? '888Starz btts221 promo code for its 300% worldwide offer, plus extra cashback and weekly bonuses. 18+. Please gamble responsibly.'
+    : 'رمز 888Starz btts221 الترويجي لعرض 300% المتاح عالميًا، مع استرداد نقدي إضافي ومكافآت أسبوعية. للبالغين 18+، والعب بمسؤولية.'
   return {
     title,
     description,
@@ -39,10 +39,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 function localizedStructuredData(lang: LocalizedLang) {
   const pageUrl = lang === 'en' ? EN_URL : AR_URL
-  const title = lang === 'en' ? '888Starz btts221 · 300% Worldwide' : '888Starz btts221 · 300% حول العالم'
+  const title = lang === 'en' ? '888Starz btts221 Promo Code for a 300% Worldwide Bonus' : 'رمز 888Starz btts221 الترويجي وعرض عالمي بنسبة 300%'
   const description = lang === 'en'
-    ? '888Starz promo code btts221: 300% worldwide, more cashback and weekly bonuses.'
-    : 'رمز 888Starz الترويجي btts221: مكافأة 300% حول العالم، مع استرداد نقدي أكبر ومكافآت أسبوعية.'
+    ? '888Starz btts221 promo code for its 300% worldwide offer, plus extra cashback and weekly bonuses. 18+. Please gamble responsibly.'
+    : 'رمز 888Starz btts221 الترويجي لعرض 300% المتاح عالميًا، مع استرداد نقدي إضافي ومكافآت أسبوعية. للبالغين 18+، والعب بمسؤولية.'
   const faq = buildPromoFaqJsonLd('888starz', lang)
   return [
     {

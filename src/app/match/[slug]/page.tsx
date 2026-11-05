@@ -276,8 +276,8 @@ function StatusBadge({ kind, label }: { kind: 'won' | 'lost' | 'pending'; label:
       ? { backgroundColor: 'rgba(248, 113, 113, 0.13)', color: '#F87171' }
       : { backgroundColor: 'rgba(251, 191, 36, 0.12)', color: '#FBBF24' }
   return (
-    <div className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-bold" style={palette}>
-      <span className="inline-block h-1.5 w-1.5 rounded-full" style={{ backgroundColor: palette.color }} aria-hidden="true" />
+    <div className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-bold${kind === 'won' ? ' tracking-win-badge' : ''}`} style={palette}>
+      <span className={`inline-block h-1.5 w-1.5 rounded-full${kind === 'won' ? ' tracking-win-dot' : ''}`} style={{ backgroundColor: palette.color }} aria-hidden="true" />
       {label}
     </div>
   )

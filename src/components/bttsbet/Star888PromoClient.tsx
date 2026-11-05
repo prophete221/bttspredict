@@ -29,9 +29,9 @@ const COPY: Record<Lang, {
   fr: {
     dir: 'ltr',
     badge: 'OFFRE 888STARZ',
-    title: 'Meilleur code promo 888Starz',
-    positioning: 'Plus de cashback et des bonus hebdomadaires',
-    offer: '300 % worldwide',
+    title: 'Code promo 888Starz btts221 pour l’offre mondiale à 300 %',
+    positioning: 'Plus de cashback et des bonus hebdomadaires.',
+    offer: 'Offre mondiale à 300 %',
     codeLabel: 'Code promo',
     copy: 'Copier le code',
     copied: 'Code copié',
@@ -44,9 +44,9 @@ const COPY: Record<Lang, {
   en: {
     dir: 'ltr',
     badge: '888STARZ OFFER',
-    title: 'Best 888Starz promo code',
-    positioning: 'More cashback and weekly bonuses',
-    offer: '300% worldwide',
+    title: '888Starz Promo Code btts221 for a 300% Worldwide Offer',
+    positioning: 'Extra cashback and weekly bonuses.',
+    offer: '300% Worldwide Offer',
     codeLabel: 'Promo code',
     copy: 'Copy code',
     copied: 'Code copied',
@@ -59,9 +59,9 @@ const COPY: Record<Lang, {
   ar: {
     dir: 'rtl',
     badge: 'عرض 888Starz',
-    title: 'أفضل رمز ترويجي لـ 888Starz',
-    positioning: 'استرداد نقدي أكبر ومكافآت أسبوعية',
-    offer: '300% حول العالم',
+    title: 'رمز 888Starz الترويجي btts221 لعرض عالمي بنسبة 300%',
+    positioning: 'استرداد نقدي إضافي ومكافآت أسبوعية.',
+    offer: 'عرض عالمي بنسبة 300%',
     codeLabel: 'الرمز الترويجي',
     copy: 'نسخ الرمز',
     copied: 'تم نسخ الرمز',
@@ -73,14 +73,40 @@ const COPY: Record<Lang, {
   },
 }
 
+const CODE_COPY: Record<Lang, Pick<typeof COPY.fr, 'title' | 'positioning' | 'offer'>> = {
+  fr: {
+    title: 'Découvrez le code promo 888Starz btts221 et l’offre mondiale à 300 %',
+    positioning: 'Retrouvez le code exact et les détails de l’offre 888Starz annoncée dans le monde entier.',
+    offer: 'Bonus mondial de 300 %',
+  },
+  en: {
+    title: 'Explore the 888Starz btts221 Promo Code and 300% Worldwide Offer',
+    positioning: 'Find the exact code and details of 888Starz’s worldwide promotion.',
+    offer: '300% Worldwide Bonus',
+  },
+  ar: {
+    title: 'اكتشف رمز 888Starz الترويجي btts221 والعرض العالمي بنسبة 300%',
+    positioning: 'تعرّف على الرمز الدقيق وتفاصيل عرض 888Starz المتاح عالميًا.',
+    offer: 'عرض عالمي بنسبة 300%',
+  },
+}
+
+function titleWithCode(title: string) {
+  const index = title.indexOf(CODE)
+  if (index < 0) return title
+  return <>{title.slice(0, index)}<bdi dir="ltr">{CODE}</bdi>{title.slice(index + CODE.length)}</>
+}
+
 export default function Star888PromoClient({
   lang = 'fr',
   showDownload = false,
+  variant = 'general',
 }: {
   lang?: Lang
   showDownload?: boolean
+  variant?: 'general' | 'code'
 }) {
-  const copy = COPY[lang]
+  const copy = variant === 'code' ? { ...COPY[lang], ...CODE_COPY[lang] } : COPY[lang]
   const [copied, setCopied] = useState(false)
   const [copyFailed, setCopyFailed] = useState(false)
 
@@ -122,8 +148,8 @@ export default function Star888PromoClient({
               </span>
             </div>
 
-            <h1 id="star888-title" className="mt-8 text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl">
-              {copy.title}
+            <h1 id="star888-title" className="mt-8 max-w-full break-words text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl [overflow-wrap:anywhere]">
+              {titleWithCode(copy.title)}
             </h1>
             <p className="mt-2 text-base font-semibold leading-7 text-[#B9CDD2] sm:text-lg">{copy.positioning}</p>
 

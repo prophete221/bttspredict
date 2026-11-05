@@ -27,14 +27,14 @@ export default function XbetClient(_props: { reviewDate?: string } = {}) {
       signupUrl={AFFILIATE.oneXbet}
       downloadUrl={AFFILIATE.oneXbetDownload}
       lang="fr"
-      title={`Meilleur code promo ${BRAND} · cashback et bonus hebdomadaires`}
+      title="Code promo 1xBet vipbtts : offre mondiale à 300 %"
       badge="OFFRE 1XBET"
-      intro="Bonus 300 % worldwide, davantage de cashback et des bonus hebdomadaires. Code exact : vipbtts"
-      offerHeadline="300 % worldwide"
-      offerSub="300 % worldwide, avec davantage de cashback et des bonus hebdomadaires."
-      benefits={['300 % worldwide', 'Plus de cashback et bonus hebdomadaires', 'Code exact : vipbtts', 'Lien 1xBet']}
+      intro="Découvrez l’offre 1xBet de 300 %, annoncée dans le monde entier, avec le code vipbtts"
+      offerHeadline="Offre mondiale à 300 %"
+      offerSub="Plus de cashback et des bonus hebdomadaires."
+      benefits={['Offre mondiale à 300 %', 'Plus de cashback et des bonus hebdomadaires', 'Code exact vipbtts', 'Lien 1xBet']}
       steps={[
-        { n: '01', title: 'Ouvre 1xBet', desc: 'Utilise le lien affiché sur cette page.' },
+        { n: '01', title: 'Consulter 1xBet', desc: 'Ouvrez 1xBet via le lien affiché sur cette page.' },
         { n: '02', title: 'Code promo', desc: 'Code exact : vipbtts' },
       ]}
       faq={getPromoFaq('1xbet', 'fr')}
