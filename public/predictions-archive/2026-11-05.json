@@ -8090,7 +8090,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 3.9 · N 3.45 · 2 2 · O2.5 1.95"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 3.9 · N 3.45 · 2 2 · O2.5 1.95",
+      "status": "PENDING"
     },
     {
       "id": "toulouse-vs-strasbou-2026-11-06",
@@ -8517,7 +8518,8 @@
       "ai_source": "local-empirical-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.4 · N 3.7 · 2 2.75 · O2.5 1.65"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.4 · N 3.7 · 2 2.75 · O2.5 1.65",
+      "status": "PENDING"
     },
     {
       "id": "dynamodr-vs-spvgggre-2026-11-06",
@@ -8937,7 +8939,8 @@
       "ai_source": "local-empirical-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 6.5 · N 6 · 2 1.32"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 6.5 · N 6 · 2 1.32",
+      "status": "PENDING"
     },
     {
       "id": "adodenha-vs-spartaro-2026-11-07",
@@ -9149,7 +9152,8 @@
       "ai_source": "local-empirical-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.45 · N 3.5 · 2 2.6 · O2.5 1.53"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.45 · N 3.5 · 2 2.6 · O2.5 1.53",
+      "status": "PENDING"
     },
     {
       "id": "svjoskor-vs-lasklinz-2026-11-07",
@@ -9781,7 +9785,8 @@
       "ai_source": "local-empirical-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "raallalo-vs-cerclebr-2026-11-07",
@@ -10200,7 +10205,8 @@
       "ai_source": "local-empirical-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.1 · N 4.3 · 2 1.65"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.1 · N 4.3 · 2 1.65",
+      "status": "PENDING"
     },
     {
       "id": "realsalt-vs-lagalaxy-2026-11-08",
@@ -10412,7 +10418,8 @@
       "ai_source": "local-empirical-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.61 · N 4.3 · 2 4.4"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.61 · N 4.3 · 2 4.4",
+      "status": "PENDING"
     },
     {
       "id": "sandiego-vs-sporting-2026-11-08",
@@ -10624,7 +10631,8 @@
       "ai_source": "local-empirical-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.44 · N 5 · 2 5.25"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.44 · N 5 · 2 5.25",
+      "status": "PENDING"
     },
     {
       "id": "scfreibu-vs-fcunionb-2026-11-08",
@@ -10838,6 +10846,222 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.49 · N 4.2 · 2 5.5 · O2.5 1.61",
+      "status": "PENDING"
+    },
+    {
+      "id": "realsoci-vs-lyon-2026-11-05",
+      "match": "Real Sociedad vs Lyon",
+      "home": "Real Sociedad",
+      "away": "Lyon",
+      "league": "UEFA Europa League",
+      "date": "2026-11-05",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.6,
+      "bttsProbDisplay": "60.00%",
+      "over25ProbDisplay": "80.00%",
+      "confidence": 60,
+      "time": "17:45",
+      "matchSemantic": "realsoci-vs-lyon-2026-11-05",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/89.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/167.png",
+      "tier": "GOLD",
+      "reliabilityScore": 76.25,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.4,
+      "xgAway": 0.75,
+      "xgTotal": 2.15,
+      "formBTTS": 60,
+      "analysis": "Real Sociedad : forme V-V-V-V-D (4V 0N 1D, 13 buts marqués / 10 encaissés sur 5) · Lyon : forme D-V-D-V-N (2V 1N 2D, 7 buts marqués / 5 encaissés sur 5). Classement : Real Sociedad 14e (4 pts), Lyon 12e (6 pts). Stats empiriques (forme récente) : buts moy. 2.15, BTTS 60.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.91 / N: 3.85 / 2: 3.55 · Over 2.5: 1.56. Fiabilité 76.25%.",
+      "analysisData": {
+        "bttsProb": 0.6,
+        "over25Prob": 0.8,
+        "homeLambda": 1.4,
+        "awayLambda": 0.75,
+        "xgTotal": 2.15
+      },
+      "estimatedCote": 1.67,
+      "estimatedCoteOver": 1.25,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.91,
+        "draw": 3.85,
+        "away": 3.55,
+        "over25": 1.56,
+        "under25": 2.4
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.67,
+      "formHome": {
+        "last5String": "V-V-V-V-D",
+        "wins": 4,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 13,
+        "goalsAgainst": 10,
+        "bttsRate": 0.8,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-V-D-V-N",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 7,
+        "goalsAgainst": 5,
+        "bttsRate": 0.4,
+        "over25Rate": 0.6,
+        "cleanSheets": 2,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-01",
+          "opponent": "Athletic Club",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Levante",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Málaga",
+          "venue": "A",
+          "score": "5-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Deportivo",
+          "venue": "H",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Valencia",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-01",
+          "opponent": "Angers",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-26",
+          "opponent": "Paris Saint-Germain",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Nice",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-09",
+          "opponent": "Lens",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Stade Rennais",
+          "venue": "H",
+          "score": "4-0",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 14,
+        "points": 4,
+        "played": 3,
+        "gf": 8,
+        "ga": 3
+      },
+      "standingsAway": {
+        "rank": 12,
+        "points": 6,
+        "played": 3,
+        "gf": 5,
+        "ga": 6
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 65,
+          "bttsProb": 0.65,
+          "homeLambda": 1.4,
+          "awayLambda": 0.75,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.65
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 65,
+          "over25Prob": 0.725,
+          "homeLambda": 1.4,
+          "awayLambda": 0.75,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.725
+        }
+      ],
+      "bttsProb": 0.65,
+      "over25Prob": 0.725,
+      "homeLambda": 1.4,
+      "awayLambda": 0.75,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Real Sociedad présente un taux Over 2.5 de 100% sur ses 8 derniers matchs.",
+      "ai_analysis": "Real Sociedad affiche des statistiques offensives très tranchantes avec un taux Over 2.5 de 100% et un taux BTTS de 80% sur ses 8 derniers matchs, malgré une défense perméable (10 buts encaissés). De son côté, Lyon montre des dispositions plus prudentes mais possède des ressources suffisantes pour inquiéter l'arrière-garde basque. L'analyse combinée des taux empiriques (BTTS à 60% et Over à 80%) oriente vers une rencontre ouverte où les deux marchés présentent de solides arguments statistiques.",
+      "ai_analysis_en": "Real Sociedad shows very sharp offensive statistics with a 100% Over 2.5 rate and an 80% BTTS rate over their last 8 matches, despite a permeable defense (10 goals conceded). Meanwhile, Lyon displays a more cautious approach but has enough resources to trouble the Basque defense. The combined analysis of empirical rates (60% BTTS and 80% Over) points towards an open encounter where both markets present solid statistical backing.",
+      "ai_form_summary": "Real Sociedad: 4V, 0N, 1D (13 buts pour, 10 buts contre). Lyon: 2V, 1N, 2D (7 buts pour, 5 buts contre).",
+      "ai_form_summary_en": "Real Sociedad: 4W, 0D, 1L (13 goals for, 10 goals against). Lyon: 2W, 1D, 2L (7 goals for, 5 goals against).",
+      "ai_reasons": [
+        "Taux Over 2.5 empirique élevé à 80% sur la base des échantillons.",
+        "Taux BTTS de Real Sociedad à domicile atteignant 80% avec une moyenne de 1.4 but marqué.",
+        "Taux BTTS global empirique de 60% soutenu par des dynamiques offensives régulières."
+      ],
+      "ai_risks": [
+        "Le taux BTTS de Lyon à l'extérieur est limité à 40%.",
+        "La moyenne de buts encaissés par Lyon à l'extérieur n'est que de 0.75 par match."
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "BOTH",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.91 · N 3.85 · 2 3.55 · O2.5 1.56",
       "status": "PENDING"
     }
   ],
@@ -21692,6 +21916,222 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.49 · N 4.2 · 2 5.5 · O2.5 1.61",
+      "status": "PENDING"
+    },
+    {
+      "id": "realsoci-vs-lyon-2026-11-05",
+      "match": "Real Sociedad vs Lyon",
+      "home": "Real Sociedad",
+      "away": "Lyon",
+      "league": "UEFA Europa League",
+      "date": "2026-11-05",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.6,
+      "bttsProbDisplay": "60.00%",
+      "over25ProbDisplay": "80.00%",
+      "confidence": 60,
+      "time": "17:45",
+      "matchSemantic": "realsoci-vs-lyon-2026-11-05",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/89.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/167.png",
+      "tier": "GOLD",
+      "reliabilityScore": 76.25,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.4,
+      "xgAway": 0.75,
+      "xgTotal": 2.15,
+      "formBTTS": 60,
+      "analysis": "Real Sociedad : forme V-V-V-V-D (4V 0N 1D, 13 buts marqués / 10 encaissés sur 5) · Lyon : forme D-V-D-V-N (2V 1N 2D, 7 buts marqués / 5 encaissés sur 5). Classement : Real Sociedad 14e (4 pts), Lyon 12e (6 pts). Stats empiriques (forme récente) : buts moy. 2.15, BTTS 60.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.91 / N: 3.85 / 2: 3.55 · Over 2.5: 1.56. Fiabilité 76.25%.",
+      "analysisData": {
+        "bttsProb": 0.6,
+        "over25Prob": 0.8,
+        "homeLambda": 1.4,
+        "awayLambda": 0.75,
+        "xgTotal": 2.15
+      },
+      "estimatedCote": 1.67,
+      "estimatedCoteOver": 1.25,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.91,
+        "draw": 3.85,
+        "away": 3.55,
+        "over25": 1.56,
+        "under25": 2.4
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.67,
+      "formHome": {
+        "last5String": "V-V-V-V-D",
+        "wins": 4,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 13,
+        "goalsAgainst": 10,
+        "bttsRate": 0.8,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-V-D-V-N",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 7,
+        "goalsAgainst": 5,
+        "bttsRate": 0.4,
+        "over25Rate": 0.6,
+        "cleanSheets": 2,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-01",
+          "opponent": "Athletic Club",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Levante",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Málaga",
+          "venue": "A",
+          "score": "5-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Deportivo",
+          "venue": "H",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Valencia",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-01",
+          "opponent": "Angers",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-26",
+          "opponent": "Paris Saint-Germain",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Nice",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-09",
+          "opponent": "Lens",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Stade Rennais",
+          "venue": "H",
+          "score": "4-0",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 14,
+        "points": 4,
+        "played": 3,
+        "gf": 8,
+        "ga": 3
+      },
+      "standingsAway": {
+        "rank": 12,
+        "points": 6,
+        "played": 3,
+        "gf": 5,
+        "ga": 6
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 65,
+          "bttsProb": 0.65,
+          "homeLambda": 1.4,
+          "awayLambda": 0.75,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.65
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 65,
+          "over25Prob": 0.725,
+          "homeLambda": 1.4,
+          "awayLambda": 0.75,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.725
+        }
+      ],
+      "bttsProb": 0.65,
+      "over25Prob": 0.725,
+      "homeLambda": 1.4,
+      "awayLambda": 0.75,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Real Sociedad présente un taux Over 2.5 de 100% sur ses 8 derniers matchs.",
+      "ai_analysis": "Real Sociedad affiche des statistiques offensives très tranchantes avec un taux Over 2.5 de 100% et un taux BTTS de 80% sur ses 8 derniers matchs, malgré une défense perméable (10 buts encaissés). De son côté, Lyon montre des dispositions plus prudentes mais possède des ressources suffisantes pour inquiéter l'arrière-garde basque. L'analyse combinée des taux empiriques (BTTS à 60% et Over à 80%) oriente vers une rencontre ouverte où les deux marchés présentent de solides arguments statistiques.",
+      "ai_analysis_en": "Real Sociedad shows very sharp offensive statistics with a 100% Over 2.5 rate and an 80% BTTS rate over their last 8 matches, despite a permeable defense (10 goals conceded). Meanwhile, Lyon displays a more cautious approach but has enough resources to trouble the Basque defense. The combined analysis of empirical rates (60% BTTS and 80% Over) points towards an open encounter where both markets present solid statistical backing.",
+      "ai_form_summary": "Real Sociedad: 4V, 0N, 1D (13 buts pour, 10 buts contre). Lyon: 2V, 1N, 2D (7 buts pour, 5 buts contre).",
+      "ai_form_summary_en": "Real Sociedad: 4W, 0D, 1L (13 goals for, 10 goals against). Lyon: 2W, 1D, 2L (7 goals for, 5 goals against).",
+      "ai_reasons": [
+        "Taux Over 2.5 empirique élevé à 80% sur la base des échantillons.",
+        "Taux BTTS de Real Sociedad à domicile atteignant 80% avec une moyenne de 1.4 but marqué.",
+        "Taux BTTS global empirique de 60% soutenu par des dynamiques offensives régulières."
+      ],
+      "ai_risks": [
+        "Le taux BTTS de Lyon à l'extérieur est limité à 40%.",
+        "La moyenne de buts encaissés par Lyon à l'extérieur n'est que de 0.75 par match."
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "BOTH",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.91 · N 3.85 · 2 3.55 · O2.5 1.56",
       "status": "PENDING"
     }
   ],
