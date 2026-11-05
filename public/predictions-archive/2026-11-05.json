@@ -13135,7 +13135,8 @@
       "ai_source": "local-empirical-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.25 · N 3.75 · 2 3"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.25 · N 3.75 · 2 3",
+      "status": "PENDING"
     },
     {
       "id": "hamburgs-vs-borussia-2026-11-06",
@@ -13340,7 +13341,8 @@
       "ai_source": "local-empirical-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     }
   ],
   "stats": {
