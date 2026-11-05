@@ -13343,6 +13343,579 @@
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
       "status": "PENDING"
+    },
+    {
+      "id": "tsveintr-vs-energiec-2026-11-06",
+      "match": "TSV Eintracht Braunschweig vs Energie Cottbus",
+      "home": "TSV Eintracht Braunschweig",
+      "away": "Energie Cottbus",
+      "league": "2. Bundesliga",
+      "date": "2026-11-06",
+      "type": "BTTS",
+      "time": "17:30",
+      "matchSemantic": "tsveintr-vs-energiec-2026-11-06",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3067.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/123.png",
+      "tier": "GOLD",
+      "reliabilityScore": 85,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2,
+      "xgAway": 2.25,
+      "xgTotal": 4.25,
+      "formBTTS": 60,
+      "analysis": "TSV Eintracht Braunschweig : forme D-V-D-V-D (2V 0N 3D, 4 buts marqués / 6 encaissés sur 5) · Energie Cottbus : forme D-N-N-D-N (0V 3N 2D, 5 buts marqués / 8 encaissés sur 5). Classement : TSV Eintracht Braunschweig 15e (10 pts), Energie Cottbus 14e (10 pts). Stats empiriques (forme récente) : buts moy. 4.25, BTTS 60.0%, Over 2.5 30.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.91 / N: 4 / 2: 3.45. Fiabilité 85%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.6,
+        "empiricalOver25Rate": 0.3,
+        "homeLambda": 2,
+        "awayLambda": 2.25,
+        "xgTotal": 4.25
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.91,
+        "draw": 4,
+        "away": 3.45,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-V-D-V-D",
+        "wins": 2,
+        "draws": 0,
+        "losses": 3,
+        "goalsFor": 4,
+        "goalsAgainst": 6,
+        "bttsRate": 0.2,
+        "over25Rate": 0.2,
+        "cleanSheets": 2,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-N-N-D-N",
+        "wins": 0,
+        "draws": 3,
+        "losses": 2,
+        "goalsFor": 5,
+        "goalsAgainst": 8,
+        "bttsRate": 1,
+        "over25Rate": 0.4,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-30",
+          "opponent": "Arminia Bielefeld",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Hannover 96",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "SpVgg Greuther Fürth",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-09",
+          "opponent": "Holstein Kiel",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Kaiserslautern",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-30",
+          "opponent": "VfL Bochum",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "1. FC Heidenheim 1846",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-16",
+          "opponent": "1. FC Nürnberg",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "SV Darmstadt 98",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "St. Pauli",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 15,
+        "points": 10,
+        "played": 10,
+        "gf": 16,
+        "ga": 18
+      },
+      "standingsAway": {
+        "rank": 14,
+        "points": 10,
+        "played": 10,
+        "gf": 18,
+        "ga": 20
+      },
+      "empiricalBttsRate": 0.6,
+      "empiricalOver25Rate": 0.3,
+      "homeLambda": 2,
+      "awayLambda": 2.25,
+      "statsOnly": true,
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "TSV Eintracht Braunschweig a un taux de BTTS de seulement 20% sur ses 5 derniers matchs.",
+      "ai_analysis": "Le profil statistique de ce match présente des contradictions notables entre les deux formations. Alors qu'Energie Cottbus affiche un taux de BTTS de 100% sur ses 5 derniers matchs, le TSV Eintracht Braunschweig n'est qu'à 20% avec un taux d'Over 2.5 faible à 0.30. En raison de ces signaux contradictoires et de seuils empiriques mitigés, la décision prudente est de s'abstenir.",
+      "ai_analysis_en": "The statistical profile of this match presents notable contradictions between the two sides. While Energie Cottbus exhibits a 100% BTTS rate over their last 5 matches, TSV Eintracht Braunschweig sits at just 20% with a low Over 2.5 rate of 0.30. Given these conflicting signals and low thresholds in key empirical markets, an abstention is recommended.",
+      "ai_form_summary": "Braunschweig : D-V-D-V-D (4 buts pour, 6 buts contre) | Cottbus : D-N-N-D-N (5 buts pour, 8 buts contre)",
+      "ai_form_summary_en": "Braunschweig: L-W-L-W-L (4 GF, 6 GA) | Cottbus: L-D-D-L-D (5 GF, 8 GA)",
+      "ai_reasons": [
+        "Taux d'Over 2.5 très faible à 0.30.",
+        "Taux de BTTS sur les 5 derniers matchs de Braunschweig à seulement 20%.",
+        "Faible production offensive récente de Braunschweig (4 buts en 5 matchs)."
+      ],
+      "ai_risks": [
+        "Le taux de BTTS de Cottbus sur les 5 derniers matchs est de 100%, créant une contradiction avec les stats de Braunschweig.",
+        "Moyennes de buts des deux équipes supérieures à 2.0 contrastant avec leurs taux Over 2.5 bas."
+      ],
+      "ai_confidence": "low",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "abstain"
+    },
+    {
+      "id": "orlandoc-vs-newengla-2026-11-07",
+      "match": "Orlando City SC vs New England Revolution",
+      "home": "Orlando City SC",
+      "away": "New England Revolution",
+      "league": "MLS",
+      "date": "2026-11-07",
+      "type": "BTTS",
+      "time": "21:00",
+      "matchSemantic": "orlandoc-vs-newengla-2026-11-07",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/12011.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/189.png",
+      "tier": "GOLD",
+      "reliabilityScore": 93.75,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 3,
+      "xgAway": 1.67,
+      "xgTotal": 4.67,
+      "formBTTS": 80,
+      "analysis": "Orlando City SC : forme D-N-N-V-N (1V 3N 1D, 11 buts marqués / 12 encaissés sur 5) · New England Revolution : forme D-V-V-V-V (4V 0N 1D, 10 buts marqués / 7 encaissés sur 5). Classement : Orlando City SC 9e (43 pts), New England Revolution 3e (58 pts). Stats empiriques (forme récente) : buts moy. 4.67, BTTS 80.0%, Over 2.5 90.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.95 / N: 4.1 / 2: 3.1. Fiabilité 93.75%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.8,
+        "empiricalOver25Rate": 0.9,
+        "homeLambda": 3,
+        "awayLambda": 1.67,
+        "xgTotal": 4.67
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.95,
+        "draw": 4.1,
+        "away": 3.1,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-N-N-V-N",
+        "wins": 1,
+        "draws": 3,
+        "losses": 1,
+        "goalsFor": 11,
+        "goalsAgainst": 12,
+        "bttsRate": 0.8,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-V-V-V-V",
+        "wins": 4,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 10,
+        "goalsAgainst": 7,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-31",
+          "opponent": "Charlotte FC",
+          "venue": "A",
+          "score": "0-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-29",
+          "opponent": "Chicago Fire FC",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "New York City FC",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "D.C. United",
+          "venue": "H",
+          "score": "4-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-14",
+          "opponent": "Toronto FC",
+          "venue": "A",
+          "score": "3-3",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-02",
+          "opponent": "Inter Miami CF",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-28",
+          "opponent": "Red Bull New York",
+          "venue": "H",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Philadelphia Union",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Chicago Fire FC",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-14",
+          "opponent": "FC Cincinnati",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 9,
+        "points": 43,
+        "played": 33,
+        "gf": 62,
+        "ga": 78
+      },
+      "standingsAway": {
+        "rank": 3,
+        "points": 58,
+        "played": 33,
+        "gf": 55,
+        "ga": 46
+      },
+      "empiricalBttsRate": 0.8,
+      "empiricalOver25Rate": 0.9,
+      "homeLambda": 3,
+      "awayLambda": 1.67,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Les deux équipes affichent un taux de BTTS de 80% dans leurs formes récentes respectives.",
+      "ai_analysis": "L'analyse des statistiques observées met en évidence une forte propension des deux formations à marquer et à concéder des buts. Orlando City présente un taux de BTTS de 80% tout comme New England Revolution sur leurs 5 derniers matchs. Avec des moyennes de buts respectives de 3 et 1.67 buts par match, l'indicateur empirique BTTS atteint 80%, justifiant pleinement une sélection favorable aux deux équipes marquent.",
+      "ai_analysis_en": "The analysis of observed statistics highlights a strong tendency for both teams to score and concede goals. Orlando City shows an 80% BTTS rate just like New England Revolution in their last 5 matches. With respective goal averages of 3 and 1.67 goals per match, the empirical BTTS indicator reaches 80%, fully justifying a selection favoring both teams to score.",
+      "ai_form_summary": "Orlando (1W-3D-1L, 11-12 buts) et New England (4W-0D-1L, 10-7 buts) affichent une excellente dynamique offensive.",
+      "ai_form_summary_en": "Orlando (1W-3D-1L, 11-12 goals) and New England (4W-0D-1L, 10-7 goals) display excellent offensive momentum.",
+      "ai_reasons": [
+        "Taux empirique BTTS global de 80% basé sur les échantillons fournis.",
+        "Taux de BTTS de 80% sur les 5 derniers matchs pour Orlando City et New England Revolution.",
+        "Moyennes de buts élevés avec Orlando à 3 buts/match et New England à 1.67 buts/match."
+      ],
+      "ai_risks": [
+        "La défense de New England encaisse relativement peu (46 buts en 33 matchs au classement général).",
+        "La cote à domicile est fixée à 1.95, indiquant un match potentiellement disputé."
+      ],
+      "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 74,
+          "proba": 0.74,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.74
+        }
+      ],
+      "bttsProb": 0.74,
+      "prediction": "Oui",
+      "proba": 0.74,
+      "confidence": 74
+    },
+    {
+      "id": "monza-vs-atalanta-2026-11-08",
+      "match": "Monza vs Atalanta",
+      "home": "Monza",
+      "away": "Atalanta",
+      "league": "Serie A",
+      "date": "2026-11-08",
+      "type": "BTTS",
+      "time": "14:00",
+      "matchSemantic": "monza-vs-atalanta-2026-11-08",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4007.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/105.png",
+      "tier": "GOLD",
+      "reliabilityScore": 93.75,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.33,
+      "xgAway": 1.25,
+      "xgTotal": 3.58,
+      "formBTTS": 80,
+      "analysis": "Monza : forme D-D-D-V-D (1V 0N 4D, 9 buts marqués / 12 encaissés sur 5) · Atalanta : forme D-N-N-D-V (1V 2N 2D, 11 buts marqués / 13 encaissés sur 5). Classement : Monza 18e (7 pts), Atalanta 13e (11 pts). Stats empiriques (forme récente) : buts moy. 3.58, BTTS 80.0%, Over 2.5 100.0%. Affinage AI ensuite. Cotes DraftKings — 1: 3.2 / N: 3.7 / 2: 2. Fiabilité 93.75%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.8,
+        "empiricalOver25Rate": 1,
+        "homeLambda": 2.33,
+        "awayLambda": 1.25,
+        "xgTotal": 3.58
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 3.2,
+        "draw": 3.7,
+        "away": 2,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-D-D-V-D",
+        "wins": 1,
+        "draws": 0,
+        "losses": 4,
+        "goalsFor": 9,
+        "goalsAgainst": 12,
+        "bttsRate": 0.8,
+        "over25Rate": 1,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-N-N-D-V",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 11,
+        "goalsAgainst": 13,
+        "bttsRate": 0.8,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-31",
+          "opponent": "Bologna",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-28",
+          "opponent": "Napoli",
+          "venue": "H",
+          "score": "1-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Torino",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-19",
+          "opponent": "Cagliari",
+          "venue": "H",
+          "score": "4-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Lazio",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-02",
+          "opponent": "Parma",
+          "venue": "H",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-29",
+          "opponent": "Fiorentina",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Frosinone",
+          "venue": "H",
+          "score": "4-4",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "AC Milan",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-12",
+          "opponent": "Venezia",
+          "venue": "H",
+          "score": "3-1",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 18,
+        "points": 7,
+        "played": 10,
+        "gf": 17,
+        "ga": 24
+      },
+      "standingsAway": {
+        "rank": 13,
+        "points": 11,
+        "played": 10,
+        "gf": 16,
+        "ga": 20
+      },
+      "empiricalBttsRate": 0.8,
+      "empiricalOver25Rate": 1,
+      "homeLambda": 2.33,
+      "awayLambda": 1.25,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Monza et l'Atalanta affichent toutes deux un taux BTTS de 80% et un taux Over 2.5 de 100%.",
+      "ai_analysis": "L'analyse des statistiques observées met en évidence une forte propension des deux équipes à marquer et à concéder des buts. Monza et l'Atalanta affichent un taux BTTS empirique de 80% ainsi qu'un taux Over 2.5 de 100% sur leurs derniers échantillons. Les difficultés défensives des deux formations, illustrées par des totaux de buts encaissés élevés en Serie A, renforcent la probabilité de voir les deux équipes trouver le chemin des filets.",
+      "ai_analysis_en": "Analysis of the observed statistics highlights a strong propensity for both teams to score and concede goals. Monza and Atalanta show an empirical BTTS rate of 80% and a 100% Over 2.5 rate in their recent samples. The defensive difficulties of both sides, illustrated by high goals-against totals in Serie A, reinforce the probability of both teams finding the back of the net.",
+      "ai_form_summary": "Monza (1W-0D-4L) : 9 buts pour, 12 buts contre. Atalanta (1W-2D-2L) : 11 buts pour, 13 buts contre.",
+      "ai_form_summary_en": "Monza (1W-0D-4L): 9 goals for, 12 goals against. Atalanta (1W-2D-2L): 11 goals for, 13 goals against.",
+      "ai_reasons": [
+        "Taux BTTS empirique très élevé à 80% pour les deux équipes.",
+        "Taux Over 2.5 de 100% sur les échantillons récents de Monza et de l'Atalanta.",
+        "Défenses perméables avec 24 buts encaissés en 10 matchs pour Monza et 20 pour l'Atalanta."
+      ],
+      "ai_risks": [
+        "L'Atalanta reste favorite à l'extérieur avec une cote de 2.0 et pourrait verrouiller le score si elle mène."
+      ],
+      "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 72,
+          "proba": 0.72,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.72
+        }
+      ],
+      "bttsProb": 0.72,
+      "prediction": "Oui",
+      "proba": 0.72,
+      "confidence": 72
     }
   ],
   "stats": {
@@ -13560,7 +14133,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-6",
+      "verifiedAt": "2026-11-05T21:35:32.016Z"
     },
     {
       "id": "asmonaco-vs-fcnordsj-2026-11-05",
@@ -14420,7 +14995,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 2.5 · N 3.65 · 2 2.5",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-05T21:35:38.452Z"
     },
     {
       "id": "sinttrui-vs-skbrann-2026-11-05",
@@ -14838,7 +15415,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-11-05T21:35:38.453Z"
     },
     {
       "id": "realsoci-vs-lyon-2026-11-05",
@@ -15053,7 +15632,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.91 · N 3.85 · 2 3.55 · O2.5 1.56",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-11-05T21:35:38.453Z"
     },
     {
       "id": "anderlec-vs-rbsalzbu-2026-11-05",
@@ -15268,7 +15849,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.91 · N 3.85 · 2 3.7 · O2.5 1.57",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-11-05T21:35:38.453Z"
     },
     {
       "id": "celtavig-vs-unionstg-2026-11-05",
@@ -15698,7 +16281,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 3.6 · N 3.3 · 2 2.05 · O2.5 1.95",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-0",
+      "verifiedAt": "2026-11-05T21:35:38.453Z"
     },
     {
       "id": "crystalp-vs-tsghoffe-2026-11-05",
@@ -15913,7 +16498,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.91 · N 3.95 · 2 3.65",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-11-05T21:35:38.453Z"
     },
     {
       "id": "getafe-vs-brighton-2026-11-05",
@@ -21441,7 +22028,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 3.9 · N 3.45 · 2 2 · O2.5 1.95",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-0",
+      "verifiedAt": "2026-11-05T21:36:01.712Z"
     },
     {
       "id": "toulouse-vs-strasbou-2026-11-06",
@@ -24412,7 +25001,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.91 · N 3.85 · 2 3.55 · O2.5 1.56",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-11-05T21:36:01.713Z"
     },
     {
       "id": "bayerlev-vs-marseill-2026-11-05",
@@ -24844,7 +25435,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 2.55 · N 3.7 · 2 2.55",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-05T21:36:01.713Z"
     },
     {
       "id": "anderlec-vs-rbsalzbu-2026-11-05",
@@ -25037,7 +25630,9 @@
       "awayLambda": 1.33,
       "modelEngine": "empirical-form+gemini",
       "statsOnly": true,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-11-05T21:36:01.714Z"
     },
     {
       "id": "celtavig-vs-unionstg-2026-11-05",
@@ -25442,7 +26037,9 @@
       "awayLambda": 1.25,
       "modelEngine": "empirical-form+gemini",
       "statsOnly": true,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-11-05T21:36:01.714Z"
     },
     {
       "id": "monza-vs-atalanta-2026-11-08",
@@ -26486,7 +27083,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 2.25 · N 3.75 · 2 3",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-11-05T21:36:01.715Z"
     },
     {
       "id": "hamburgs-vs-borussia-2026-11-06",
@@ -26692,6 +27291,582 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
+    },
+    {
+      "id": "tsveintr-vs-energiec-2026-11-06",
+      "match": "TSV Eintracht Braunschweig vs Energie Cottbus",
+      "home": "TSV Eintracht Braunschweig",
+      "away": "Energie Cottbus",
+      "league": "2. Bundesliga",
+      "date": "2026-11-06",
+      "type": "BTTS",
+      "time": "17:30",
+      "matchSemantic": "tsveintr-vs-energiec-2026-11-06",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3067.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/123.png",
+      "tier": "GOLD",
+      "reliabilityScore": 85,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2,
+      "xgAway": 2.25,
+      "xgTotal": 4.25,
+      "formBTTS": 60,
+      "analysis": "TSV Eintracht Braunschweig : forme D-V-D-V-D (2V 0N 3D, 4 buts marqués / 6 encaissés sur 5) · Energie Cottbus : forme D-N-N-D-N (0V 3N 2D, 5 buts marqués / 8 encaissés sur 5). Classement : TSV Eintracht Braunschweig 15e (10 pts), Energie Cottbus 14e (10 pts). Stats empiriques (forme récente) : buts moy. 4.25, BTTS 60.0%, Over 2.5 30.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.91 / N: 4 / 2: 3.45. Fiabilité 85%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.6,
+        "empiricalOver25Rate": 0.3,
+        "homeLambda": 2,
+        "awayLambda": 2.25,
+        "xgTotal": 4.25
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.91,
+        "draw": 4,
+        "away": 3.45,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-V-D-V-D",
+        "wins": 2,
+        "draws": 0,
+        "losses": 3,
+        "goalsFor": 4,
+        "goalsAgainst": 6,
+        "bttsRate": 0.2,
+        "over25Rate": 0.2,
+        "cleanSheets": 2,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-N-N-D-N",
+        "wins": 0,
+        "draws": 3,
+        "losses": 2,
+        "goalsFor": 5,
+        "goalsAgainst": 8,
+        "bttsRate": 1,
+        "over25Rate": 0.4,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-30",
+          "opponent": "Arminia Bielefeld",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Hannover 96",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "SpVgg Greuther Fürth",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-09",
+          "opponent": "Holstein Kiel",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Kaiserslautern",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-30",
+          "opponent": "VfL Bochum",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "1. FC Heidenheim 1846",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-16",
+          "opponent": "1. FC Nürnberg",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "SV Darmstadt 98",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "St. Pauli",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 15,
+        "points": 10,
+        "played": 10,
+        "gf": 16,
+        "ga": 18
+      },
+      "standingsAway": {
+        "rank": 14,
+        "points": 10,
+        "played": 10,
+        "gf": 18,
+        "ga": 20
+      },
+      "empiricalBttsRate": 0.6,
+      "empiricalOver25Rate": 0.3,
+      "homeLambda": 2,
+      "awayLambda": 2.25,
+      "statsOnly": true,
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "TSV Eintracht Braunschweig a un taux de BTTS de seulement 20% sur ses 5 derniers matchs.",
+      "ai_analysis": "Le profil statistique de ce match présente des contradictions notables entre les deux formations. Alors qu'Energie Cottbus affiche un taux de BTTS de 100% sur ses 5 derniers matchs, le TSV Eintracht Braunschweig n'est qu'à 20% avec un taux d'Over 2.5 faible à 0.30. En raison de ces signaux contradictoires et de seuils empiriques mitigés, la décision prudente est de s'abstenir.",
+      "ai_analysis_en": "The statistical profile of this match presents notable contradictions between the two sides. While Energie Cottbus exhibits a 100% BTTS rate over their last 5 matches, TSV Eintracht Braunschweig sits at just 20% with a low Over 2.5 rate of 0.30. Given these conflicting signals and low thresholds in key empirical markets, an abstention is recommended.",
+      "ai_form_summary": "Braunschweig : D-V-D-V-D (4 buts pour, 6 buts contre) | Cottbus : D-N-N-D-N (5 buts pour, 8 buts contre)",
+      "ai_form_summary_en": "Braunschweig: L-W-L-W-L (4 GF, 6 GA) | Cottbus: L-D-D-L-D (5 GF, 8 GA)",
+      "ai_reasons": [
+        "Taux d'Over 2.5 très faible à 0.30.",
+        "Taux de BTTS sur les 5 derniers matchs de Braunschweig à seulement 20%.",
+        "Faible production offensive récente de Braunschweig (4 buts en 5 matchs)."
+      ],
+      "ai_risks": [
+        "Le taux de BTTS de Cottbus sur les 5 derniers matchs est de 100%, créant une contradiction avec les stats de Braunschweig.",
+        "Moyennes de buts des deux équipes supérieures à 2.0 contrastant avec leurs taux Over 2.5 bas."
+      ],
+      "ai_confidence": "low",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "abstain",
+      "status": "PENDING"
+    },
+    {
+      "id": "orlandoc-vs-newengla-2026-11-07",
+      "match": "Orlando City SC vs New England Revolution",
+      "home": "Orlando City SC",
+      "away": "New England Revolution",
+      "league": "MLS",
+      "date": "2026-11-07",
+      "type": "BTTS",
+      "time": "21:00",
+      "matchSemantic": "orlandoc-vs-newengla-2026-11-07",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/12011.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/189.png",
+      "tier": "GOLD",
+      "reliabilityScore": 93.75,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 3,
+      "xgAway": 1.67,
+      "xgTotal": 4.67,
+      "formBTTS": 80,
+      "analysis": "Orlando City SC : forme D-N-N-V-N (1V 3N 1D, 11 buts marqués / 12 encaissés sur 5) · New England Revolution : forme D-V-V-V-V (4V 0N 1D, 10 buts marqués / 7 encaissés sur 5). Classement : Orlando City SC 9e (43 pts), New England Revolution 3e (58 pts). Stats empiriques (forme récente) : buts moy. 4.67, BTTS 80.0%, Over 2.5 90.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.95 / N: 4.1 / 2: 3.1. Fiabilité 93.75%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.8,
+        "empiricalOver25Rate": 0.9,
+        "homeLambda": 3,
+        "awayLambda": 1.67,
+        "xgTotal": 4.67
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.95,
+        "draw": 4.1,
+        "away": 3.1,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-N-N-V-N",
+        "wins": 1,
+        "draws": 3,
+        "losses": 1,
+        "goalsFor": 11,
+        "goalsAgainst": 12,
+        "bttsRate": 0.8,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-V-V-V-V",
+        "wins": 4,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 10,
+        "goalsAgainst": 7,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-31",
+          "opponent": "Charlotte FC",
+          "venue": "A",
+          "score": "0-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-29",
+          "opponent": "Chicago Fire FC",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "New York City FC",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "D.C. United",
+          "venue": "H",
+          "score": "4-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-14",
+          "opponent": "Toronto FC",
+          "venue": "A",
+          "score": "3-3",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-02",
+          "opponent": "Inter Miami CF",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-28",
+          "opponent": "Red Bull New York",
+          "venue": "H",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Philadelphia Union",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Chicago Fire FC",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-14",
+          "opponent": "FC Cincinnati",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 9,
+        "points": 43,
+        "played": 33,
+        "gf": 62,
+        "ga": 78
+      },
+      "standingsAway": {
+        "rank": 3,
+        "points": 58,
+        "played": 33,
+        "gf": 55,
+        "ga": 46
+      },
+      "empiricalBttsRate": 0.8,
+      "empiricalOver25Rate": 0.9,
+      "homeLambda": 3,
+      "awayLambda": 1.67,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Les deux équipes affichent un taux de BTTS de 80% dans leurs formes récentes respectives.",
+      "ai_analysis": "L'analyse des statistiques observées met en évidence une forte propension des deux formations à marquer et à concéder des buts. Orlando City présente un taux de BTTS de 80% tout comme New England Revolution sur leurs 5 derniers matchs. Avec des moyennes de buts respectives de 3 et 1.67 buts par match, l'indicateur empirique BTTS atteint 80%, justifiant pleinement une sélection favorable aux deux équipes marquent.",
+      "ai_analysis_en": "The analysis of observed statistics highlights a strong tendency for both teams to score and concede goals. Orlando City shows an 80% BTTS rate just like New England Revolution in their last 5 matches. With respective goal averages of 3 and 1.67 goals per match, the empirical BTTS indicator reaches 80%, fully justifying a selection favoring both teams to score.",
+      "ai_form_summary": "Orlando (1W-3D-1L, 11-12 buts) et New England (4W-0D-1L, 10-7 buts) affichent une excellente dynamique offensive.",
+      "ai_form_summary_en": "Orlando (1W-3D-1L, 11-12 goals) and New England (4W-0D-1L, 10-7 goals) display excellent offensive momentum.",
+      "ai_reasons": [
+        "Taux empirique BTTS global de 80% basé sur les échantillons fournis.",
+        "Taux de BTTS de 80% sur les 5 derniers matchs pour Orlando City et New England Revolution.",
+        "Moyennes de buts élevés avec Orlando à 3 buts/match et New England à 1.67 buts/match."
+      ],
+      "ai_risks": [
+        "La défense de New England encaisse relativement peu (46 buts en 33 matchs au classement général).",
+        "La cote à domicile est fixée à 1.95, indiquant un match potentiellement disputé."
+      ],
+      "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 74,
+          "proba": 0.74,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.74
+        }
+      ],
+      "bttsProb": 0.74,
+      "prediction": "Oui",
+      "proba": 0.74,
+      "confidence": 74,
+      "status": "PENDING"
+    },
+    {
+      "id": "monza-vs-atalanta-2026-11-08",
+      "match": "Monza vs Atalanta",
+      "home": "Monza",
+      "away": "Atalanta",
+      "league": "Serie A",
+      "date": "2026-11-08",
+      "type": "BTTS",
+      "time": "14:00",
+      "matchSemantic": "monza-vs-atalanta-2026-11-08",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4007.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/105.png",
+      "tier": "GOLD",
+      "reliabilityScore": 93.75,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.33,
+      "xgAway": 1.25,
+      "xgTotal": 3.58,
+      "formBTTS": 80,
+      "analysis": "Monza : forme D-D-D-V-D (1V 0N 4D, 9 buts marqués / 12 encaissés sur 5) · Atalanta : forme D-N-N-D-V (1V 2N 2D, 11 buts marqués / 13 encaissés sur 5). Classement : Monza 18e (7 pts), Atalanta 13e (11 pts). Stats empiriques (forme récente) : buts moy. 3.58, BTTS 80.0%, Over 2.5 100.0%. Affinage AI ensuite. Cotes DraftKings — 1: 3.2 / N: 3.7 / 2: 2. Fiabilité 93.75%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.8,
+        "empiricalOver25Rate": 1,
+        "homeLambda": 2.33,
+        "awayLambda": 1.25,
+        "xgTotal": 3.58
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 3.2,
+        "draw": 3.7,
+        "away": 2,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-D-D-V-D",
+        "wins": 1,
+        "draws": 0,
+        "losses": 4,
+        "goalsFor": 9,
+        "goalsAgainst": 12,
+        "bttsRate": 0.8,
+        "over25Rate": 1,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-N-N-D-V",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 11,
+        "goalsAgainst": 13,
+        "bttsRate": 0.8,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-31",
+          "opponent": "Bologna",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-28",
+          "opponent": "Napoli",
+          "venue": "H",
+          "score": "1-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Torino",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-19",
+          "opponent": "Cagliari",
+          "venue": "H",
+          "score": "4-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Lazio",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-02",
+          "opponent": "Parma",
+          "venue": "H",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-29",
+          "opponent": "Fiorentina",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Frosinone",
+          "venue": "H",
+          "score": "4-4",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "AC Milan",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-12",
+          "opponent": "Venezia",
+          "venue": "H",
+          "score": "3-1",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 18,
+        "points": 7,
+        "played": 10,
+        "gf": 17,
+        "ga": 24
+      },
+      "standingsAway": {
+        "rank": 13,
+        "points": 11,
+        "played": 10,
+        "gf": 16,
+        "ga": 20
+      },
+      "empiricalBttsRate": 0.8,
+      "empiricalOver25Rate": 1,
+      "homeLambda": 2.33,
+      "awayLambda": 1.25,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Monza et l'Atalanta affichent toutes deux un taux BTTS de 80% et un taux Over 2.5 de 100%.",
+      "ai_analysis": "L'analyse des statistiques observées met en évidence une forte propension des deux équipes à marquer et à concéder des buts. Monza et l'Atalanta affichent un taux BTTS empirique de 80% ainsi qu'un taux Over 2.5 de 100% sur leurs derniers échantillons. Les difficultés défensives des deux formations, illustrées par des totaux de buts encaissés élevés en Serie A, renforcent la probabilité de voir les deux équipes trouver le chemin des filets.",
+      "ai_analysis_en": "Analysis of the observed statistics highlights a strong propensity for both teams to score and concede goals. Monza and Atalanta show an empirical BTTS rate of 80% and a 100% Over 2.5 rate in their recent samples. The defensive difficulties of both sides, illustrated by high goals-against totals in Serie A, reinforce the probability of both teams finding the back of the net.",
+      "ai_form_summary": "Monza (1W-0D-4L) : 9 buts pour, 12 buts contre. Atalanta (1W-2D-2L) : 11 buts pour, 13 buts contre.",
+      "ai_form_summary_en": "Monza (1W-0D-4L): 9 goals for, 12 goals against. Atalanta (1W-2D-2L): 11 goals for, 13 goals against.",
+      "ai_reasons": [
+        "Taux BTTS empirique très élevé à 80% pour les deux équipes.",
+        "Taux Over 2.5 de 100% sur les échantillons récents de Monza et de l'Atalanta.",
+        "Défenses perméables avec 24 buts encaissés en 10 matchs pour Monza et 20 pour l'Atalanta."
+      ],
+      "ai_risks": [
+        "L'Atalanta reste favorite à l'extérieur avec une cote de 2.0 et pourrait verrouiller le score si elle mène."
+      ],
+      "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 72,
+          "proba": 0.72,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.72
+        }
+      ],
+      "bttsProb": 0.72,
+      "prediction": "Oui",
+      "proba": 0.72,
+      "confidence": 72,
       "status": "PENDING"
     }
   ],
