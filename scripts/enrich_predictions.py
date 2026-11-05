@@ -10,7 +10,7 @@ Flux :
   2. Retire immédiatement tout pick préexistant et écrit un état sûr « ABSTAIN ».
   3. Envoie à Gemini uniquement les données empiriques (pas de λ Poisson).
   4. Publie un pick seulement si Gemini fournit une décision utilisable.
-     Sinon, le match et ses données restent, sans sélection ni source inventée.
+      Sinon, le match et ses données restent, sans sélection ni source inventée.
 
 Variable : GEMINI_API_KEY
 Sans clé, erreur fournisseur, JSON invalide ou abstention : aucun pick local.
@@ -31,7 +31,7 @@ from pathlib import Path
 # Modèle unique vérifié sur le run de production #937 (41133809785) : 40/40
 # décisions en 2 min 04; un 503 transitoire sur un lot a réussi au retry.
 # Garder le même alias comme seule voie Gemini; aucun fallback de pronostic local.
-MODELS_TO_TRY = ["gemini-flash-lite-latest", "gemini-2.0-flash-lite", "gemini-2.0-flash"]
+MODELS_TO_TRY = ["gemini-flash-lite-latest"]
 PREDICTIONS_FILE = Path(__file__).parent.parent / "public" / "predictions.json"
 MAX_RETRIES = 3  # 4 essais au total (1 + 3 retries) pour 503 persistants
 RETRY_BASE_DELAY_S = 1.0
