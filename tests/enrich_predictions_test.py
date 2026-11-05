@@ -62,7 +62,7 @@ class EnrichmentImmutabilityTests(unittest.TestCase):
 
         self.assertEqual(calls, ["gemini-flash-lite-latest", "gemini-flash-lite-latest"])
         self.assertEqual(len(result), 1)
-        sleep.assert_called_once_with(1.1)
+        sleep.assert_called_once_with(4.1)
 
     def test_three_transient_503_attempts_do_not_sleep_after_the_final_try(self):
         class FailingModels:
@@ -85,7 +85,7 @@ class EnrichmentImmutabilityTests(unittest.TestCase):
 
         self.assertEqual(result, [])
         self.assertEqual(client.models.calls, enrich.MAX_RETRIES + 1)
-        self.assertEqual(sleep.call_args_list, [call(1.0), call(2.0)])
+        self.assertEqual(sleep.call_args_list, [call(4.0), call(8.0), call(16.0)])
 
     def test_permanent_4xx_is_not_retried(self):
         for code in (400, 401, 403, 404):
