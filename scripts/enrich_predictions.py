@@ -33,16 +33,17 @@ from pathlib import Path
 # Garder le même alias comme seule voie Gemini; aucun fallback de pronostic local.
 MODELS_TO_TRY = ["gemini-flash-lite-latest"]
 PREDICTIONS_FILE = Path(__file__).parent.parent / "public" / "predictions.json"
-MAX_RETRIES = 2
+MAX_RETRIES = 3  # 4 essais au total (1 + 3 retries) pour 503 persistants
 RETRY_BASE_DELAY_S = 1.0
 RATE_LIMIT_BASE_DELAY_S = 5.0
-RETRY_MAX_DELAY_S = 20.0
-RETRY_JITTER_MAX_S = 1.5
+OVERLOAD_BASE_DELAY_S = 4.0  # 503/504: attendre plus longtemps qu'un simple 500
+RETRY_MAX_DELAY_S = 45.0
+RETRY_JITTER_MAX_S = 2.0
 RETRY_JITTER_FRACTION = 0.25
 RETRYABLE_HTTP_CODES = frozenset({429, 500, 502, 503, 504})
 CHUNK_SIZE = 3  # plus petit = JSON plus fiable
 MAX_OUTPUT_TOKENS = 8192
-ENRICH_TIME_BUDGET_S = 420
+ENRICH_TIME_BUDGET_S = 540  # marge pour retries 503 sans bloquer tout le workflow
 PROBA_MIN = 0.48
 PROBA_MAX = 0.78
 MIN_SAMPLE = 4
@@ -396,6 +397,9 @@ def _retry_delay_seconds(retry_index: int, error: Exception) -> float:
     base = RETRY_BASE_DELAY_S * (2 ** max(0, retry_index))
     if code == 429:
         base = max(base, RATE_LIMIT_BASE_DELAY_S * (2 ** max(0, retry_index)))
+    elif code in (503, 504):
+        # Surcharge fournisseur: backoff plus long que les 500 génériques, toujours plafonné.
+        base = max(base, OVERLOAD_BASE_DELAY_S * (2 ** max(0, retry_index)))
     provider_delay = _provider_retry_after_seconds(error)
     if provider_delay is not None:
         base = max(base, provider_delay)
