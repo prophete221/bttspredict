@@ -26,11 +26,19 @@ FORBIDDEN = FORBIDDEN_CREATION + FORBIDDEN_OVERWRITE
 
 
 class EnrichmentImmutabilityTests(unittest.TestCase):
-    def test_uses_provider_recommended_gemini_model_ids(self):
+    def test_uses_proven_gemini_alias_first_then_provider_ids_as_fallback(self):
+        # L'alias a réellement produit les enrichissements des 30 et 31 octobre
+        # (51/51, 47/47, 64/64 dans les journaux de production).
         self.assertEqual(
             enrich.MODELS_TO_TRY,
-            ["gemini-3.5-flash-lite", "gemini-3.8-flash"],
+            [
+                "gemini-flash-lite-latest",
+                "gemini-3.5-flash-lite",
+                "gemini-flash-latest",
+                "gemini-3.8-flash",
+            ],
         )
+        self.assertEqual(enrich.MODELS_TO_TRY[0], "gemini-flash-lite-latest")
 
     def test_zero_provider_enrichments_warns_fails_and_keeps_local_fallback(self):
         class FailingModels:
