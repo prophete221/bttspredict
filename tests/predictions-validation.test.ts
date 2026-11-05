@@ -85,9 +85,12 @@ describe('validatePredictionPayload', () => {
   test('accepte un pick publié uniquement avec une source Gemini explicite', () => {
     expect(validatePredictionPayload(payload({
       ai_source: 'gemini-stats-v1',
+      ai_market: 'BTTS',
       ai_abstain: false,
+      ai_model: 'gemini-3.5-flash-lite',
+      ai_response_status: 'pick',
       modelEngine: 'gemini-stats-v1',
-      predictions: [{ type: 'BTTS', prediction: 'Oui', proba: 0.64 }],
+      predictions: [{ type: 'BTTS', prediction: 'Oui', proba: 0.64, modelEngine: 'gemini-3.5-flash-lite' }],
     }), { today: '2026-08-12', requireGemini: true })).toEqual([])
   })
 
@@ -97,24 +100,39 @@ describe('validatePredictionPayload', () => {
       ai_abstain: false,
       modelEngine: 'local-empirical-v1',
     }), { today: '2026-08-12', requireGemini: true })
-    expect(errors).toContain('prediction[0].ai_source must be gemini-stats-v1 for published picks')
+    expect(errors).toContain('prediction[0] must contain a verified Gemini pick or explicit abstention')
   })
 
-  test('accepte une abstention explicite sans aucune valeur de pick', () => {
-    const row = { ...validPrediction, ai_abstain: true }
-    for (const key of ['prediction', 'proba', 'confidence', 'bttsProb', 'over25Prob'] as const) delete (row as Record<string, unknown>)[key]
-    expect(validatePredictionPayload({
+  test('conserve une abstention Gemini explicite sans aucune valeur de pick', () => {
+    const row = {
+      ...validPrediction,
+      ai_source: 'gemini-stats-v1', ai_model: 'gemini-3.5-flash-lite',
+      ai_response_status: 'abstain', ai_abstain: true, ai_market: 'ABSTAIN',
+      modelEngine: 'gemini-stats-v1',
+    }
+    for (const key of ['prediction', 'proba', 'confidence', 'predictions', 'bttsProb', 'over25Prob'] as const) {
+      delete (row as Record<string, unknown>)[key]
+    }
+    const errors = validatePredictionPayload({
       date: '2026-08-12',
       lastUpdated: '2026-08-12T12:00:00.000Z',
       free: [row],
-    }, { today: '2026-08-12', requireTimestamp: true, requireGemini: true })).toEqual([])
+    }, { today: '2026-08-12', requireTimestamp: true, requireGemini: true })
+    expect(errors).toEqual([])
   })
 
   test('refuse les anciennes probabilités empiriques laissées sur une abstention', () => {
-    const stale = payload({ ai_abstain: true, ai_source: 'gemini-stats-v1' })
-    delete (stale.free[0] as Record<string, unknown>).prediction
-    delete (stale.free[0] as Record<string, unknown>).confidence
+    const row = {
+      ...validPrediction,
+      ai_source: 'gemini-stats-v1', ai_model: 'gemini-3.5-flash-lite',
+      ai_response_status: 'abstain', ai_abstain: true, ai_market: 'ABSTAIN',
+      modelEngine: 'gemini-stats-v1', bttsProb: 0.60,
+    }
+    for (const key of ['prediction', 'proba', 'confidence', 'predictions', 'over25Prob'] as const) {
+      delete (row as Record<string, unknown>)[key]
+    }
+    const stale = { date: '2026-08-12', lastUpdated: '2026-08-12T12:00:00.000Z', free: [row] }
     const errors = validatePredictionPayload(stale, { today: '2026-08-12', requireGemini: true })
-    expect(errors).toContain('prediction[0].proba must be absent for a no-pick abstention')
+    expect(errors).toContain('prediction[0] must contain a verified Gemini pick or explicit abstention')
   })
 })

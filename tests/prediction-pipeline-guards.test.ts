@@ -45,10 +45,11 @@ describe('archive finalization immutability', () => {
     const archiveDir = path.join(root, 'archive')
     const predictionsFile = path.join(root, 'predictions.json')
     const published = {
-      id: 'fixture-1', type: 'BTTS', date: '2026-11-01', home: 'A', away: 'B',
+      id: 'fixture-1', type: 'BTTS', date: '2026-11-01', home: 'A', away: 'B', league: 'League',
       prediction: 'Oui', proba: 0.61, confidence: 61, ai_analysis: 'First editorial text',
-      predictions: [{ type: 'BTTS', prediction: 'Oui', proba: 0.61 }],
-      ai_source: 'gemini-stats-v1', ai_abstain: false, modelEngine: 'gemini-stats-v1',
+      predictions: [{ type: 'BTTS', prediction: 'Oui', proba: 0.61, modelEngine: 'gemini-3.5-flash-lite' }],
+      ai_source: 'gemini-stats-v1', ai_market: 'BTTS', ai_abstain: false,
+      ai_model: 'gemini-3.5-flash-lite', ai_response_status: 'pick', modelEngine: 'gemini-stats-v1',
     }
     writePayload(predictionsFile, { date: '2026-11-01', free: [published], predictions: [published], vipPreview: [] })
     finalizeArchive({ predictionsFile, archiveDir })
@@ -67,7 +68,7 @@ describe('archive finalization immutability', () => {
     expect(readJson(path.join(archiveDir, '2026-11-01.json')).predictions).toHaveLength(2)
 
     // A subsequent day's refresh cannot rewrite an already-published fixture.
-    const nextDay = { ...edited, date: '2026-11-02', time: '15:00' }
+    const nextDay = { ...edited, date: '2026-11-01', time: '15:00' }
     writePayload(predictionsFile, { date: '2026-11-02', free: [nextDay], predictions: [nextDay], vipPreview: [] })
     finalizeArchive({ predictionsFile, archiveDir })
     current = readJson(predictionsFile)
@@ -93,7 +94,7 @@ describe('archive finalization immutability', () => {
     const predictionsFile = path.join(root, 'predictions.json')
     // Publication héritée (ancien régime) : compteurs de preuve insuffisants.
     const legacy = {
-      id: 'cup-1', type: 'BTTS', date: '2026-11-01', home: 'Bayern', away: 'Arsenal',
+      id: 'cup-1', type: 'BTTS', date: '2026-11-01', home: 'Bayern', away: 'Arsenal', league: 'Cup',
       proba: 0.61, confidence: 61, matchCountHome: 2, matchCountAway: 2, ai_analysis: 'Legacy text',
     }
     writePayload(predictionsFile, { date: '2026-11-01', free: [legacy], predictions: [legacy], vipPreview: [] })
@@ -116,10 +117,11 @@ describe('archive finalization immutability', () => {
     const archiveDir = path.join(root, 'archive')
     const predictionsFile = path.join(root, 'predictions.json')
     const legacyOk = {
-      id: 'lg-1', type: 'BTTS', date: '2026-11-01', home: 'C', away: 'D',
+      id: 'lg-1', type: 'BTTS', date: '2026-11-01', home: 'C', away: 'D', league: 'League',
       prediction: 'Oui', proba: 0.55, confidence: 55, matchCountHome: 8, matchCountAway: 7, ai_analysis: 'Original text',
-      predictions: [{ type: 'BTTS', prediction: 'Oui', proba: 0.55 }],
-      ai_source: 'gemini-stats-v1', ai_abstain: false, modelEngine: 'gemini-stats-v1',
+      predictions: [{ type: 'BTTS', prediction: 'Oui', proba: 0.55, modelEngine: 'gemini-3.5-flash-lite' }],
+      ai_source: 'gemini-stats-v1', ai_market: 'BTTS', ai_abstain: false,
+      ai_model: 'gemini-3.5-flash-lite', ai_response_status: 'pick', modelEngine: 'gemini-stats-v1',
     }
     writePayload(predictionsFile, { date: '2026-11-01', free: [legacyOk], predictions: [legacyOk], vipPreview: [] })
     finalizeArchive({ predictionsFile, archiveDir })
@@ -137,7 +139,7 @@ describe('archive finalization immutability', () => {
     const archiveDir = path.join(root, 'archive')
     const predictionsFile = path.join(root, 'predictions.json')
     const localPick = {
-      id: 'local-1', type: 'BTTS', date: '2026-11-01', home: 'E', away: 'F',
+      id: 'local-1', type: 'BTTS', date: '2026-11-01', home: 'E', away: 'F', league: 'League',
       prediction: 'Oui', proba: 0.68, bttsProb: 0.68,
       ai_source: 'local-empirical-v1', ai_abstain: false,
     }
@@ -145,8 +147,9 @@ describe('archive finalization immutability', () => {
     finalizeArchive({ predictionsFile, archiveDir })
 
     const abstention = {
-      id: 'local-1', type: 'BTTS', date: '2026-11-01', home: 'E', away: 'F',
-      ai_abstain: true, ai_market: 'ABSTAIN',
+      id: 'local-1', type: 'BTTS', date: '2026-11-01', home: 'E', away: 'F', league: 'League',
+      ai_source: 'gemini-stats-v1', ai_model: 'gemini-3.5-flash-lite', ai_response_status: 'abstain',
+      ai_abstain: true, ai_market: 'ABSTAIN', modelEngine: 'gemini-stats-v1',
     }
     writePayload(predictionsFile, { date: '2026-11-01', free: [abstention], predictions: [abstention], vipPreview: [] })
     finalizeArchive({ predictionsFile, archiveDir })
@@ -156,6 +159,37 @@ describe('archive finalization immutability', () => {
     expect(readJson(predictionsFile).free[0]).not.toHaveProperty('bttsProb')
     // Existing archive facts remain unchanged; only the current public feed is fail-closed.
     expect(readJson(path.join(archiveDir, '2026-11-01.json')).free[0]).toMatchObject(localPick)
+  })
+
+  it('does not trust a legacy hybrid row tagged Gemini or overwrite it in the historical archive', () => {
+    const root = tempDir()
+    const archiveDir = path.join(root, 'archive')
+    const predictionsFile = path.join(root, 'predictions.json')
+    const legacyHybrid = {
+      id: 'hybrid-1', type: 'BTTS', ai_market: 'BTTS', date: '2026-11-01',
+      home: 'G', away: 'H', league: 'League', prediction: 'Oui', proba: 0.68,
+      predictions: [
+        { type: 'BTTS', prediction: 'Oui', proba: 0.68, modelEngine: 'empirical-form+gemini' },
+        { type: 'Over 2.5', prediction: 'Oui', proba: 0.70, modelEngine: 'empirical-form+gemini' },
+      ],
+      ai_source: 'gemini-stats-v1', ai_abstain: false, modelEngine: 'gemini-stats-v1',
+    }
+    writePayload(predictionsFile, { date: '2026-11-01', free: [legacyHybrid], predictions: [legacyHybrid], vipPreview: [] })
+    finalizeArchive({ predictionsFile, archiveDir })
+
+    const freshGemini = {
+      ...legacyHybrid,
+      prediction: 'Non', proba: 0.61,
+      predictions: [{ type: 'BTTS', prediction: 'Non', proba: 0.61, modelEngine: 'gemini-3.5-flash-lite' }],
+      ai_model: 'gemini-3.5-flash-lite', ai_response_status: 'pick',
+    }
+    writePayload(predictionsFile, { date: '2026-11-01', free: [freshGemini], predictions: [freshGemini], vipPreview: [] })
+    finalizeArchive({ predictionsFile, archiveDir })
+
+    expect(readJson(predictionsFile).free[0]).toMatchObject({
+      prediction: 'Non', proba: 0.61, ai_model: 'gemini-3.5-flash-lite', ai_response_status: 'pick',
+    })
+    expect(readJson(path.join(archiveDir, '2026-11-01.json')).free[0]).toMatchObject(legacyHybrid)
   })
 })
 
@@ -168,5 +202,29 @@ describe('payload validation for honest abstention and VIP fixture previews', ()
       free: [],
       vipPreview: [{ vip: true, id: 'fixture', home: 'A', away: 'B', league: 'League', date: today, time: '18:30' }],
     }, { today })).toEqual([])
+  })
+
+  it('rejects a hybrid/legacy Gemini tag and accepts one fully matched Gemini pick', () => {
+    const today = '2026-11-01'
+    const valid = {
+      id: 'g-1', match: 'G vs H', home: 'G', away: 'H', league: 'League', date: today,
+      type: 'BTTS', prediction: 'Oui', proba: 0.61, confidence: 61,
+      ai_source: 'gemini-stats-v1', ai_market: 'BTTS', ai_abstain: false,
+      ai_model: 'gemini-3.5-flash-lite', ai_response_status: 'pick', modelEngine: 'gemini-stats-v1',
+      predictions: [{ type: 'BTTS', prediction: 'Oui', proba: 0.61, modelEngine: 'gemini-3.5-flash-lite' }],
+      reliabilityScore: 70, dataQuality: 'HIGH', dataSource: 'observed-form',
+    }
+    expect(validatePredictionPayload({ date: today, free: [valid] }, { today, requireGemini: true })).toEqual([])
+
+    const hybrid = {
+      ...valid,
+      ai_model: undefined,
+      ai_response_status: undefined,
+      predictions: [
+        { type: 'BTTS', prediction: 'Oui', proba: 0.61, modelEngine: 'empirical-form+gemini' },
+        { type: 'Over 2.5', prediction: 'Oui', proba: 0.70, modelEngine: 'empirical-form+gemini' },
+      ],
+    }
+    expect(validatePredictionPayload({ date: today, free: [hybrid] }, { today, requireGemini: true })).not.toEqual([])
   })
 })

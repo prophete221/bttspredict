@@ -28,10 +28,10 @@ from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
 from pathlib import Path
 
-# Modèle unique vérifié sur le run de production #937 (41133809785) : 40/40
-# décisions en 2 min 04; un 503 transitoire sur un lot a réussi au retry.
-# Garder le même alias comme seule voie Gemini; aucun fallback de pronostic local.
-MODELS_TO_TRY = ["gemini-flash-lite-latest"]
+# Identifiant stable du catalogue Gemini. Aucun alias « latest » et aucun modèle
+# de secours : un 404 est un nom de modèle invalide, un 503 une surcharge, un 429 un quota.
+MODEL_NAME = "gemini-3.5-flash-lite"
+MODELS_TO_TRY = [MODEL_NAME]
 PREDICTIONS_FILE = Path(__file__).parent.parent / "public" / "predictions.json"
 MAX_RETRIES = 3  # 4 essais au total (1 + 3 retries) pour 503 persistants
 RETRY_BASE_DELAY_S = 1.0
@@ -40,21 +40,26 @@ OVERLOAD_BASE_DELAY_S = 4.0  # 503/504: attendre plus longtemps qu'un simple 500
 RETRY_MAX_DELAY_S = 45.0
 RETRY_JITTER_MAX_S = 2.0
 RETRY_JITTER_FRACTION = 0.25
-RETRYABLE_HTTP_CODES = frozenset({429, 500, 502, 503, 504})
+RETRYABLE_HTTP_CODES = frozenset({408, 429, 500, 502, 503, 504})
 CHUNK_SIZE = 2  # lots plus petits sous forte charge 503
 MAX_OUTPUT_TOKENS = 8192
-ENRICH_TIME_BUDGET_S = 720  # 12 min: multi-modèles + cooldown 503
+REQUEST_TIMEOUT_MS = 45_000
+ENRICH_TIME_BUDGET_S = 300  # borne totale, en laissant marge au timeout final du job
 PROBA_MIN = 0.48
 PROBA_MAX = 0.78
 MIN_SAMPLE = 4
 
 try:
     from google import genai
+    from google.genai import types as genai_types
     from google.genai.errors import APIError as GeminiAPIError
+    import httpx
 except ImportError:
     print("[analyze] google-genai not installed — no Gemini picks will be published")
     genai = None
+    genai_types = None
     GeminiAPIError = None
+    httpx = None
 
 
 def get_client():
@@ -62,9 +67,12 @@ def get_client():
     if not api_key or genai is None:
         print("[analyze] GEMINI_API_KEY missing or SDK absent — no Gemini picks will be published")
         return None
-    # google-genai==2.34.0 uses one SDK attempt when retry_options is absent;
-    # the bounded retry policy below is the sole retry layer.
-    return genai.Client(api_key=api_key)
+    # Une seule couche de retries, contrôlée ci-dessous; le SDK ne réessaie pas.
+    http_options = genai_types.HttpOptions(
+        timeout=REQUEST_TIMEOUT_MS,
+        retry_options=genai_types.HttpRetryOptions(attempts=1),
+    )
+    return genai.Client(api_key=api_key, http_options=http_options)
 
 
 def fmt_form(form):
@@ -214,7 +222,8 @@ def mark_no_gemini_pick(match: dict) -> None:
     pick_fields = (
         "prediction", "proba", "confidence", "predictions", "bttsProb", "over25Prob",
         "bttsProbDisplay", "over25ProbDisplay", "estimatedCote", "estimatedCoteOver",
-        "estimatedCoteBTTS", "ai_source", "ai_market", "ai_abstain", "modelEngine",
+        "estimatedCoteBTTS", "ai_source", "ai_model", "ai_response_status",
+        "ai_market", "ai_abstain", "modelEngine",
         "ai_confidence", "ai_key_fact", "ai_key_fact_en", "ai_analysis", "ai_analysis_en",
         "ai_form_summary", "ai_form_summary_en", "ai_reasons", "ai_risks", "ai_exact_score",
         "exact_score_prob", "ai_btts_view", "ai_over25_view", "ai_btts_prob",
@@ -229,15 +238,24 @@ def mark_no_gemini_pick(match: dict) -> None:
 
 
 def apply_analysis(match: dict, item: dict) -> bool:
-    """Applique décision AI + textes, avec garde-fous."""
-    if item.get("id") is None:
+    """Applique une réponse Gemini structurée; seul un pick valide est publiable."""
+    if not isinstance(item, dict) or item.get("id") is None:
         return False
 
     mark_no_gemini_pick(match)
 
-    market = str(item.get("market") or "ABSTAIN").upper().replace("OVER25", "OVER_25")
+    market = str(item.get("market") or "").strip().upper().replace("OVER25", "OVER_25")
     selection = selection_to_fr(item.get("selection"))
     proba = clamp_proba(item.get("probability"))
+    explicit_abstention = market == "ABSTAIN" and "selection" in item and item["selection"] is None
+    valid_market = market in ("BTTS", "OVER_25")
+    valid_selection = selection in ("Oui", "Non")
+    if not explicit_abstention and not (valid_market and valid_selection):
+        return False
+    response_status = "abstain" if explicit_abstention else "pick"
+    if not explicit_abstention and (proba is None or not sample_ok(match)):
+        response_status = "rejected"
+
     confidence = str(item.get("confidence") or "medium").lower()
     if confidence not in ("low", "medium", "high"):
         confidence = "medium"
@@ -265,11 +283,10 @@ def apply_analysis(match: dict, item: dict) -> bool:
     match["ai_risks"] = [str(r) for r in risks[:3] if r]
     match["ai_confidence"] = confidence
     match["modelEngine"] = "gemini-stats-v1"
-
-    # An explicit Gemini abstention, or any decision rejected by guardrails,
-    # remains a no-pick. Never retain the pre-Gemini empirical market rows.
     match["ai_source"] = "gemini-stats-v1"
-    if market not in ("BTTS", "OVER_25") or not sample_ok(match) or proba is None or selection is None:
+    match["ai_model"] = MODEL_NAME
+    match["ai_response_status"] = response_status
+    if response_status != "pick":
         match["ai_abstain"] = True
         match["ai_market"] = "ABSTAIN"
         return True
@@ -290,6 +307,7 @@ def apply_analysis(match: dict, item: dict) -> bool:
             "prediction": sel,
             "confidence": conf_pct,
             "proba": p,
+            "modelEngine": MODEL_NAME,
         }
         if typ == "BTTS":
             payload["bttsProb"] = p
@@ -303,11 +321,10 @@ def apply_analysis(match: dict, item: dict) -> bool:
     if market == "BTTS":
         upsert_pred("BTTS", selection, proba)
         match["bttsProb"] = proba
-        if market == "BTTS" or not match.get("type"):
-            match["type"] = "BTTS"
-            match["prediction"] = selection
-            match["proba"] = proba
-            match["confidence"] = conf_pct
+        match["type"] = "BTTS"
+        match["prediction"] = selection
+        match["proba"] = proba
+        match["confidence"] = conf_pct
 
     if market == "OVER_25":
         upsert_pred("OVER", selection, proba)
@@ -317,7 +334,6 @@ def apply_analysis(match: dict, item: dict) -> bool:
         match["proba"] = proba
         match["confidence"] = int(round(proba * 100))
 
-    match["ai_source"] = "gemini-stats-v1"
     return True
 
 
@@ -335,6 +351,15 @@ def _http_status_code(error: Exception) -> int | None:
     except (TypeError, ValueError):
         return None
     return code if 100 <= code <= 599 else None
+
+
+def _is_retryable_error(error: Exception) -> bool:
+    code = _http_status_code(error)
+    if code in RETRYABLE_HTTP_CODES:
+        return True
+    if httpx is not None and isinstance(error, (httpx.TimeoutException, httpx.ConnectError)):
+        return True
+    return False
 
 
 def _parse_retry_after(value, allow_http_date: bool = False) -> float | None:
@@ -410,7 +435,7 @@ def _retry_delay_seconds(retry_index: int, error: Exception) -> float:
 
 
 def _call_gemini_chunk(
-    client, matches: list, id_offset: int, provider_errors: list[tuple[str, str]] | None = None
+    client, matches: list, id_offset: int, provider_errors: list[tuple[str, int | None]] | None = None
 ) -> list:
     prompt = build_batch_prompt(matches, id_offset=id_offset)
     if client is None:
@@ -430,12 +455,19 @@ def _call_gemini_chunk(
                     },
                 )
             except Exception as e:
-                err = str(e)
-                print(f"[analyze] error attempt {attempt+1}: {err[:200]}")
-                if provider_errors is not None:
-                    provider_errors.append((model_name, err))
                 code = _http_status_code(e)
-                if code not in RETRYABLE_HTTP_CODES:
+                label = f"HTTP {code}" if code is not None else type(e).__name__
+                print(f"[analyze] error attempt {attempt+1}: {label}")
+                if provider_errors is not None:
+                    provider_errors.append((model_name, code))
+                if code == 404:
+                    print(f"[analyze] model/endpoint not found (404); verify exact model ID {model_name}; no retry")
+                    break
+                if code == 429:
+                    print("[analyze] rate limit/quota response (429); check project quota and Retry-After")
+                elif code == 503:
+                    print("[analyze] service overloaded (503); bounded retry only")
+                if not _is_retryable_error(e):
                     if code is None:
                         print("[analyze] non-retryable error; fixture remains a no-pick abstention")
                     else:
@@ -457,8 +489,8 @@ def _call_gemini_chunk(
 
             try:
                 result = json.loads(response.text or "")
-            except json.JSONDecodeError as e:
-                print(f"[analyze] invalid JSON response from {model_name}; no retry: {e}")
+            except json.JSONDecodeError:
+                print(f"[analyze] invalid JSON response from {model_name}; no retry")
                 return []
             if isinstance(result, list) and result:
                 print(f"[analyze] ✅ {len(result)} decisions from {model_name}")
@@ -469,33 +501,47 @@ def _call_gemini_chunk(
 
 
 def call_gemini_batch(
-    client, matches: list, provider_errors: list[tuple[str, str]] | None = None
+    client, matches: list, provider_errors: list[tuple[str, int | None]] | None = None
 ) -> list:
-    started = time.time()
+    if provider_errors is None:
+        provider_errors = []
+    started = time.monotonic()
     out = []
-    for i in range(0, len(matches), CHUNK_SIZE):
-        if time.time() - started > ENRICH_TIME_BUDGET_S:
+    chunk_starts = list(range(0, len(matches), CHUNK_SIZE))
+    for chunk_number, i in enumerate(chunk_starts):
+        if time.monotonic() - started >= ENRICH_TIME_BUDGET_S:
             print("[analyze] time budget reached — remaining matches stay no-pick abstentions")
             break
         chunk = matches[i : i + CHUNK_SIZE]
+        errors_before_chunk = len(provider_errors)
         part = _call_gemini_chunk(client, chunk, id_offset=i, provider_errors=provider_errors)
-        # normalize ids to absolute index
+        expected_ids = set(range(i, i + len(chunk)))
         for item in part:
+            if not isinstance(item, dict):
+                print(f"[analyze] invalid response item in chunk {i+1}; skip")
+                continue
             try:
-                local_id = int(item.get("id", 0))
+                response_id = int(item.get("id"))
             except (TypeError, ValueError):
-                local_id = 0
-            # accept either chunk-local or absolute
-            if local_id < len(chunk):
-                item["id"] = i + local_id
+                print(f"[analyze] response item without integer id in chunk {i+1}; skip")
+                continue
+            if response_id not in expected_ids:
+                print(f"[analyze] out-of-chunk Gemini id={response_id}; expected {sorted(expected_ids)}; skip")
+                continue
+            item["id"] = response_id
             out.append(item)
-        # Cooldown: plus long si le lot a échoué (souvent 503), pour laisser l'API respirer.
-        if part:
-            time.sleep(1.5)
-        else:
-            cooldown = 12.0
-            print(f"[analyze] chunk empty — cooldown {cooldown:.0f}s before next lot")
-            time.sleep(cooldown)
+        chunk_errors = provider_errors[errors_before_chunk:]
+        if any(code in {400, 401, 403, 404} for _, code in chunk_errors):
+            print("[analyze] permanent API/model error; stop remaining chunks without retrying them")
+            break
+        if chunk_number < len(chunk_starts) - 1:
+            # Cooldown uniquement entre les lots, jamais après le dernier.
+            if part:
+                time.sleep(1.5)
+            else:
+                cooldown = 12.0
+                print(f"[analyze] chunk empty — cooldown {cooldown:.0f}s before next lot")
+                time.sleep(cooldown)
     return out
 
 
@@ -533,60 +579,79 @@ def main():
     save_payload(data, free_matches)
 
     client = get_client()
-    provider_errors: list[tuple[str, str]] = []
-    gemini_provider_failure = False
-    applied = 0
+    provider_errors: list[tuple[str, int | None]] = []
+    response_count = 0
     if client is not None:
         try:
             enrichments = call_gemini_batch(client, free_matches, provider_errors)
         except Exception as exc:  # a provider/SDK failure must not restore local picks
             print(f"[analyze] Gemini batch failed ({type(exc).__name__}); all unmatched fixtures remain abstentions")
             enrichments = []
-            provider_errors.append((MODELS_TO_TRY[0], type(exc).__name__))
+            provider_errors.append((MODELS_TO_TRY[0], None))
 
+        response_by_index = {}
+        duplicate_indices = set()
         for item in enrichments:
+            if not isinstance(item, dict):
+                continue
             try:
                 idx = int(item.get("id"))
-            except (AttributeError, TypeError, ValueError):
+            except (TypeError, ValueError):
                 continue
-            if 0 <= idx < len(free_matches):
-                if apply_analysis(free_matches[idx], item):
-                    applied += 1
-                    print(f"  [{idx+1}] {free_matches[idx].get('match')} → {item.get('market')} {item.get('selection')} {item.get('probability')}")
-        print(f"[analyze] Gemini applied {applied}/{len(free_matches)}")
-        gemini_provider_failure = applied == 0 and bool(provider_errors)
-        if gemini_provider_failure:
-            failed_models = ", ".join(dict.fromkeys(model for model, _ in provider_errors))
-            error_codes = sorted({
-                code
-                for _, error in provider_errors
-                for code in re.findall(r"\b(?:400|401|403|404|408|429|500|502|503|504)\b", error)
-            })
-            code_summary = f"; codes API: {', '.join(error_codes)}" if error_codes else ""
-            print(
-                "::warning::Gemini n'a fourni aucun résultat exploitable malgré "
-                f"{len(provider_errors)} erreur(s) fournisseur{code_summary}. "
-                f"Modèles essayés : {failed_models}. Aucun pick local ne sera publié."
-            )
+            if not 0 <= idx < len(free_matches):
+                continue
+            if idx in duplicate_indices:
+                continue
+            if idx in response_by_index:
+                duplicate_indices.add(idx)
+                response_by_index.pop(idx, None)
+                print(f"[analyze] duplicate Gemini response id={idx}; candidate stays no-pick")
+                continue
+            response_by_index[idx] = item
+
+        for idx, item in response_by_index.items():
+            apply_analysis(free_matches[idx], item)
+            if free_matches[idx].get("ai_response_status") in {"pick", "abstain", "rejected"}:
+                response_count += 1
+                print(
+                    f"  [{idx+1}] {free_matches[idx].get('match')} → "
+                    f"{free_matches[idx].get('ai_response_status')}"
+                )
+
+        picks = sum(1 for match in free_matches if match.get("ai_response_status") == "pick")
+        abstentions = sum(1 for match in free_matches if match.get("ai_response_status") == "abstain")
+        rejected = sum(1 for match in free_matches if match.get("ai_response_status") == "rejected")
+        no_response = len(free_matches) - response_count
+        print(f"[analyze] Gemini responses={response_count}/{len(free_matches)}")
+        print(
+            f"[analyze] Gemini picks={picks}; explicit abstentions={abstentions}; "
+            f"guardrail rejections={rejected}; no valid response={no_response}"
+        )
     else:
         print("[analyze] no Gemini client — all fixtures remain no-pick abstentions")
-
-    gemini_picks = sum(
-        1 for match in free_matches
-        if match.get("ai_source") == "gemini-stats-v1"
-        and not match.get("ai_abstain")
-        and isinstance(match.get("predictions"), list)
-        and len(match["predictions"]) > 0
-    )
-    abstentions = sum(1 for match in free_matches if match.get("ai_abstain") is True)
-    no_response = sum(1 for match in free_matches if not match.get("ai_source"))
-    data["analysisEngine"] = "gemini-stats-v1" if no_response < len(free_matches) else "unavailable"
+    picks = sum(1 for match in free_matches if match.get("ai_response_status") == "pick")
+    abstentions = sum(1 for match in free_matches if match.get("ai_response_status") == "abstain")
+    rejected = sum(1 for match in free_matches if match.get("ai_response_status") == "rejected")
+    no_response = len(free_matches) - response_count
+    if client is None:
+        print(f"[analyze] Gemini responses={response_count}/{len(free_matches)}")
+        print(
+            f"[analyze] Gemini picks={picks}; explicit abstentions={abstentions}; "
+            f"guardrail rejections={rejected}; no valid response={no_response}"
+        )
+    data["analysisEngine"] = "gemini-stats-v1" if response_count > 0 else "unavailable"
     save_payload(data, free_matches)
-    print(f"[analyze] Gemini picks={gemini_picks}; abstentions={abstentions}; no Gemini response={no_response}")
     print(f"[analyze] saved {PREDICTIONS_FILE}")
+    if no_response:
+        failed_models = ", ".join(dict.fromkeys(model for model, _ in provider_errors)) or MODEL_NAME
+        error_codes = sorted({str(code) for _, code in provider_errors if code is not None})
+        code_summary = f"; HTTP codes: {', '.join(error_codes)}" if error_codes else ""
+        print(
+            f"::warning::Gemini coverage incomplete: {response_count}/{len(free_matches)} candidates "
+            f"have a structured Gemini response{code_summary}; fixtures without a verified pick or explicit abstention "
+            f"will be excluded from the current public feed. Continuing with verified responses only."
+        )
     print("[analyze] done.")
-    # Provider outages are valid no-pick outcomes. Keep the warning visible,
-    # but allow validation, build and deployment of the abstention-only feed.
 
 
 if __name__ == "__main__":

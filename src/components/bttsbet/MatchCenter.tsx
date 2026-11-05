@@ -485,12 +485,6 @@ function MatchCard({ m, index, lang, results, nowTs }: {
           })}
         </div>
       )}
-      {picks.length === 0 && (
-        <p className="hp-mc-result__label" role="status">
-          {lang === 'en' ? 'No Gemini pick published for this match.' : lang === 'ar' ? 'لم يتم نشر ترشيح من Gemini لهذه المباراة.' : 'Aucun pick Gemini publié pour ce match.'}
-        </p>
-      )}
-
       {/* Ligne 3bis : cotes réelles du marché (gratuit — ESPN/bookmaker) */}
       {m.odds && (m.odds.home || m.odds.away) && (
         <div className="hp-mc-data" title={m.odds.provider ? (lang === 'en' ? `${m.odds.provider} odds` : lang === 'ar' ? `أودز ${m.odds.provider}` : `Cotes ${m.odds.provider}`) : (lang === 'en' ? 'Market odds' : lang === 'ar' ? 'أودز السوق' : 'Cotes marché')}>

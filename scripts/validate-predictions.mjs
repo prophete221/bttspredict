@@ -1,3 +1,5 @@
+import { isCurrentGeminiAbstention, isCurrentGeminiPick } from './filter-gemini-current-picks.mjs'
+
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/
 const ISO_TIMESTAMP = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$/
 
@@ -50,7 +52,7 @@ export function validatePredictionPayload(payload, options = {}) {
   }
 
   const rows = rowsFromPayload(payload)
-  // An empty set is a legitimate abstention when no fixture has enough evidence.
+  // An empty set is valid: the feed may publish only fixtures with a proven Gemini decision.
   validatePreviewRows(payload, today, errors)
 
   rows.forEach((prediction, index) => {
@@ -63,30 +65,10 @@ export function validatePredictionPayload(payload, options = {}) {
     if (!ISO_DATE.test(prediction?.date || '')) errors.push(`${prefix}.date must be YYYY-MM-DD`)
     else if (prediction.date < today) errors.push(`${prefix}.date is older than Africa/Dakar today`)
     const picks = pickRows(prediction)
+
     if (requireGemini) {
-      if (picks.length === 0) {
-        if (prediction?.ai_abstain !== true) errors.push(`${prefix}.ai_abstain must be true when no Gemini pick is published`)
-        if (prediction?.ai_source && prediction.ai_source !== 'gemini-stats-v1') {
-          errors.push(`${prefix}.ai_source must not identify a non-Gemini source`)
-        }
-        for (const field of ['proba', 'confidence', 'bttsProb', 'over25Prob', 'bttsProbDisplay', 'over25ProbDisplay']) {
-          if (prediction?.[field] !== undefined) errors.push(`${prefix}.${field} must be absent for a no-pick abstention`)
-        }
-      } else {
-        if (prediction?.ai_source !== 'gemini-stats-v1') errors.push(`${prefix}.ai_source must be gemini-stats-v1 for published picks`)
-        if (prediction?.ai_abstain !== false) errors.push(`${prefix}.ai_abstain must be false when a Gemini pick is published`)
-        if (prediction?.modelEngine !== 'gemini-stats-v1') errors.push(`${prefix}.modelEngine must be gemini-stats-v1 for published picks`)
-        picks.forEach((pick, pickIndex) => {
-          const pickPrefix = picks.length > 1 ? `${prefix}.predictions[${pickIndex}]` : prefix
-          if (typeof pick?.type !== 'string' || pick.type.trim() === '') errors.push(`${pickPrefix}.type is required for a Gemini pick`)
-          if (typeof pick?.prediction !== 'string' || !['Oui', 'Non', 'Yes', 'No'].includes(pick.prediction)) {
-            errors.push(`${pickPrefix}.prediction must be a Gemini Yes/No selection`)
-          }
-          const probability = pick?.proba ?? (String(pick?.type || '').toLowerCase().includes('btts') ? pick?.bttsProb : pick?.over25Prob)
-          if (typeof probability !== 'number' || probability < 0 || probability > 1) {
-            errors.push(`${pickPrefix}.proba must be between 0 and 1`)
-          }
-        })
+      if (!isCurrentGeminiPick(prediction) && !isCurrentGeminiAbstention(prediction)) {
+        errors.push(`${prefix} must contain a verified Gemini pick or explicit abstention`)
       }
     } else if (picks.length > 0) {
       for (const field of ['type', 'prediction']) {
@@ -98,6 +80,7 @@ export function validatePredictionPayload(payload, options = {}) {
         errors.push(`${prefix}.proba must be between 0 and 1`)
       }
     }
+
     if (typeof prediction?.reliabilityScore !== 'number' || prediction.reliabilityScore < 0 || prediction.reliabilityScore > 100) {
       errors.push(`${prefix}.reliabilityScore must be between 0 and 100`)
     }

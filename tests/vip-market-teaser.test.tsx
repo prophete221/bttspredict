@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { cleanup, fireEvent, render, screen } from '@testing-library/react'
+import { cleanup, render, screen } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
@@ -16,23 +16,17 @@ describe('teaser VIP verrouillé dans les cartes gratuites', () => {
     ['fr', 'BTTS avancé', 'Score exact', 'Débloquer'],
     ['en', 'Advanced BTTS', 'Exact score', 'Unlock'],
     ['ar', 'BTTS متقدم', 'النتيجة الدقيقة', 'افتح VIP'],
-  ] as const)('affiche seulement deux marchés génériques en %s', (locale, first, second, unlock) => {
+  ] as const)('affiche les deux marchés VIP en %s et le lien VIP localisé', (locale, first, second, unlock) => {
     const { container } = render(<VipMarketTeaser locale={locale} />)
     const markets = [...container.querySelectorAll<HTMLElement>('[data-vip-market]')]
 
     expect(markets).toHaveLength(2)
     expect(markets.map((market) => market.textContent?.trim())).toEqual([first, second])
-    expect(screen.getByRole('button', { name: unlock })).not.toBeNull()
+    const vipLink = screen.getByRole('link', { name: unlock })
+    expect(vipLink.getAttribute('href')).toBe(locale === 'fr' ? '/vip' : `/${locale}/vip`)
+    expect(screen.queryByRole('dialog')).toBeNull()
     expect(container.textContent).not.toMatch(/\d+(?:[.,]\d+)?\s*%/)
-  })
-
-  it('ouvre le formulaire VIP existant et garde la validation manuelle', async () => {
-    render(<VipMarketTeaser locale="fr" />)
-    fireEvent.click(screen.getByRole('button', { name: 'Débloquer' }))
-
-    expect(await screen.findByRole('dialog')).not.toBeNull()
-    expect(screen.getByText('Étape 1 sur 7')).not.toBeNull()
-    expect(screen.getByText('L’accès à vie reste verrouillé jusqu’à la confirmation manuelle du propriétaire.')).not.toBeNull()
+    expect(container.innerHTML).not.toMatch(/generic preview|no picks or odds|aperçu générique|sans choix ni cote|معاينة عامة|دون اختيارات أو احتمالات/i)
   })
 
   it('est présent dans les variantes de cartes gratuites utilisées sur le site', () => {
@@ -51,6 +45,34 @@ describe('teaser VIP verrouillé dans les cartes gratuites', () => {
     expect(teaserSource).not.toContain('predictions.json')
     expect(teaserSource).not.toContain('vipPreview')
     expect(teaserSource).not.toContain('ai_exact_score')
+  })
+
+  it('conserve le formulaire VIP à sept étapes sur la page localisée', () => {
+    const vipPageSource = readFileSync(resolve(__dirname, '..', 'src/app/vip/page.tsx'), 'utf8')
+    expect(vipPageSource).toContain("import VipUnlockModal from '@/components/bttsbet/VipUnlockModal'")
+    expect(vipPageSource).toContain('<VipUnlockModal isOpen={showVipUnlock}')
+    expect(vipPageSource).toContain('onClick={openWizard}')
+
+    const formSource = readFileSync(resolve(__dirname, '..', 'src/components/bttsbet/VipUnlockModal.tsx'), 'utf8')
+    expect(formSource).toMatch(/Step \{current\} of 7|Étape \{current\} sur 7|الخطوة \{current\} من 7/)
+  })
+
+  it('ne montre plus les messages de diagnostic Gemini sans supprimer la provenance positive', () => {
+    const files = [
+      'src/components/bttsbet/BttsTodayDashboard.tsx',
+      'src/components/bttsbet/FreePredictions.tsx',
+      'src/components/bttsbet/MatchCenter.tsx',
+      'src/app/match/[slug]/page.tsx',
+    ]
+    for (const file of files) {
+      const source = readFileSync(resolve(__dirname, '..', file), 'utf8')
+      expect(source, file).not.toMatch(/No Gemini pick (?:published|is published) for this match\./i)
+      expect(source, file).not.toMatch(/Aucun pick Gemini (?:publié|n’est publié) pour ce match\./i)
+      expect(source, file).not.toMatch(/(?:لم يتم نشر ترشيح|لا يوجد ترشيح منشور) من Gemini لهذه المباراة/i)
+    }
+
+    const freePredictionsSource = readFileSync(resolve(__dirname, '..', 'src/components/bttsbet/FreePredictions.tsx'), 'utf8')
+    expect(freePredictionsSource).toContain('{humanMethodLabel(dataQuality, lang)}')
   })
 
   it('n’expose aucune clé VIP dans la réponse JSON publique', async () => {

@@ -440,12 +440,6 @@ function MatchCard({ match, index, status, lang, labels, now }: {
             locale={lang}
           />
         </div>
-        {match.aiPicks.length === 0 && (
-          <p className="mt-2 text-center text-[11px] text-[#9DABBB]" role="status">
-            {lang === 'en' ? 'No Gemini pick published for this match.' : lang === 'ar' ? 'لم يتم نشر ترشيح من Gemini لهذه المباراة.' : 'Aucun pick Gemini publié pour ce match.'}
-          </p>
-        )}
-
         {/* ─── Moyennes récentes de buts marqués ─── */}
         <div className="btx-lambdas">
           <div className="btx-lambda">

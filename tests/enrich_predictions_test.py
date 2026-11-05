@@ -35,8 +35,29 @@ class FakeGeminiAPIError(Exception):
 
 class EnrichmentImmutabilityTests(unittest.TestCase):
     def test_uses_only_the_proven_gemini_model(self):
-        # Le run #937 a appliqué 40/40 avec cet alias en 2 min 04.
-        self.assertEqual(enrich.MODELS_TO_TRY, ["gemini-flash-lite-latest"])
+        # Identifiant stable exact; aucun alias dynamique ni modèle de secours.
+        self.assertEqual(enrich.MODELS_TO_TRY, ["gemini-3.5-flash-lite"])
+
+    def test_sdk_retry_layer_is_single_attempt_with_bounded_timeout(self):
+        class RetryOptions:
+            def __init__(self, **kwargs):
+                self.__dict__.update(kwargs)
+
+        class HttpOptions:
+            def __init__(self, **kwargs):
+                self.__dict__.update(kwargs)
+
+        fake_types = type("FakeTypes", (), {"HttpRetryOptions": RetryOptions, "HttpOptions": HttpOptions})
+        fake_genai = type("FakeGenai", (), {"Client": staticmethod(lambda **kwargs: kwargs)})
+        with (
+            patch.dict(enrich.os.environ, {"GEMINI_API_KEY": "test-only"}),
+            patch.object(enrich, "genai", fake_genai),
+            patch.object(enrich, "genai_types", fake_types),
+        ):
+            result = enrich.get_client()
+
+        self.assertEqual(result["http_options"].timeout, enrich.REQUEST_TIMEOUT_MS)
+        self.assertEqual(result["http_options"].retry_options.attempts, 1)
 
     def test_transient_503_retries_the_same_gemini_model(self):
         calls = []
@@ -60,7 +81,7 @@ class EnrichmentImmutabilityTests(unittest.TestCase):
         ):
             result = enrich._call_gemini_chunk(Client(), [{"home": "Home", "away": "Away"}], 0)
 
-        self.assertEqual(calls, ["gemini-flash-lite-latest", "gemini-flash-lite-latest"])
+        self.assertEqual(calls, ["gemini-3.5-flash-lite", "gemini-3.5-flash-lite"])
         self.assertEqual(len(result), 1)
         sleep.assert_called_once_with(4.1)
 
@@ -77,7 +98,7 @@ class EnrichmentImmutabilityTests(unittest.TestCase):
 
         client = Client()
         with (
-            patch.object(enrich, "MODELS_TO_TRY", ["gemini-flash-lite-latest"]),
+            patch.object(enrich, "MODELS_TO_TRY", ["gemini-3.5-flash-lite"]),
             patch.object(enrich, "GeminiAPIError", FakeGeminiAPIError),
             patch.object(enrich.time, "sleep") as sleep,
             patch.object(enrich.random, "uniform", return_value=0.0),
@@ -103,7 +124,7 @@ class EnrichmentImmutabilityTests(unittest.TestCase):
 
                 client = Client()
                 with (
-                    patch.object(enrich, "MODELS_TO_TRY", ["gemini-flash-lite-latest"]),
+                    patch.object(enrich, "MODELS_TO_TRY", ["gemini-3.5-flash-lite"]),
                     patch.object(enrich, "GeminiAPIError", FakeGeminiAPIError),
                     patch.object(enrich.time, "sleep") as sleep,
                 ):
@@ -112,6 +133,42 @@ class EnrichmentImmutabilityTests(unittest.TestCase):
                 self.assertEqual(result, [])
                 self.assertEqual(client.models.calls, 1)
                 sleep.assert_not_called()
+
+    def test_batch_rejects_chunk_local_ids_instead_of_remapping_them(self):
+        first = [{"id": 0, "market": "BTTS"}, {"id": 1, "market": "BTTS"}]
+        second_with_wrong_local_ids = [{"id": 0, "market": "BTTS"}, {"id": 1, "market": "BTTS"}]
+        with (
+            patch.object(enrich, "CHUNK_SIZE", 2),
+            patch.object(enrich, "_call_gemini_chunk", side_effect=[first, second_with_wrong_local_ids]),
+            patch.object(enrich.time, "sleep"),
+        ):
+            result = enrich.call_gemini_batch(object(), [{}, {}, {}, {}])
+
+        self.assertEqual([item["id"] for item in result], [0, 1])
+
+    def test_model_404_stops_all_remaining_chunks_without_retry(self):
+        class FailingModels:
+            calls = 0
+
+            def generate_content(self, **_kwargs):
+                self.calls += 1
+                raise FakeGeminiAPIError(404)
+
+        class Client:
+            models = FailingModels()
+
+        client = Client()
+        with (
+            patch.object(enrich, "CHUNK_SIZE", 2),
+            patch.object(enrich, "MAX_RETRIES", 3),
+            patch.object(enrich, "GeminiAPIError", FakeGeminiAPIError),
+            patch.object(enrich.time, "sleep") as sleep,
+        ):
+            result = enrich.call_gemini_batch(client, [{}, {}, {}, {}])
+
+        self.assertEqual(result, [])
+        self.assertEqual(client.models.calls, 1)
+        sleep.assert_not_called()
 
     def test_429_honors_retry_after_with_bounded_jitter(self):
         response = type("HttpResponse", (), {"headers": {"Retry-After": "7"}})()
@@ -167,7 +224,7 @@ class EnrichmentImmutabilityTests(unittest.TestCase):
 
         client = Client()
         with (
-            patch.object(enrich, "MODELS_TO_TRY", ["gemini-flash-lite-latest"]),
+            patch.object(enrich, "MODELS_TO_TRY", ["gemini-3.5-flash-lite"]),
             patch.object(enrich.time, "sleep") as sleep,
         ):
             result = enrich._call_gemini_chunk(client, [{"home": "Home", "away": "Away"}], 0)
@@ -189,7 +246,7 @@ class EnrichmentImmutabilityTests(unittest.TestCase):
 
         client = Client()
         with (
-            patch.object(enrich, "MODELS_TO_TRY", ["gemini-flash-lite-latest"]),
+            patch.object(enrich, "MODELS_TO_TRY", ["gemini-3.5-flash-lite"]),
             patch.object(enrich.time, "sleep") as sleep,
         ):
             result = enrich._call_gemini_chunk(client, [{"home": "Home", "away": "Away"}], 0)
@@ -198,7 +255,7 @@ class EnrichmentImmutabilityTests(unittest.TestCase):
         self.assertEqual(client.models.calls, 1)
         sleep.assert_not_called()
 
-    def test_zero_provider_enrichments_warns_fails_and_keeps_no_pick_abstentions(self):
+    def test_missing_provider_response_warns_and_keeps_no_pick_abstentions(self):
         class FailingModels:
             def generate_content(self, **_kwargs):
                 raise FakeGeminiAPIError(503)
@@ -233,9 +290,43 @@ class EnrichmentImmutabilityTests(unittest.TestCase):
                 self.assertNotIn(field, row)
             self.assertEqual(row["empiricalBttsRate"], 0.60)
             self.assertEqual(row["empiricalOver25Rate"], 0.70)
-            self.assertIn("Gemini applied 0/1", output.getvalue())
-            self.assertIn("::warning::Gemini n'a fourni aucun résultat exploitable", output.getvalue())
-            self.assertIn("codes API: 503", output.getvalue())
+            self.assertIn("Gemini responses=0/1", output.getvalue())
+            self.assertIn("::warning::Gemini coverage incomplete", output.getvalue())
+            self.assertIn("HTTP codes: 503", output.getvalue())
+            self.assertIn("Continuing with verified responses only", output.getvalue())
+
+    def test_explicit_abstention_is_a_complete_response_without_a_pick(self):
+        class AbstainingModels:
+            def generate_content(self, **_kwargs):
+                return type("Response", (), {"text": json.dumps([{
+                    "id": 0, "market": "ABSTAIN", "selection": None, "probability": None,
+                    "analysis_fr": "Données insuffisantes.",
+                    "analysis_en": "Insufficient evidence.",
+                }])})()
+
+        class Client:
+            models = AbstainingModels()
+
+        with tempfile.TemporaryDirectory() as directory:
+            predictions_file = Path(directory) / "predictions.json"
+            predictions_file.write_text(json.dumps({"free": [{
+                "match": "Home FC vs Away FC", "home": "Home FC", "away": "Away FC",
+                "bttsProb": 0.60, "over25Prob": 0.70,
+            }]}), encoding="utf-8")
+            output = io.StringIO()
+            with (
+                patch.object(enrich, "PREDICTIONS_FILE", predictions_file),
+                patch.object(enrich, "get_client", return_value=Client()),
+                redirect_stdout(output),
+            ):
+                enrich.main()
+
+            row = json.loads(predictions_file.read_text(encoding="utf-8"))["free"][0]
+            self.assertEqual(row["ai_response_status"], "abstain")
+            self.assertTrue(row["ai_abstain"])
+            self.assertNotIn("prediction", row)
+            self.assertNotIn("predictions", row)
+            self.assertIn("Gemini responses=1/1", output.getvalue())
 
     def test_successful_gemini_enrichment_does_not_raise(self):
         class SuccessfulModels:
@@ -267,10 +358,13 @@ class EnrichmentImmutabilityTests(unittest.TestCase):
 
             saved = json.loads(predictions_file.read_text(encoding="utf-8"))
             self.assertEqual(saved["free"][0]["ai_source"], "gemini-stats-v1")
+            self.assertEqual(saved["free"][0]["ai_model"], "gemini-3.5-flash-lite")
+            self.assertEqual(saved["free"][0]["ai_response_status"], "pick")
             self.assertFalse(saved["free"][0]["ai_abstain"])
             self.assertEqual(len(saved["free"][0]["predictions"]), 1)
+            self.assertEqual(saved["free"][0]["predictions"][0]["modelEngine"], "gemini-3.5-flash-lite")
             self.assertNotIn("over25Prob", saved["free"][0])
-            self.assertIn("Gemini applied 1/1", output.getvalue())
+            self.assertIn("Gemini responses=1/1", output.getvalue())
 
     def test_gemini_abstention_is_not_replaced_by_local_fallback(self):
         abstention = {
@@ -398,9 +492,10 @@ class EnrichmentImmutabilityTests(unittest.TestCase):
         accepted = enrich.apply_analysis(match, {
             "id": 0, "market": "BOTH", "selection": "Yes", "probability": 0.66,
         })
-        self.assertTrue(accepted)
+        self.assertFalse(accepted)
         self.assertTrue(match["ai_abstain"])
-        self.assertEqual(match["ai_source"], "gemini-stats-v1")
+        self.assertNotIn("ai_source", match)
+        self.assertNotIn("ai_response_status", match)
         self.assertNotIn("predictions", match)
         self.assertNotIn("bttsProb", match)
         self.assertNotIn("over25Prob", match)

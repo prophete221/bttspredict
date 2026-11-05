@@ -11,14 +11,36 @@ import { sufficientRecordedEvidence } from './public-predictions.mjs'
 // première version archivée du match — publiée AVANT l'existence de ces champs —
 // et l'historique « Dernière minute » resterait à jamais vide sur le site.
 const RESULT_FIELDS = ['status', 'finalScore', 'verifiedAt', 'isWon', 'verifiedSource', 'verificationSource', 'last5Home', 'last5Away']
+const GEMINI_MODEL = 'gemini-3.5-flash-lite'
+
+function canonicalMarket(value) {
+  const key = String(value ?? '').toLowerCase().replace(/[^a-z0-9]/g, '')
+  if (key === 'btts') return 'BTTS'
+  if (key === 'over25') return 'OVER_25'
+  if (key === 'abstain') return 'ABSTAIN'
+  return key.toUpperCase()
+}
+
+function normalizeSelection(value) {
+  const key = String(value ?? '').trim().toLowerCase()
+  if (key === 'yes' || key === 'oui') return 'yes'
+  if (key === 'no' || key === 'non') return 'no'
+  return ''
+}
+
+function normalizeText(value) {
+  return String(value ?? '').trim().normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/\s+/g, ' ')
+}
 
 function predictionKey(prediction) {
-  const market = String(prediction?.type ?? '').trim().toLowerCase()
-  if (prediction?.id != null && String(prediction.id)) return `id:${prediction.id}|market:${market}`
-  const home = String(prediction?.home ?? '').trim().toLowerCase()
-  const away = String(prediction?.away ?? '').trim().toLowerCase()
+  const market = canonicalMarket(prediction?.ai_market || prediction?.type)
+  const home = normalizeText(prediction?.home)
+  const away = normalizeText(prediction?.away)
+  const league = normalizeText(prediction?.league)
   const date = String(prediction?.date ?? '').trim()
-  return home && away && date ? `match:${date}:${home}:${away}|market:${market}` : null
+  return home && away && league && date && market
+    ? `match:${date}:${league}:${home}:${away}|market:${market}`
+    : null
 }
 
 function predictionRows(payload) {
@@ -26,19 +48,39 @@ function predictionRows(payload) {
 }
 
 function hasGeminiPick(row) {
-  if (row?.ai_source !== 'gemini-stats-v1' || row?.ai_abstain !== false) return false
-  const nested = Array.isArray(row.predictions) && row.predictions.some((pick) =>
-    pick && typeof pick.prediction === 'string' && pick.prediction.trim(),
+  if (
+    row?.ai_source !== 'gemini-stats-v1' || row?.ai_abstain !== false ||
+    row?.ai_model !== GEMINI_MODEL || row?.ai_response_status !== 'pick' ||
+    row?.modelEngine !== 'gemini-stats-v1'
+  ) return false
+  const market = canonicalMarket(row.ai_market)
+  const selection = normalizeSelection(row.prediction)
+  const probability = row.proba
+  const nested = Array.isArray(row.predictions) ? row.predictions : []
+  if (!['BTTS', 'OVER_25'].includes(market) || canonicalMarket(row.type) !== market) return false
+  if (!selection || typeof probability !== 'number' || probability < 0.48 || probability > 0.78) return false
+  if (nested.length !== 1) return false
+  const pick = nested[0]
+  return Boolean(
+    pick?.modelEngine === GEMINI_MODEL && canonicalMarket(pick.type) === market &&
+    normalizeSelection(pick.prediction) === selection && typeof pick.proba === 'number' &&
+    Math.abs(pick.proba - probability) < 1e-9,
   )
-  return Boolean(nested || (typeof row.prediction === 'string' && row.prediction.trim()))
 }
 
 function isGeminiAbstention(row) {
-  if (row?.ai_source !== 'gemini-stats-v1' || row?.ai_abstain !== true) return false
-  const nested = Array.isArray(row.predictions) && row.predictions.some((pick) =>
-    pick && typeof pick.prediction === 'string' && pick.prediction.trim(),
-  )
-  return !nested && !(typeof row.prediction === 'string' && row.prediction.trim())
+  if (
+    row?.ai_source !== 'gemini-stats-v1' || row?.ai_abstain !== true ||
+    row?.ai_model !== GEMINI_MODEL || row?.ai_response_status !== 'abstain' ||
+    row?.ai_market !== 'ABSTAIN'
+  ) return false
+  const nested = Array.isArray(row.predictions) ? row.predictions : []
+  return nested.length === 0 && !normalizeSelection(row.prediction)
+}
+
+function isGeminiRejectedDecision(row) {
+  return row?.ai_source === 'gemini-stats-v1' && row?.ai_abstain === true &&
+    row?.ai_model === GEMINI_MODEL && row?.ai_response_status === 'rejected'
 }
 
 function resultUpdates(...lists) {
@@ -90,9 +132,10 @@ function freezeCurrentRows(rows, firstPublications, updates) {
     // Keep the archive file itself immutable; use today's Gemini response or
     // explicit abstention only in predictions.json.
     if (!hasGeminiPick(first)) return structuredClone(row)
-    // An earlier valid Gemini publication remains the first publication if a
-    // later refresh abstains or the provider is temporarily unavailable.
-    if (isGeminiAbstention(row) || !hasGeminiPick(row)) {
+    // An explicit abstention or a guardrail rejection suppresses this fixture's
+    // old pick. Preserve a proven prior pick only when the new run has no response.
+    if (isGeminiAbstention(row) || isGeminiRejectedDecision(row)) return structuredClone(row)
+    if (!hasGeminiPick(row)) {
       const preserved = structuredClone(first)
       const allowed = updates.get(key)
       if (allowed) {

@@ -1,4 +1,5 @@
 export type GeminiMarket = 'BTTS' | 'O2.5'
+export const GEMINI_MODEL_ID = 'gemini-3.5-flash-lite'
 
 export interface GeminiPrediction {
   type: 'BTTS' | 'Over 2.5'
@@ -20,63 +21,75 @@ type DataRow = Record<string, unknown>
 
 function normalizeMarket(value: unknown): GeminiMarket | null {
   const market = String(value ?? '').toLowerCase().replace(/[^a-z0-9]/g, '')
-  if (market.includes('btts') || market.includes('bothteams')) return 'BTTS'
-  if (market.includes('over25') || market.includes('o25')) return 'O2.5'
+  if (market === 'btts') return 'BTTS'
+  if (market === 'over25' || market === 'o25') return 'O2.5'
+  return null
+}
+
+function normalizeSelection(value: unknown): 'yes' | 'no' | null {
+  const selection = String(value ?? '').trim().toLowerCase()
+  if (selection === 'oui' || selection === 'yes') return 'yes'
+  if (selection === 'non' || selection === 'no') return 'no'
   return null
 }
 
 function numericProbability(value: unknown): number | null {
-  const number = typeof value === 'number' ? value : Number(value)
-  return Number.isFinite(number) && number >= 0 && number <= 1 ? number : null
+  return typeof value === 'number' && Number.isFinite(value) && value >= 0.48 && value <= 0.78
+    ? value
+    : null
 }
 
 /**
- * Return only current picks explicitly attributed to Gemini.
- * Empirical percentages, local-model rows, stale fields and abstentions are not picks.
+ * Return only a single, explicitly sourced pick from the pinned Gemini model.
+ * Empirical/local rows, legacy hybrid tags, stale fields, and abstentions are not picks.
  */
 export function getGeminiPicks(value: unknown): GeminiPrediction[] {
   if (!value || typeof value !== 'object') return []
   const row = value as DataRow
-  if (row.ai_source !== 'gemini-stats-v1' || row.ai_abstain === true) return []
+  if (
+    row.ai_source !== 'gemini-stats-v1' || row.ai_abstain !== false ||
+    row.ai_model !== GEMINI_MODEL_ID || row.ai_response_status !== 'pick' ||
+    row.modelEngine !== 'gemini-stats-v1'
+  ) return []
 
+  const market = normalizeMarket(row.ai_market)
+  const topLevelMarket = normalizeMarket(row.type)
+  const selection = normalizeSelection(row.prediction)
+  const probability = numericProbability(row.proba)
   const nested = Array.isArray(row.predictions) ? row.predictions : []
-  const candidates: DataRow[] = nested.length
-    ? nested.filter(item => Boolean(item) && typeof item === 'object') as DataRow[]
-    : [row]
-  const picks: GeminiPrediction[] = []
+  if (!market || market !== topLevelMarket || !selection || probability === null || nested.length !== 1) return []
 
-  for (const candidate of candidates) {
-    const market = normalizeMarket(candidate.type ?? candidate.market ?? row.type ?? row.market)
-    if (!market) continue
-    const rawSelection = String(candidate.prediction ?? '').trim().toLowerCase()
-    if (!['oui', 'yes', 'non', 'no'].includes(rawSelection)) continue
-    const probability = numericProbability(
-      candidate.proba ?? candidate.probability ?? (market === 'BTTS' ? candidate.bttsProb : candidate.over25Prob),
-    )
-    if (probability === null) continue
+  const candidate = nested[0]
+  if (!candidate || typeof candidate !== 'object') return []
+  const pick = candidate as DataRow
+  const pickMarket = normalizeMarket(pick.type)
+  const pickSelection = normalizeSelection(pick.prediction)
+  const pickProbability = numericProbability(pick.proba)
+  if (
+    pick.modelEngine !== GEMINI_MODEL_ID || pickMarket !== market ||
+    pickSelection !== selection || pickProbability === null ||
+    Math.abs(pickProbability - probability) >= 1e-9
+  ) return []
 
-    const confidenceValue = Number(candidate.confidence ?? row.confidence)
-    const confidence = Number.isFinite(confidenceValue) && confidenceValue >= 0 && confidenceValue <= 100
-      ? confidenceValue
-      : undefined
-    const prediction = rawSelection === 'oui' || rawSelection === 'yes' ? 'Oui' : 'Non'
-    picks.push({
-      type: market === 'BTTS' ? 'BTTS' : 'Over 2.5',
-      market,
-      prediction,
-      confidence,
-      proba: probability,
-      ...(market === 'BTTS' ? { bttsProb: probability } : { over25Prob: probability }),
-      ...(typeof (candidate.tier ?? row.tier) === 'string' ? { tier: String(candidate.tier ?? row.tier) } : {}),
-      ...(typeof (candidate.status ?? row.status) === 'string' ? { status: String(candidate.status ?? row.status) } : {}),
-      ...(typeof (candidate.isWon ?? row.isWon) === 'boolean' ? { isWon: Boolean(candidate.isWon ?? row.isWon) } : {}),
-      ...(typeof (candidate.finalScore ?? row.finalScore) === 'string' ? { finalScore: String(candidate.finalScore ?? row.finalScore) } : {}),
-      ...(typeof (candidate.verifiedAt ?? row.verifiedAt) === 'string' ? { verifiedAt: String(candidate.verifiedAt ?? row.verifiedAt) } : {}),
-      ...(typeof (candidate.source ?? row.source) === 'string' ? { source: String(candidate.source ?? row.source) } : {}),
-    })
-  }
-
-  return picks
+  const confidenceValue = Number(pick.confidence ?? row.confidence)
+  const confidence = Number.isFinite(confidenceValue) && confidenceValue >= 0 && confidenceValue <= 100
+    ? confidenceValue
+    : undefined
+  const prediction = selection === 'yes' ? 'Oui' : 'Non'
+  return [{
+    type: market === 'BTTS' ? 'BTTS' : 'Over 2.5',
+    market,
+    prediction,
+    confidence,
+    proba: probability,
+    ...(market === 'BTTS' ? { bttsProb: probability } : { over25Prob: probability }),
+    ...(typeof (pick.tier ?? row.tier) === 'string' ? { tier: String(pick.tier ?? row.tier) } : {}),
+    ...(typeof (pick.status ?? row.status) === 'string' ? { status: String(pick.status ?? row.status) } : {}),
+    ...(typeof (pick.isWon ?? row.isWon) === 'boolean' ? { isWon: Boolean(pick.isWon ?? row.isWon) } : {}),
+    ...(typeof (pick.finalScore ?? row.finalScore) === 'string' ? { finalScore: String(pick.finalScore ?? row.finalScore) } : {}),
+    ...(typeof (pick.verifiedAt ?? row.verifiedAt) === 'string' ? { verifiedAt: String(pick.verifiedAt ?? row.verifiedAt) } : {}),
+    ...(typeof (pick.source ?? row.source) === 'string' ? { source: String(pick.source ?? row.source) } : {}),
+  }]
 }
 
 export function getGeminiProbability(picks: GeminiPrediction[], market: GeminiMarket): number | undefined {

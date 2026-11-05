@@ -343,11 +343,11 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
             </div>
           </div>
 
-          <p className="text-[11px] text-cendre mt-2 text-center">
-            {hasGeminiPick
-              ? humanMethodLabel(dataQuality, lang)
-              : lang === 'en' ? 'No Gemini pick published for this match.' : lang === 'ar' ? 'لم يتم نشر ترشيح من Gemini لهذه المباراة.' : 'Aucun pick Gemini publié pour ce match.'}
-          </p>
+          {hasGeminiPick && (
+            <p className="text-[11px] text-cendre mt-2 text-center">
+              {humanMethodLabel(dataQuality, lang)}
+            </p>
+          )}
         </div>
         <VipMarketTeaser locale={lang} />
 
