@@ -32,15 +32,15 @@ function NavLogo({ src, alt }: { src: string; alt: string }) {
 }
 
 function IconHome() {
-  return <NavLogo src="/icons/nav-home.png" alt="" />
+  return <NavLogo src="/logos/nav-home.png" alt="" />
 }
 
 function IconBall() {
-  return <NavLogo src="/icons/nav-predictions.png" alt="" />
+  return <NavLogo src="/logos/nav-predictions.png" alt="" />
 }
 
 function IconCrown() {
-  return <NavLogo src="/icons/nav-vip.png" alt="" />
+  return <NavLogo src="/logos/nav-vip.png" alt="" />
 }
 
 const TABS: Tab[] = [
