@@ -32411,7 +32411,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.48 · N 4.7 · 2 5.5",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-11-05T22:57:44.370Z"
     },
     {
       "id": "celtavig-vs-unionstg-2026-11-05",
@@ -32623,7 +32625,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 2 · N 3.75 · 2 3.35 · O2.5 1.65",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-05T22:58:01.209Z"
     },
     {
       "id": "celtic-vs-besiktas-2026-11-05",
@@ -32838,7 +32842,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 2.9 · N 3.75 · 2 2.25 · O2.5 1.59",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-2",
+      "verifiedAt": "2026-11-05T22:58:01.209Z"
     },
     {
       "id": "fcthun-vs-heartofm-2026-11-05",
@@ -33481,7 +33487,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.42 · N 5 · 2 6.5",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-05T22:57:44.370Z"
     },
     {
       "id": "agf-vs-braga-2026-11-05",
@@ -39978,7 +39986,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 2 · N 3.75 · 2 3.35 · O2.5 1.65",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-05T22:57:44.371Z"
     }
   ],
   "analysisEngine": "gemini-stats-v1"

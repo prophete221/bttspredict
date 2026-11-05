@@ -17479,7 +17479,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.48 · N 4.7 · 2 5.5",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-11-05T22:57:44.370Z"
     },
     {
       "id": "bayerlev-vs-marseill-2026-11-05",
@@ -17694,7 +17696,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.42 · N 5 · 2 6.5",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-05T22:57:44.370Z"
     },
     {
       "id": "celtic-vs-besiktas-2026-11-05",
@@ -17909,7 +17913,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 2.85 · N 3.75 · 2 2.3 · O2.5 1.59",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-2",
+      "verifiedAt": "2026-11-05T22:57:44.370Z"
     },
     {
       "id": "trabzons-vs-scfreibu-2026-11-05",
@@ -18335,7 +18341,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-11-05T22:57:44.370Z"
     },
     {
       "id": "fcthun-vs-heartofm-2026-11-05",
