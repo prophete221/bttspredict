@@ -1,6 +1,6 @@
 # Rapport — SEO, marchés VIP verrouillés et correction Gemini
 
-**État prépublication (5 novembre 2026, 14:36 UTC) :** `origin/main` est toujours `83da0ff05335b4414c136105fd649be431afcf9e`; le run #1050 a été annulé avant build et FTP. La nouvelle correction des retries, ses tests, le README mis à jour et ce supplément sont locaux; aucun nouveau commit ni push n’a encore été créé. Le propriétaire a autorisé un seul déploiement après vérifications finales.
+**État prépublication (5 novembre 2026, 15:49 UTC) :** `origin/main` est `cb33e6d0700054b05e73889cbf0aa2f76ddc5ef6`; le commit source local `2805a4f9993338cbd149dac51205a05c1ecefff2` suit cette base et n’est pas encore poussé. Le run #1051 a été annulé avant validation finale, build et FTP; la dernière publication publique confirmée reste #1047. Les corrections approuvées et les vérifications locales sont prêtes; aucun workflow n’est actif. Un seul push et un seul workflow complet restent autorisés.
 
 ## État observé avant le premier correctif (5 novembre 2026 — historique)
 
@@ -99,3 +99,27 @@ Vérification faite sur le site réellement en ligne avant toute édition. Les v
 - `npx tsc --noEmit` : réussi. ESLint : 0 erreur, un avertissement préexistant (`BottomNavigation.tsx:22`).
 - `npm run build -- --webpack` : réussi, 184 pages; l'export contient « Forme récente + λ » (FR/EN/AR) et ne contient plus « Modèle + xG »; la méthodologie contient la nouvelle politique UEFA.
 - Export public : `robots.txt` sans directive `Host`, sitemap inchangé à 61 URL, `predictions.json` sans champ VIP et les trois pages de pronostics ne contiennent aucun libellé VIP dans le HTML initial.
+
+
+## Supplément — version fail-closed et corrections C/D/E/F (5 novembre 2026, prépublication)
+
+### Faits vérifiés avant le push
+
+- Le run **#1051** (ID `42049267651`, commit source `cb33e6d0700054b05e73889cbf0aa2f76ddc5ef6`) a appliqué **6/37** décisions Gemini; l’ancien script a ensuite utilisé le fallback local sur 31 matchs. Le run a été annulé pendant la mise à jour du contexte d’équipes; la validation finale, le build, le commit de données et le FTP ont été ignorés. Aucun changement issu de #1051 n’est confirmé en ligne. Le dernier déploiement public confirmé reste **#1047** (ID `42013125937`).
+- La note de l’audit initial « D — prémisse fausse, non modifié » est historique et **supersédée par le choix explicite du propriétaire d’appliquer D**. La vérification distinguait bien la preuve globale de la ligne Score exact; la correction ne confond pas les deux.
+- Les métriques de suivi observées sont **476 terminés, 381 gagnés, 95 perdus, 80 %**, depuis le **8 août 2026**. Dans le candidat, le bandeau global de l’accueil lit `stats.total/won/lost/rate` et `trackingPeriod.startDate` depuis `win-history.json`, puis relie à `/historique`; la ligne Score exact précise séparément qu’aucun résultat n’y est encore vérifié. Ces valeurs ne sont pas codées en dur.
+- **E** était déjà implémenté dans `StatistiquesClient.tsx` : le libellé de dernière mise à jour est dérivé de `generatedAt` du fichier canonique, sans horodatage fixe. Il reste dynamique; aucune modification supplémentaire n’était nécessaire.
+- **F** est cohérent dans les trois langues : la page FR indique que les compétitions UEFA de clubs sont incluses lorsque les données des deux équipes sont suffisantes; le texte EN/AR a été complété dans le même sens. Les compétitions de sélections nationales et les amicaux restent exclus; les coupes nationales atypiques peuvent aussi être exclues.
+- **C** garde la formulation approuvée « forme récente + λ » et évite d’affirmer qu’un flux xG tiers est consommé. « Plateforme N°1 Mondiale » est inchangé; les options A, B et G ne sont pas appliquées. Aucun titre SEO, canonical, URL, redirection ou metadata protégée n’a été modifié.
+
+### Garde-fous Gemini et publication
+
+Le commit source local `2805a4f9993338cbd149dac51205a05c1ecefff2` (parent `cb33e6d0700054b05e73889cbf0aa2f76ddc5ef6`) remplace la sélection de secours locale par un comportement fail-closed. Le producteur ne crée plus de choix/cotes empiriques; avant l’appel réseau, les lignes sont marquées sans pick. Seules les décisions Gemini valides et correctement étiquetées peuvent être publiées; JSON inutilisable, abstention, données insuffisantes ou indisponibilité fournisseur laissent une abstention sans sélection. Le seuil de quatre matchs observés par équipe est contrôlé. Les cartes, widgets, ticker, détail, tableau et combinés passent par le filtre Gemini commun. Le finaliseur ne réinjecte pas d’anciens picks locaux dans le flux courant; les archives historiques déjà publiées restent conservées. La validation de publication utilise maintenant `--require-gemini`; une abstention explicite sans pick est valide, tandis qu’un pick sans provenance Gemini est refusé. Le step Gemini garde `continue-on-error` pour permettre de construire et déployer même lors d’une panne fournisseur, mais aucun pick empirique ne sera alors montré. Le modèle demeure `gemini-flash-lite-latest` avec le SDK épinglé `google-genai==2.34.0`; aucun autre fournisseur n’est ajouté. La clé Gemini n’a pas été consultée ni modifiée.
+
+### Vérifications locales avant publication
+
+- `npm test` : **48 fichiers, 396 tests réussis**, dont les garde-fous de sélection Gemini et de politique UEFA FR/EN/AR.
+- Python : **21 tests réussis**, incluant retries bornés 503/429, abstention, échantillon minimum et rejet d’une réponse ambiguë.
+- `npx tsc --noEmit` : réussi. ESLint : **0 erreur**, un avertissement préexistant de directive inutilisée dans `BottomNavigation.tsx:22`. `git diff --check` : réussi.
+- `npm run build -- --webpack` : réussi, **184 pages statiques**; postbuild : 0 fichier nettoyé. L’export produit 61 URL de sitemap. `robots.txt` conserve ses règles et le sitemap sans directive `Host`; le sitemap source et ses URLs n’ont pas été modifiés. L’export public exclut toujours les picks VIP réels et les données sensibles non publiques.
+- Avant le push, `main` et `origin/main` étaient au même SHA `cb33e6d0700054b05e73889cbf0aa2f76ddc5ef6`; aucun workflow n’était actif. Le commit `2805a4f9993338cbd149dac51205a05c1ecefff2` est local et non poussé. **Le déploiement, le résultat Gemini du nouveau code, le commit de données, le FTP et le rendu live restent à confirmer après l’unique push autorisé.**
