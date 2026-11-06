@@ -1,43 +1,29 @@
 # CTA VIP pour les marchés sans décision Gemini — 6 novembre 2026
 
-## Résumé
+## Résultat
 
-Correction UI prête sur `main` : lorsqu’aucune décision Gemini valide n’existe pour un marché, la carte montre un lien localisé « Débloquer VIP » à la place du tiret. Ce lien ouvre uniquement la page VIP; il ne crée, ne révèle ni ne prétend qu’un pronostic VIP existe pour ce marché. Le teaser inférieur reste limité à ses deux marchés actuels.
+Le lien localisé « Débloquer VIP » remplace maintenant le tiret quand aucune décision Gemini valide n’existe pour un marché. Il mène à la page VIP, sans inventer de pronostic, cote ou troisième marché verrouillé. Les picks Gemini déjà présents restent inchangés.
 
-## Faits vérifiés
+## Correction et vérifications
 
-La réponse de production [`predictions.json`](https://bttspredict.com/predictions.json), comparée à l’archive datée du dépôt, montre deux cas illustratifs au 6 novembre : Hamburg SV–Borussia Mönchengladbach possède un pick Gemini BTTS, mais aucun pick Over 2.5; Toulouse–Strasbourg possède un pick Gemini Over 2.5, mais aucun pick BTTS. Les décisions présentes et leurs provenances restent inchangées.
+Le fallback est dans [`FreePredictions.tsx`](../../../src/components/bttsbet/FreePredictions.tsx) et [`BttsTodayDashboard.tsx`](../../../src/components/bttsbet/BttsTodayDashboard.tsx), avec le composant localisé [`MissingMarketVipLink.tsx`](../../../src/components/bttsbet/MissingMarketVipLink.tsx). Le teaser conserve ses deux marchés actuels.
 
-Le filtre [`gemini-predictions.ts`](../../../src/lib/gemini-predictions.ts) accepte les picks Gemini explicitement identifiés; le tiret indiquait donc une absence de décision, pas un pick dissimulé. Aucun appel à Gemini, recalcul de prédiction ou changement de données n’a été effectué.
+Vitest complet : 53 fichiers, 409 tests réussis et 16 ignorés; tests ciblés VIP/Gemini : 19 réussis. ESLint : aucune erreur et cinq avertissements existants hors des fichiers modifiés. TypeScript et les 25 tests Python réussissent. Le build local avait généré 154 pages avant un manque d’inodes du sandbox au moment d’écrire `.next/trace-build`; le build statique GitHub a ensuite réussi complètement.
 
-## Correctif
+## Déploiement et production
 
-- Nouveau composant [`MissingMarketVipLink.tsx`](../../../src/components/bttsbet/MissingMarketVipLink.tsx) : libellés français, anglais et arabes; liens respectifs `/vip`, `/en/vip` et `/ar/vip`.
-- Fallback ajouté dans [`FreePredictions.tsx`](../../../src/components/bttsbet/FreePredictions.tsx) et dans les barres de marché de [`BttsTodayDashboard.tsx`](../../../src/components/bttsbet/BttsTodayDashboard.tsx), uniquement lorsque le pick correspondant est absent.
-- Le teaser garde exactement deux marchés verrouillés; le nouveau lien ne crée ni badge supplémentaire ni modale. Aucun URL, canonical, sitemap, archive ou fichier public de prédictions n’a été modifié.
+Un seul push fast-forward a été fait sur `main`. Le run automatique [#1066](https://github.com/prophete221/bttspredict/actions/runs/42187311925) a réussi : tests, lint, typage, build, préflight et FTP. Les étapes ESPN/Gemini, mise à jour des pronostics et pruning ont été ignorées.
 
-## Vérifications
+L’artefact de transfert confirme `codeOnly=true`, `historyJsonMode=false`, 1 428 fichiers autorisés (42 931 289 octets) et FTP réussi. Aucun JSON de données ni archive n’était dans l’allowlist; zéro suppression de fichier et zéro URL retirée du sitemap. Les deux fichiers racine `robots.txt` et `sitemap.xml` ont été confirmés par l’étape dédiée; `.htaccess` a utilisé son transfert protégé séparé.
 
-- Tests ciblés VIP/Gemini : 19 réussis.
-- Vitest complet, un worker pour éviter la saturation d’inodes du sandbox : 53 fichiers; 409 tests réussis, 16 ignorés.
-- ESLint : 0 erreur; 5 avertissements existants, tous hors des fichiers modifiés.
-- TypeScript `tsc --noEmit` : réussi.
-- Tests Python : 25 réussis.
-- Le build Webpack a compilé le projet, terminé le contrôle TypeScript du build et généré les 154 pages statiques. L’écriture finale de `.next/trace-build` a échoué avec `ENOSPC` car le sandbox était à 100 % d’utilisation des inodes (4 494 libres avant le build). Les trois routes de la page Over 2.5 ont été générées; les tests de composant vérifient exactement les libellés et destinations pour chaque langue. Les sorties locales ignorées ont été nettoyées; aucune donnée suivie n’a été touchée.
-- Le premier passage Vitest a rencontré une ancienne assertion qui exigeait le tiret et un manque d’inodes temporaire. L’assertion de garde a été mise à jour pour exiger le lien; la suite complète repasse avec le résultat ci-dessus.
+Les trois pages de production répondent HTTP 200. Chaque version contient 16 liens avec le bon libellé et la bonne destination, ainsi que 24 badges de teaser (12 cartes × 2 marchés) : [français](/over-2-5/predictions/today), [anglais](/en/over-2-5/predictions/today) et [arabe](/ar/over-2-5/predictions/today). Aucune troisième option verrouillée n’a été ajoutée.
 
-## Faits, hypothèses et recommandation
+## Données, faits et recommandation
 
-**Faits :** le nouveau CTA est une navigation interne vers la page VIP; les décisions Gemini valides existantes passent toujours par les branches d’affichage habituelles. La différence de build local est liée à la capacité d’inodes du sandbox, après compilation et génération des pages, et non à une erreur de code constatée.
+Les empreintes de `win-history.json` et `history-exclusions.json` en production correspondent aux fichiers locaux. Le JSON `predictions.json` diffère en binaire, mais son diff structurel se limite à deux champs racine : le dépôt contient `analysisEngine: gemini-stats-v1`, la production contient un `disclaimer`. La date, `lastUpdated` et les 28 entrées de chacune des listes `free` et `predictions` sont identiques. Ce fichier n’était pas dans l’allowlist #1066 et n’a pas été modifié par ce run.
 
-**Hypothèse :** le run GitHub sur un runner frais dispose de suffisamment d’inodes pour terminer le build; cette hypothèse doit être confirmée par le run, pas par une nouvelle tentative locale.
+**Faits :** le run #1066 a abouti; les CTA sont vérifiés en HTML en français, anglais et arabe; aucune donnée ni archive n’a été téléversée. **Hypothèse :** aucune en attente sur le déploiement. **Recommandation :** laisser l’écart de métadonnées de `predictions.json` intact, sauf demande distincte de normalisation.
 
-**Recommandation :** pousser les commits locaux en un seul événement avec `[code-only]`. Le workflow ignorera la mise à jour des prédictions, Gemini, le pruning et l’actualisation des archives; le build frais et son allowlist FTP seront les barrières avant publication.
+## Commits et état
 
-## État avant push
-
-- Branche : `main`; tête distante vérifiée : `6433739226be3daf602c4c455c158de2c6444f5b`.
-- Commit local UI : `ba1bc0c6989b4da03f4d0f4b57e7322544cdc5d0` (`fix(ui): link missing Gemini markets to VIP [code-only]`).
-- Rapport précédent local : `92363f6b8a7c97a5836d4346c346c8f861f85968`.
-- Aucun workflow actif au contrôle; run précédent ciblé #1065 terminé avec succès.
-- Le propriétaire a autorisé un unique push/run code-only. L’état du run et la production seront ajoutés après cette vérification; en cas d’échec, aucun second run ne sera déclenché sans nouvelle autorisation.
+Le correctif UI est le commit `ba1bc0c6989b4da03f4d0f4b57e7322544cdc5d0`; la tête publiée par le push unique est `b02049b8aa69aa0eb027b7867e904bd046904bef`. Le rapport avait été inclus au push; cette mise à jour finale consigne les résultats de production localement uniquement, sans second push ni second run.
