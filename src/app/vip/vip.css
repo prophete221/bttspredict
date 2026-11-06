@@ -2311,6 +2311,29 @@
   .vipx-content-grid__aside .vipx-flow__steps--full,
   .vipx-content-grid__aside .vipx-flow__panels { grid-template-columns: minmax(0, 1fr); }
 }
+.vipx .vipx-flow__video {
+  display: grid;
+  gap: 10px;
+  margin-block: 14px;
+  padding: 14px;
+  border: 1px solid rgba(41, 212, 176, .22);
+  border-radius: 16px;
+  background: linear-gradient(145deg, rgba(41, 212, 176, .07), rgba(16, 26, 37, .92));
+}
+.vipx .vipx-flow__video-copy h3 { color: #eef7f5; font-size: .98rem; font-weight: 800; line-height: 1.35; }
+.vipx .vipx-flow__video-copy p,
+.vipx .vipx-flow__video-note { color: #a9bdc1; font-size: .78rem; line-height: 1.5; }
+.vipx .vipx-flow__video-player {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  aspect-ratio: 16 / 9;
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 12px;
+  background: #050b0e;
+  object-fit: contain;
+}
+.vipx .vipx-flow__video-note { margin: 0; }
 @media (prefers-reduced-motion: reduce) {
   .vipx-hero__art { transition: none; }
 }

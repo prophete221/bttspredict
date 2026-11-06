@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useLanguage } from '@/components/bttsbet/LanguageSwitcher'
 import AnimatedTitle from '@/components/bttsbet/HeroWordmark'
+import { selectBttsHistory } from '@/lib/historyDisplay'
 
 interface TrackingPeriod {
   startDate: string
@@ -55,18 +56,18 @@ interface HistoryEntry {
   source: string
 }
 
-interface WinHistory {
+export interface WinHistory {
   generatedAt: string
   trackingPeriod: TrackingPeriod
   stats: Stats
   history: HistoryEntry[]
 }
 
-export default function HistoriqueClient() {
+export default function HistoriqueClient({ initialData }: { initialData: WinHistory | null }) {
   const { lang } = useLanguage()
   const copy = lang === 'fr' ? { loading: 'Chargement de l’historique vérifié…', error: 'Erreur de récupération des données', retry: 'Réessayer', newTracking: 'Nouveau suivi public', title: 'Historique vérifié', intro: 'BTTSPredict lance une nouvelle période de suivi vérifié. Chaque pronostic publié est enregistré, horodaté et évalué après le résultat officiel du match. Les performances seront publiées progressivement, sans modification rétroactive.', launch: 'Nouvelle période de suivi publique' } : lang === 'en' ? { loading: 'Loading verified history…', error: 'Unable to retrieve the data', retry: 'Try again', newTracking: 'New public tracking period', title: 'Verified history', intro: 'BTTSPredict is starting a new verified tracking period. Every published prediction is recorded, time-stamped and assessed after the official match result. Performance will be published progressively, without retroactive changes.', launch: 'New public tracking period' } : { loading: 'جار تحميل السجل الموثق…', error: 'تعذر استرجاع البيانات', retry: 'إعادة المحاولة', newTracking: 'فترة تتبع عامة جديدة', title: 'السجل الموثق', intro: 'تبدأ BTTSPredict فترة جديدة لتتبع التوقعات الموثقة. يتم تسجيل كل توقع منشور وتأريخه وتقييمه بعد النتيجة الرسمية للمباراة. سيتم نشر الأداء تدريجياً دون تعديلات بأثر رجعي.', launch: 'فترة تتبع عامة جديدة' }
-  const [data, setData] = useState<WinHistory | null>(null)
-  const [loading, setLoading] = useState(true)
+  const [data, setData] = useState<WinHistory | null>(initialData)
+  const [loading, setLoading] = useState(!initialData)
   const [error, setError] = useState<string | null>(null)
 
   // Chaînes complémentaires (historiquement codées en dur en FR — corrigé Vague 2)
@@ -94,6 +95,7 @@ export default function HistoriqueClient() {
   }
 
   useEffect(() => {
+    if (initialData) return
     fetch('/win-history.json')
       .then(r => {
         if (!r.ok) throw new Error('Impossible de charger les données')
@@ -101,7 +103,7 @@ export default function HistoriqueClient() {
       })
       .then(d => { setData(d); setLoading(false) })
       .catch(e => { setError(e.message); setLoading(false) })
-  }, [])
+  }, [initialData])
 
   if (loading) {
     return (
@@ -129,6 +131,7 @@ export default function HistoriqueClient() {
   if (!data) return null
 
   const { trackingPeriod, stats, history } = data
+  const bttsHistory = selectBttsHistory(history)
   const insufficient = trackingPeriod.insufficientVolume || stats.total < 30
 
   return (
@@ -231,7 +234,7 @@ export default function HistoriqueClient() {
           {t.tableTitle}
         </h2>
 
-        {history.length === 0 ? (
+        {bttsHistory.length === 0 ? (
           <div className="p-6 rounded-xl text-center" style={{ backgroundColor: '#141C25', border: '1px solid #223041' }}>
             <p className="text-sm text-[#9DABBB] mb-2">{t.emptyTable}</p>
             <p className="text-xs text-[#9DABBB]">
@@ -252,7 +255,7 @@ export default function HistoriqueClient() {
                 </tr>
               </thead>
               <tbody>
-                {history.slice(0, 100).map((h, i) => {
+                {bttsHistory.slice(0, 100).map((h, i) => {
                   const isWon = h.status === 'WON'
                   const isLost = h.status === 'LOST'
                   return (

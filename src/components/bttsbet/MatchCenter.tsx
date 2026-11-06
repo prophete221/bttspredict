@@ -289,6 +289,9 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
             ))}
           </div>
         )}
+        <div className="mt-6" aria-label={lang === 'fr' ? 'Partenaires' : lang === 'en' ? 'Partners' : 'الشركاء'}>
+          <BookmakerCardLinks locale={lang} placement="match-center-partner-rail" compact />
+        </div>
       </div>
     </section>
   )
@@ -506,7 +509,6 @@ function MatchCard({ m, index, lang, results, nowTs }: {
         </div>
       )}
 
-      <BookmakerCardLinks locale={lang} placement="home-match-card" compact />
 
       {/* Ligne 5 : publication + analyse */}
       <div className="hp-mc-foot">

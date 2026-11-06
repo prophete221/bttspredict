@@ -361,6 +361,31 @@ export default function VipPage() {
             </div>
           </div>
 
+          <section className="vipx-flow__video" aria-labelledby="vipx-flow-video-title">
+            <div className="vipx-flow__video-copy">
+              <h3 id="vipx-flow-video-title">
+                {lang === 'fr' ? 'Le parcours VIP en vidéo' : lang === 'en' ? 'VIP access walkthrough' : 'شرح مسار الوصول إلى VIP'}
+              </h3>
+              <p>
+                {lang === 'fr' ? 'Les sept étapes, expliquées simplement.' : lang === 'en' ? 'The seven steps, explained simply.' : 'شرح مبسط للخطوات السبع.'}
+              </p>
+            </div>
+            <video
+              className="vipx-flow__video-player"
+              controls
+              preload="metadata"
+              playsInline
+              poster="/videos/vip-parcours-poster.jpg"
+              aria-label={lang === 'fr' ? 'Vidéo du parcours VIP en français' : lang === 'en' ? 'French-language VIP walkthrough video' : 'فيديو شرح VIP باللغة الفرنسية'}
+            >
+              <source src="/videos/vip-parcours.mp4" type="video/mp4" />
+              {lang === 'ar' ? 'المتصفح لا يدعم تشغيل الفيديو.' : lang === 'en' ? 'Your browser does not support video playback.' : 'Ton navigateur ne prend pas en charge la lecture vidéo.'}
+            </video>
+            <p className="vipx-flow__video-note">
+              {lang === 'fr' ? 'Version française, sans audio.' : lang === 'en' ? 'French version; no audio.' : 'النسخة الفرنسية؛ بدون صوت.'}
+            </p>
+          </section>
+
           <button type="button" className="vipx-btn vipx-btn--gold vipx-flow__start" onClick={openWizard}>
             {flow.wizardStart}<span aria-hidden="true">→</span>
           </button>

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-11-06T05:07:59.269Z",
+  "generatedAt": "2026-11-06T06:05:22.485Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,37 +15,37 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 494,
+    "total": 482,
     "won": 388,
-    "lost": 106,
+    "lost": 94,
     "pending": 47,
-    "unverifiable": 176,
+    "unverifiable": 188,
     "archivedTotal": 717,
-    "rate": 78.5,
+    "rate": 80.5,
     "gold": {
-      "total": 372,
+      "total": 362,
       "won": 298,
-      "lost": 74,
-      "rate": 80.1
+      "lost": 64,
+      "rate": 82.3
     },
     "standard": {
-      "total": 122,
+      "total": 120,
       "won": 90,
-      "lost": 32,
-      "rate": 73.8
+      "lost": 30,
+      "rate": 75
     },
     "byType": {
       "btts": {
-        "total": 425,
+        "total": 420,
         "won": 342,
-        "lost": 83,
-        "rate": 80.5
+        "lost": 78,
+        "rate": 81.4
       },
       "over25": {
-        "total": 69,
+        "total": 62,
         "won": 46,
-        "lost": 23,
-        "rate": 66.7
+        "lost": 16,
+        "rate": 74.2
       }
     },
     "trend14": [
@@ -142,10 +142,10 @@
       },
       {
         "date": "2026-11-05",
-        "total": 23,
+        "total": 11,
         "won": 11,
-        "lost": 12,
-        "rate": 47.8
+        "lost": 0,
+        "rate": 100
       }
     ],
     "period": {
@@ -155,19 +155,6 @@
     }
   },
   "history": [
-    {
-      "date": "2026-11-05",
-      "match": "Bayer Leverkusen vs Marseille",
-      "league": "UEFA Europa League",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.6,
-      "status": "LOST",
-      "finalScore": "0-1",
-      "verifiedAt": "2026-11-05T22:58:01.209Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
     {
       "date": "2026-11-05",
       "match": "Celta Vigo vs Union St.-Gilloise",
@@ -190,19 +177,6 @@
       "proba": 0.6,
       "status": "WON",
       "finalScore": "3-2",
-      "verifiedAt": "2026-11-05T22:58:01.209Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-05",
-      "match": "Sint-Truidense vs SK Brann",
-      "league": "UEFA Conference League",
-      "market": "over25",
-      "tier": "GOLD",
-      "proba": 0.7,
-      "status": "LOST",
-      "finalScore": "1-1",
       "verifiedAt": "2026-11-05T22:58:01.209Z",
       "source": "ESPN public",
       "prediction": "Oui"
@@ -232,32 +206,6 @@
       "verifiedAt": "2026-11-05T22:57:44.371Z",
       "source": "ESPN public",
       "prediction": "Non"
-    },
-    {
-      "date": "2026-11-05",
-      "match": "AS Monaco vs FC Nordsjælland",
-      "league": "UEFA Conference League",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.68,
-      "status": "LOST",
-      "finalScore": "2-0",
-      "verifiedAt": "2026-11-05T22:57:44.370Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-05",
-      "match": "Bayer Leverkusen vs Marseille",
-      "league": "UEFA Europa League",
-      "market": "over25",
-      "tier": "GOLD",
-      "proba": 0.67,
-      "status": "LOST",
-      "finalScore": "0-1",
-      "verifiedAt": "2026-11-05T22:57:44.370Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
     },
     {
       "date": "2026-11-05",
@@ -313,19 +261,6 @@
     },
     {
       "date": "2026-11-05",
-      "match": "Crystal Palace vs TSG Hoffenheim",
-      "league": "UEFA Europa League",
-      "market": "btts",
-      "tier": "STANDARD",
-      "proba": 0.4,
-      "status": "LOST",
-      "finalScore": "1-1",
-      "verifiedAt": "2026-11-05T21:36:01.714Z",
-      "source": "ESPN public",
-      "prediction": "Non"
-    },
-    {
-      "date": "2026-11-05",
       "match": "Real Sociedad vs Lyon",
       "league": "UEFA Europa League",
       "market": "btts",
@@ -334,71 +269,6 @@
       "status": "WON",
       "finalScore": "1-1",
       "verifiedAt": "2026-11-05T21:36:01.713Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-05",
-      "match": "Trabzonspor vs SC Freiburg",
-      "league": "UEFA Conference League",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.6,
-      "status": "LOST",
-      "finalScore": "0-1",
-      "verifiedAt": "2026-11-05T21:36:01.713Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-05",
-      "match": "AGF vs Braga",
-      "league": "UEFA Conference League",
-      "market": "over25",
-      "tier": "GOLD",
-      "proba": 0.58,
-      "status": "LOST",
-      "finalScore": "0-0",
-      "verifiedAt": "2026-11-05T21:36:01.712Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-05",
-      "match": "AGF vs Braga",
-      "league": "UEFA Conference League",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.52,
-      "status": "LOST",
-      "finalScore": "0-0",
-      "verifiedAt": "2026-11-05T21:35:38.453Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-05",
-      "match": "Anderlecht vs RB Salzburg",
-      "league": "UEFA Europa League",
-      "market": "over25",
-      "tier": "GOLD",
-      "proba": 0.68,
-      "status": "LOST",
-      "finalScore": "2-0",
-      "verifiedAt": "2026-11-05T21:35:38.453Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-05",
-      "match": "Crystal Palace vs TSG Hoffenheim",
-      "league": "UEFA Europa League",
-      "market": "over25",
-      "tier": "STANDARD",
-      "proba": 0.58,
-      "status": "LOST",
-      "finalScore": "1-1",
-      "verifiedAt": "2026-11-05T21:35:38.453Z",
       "source": "ESPN public",
       "prediction": "Oui"
     },
@@ -412,32 +282,6 @@
       "status": "WON",
       "finalScore": "3-1",
       "verifiedAt": "2026-11-05T21:35:38.453Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-05",
-      "match": "Real Sociedad vs Lyon",
-      "league": "UEFA Europa League",
-      "market": "over25",
-      "tier": "GOLD",
-      "proba": 0.72,
-      "status": "LOST",
-      "finalScore": "1-1",
-      "verifiedAt": "2026-11-05T21:35:38.453Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-05",
-      "match": "Trabzonspor vs SC Freiburg",
-      "league": "UEFA Conference League",
-      "market": "over25",
-      "tier": "GOLD",
-      "proba": 0.72,
-      "status": "LOST",
-      "finalScore": "0-1",
-      "verifiedAt": "2026-11-05T21:35:38.452Z",
       "source": "ESPN public",
       "prediction": "Oui"
     },

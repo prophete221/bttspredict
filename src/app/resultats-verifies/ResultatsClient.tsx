@@ -18,6 +18,7 @@ import { useState, useEffect, useRef } from 'react'
 import { useLanguage } from '@/components/bttsbet/LanguageSwitcher'
 import { fmtPct } from '@/components/bttsbet/SimpleCharts'
 import { useCountUp } from '@/hooks/useAnimations'
+import { selectBttsHistory } from '@/lib/historyDisplay'
 
 type ResultHistoryEntry = {
   date: string
@@ -180,6 +181,7 @@ export default function ResultatsClient({ initialData }: { initialData?: any }) 
   const history: ResultHistoryEntry[] = (data.history || []).filter((h: ResultHistoryEntry) =>
     h.status === 'WON' || h.status === 'LOST' || (!h.status && typeof h.isWon === 'boolean')
   )
+  const bttsHistory = selectBttsHistory(history)
   const won = stats.won || 0
   const lost = stats.lost || 0
   const total = won + lost
@@ -201,7 +203,7 @@ export default function ResultatsClient({ initialData }: { initialData?: any }) 
 
   const seen = new Set<string>()
   const dedupedHistory: ResultHistoryEntry[] = []
-  for (const h of history) {
+  for (const h of bttsHistory) {
     const key = `${h.date}-${h.match}-${h.type || h.market || ''}`
     if (seen.has(key)) continue
     seen.add(key)

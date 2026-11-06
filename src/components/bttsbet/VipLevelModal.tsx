@@ -288,7 +288,8 @@ export default function VipLevelModal({ levelId, isOpen, onClose }: VipLevelModa
                     className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg text-xs font-bold transition-all"
                     style={{ backgroundColor: '#2F7DFF', color: '#FFFFFF' }}
                   >
-                    Inscription 1xbet →
+                    <img src="/logos/1xbet-logo.png" alt="" aria-hidden="true" width={20} height={20} className="h-5 w-5 rounded bg-white p-0.5 object-contain" />
+                    <span>Inscription 1xbet →</span>
                   </a>
                   <a
                     href={AFFILIATE.linebet}
@@ -299,7 +300,8 @@ export default function VipLevelModal({ levelId, isOpen, onClose }: VipLevelModa
                     className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg text-xs font-bold transition-all"
                     style={{ backgroundColor: '#2F7DFF', color: '#FFFFFF' }}
                   >
-                    Inscription Linebet →
+                    <img src="/logos/linebet-logo.jpg" alt="" aria-hidden="true" width={20} height={20} className="h-5 w-5 rounded bg-white p-0.5 object-contain" />
+                    <span>Inscription Linebet →</span>
                   </a>
                   <a
                     href={AFFILIATE.star888}
@@ -314,7 +316,8 @@ export default function VipLevelModal({ levelId, isOpen, onClose }: VipLevelModa
                       color: '#4A90FF',
                     }}
                   >
-                    Inscription 888starz →
+                    <img src="/logos/888starz-logo.jpg" alt="" aria-hidden="true" width={20} height={20} className="h-5 w-5 rounded bg-white p-0.5 object-contain" />
+                    <span>Inscription 888starz →</span>
                   </a>
                 </div>
               </div>

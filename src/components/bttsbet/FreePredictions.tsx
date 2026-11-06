@@ -464,15 +464,6 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
                   </div>
                 )}
 
-                {/* CTA — ordre définitif : partenaire principal 1xBet, puis Linebet. */}
-                <div>
-                  <div className="text-xs uppercase tracking-widest font-semibold text-cendre mb-2">{t.predictions.betMatch}</div>
-                  <BookmakerCardLinks
-                    locale={lang}
-                    placement="free-prediction-card"
-                    context={{ match: match.match, market: 'BTTS' }}
-                  />
-                </div>
               </div>
             </motion.div>
           )}
@@ -643,6 +634,9 @@ export default function FreePredictions({ initialLocale }: { initialLocale?: Loc
           </a>
         </div>
       </div>
+        <div className="mt-6" aria-label={lang === 'fr' ? 'Partenaires' : lang === 'en' ? 'Partners' : 'الشركاء'}>
+          <BookmakerCardLinks locale={lang} placement="free-predictions-partner-rail" compact />
+        </div>
     </section>
     </>
   )

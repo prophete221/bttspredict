@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { selectBttsHistory } from '@/lib/historyDisplay'
 
 /**
  * WinHistory (V7 — Clean credibility)
@@ -43,7 +44,7 @@ export default function WinHistory() {
 
   const stats = data.stats
   const verifiedHistory = Array.isArray(data.history)
-    ? data.history.filter((h: any) => h.status === 'WON' || h.status === 'LOST')
+    ? selectBttsHistory(data.history.filter((h: any) => h.status === 'WON' || h.status === 'LOST'))
     : []
   const gold = stats.gold || { total: 0, won: 0, lost: 0, rate: 0 }
   const hasGold = gold.total >= 10

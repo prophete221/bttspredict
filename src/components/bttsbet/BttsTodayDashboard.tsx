@@ -620,12 +620,6 @@ function MatchCard({ match, index, status, lang, labels, now }: {
           </div>
         )}
         <VipMarketTeaser locale={lang} />
-        <BookmakerCardLinks
-          locale={lang}
-          compact
-          placement="dashboard-match-card"
-          context={{ match: match.key }}
-        />
       </div>
     </article>
   )

@@ -202,6 +202,7 @@ export default function Star888PromoClient({
                 data-cta={`promo-apk-888starz-${lang}`}
                 className="mt-3 flex min-h-12 w-full items-center justify-center gap-2 rounded-lg border border-white/20 bg-transparent px-4 py-2.5 text-sm font-bold text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D9164C] focus-visible:ring-offset-2"
               >
+                <Image src={LOGO} alt="" aria-hidden="true" width={23} height={23} className="h-6 w-6 shrink-0 object-contain" />
                 <Image src="/logos/google-play.svg" alt="" aria-hidden="true" width={23} height={23} className="h-6 w-6 shrink-0 object-contain" />
                 <span>{copy.download}</span>
               </a>

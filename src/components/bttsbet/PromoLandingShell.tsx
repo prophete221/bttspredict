@@ -289,6 +289,7 @@ export default function PromoLandingShell(p: PromoLandingProps) {
                 }}
               >
                 <span className="inline-flex items-center justify-center gap-2">
+                  <img src={p.logo} alt="" aria-hidden="true" width={22} height={22} className="h-6 w-6 object-contain" />
                   <img src="/logos/google-play.svg" alt="" aria-hidden="true" width={22} height={22} className="h-6 w-6 object-contain" />
                   <span>{L.download}</span>
                 </span>

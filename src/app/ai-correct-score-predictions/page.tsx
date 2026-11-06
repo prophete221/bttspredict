@@ -188,15 +188,15 @@ export default function AICorrectScorePage() {
                       <span>λ Away: <strong className="text-[#9DABBB] font-mono">{m.lambdaAway.toFixed(2)}</strong></span>
                     </div>
                   </div>
-                  <div className="px-3 pb-3">
-                    <BookmakerCardLinks locale={lang} placement="exact-score-card" compact />
-                  </div>
                 </div>
               ))}
             </div>
           )}
         </section>
 
+        <div className="max-w-3xl mx-auto px-4 py-5" aria-label={lang === 'fr' ? 'Partenaires' : lang === 'en' ? 'Partners' : 'الشركاء'}>
+          <BookmakerCardLinks locale={lang} placement="exact-score-partner-rail" compact />
+        </div>
         {/* Explanation */}
         <section className="max-w-3xl mx-auto px-4 pb-8">
           <div className="rounded-xl p-5" style={{ backgroundColor: '#141C25', border: '1px solid #6B7A8C' }}>

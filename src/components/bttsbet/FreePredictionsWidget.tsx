@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
-import BookmakerCardLinks from './BookmakerCardLinks'
 import VipMarketTeaser from './VipMarketTeaser'
 import { localizedPath, type Locale } from '@/lib/i18n'
 import { getGeminiPicks } from '@/lib/gemini-predictions'
@@ -208,12 +207,9 @@ function PredictionCard({ pred, locale }: { pred: Prediction; locale: Locale }) 
           {isBTTS ? 'BTTS' : 'O2.5'} {pred.prediction}
         </span>
       </div>
-      <BookmakerCardLinks
-        locale={locale}
-        compact
-        placement="free-predictions-widget-card"
-        context={{ match: pred.match, market: pred.type }}
-      />
+      <a href={localizedPath('/code-promo-1xbet', locale)} className="mt-2 inline-flex text-xs font-semibold text-[#9DABBB] underline underline-offset-2 hover:text-white">
+        {locale === 'fr' ? 'Guide des partenaires' : locale === 'en' ? 'Partner guide' : 'دليل الشركاء'}
+      </a>
       <VipMarketTeaser locale={locale} />
     </div>
   )

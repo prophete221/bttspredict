@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import HistoriquePageContent from '@/app/historique/HistoriquePageContent'
+import { getWinHistory } from '@/app/historique/getWinHistory'
 import { SUPPORTED_LOCALES, type Locale } from '@/lib/i18n'
 
 export function generateStaticParams() {
@@ -17,5 +18,5 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function LocalizedHistoriquePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
   if (!SUPPORTED_LOCALES.includes(locale as Locale) || locale === 'fr') notFound()
-  return <HistoriquePageContent h1={locale === 'ar' ? 'السجل الموثق — BTTSPredict' : 'Verified history — BTTSPredict'} />
+  return <HistoriquePageContent h1={locale === 'ar' ? 'السجل الموثق — BTTSPredict' : 'Verified history — BTTSPredict'} initialData={getWinHistory()} />
 }

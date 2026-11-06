@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import HistoriquePageContent from './HistoriquePageContent'
+import { getWinHistory } from './getWinHistory'
 
 export const metadata: Metadata = {
   title: 'Historique vérifié — Nouveau suivi public',
@@ -15,5 +16,5 @@ export const metadata: Metadata = {
 }
 
 export default function HistoriquePage() {
-  return <HistoriquePageContent h1="Historique vérifié — BTTSPredict" />
+  return <HistoriquePageContent h1="Historique vérifié — BTTSPredict" initialData={getWinHistory()} />
 }

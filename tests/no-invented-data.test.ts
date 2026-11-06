@@ -44,7 +44,8 @@ describe('no invented data — fallbacks interdits', () => {
     // URL interne, tracking et CTA affiliés conservés
     expect(source).toContain('generateMatchSlug')
     expect(source).toContain("import BookmakerCardLinks from './BookmakerCardLinks'")
-    expect(source).toContain('placement="free-prediction-card"')
+    expect(source).toContain('placement="free-predictions-partner-rail"')
+    expect(source).not.toContain('placement="free-prediction-card"')
     const partnerLinks = readSource('src/components/bttsbet/BookmakerCardLinks.tsx')
     expect(partnerLinks).toContain('rel="sponsored nofollow noopener noreferrer"')
     expect(partnerLinks).toContain("trackAffiliateAction(id, 'signup_cta_click', placement")

@@ -1,8 +1,92 @@
 {
   "schemaVersion": 1,
   "description": "Matchs exclus de l'historique public (ne sont jamais comptés comme LOST/WON). Clé = date|match|marché. Respecté par scripts/update-win-history.mjs.",
-  "updatedAt": "2026-10-23T08:06:41Z",
+  "updatedAt": "2026-11-06T06:03:07Z",
   "entries": [
+    {
+      "key": "2026-11-05|Bayer Leverkusen vs Marseille|btts",
+      "date": "2026-11-05",
+      "match": "Bayer Leverkusen vs Marseille",
+      "market": "btts",
+      "excludedAt": "2026-11-06"
+    },
+    {
+      "key": "2026-11-05|Sint-Truidense vs SK Brann|over25",
+      "date": "2026-11-05",
+      "match": "Sint-Truidense vs SK Brann",
+      "market": "over25",
+      "excludedAt": "2026-11-06"
+    },
+    {
+      "key": "2026-11-05|AS Monaco vs FC Nordsjælland|btts",
+      "date": "2026-11-05",
+      "match": "AS Monaco vs FC Nordsjælland",
+      "market": "btts",
+      "excludedAt": "2026-11-06"
+    },
+    {
+      "key": "2026-11-05|Bayer Leverkusen vs Marseille|over25",
+      "date": "2026-11-05",
+      "match": "Bayer Leverkusen vs Marseille",
+      "market": "over25",
+      "excludedAt": "2026-11-06"
+    },
+    {
+      "key": "2026-11-05|Crystal Palace vs TSG Hoffenheim|btts",
+      "date": "2026-11-05",
+      "match": "Crystal Palace vs TSG Hoffenheim",
+      "market": "btts",
+      "excludedAt": "2026-11-06"
+    },
+    {
+      "key": "2026-11-05|Trabzonspor vs SC Freiburg|btts",
+      "date": "2026-11-05",
+      "match": "Trabzonspor vs SC Freiburg",
+      "market": "btts",
+      "excludedAt": "2026-11-06"
+    },
+    {
+      "key": "2026-11-05|AGF vs Braga|over25",
+      "date": "2026-11-05",
+      "match": "AGF vs Braga",
+      "market": "over25",
+      "excludedAt": "2026-11-06"
+    },
+    {
+      "key": "2026-11-05|AGF vs Braga|btts",
+      "date": "2026-11-05",
+      "match": "AGF vs Braga",
+      "market": "btts",
+      "excludedAt": "2026-11-06"
+    },
+    {
+      "key": "2026-11-05|Anderlecht vs RB Salzburg|over25",
+      "date": "2026-11-05",
+      "match": "Anderlecht vs RB Salzburg",
+      "market": "over25",
+      "excludedAt": "2026-11-06"
+    },
+    {
+      "key": "2026-11-05|Crystal Palace vs TSG Hoffenheim|over25",
+      "date": "2026-11-05",
+      "match": "Crystal Palace vs TSG Hoffenheim",
+      "market": "over25",
+      "excludedAt": "2026-11-06"
+    },
+    {
+      "key": "2026-11-05|Real Sociedad vs Lyon|over25",
+      "date": "2026-11-05",
+      "match": "Real Sociedad vs Lyon",
+      "market": "over25",
+      "excludedAt": "2026-11-06"
+    },
+    {
+      "key": "2026-11-05|Trabzonspor vs SC Freiburg|over25",
+      "date": "2026-11-05",
+      "match": "Trabzonspor vs SC Freiburg",
+      "market": "over25",
+      "excludedAt": "2026-11-06"
+    },
     {
       "key": "2026-10-22|Trabzonspor vs Heart of Midlothian|btts",
       "date": "2026-10-22",
