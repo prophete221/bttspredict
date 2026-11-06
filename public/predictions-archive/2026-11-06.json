@@ -782,7 +782,8 @@
       "bttsProb": 0.65,
       "prediction": "Oui",
       "proba": 0.65,
-      "confidence": 65
+      "confidence": 65,
+      "status": "PENDING"
     },
     {
       "id": "standard-vs-waasland-2026-11-06",
@@ -1356,7 +1357,8 @@
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "abstain",
+      "status": "PENDING"
     },
     {
       "id": "rapidvie-vs-wolfsber-2026-11-06",
@@ -1915,7 +1917,8 @@
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "abstain",
+      "status": "PENDING"
     },
     {
       "id": "fcfamali-vs-arouca-2026-11-06",
@@ -2111,7 +2114,8 @@
       "over25Prob": 0.58,
       "prediction": "Oui",
       "proba": 0.58,
-      "confidence": 58
+      "confidence": 58,
+      "status": "PENDING"
     },
     {
       "id": "venezia-vs-udinese-2026-11-06",
@@ -2293,7 +2297,8 @@
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "abstain",
+      "status": "PENDING"
     },
     {
       "id": "mainz-vs-bayernmu-2026-11-07",
@@ -2489,7 +2494,8 @@
       "bttsProb": 0.72,
       "prediction": "Oui",
       "proba": 0.72,
-      "confidence": 72
+      "confidence": 72,
+      "status": "PENDING"
     },
     {
       "id": "adodenha-vs-spartaro-2026-11-07",
@@ -2685,7 +2691,8 @@
       "bttsProb": 0.7,
       "prediction": "Oui",
       "proba": 0.7,
-      "confidence": 70
+      "confidence": 70,
+      "status": "PENDING"
     },
     {
       "id": "sporting-vs-moreiren-2026-11-07",
@@ -4454,7 +4461,8 @@
       "bttsProb": 0.72,
       "prediction": "Oui",
       "proba": 0.72,
-      "confidence": 72
+      "confidence": 72,
+      "status": "PENDING"
     },
     {
       "id": "sandiego-vs-sporting-2026-11-08",
@@ -4649,7 +4657,8 @@
       "bttsProb": 0.7,
       "prediction": "Oui",
       "proba": 0.7,
-      "confidence": 70
+      "confidence": 70,
+      "status": "PENDING"
     },
     {
       "id": "minnesot-vs-sanjosee-2026-11-08",
@@ -4844,7 +4853,8 @@
       "bttsProb": 0.72,
       "prediction": "Oui",
       "proba": 0.72,
-      "confidence": 72
+      "confidence": 72,
+      "status": "PENDING"
     },
     {
       "id": "scfreibu-vs-fcunionb-2026-11-08",
@@ -5435,6 +5445,975 @@
       "prediction": "Oui",
       "proba": 0.72,
       "confidence": 72,
+      "status": "PENDING"
+    },
+    {
+      "id": "tsveintr-vs-energiec-2026-11-06",
+      "match": "TSV Eintracht Braunschweig vs Energie Cottbus",
+      "home": "TSV Eintracht Braunschweig",
+      "away": "Energie Cottbus",
+      "league": "2. Bundesliga",
+      "date": "2026-11-06",
+      "type": "BTTS",
+      "time": "17:30",
+      "matchSemantic": "tsveintr-vs-energiec-2026-11-06",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3067.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/123.png",
+      "tier": "GOLD",
+      "reliabilityScore": 85,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2,
+      "xgAway": 2.25,
+      "xgTotal": 4.25,
+      "formBTTS": 60,
+      "analysis": "TSV Eintracht Braunschweig : forme D-V-D-V-D (2V 0N 3D, 4 buts marqués / 6 encaissés sur 5) · Energie Cottbus : forme D-N-N-D-N (0V 3N 2D, 5 buts marqués / 8 encaissés sur 5). Classement : TSV Eintracht Braunschweig 15e (10 pts), Energie Cottbus 14e (10 pts). Stats empiriques (forme récente) : buts moy. 4.25, BTTS 60.0%, Over 2.5 30.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.05 / N: 3.9 / 2: 3.25. Fiabilité 85%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.6,
+        "empiricalOver25Rate": 0.3,
+        "homeLambda": 2,
+        "awayLambda": 2.25,
+        "xgTotal": 4.25
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.05,
+        "draw": 3.9,
+        "away": 3.25,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-V-D-V-D",
+        "wins": 2,
+        "draws": 0,
+        "losses": 3,
+        "goalsFor": 4,
+        "goalsAgainst": 6,
+        "bttsRate": 0.2,
+        "over25Rate": 0.2,
+        "cleanSheets": 2,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-N-N-D-N",
+        "wins": 0,
+        "draws": 3,
+        "losses": 2,
+        "goalsFor": 5,
+        "goalsAgainst": 8,
+        "bttsRate": 1,
+        "over25Rate": 0.4,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-30",
+          "opponent": "Arminia Bielefeld",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Hannover 96",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "SpVgg Greuther Fürth",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-09",
+          "opponent": "Holstein Kiel",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Kaiserslautern",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-30",
+          "opponent": "VfL Bochum",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "1. FC Heidenheim 1846",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-16",
+          "opponent": "1. FC Nürnberg",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "SV Darmstadt 98",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "St. Pauli",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 15,
+        "points": 10,
+        "played": 10,
+        "gf": 16,
+        "ga": 18
+      },
+      "standingsAway": {
+        "rank": 14,
+        "points": 10,
+        "played": 10,
+        "gf": 18,
+        "ga": 20
+      },
+      "empiricalBttsRate": 0.6,
+      "empiricalOver25Rate": 0.3,
+      "homeLambda": 2,
+      "awayLambda": 2.25,
+      "statsOnly": true,
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "TSV Eintracht Braunschweig présente un taux Over 2.5 de seulement 20% sur ses 5 derniers matchs.",
+      "ai_analysis": "Les données observées pour cette rencontre de 2. Bundesliga présentent des signaux contradictoires. Alors que Energie Cottbus affiche un taux BTTS de 100% sur ses 5 derniers matchs, TSV Eintracht Braunschweig ne monte qu'à 20% avec seulement 4 buts inscrits. En l'absence de cohérence statistique suffisante sur les marchés principaux, la décision prudente est d'abstenir ce pronostic.",
+      "ai_analysis_en": "Observed data for this 2. Bundesliga fixture shows conflicting signals. While Energie Cottbus records a 100% BTTS rate in their last 5 matches, TSV Eintracht Braunschweig sits at only 20% with just 4 goals scored. Lacking sufficient statistical consistency across main markets, the prudent decision is to abstain.",
+      "ai_form_summary": "Braunschweig : 2W-0D-3L sur ses 5 derniers matchs, 4 buts pour, 6 contre (BTTS 20%). Cottbus : 0W-3D-2L sur ses 5 derniers matchs, 5 buts pour, 8 contre (BTTS 100%).",
+      "ai_form_summary_en": "Braunschweig: 2W-0D-3L in last 5, 4 goals for, 6 against (20% BTTS). Cottbus: 0W-3D-2L in last 5, 5 goals for, 8 against (100% BTTS).",
+      "ai_reasons": [
+        "Taux empirique Over 2.5 faible à 0.3",
+        "Faible nombre de buts marqués sur les 5 derniers matchs pour Braunschweig (4 buts)",
+        "Taux BTTS des 5 derniers matchs de Braunschweig limité à 0.2 malgré un taux de 1 pour Cottbus"
+      ],
+      "ai_risks": [
+        "Signaux contradictoires entre le taux BTTS de Cottbus (100%) et celui de Braunschweig (20%)",
+        "Taux empirique global sous les seuils de confiance pour une sélection tranchée"
+      ],
+      "ai_confidence": "low",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "abstain",
+      "status": "PENDING"
+    },
+    {
+      "id": "dynamodr-vs-spvgggre-2026-11-06",
+      "match": "Dynamo Dresden vs SpVgg Greuther Fürth",
+      "home": "Dynamo Dresden",
+      "away": "SpVgg Greuther Fürth",
+      "league": "2. Bundesliga",
+      "date": "2026-11-06",
+      "type": "BTTS",
+      "time": "17:30",
+      "matchSemantic": "dynamodr-vs-spvgggre-2026-11-06",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7017.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3070.png",
+      "tier": "GOLD",
+      "reliabilityScore": 78.13,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.33,
+      "xgAway": 1.5,
+      "xgTotal": 2.83,
+      "formBTTS": 50,
+      "analysis": "Dynamo Dresden : forme D-D-V-N-D (1V 1N 3D, 5 buts marqués / 8 encaissés sur 5) · SpVgg Greuther Fürth : forme V-D-V-D-N (2V 1N 2D, 5 buts marqués / 6 encaissés sur 5). Classement : Dynamo Dresden 18e (8 pts), SpVgg Greuther Fürth 9e (12 pts). Stats empiriques (forme récente) : buts moy. 2.83, BTTS 50.0%, Over 2.5 50.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2 / N: 3.7 / 2: 3.55 · Over 2.5: 1.65. Fiabilité 78.13%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.5,
+        "empiricalOver25Rate": 0.5,
+        "homeLambda": 1.33,
+        "awayLambda": 1.5,
+        "xgTotal": 2.83
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2,
+        "draw": 3.7,
+        "away": 3.55,
+        "over25": 1.65,
+        "under25": 2.15
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-D-V-N-D",
+        "wins": 1,
+        "draws": 1,
+        "losses": 3,
+        "goalsFor": 5,
+        "goalsAgainst": 8,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-D-V-D-N",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 5,
+        "goalsAgainst": 6,
+        "bttsRate": 0.4,
+        "over25Rate": 0.4,
+        "cleanSheets": 2,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-01",
+          "opponent": "Hannover 96",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Holstein Kiel",
+          "venue": "A",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "1. FC Magdeburg",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "VfL Osnabruck",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Hertha Berlin",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-01",
+          "opponent": "Holstein Kiel",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "VfL Osnabruck",
+          "venue": "A",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "TSV Eintracht Braunschweig",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Hertha Berlin",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-18",
+          "opponent": "1. FC Magdeburg",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 18,
+        "points": 8,
+        "played": 10,
+        "gf": 12,
+        "ga": 20
+      },
+      "standingsAway": {
+        "rank": 9,
+        "points": 12,
+        "played": 10,
+        "gf": 13,
+        "ga": 16
+      },
+      "empiricalBttsRate": 0.5,
+      "empiricalOver25Rate": 0.5,
+      "homeLambda": 1.33,
+      "awayLambda": 1.5,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Dynamo Dresden et SpVgg Greuther Fürth affichent toutes deux des défenses en difficulté avec respectivement 20 et 16 buts encaissés.",
+      "ai_analysis": "L'analyse statistique de cette rencontre de 2. Bundesliga montre des indicateurs partagés mais orientés vers un match ouvert. Dynamo Dresden présente un taux de BTTS de 60% lors de ses 5 derniers matchs et encaisse beaucoup de buts (20 en 10 journées). De son côté, SpVgg Greuther Fürth montre des stats correctes malgré un classement de milieu de tableau. L'empirique BTTS s'établit exactement à 0.5, justifiant une prudente sélection 'Yes' avec une probabilité mesurée.",
+      "ai_analysis_en": "Statistical analysis for this 2. Bundesliga fixture shows mixed indicators pointing towards a potential open match. Dynamo Dresden records a 60% BTTS rate in their last 5 games and concedes heavily (20 goals in 10 matches). Meanwhile, SpVgg Greuther Fürth displays stable attacking metrics despite a mid-table standing. The empirical BTTS sits right at 0.5, justifying a cautious 'Yes' selection with a calibrated probability.",
+      "ai_form_summary": "Dynamo Dresden : 1V-1D-3N sur les 5 derniers, 5 buts marqués, 8 encaissés (BTTS 60%). SpVgg Greuther Fürth : 2V-1D-2N, 5 buts marqués, 6 encaissés (BTTS 40%).",
+      "ai_form_summary_en": "Dynamo Dresden: 1W-1D-3L in last 5, 5 goals for, 8 against (BTTS 60%). SpVgg Greuther Fürth: 2W-1D-2L, 5 goals for, 6 against (BTTS 40%).",
+      "ai_reasons": [
+        "Taux empirique global du BTTS à 50% sur l'échantillon.",
+        "Dynamo Dresden affiche un taux de BTTS de 60% sur ses 5 derniers matchs.",
+        "Les deux équipes concèdent un volume défensif important (20 buts encaissés pour Dresden et 16 pour Fürth en 10 matchs)."
+      ],
+      "ai_risks": [
+        "L'attaque de Fürth à l'extérieur et la forme globale mitigée des deux équipes créent de l'incertitude.",
+        "Le taux BTTS récent de Fürth est plus faible à 40% sur ses 5 derniers matchs."
+      ],
+      "ai_confidence": "low",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 52,
+          "proba": 0.52,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.52
+        }
+      ],
+      "bttsProb": 0.52,
+      "prediction": "Oui",
+      "proba": 0.52,
+      "confidence": 52,
+      "status": "PENDING"
+    },
+    {
+      "id": "orlandoc-vs-newengla-2026-11-07",
+      "match": "Orlando City SC vs New England Revolution",
+      "home": "Orlando City SC",
+      "away": "New England Revolution",
+      "league": "MLS",
+      "date": "2026-11-07",
+      "type": "Over 2.5",
+      "time": "21:00",
+      "matchSemantic": "orlandoc-vs-newengla-2026-11-07",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/12011.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/189.png",
+      "tier": "GOLD",
+      "reliabilityScore": 93.75,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 3,
+      "xgAway": 1.67,
+      "xgTotal": 4.67,
+      "formBTTS": 80,
+      "analysis": "Orlando City SC : forme D-N-N-V-N (1V 3N 1D, 11 buts marqués / 12 encaissés sur 5) · New England Revolution : forme D-V-V-V-V (4V 0N 1D, 10 buts marqués / 7 encaissés sur 5). Classement : Orlando City SC 9e (43 pts), New England Revolution 3e (58 pts). Stats empiriques (forme récente) : buts moy. 4.67, BTTS 80.0%, Over 2.5 90.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.95 / N: 4.1 / 2: 3.1. Fiabilité 93.75%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.8,
+        "empiricalOver25Rate": 0.9,
+        "homeLambda": 3,
+        "awayLambda": 1.67,
+        "xgTotal": 4.67
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.95,
+        "draw": 4.1,
+        "away": 3.1,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-N-N-V-N",
+        "wins": 1,
+        "draws": 3,
+        "losses": 1,
+        "goalsFor": 11,
+        "goalsAgainst": 12,
+        "bttsRate": 0.8,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-V-V-V-V",
+        "wins": 4,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 10,
+        "goalsAgainst": 7,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-31",
+          "opponent": "Charlotte FC",
+          "venue": "A",
+          "score": "0-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-29",
+          "opponent": "Chicago Fire FC",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "New York City FC",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "D.C. United",
+          "venue": "H",
+          "score": "4-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-14",
+          "opponent": "Toronto FC",
+          "venue": "A",
+          "score": "3-3",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-02",
+          "opponent": "Inter Miami CF",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-28",
+          "opponent": "Red Bull New York",
+          "venue": "H",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Philadelphia Union",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Chicago Fire FC",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-14",
+          "opponent": "FC Cincinnati",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 9,
+        "points": 43,
+        "played": 33,
+        "gf": 62,
+        "ga": 78
+      },
+      "standingsAway": {
+        "rank": 3,
+        "points": 58,
+        "played": 33,
+        "gf": 55,
+        "ga": 46
+      },
+      "empiricalBttsRate": 0.8,
+      "empiricalOver25Rate": 0.9,
+      "homeLambda": 3,
+      "awayLambda": 1.67,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_key_fact": "Orlando City présente un taux d'Over 2.5 de 100% sur ses 5 derniers matchs avec une moyenne de 3 buts.",
+      "ai_analysis": "Les statistiques observées révèlent une forte tendance aux matchs ouverts pour Orlando City SC, qui affiche un taux d'Over 2.5 de 100% sur ses 5 derniers matchs et une moyenne de 3 buts par rencontre. New England Revolution présente également de superbes statistiques offensives récentes (4 victoires sur les 5 derniers matchs, 10 buts marqués). Avec un taux empirique global de 90% pour l'Over 2.5, toutes les conditions statistiques sont réunies pour valider cette option.",
+      "ai_analysis_en": "Observed statistics reveal a strong tendency for open matches involving Orlando City SC, who boast a 100% Over 2.5 rate over their last 5 games and an average of 3 goals per match. New England Revolution also shows great recent offensive stats with 4 wins in their last 5 matches and 10 goals scored. With an overall empirical Over 2.5 rate of 90%, all statistical conditions are met to support this option.",
+      "ai_form_summary": "Orlando City SC : 1V-3D-1N (BTTS 80%, Over 2.5 100%). New England Revolution : 4V-0D-1L (BTTS 80%, Over 2.5 80%).",
+      "ai_form_summary_en": "Orlando City SC: 1W-3D-1D (BTTS 80%, Over 2.5 100%). New England Revolution: 4W-0D-1L (BTTS 80%, Over 2.5 80%).",
+      "ai_reasons": [
+        "Taux empirique d'Over 2.5 très élevé à 90 % sur l'échantillon global",
+        "Taux d'Over 2.5 à 100 % sur les 5 derniers matchs d'Orlando City SC",
+        "Moyennes de buts élevées avec 3 buts marqués par match pour Orlando et 1.67 pour New England"
+      ],
+      "ai_risks": [
+        "La cote Over 2.5 n'est pas renseignée chez le bookmaker",
+        "New England affiche une défense relativement solide dans l'ensemble (46 buts encaissés en 33 matchs)"
+      ],
+      "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 75,
+          "proba": 0.75,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "over25Prob": 0.75
+        }
+      ],
+      "over25Prob": 0.75,
+      "prediction": "Oui",
+      "proba": 0.75,
+      "confidence": 75,
+      "status": "PENDING"
+    },
+    {
+      "id": "monza-vs-atalanta-2026-11-08",
+      "match": "Monza vs Atalanta",
+      "home": "Monza",
+      "away": "Atalanta",
+      "league": "Serie A",
+      "date": "2026-11-08",
+      "type": "BTTS",
+      "time": "14:00",
+      "matchSemantic": "monza-vs-atalanta-2026-11-08",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4007.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/105.png",
+      "tier": "GOLD",
+      "reliabilityScore": 93.75,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.33,
+      "xgAway": 1.25,
+      "xgTotal": 3.58,
+      "formBTTS": 80,
+      "analysis": "Monza : forme D-D-D-V-D (1V 0N 4D, 9 buts marqués / 12 encaissés sur 5) · Atalanta : forme D-N-N-D-V (1V 2N 2D, 11 buts marqués / 13 encaissés sur 5). Classement : Monza 18e (7 pts), Atalanta 13e (11 pts). Stats empiriques (forme récente) : buts moy. 3.58, BTTS 80.0%, Over 2.5 100.0%. Affinage AI ensuite. Cotes DraftKings — 1: 3.2 / N: 3.7 / 2: 2. Fiabilité 93.75%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.8,
+        "empiricalOver25Rate": 1,
+        "homeLambda": 2.33,
+        "awayLambda": 1.25,
+        "xgTotal": 3.58
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 3.2,
+        "draw": 3.7,
+        "away": 2,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-D-D-V-D",
+        "wins": 1,
+        "draws": 0,
+        "losses": 4,
+        "goalsFor": 9,
+        "goalsAgainst": 12,
+        "bttsRate": 0.8,
+        "over25Rate": 1,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-N-N-D-V",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 11,
+        "goalsAgainst": 13,
+        "bttsRate": 0.8,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-31",
+          "opponent": "Bologna",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-28",
+          "opponent": "Napoli",
+          "venue": "H",
+          "score": "1-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Torino",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-19",
+          "opponent": "Cagliari",
+          "venue": "H",
+          "score": "4-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Lazio",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-02",
+          "opponent": "Parma",
+          "venue": "H",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-29",
+          "opponent": "Fiorentina",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Frosinone",
+          "venue": "H",
+          "score": "4-4",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "AC Milan",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-12",
+          "opponent": "Venezia",
+          "venue": "H",
+          "score": "3-1",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 18,
+        "points": 7,
+        "played": 10,
+        "gf": 17,
+        "ga": 24
+      },
+      "standingsAway": {
+        "rank": 13,
+        "points": 11,
+        "played": 10,
+        "gf": 16,
+        "ga": 20
+      },
+      "empiricalBttsRate": 0.8,
+      "empiricalOver25Rate": 1,
+      "homeLambda": 2.33,
+      "awayLambda": 1.25,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Monza et l'Atalanta affichent toutes deux un taux BTTS de 80% et un taux Over 2.5 de 100%.",
+      "ai_analysis": "L'analyse des statistiques observées met en évidence une forte propension des deux équipes à marquer et à concéder des buts. Monza et l'Atalanta affichent un taux BTTS empirique de 80% ainsi qu'un taux Over 2.5 de 100% sur leurs derniers échantillons. Les difficultés défensives des deux formations, illustrées par des totaux de buts encaissés élevés en Serie A, renforcent la probabilité de voir les deux équipes trouver le chemin des filets.",
+      "ai_analysis_en": "Analysis of the observed statistics highlights a strong propensity for both teams to score and concede goals. Monza and Atalanta show an empirical BTTS rate of 80% and a 100% Over 2.5 rate in their recent samples. The defensive difficulties of both sides, illustrated by high goals-against totals in Serie A, reinforce the probability of both teams finding the back of the net.",
+      "ai_form_summary": "Monza (1W-0D-4L) : 9 buts pour, 12 buts contre. Atalanta (1W-2D-2L) : 11 buts pour, 13 buts contre.",
+      "ai_form_summary_en": "Monza (1W-0D-4L): 9 goals for, 12 goals against. Atalanta (1W-2D-2L): 11 goals for, 13 goals against.",
+      "ai_reasons": [
+        "Taux BTTS empirique très élevé à 80% pour les deux équipes.",
+        "Taux Over 2.5 de 100% sur les échantillons récents de Monza et de l'Atalanta.",
+        "Défenses perméables avec 24 buts encaissés en 10 matchs pour Monza et 20 pour l'Atalanta."
+      ],
+      "ai_risks": [
+        "L'Atalanta reste favorite à l'extérieur avec une cote de 2.0 et pourrait verrouiller le score si elle mène."
+      ],
+      "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 72,
+          "proba": 0.72,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.72
+        }
+      ],
+      "bttsProb": 0.72,
+      "prediction": "Oui",
+      "proba": 0.72,
+      "confidence": 72,
+      "status": "PENDING"
+    },
+    {
+      "id": "scfreibu-vs-fcunionb-2026-11-08",
+      "match": "SC Freiburg vs 1. FC Union Berlin",
+      "home": "SC Freiburg",
+      "away": "1. FC Union Berlin",
+      "league": "Bundesliga",
+      "date": "2026-11-08",
+      "type": "BTTS",
+      "time": "16:30",
+      "matchSemantic": "scfreibu-vs-fcunionb-2026-11-08",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/126.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/598.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 3,
+      "xgAway": 0.33,
+      "xgTotal": 3.33,
+      "formBTTS": 70,
+      "analysis": "SC Freiburg : forme V-D-D-V-N (2V 1N 2D, 8 buts marqués / 9 encaissés sur 5) · 1. FC Union Berlin : forme N-N-N-V-D (1V 3N 1D, 3 buts marqués / 9 encaissés sur 5). Classement : SC Freiburg 3e (16 pts), 1. FC Union Berlin 16e (7 pts). Stats empiriques (forme récente) : buts moy. 3.33, BTTS 70.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.48 / N: 4.4 / 2: 5.75 · Over 2.5: 1.61. Fiabilité 89.38%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.7,
+        "empiricalOver25Rate": 0.6,
+        "homeLambda": 3,
+        "awayLambda": 0.33,
+        "xgTotal": 3.33
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.48,
+        "draw": 4.4,
+        "away": 5.75,
+        "over25": 1.61,
+        "under25": 2.3
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "V-D-D-V-N",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 8,
+        "goalsAgainst": 9,
+        "bttsRate": 1,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-N-N-V-D",
+        "wins": 1,
+        "draws": 3,
+        "losses": 1,
+        "goalsFor": 3,
+        "goalsAgainst": 9,
+        "bttsRate": 0.4,
+        "over25Rate": 0.2,
+        "cleanSheets": 2,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-31",
+          "opponent": "FC Augsburg",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Bayern Munich",
+          "venue": "H",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Bayer Leverkusen",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Schalke 04",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Eintracht Frankfurt",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-01",
+          "opponent": "FC Cologne",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "FC Augsburg",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Borussia Dortmund",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "SV Elversberg",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-18",
+          "opponent": "Bayern Munich",
+          "venue": "A",
+          "score": "0-7",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 3,
+        "points": 16,
+        "played": 8,
+        "gf": 18,
+        "ga": 10
+      },
+      "standingsAway": {
+        "rank": 16,
+        "points": 7,
+        "played": 8,
+        "gf": 7,
+        "ga": 19
+      },
+      "empiricalBttsRate": 0.7,
+      "empiricalOver25Rate": 0.6,
+      "homeLambda": 3,
+      "awayLambda": 0.33,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "SC Freiburg affiche un taux BTTS de 100% sur ses 5 derniers matchs malgré la faiblesse offensive récente d'Union Berlin.",
+      "ai_analysis": "Le SC Freiburg montre une dynamique offensive et défensive très ouverte avec un taux BTTS de 100% sur ses 5 derniers matchs et 18 buts marqués en 8 rencontres de Bundesliga. Bien que l'Union Berlin présente des statistiques plus hermétiques à l'extérieur, le taux empirique global de 70% et la forme récente de Freiburg inclinent vers une sélection positive sur le BTTS.",
+      "ai_analysis_en": "SC Freiburg shows a very open offensive and defensive dynamic with a 100% BTTS rate in their last 5 matches and 18 goals scored in 8 Bundesliga games. Although Union Berlin displays tighter stats away, the overall empirical BTTS rate of 70% and Freiburg's recent form lean towards a positive selection on BTTS.",
+      "ai_form_summary": "SC Freiburg irrégulier mais prolifique (2W-1D-2L, 8 buts pour, 9 contre) ; Union Berlin en difficulté (1W-3D-1L, 3 buts pour, 9 contre).",
+      "ai_form_summary_en": "SC Freiburg irregular but prolific (2W-1D-2L, 8 GF, 9 GA); Union Berlin struggling (1W-3D-1L, 3 GF, 9 GA).",
+      "ai_reasons": [
+        "Le SC Freiburg affiche un taux BTTS de 100% sur ses 5 derniers matchs.",
+        "Le taux BTTS empirique global s'établit à 70%.",
+        "SC Freiburg a inscrit 18 buts en 8 matchs de championnat."
+      ],
+      "ai_risks": [
+        "Union Berlin a un taux BTTS récent plus faible à 40% et un faible total de buts à l'extérieur (0.33 par match)."
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 65,
+          "proba": 0.65,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.65
+        }
+      ],
+      "bttsProb": 0.65,
+      "prediction": "Oui",
+      "proba": 0.65,
+      "confidence": 65,
       "status": "PENDING"
     }
   ],
@@ -10888,6 +11867,975 @@
       "prediction": "Oui",
       "proba": 0.72,
       "confidence": 72,
+      "status": "PENDING"
+    },
+    {
+      "id": "tsveintr-vs-energiec-2026-11-06",
+      "match": "TSV Eintracht Braunschweig vs Energie Cottbus",
+      "home": "TSV Eintracht Braunschweig",
+      "away": "Energie Cottbus",
+      "league": "2. Bundesliga",
+      "date": "2026-11-06",
+      "type": "BTTS",
+      "time": "17:30",
+      "matchSemantic": "tsveintr-vs-energiec-2026-11-06",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3067.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/123.png",
+      "tier": "GOLD",
+      "reliabilityScore": 85,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2,
+      "xgAway": 2.25,
+      "xgTotal": 4.25,
+      "formBTTS": 60,
+      "analysis": "TSV Eintracht Braunschweig : forme D-V-D-V-D (2V 0N 3D, 4 buts marqués / 6 encaissés sur 5) · Energie Cottbus : forme D-N-N-D-N (0V 3N 2D, 5 buts marqués / 8 encaissés sur 5). Classement : TSV Eintracht Braunschweig 15e (10 pts), Energie Cottbus 14e (10 pts). Stats empiriques (forme récente) : buts moy. 4.25, BTTS 60.0%, Over 2.5 30.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.05 / N: 3.9 / 2: 3.25. Fiabilité 85%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.6,
+        "empiricalOver25Rate": 0.3,
+        "homeLambda": 2,
+        "awayLambda": 2.25,
+        "xgTotal": 4.25
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.05,
+        "draw": 3.9,
+        "away": 3.25,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-V-D-V-D",
+        "wins": 2,
+        "draws": 0,
+        "losses": 3,
+        "goalsFor": 4,
+        "goalsAgainst": 6,
+        "bttsRate": 0.2,
+        "over25Rate": 0.2,
+        "cleanSheets": 2,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-N-N-D-N",
+        "wins": 0,
+        "draws": 3,
+        "losses": 2,
+        "goalsFor": 5,
+        "goalsAgainst": 8,
+        "bttsRate": 1,
+        "over25Rate": 0.4,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-30",
+          "opponent": "Arminia Bielefeld",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Hannover 96",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "SpVgg Greuther Fürth",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-09",
+          "opponent": "Holstein Kiel",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Kaiserslautern",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-30",
+          "opponent": "VfL Bochum",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "1. FC Heidenheim 1846",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-16",
+          "opponent": "1. FC Nürnberg",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "SV Darmstadt 98",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "St. Pauli",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 15,
+        "points": 10,
+        "played": 10,
+        "gf": 16,
+        "ga": 18
+      },
+      "standingsAway": {
+        "rank": 14,
+        "points": 10,
+        "played": 10,
+        "gf": 18,
+        "ga": 20
+      },
+      "empiricalBttsRate": 0.6,
+      "empiricalOver25Rate": 0.3,
+      "homeLambda": 2,
+      "awayLambda": 2.25,
+      "statsOnly": true,
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "TSV Eintracht Braunschweig présente un taux Over 2.5 de seulement 20% sur ses 5 derniers matchs.",
+      "ai_analysis": "Les données observées pour cette rencontre de 2. Bundesliga présentent des signaux contradictoires. Alors que Energie Cottbus affiche un taux BTTS de 100% sur ses 5 derniers matchs, TSV Eintracht Braunschweig ne monte qu'à 20% avec seulement 4 buts inscrits. En l'absence de cohérence statistique suffisante sur les marchés principaux, la décision prudente est d'abstenir ce pronostic.",
+      "ai_analysis_en": "Observed data for this 2. Bundesliga fixture shows conflicting signals. While Energie Cottbus records a 100% BTTS rate in their last 5 matches, TSV Eintracht Braunschweig sits at only 20% with just 4 goals scored. Lacking sufficient statistical consistency across main markets, the prudent decision is to abstain.",
+      "ai_form_summary": "Braunschweig : 2W-0D-3L sur ses 5 derniers matchs, 4 buts pour, 6 contre (BTTS 20%). Cottbus : 0W-3D-2L sur ses 5 derniers matchs, 5 buts pour, 8 contre (BTTS 100%).",
+      "ai_form_summary_en": "Braunschweig: 2W-0D-3L in last 5, 4 goals for, 6 against (20% BTTS). Cottbus: 0W-3D-2L in last 5, 5 goals for, 8 against (100% BTTS).",
+      "ai_reasons": [
+        "Taux empirique Over 2.5 faible à 0.3",
+        "Faible nombre de buts marqués sur les 5 derniers matchs pour Braunschweig (4 buts)",
+        "Taux BTTS des 5 derniers matchs de Braunschweig limité à 0.2 malgré un taux de 1 pour Cottbus"
+      ],
+      "ai_risks": [
+        "Signaux contradictoires entre le taux BTTS de Cottbus (100%) et celui de Braunschweig (20%)",
+        "Taux empirique global sous les seuils de confiance pour une sélection tranchée"
+      ],
+      "ai_confidence": "low",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "abstain",
+      "status": "PENDING"
+    },
+    {
+      "id": "dynamodr-vs-spvgggre-2026-11-06",
+      "match": "Dynamo Dresden vs SpVgg Greuther Fürth",
+      "home": "Dynamo Dresden",
+      "away": "SpVgg Greuther Fürth",
+      "league": "2. Bundesliga",
+      "date": "2026-11-06",
+      "type": "BTTS",
+      "time": "17:30",
+      "matchSemantic": "dynamodr-vs-spvgggre-2026-11-06",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7017.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3070.png",
+      "tier": "GOLD",
+      "reliabilityScore": 78.13,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.33,
+      "xgAway": 1.5,
+      "xgTotal": 2.83,
+      "formBTTS": 50,
+      "analysis": "Dynamo Dresden : forme D-D-V-N-D (1V 1N 3D, 5 buts marqués / 8 encaissés sur 5) · SpVgg Greuther Fürth : forme V-D-V-D-N (2V 1N 2D, 5 buts marqués / 6 encaissés sur 5). Classement : Dynamo Dresden 18e (8 pts), SpVgg Greuther Fürth 9e (12 pts). Stats empiriques (forme récente) : buts moy. 2.83, BTTS 50.0%, Over 2.5 50.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2 / N: 3.7 / 2: 3.55 · Over 2.5: 1.65. Fiabilité 78.13%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.5,
+        "empiricalOver25Rate": 0.5,
+        "homeLambda": 1.33,
+        "awayLambda": 1.5,
+        "xgTotal": 2.83
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2,
+        "draw": 3.7,
+        "away": 3.55,
+        "over25": 1.65,
+        "under25": 2.15
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-D-V-N-D",
+        "wins": 1,
+        "draws": 1,
+        "losses": 3,
+        "goalsFor": 5,
+        "goalsAgainst": 8,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-D-V-D-N",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 5,
+        "goalsAgainst": 6,
+        "bttsRate": 0.4,
+        "over25Rate": 0.4,
+        "cleanSheets": 2,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-01",
+          "opponent": "Hannover 96",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Holstein Kiel",
+          "venue": "A",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "1. FC Magdeburg",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "VfL Osnabruck",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Hertha Berlin",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-01",
+          "opponent": "Holstein Kiel",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "VfL Osnabruck",
+          "venue": "A",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "TSV Eintracht Braunschweig",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Hertha Berlin",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-18",
+          "opponent": "1. FC Magdeburg",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 18,
+        "points": 8,
+        "played": 10,
+        "gf": 12,
+        "ga": 20
+      },
+      "standingsAway": {
+        "rank": 9,
+        "points": 12,
+        "played": 10,
+        "gf": 13,
+        "ga": 16
+      },
+      "empiricalBttsRate": 0.5,
+      "empiricalOver25Rate": 0.5,
+      "homeLambda": 1.33,
+      "awayLambda": 1.5,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Dynamo Dresden et SpVgg Greuther Fürth affichent toutes deux des défenses en difficulté avec respectivement 20 et 16 buts encaissés.",
+      "ai_analysis": "L'analyse statistique de cette rencontre de 2. Bundesliga montre des indicateurs partagés mais orientés vers un match ouvert. Dynamo Dresden présente un taux de BTTS de 60% lors de ses 5 derniers matchs et encaisse beaucoup de buts (20 en 10 journées). De son côté, SpVgg Greuther Fürth montre des stats correctes malgré un classement de milieu de tableau. L'empirique BTTS s'établit exactement à 0.5, justifiant une prudente sélection 'Yes' avec une probabilité mesurée.",
+      "ai_analysis_en": "Statistical analysis for this 2. Bundesliga fixture shows mixed indicators pointing towards a potential open match. Dynamo Dresden records a 60% BTTS rate in their last 5 games and concedes heavily (20 goals in 10 matches). Meanwhile, SpVgg Greuther Fürth displays stable attacking metrics despite a mid-table standing. The empirical BTTS sits right at 0.5, justifying a cautious 'Yes' selection with a calibrated probability.",
+      "ai_form_summary": "Dynamo Dresden : 1V-1D-3N sur les 5 derniers, 5 buts marqués, 8 encaissés (BTTS 60%). SpVgg Greuther Fürth : 2V-1D-2N, 5 buts marqués, 6 encaissés (BTTS 40%).",
+      "ai_form_summary_en": "Dynamo Dresden: 1W-1D-3L in last 5, 5 goals for, 8 against (BTTS 60%). SpVgg Greuther Fürth: 2W-1D-2L, 5 goals for, 6 against (BTTS 40%).",
+      "ai_reasons": [
+        "Taux empirique global du BTTS à 50% sur l'échantillon.",
+        "Dynamo Dresden affiche un taux de BTTS de 60% sur ses 5 derniers matchs.",
+        "Les deux équipes concèdent un volume défensif important (20 buts encaissés pour Dresden et 16 pour Fürth en 10 matchs)."
+      ],
+      "ai_risks": [
+        "L'attaque de Fürth à l'extérieur et la forme globale mitigée des deux équipes créent de l'incertitude.",
+        "Le taux BTTS récent de Fürth est plus faible à 40% sur ses 5 derniers matchs."
+      ],
+      "ai_confidence": "low",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 52,
+          "proba": 0.52,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.52
+        }
+      ],
+      "bttsProb": 0.52,
+      "prediction": "Oui",
+      "proba": 0.52,
+      "confidence": 52,
+      "status": "PENDING"
+    },
+    {
+      "id": "orlandoc-vs-newengla-2026-11-07",
+      "match": "Orlando City SC vs New England Revolution",
+      "home": "Orlando City SC",
+      "away": "New England Revolution",
+      "league": "MLS",
+      "date": "2026-11-07",
+      "type": "Over 2.5",
+      "time": "21:00",
+      "matchSemantic": "orlandoc-vs-newengla-2026-11-07",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/12011.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/189.png",
+      "tier": "GOLD",
+      "reliabilityScore": 93.75,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 3,
+      "xgAway": 1.67,
+      "xgTotal": 4.67,
+      "formBTTS": 80,
+      "analysis": "Orlando City SC : forme D-N-N-V-N (1V 3N 1D, 11 buts marqués / 12 encaissés sur 5) · New England Revolution : forme D-V-V-V-V (4V 0N 1D, 10 buts marqués / 7 encaissés sur 5). Classement : Orlando City SC 9e (43 pts), New England Revolution 3e (58 pts). Stats empiriques (forme récente) : buts moy. 4.67, BTTS 80.0%, Over 2.5 90.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.95 / N: 4.1 / 2: 3.1. Fiabilité 93.75%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.8,
+        "empiricalOver25Rate": 0.9,
+        "homeLambda": 3,
+        "awayLambda": 1.67,
+        "xgTotal": 4.67
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.95,
+        "draw": 4.1,
+        "away": 3.1,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-N-N-V-N",
+        "wins": 1,
+        "draws": 3,
+        "losses": 1,
+        "goalsFor": 11,
+        "goalsAgainst": 12,
+        "bttsRate": 0.8,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-V-V-V-V",
+        "wins": 4,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 10,
+        "goalsAgainst": 7,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-31",
+          "opponent": "Charlotte FC",
+          "venue": "A",
+          "score": "0-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-29",
+          "opponent": "Chicago Fire FC",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "New York City FC",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "D.C. United",
+          "venue": "H",
+          "score": "4-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-14",
+          "opponent": "Toronto FC",
+          "venue": "A",
+          "score": "3-3",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-02",
+          "opponent": "Inter Miami CF",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-28",
+          "opponent": "Red Bull New York",
+          "venue": "H",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Philadelphia Union",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Chicago Fire FC",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-14",
+          "opponent": "FC Cincinnati",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 9,
+        "points": 43,
+        "played": 33,
+        "gf": 62,
+        "ga": 78
+      },
+      "standingsAway": {
+        "rank": 3,
+        "points": 58,
+        "played": 33,
+        "gf": 55,
+        "ga": 46
+      },
+      "empiricalBttsRate": 0.8,
+      "empiricalOver25Rate": 0.9,
+      "homeLambda": 3,
+      "awayLambda": 1.67,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_key_fact": "Orlando City présente un taux d'Over 2.5 de 100% sur ses 5 derniers matchs avec une moyenne de 3 buts.",
+      "ai_analysis": "Les statistiques observées révèlent une forte tendance aux matchs ouverts pour Orlando City SC, qui affiche un taux d'Over 2.5 de 100% sur ses 5 derniers matchs et une moyenne de 3 buts par rencontre. New England Revolution présente également de superbes statistiques offensives récentes (4 victoires sur les 5 derniers matchs, 10 buts marqués). Avec un taux empirique global de 90% pour l'Over 2.5, toutes les conditions statistiques sont réunies pour valider cette option.",
+      "ai_analysis_en": "Observed statistics reveal a strong tendency for open matches involving Orlando City SC, who boast a 100% Over 2.5 rate over their last 5 games and an average of 3 goals per match. New England Revolution also shows great recent offensive stats with 4 wins in their last 5 matches and 10 goals scored. With an overall empirical Over 2.5 rate of 90%, all statistical conditions are met to support this option.",
+      "ai_form_summary": "Orlando City SC : 1V-3D-1N (BTTS 80%, Over 2.5 100%). New England Revolution : 4V-0D-1L (BTTS 80%, Over 2.5 80%).",
+      "ai_form_summary_en": "Orlando City SC: 1W-3D-1D (BTTS 80%, Over 2.5 100%). New England Revolution: 4W-0D-1L (BTTS 80%, Over 2.5 80%).",
+      "ai_reasons": [
+        "Taux empirique d'Over 2.5 très élevé à 90 % sur l'échantillon global",
+        "Taux d'Over 2.5 à 100 % sur les 5 derniers matchs d'Orlando City SC",
+        "Moyennes de buts élevées avec 3 buts marqués par match pour Orlando et 1.67 pour New England"
+      ],
+      "ai_risks": [
+        "La cote Over 2.5 n'est pas renseignée chez le bookmaker",
+        "New England affiche une défense relativement solide dans l'ensemble (46 buts encaissés en 33 matchs)"
+      ],
+      "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 75,
+          "proba": 0.75,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "over25Prob": 0.75
+        }
+      ],
+      "over25Prob": 0.75,
+      "prediction": "Oui",
+      "proba": 0.75,
+      "confidence": 75,
+      "status": "PENDING"
+    },
+    {
+      "id": "monza-vs-atalanta-2026-11-08",
+      "match": "Monza vs Atalanta",
+      "home": "Monza",
+      "away": "Atalanta",
+      "league": "Serie A",
+      "date": "2026-11-08",
+      "type": "BTTS",
+      "time": "14:00",
+      "matchSemantic": "monza-vs-atalanta-2026-11-08",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4007.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/105.png",
+      "tier": "GOLD",
+      "reliabilityScore": 93.75,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.33,
+      "xgAway": 1.25,
+      "xgTotal": 3.58,
+      "formBTTS": 80,
+      "analysis": "Monza : forme D-D-D-V-D (1V 0N 4D, 9 buts marqués / 12 encaissés sur 5) · Atalanta : forme D-N-N-D-V (1V 2N 2D, 11 buts marqués / 13 encaissés sur 5). Classement : Monza 18e (7 pts), Atalanta 13e (11 pts). Stats empiriques (forme récente) : buts moy. 3.58, BTTS 80.0%, Over 2.5 100.0%. Affinage AI ensuite. Cotes DraftKings — 1: 3.2 / N: 3.7 / 2: 2. Fiabilité 93.75%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.8,
+        "empiricalOver25Rate": 1,
+        "homeLambda": 2.33,
+        "awayLambda": 1.25,
+        "xgTotal": 3.58
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 3.2,
+        "draw": 3.7,
+        "away": 2,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-D-D-V-D",
+        "wins": 1,
+        "draws": 0,
+        "losses": 4,
+        "goalsFor": 9,
+        "goalsAgainst": 12,
+        "bttsRate": 0.8,
+        "over25Rate": 1,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-N-N-D-V",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 11,
+        "goalsAgainst": 13,
+        "bttsRate": 0.8,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-31",
+          "opponent": "Bologna",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-28",
+          "opponent": "Napoli",
+          "venue": "H",
+          "score": "1-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Torino",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-19",
+          "opponent": "Cagliari",
+          "venue": "H",
+          "score": "4-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Lazio",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-02",
+          "opponent": "Parma",
+          "venue": "H",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-29",
+          "opponent": "Fiorentina",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Frosinone",
+          "venue": "H",
+          "score": "4-4",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "AC Milan",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-12",
+          "opponent": "Venezia",
+          "venue": "H",
+          "score": "3-1",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 18,
+        "points": 7,
+        "played": 10,
+        "gf": 17,
+        "ga": 24
+      },
+      "standingsAway": {
+        "rank": 13,
+        "points": 11,
+        "played": 10,
+        "gf": 16,
+        "ga": 20
+      },
+      "empiricalBttsRate": 0.8,
+      "empiricalOver25Rate": 1,
+      "homeLambda": 2.33,
+      "awayLambda": 1.25,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Monza et l'Atalanta affichent toutes deux un taux BTTS de 80% et un taux Over 2.5 de 100%.",
+      "ai_analysis": "L'analyse des statistiques observées met en évidence une forte propension des deux équipes à marquer et à concéder des buts. Monza et l'Atalanta affichent un taux BTTS empirique de 80% ainsi qu'un taux Over 2.5 de 100% sur leurs derniers échantillons. Les difficultés défensives des deux formations, illustrées par des totaux de buts encaissés élevés en Serie A, renforcent la probabilité de voir les deux équipes trouver le chemin des filets.",
+      "ai_analysis_en": "Analysis of the observed statistics highlights a strong propensity for both teams to score and concede goals. Monza and Atalanta show an empirical BTTS rate of 80% and a 100% Over 2.5 rate in their recent samples. The defensive difficulties of both sides, illustrated by high goals-against totals in Serie A, reinforce the probability of both teams finding the back of the net.",
+      "ai_form_summary": "Monza (1W-0D-4L) : 9 buts pour, 12 buts contre. Atalanta (1W-2D-2L) : 11 buts pour, 13 buts contre.",
+      "ai_form_summary_en": "Monza (1W-0D-4L): 9 goals for, 12 goals against. Atalanta (1W-2D-2L): 11 goals for, 13 goals against.",
+      "ai_reasons": [
+        "Taux BTTS empirique très élevé à 80% pour les deux équipes.",
+        "Taux Over 2.5 de 100% sur les échantillons récents de Monza et de l'Atalanta.",
+        "Défenses perméables avec 24 buts encaissés en 10 matchs pour Monza et 20 pour l'Atalanta."
+      ],
+      "ai_risks": [
+        "L'Atalanta reste favorite à l'extérieur avec une cote de 2.0 et pourrait verrouiller le score si elle mène."
+      ],
+      "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 72,
+          "proba": 0.72,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.72
+        }
+      ],
+      "bttsProb": 0.72,
+      "prediction": "Oui",
+      "proba": 0.72,
+      "confidence": 72,
+      "status": "PENDING"
+    },
+    {
+      "id": "scfreibu-vs-fcunionb-2026-11-08",
+      "match": "SC Freiburg vs 1. FC Union Berlin",
+      "home": "SC Freiburg",
+      "away": "1. FC Union Berlin",
+      "league": "Bundesliga",
+      "date": "2026-11-08",
+      "type": "BTTS",
+      "time": "16:30",
+      "matchSemantic": "scfreibu-vs-fcunionb-2026-11-08",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/126.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/598.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 3,
+      "xgAway": 0.33,
+      "xgTotal": 3.33,
+      "formBTTS": 70,
+      "analysis": "SC Freiburg : forme V-D-D-V-N (2V 1N 2D, 8 buts marqués / 9 encaissés sur 5) · 1. FC Union Berlin : forme N-N-N-V-D (1V 3N 1D, 3 buts marqués / 9 encaissés sur 5). Classement : SC Freiburg 3e (16 pts), 1. FC Union Berlin 16e (7 pts). Stats empiriques (forme récente) : buts moy. 3.33, BTTS 70.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.48 / N: 4.4 / 2: 5.75 · Over 2.5: 1.61. Fiabilité 89.38%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.7,
+        "empiricalOver25Rate": 0.6,
+        "homeLambda": 3,
+        "awayLambda": 0.33,
+        "xgTotal": 3.33
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.48,
+        "draw": 4.4,
+        "away": 5.75,
+        "over25": 1.61,
+        "under25": 2.3
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "V-D-D-V-N",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 8,
+        "goalsAgainst": 9,
+        "bttsRate": 1,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-N-N-V-D",
+        "wins": 1,
+        "draws": 3,
+        "losses": 1,
+        "goalsFor": 3,
+        "goalsAgainst": 9,
+        "bttsRate": 0.4,
+        "over25Rate": 0.2,
+        "cleanSheets": 2,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-31",
+          "opponent": "FC Augsburg",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Bayern Munich",
+          "venue": "H",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Bayer Leverkusen",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Schalke 04",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Eintracht Frankfurt",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-01",
+          "opponent": "FC Cologne",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "FC Augsburg",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Borussia Dortmund",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "SV Elversberg",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-18",
+          "opponent": "Bayern Munich",
+          "venue": "A",
+          "score": "0-7",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 3,
+        "points": 16,
+        "played": 8,
+        "gf": 18,
+        "ga": 10
+      },
+      "standingsAway": {
+        "rank": 16,
+        "points": 7,
+        "played": 8,
+        "gf": 7,
+        "ga": 19
+      },
+      "empiricalBttsRate": 0.7,
+      "empiricalOver25Rate": 0.6,
+      "homeLambda": 3,
+      "awayLambda": 0.33,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "SC Freiburg affiche un taux BTTS de 100% sur ses 5 derniers matchs malgré la faiblesse offensive récente d'Union Berlin.",
+      "ai_analysis": "Le SC Freiburg montre une dynamique offensive et défensive très ouverte avec un taux BTTS de 100% sur ses 5 derniers matchs et 18 buts marqués en 8 rencontres de Bundesliga. Bien que l'Union Berlin présente des statistiques plus hermétiques à l'extérieur, le taux empirique global de 70% et la forme récente de Freiburg inclinent vers une sélection positive sur le BTTS.",
+      "ai_analysis_en": "SC Freiburg shows a very open offensive and defensive dynamic with a 100% BTTS rate in their last 5 matches and 18 goals scored in 8 Bundesliga games. Although Union Berlin displays tighter stats away, the overall empirical BTTS rate of 70% and Freiburg's recent form lean towards a positive selection on BTTS.",
+      "ai_form_summary": "SC Freiburg irrégulier mais prolifique (2W-1D-2L, 8 buts pour, 9 contre) ; Union Berlin en difficulté (1W-3D-1L, 3 buts pour, 9 contre).",
+      "ai_form_summary_en": "SC Freiburg irregular but prolific (2W-1D-2L, 8 GF, 9 GA); Union Berlin struggling (1W-3D-1L, 3 GF, 9 GA).",
+      "ai_reasons": [
+        "Le SC Freiburg affiche un taux BTTS de 100% sur ses 5 derniers matchs.",
+        "Le taux BTTS empirique global s'établit à 70%.",
+        "SC Freiburg a inscrit 18 buts en 8 matchs de championnat."
+      ],
+      "ai_risks": [
+        "Union Berlin a un taux BTTS récent plus faible à 40% et un faible total de buts à l'extérieur (0.33 par match)."
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 65,
+          "proba": 0.65,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.65
+        }
+      ],
+      "bttsProb": 0.65,
+      "prediction": "Oui",
+      "proba": 0.65,
+      "confidence": 65,
       "status": "PENDING"
     }
   ],

@@ -1,6 +1,6 @@
 {
   "date": "2026-11-06",
-  "lastUpdated": "2026-11-06T05:05:23.901Z",
+  "lastUpdated": "2026-11-06T09:36:18.266Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -27,7 +27,7 @@
       "xgAway": 0.75,
       "xgTotal": 2.08,
       "formBTTS": 80,
-      "analysis": "Sevilla : forme D-V-D-N-D (1V 1N 3D, 8 buts marqués / 13 encaissés sur 5) · Alavés : forme D-N-D-D-N (0V 2N 3D, 4 buts marqués / 11 encaissés sur 5). Classement : Sevilla 6e (17 pts), Alavés 11e (12 pts). Stats empiriques (forme récente) : buts moy. 2.08, BTTS 80.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.91 / N: 3.5 / 2: 4.2 · Over 2.5: 2.15. Fiabilité 85%.",
+      "analysis": "Sevilla : forme D-V-D-N-D (1V 1N 3D, 8 buts marqués / 13 encaissés sur 5) · Alavés : forme D-N-D-D-N (0V 2N 3D, 4 buts marqués / 11 encaissés sur 5). Classement : Sevilla 6e (17 pts), Alavés 11e (12 pts). Stats empiriques (forme récente) : buts moy. 2.08, BTTS 80.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.87 / N: 3.5 / 2: 4.5 · Over 2.5: 2.15. Fiabilité 85%.",
       "analysisData": {
         "empiricalBttsRate": 0.8,
         "empiricalOver25Rate": 0.7,
@@ -37,9 +37,9 @@
       },
       "odds": {
         "provider": "DraftKings",
-        "home": 1.91,
+        "home": 1.87,
         "draw": 3.5,
-        "away": 4.2,
+        "away": 4.5,
         "over25": 2.15,
         "under25": 1.69
       },
@@ -165,19 +165,19 @@
       "statsOnly": true,
       "ai_abstain": false,
       "ai_market": "BTTS",
-      "ai_key_fact": "Le taux empirique et la forme récente indiquent un taux de BTTS commun de 80%.",
-      "ai_analysis": "L'analyse des statistiques observées met en évidence une tendance très nette vers des matchs ouverts pour ces deux formations. Sevilla et Alavés affichent toutes deux un taux empirique de BTTS de 80%, reflété également dans leurs 5 dernières rencontres respectives. Malgré des moyennes de buts inscrits parfois modérées, la fragilité défensive chronique des deux côtés (13 buts encaissés par Sevilla et 11 par Alavés sur l'échantillon) renforce grandement la probabilité de voir les deux équipes marquer.",
-      "ai_analysis_en": "The analysis of observed statistics highlights a clear trend towards open matches for both teams. Both Sevilla and Alavés show an empirical BTTS rate of 80%, which is also reflected in their respective last 5 fixtures. Despite sometimes modest scoring averages, the chronic defensive fragility on both sides (13 goals conceded by Sevilla and 11 by Alavés over the sample) significantly reinforces the probability of both teams scoring.",
-      "ai_form_summary": "Sevilla: 1W-1D-3L (D-V-D-N-D), 8 buts pour, 13 buts contre. Alavés: 0W-2D-3L (D-N-D-D-N), 4 buts pour, 11 buts contre.",
-      "ai_form_summary_en": "Sevilla: 1W-1D-3L (L-W-L-D-L), 8 goals for, 13 goals against. Alavés: 0W-2D-3L (L-D-L-L-D), 4 goals for, 11 goals against.",
+      "ai_key_fact": "Les deux équipes affichent un taux BTTS de 80% sur leurs échantillons respectifs de 8 matchs.",
+      "ai_analysis": "L'analyse des statistiques observées met en évidence une tendance très nette vers les buts des deux côtés. Le taux empirique de BTTS s'établit à 80%, soutenu par des performances similaires sur les cinq derniers matchs (80% pour chaque formation). Malgré des classements de milieu de tableau (6e et 11e), la propension à concéder et marquer des buts justifie pleinement une sélection 'Yes' sur le marché BTTS.",
+      "ai_analysis_en": "Analysis of the observed statistics highlights a clear trend towards goals from both sides. The empirical BTTS rate stands at 80%, supported by similar performances over the last five matches (80% for each team). Despite mid-table standings (6th and 11th), the tendency to concede and score goals fully justifies a 'Yes' selection on the BTTS market.",
+      "ai_form_summary": "Sevilla : 1V-1D-3L sur ses 5 derniers matchs, 8 buts pour, 13 buts contre (BTTS 80%). Alavés : 0W-2D-3L sur ses 5 derniers matchs, 4 buts pour, 11 buts contre (BTTS 80%).",
+      "ai_form_summary_en": "Sevilla: 1W-1D-3L in last 5, 8 goals for, 13 against (80% BTTS). Alavés: 0W-2D-3L in last 5, 4 goals for, 11 against (80% BTTS).",
       "ai_reasons": [
-        "Taux empirique de BTTS élevé à 80% pour les deux formations.",
-        "Taux de BTTS sur les 5 derniers matchs de 80% pour Sevilla et Alavés.",
-        "Sevilla encaisse en moyenne 1.62 buts par match (13 en 8 matchs)."
+        "Taux empirique BTTS très élevé à 80% basé sur les échantillons fournis",
+        "Taux BTTS sur les 5 derniers matchs de 80% pour Sevilla et 80% pour Alavés",
+        "Indicateur de forme BTTS (formBTTS) évalué à 80"
       ],
       "ai_risks": [
-        "L'attaque d'Alavés à l'extérieur affiche une moyenne modeste de 0.75 buts.",
-        "La forme récente des deux équipes montre beaucoup de défaites (1W-1D-3L pour Sevilla, 0W-2D-3L pour Alavés)."
+        "Sevilla et Alavés affichent un historique de forme récent difficile en termes de victoires",
+        "Moyennes de buts inscrits par match modérées pour Alavés (0.75)"
       ],
       "ai_confidence": "high",
       "modelEngine": "gemini-stats-v1",
@@ -223,7 +223,7 @@
       "xgAway": 2.25,
       "xgTotal": 4.25,
       "formBTTS": 60,
-      "analysis": "TSV Eintracht Braunschweig : forme D-V-D-V-D (2V 0N 3D, 4 buts marqués / 6 encaissés sur 5) · Energie Cottbus : forme D-N-N-D-N (0V 3N 2D, 5 buts marqués / 8 encaissés sur 5). Classement : TSV Eintracht Braunschweig 15e (10 pts), Energie Cottbus 14e (10 pts). Stats empiriques (forme récente) : buts moy. 4.25, BTTS 60.0%, Over 2.5 30.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.95 / N: 3.95 / 2: 3.4. Fiabilité 85%.",
+      "analysis": "TSV Eintracht Braunschweig : forme D-V-D-V-D (2V 0N 3D, 4 buts marqués / 6 encaissés sur 5) · Energie Cottbus : forme D-N-N-D-N (0V 3N 2D, 5 buts marqués / 8 encaissés sur 5). Classement : TSV Eintracht Braunschweig 15e (10 pts), Energie Cottbus 14e (10 pts). Stats empiriques (forme récente) : buts moy. 4.25, BTTS 60.0%, Over 2.5 30.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.05 / N: 3.9 / 2: 3.25. Fiabilité 85%.",
       "analysisData": {
         "empiricalBttsRate": 0.6,
         "empiricalOver25Rate": 0.3,
@@ -233,9 +233,9 @@
       },
       "odds": {
         "provider": "DraftKings",
-        "home": 1.95,
-        "draw": 3.95,
-        "away": 3.4,
+        "home": 2.05,
+        "draw": 3.9,
+        "away": 3.25,
         "over25": null,
         "under25": null
       },
@@ -359,41 +359,27 @@
       "homeLambda": 2,
       "awayLambda": 2.25,
       "statsOnly": true,
-      "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_key_fact": "TSV Eintracht Braunschweig présente un taux de BTTS de seulement 20% sur ses 5 derniers matchs.",
-      "ai_analysis": "Bien que l'équipe extérieure d'Energie Cottbus montre des dynamiques de buts élevées sur ses 5 derniers matchs, le profil de TSV Eintracht Braunschweig est nettement plus hermétique. Les locaux n'affichent que 20% de BTTS et d'Over 2.5 sur leurs 5 dernières sorties, avec seulement 4 buts marqués. Cette opposition de style incite à une prudence mesurée penchée vers l'absence de buts des deux côtés.",
-      "ai_analysis_en": "Although the away team Energie Cottbus shows high goal dynamics in their last 5 matches, TSV Eintracht Braunschweig's profile is much more hermetic. The hosts show only 20% BTTS and Over 2.5 rates in their last 5 outings, scoring only 4 goals. This clash of styles calls for measured caution favoring a 'No' selection on BTTS.",
-      "ai_form_summary": "Braunschweig: 2W-0D-3L (D-V-D-V-D), 4 buts pour, 6 buts contre. Cottbus: 0W-3D-2L (D-N-N-D-N), 5 buts pour, 8 buts contre.",
-      "ai_form_summary_en": "Braunschweig: 2W-0D-3L (L-W-L-W-L), 4 goals for, 6 goals against. Cottbus: 0W-3D-2L (L-D-D-L-D), 5 goals for, 8 goals against.",
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "TSV Eintracht Braunschweig présente un taux Over 2.5 de seulement 20% sur ses 5 derniers matchs.",
+      "ai_analysis": "Les données observées pour cette rencontre de 2. Bundesliga présentent des signaux contradictoires. Alors que Energie Cottbus affiche un taux BTTS de 100% sur ses 5 derniers matchs, TSV Eintracht Braunschweig ne monte qu'à 20% avec seulement 4 buts inscrits. En l'absence de cohérence statistique suffisante sur les marchés principaux, la décision prudente est d'abstenir ce pronostic.",
+      "ai_analysis_en": "Observed data for this 2. Bundesliga fixture shows conflicting signals. While Energie Cottbus records a 100% BTTS rate in their last 5 matches, TSV Eintracht Braunschweig sits at only 20% with just 4 goals scored. Lacking sufficient statistical consistency across main markets, the prudent decision is to abstain.",
+      "ai_form_summary": "Braunschweig : 2W-0D-3L sur ses 5 derniers matchs, 4 buts pour, 6 contre (BTTS 20%). Cottbus : 0W-3D-2L sur ses 5 derniers matchs, 5 buts pour, 8 contre (BTTS 100%).",
+      "ai_form_summary_en": "Braunschweig: 2W-0D-3L in last 5, 4 goals for, 6 against (20% BTTS). Cottbus: 0W-3D-2L in last 5, 5 goals for, 8 against (100% BTTS).",
       "ai_reasons": [
-        "Taux de BTTS sur les 5 derniers matchs de Braunschweig limité à 20%.",
-        "Faible taux empirique d'Over 2.5 à 30% pour Braunschweig.",
-        "Braunschweig n'a inscrit que 4 buts lors de ses 5 derniers matchs."
+        "Taux empirique Over 2.5 faible à 0.3",
+        "Faible nombre de buts marqués sur les 5 derniers matchs pour Braunschweig (4 buts)",
+        "Taux BTTS des 5 derniers matchs de Braunschweig limité à 0.2 malgré un taux de 1 pour Cottbus"
       ],
       "ai_risks": [
-        "Cottbus affiche un taux de BTTS de 100% sur ses 5 derniers matchs.",
-        "La moyenne de buts pour l'extérieur de Cottbus est de 2.25 buts par match."
+        "Signaux contradictoires entre le taux BTTS de Cottbus (100%) et celui de Braunschweig (20%)",
+        "Taux empirique global sous les seuils de confiance pour une sélection tranchée"
       ],
       "ai_confidence": "low",
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "pick",
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Non",
-          "confidence": 58,
-          "proba": 0.58,
-          "modelEngine": "gemini-3.5-flash-lite",
-          "bttsProb": 0.58
-        }
-      ],
-      "bttsProb": 0.58,
-      "prediction": "Non",
-      "proba": 0.58,
-      "confidence": 58
+      "ai_response_status": "abstain"
     },
     {
       "id": "toulouse-vs-strasbou-2026-11-06",
@@ -419,7 +405,7 @@
       "xgAway": 2,
       "xgTotal": 3,
       "formBTTS": 60,
-      "analysis": "Toulouse : forme D-N-V-N-V (2V 2N 1D, 8 buts marqués / 6 encaissés sur 5) · Strasbourg : forme V-D-D-D-D (1V 0N 4D, 8 buts marqués / 11 encaissés sur 5). Classement : Toulouse 12e (10 pts), Strasbourg 13e (10 pts). Stats empiriques (forme récente) : buts moy. 3, BTTS 60.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.1 / N: 3.7 / 2: 3.35 · Over 2.5: 1.65. Fiabilité 82.5%.",
+      "analysis": "Toulouse : forme D-N-V-N-V (2V 2N 1D, 8 buts marqués / 6 encaissés sur 5) · Strasbourg : forme V-D-D-D-D (1V 0N 4D, 8 buts marqués / 11 encaissés sur 5). Classement : Toulouse 12e (10 pts), Strasbourg 13e (10 pts). Stats empiriques (forme récente) : buts moy. 3, BTTS 60.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.3 / N: 3.6 / 2: 3 · Over 2.5: 1.67. Fiabilité 82.5%.",
       "analysisData": {
         "empiricalBttsRate": 0.6,
         "empiricalOver25Rate": 0.8,
@@ -429,10 +415,10 @@
       },
       "odds": {
         "provider": "DraftKings",
-        "home": 2.1,
-        "draw": 3.7,
-        "away": 3.35,
-        "over25": 1.65,
+        "home": 2.3,
+        "draw": 3.6,
+        "away": 3,
+        "over25": 1.67,
         "under25": 2.2
       },
       "oddsSource": "DraftKings",
@@ -557,22 +543,21 @@
       "statsOnly": true,
       "ai_abstain": false,
       "ai_market": "OVER_25",
-      "ai_key_fact": "Strasbourg présente un taux Over 2.5 de 100% sur ses 5 derniers matchs et encaisse 2.2 buts par match.",
-      "ai_analysis": "La rencontre entre Toulouse et Strasbourg s'appuie sur des dynamiques très favorables aux buts. Strasbourg montre de grandes fragilités défensives avec 11 buts encaissés sur ses 5 derniers matchs et un taux d'Over 2.5 de 1.0. Avec une moyenne offensive de 2 buts pour Strasbourg et des statistiques globales pointant vers un taux empirique de 80% sur l'Over 2.5, le marché des buts au-dessus de 2.5 offre la meilleure opportunité sur ce match.",
-      "ai_analysis_en": "The match between Toulouse and Strasbourg features dynamics heavily favoring goals. Strasbourg shows significant defensive frailties with 11 goals conceded in their last 5 matches and a 1.0 Over 2.5 rate. With an away scoring average of 2 goals per match and empirical Over 2.5 rates at 80%, the Over 2.5 market offers the best opportunity for this fixture.",
-      "ai_form_summary": "Toulouse: D-N-V-N-V (2V-2N-1D, 8 buts pour, 6 contre). Strasbourg: V-D-D-D-D (1V-0N-4D, 8 buts pour, 11 contre).",
-      "ai_form_summary_en": "Toulouse: L-D-W-D-W (2W-2D-1L, 8 GF, 6 GA). Strasbourg: W-L-L-L-L (1W-0D-4L, 8 GF, 11 GA).",
+      "ai_key_fact": "Strasbourg présente un taux de 100% d'Over 2.5 lors de ses cinq dernières rencontres.",
+      "ai_analysis": "Les statistiques observées plaident nettement pour un match ouvert entre Toulouse et Strasbourg. Avec un taux empirique d'Over 2.5 de 0.8 et une équipe de Strasbourg impliquée dans des rencontres très prolifiques (taux d'Over de 100% sur ses 5 derniers matchs), les conditions sont réunies pour voir au moins trois buts. La fragilité défensive des deux formations (13 et 19 buts encaissés) renforce cette tendance malgré un taux BTTS toulousain plus mesuré.",
+      "ai_analysis_en": "The observed statistics clearly point towards an open match between Toulouse and Strasbourg. With an empirical Over 2.5 rate of 0.8 and a Strasbourg side involved in high-scoring games (100% Over rate in their last 5), conditions are met for at least three goals. Defensive frailties on both sides (13 and 19 goals conceded) reinforce this trend despite Toulouse's more modest BTTS rate.",
+      "ai_form_summary": "Toulouse : 2W-2D-1L, 8 buts pour, 6 contre. Strasbourg : 1W-0D-4L, 8 buts pour, 11 contre.",
+      "ai_form_summary_en": "Toulouse: 2W-2D-1L, 8 goals for, 6 against. Strasbourg: 1W-0D-4L, 8 goals for, 11 against.",
       "ai_reasons": [
-        "Taux Over 2.5 empirique très élevé à 0.8 sur 8 matchs.",
-        "Strasbourg affiche un taux Over 2.5 de 1.0 sur ses 5 derniers matchs et concède beaucoup (11 buts encaissés sur 5 matchs).",
-        "Moyenne de buts de Strasbourg à l'extérieur de 2 par match.",
-        "La cote de l'Over 2.5 est fixée à 1.65 sur DraftKings, cohérente avec les statistiques observées."
+        "Taux empirique Over 2.5 très élevé à 80% sur l'échantillon.",
+        "Strasbourg affiche un taux Over 2.5 de 100% sur ses 5 derniers matchs.",
+        "Les deux équipes affichent des défenses perméables (13 buts encaissés pour Toulouse, 19 pour Strasbourg)."
       ],
       "ai_risks": [
-        "Le taux BTTS de Toulouse est plus modéré (0.4 sur les 5 derniers matchs).",
-        "Strasbourg reste sur une série de 4 défaites consécutives qui pourrait les pousser à la prudence."
+        "Le taux BTTS de Toulouse reste modéré à 40%.",
+        "La forme récente de Strasbourg montre 4 défaites consécutives."
       ],
-      "ai_confidence": "medium",
+      "ai_confidence": "high",
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
@@ -779,7 +764,8 @@
       "bttsProb": 0.65,
       "prediction": "Oui",
       "proba": 0.65,
-      "confidence": 65
+      "confidence": 65,
+      "status": "PENDING"
     },
     {
       "id": "standard-vs-waasland-2026-11-06",
@@ -805,7 +791,7 @@
       "xgAway": 1,
       "xgTotal": 2,
       "formBTTS": 70,
-      "analysis": "Standard Liege : forme N-D-D-D-D (0V 1N 4D, 5 buts marqués / 10 encaissés sur 5) · Waasland-Beveren : forme D-N-D-D-V (1V 1N 3D, 8 buts marqués / 10 encaissés sur 5). Classement : Standard Liege 9e (12 pts), Waasland-Beveren 13e (10 pts). Stats empiriques (forme récente) : buts moy. 2, BTTS 70.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.8 / N: 3.95 / 2: 4 · Over 2.5: 1.63. Fiabilité 80.63%.",
+      "analysis": "Standard Liege : forme N-D-D-D-D (0V 1N 4D, 5 buts marqués / 10 encaissés sur 5) · Waasland-Beveren : forme D-N-D-D-V (1V 1N 3D, 8 buts marqués / 10 encaissés sur 5). Classement : Standard Liege 9e (12 pts), Waasland-Beveren 13e (10 pts). Stats empiriques (forme récente) : buts moy. 2, BTTS 70.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.95 / N: 3.75 / 2: 3.55 · Over 2.5: 1.65. Fiabilité 80.63%.",
       "analysisData": {
         "empiricalBttsRate": 0.7,
         "empiricalOver25Rate": 0.6,
@@ -815,11 +801,11 @@
       },
       "odds": {
         "provider": "DraftKings",
-        "home": 1.8,
-        "draw": 3.95,
-        "away": 4,
-        "over25": 1.63,
-        "under25": 2.2
+        "home": 1.95,
+        "draw": 3.75,
+        "away": 3.55,
+        "over25": 1.65,
+        "under25": 2.15
       },
       "oddsSource": "DraftKings",
       "formHome": {
@@ -943,19 +929,19 @@
       "statsOnly": true,
       "ai_abstain": false,
       "ai_market": "BTTS",
-      "ai_key_fact": "Standard Liège affiche un taux BTTS de 80% sur ses 5 derniers matchs malgré une mauvaise forme.",
-      "ai_analysis": "L'analyse des statistiques observe un taux empirique BTTS solide de 70% pour cette affiche de Jupiler Pro League. Le Standard de Liège montre une propension nette à voir les deux équipes marquer (80% sur ses 5 derniers matchs), combinée à des défenses en difficulté au classement (16 et 20 buts encaissés). Bien que l'attaque du Standard à domicile soit limitée, la perméabilité défensive des deux formations justifie notre sélection.",
-      "ai_analysis_en": "Statistical analysis shows a strong empirical BTTS rate of 70% for this Jupiler Pro League fixture. Standard Liege demonstrates a clear tendency for both teams to score (80% in their last 5 matches), combined with struggling defenses in the standings (16 and 20 goals conceded). Although Standard's home attack is limited, the defensive fragility of both teams supports our selection.",
-      "ai_form_summary": "Standard Liège : 0W-1D-4L (5 GF, 10 GA, BTTS 80%). Waasland-Beveren : 1W-1D-3L (8 GF, 10 GA, BTTS 60%).",
-      "ai_form_summary_en": "Standard Liege: 0W-1D-4L (5 GF, 10 GA, BTTS 80%). Waasland-Beveren: 1W-1D-3L (8 GF, 10 GA, BTTS 60%).",
+      "ai_key_fact": "Standard Liege et Waasland-Beveren affichent tous deux 10 buts encaissés sur leurs 5 derniers matchs.",
+      "ai_analysis": "Les statistiques observées révèlent un taux BTTS empirique solide de 70% pour cette affiche de Jupiler Pro League. Standard Liege montre de grandes difficultés défensives malgré un secteur offensif capable de marquer, affichant un taux de BTTS de 80% sur ses 5 derniers matchs. En face, Waasland-Beveren encaisse également beaucoup avec 10 buts concédés récemment, ce qui rencorce la probabilité de voir les deux équipes marquer.",
+      "ai_analysis_en": "Observed statistics reveal a strong empirical BTTS rate of 70% for this Jupiler Pro League fixture. Standard Liege shows significant defensive vulnerabilities despite an ability to score, posting an 80% BTTS rate over their last 5 matches. Meanwhile, Waasland-Beveren also struggles defensively with 10 goals conceded recently, reinforcing the probability that both teams will score.",
+      "ai_form_summary": "Standard Liege : 0V-1D-4L, 5 buts pour, 10 buts contre. Waasland-Beveren : 1V-1D-3L, 8 buts pour, 10 buts contre.",
+      "ai_form_summary_en": "Standard Liege: 0W-1D-4L, 5 goals for, 10 goals against. Waasland-Beveren: 1W-1D-3L, 8 goals for, 10 goals against.",
       "ai_reasons": [
-        "Taux empirique BTTS élevé à 70% sur l'échantillon global.",
-        "Taux BTTS de Standard Liège à 80% sur ses 5 derniers matchs.",
-        "Défenses perméables avec Standard (16 GA) et Waasland-Beveren (20 GA) en championnat."
+        "Taux BTTS empirique élevé à 70% pour le match.",
+        "Taux BTTS de Standard Liege à 80% sur ses 5 derniers matchs.",
+        "Fragilités défensives évidentes avec 10 buts encaissés chacun sur les 5 dernières rencontres."
       ],
       "ai_risks": [
-        "Standard Liège a une moyenne de buts marqués faible à domicile (1 but/match).",
-        "La forme globale de Standard est très négative (0W-1D-4L)."
+        "Standard Liege affiche une moyenne de seulement 1 but marqué sur la période récente.",
+        "La forme globale de Standard Liege est très négative avec 4 défaites de rang."
       ],
       "ai_confidence": "medium",
       "modelEngine": "gemini-stats-v1",
@@ -1001,7 +987,7 @@
       "xgAway": 2,
       "xgTotal": 2.5,
       "formBTTS": 60,
-      "analysis": "Derby County : forme D-D-N-D-D (0V 1N 4D, 3 buts marqués / 14 encaissés sur 5) · Bolton Wanderers : forme V-D-D-N-V (2V 1N 2D, 7 buts marqués / 9 encaissés sur 5). Classement : Derby County 23e (7 pts), Bolton Wanderers 17e (17 pts). Stats empiriques (forme récente) : buts moy. 2.5, BTTS 60.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.45 / N: 3.65 / 2: 2.75 · Over 2.5: 1.69. Fiabilité 80%.",
+      "analysis": "Derby County : forme D-D-N-D-D (0V 1N 4D, 3 buts marqués / 14 encaissés sur 5) · Bolton Wanderers : forme V-D-D-N-V (2V 1N 2D, 7 buts marqués / 9 encaissés sur 5). Classement : Derby County 23e (7 pts), Bolton Wanderers 17e (17 pts). Stats empiriques (forme récente) : buts moy. 2.5, BTTS 60.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.7 / N: 3.6 / 2: 2.5 · Over 2.5: 1.71. Fiabilité 80%.",
       "analysisData": {
         "empiricalBttsRate": 0.6,
         "empiricalOver25Rate": 0.6,
@@ -1011,11 +997,11 @@
       },
       "odds": {
         "provider": "DraftKings",
-        "home": 2.45,
-        "draw": 3.65,
-        "away": 2.75,
-        "over25": 1.69,
-        "under25": 2.15
+        "home": 2.7,
+        "draw": 3.6,
+        "away": 2.5,
+        "over25": 1.71,
+        "under25": 2.1
       },
       "oddsSource": "DraftKings",
       "formHome": {
@@ -1139,21 +1125,21 @@
       "statsOnly": true,
       "ai_abstain": false,
       "ai_market": "BTTS",
-      "ai_key_fact": "Derby County a encaissé 29 buts en 14 matchs de championnat.",
-      "ai_analysis": "Les données observées indiquent un taux empirique BTTS de 60% pour cette rencontre de Championship. Bolton Wanderers présente une moyenne offensive intéressante de 2 buts par match, tandis que Derby County affiche une défense particulièrement friable avec 29 buts encaissés en 14 rencontres. Malgré les difficultés offensives globales de Derby, la configuration défensive des deux équipes favorise l'option où les deux marquent.",
-      "ai_analysis_en": "Observed data indicates an empirical BTTS rate of 60% for this Championship fixture. Bolton Wanderers present an interesting offensive average of 2 goals per match, while Derby County show a particularly fragile defense with 29 goals conceded in 14 games. Despite Derby's overall offensive difficulties, both teams' defensive setup favors the both teams to score option.",
-      "ai_form_summary": "Derby County : 0W-1D-4L (3 GF, 14 GA, BTTS 60%). Bolton Wanderers : 2W-1D-2L (7 GF, 9 GA, BTTS 60%).",
-      "ai_form_summary_en": "Derby County: 0W-1D-4L (3 GF, 14 GA, BTTS 60%). Bolton Wanderers: 2W-1D-2L (7 GF, 9 GA, BTTS 60%).",
+      "ai_key_fact": "Derby County a encaissé 14 buts lors de ses 5 derniers matchs.",
+      "ai_analysis": "Malgré les difficultés offensives récentes de Derby County qui n'a inscrit que 3 buts sur ses 5 derniers matchs, le taux BTTS empirique s'établit à 60%. Les deux formations affichent des statistiques de BTTS identiques sur la même période. La grande fragilité défensive des deux équipes, illustrée par de lourds totaux de buts encaissés en championnat, soutient une option favorable aux buts des deux côtés.",
+      "ai_analysis_en": "Despite Derby County's recent offensive struggles scoring only 3 goals in their last 5 matches, the empirical BTTS rate stands at 60%. Both teams share identical BTTS rates over the same period. The significant defensive fragility of both sides, illustrated by heavy goals-against totals in the league, supports a favorable outlook for goals from both teams.",
+      "ai_form_summary": "Derby County : 0V-1D-4L, 3 buts pour, 14 buts contre. Bolton Wanderers : 2V-1D-2L, 7 buts pour, 9 buts contre.",
+      "ai_form_summary_en": "Derby County: 0W-1D-4L, 3 goals for, 14 goals against. Bolton Wanderers: 2W-1D-2L, 7 goals for, 9 goals against.",
       "ai_reasons": [
-        "Taux empirique BTTS de 60% sur l'échantillon observé.",
-        "Derby County encaisse beaucoup de buts (29 GA en 14 matchs).",
-        "Bolton Wanderers présente une moyenne de 2 buts marqués par match sur l'échantillon."
+        "Taux BTTS empirique de 60% pour le match.",
+        "Taux BTTS de 60% pour Derby County et Bolton Wanderers sur leurs 5 derniers matchs.",
+        "Défenses particulièrement perméables avec 29 buts encaissés par Derby et 26 par Bolton en championnat."
       ],
       "ai_risks": [
-        "Derby County a une attaque en difficulté avec seulement 0.5 but en moyenne sur l'échantillon.",
-        "La forme récente de Derby est très défavorable (0W-1D-4L)."
+        "Derby County n'a marqué que 3 buts lors de ses 5 derniers matchs (moyenne de 0.5 but par match).",
+        "La forme globale de Derby est très faible (0V-1D-4L)."
       ],
-      "ai_confidence": "medium",
+      "ai_confidence": "low",
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
@@ -1162,16 +1148,16 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 62,
-          "proba": 0.62,
+          "confidence": 60,
+          "proba": 0.6,
           "modelEngine": "gemini-3.5-flash-lite",
-          "bttsProb": 0.62
+          "bttsProb": 0.6
         }
       ],
-      "bttsProb": 0.62,
+      "bttsProb": 0.6,
       "prediction": "Oui",
-      "proba": 0.62,
-      "confidence": 62
+      "proba": 0.6,
+      "confidence": 60
     },
     {
       "id": "dynamodr-vs-spvgggre-2026-11-06",
@@ -1197,7 +1183,7 @@
       "xgAway": 1.5,
       "xgTotal": 2.83,
       "formBTTS": 50,
-      "analysis": "Dynamo Dresden : forme D-D-V-N-D (1V 1N 3D, 5 buts marqués / 8 encaissés sur 5) · SpVgg Greuther Fürth : forme V-D-V-D-N (2V 1N 2D, 5 buts marqués / 6 encaissés sur 5). Classement : Dynamo Dresden 18e (8 pts), SpVgg Greuther Fürth 9e (12 pts). Stats empiriques (forme récente) : buts moy. 2.83, BTTS 50.0%, Over 2.5 50.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.91 / N: 3.75 / 2: 3.7 · Over 2.5: 1.65. Fiabilité 78.13%.",
+      "analysis": "Dynamo Dresden : forme D-D-V-N-D (1V 1N 3D, 5 buts marqués / 8 encaissés sur 5) · SpVgg Greuther Fürth : forme V-D-V-D-N (2V 1N 2D, 5 buts marqués / 6 encaissés sur 5). Classement : Dynamo Dresden 18e (8 pts), SpVgg Greuther Fürth 9e (12 pts). Stats empiriques (forme récente) : buts moy. 2.83, BTTS 50.0%, Over 2.5 50.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2 / N: 3.7 / 2: 3.55 · Over 2.5: 1.65. Fiabilité 78.13%.",
       "analysisData": {
         "empiricalBttsRate": 0.5,
         "empiricalOver25Rate": 0.5,
@@ -1207,9 +1193,9 @@
       },
       "odds": {
         "provider": "DraftKings",
-        "home": 1.91,
-        "draw": 3.75,
-        "away": 3.7,
+        "home": 2,
+        "draw": 3.7,
+        "away": 3.55,
         "over25": 1.65,
         "under25": 2.15
       },
@@ -1333,25 +1319,41 @@
       "homeLambda": 1.33,
       "awayLambda": 1.5,
       "statsOnly": true,
-      "ai_abstain": true,
-      "ai_market": "ABSTAIN",
-      "ai_key_fact": "Le Dynamo Dresden possède la pire défense de la ligue avec 20 buts encaissés en 10 matchs.",
-      "ai_analysis": "Bien que le Dynamo Dresden encaisse beaucoup de buts (20 en 10 matchs), les taux empiriques de 50% pour le BTTS et l'Over 2.5 ne dégagent pas une opportunité claire. La forme récente des deux formations est trop mitigée pour justifier un pari sur ce marché. Par conséquent, il est préférable de s'abstenir sur cette rencontre.",
-      "ai_analysis_en": "Although Dynamo Dresden concedes many goals (20 in 10 games), the empirical rates of 50% for BTTS and Over 2.5 do not offer a clear edge. Recent form for both sides is too mixed to justify a bet on this market. Therefore, abstaining is the wisest choice.",
-      "ai_form_summary": "Dynamo Dresden sur 5 matchs : D-D-V-N-D (1V-1D-3L). SpVgg Greuther Fürth sur 5 matchs : V-D-V-D-N (2W-1D-2L).",
-      "ai_form_summary_en": "Dynamo Dresden last 5: D-D-V-N-D (1W-1D-3L). SpVgg Greuther Fürth last 5: V-D-V-D-N (2W-1D-2L).",
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Dynamo Dresden et SpVgg Greuther Fürth affichent toutes deux des défenses en difficulté avec respectivement 20 et 16 buts encaissés.",
+      "ai_analysis": "L'analyse statistique de cette rencontre de 2. Bundesliga montre des indicateurs partagés mais orientés vers un match ouvert. Dynamo Dresden présente un taux de BTTS de 60% lors de ses 5 derniers matchs et encaisse beaucoup de buts (20 en 10 journées). De son côté, SpVgg Greuther Fürth montre des stats correctes malgré un classement de milieu de tableau. L'empirique BTTS s'établit exactement à 0.5, justifiant une prudente sélection 'Yes' avec une probabilité mesurée.",
+      "ai_analysis_en": "Statistical analysis for this 2. Bundesliga fixture shows mixed indicators pointing towards a potential open match. Dynamo Dresden records a 60% BTTS rate in their last 5 games and concedes heavily (20 goals in 10 matches). Meanwhile, SpVgg Greuther Fürth displays stable attacking metrics despite a mid-table standing. The empirical BTTS sits right at 0.5, justifying a cautious 'Yes' selection with a calibrated probability.",
+      "ai_form_summary": "Dynamo Dresden : 1V-1D-3N sur les 5 derniers, 5 buts marqués, 8 encaissés (BTTS 60%). SpVgg Greuther Fürth : 2V-1D-2N, 5 buts marqués, 6 encaissés (BTTS 40%).",
+      "ai_form_summary_en": "Dynamo Dresden: 1W-1D-3L in last 5, 5 goals for, 8 against (BTTS 60%). SpVgg Greuther Fürth: 2W-1D-2L, 5 goals for, 6 against (BTTS 40%).",
       "ai_reasons": [
-        "Taux empiriques BTTS et Over 2.5 exactement à 50% sans signal statistique dominant.",
-        "Forme récente irrégulière des deux équipes avec Dynamo Dresden 1W-1D-3L et Fürth 2W-1D-2L."
+        "Taux empirique global du BTTS à 50% sur l'échantillon.",
+        "Dynamo Dresden affiche un taux de BTTS de 60% sur ses 5 derniers matchs.",
+        "Les deux équipes concèdent un volume défensif important (20 buts encaissés pour Dresden et 16 pour Fürth en 10 matchs)."
       ],
       "ai_risks": [
-        "Match équilibré entre une équipe à domicile en difficulté (18ème) et une équipe visiteuse de milieu de tableau (9ème)."
+        "L'attaque de Fürth à l'extérieur et la forme globale mitigée des deux équipes créent de l'incertitude.",
+        "Le taux BTTS récent de Fürth est plus faible à 40% sur ses 5 derniers matchs."
       ],
       "ai_confidence": "low",
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 52,
+          "proba": 0.52,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.52
+        }
+      ],
+      "bttsProb": 0.52,
+      "prediction": "Oui",
+      "proba": 0.52,
+      "confidence": 52
     },
     {
       "id": "rapidvie-vs-wolfsber-2026-11-06",
@@ -1377,7 +1379,7 @@
       "xgAway": 0.25,
       "xgTotal": 3.75,
       "formBTTS": 40,
-      "analysis": "Rapid Vienna : forme V-V-V-V-V (5V 0N 0D, 15 buts marqués / 2 encaissés sur 5) · Wolfsberger : forme N-D-D-D-D (0V 1N 4D, 2 buts marqués / 11 encaissés sur 5). Classement : Rapid Vienna 1e (30 pts), Wolfsberger 12e (6 pts). Stats empiriques (forme récente) : buts moy. 3.75, BTTS 40.0%, Over 2.5 50.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.26 / N: 6.5 / 2: 9. Fiabilité 76.25%.",
+      "analysis": "Rapid Vienna : forme V-V-V-V-V (5V 0N 0D, 15 buts marqués / 2 encaissés sur 5) · Wolfsberger : forme N-D-D-D-D (0V 1N 4D, 2 buts marqués / 11 encaissés sur 5). Classement : Rapid Vienna 1e (30 pts), Wolfsberger 12e (6 pts). Stats empiriques (forme récente) : buts moy. 3.75, BTTS 40.0%, Over 2.5 50.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.24 / N: 6.5 / 2: 10. Fiabilité 76.25%.",
       "analysisData": {
         "empiricalBttsRate": 0.4,
         "empiricalOver25Rate": 0.5,
@@ -1387,9 +1389,9 @@
       },
       "odds": {
         "provider": "DraftKings",
-        "home": 1.26,
+        "home": 1.24,
         "draw": 6.5,
-        "away": 9,
+        "away": 10,
         "over25": null,
         "under25": null
       },
@@ -1515,17 +1517,18 @@
       "statsOnly": true,
       "ai_abstain": true,
       "ai_market": "ABSTAIN",
-      "ai_key_fact": "Rapid Vienna est leader avec 30 points et une excellente forme récente (5V-0D-0L).",
-      "ai_analysis": "Rapid Vienna domine largement le championnat avec 5 victoires consécutives et une défense solide, n'ayant concédé que 2 buts lors de ses 5 derniers matchs. En face, Wolfsberger affiche une moyenne offensive famélique de 0.25 buts par match à l'extérieur. Le taux empirique BTTS de 40% étant inférieur au seuil recommandé, l'abstention est de rigueur.",
-      "ai_analysis_en": "Rapid Vienna dominates the league with 5 consecutive wins and a solid defense, conceding only 2 goals in their last 5 matches. Meanwhile, Wolfsberger shows a very poor offensive average of 0.25 goals per away game. With an empirical BTTS rate of 40% falling below the recommended threshold, abstaining is required.",
-      "ai_form_summary": "Rapid Vienna sur 5 matchs : V-V-V-V-V (5W-0D-0L). Wolfsberger sur 5 matchs : N-D-D-D-D (0W-1D-4L).",
-      "ai_form_summary_en": "Rapid Vienna last 5: V-V-V-V-V (5W-0D-0L). Wolfsberger last 5: N-D-D-D-D (0W-1D-4L).",
+      "ai_key_fact": "Rapid Vienna domine le classement (1er, 30 points) avec une défense solide concédant seulement 9 buts en 11 matchs.",
+      "ai_analysis": "Malgré la forme étincelante du Rapid Vienna (5 victoires consécutives, 15 buts marqués), les statistiques de Wolfsberger à l'extérieur sont extrêmement faibles avec une moyenne de 0.25 but marqué. Le taux empirique du BTTS se situe à 40% et le taux Over 2.5 à 50%. En raison du profil ultra-défensif de l'adversaire et du manque de garanties sur les buts visiteurs, aucun marché ne se détache avec certitude, justifiant un choix d'abstention strict.",
+      "ai_analysis_en": "Despite Rapid Vienna's stellar form (5 consecutive wins, 15 goals scored), Wolfsberger's away stats are extremely poor with an average of 0.25 goals scored per match. The empirical BTTS rate sits at 40% and Over 2.5 at 50%. Due to the visitor's low scoring output and Rapid's tight defense, no market offers a clear statistical edge, mandating an abstention.",
+      "ai_form_summary": "Rapid Vienna : 5V-0D-0N, 15 buts marqués, 2 encaissés (BTTS 40%). Wolfsberger : 0V-1D-4N, 2 buts marqués, 11 encaissés (BTTS 40%).",
+      "ai_form_summary_en": "Rapid Vienna: 5W-0D-0L, 15 goals for, 2 against (BTTS 40%). Wolfsberger: 0W-1D-4L, 2 goals for, 11 against (BTTS 40%).",
       "ai_reasons": [
-        "Faible taux empirique BTTS de 40% pour Rapid Vienna et Wolfsberger.",
-        "Wolfsberger présente une attaque très faible à l'extérieur avec seulement 0.25 buts par match."
+        "Wolfsberger affiche une moyenne de buts à l'extérieur très faible de 0.25 par match.",
+        "Rapid Vienna encaisse très peu de buts (seulement 2 lors de ses 5 derniers matchs et 9 au total en 11 matchs)."
       ],
       "ai_risks": [
-        "Rapid Vienna encaisse très peu de buts à domicile (2 sur ses 5 derniers matchs), ce qui réduit la probabilité que les deux équipes marquent."
+        "La domination massive du Rapid Vienna (leader avec 30 points) pourrait rendre le match à sens unique sans but adverse.",
+        "Le taux empirique du BTTS est de 40%, ce qui ne valide pas statistiquement un pari sur les deux équipes marquent."
       ],
       "ai_confidence": "low",
       "modelEngine": "gemini-stats-v1",
@@ -1557,7 +1560,7 @@
       "xgAway": 1,
       "xgTotal": 1.33,
       "formBTTS": 50,
-      "analysis": "Willem II : forme D-D-D-D-D (0V 0N 5D, 4 buts marqués / 20 encaissés sur 5) · PEC Zwolle : forme V-N-V-D-D (2V 1N 2D, 6 buts marqués / 6 encaissés sur 5). Classement : Willem II 18e (2 pts), PEC Zwolle 14e (11 pts). Stats empiriques (forme récente) : buts moy. 1.33, BTTS 50.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.95 / N: 3.8 / 2: 2.2 · Over 2.5: 1.57. Fiabilité 68.13%.",
+      "analysis": "Willem II : forme D-D-D-D-D (0V 0N 5D, 4 buts marqués / 20 encaissés sur 5) · PEC Zwolle : forme V-N-V-D-D (2V 1N 2D, 6 buts marqués / 6 encaissés sur 5). Classement : Willem II 18e (2 pts), PEC Zwolle 14e (11 pts). Stats empiriques (forme récente) : buts moy. 1.33, BTTS 50.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 3.15 / N: 3.75 / 2: 2.1 · Over 2.5: 1.63. Fiabilité 68.13%.",
       "analysisData": {
         "empiricalBttsRate": 0.5,
         "empiricalOver25Rate": 0.6,
@@ -1567,11 +1570,11 @@
       },
       "odds": {
         "provider": "DraftKings",
-        "home": 2.95,
-        "draw": 3.8,
-        "away": 2.2,
-        "over25": 1.57,
-        "under25": 2.3
+        "home": 3.15,
+        "draw": 3.75,
+        "away": 2.1,
+        "over25": 1.63,
+        "under25": 2.2
       },
       "oddsSource": "DraftKings",
       "formHome": {
@@ -1695,19 +1698,19 @@
       "statsOnly": true,
       "ai_abstain": false,
       "ai_market": "OVER_25",
-      "ai_key_fact": "Willem II encaisse énormément (39 buts en 11 matchs) poussant leur taux d'Over 2.5 à 80% sur les 5 derniers matchs.",
-      "ai_analysis": "La rencontre entre Willem II et le PEC Zwolle présente un profil favorable aux buts malgré les difficultés offensives des locaux. Willem II possède la défense la plus fragile de leur parcours, ce qui se traduit par un taux d'Over 2.5 de 80% sur leurs 5 derniers matchs. Bien que l'attaque de Willem II soit limitée, la perméabilité défensive globale des deux formations (39 buts encaissés pour Willem II et 23 pour Zwolle) justifie un pari sur l'Over 2.5 avec un taux empirique global de 60%.",
-      "ai_analysis_en": "The match between Willem II and PEC Zwolle shows a profile favorable to goals despite the home team's offensive struggles. Willem II has the weakest defense in the league, resulting in an 80% Over 2.5 rate over their last 5 matches. Although Willem II's attack is limited, the overall defensive fragility of both teams (39 goals conceded for Willem II and 23 for Zwolle) justifies a bet on Over 2.5 with an overall empirical rate of 60%.",
-      "ai_form_summary": "Willem II est en grande difficulté (0V-0D-5L) avec une défense très perméable, tandis que PEC Zwolle montre des résultats plus mitigés (2V-1D-2L).",
-      "ai_form_summary_en": "Willem II is struggling heavily (0W-0D-5L) with a very leaky defense, while PEC Zwolle shows mixed results (2W-1D-2L).",
+      "ai_key_fact": "Willem II affiche un taux d'Over 2.5 de 80% sur ses cinq derniers matchs.",
+      "ai_analysis": "Bien que l'attaque à domicile de Willem II soit limitée, la fragilité défensive extrême des locaux (20 buts encaissés récemment, 39 au total en 11 matchs) combinée à un taux d'Over 2.5 de 80% sur leurs 5 derniers matchs pousse vers une rencontre prolifique. PEC Zwolle (14e) offre des statistiques plus modérées mais l'urgence de points pour la lanterne rouge devrait dynamiser le jeu. Nous privilégions donc l'Over 2.5 basé sur ces observations empiriques.",
+      "ai_analysis_en": "Although Willem II's home attack is limited, the extreme defensive frailty of the hosts (20 goals conceded recently, 39 in total over 11 matches) combined with an 80% Over 2.5 rate in their last 5 games points towards an open match. PEC Zwolle (14th) offers more modest statistics, but the urgency for points from the bottom-ranked side should energize the game. We therefore lean towards Over 2.5 based on these empirical observations.",
+      "ai_form_summary": "Willem II en difficulté totale (0V-0D-5L, 20 buts encaissés). PEC Zwolle irrégulier (2V-1D-2L).",
+      "ai_form_summary_en": "Willem II in total difficulty (0W-0D-5L, 20 goals conceded). PEC Zwolle irregular (2W-1D-2L).",
       "ai_reasons": [
         "Le taux empirique d'Over 2.5 est de 60% sur l'échantillon analysé.",
-        "Willem II affiche un taux d'Over 2.5 de 80% sur ses 5 derniers matchs malgré une mauvaise forme.",
-        "La défense de Willem II est particulièrement perméable avec 39 buts encaissés en 11 matchs."
+        "Willem II présente un taux d'Over 2.5 de 80% sur ses 5 derniers matchs et une défense très perméable avec 20 buts encaissés.",
+        "La position de Willem II (18e) et sa nécessité de réagir face à PEC Zwolle (14e) favorisent un match ouvert."
       ],
       "ai_risks": [
-        "Willem II a des difficultés offensives avec une moyenne de 0.33 buts marqués à domicile.",
-        "PEC Zwolle a un taux d'Over 2.5 de seulement 40% sur ses 5 derniers matchs."
+        "Willem II a une moyenne de buts marqués faible à domicile (0.33).",
+        "Le taux empirique global BTTS est de seulement 50%."
       ],
       "ai_confidence": "medium",
       "modelEngine": "gemini-stats-v1",
@@ -1718,16 +1721,16 @@
         {
           "type": "Over 2.5",
           "prediction": "Oui",
-          "confidence": 62,
-          "proba": 0.62,
+          "confidence": 60,
+          "proba": 0.6,
           "modelEngine": "gemini-3.5-flash-lite",
-          "over25Prob": 0.62
+          "over25Prob": 0.6
         }
       ],
-      "over25Prob": 0.62,
+      "over25Prob": 0.6,
       "prediction": "Oui",
-      "proba": 0.62,
-      "confidence": 62
+      "proba": 0.6,
+      "confidence": 60
     },
     {
       "id": "everton-vs-coventry-2026-11-06",
@@ -1753,7 +1756,7 @@
       "xgAway": 0.67,
       "xgTotal": 1.67,
       "formBTTS": 40,
-      "analysis": "Everton : forme V-D-D-N-V (2V 1N 2D, 4 buts marqués / 6 encaissés sur 5) · Coventry City : forme V-D-D-V-V (3V 0N 2D, 9 buts marqués / 6 encaissés sur 5). Classement : Everton 7e (13 pts), Coventry City 16e (9 pts). Stats empiriques (forme récente) : buts moy. 1.67, BTTS 40.0%, Over 2.5 40.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.69 / N: 4 / 2: 4.8 · Over 2.5: 1.74. Fiabilité 63.75%.",
+      "analysis": "Everton : forme V-D-D-N-V (2V 1N 2D, 4 buts marqués / 6 encaissés sur 5) · Coventry City : forme V-D-D-V-V (3V 0N 2D, 9 buts marqués / 6 encaissés sur 5). Classement : Everton 7e (13 pts), Coventry City 16e (9 pts). Stats empiriques (forme récente) : buts moy. 1.67, BTTS 40.0%, Over 2.5 40.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.69 / N: 4 / 2: 4.9 · Over 2.5: 1.74. Fiabilité 63.75%.",
       "analysisData": {
         "empiricalBttsRate": 0.4,
         "empiricalOver25Rate": 0.4,
@@ -1765,7 +1768,7 @@
         "provider": "DraftKings",
         "home": 1.69,
         "draw": 4,
-        "away": 4.8,
+        "away": 4.9,
         "over25": 1.74,
         "under25": 2.1
       },
@@ -1891,18 +1894,18 @@
       "statsOnly": true,
       "ai_abstain": true,
       "ai_market": "ABSTAIN",
-      "ai_key_fact": "Everton présente un taux BTTS et Over 2.5 très bas de 20% sur ses 5 derniers matchs.",
-      "ai_analysis": "L'analyse statistique de la rencontre entre Everton et Coventry City ne permet pas de dégager un pari à forte valeur. Les taux empiriques du BTTS et de l'Over 2.5 sont tous deux sous la barre des 45% (40% chacun). De plus, Everton propose un profil très fermé avec des taux de 20% sur ces deux marchés lors de ses 5 derniers matchs, ce qui contredit légèrement la dynamique offensive plus ouverte de Coventry City. Par conséquent, il est préférable de s'abstenir.",
-      "ai_analysis_en": "The statistical analysis of the match between Everton and Coventry City does not offer a high-value bet. Both empirical BTTS and Over 2.5 rates are below 45% (40% each). Furthermore, Everton displays a very closed profile with 20% rates in both markets over their last 5 matches, contradicting Coventry City's slightly more open offensive dynamic. Therefore, it is better to abstain.",
-      "ai_form_summary": "Everton présente des matchs fermés (2V-1D-2L, 20% BTTS), tandis que Coventry City est un peu plus irrégulier (3V-0D-2L, 60% BTTS).",
-      "ai_form_summary_en": "Everton features tight matches (2W-1D-2L, 20% BTTS), while Coventry City is slightly more inconsistent (3W-0D-2L, 60% BTTS).",
+      "ai_key_fact": "Everton et Coventry City présentent tous deux des taux empiriques sous les seuils requis pour un pari confiant.",
+      "ai_analysis": "Les statistiques observées pour la rencontre entre Everton et Coventry City ne permettent pas de dégager une tendance fiable. Les taux empiriques de BTTS et d'Over 2.5 sont tous deux bloqués à 40%. De plus, les récents matchs d'Everton affichent un taux de 20% pour le BTTS et l'Over 2.5. Conformément à nos règles, nous appliquons un ABSTAIN par manque de signaux concordants.",
+      "ai_analysis_en": "The observed statistics for the match between Everton and Coventry City do not allow for a reliable trend. Both empirical BTTS and Over 2.5 rates are stuck at 40%. Furthermore, Everton's recent matches show a 20% rate for both BTTS and Over 2.5. In accordance with our rules, we apply an ABSTAIN due to a lack of matching signals.",
+      "ai_form_summary": "Everton stable (2V-1D-2L, 4 buts marqués). Coventry City légèrement plus prolifique (3V-0D-2L, 9 buts marqués).",
+      "ai_form_summary_en": "Everton stable (2W-1D-2L, 4 goals scored). Coventry City slightly more prolific (3W-0D-2L, 9 goals scored).",
       "ai_reasons": [
-        "Le taux empirique BTTS est faible à 40%.",
-        "Le taux empirique Over 2.5 est également faible à 40%.",
-        "Everton affiche un taux BTTS de seulement 20% sur ses 5 derniers matchs."
+        "Le taux empirique BTTS est de seulement 40% sur l'échantillon.",
+        "Le taux empirique Over 2.5 est également de 40%, ce qui ne montre pas de tendance claire vers un match ouvert.",
+        "Everton affiche des taux bas de BTTS (20%) et d'Over 2.5 (20%) sur ses 5 derniers matchs."
       ],
       "ai_risks": [
-        "Coventry City montre un taux BTTS de 60% sur ses 5 derniers matchs, créant une contradiction avec les stats d'Everton."
+        "Coventry City montre des stats un peu plus offensives mais reste insuffisant pour garantir un marché sans risque."
       ],
       "ai_confidence": "low",
       "modelEngine": "gemini-stats-v1",
@@ -2104,7 +2107,8 @@
       "over25Prob": 0.58,
       "prediction": "Oui",
       "proba": 0.58,
-      "confidence": 58
+      "confidence": 58,
+      "status": "PENDING"
     },
     {
       "id": "venezia-vs-udinese-2026-11-06",
@@ -2268,19 +2272,19 @@
       "statsOnly": true,
       "ai_abstain": true,
       "ai_market": "ABSTAIN",
-      "ai_key_fact": "Venezia n'a inscrit que 2 buts lors de ses 5 derniers matchs.",
-      "ai_analysis": "Malgré la mauvaise forme des deux équipes en bas de tableau de Serie A, les indicateurs statistiques ne fournissent pas de signal clair. Le taux empirique BTTS de 30% et le taux Over 2.5 de 40% sont trop faibles pour engager un pari fiable. Par conséquent, la règle d'abstention s'applique logiquement ici.",
-      "ai_analysis_en": "Despite the poor form of both teams at the bottom of the Serie A table, the statistical indicators do not provide a clear signal. The 30% empirical BTTS rate and 40% Over 2.5 rate are too low to commit to a reliable bet. Therefore, the abstention rule applies logically here.",
-      "ai_form_summary": "Venezia : 1V-0N-4D sur les 5 derniers (2 buts pour, 7 contre). Udinese : 0V-1N-4D sur les 5 derniers (3 buts pour, 12 contre).",
-      "ai_form_summary_en": "Venezia: 1W-0D-4L in last 5 (2 goals for, 7 against). Udinese: 0W-1D-4L in last 5 (3 goals for, 12 against).",
+      "ai_key_fact": "Venezia et Udinese occupent les deux dernières places (20ème et 19ème) avec des taux BTTS et Over faibles.",
+      "ai_analysis": "Ce duel de bas de tableau entre Venezia et Udinese ne présente pas de garanties statistiques suffisantes. Avec des taux empiriques de BTTS à 30% et d'Over 2.5 à 40%, combinés à des attaques en grande difficulté, le marché du match est trop imprévisible. La règle d'abstention s'applique logiquement.",
+      "ai_analysis_en": "This bottom-of-the-table clash between Venezia and Udinese lacks sufficient statistical guarantees. With empirical BTTS at 30% and Over 2.5 at 40%, combined with struggling attacks, the match market is too unpredictable. The abstention rule applies logically.",
+      "ai_form_summary": "Venezia : 1V-0N-4L sur les 5 derniers (2 BP, 7 BC, 20% Over). Udinese : 0V-1D-4L sur les 5 derniers (3 BP, 12 BC, 60% Over).",
+      "ai_form_summary_en": "Venezia: 1W-0D-4L in last 5 (2 GF, 7 GA, 20% Over). Udinese: 0W-1D-4L in last 5 (3 GF, 12 GA, 60% Over).",
       "ai_reasons": [
-        "Le taux empirique BTTS est très faible à 30%.",
-        "Le taux empirique Over 2.5 est de 40%, sous le seuil requis pour un signal fort.",
-        "Venezia et Udinese affichent de très faibles taux de buts récents (2 et 3 buts sur les 5 derniers matchs)."
+        "Les taux empiriques BTTS (30%) et Over 2.5 (40%) sont tous deux faibles.",
+        "Venezia affiche une attaque très stérile avec seulement 2 buts inscrits sur ses 5 derniers matchs.",
+        "Udinese montre également de grandes difficultés avec 4 défaites sur ses 5 derniers matchs."
       ],
       "ai_risks": [
-        "Rencontre entre le 19e et le 20e de Serie A pouvant mener à un match bloqué ou tendu.",
-        "Faible productivité offensive générale des deux formations."
+        "Match de bas de tableau (20ème contre 19ème) pouvant se solder par un score fermé ou un faux rythme.",
+        "Faible production offensive globale des deux formations (6 GF pour Venezia et 11 GF pour Udinese en 10 matchs)."
       ],
       "ai_confidence": "low",
       "modelEngine": "gemini-stats-v1",
@@ -2482,7 +2486,8 @@
       "bttsProb": 0.72,
       "prediction": "Oui",
       "proba": 0.72,
-      "confidence": 72
+      "confidence": 72,
+      "status": "PENDING"
     },
     {
       "id": "adodenha-vs-spartaro-2026-11-07",
@@ -2678,7 +2683,8 @@
       "bttsProb": 0.7,
       "prediction": "Oui",
       "proba": 0.7,
-      "confidence": 70
+      "confidence": 70,
+      "status": "PENDING"
     },
     {
       "id": "sporting-vs-moreiren-2026-11-07",
@@ -2704,7 +2710,7 @@
       "xgAway": 1.5,
       "xgTotal": 3.5,
       "formBTTS": 80,
-      "analysis": "Sporting CP : forme V-D-V-N-N (2V 2N 1D, 9 buts marqués / 6 encaissés sur 5) · Moreirense : forme V-V-D-N-V (3V 1N 1D, 9 buts marqués / 5 encaissés sur 5). Classement : Sporting CP 3e (21 pts), Moreirense 9e (14 pts). Stats empiriques (forme récente) : buts moy. 3.5, BTTS 80.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.15 / N: 7.5 / 2: 13. Fiabilité 93.75%.",
+      "analysis": "Sporting CP : forme V-D-V-N-N (2V 2N 1D, 9 buts marqués / 6 encaissés sur 5) · Moreirense : forme V-V-D-N-V (3V 1N 1D, 9 buts marqués / 5 encaissés sur 5). Classement : Sporting CP 3e (21 pts), Moreirense 9e (14 pts). Stats empiriques (forme récente) : buts moy. 3.5, BTTS 80.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.17 / N: 7.5 / 2: 13. Fiabilité 93.75%.",
       "analysisData": {
         "empiricalBttsRate": 0.8,
         "empiricalOver25Rate": 0.6,
@@ -2714,7 +2720,7 @@
       },
       "odds": {
         "provider": "DraftKings",
-        "home": 1.15,
+        "home": 1.17,
         "draw": 7.5,
         "away": 13,
         "over25": null,
@@ -2842,21 +2848,21 @@
       "statsOnly": true,
       "ai_abstain": false,
       "ai_market": "BTTS",
-      "ai_key_fact": "Les taux BTTS empiriques et de forme s'élèvent tous deux à 80% pour les deux formations.",
-      "ai_analysis": "Les statistiques observées révèlent une tendance nette au partage des buts, avec un taux BTTS empirique et de forme de 80% pour le Sporting CP comme pour Moreirense. Malgré le statut de net favori du Sporting, leurs derniers matchs affichent des fragilités défensives combinées à une bonne efficacité offensive. La sélection BTTS 'Yes' s'appuie donc sur ces dynamiques récentes concordantes.",
-      "ai_analysis_en": "The observed statistics reveal a clear tendency for both teams to score, with an empirical and recent form BTTS rate of 80% for both Sporting CP and Moreirense. Despite Sporting's status as heavy favorites, their recent matches show defensive vulnerabilities combined with good attacking efficiency. The BTTS 'Yes' selection is therefore supported by these matching recent dynamics.",
-      "ai_form_summary": "Sporting CP (2W-2D-1L, 9 buts pour, 6 contre) et Moreirense (3W-1D-1L, 9 buts pour, 5 contre).",
-      "ai_form_summary_en": "Sporting CP (2W-2D-1L, 9 goals for, 6 against) and Moreirense (3W-1D-1L, 9 goals for, 5 against).",
+      "ai_key_fact": "Les deux équipes affichent un taux de BTTS de 80% lors de leurs 8 derniers matchs respectifs.",
+      "ai_analysis": "Les statistiques observées révèlent une forte propension des deux équipes à marquer et encaisser des buts. Avec un taux empirique de BTTS de 80% et un indice formBTTS aligné au même niveau, les conditions sont réunies pour voir les deux formations trouver le chemin des filets. Malgré le statut de grand favori du Sporting CP, Moreirense présente des arguments offensifs récents solides.",
+      "ai_analysis_en": "The observed statistics reveal a strong tendency for both teams to score and concede goals. With an empirical BTTS rate of 80% and a matching formBTTS index, conditions are favorable for both sides to find the back of the net. Despite Sporting CP being heavy favorites, Moreirense shows solid recent offensive arguments.",
+      "ai_form_summary": "Sporting CP (2V-2N-1D, 9 buts marqués, 6 encaissés) Moreirense (3V-1N-1D, 9 buts marqués, 5 encaissés)",
+      "ai_form_summary_en": "Sporting CP (2W-2D-1L, 9 goals scored, 6 conceded) Moreirense (3W-1D-1L, 9 goals scored, 5 conceded)",
       "ai_reasons": [
-        "Taux empirique BTTS élevé à 80% pour les deux équipes.",
-        "Taux BTTS en forme récente de 80% pour Sporting CP et Moreirense.",
-        "Moyennes de buts marqués correctes (Sporting 2,0 / Moreirense 1,5)."
+        "Taux empirique BTTS élevé à 80% sur les échantillons respectifs.",
+        "Indice formBTTS à 80 traduisant une dynamique offensive constante pour les deux formations.",
+        "Moyennes de buts marqués correctes (Sporting 2.0, Moreirense 1.5) sur leurs huit derniers matchs."
       ],
       "ai_risks": [
-        "Sporting CP a une cote très faible à la victoire, ce qui peut indiquer une domination unilatérale.",
-        "Solde défensif global honorable de Sporting CP (11 buts encaissés en 10 matchs)."
+        "La cote très faible du Sporting (1.17) suggère un match potentiellement à sens unique si la défense adverse craque totalement.",
+        "La solidité défensive relative de Moreirense en déplacement (5 buts encaissés en 5 matchs)."
       ],
-      "ai_confidence": "medium",
+      "ai_confidence": "high",
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
@@ -3038,19 +3044,19 @@
       "statsOnly": true,
       "ai_abstain": false,
       "ai_market": "OVER_25",
-      "ai_key_fact": "Le taux Over 2.5 atteint 80% tant au niveau empirique que dans la forme récente des deux équipes.",
-      "ai_analysis": "Ce match présente des indicateurs offensifs très solides avec un taux Over 2.5 établi à 80% à la fois empiriquement et sur les 5 derniers matchs pour les deux formations. Les moyennes de buts marqués confirment cette propension aux rencontres prolifiques. La sélection Over 2.5 'Yes' est donc logiquement privilégiée au vu de ces données cohérentes.",
-      "ai_analysis_en": "This match features very strong attacking indicators with an Over 2.5 rate established at 80% both empirically and over the last 5 matches for both teams. The goal averages confirm this propensity for high-scoring encounters. The Over 2.5 'Yes' selection is therefore logically preferred given these consistent data points.",
-      "ai_form_summary": "SV Josko Ried (3W-2D-0L, 12 buts pour, 7 contre) et LASK Linz (2W-1D-2L, 10 buts pour, 9 contre).",
-      "ai_form_summary_en": "SV Josko Ried (3W-2D-0L, 12 goals for, 7 against) and LASK Linz (2W-1D-2L, 10 goals for, 9 against).",
+      "ai_key_fact": "Les deux équipes affichent un taux Over 2.5 de 80% sur leurs huit derniers matchs.",
+      "ai_analysis": "Ce match présente des indicateurs très offensifs avec un taux Over 2.5 atteignant 80% pour les deux formations. Les moyennes de buts par match dépassent largement le seuil requis pour envisager une rencontre prolifique. L'historique récent de SV Josko Ried et LASK Linz confirme cette tendance axée sur le spectacle et le volume de buts.",
+      "ai_analysis_en": "This match features very strong offensive indicators with an Over 2.5 rate reaching 80% for both teams. The average goals per match well exceed the threshold needed to expect a high-scoring encounter. The recent history of SV Josko Ried and LASK Linz confirms this trend focused on entertainment and goal volume.",
+      "ai_form_summary": "SV Josko Ried (3V-2N-0D, 12 buts marqués, 7 encaissés) LASK Linz (2V-1N-2D, 10 buts marqués, 9 encaissés)",
+      "ai_form_summary_en": "SV Josko Ried (3W-2D-0L, 12 goals scored, 7 conceded) LASK Linz (2W-1D-2L, 10 goals scored, 9 conceded)",
       "ai_reasons": [
         "Taux empirique Over 2.5 élevé à 80% pour les deux équipes.",
-        "Taux Over 2.5 en forme récente de 80% pour SV Josko Ried et LASK Linz.",
-        "Moyennes de buts par match élevées (Josko Ried à 2,25 et LASK Linz à 2,75)."
+        "Moyennes de buts élevés sur l'échantillon récent (Ried à 2.25, LASK Linz à 2.75).",
+        "Statistiques globales de buts encaissés importantes sur la saison (Ried GA 18, LASK GA 13 en 11 matchs)."
       ],
       "ai_risks": [
-        "Variabilité potentielle sur un échantillon de 8 matchs de forme.",
-        "LASK Linz présente un taux BTTS de forme légèrement inférieur à 60%."
+        "Le taux de BTTS récent de LASK est de 60%, ce qui montre qu'ils peuvent parfois museler leur adversaire.",
+        "L'écart au classement entre LASK (3e) et Ried (6e) pourrait créer un déséquilibre tactique."
       ],
       "ai_confidence": "high",
       "modelEngine": "gemini-stats-v1",
@@ -3079,7 +3085,7 @@
       "away": "New England Revolution",
       "league": "MLS",
       "date": "2026-11-07",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "time": "21:00",
       "matchSemantic": "orlandoc-vs-newengla-2026-11-07",
       "source": "empirical-form-data",
@@ -3233,20 +3239,20 @@
       "awayLambda": 1.67,
       "statsOnly": true,
       "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_key_fact": "Les deux équipes affichent un taux de BTTS de 80% dans leurs formes récentes respectives.",
-      "ai_analysis": "L'analyse des statistiques observées met en évidence une forte propension des deux formations à marquer et à concéder des buts. Orlando City présente un taux de BTTS de 80% tout comme New England Revolution sur leurs 5 derniers matchs. Avec des moyennes de buts respectives de 3 et 1.67 buts par match, l'indicateur empirique BTTS atteint 80%, justifiant pleinement une sélection favorable aux deux équipes marquent.",
-      "ai_analysis_en": "The analysis of observed statistics highlights a strong tendency for both teams to score and concede goals. Orlando City shows an 80% BTTS rate just like New England Revolution in their last 5 matches. With respective goal averages of 3 and 1.67 goals per match, the empirical BTTS indicator reaches 80%, fully justifying a selection favoring both teams to score.",
-      "ai_form_summary": "Orlando (1W-3D-1L, 11-12 buts) et New England (4W-0D-1L, 10-7 buts) affichent une excellente dynamique offensive.",
-      "ai_form_summary_en": "Orlando (1W-3D-1L, 11-12 goals) and New England (4W-0D-1L, 10-7 goals) display excellent offensive momentum.",
+      "ai_market": "OVER_25",
+      "ai_key_fact": "Orlando City présente un taux d'Over 2.5 de 100% sur ses 5 derniers matchs avec une moyenne de 3 buts.",
+      "ai_analysis": "Les statistiques observées révèlent une forte tendance aux matchs ouverts pour Orlando City SC, qui affiche un taux d'Over 2.5 de 100% sur ses 5 derniers matchs et une moyenne de 3 buts par rencontre. New England Revolution présente également de superbes statistiques offensives récentes (4 victoires sur les 5 derniers matchs, 10 buts marqués). Avec un taux empirique global de 90% pour l'Over 2.5, toutes les conditions statistiques sont réunies pour valider cette option.",
+      "ai_analysis_en": "Observed statistics reveal a strong tendency for open matches involving Orlando City SC, who boast a 100% Over 2.5 rate over their last 5 games and an average of 3 goals per match. New England Revolution also shows great recent offensive stats with 4 wins in their last 5 matches and 10 goals scored. With an overall empirical Over 2.5 rate of 90%, all statistical conditions are met to support this option.",
+      "ai_form_summary": "Orlando City SC : 1V-3D-1N (BTTS 80%, Over 2.5 100%). New England Revolution : 4V-0D-1L (BTTS 80%, Over 2.5 80%).",
+      "ai_form_summary_en": "Orlando City SC: 1W-3D-1D (BTTS 80%, Over 2.5 100%). New England Revolution: 4W-0D-1L (BTTS 80%, Over 2.5 80%).",
       "ai_reasons": [
-        "Taux empirique BTTS global de 80% basé sur les échantillons fournis.",
-        "Taux de BTTS de 80% sur les 5 derniers matchs pour Orlando City et New England Revolution.",
-        "Moyennes de buts élevés avec Orlando à 3 buts/match et New England à 1.67 buts/match."
+        "Taux empirique d'Over 2.5 très élevé à 90 % sur l'échantillon global",
+        "Taux d'Over 2.5 à 100 % sur les 5 derniers matchs d'Orlando City SC",
+        "Moyennes de buts élevées avec 3 buts marqués par match pour Orlando et 1.67 pour New England"
       ],
       "ai_risks": [
-        "La défense de New England encaisse relativement peu (46 buts en 33 matchs au classement général).",
-        "La cote à domicile est fixée à 1.95, indiquant un match potentiellement disputé."
+        "La cote Over 2.5 n'est pas renseignée chez le bookmaker",
+        "New England affiche une défense relativement solide dans l'ensemble (46 buts encaissés en 33 matchs)"
       ],
       "ai_confidence": "high",
       "modelEngine": "gemini-stats-v1",
@@ -3255,19 +3261,18 @@
       "ai_response_status": "pick",
       "predictions": [
         {
-          "type": "BTTS",
+          "type": "Over 2.5",
           "prediction": "Oui",
-          "confidence": 74,
-          "proba": 0.74,
+          "confidence": 75,
+          "proba": 0.75,
           "modelEngine": "gemini-3.5-flash-lite",
-          "bttsProb": 0.74
+          "over25Prob": 0.75
         }
       ],
-      "bttsProb": 0.74,
+      "over25Prob": 0.75,
       "prediction": "Oui",
-      "proba": 0.74,
-      "confidence": 74,
-      "status": "PENDING"
+      "proba": 0.75,
+      "confidence": 75
     },
     {
       "id": "cardiffc-vs-burnley-2026-11-07",
@@ -3431,19 +3436,19 @@
       "statsOnly": true,
       "ai_abstain": false,
       "ai_market": "BTTS",
-      "ai_key_fact": "Burnley enregistre un taux de BTTS de 80% sur ses 5 derniers matchs malgré un bilan de 0 victoire.",
-      "ai_analysis": "Cardiff City et Burnley affichent des statistiques favorables au marché des buts des deux équipes, avec un taux empirique global de 70%. Bien que Burnley traverse une période difficile sans victoire (3 nuls, 2 défaites), l'équipe maintient un taux de BTTS de 80% sur ses 5 dernières sorties. Conjugué aux 3 buts de moyenne offensive de Cardiff, le scénario d'un match avec des buts de part et d'autre est crédible.",
-      "ai_analysis_en": "Cardiff City and Burnley show favorable statistics for both teams to score, with an overall empirical rate of 70%. Although Burnley is going through a difficult winless patch (3 draws, 2 losses), the team maintains an 80% BTTS rate over their last 5 outings. Combined with Cardiff's average of 3 goals, the scenario of goals from both sides is credible.",
-      "ai_form_summary": "Cardiff City : 2W-2D-1L (11 buts pour, 9 contre, 60% BTTS). Burnley : 0W-3D-2L (5 buts pour, 9 contre, 80% BTTS).",
-      "ai_form_summary_en": "Cardiff City: 2W-2D-1L (11 GF, 9 GA, 60% BTTS). Burnley: 0W-3D-2L (5 GF, 9 GA, 80% BTTS).",
+      "ai_key_fact": "Burnley affiche un taux de BTTS de 80% sur ses 5 derniers matchs malgré des difficultés de résultats.",
+      "ai_analysis": "Cardiff City et Burnley se rencontrent avec des statistiques favorables au marché des deux équipes marquent. L'indicateur empirique global s'établit à 70%, tandis que Burnley enregistre un taux de BTTS de 80% sur ses 5 derniers matchs. Malgré la méforme des visiteurs, leurs matchs récents ont souvent vu les deux formations trouver le chemin des filets, appuyé par des défenses perméables (23 et 26 buts encaissés en 14 matchs de championnat).",
+      "ai_analysis_en": "Cardiff City and Burnley meet with statistics favoring the Both Teams to Score market. The overall empirical indicator stands at 70%, while Burnley records an 80% BTTS rate over their last 5 matches. Despite the visitors' poor form, their recent games have frequently seen both sides find the back of the net, supported by leaky defenses (23 and 26 goals conceded in 14 league matches).",
+      "ai_form_summary": "Cardiff City : 2W-2D-1L (BTTS 60%, Over 2.5 80%). Burnley : 0W-3D-2L (BTTS 80%, Over 2.5 60%).",
+      "ai_form_summary_en": "Cardiff City: 2W-2D-1L (BTTS 60%, Over 2.5 80%). Burnley: 0W-3D-2L (BTTS 80%, Over 2.5 60%).",
       "ai_reasons": [
-        "Taux empirique BTTS de 70% sur l'échantillon global.",
-        "Burnley affiche un taux de BTTS de 80% sur ses 5 derniers matchs.",
-        "Cardiff City présente un taux de BTTS de 60% sur ses 5 dernières rencontres."
+        "Taux empirique du BTTS élevé à 70% sur l'ensemble de l'échantillon",
+        "Taux de BTTS de 80% sur les 5 derniers matchs de Burnley",
+        "Cardiff City et Burnley affichent des fragilités défensives notables avec respectivement 23 et 26 buts encaissés en 14 matchs"
       ],
       "ai_risks": [
-        "Burnley en difficulté offensivement sur la forme récente avec seulement 5 buts marqués en 5 matchs.",
-        "Le classement général montre des défenses perméables (23 buts encaissés pour Cardiff, 26 pour Burnley)."
+        "Burnley traverse une période difficile sans victoire sur ses 5 derniers matchs (0W-3D-2L)",
+        "L'attaque de Burnley reste modeste avec seulement 5 buts inscrits sur ses 5 dernières rencontres"
       ],
       "ai_confidence": "medium",
       "modelEngine": "gemini-stats-v1",
@@ -3489,7 +3494,7 @@
       "xgAway": 1.25,
       "xgTotal": 3.75,
       "formBTTS": 70,
-      "analysis": "AS Roma : forme V-V-N-V-N (3V 2N 0D, 14 buts marqués / 7 encaissés sur 5) · Sassuolo : forme D-D-D-D-N (0V 1N 4D, 7 buts marqués / 17 encaissés sur 5). Classement : AS Roma 3e (24 pts), Sassuolo 17e (8 pts). Stats empiriques (forme récente) : buts moy. 3.75, BTTS 70.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.28 / N: 5.75 / 2: 8. Fiabilité 89.38%.",
+      "analysis": "AS Roma : forme V-V-N-V-N (3V 2N 0D, 14 buts marqués / 7 encaissés sur 5) · Sassuolo : forme D-D-D-D-N (0V 1N 4D, 7 buts marqués / 17 encaissés sur 5). Classement : AS Roma 3e (24 pts), Sassuolo 17e (8 pts). Stats empiriques (forme récente) : buts moy. 3.75, BTTS 70.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.27 / N: 5.75 / 2: 8. Fiabilité 89.38%.",
       "analysisData": {
         "empiricalBttsRate": 0.7,
         "empiricalOver25Rate": 0.6,
@@ -3499,7 +3504,7 @@
       },
       "odds": {
         "provider": "DraftKings",
-        "home": 1.28,
+        "home": 1.27,
         "draw": 5.75,
         "away": 8,
         "over25": null,
@@ -3627,19 +3632,19 @@
       "statsOnly": true,
       "ai_abstain": false,
       "ai_market": "BTTS",
-      "ai_key_fact": "Sassuolo encaisse 17 buts sur ses 5 derniers matchs malgré un taux BTTS de 0.8.",
-      "ai_analysis": "L'AS Roma reçoit Sassuolo dans le cadre de la Serie A avec des dynamiques de buts contrastées au classement mais favorables aux deux équipes sur les derniers matchs. Sassuolo concède beaucoup de buts (17 sur ses 5 dernières rencontres) tout en affichant un taux de BTTS récent de 0.8, ce qui compense la solidité relative de la défense romaine. Avec un taux empirique global de 0.7, le match présente des garanties suffisantes pour envisager que les deux équipes marquent.",
-      "ai_analysis_en": "AS Roma hosts Sassuolo in Serie A with contrasting defensive records in the standings but favorable scoring trends in recent matches. Sassuolo concedes heavily (17 goals in their last 5 games) while maintaining a recent BTTS rate of 0.8, which offsets Roma's general defensive solidity. With an empirical BTTS rate of 0.7, the match shows sufficient data backing for both teams to score.",
-      "ai_form_summary": "AS Roma: 3V-2N-0D (14 BP, 7 BC) / Sassuolo: 0V-1N-4D (7 BP, 17 BC)",
-      "ai_form_summary_en": "AS Roma: 3W-2D-0L (14 GF, 7 GA) / Sassuolo: 0W-1D-4L (7 GF, 17 GA)",
+      "ai_key_fact": "Sassuolo encaisse beaucoup (17 buts sur les 5 derniers) mais affiche 80% de BTTS sur cette période.",
+      "ai_analysis": "L'AS Roma accueille Sassuolo avec des statistiques offensives solides mais une défense perméable, affichant un taux empirique BTTS de 70%. Sassuolo concède énormément de buts (17 sur les 5 derniers matchs) tout en parvenant à trouver le chemin des filets, ce qui soutient l'option BTTS Yes. Bien que la Roma soit nettement favorite selon les cotes, la fragilité défensive des visiteurs et leur propension à participer à des matchs ouverts maintiennent cette probabilité autour de 65%.",
+      "ai_analysis_en": "AS Roma hosts Sassuolo with solid offensive stats but a leaky defense, showing an empirical BTTS rate of 70%. Sassuolo concedes heavily (17 goals in their last 5 matches) while still managing to score, supporting the BTTS Yes option. Although Roma is a clear favorite according to odds, the visitors' defensive fragility and tendency to feature in open matches keep this probability around 65%.",
+      "ai_form_summary": "Roma : V-V-N-V-N (3W-2D-0L, 14 buts pour, 7 contre). Sassuolo : D-D-D-D-N (0W-1D-4L, 7 buts pour, 17 contre).",
+      "ai_form_summary_en": "Roma: W-W-D-W-D (3W-2D-0L, 14 GF, 7 GA). Sassuolo: L-L-L-L-D (0W-1D-4L, 7 GF, 17 GA).",
       "ai_reasons": [
-        "Sassuolo affiche un taux de BTTS récent de 0.8 sur ses 5 derniers matchs.",
-        "L'AS Roma présente un taux BTTS empirique de 0.6 et encaisse 7 buts sur ses 5 derniers matchs.",
-        "Le taux BTTS empirique global du match est élevé à 0.7 avec un formBTTS évalué à 70."
+        "Taux empirique BTTS global de 70% basé sur des échantillons de haute qualité",
+        "Sassuolo affiche un taux BTTS de 80% sur ses 5 derniers matchs malgré une mauvaise forme",
+        "AS Roma encaisse régulièrement (7 buts encaissés en 5 matchs) tout en marquant 14 buts"
       ],
       "ai_risks": [
-        "La Roma est 3ème et encaisse relativement peu au classement général (10 buts en 10 matchs), ce qui pourrait limiter les incursions adverses.",
-        "La cote de Sassuolo est très élevée (8.0), suggérant un déséquilibre important en faveur de la Roma."
+        "Sassuolo traverse une série très difficile (4 défaites en 5 matchs) et pourrait être muet à l'extérieur",
+        "La cote de la Roma à domicile est très basse (1.27), ce qui indique un déséquilibre théorique"
       ],
       "ai_confidence": "medium",
       "modelEngine": "gemini-stats-v1",
@@ -3650,16 +3655,16 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 67,
-          "proba": 0.67,
+          "confidence": 65,
+          "proba": 0.65,
           "modelEngine": "gemini-3.5-flash-lite",
-          "bttsProb": 0.67
+          "bttsProb": 0.65
         }
       ],
-      "bttsProb": 0.67,
+      "bttsProb": 0.65,
       "prediction": "Oui",
-      "proba": 0.67,
-      "confidence": 67
+      "proba": 0.65,
+      "confidence": 65
     },
     {
       "id": "raallalo-vs-cerclebr-2026-11-07",
@@ -3823,21 +3828,21 @@
       "statsOnly": true,
       "ai_abstain": false,
       "ai_market": "OVER_25",
-      "ai_key_fact": "Les deux équipes affichent un taux d'Over 2.5 de 0.8 sur leurs 5 derniers matchs.",
-      "ai_analysis": "RAAL La Louvière et le Cercle Brugge KSV s'affrontent en Jupiler Pro League dans une rencontre où les statistiques d'efficacité offensive et défensive penchent nettement vers le spectacle. Les deux formations affichent un taux d'Over 2.5 de 0.8 sur leurs 5 derniers matchs ainsi qu'au niveau empirique global. Les nombreuses lacunes défensives observées au classement (plus de 20 buts encaissés de chaque côté en 10 matchs) renforcent la probabilité de voir plus de 2.5 buts.",
-      "ai_analysis_en": "RAAL La Louvière and Cercle Brugge KSV meet in the Jupiler Pro League in a fixture where scoring and defensive stats strongly point towards goals. Both teams register an Over 2.5 rate of 0.8 in their last 5 matches and identical empirical rates overall. Significant defensive frailties shown in the standings (over 20 goals conceded by each side in 10 games) support a high probability for over 2.5 goals.",
-      "ai_form_summary": "RAAL La Louvière: 2V-0N-3D (9 BP, 11 BC) / Cercle Brugge: 1V-1N-3D (8 BP, 12 BC)",
-      "ai_form_summary_en": "RAAL La Louvière: 2W-0D-3L (9 GF, 11 GA) / Cercle Brugge: 1W-1D-3L (8 GF, 12 GA)",
+      "ai_key_fact": "Cercle Brugge enregistre un taux de 100% de BTTS et 80% d'Over 2.5 sur ses 5 derniers matchs.",
+      "ai_analysis": "La rencontre entre RAAL La Louvière et le Cercle Brugge KSV présente des indicateurs très favorables au marché des buts, avec un taux empirique d'Over 2.5 établi à 80%. Les deux formations affichent des statistiques défensives délicates, concédant respectivement 23 et 22 buts en 10 matchs joués. Les récents matchs de Cercle Brugge illustrent une dynamique particulièrement ouverte avec 100% de matchs BTTS et 80% d'Over 2.5, justifiant une probabilité estimée à 72%.",
+      "ai_analysis_en": "The match between RAAL La Louvière and Cercle Brugge KSV features very favorable indicators for goals markets, with an empirical Over 2.5 rate set at 80%. Both sides show difficult defensive stats, conceding 23 and 22 goals respectively over 10 played matches. Cercle Brugge's recent matches illustrate a particularly open dynamic with 100% BTTS and 80% Over 2.5 rates, justifying an estimated probability of 72%.",
+      "ai_form_summary": "La Louvière : D-V-D-D-V (2W-0D-3L, 9 buts pour, 11 contre). Cercle Brugge : V-D-D-D-N (1W-1D-3L, 8 buts pour, 12 contre).",
+      "ai_form_summary_en": "La Louvière: L-W-L-L-W (2W-0D-3L, 9 GF, 11 GA). Cercle Brugge: W-L-L-L-D (1W-1D-3L, 8 GF, 12 GA).",
       "ai_reasons": [
-        "Le taux empirique d'Over 2.5 est très élevé à 0.8.",
-        "Le taux d'Over 2.5 sur les 5 derniers matchs est de 0.8 pour les deux formations.",
-        "Les deux équipes possèdent des défenses très perméables au classement, avec 23 buts encaissés pour La Louvière et 22 pour le Cercle Brugge en 10 matchs."
+        "Taux empirique Over 2.5 élevé à 80% pour les deux équipes sur leurs 5 derniers matchs",
+        "Taux BTTS de l'équipe visiteuse (Cercle Brugge) atteignant 100% sur la même période",
+        "Moyennes de buts élevés observées (2.25 pour l'équipe à domicile et 1.25 pour l'extérieur)"
       ],
       "ai_risks": [
-        "Les deux équipes luttent en bas de classement (16ème et 17ème), ce qui pourrait parfois crisper les phases offensives si la peur de perdre l'emporte.",
-        "La cote de l'Over 2.5 est fixée à 1.83, intégrant déjà une probabilité implicite notable."
+        "Les deux équipes luttent en bas de classement (rangs 16 et 17), ce qui pourrait engendrer de la nervosité",
+        "Les bilans récents montrent de nombreuses défaites, risquant d'affecter l'efficacité offensive"
       ],
-      "ai_confidence": "high",
+      "ai_confidence": "medium",
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
@@ -3846,16 +3851,16 @@
         {
           "type": "Over 2.5",
           "prediction": "Oui",
-          "confidence": 75,
-          "proba": 0.75,
+          "confidence": 72,
+          "proba": 0.72,
           "modelEngine": "gemini-3.5-flash-lite",
-          "over25Prob": 0.75
+          "over25Prob": 0.72
         }
       ],
-      "over25Prob": 0.75,
+      "over25Prob": 0.72,
       "prediction": "Oui",
-      "proba": 0.75,
-      "confidence": 75
+      "proba": 0.72,
+      "confidence": 72
     },
     {
       "id": "monza-vs-atalanta-2026-11-08",
@@ -3864,7 +3869,7 @@
       "away": "Atalanta",
       "league": "Serie A",
       "date": "2026-11-08",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "time": "14:00",
       "matchSemantic": "monza-vs-atalanta-2026-11-08",
       "source": "empirical-form-data",
@@ -4018,19 +4023,19 @@
       "awayLambda": 1.25,
       "statsOnly": true,
       "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_key_fact": "Monza et Atalanta affichent un taux Over 2.5 de 100% sur leurs récents échantillons.",
-      "ai_analysis": "L'analyse des statistiques observées met en évidence une tendance très nette vers les buts. Monza et Atalanta affichent un taux empirique Over 2.5 de 100% ainsi qu'un taux BTTS de 80%. Les statistiques défensives des deux équipes, avec respectivement 24 et 20 buts encaissés en 10 matchs, renforcent la probabilité d'une rencontre ouverte.",
-      "ai_analysis_en": "Analysis of the observed statistics highlights a very clear trend towards goals. Both Monza and Atalanta show a 100% empirical Over 2.5 rate and an 80% BTTS rate. The defensive stats of both teams, with 24 and 20 goals conceded in 10 matches respectively, strongly support the probability of an open game.",
-      "ai_form_summary": "Monza (1W-0D-4L) et Atalanta (1W-2D-2L) peinent à gagner mais produisent des matchs très ouverts.",
-      "ai_form_summary_en": "Monza (1W-0D-4L) and Atalanta (1W-2D-2L) struggle to win but consistently play in high-scoring games.",
+      "ai_market": "BTTS",
+      "ai_key_fact": "Monza et l'Atalanta affichent toutes deux un taux BTTS de 80% et un taux Over 2.5 de 100%.",
+      "ai_analysis": "L'analyse des statistiques observées met en évidence une forte propension des deux équipes à marquer et à concéder des buts. Monza et l'Atalanta affichent un taux BTTS empirique de 80% ainsi qu'un taux Over 2.5 de 100% sur leurs derniers échantillons. Les difficultés défensives des deux formations, illustrées par des totaux de buts encaissés élevés en Serie A, renforcent la probabilité de voir les deux équipes trouver le chemin des filets.",
+      "ai_analysis_en": "Analysis of the observed statistics highlights a strong propensity for both teams to score and concede goals. Monza and Atalanta show an empirical BTTS rate of 80% and a 100% Over 2.5 rate in their recent samples. The defensive difficulties of both sides, illustrated by high goals-against totals in Serie A, reinforce the probability of both teams finding the back of the net.",
+      "ai_form_summary": "Monza (1W-0D-4L) : 9 buts pour, 12 buts contre. Atalanta (1W-2D-2L) : 11 buts pour, 13 buts contre.",
+      "ai_form_summary_en": "Monza (1W-0D-4L): 9 goals for, 12 goals against. Atalanta (1W-2D-2L): 11 goals for, 13 goals against.",
       "ai_reasons": [
-        "Taux empirique Over 2.5 à 100% pour Monza et Atalanta sur le dernier échantillon.",
-        "Taux de BTTS élevé à 80% pour les deux formations.",
-        "Défenses en difficulté avec Monza encaissant 24 buts et Atalanta 20 buts en 10 matchs."
+        "Taux BTTS empirique très élevé à 80% pour les deux équipes.",
+        "Taux Over 2.5 de 100% sur les échantillons récents de Monza et de l'Atalanta.",
+        "Défenses perméables avec 24 buts encaissés en 10 matchs pour Monza et 20 pour l'Atalanta."
       ],
       "ai_risks": [
-        "Atalanta à l'extérieur pourrait verrouiller face au relégable Monza."
+        "L'Atalanta reste favorite à l'extérieur avec une cote de 2.0 et pourrait verrouiller le score si elle mène."
       ],
       "ai_confidence": "high",
       "modelEngine": "gemini-stats-v1",
@@ -4039,18 +4044,19 @@
       "ai_response_status": "pick",
       "predictions": [
         {
-          "type": "Over 2.5",
+          "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 75,
-          "proba": 0.75,
+          "confidence": 72,
+          "proba": 0.72,
           "modelEngine": "gemini-3.5-flash-lite",
-          "over25Prob": 0.75
+          "bttsProb": 0.72
         }
       ],
-      "over25Prob": 0.75,
+      "bttsProb": 0.72,
       "prediction": "Oui",
-      "proba": 0.75,
-      "confidence": 75
+      "proba": 0.72,
+      "confidence": 72,
+      "status": "PENDING"
     },
     {
       "id": "austinfc-vs-portland-2026-11-08",
@@ -4214,18 +4220,19 @@
       "statsOnly": true,
       "ai_abstain": false,
       "ai_market": "BTTS",
-      "ai_key_fact": "Austin FC et Portland Timbers ont encaissé à eux deux plus de 120 buts cette saison en MLS.",
-      "ai_analysis": "Les données observées indiquent un match propice aux buts des deux côtés. Austin FC présente un taux BTTS de 100% sur ses derniers matchs, tandis que les deux formations affichent des bilans défensifs très lourds avec plus de 60 buts concédés chacune en 33 rencontres. Le taux BTTS empirique global s'établit à 80%.",
-      "ai_analysis_en": "The observed data indicate a match favorable to goals from both sides. Austin FC shows a 100% BTTS rate in recent matches, while both teams exhibit very heavy defensive records with over 60 goals conceded each in 33 games. The overall empirical BTTS rate stands at 80%.",
-      "ai_form_summary": "Austin FC (1W-0D-4L) est en difficulté mais marque régulièrement, face à des Timbers (3W-1D-1L) en meilleure forme.",
-      "ai_form_summary_en": "Austin FC (1W-0D-4L) struggles but regularly scores, facing Timbers (3W-1D-1L) in better form.",
+      "ai_key_fact": "Austin FC et Portland Timbers comptent respectivement 63 et 61 buts encaissés en 33 matchs de MLS.",
+      "ai_analysis": "Les statistiques globales de la saison et les formes récentes indiquent de sérieux problèmes défensifs pour les deux franchises de MLS. Austin FC encaisse beaucoup (63 buts au total) mais marque régulièrement à domicile, affichant un taux BTTS de 100% sur ses cinq dernières sorties. Portland, avec 60 buts marqués et 61 encaissés, participe fréquemment à des rencontres ouvertes, rendant l'option BTTS Yes très cohérente.",
+      "ai_analysis_en": "Overall season statistics and recent forms indicate serious defensive problems for both MLS franchises. Austin FC concedes heavily (63 total goals) but scores regularly at home, posting a 100% BTTS rate in their last five outings. Portland, with 60 goals scored and 61 conceded, frequently features in open matches, making the BTTS Yes option highly consistent.",
+      "ai_form_summary": "Austin FC (1W-0D-4L) encaisse 12 buts sur ses 5 derniers matchs. Portland Timbers (3W-1D-1L) est en meilleure forme avec 9 buts marqués et 7 encaissés.",
+      "ai_form_summary_en": "Austin FC (1W-0D-4L) conceded 12 goals in their last 5 matches. Portland Timbers (3W-1D-1L) is in better form with 9 goals scored and 7 conceded.",
       "ai_reasons": [
-        "Taux BTTS empirique de 80% combiné (100% pour Austin FC et 60% pour Portland Timbers).",
-        "Défenses particulièrement perméables avec 63 buts encaissés pour Austin et 61 pour Portland.",
-        "Austin affiche un taux Over 2.5 de 100% sur ses derniers matchs."
+        "Taux empirique BTTS de 80% pour Austin FC et 60% pour Portland Timbers.",
+        "Défenses très perméables sur l'ensemble de la saison : 63 buts encaissés pour Austin FC et 61 pour Portland en 33 matchs.",
+        "Taux BTTS de 100% pour Austin FC sur ses 5 derniers matchs."
       ],
       "ai_risks": [
-        "Portland Timbers montre une forme récente plus solide (3 victoires sur les 5 derniers matchs)."
+        "Portland Timbers affiche une forme récente plus solide (3W-1D-1L) qui pourrait étouffer l'attaque adverse.",
+        "Austin FC a un bilan à domicile délicat avec 4 défaites sur ses 5 derniers matchs."
       ],
       "ai_confidence": "medium",
       "modelEngine": "gemini-stats-v1",
@@ -4440,7 +4447,8 @@
       "bttsProb": 0.72,
       "prediction": "Oui",
       "proba": 0.72,
-      "confidence": 72
+      "confidence": 72,
+      "status": "PENDING"
     },
     {
       "id": "sandiego-vs-sporting-2026-11-08",
@@ -4635,7 +4643,8 @@
       "bttsProb": 0.7,
       "prediction": "Oui",
       "proba": 0.7,
-      "confidence": 70
+      "confidence": 70,
+      "status": "PENDING"
     },
     {
       "id": "minnesot-vs-sanjosee-2026-11-08",
@@ -4830,7 +4839,8 @@
       "bttsProb": 0.72,
       "prediction": "Oui",
       "proba": 0.72,
-      "confidence": 72
+      "confidence": 72,
+      "status": "PENDING"
     },
     {
       "id": "scfreibu-vs-fcunionb-2026-11-08",
@@ -4839,7 +4849,7 @@
       "away": "1. FC Union Berlin",
       "league": "Bundesliga",
       "date": "2026-11-08",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "time": "16:30",
       "matchSemantic": "scfreibu-vs-fcunionb-2026-11-08",
       "source": "empirical-form-data",
@@ -4993,20 +5003,19 @@
       "awayLambda": 0.33,
       "statsOnly": true,
       "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_key_fact": "SC Freiburg enregistre un taux Over 2.5 de 100% sur ses 5 derniers matchs à domicile.",
-      "ai_analysis": "SC Freiburg présente des statistiques offensives très dynamiques à domicile avec 3 buts de moyenne et un taux Over 2.5 de 100% sur ses 5 derniers matchs. Bien qu'Union Berlin propose des chiffres plus fermés avec un taux de 20% et une moyenne extérieure de 0.33, la forte production de Freiburg à elle seule pousse la probabilité de l'Over 2.5 au-dessus du seuil de valeur.",
-      "ai_analysis_en": "SC Freiburg displays very dynamic home offensive statistics with an average of 3 goals and a 100% Over 2.5 rate over their last 5 matches. Although Union Berlin offers tighter figures with a 20% rate and an away average of 0.33, Freiburg's high production alone pushes the Over 2.5 probability above the value threshold.",
-      "ai_form_summary": "SC Freiburg (2V-1N-2L) avec 8 buts pour et 9 contre. Union Berlin (1V-3N-1L) avec 3 buts pour et 9 contre.",
-      "ai_form_summary_en": "SC Freiburg (2W-1D-2L) with 8 goals for and 9 against. Union Berlin (1W-3D-1L) with 3 goals for and 9 against.",
+      "ai_market": "BTTS",
+      "ai_key_fact": "SC Freiburg affiche un taux BTTS de 100% sur ses 5 derniers matchs malgré la faiblesse offensive récente d'Union Berlin.",
+      "ai_analysis": "Le SC Freiburg montre une dynamique offensive et défensive très ouverte avec un taux BTTS de 100% sur ses 5 derniers matchs et 18 buts marqués en 8 rencontres de Bundesliga. Bien que l'Union Berlin présente des statistiques plus hermétiques à l'extérieur, le taux empirique global de 70% et la forme récente de Freiburg inclinent vers une sélection positive sur le BTTS.",
+      "ai_analysis_en": "SC Freiburg shows a very open offensive and defensive dynamic with a 100% BTTS rate in their last 5 matches and 18 goals scored in 8 Bundesliga games. Although Union Berlin displays tighter stats away, the overall empirical BTTS rate of 70% and Freiburg's recent form lean towards a positive selection on BTTS.",
+      "ai_form_summary": "SC Freiburg irrégulier mais prolifique (2W-1D-2L, 8 buts pour, 9 contre) ; Union Berlin en difficulté (1W-3D-1L, 3 buts pour, 9 contre).",
+      "ai_form_summary_en": "SC Freiburg irregular but prolific (2W-1D-2L, 8 GF, 9 GA); Union Berlin struggling (1W-3D-1L, 3 GF, 9 GA).",
       "ai_reasons": [
-        "SC Freiburg affiche un taux Over 2.5 de 100% sur ses 5 derniers matchs.",
-        "La moyenne de buts de Freiburg à domicile s'élève à 3 buts par match.",
-        "Le taux empirique global Over 2.5 est de 60% pour cette affiche."
+        "Le SC Freiburg affiche un taux BTTS de 100% sur ses 5 derniers matchs.",
+        "Le taux BTTS empirique global s'établit à 70%.",
+        "SC Freiburg a inscrit 18 buts en 8 matchs de championnat."
       ],
       "ai_risks": [
-        "Union Berlin a un taux Over 2.5 de seulement 20% sur ses 5 derniers matchs.",
-        "La moyenne de buts à l'extérieur d'Union Berlin est très faible à 0.33."
+        "Union Berlin a un taux BTTS récent plus faible à 40% et un faible total de buts à l'extérieur (0.33 par match)."
       ],
       "ai_confidence": "medium",
       "modelEngine": "gemini-stats-v1",
@@ -5015,15 +5024,15 @@
       "ai_response_status": "pick",
       "predictions": [
         {
-          "type": "Over 2.5",
+          "type": "BTTS",
           "prediction": "Oui",
           "confidence": 65,
           "proba": 0.65,
           "modelEngine": "gemini-3.5-flash-lite",
-          "over25Prob": 0.65
+          "bttsProb": 0.65
         }
       ],
-      "over25Prob": 0.65,
+      "bttsProb": 0.65,
       "prediction": "Oui",
       "proba": 0.65,
       "confidence": 65
@@ -5190,19 +5199,19 @@
       "statsOnly": true,
       "ai_abstain": false,
       "ai_market": "BTTS",
-      "ai_key_fact": "Twente et Ajax affichent respectivement 28 et 30 buts marqués en 11 matchs de championnat.",
-      "ai_analysis": "L'analyse des statistiques observe un taux BTTS empirique de 70% pour cette affiche d'Eredivisie. Les deux formations montrent de belles dispositions offensives avec 28 buts pour Twente et 30 pour l'Ajax après 11 rencontres. Les taux de BTTS récents soutiennent cette tendance malgré la solidité défensive relative de Twente.",
-      "ai_analysis_en": "Statistical analysis shows an empirical BTTS rate of 70% for this Eredivisie fixture. Both teams display strong offensive output with 28 goals for Twente and 30 for Ajax after 11 matches. Recent BTTS rates support this trend despite Twente's relative defensive solidity.",
-      "ai_form_summary": "Twente : 3V-1D-1L (16 BP, 5 BC), Ajax : 3V-2D-0L (11 BP, 6 BC)",
-      "ai_form_summary_en": "Twente: 3W-1D-1L (16 GF, 5 GA), Ajax: 3W-2D-0L (11 GF, 6 GA)",
+      "ai_key_fact": "L'Ajax présente un taux BTTS de 80% et Twente affiche un taux empirique global de 70%.",
+      "ai_analysis": "L'affiche entre le FC Twente et l'Ajax Amsterdam réunit deux formations prolifiques en Eredivisie. Les statistiques empiriques montrent un taux BTTS de 70%, renforcé par les 80% de matchs avec buts des deux côtés pour l'Ajax lors de ses cinq dernières sorties. Bien que Twente dispose d'une arrière-garde solide, la puissance de feu des visiteurs (30 buts marqués) suggère des opportunités de part et d'autre.",
+      "ai_analysis_en": "The clash between FC Twente and Ajax Amsterdam features two prolific sides in the Eredivisie. Empirical statistics show a 70% BTTS rate, supported by Ajax's 80% BTTS rate over their last five outings. Although Twente possesses a solid defense, the visitors' attacking power (30 goals scored) suggests scoring opportunities at both ends.",
+      "ai_form_summary": "Twente : 3V-1D-1N (16 buts pour, 5 contre). Ajax : 3V-2D-0N (11 buts pour, 6 contre).",
+      "ai_form_summary_en": "Twente: 3W-1D-1L (16 goals for, 5 against). Ajax: 3W-2D-0L (11 goals for, 6 against).",
       "ai_reasons": [
         "Taux BTTS empirique élevé à 70% sur les échantillons fournis.",
-        "Taux BTTS de la forme récente des deux équipes (60% Twente, 80% Ajax).",
-        "Solides statistiques offensives avec Twente (28 GF) et Ajax (30 GF) en championnat."
+        "Taux BTTS de l'équipe visiteuse (Ajax) à 80% sur ses 5 derniers matchs.",
+        "Bonnes capacités offensives : 28 buts marqués par Twente et 30 par l'Ajax en championnat."
       ],
       "ai_risks": [
-        "La défense de Twente est relativement hermétique avec seulement 10 buts encaissés en 11 matchs.",
-        "Cote du marché incertaine pour le Over 2.5 mais les tendances de buts restent favorables."
+        "La défense de Twente n'a concédé que 10 buts en 11 matchs de championnat.",
+        "Le taux Over 2.5 est modéré à 60% malgré de fortes statistiques offensives."
       ],
       "ai_confidence": "medium",
       "modelEngine": "gemini-stats-v1",
@@ -5386,19 +5395,19 @@
       "statsOnly": true,
       "ai_abstain": false,
       "ai_market": "OVER_25",
-      "ai_key_fact": "Kilmarnock présente un taux Over 2.5 de 100% sur ses cinq derniers matchs.",
-      "ai_analysis": "Les données indiquent un taux Over 2.5 empirique de 80% ainsi qu'une moyenne de 3 buts par match pour Celtic à domicile. Kilmarnock affiche de son côté un taux de 100% d'Over 2.5 sur ses cinq dernières rencontres malgré une moyenne extérieure plus modeste. Ces éléments confirment une forte propension aux matchs ouverts.",
-      "ai_analysis_en": "The data indicates an empirical Over 2.5 rate of 80% along with a 3-goal home average for Celtic. Kilmarnock records a 100% Over 2.5 rate in their last five matches despite a lower away average. These factors confirm a strong tendency for high-scoring games.",
-      "ai_form_summary": "Celtic : 3V-1D-1L (13 BP, 6 BC), Kilmarnock : 1V-1D-3L (7 BP, 13 BC)",
-      "ai_form_summary_en": "Celtic: 3W-1D-1L (13 GF, 6 GA), Kilmarnock: 1W-1D-3L (7 GF, 13 GA)",
+      "ai_key_fact": "Kilmarnock enregistre un taux Over 2.5 de 100% sur ses cinq derniers matchs avec une défense perméable.",
+      "ai_analysis": "La rencontre entre le Celtic et Kilmarnock présente un profil favorable au marché des buts, porté par un taux empirique Over 2.5 de 80%. Kilmarnock affiche 100% de matchs au-dessus de 2.5 buts sur ses cinq dernières sorties malgré des difficultés offensives. De son côté, le Celtic domine le classement avec 27 buts inscrits et une moyenne offensive de 3 buts par match sur l'échantillon.",
+      "ai_analysis_en": "The fixture between Celtic and Kilmarnock presents a favorable profile for goals, driven by an 80% empirical Over 2.5 rate. Kilmarnock records a 100% Over 2.5 rate over their last five outings despite offensive struggles. Meanwhile, Celtic leads the standings with 27 goals scored and a 3-goal match average in the sample.",
+      "ai_form_summary": "Celtic : 3V-1D-1N (13 buts pour, 6 contre). Kilmarnock : 1V-1D-3N (7 buts pour, 13 contre).",
+      "ai_form_summary_en": "Celtic: 3W-1D-1L (13 goals for, 6 against). Kilmarnock: 1W-1D-3L (7 goals for, 13 against).",
       "ai_reasons": [
-        "Taux Over 2.5 empirique très élevé à 80% pour ce match.",
-        "Taux Over 2.5 de la forme récente de Kilmarnock à 100%.",
-        "Moyenne de buts de Celtic à domicile de 3.0 par match sur l'échantillon."
+        "Taux empirique Over 2.5 élevé à 80% sur l'échantillon global.",
+        "Taux Over 2.5 de Kilmarnock à 100% sur ses 5 derniers matchs.",
+        "Celtic affiche une moyenne de 3 buts marqués par match sur son échantillon."
       ],
       "ai_risks": [
-        "La moyenne de buts de Kilmarnock à l'extérieur est faible (0.6).",
-        "La cote de Celtic est très basse (1.17), traduisant un déséquilibre important dans la rencontre."
+        "La moyenne de buts de Kilmarnock est faible (0.6 par match) sur l'échantillon.",
+        "La défense de Celtic est rigoureuse avec seulement 10 buts encaissés en 12 matchs."
       ],
       "ai_confidence": "high",
       "modelEngine": "gemini-stats-v1",
@@ -5453,7 +5462,7 @@
       "xgAway": 0.75,
       "xgTotal": 2.08,
       "formBTTS": 80,
-      "analysis": "Sevilla : forme D-V-D-N-D (1V 1N 3D, 8 buts marqués / 13 encaissés sur 5) · Alavés : forme D-N-D-D-N (0V 2N 3D, 4 buts marqués / 11 encaissés sur 5). Classement : Sevilla 6e (17 pts), Alavés 11e (12 pts). Stats empiriques (forme récente) : buts moy. 2.08, BTTS 80.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.91 / N: 3.5 / 2: 4.2 · Over 2.5: 2.15. Fiabilité 85%.",
+      "analysis": "Sevilla : forme D-V-D-N-D (1V 1N 3D, 8 buts marqués / 13 encaissés sur 5) · Alavés : forme D-N-D-D-N (0V 2N 3D, 4 buts marqués / 11 encaissés sur 5). Classement : Sevilla 6e (17 pts), Alavés 11e (12 pts). Stats empiriques (forme récente) : buts moy. 2.08, BTTS 80.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.87 / N: 3.5 / 2: 4.5 · Over 2.5: 2.15. Fiabilité 85%.",
       "analysisData": {
         "empiricalBttsRate": 0.8,
         "empiricalOver25Rate": 0.7,
@@ -5463,9 +5472,9 @@
       },
       "odds": {
         "provider": "DraftKings",
-        "home": 1.91,
+        "home": 1.87,
         "draw": 3.5,
-        "away": 4.2,
+        "away": 4.5,
         "over25": 2.15,
         "under25": 1.69
       },
@@ -5591,19 +5600,19 @@
       "statsOnly": true,
       "ai_abstain": false,
       "ai_market": "BTTS",
-      "ai_key_fact": "Le taux empirique et la forme récente indiquent un taux de BTTS commun de 80%.",
-      "ai_analysis": "L'analyse des statistiques observées met en évidence une tendance très nette vers des matchs ouverts pour ces deux formations. Sevilla et Alavés affichent toutes deux un taux empirique de BTTS de 80%, reflété également dans leurs 5 dernières rencontres respectives. Malgré des moyennes de buts inscrits parfois modérées, la fragilité défensive chronique des deux côtés (13 buts encaissés par Sevilla et 11 par Alavés sur l'échantillon) renforce grandement la probabilité de voir les deux équipes marquer.",
-      "ai_analysis_en": "The analysis of observed statistics highlights a clear trend towards open matches for both teams. Both Sevilla and Alavés show an empirical BTTS rate of 80%, which is also reflected in their respective last 5 fixtures. Despite sometimes modest scoring averages, the chronic defensive fragility on both sides (13 goals conceded by Sevilla and 11 by Alavés over the sample) significantly reinforces the probability of both teams scoring.",
-      "ai_form_summary": "Sevilla: 1W-1D-3L (D-V-D-N-D), 8 buts pour, 13 buts contre. Alavés: 0W-2D-3L (D-N-D-D-N), 4 buts pour, 11 buts contre.",
-      "ai_form_summary_en": "Sevilla: 1W-1D-3L (L-W-L-D-L), 8 goals for, 13 goals against. Alavés: 0W-2D-3L (L-D-L-L-D), 4 goals for, 11 goals against.",
+      "ai_key_fact": "Les deux équipes affichent un taux BTTS de 80% sur leurs échantillons respectifs de 8 matchs.",
+      "ai_analysis": "L'analyse des statistiques observées met en évidence une tendance très nette vers les buts des deux côtés. Le taux empirique de BTTS s'établit à 80%, soutenu par des performances similaires sur les cinq derniers matchs (80% pour chaque formation). Malgré des classements de milieu de tableau (6e et 11e), la propension à concéder et marquer des buts justifie pleinement une sélection 'Yes' sur le marché BTTS.",
+      "ai_analysis_en": "Analysis of the observed statistics highlights a clear trend towards goals from both sides. The empirical BTTS rate stands at 80%, supported by similar performances over the last five matches (80% for each team). Despite mid-table standings (6th and 11th), the tendency to concede and score goals fully justifies a 'Yes' selection on the BTTS market.",
+      "ai_form_summary": "Sevilla : 1V-1D-3L sur ses 5 derniers matchs, 8 buts pour, 13 buts contre (BTTS 80%). Alavés : 0W-2D-3L sur ses 5 derniers matchs, 4 buts pour, 11 buts contre (BTTS 80%).",
+      "ai_form_summary_en": "Sevilla: 1W-1D-3L in last 5, 8 goals for, 13 against (80% BTTS). Alavés: 0W-2D-3L in last 5, 4 goals for, 11 against (80% BTTS).",
       "ai_reasons": [
-        "Taux empirique de BTTS élevé à 80% pour les deux formations.",
-        "Taux de BTTS sur les 5 derniers matchs de 80% pour Sevilla et Alavés.",
-        "Sevilla encaisse en moyenne 1.62 buts par match (13 en 8 matchs)."
+        "Taux empirique BTTS très élevé à 80% basé sur les échantillons fournis",
+        "Taux BTTS sur les 5 derniers matchs de 80% pour Sevilla et 80% pour Alavés",
+        "Indicateur de forme BTTS (formBTTS) évalué à 80"
       ],
       "ai_risks": [
-        "L'attaque d'Alavés à l'extérieur affiche une moyenne modeste de 0.75 buts.",
-        "La forme récente des deux équipes montre beaucoup de défaites (1W-1D-3L pour Sevilla, 0W-2D-3L pour Alavés)."
+        "Sevilla et Alavés affichent un historique de forme récent difficile en termes de victoires",
+        "Moyennes de buts inscrits par match modérées pour Alavés (0.75)"
       ],
       "ai_confidence": "high",
       "modelEngine": "gemini-stats-v1",
@@ -5649,7 +5658,7 @@
       "xgAway": 2.25,
       "xgTotal": 4.25,
       "formBTTS": 60,
-      "analysis": "TSV Eintracht Braunschweig : forme D-V-D-V-D (2V 0N 3D, 4 buts marqués / 6 encaissés sur 5) · Energie Cottbus : forme D-N-N-D-N (0V 3N 2D, 5 buts marqués / 8 encaissés sur 5). Classement : TSV Eintracht Braunschweig 15e (10 pts), Energie Cottbus 14e (10 pts). Stats empiriques (forme récente) : buts moy. 4.25, BTTS 60.0%, Over 2.5 30.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.95 / N: 3.95 / 2: 3.4. Fiabilité 85%.",
+      "analysis": "TSV Eintracht Braunschweig : forme D-V-D-V-D (2V 0N 3D, 4 buts marqués / 6 encaissés sur 5) · Energie Cottbus : forme D-N-N-D-N (0V 3N 2D, 5 buts marqués / 8 encaissés sur 5). Classement : TSV Eintracht Braunschweig 15e (10 pts), Energie Cottbus 14e (10 pts). Stats empiriques (forme récente) : buts moy. 4.25, BTTS 60.0%, Over 2.5 30.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.05 / N: 3.9 / 2: 3.25. Fiabilité 85%.",
       "analysisData": {
         "empiricalBttsRate": 0.6,
         "empiricalOver25Rate": 0.3,
@@ -5659,9 +5668,9 @@
       },
       "odds": {
         "provider": "DraftKings",
-        "home": 1.95,
-        "draw": 3.95,
-        "away": 3.4,
+        "home": 2.05,
+        "draw": 3.9,
+        "away": 3.25,
         "over25": null,
         "under25": null
       },
@@ -5785,41 +5794,27 @@
       "homeLambda": 2,
       "awayLambda": 2.25,
       "statsOnly": true,
-      "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_key_fact": "TSV Eintracht Braunschweig présente un taux de BTTS de seulement 20% sur ses 5 derniers matchs.",
-      "ai_analysis": "Bien que l'équipe extérieure d'Energie Cottbus montre des dynamiques de buts élevées sur ses 5 derniers matchs, le profil de TSV Eintracht Braunschweig est nettement plus hermétique. Les locaux n'affichent que 20% de BTTS et d'Over 2.5 sur leurs 5 dernières sorties, avec seulement 4 buts marqués. Cette opposition de style incite à une prudence mesurée penchée vers l'absence de buts des deux côtés.",
-      "ai_analysis_en": "Although the away team Energie Cottbus shows high goal dynamics in their last 5 matches, TSV Eintracht Braunschweig's profile is much more hermetic. The hosts show only 20% BTTS and Over 2.5 rates in their last 5 outings, scoring only 4 goals. This clash of styles calls for measured caution favoring a 'No' selection on BTTS.",
-      "ai_form_summary": "Braunschweig: 2W-0D-3L (D-V-D-V-D), 4 buts pour, 6 buts contre. Cottbus: 0W-3D-2L (D-N-N-D-N), 5 buts pour, 8 buts contre.",
-      "ai_form_summary_en": "Braunschweig: 2W-0D-3L (L-W-L-W-L), 4 goals for, 6 goals against. Cottbus: 0W-3D-2L (L-D-D-L-D), 5 goals for, 8 goals against.",
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "TSV Eintracht Braunschweig présente un taux Over 2.5 de seulement 20% sur ses 5 derniers matchs.",
+      "ai_analysis": "Les données observées pour cette rencontre de 2. Bundesliga présentent des signaux contradictoires. Alors que Energie Cottbus affiche un taux BTTS de 100% sur ses 5 derniers matchs, TSV Eintracht Braunschweig ne monte qu'à 20% avec seulement 4 buts inscrits. En l'absence de cohérence statistique suffisante sur les marchés principaux, la décision prudente est d'abstenir ce pronostic.",
+      "ai_analysis_en": "Observed data for this 2. Bundesliga fixture shows conflicting signals. While Energie Cottbus records a 100% BTTS rate in their last 5 matches, TSV Eintracht Braunschweig sits at only 20% with just 4 goals scored. Lacking sufficient statistical consistency across main markets, the prudent decision is to abstain.",
+      "ai_form_summary": "Braunschweig : 2W-0D-3L sur ses 5 derniers matchs, 4 buts pour, 6 contre (BTTS 20%). Cottbus : 0W-3D-2L sur ses 5 derniers matchs, 5 buts pour, 8 contre (BTTS 100%).",
+      "ai_form_summary_en": "Braunschweig: 2W-0D-3L in last 5, 4 goals for, 6 against (20% BTTS). Cottbus: 0W-3D-2L in last 5, 5 goals for, 8 against (100% BTTS).",
       "ai_reasons": [
-        "Taux de BTTS sur les 5 derniers matchs de Braunschweig limité à 20%.",
-        "Faible taux empirique d'Over 2.5 à 30% pour Braunschweig.",
-        "Braunschweig n'a inscrit que 4 buts lors de ses 5 derniers matchs."
+        "Taux empirique Over 2.5 faible à 0.3",
+        "Faible nombre de buts marqués sur les 5 derniers matchs pour Braunschweig (4 buts)",
+        "Taux BTTS des 5 derniers matchs de Braunschweig limité à 0.2 malgré un taux de 1 pour Cottbus"
       ],
       "ai_risks": [
-        "Cottbus affiche un taux de BTTS de 100% sur ses 5 derniers matchs.",
-        "La moyenne de buts pour l'extérieur de Cottbus est de 2.25 buts par match."
+        "Signaux contradictoires entre le taux BTTS de Cottbus (100%) et celui de Braunschweig (20%)",
+        "Taux empirique global sous les seuils de confiance pour une sélection tranchée"
       ],
       "ai_confidence": "low",
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "pick",
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Non",
-          "confidence": 58,
-          "proba": 0.58,
-          "modelEngine": "gemini-3.5-flash-lite",
-          "bttsProb": 0.58
-        }
-      ],
-      "bttsProb": 0.58,
-      "prediction": "Non",
-      "proba": 0.58,
-      "confidence": 58
+      "ai_response_status": "abstain"
     },
     {
       "id": "toulouse-vs-strasbou-2026-11-06",
@@ -5845,7 +5840,7 @@
       "xgAway": 2,
       "xgTotal": 3,
       "formBTTS": 60,
-      "analysis": "Toulouse : forme D-N-V-N-V (2V 2N 1D, 8 buts marqués / 6 encaissés sur 5) · Strasbourg : forme V-D-D-D-D (1V 0N 4D, 8 buts marqués / 11 encaissés sur 5). Classement : Toulouse 12e (10 pts), Strasbourg 13e (10 pts). Stats empiriques (forme récente) : buts moy. 3, BTTS 60.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.1 / N: 3.7 / 2: 3.35 · Over 2.5: 1.65. Fiabilité 82.5%.",
+      "analysis": "Toulouse : forme D-N-V-N-V (2V 2N 1D, 8 buts marqués / 6 encaissés sur 5) · Strasbourg : forme V-D-D-D-D (1V 0N 4D, 8 buts marqués / 11 encaissés sur 5). Classement : Toulouse 12e (10 pts), Strasbourg 13e (10 pts). Stats empiriques (forme récente) : buts moy. 3, BTTS 60.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.3 / N: 3.6 / 2: 3 · Over 2.5: 1.67. Fiabilité 82.5%.",
       "analysisData": {
         "empiricalBttsRate": 0.6,
         "empiricalOver25Rate": 0.8,
@@ -5855,10 +5850,10 @@
       },
       "odds": {
         "provider": "DraftKings",
-        "home": 2.1,
-        "draw": 3.7,
-        "away": 3.35,
-        "over25": 1.65,
+        "home": 2.3,
+        "draw": 3.6,
+        "away": 3,
+        "over25": 1.67,
         "under25": 2.2
       },
       "oddsSource": "DraftKings",
@@ -5983,22 +5978,21 @@
       "statsOnly": true,
       "ai_abstain": false,
       "ai_market": "OVER_25",
-      "ai_key_fact": "Strasbourg présente un taux Over 2.5 de 100% sur ses 5 derniers matchs et encaisse 2.2 buts par match.",
-      "ai_analysis": "La rencontre entre Toulouse et Strasbourg s'appuie sur des dynamiques très favorables aux buts. Strasbourg montre de grandes fragilités défensives avec 11 buts encaissés sur ses 5 derniers matchs et un taux d'Over 2.5 de 1.0. Avec une moyenne offensive de 2 buts pour Strasbourg et des statistiques globales pointant vers un taux empirique de 80% sur l'Over 2.5, le marché des buts au-dessus de 2.5 offre la meilleure opportunité sur ce match.",
-      "ai_analysis_en": "The match between Toulouse and Strasbourg features dynamics heavily favoring goals. Strasbourg shows significant defensive frailties with 11 goals conceded in their last 5 matches and a 1.0 Over 2.5 rate. With an away scoring average of 2 goals per match and empirical Over 2.5 rates at 80%, the Over 2.5 market offers the best opportunity for this fixture.",
-      "ai_form_summary": "Toulouse: D-N-V-N-V (2V-2N-1D, 8 buts pour, 6 contre). Strasbourg: V-D-D-D-D (1V-0N-4D, 8 buts pour, 11 contre).",
-      "ai_form_summary_en": "Toulouse: L-D-W-D-W (2W-2D-1L, 8 GF, 6 GA). Strasbourg: W-L-L-L-L (1W-0D-4L, 8 GF, 11 GA).",
+      "ai_key_fact": "Strasbourg présente un taux de 100% d'Over 2.5 lors de ses cinq dernières rencontres.",
+      "ai_analysis": "Les statistiques observées plaident nettement pour un match ouvert entre Toulouse et Strasbourg. Avec un taux empirique d'Over 2.5 de 0.8 et une équipe de Strasbourg impliquée dans des rencontres très prolifiques (taux d'Over de 100% sur ses 5 derniers matchs), les conditions sont réunies pour voir au moins trois buts. La fragilité défensive des deux formations (13 et 19 buts encaissés) renforce cette tendance malgré un taux BTTS toulousain plus mesuré.",
+      "ai_analysis_en": "The observed statistics clearly point towards an open match between Toulouse and Strasbourg. With an empirical Over 2.5 rate of 0.8 and a Strasbourg side involved in high-scoring games (100% Over rate in their last 5), conditions are met for at least three goals. Defensive frailties on both sides (13 and 19 goals conceded) reinforce this trend despite Toulouse's more modest BTTS rate.",
+      "ai_form_summary": "Toulouse : 2W-2D-1L, 8 buts pour, 6 contre. Strasbourg : 1W-0D-4L, 8 buts pour, 11 contre.",
+      "ai_form_summary_en": "Toulouse: 2W-2D-1L, 8 goals for, 6 against. Strasbourg: 1W-0D-4L, 8 goals for, 11 against.",
       "ai_reasons": [
-        "Taux Over 2.5 empirique très élevé à 0.8 sur 8 matchs.",
-        "Strasbourg affiche un taux Over 2.5 de 1.0 sur ses 5 derniers matchs et concède beaucoup (11 buts encaissés sur 5 matchs).",
-        "Moyenne de buts de Strasbourg à l'extérieur de 2 par match.",
-        "La cote de l'Over 2.5 est fixée à 1.65 sur DraftKings, cohérente avec les statistiques observées."
+        "Taux empirique Over 2.5 très élevé à 80% sur l'échantillon.",
+        "Strasbourg affiche un taux Over 2.5 de 100% sur ses 5 derniers matchs.",
+        "Les deux équipes affichent des défenses perméables (13 buts encaissés pour Toulouse, 19 pour Strasbourg)."
       ],
       "ai_risks": [
-        "Le taux BTTS de Toulouse est plus modéré (0.4 sur les 5 derniers matchs).",
-        "Strasbourg reste sur une série de 4 défaites consécutives qui pourrait les pousser à la prudence."
+        "Le taux BTTS de Toulouse reste modéré à 40%.",
+        "La forme récente de Strasbourg montre 4 défaites consécutives."
       ],
-      "ai_confidence": "medium",
+      "ai_confidence": "high",
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
@@ -6205,7 +6199,8 @@
       "bttsProb": 0.65,
       "prediction": "Oui",
       "proba": 0.65,
-      "confidence": 65
+      "confidence": 65,
+      "status": "PENDING"
     },
     {
       "id": "standard-vs-waasland-2026-11-06",
@@ -6231,7 +6226,7 @@
       "xgAway": 1,
       "xgTotal": 2,
       "formBTTS": 70,
-      "analysis": "Standard Liege : forme N-D-D-D-D (0V 1N 4D, 5 buts marqués / 10 encaissés sur 5) · Waasland-Beveren : forme D-N-D-D-V (1V 1N 3D, 8 buts marqués / 10 encaissés sur 5). Classement : Standard Liege 9e (12 pts), Waasland-Beveren 13e (10 pts). Stats empiriques (forme récente) : buts moy. 2, BTTS 70.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.8 / N: 3.95 / 2: 4 · Over 2.5: 1.63. Fiabilité 80.63%.",
+      "analysis": "Standard Liege : forme N-D-D-D-D (0V 1N 4D, 5 buts marqués / 10 encaissés sur 5) · Waasland-Beveren : forme D-N-D-D-V (1V 1N 3D, 8 buts marqués / 10 encaissés sur 5). Classement : Standard Liege 9e (12 pts), Waasland-Beveren 13e (10 pts). Stats empiriques (forme récente) : buts moy. 2, BTTS 70.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.95 / N: 3.75 / 2: 3.55 · Over 2.5: 1.65. Fiabilité 80.63%.",
       "analysisData": {
         "empiricalBttsRate": 0.7,
         "empiricalOver25Rate": 0.6,
@@ -6241,11 +6236,11 @@
       },
       "odds": {
         "provider": "DraftKings",
-        "home": 1.8,
-        "draw": 3.95,
-        "away": 4,
-        "over25": 1.63,
-        "under25": 2.2
+        "home": 1.95,
+        "draw": 3.75,
+        "away": 3.55,
+        "over25": 1.65,
+        "under25": 2.15
       },
       "oddsSource": "DraftKings",
       "formHome": {
@@ -6369,19 +6364,19 @@
       "statsOnly": true,
       "ai_abstain": false,
       "ai_market": "BTTS",
-      "ai_key_fact": "Standard Liège affiche un taux BTTS de 80% sur ses 5 derniers matchs malgré une mauvaise forme.",
-      "ai_analysis": "L'analyse des statistiques observe un taux empirique BTTS solide de 70% pour cette affiche de Jupiler Pro League. Le Standard de Liège montre une propension nette à voir les deux équipes marquer (80% sur ses 5 derniers matchs), combinée à des défenses en difficulté au classement (16 et 20 buts encaissés). Bien que l'attaque du Standard à domicile soit limitée, la perméabilité défensive des deux formations justifie notre sélection.",
-      "ai_analysis_en": "Statistical analysis shows a strong empirical BTTS rate of 70% for this Jupiler Pro League fixture. Standard Liege demonstrates a clear tendency for both teams to score (80% in their last 5 matches), combined with struggling defenses in the standings (16 and 20 goals conceded). Although Standard's home attack is limited, the defensive fragility of both teams supports our selection.",
-      "ai_form_summary": "Standard Liège : 0W-1D-4L (5 GF, 10 GA, BTTS 80%). Waasland-Beveren : 1W-1D-3L (8 GF, 10 GA, BTTS 60%).",
-      "ai_form_summary_en": "Standard Liege: 0W-1D-4L (5 GF, 10 GA, BTTS 80%). Waasland-Beveren: 1W-1D-3L (8 GF, 10 GA, BTTS 60%).",
+      "ai_key_fact": "Standard Liege et Waasland-Beveren affichent tous deux 10 buts encaissés sur leurs 5 derniers matchs.",
+      "ai_analysis": "Les statistiques observées révèlent un taux BTTS empirique solide de 70% pour cette affiche de Jupiler Pro League. Standard Liege montre de grandes difficultés défensives malgré un secteur offensif capable de marquer, affichant un taux de BTTS de 80% sur ses 5 derniers matchs. En face, Waasland-Beveren encaisse également beaucoup avec 10 buts concédés récemment, ce qui rencorce la probabilité de voir les deux équipes marquer.",
+      "ai_analysis_en": "Observed statistics reveal a strong empirical BTTS rate of 70% for this Jupiler Pro League fixture. Standard Liege shows significant defensive vulnerabilities despite an ability to score, posting an 80% BTTS rate over their last 5 matches. Meanwhile, Waasland-Beveren also struggles defensively with 10 goals conceded recently, reinforcing the probability that both teams will score.",
+      "ai_form_summary": "Standard Liege : 0V-1D-4L, 5 buts pour, 10 buts contre. Waasland-Beveren : 1V-1D-3L, 8 buts pour, 10 buts contre.",
+      "ai_form_summary_en": "Standard Liege: 0W-1D-4L, 5 goals for, 10 goals against. Waasland-Beveren: 1W-1D-3L, 8 goals for, 10 goals against.",
       "ai_reasons": [
-        "Taux empirique BTTS élevé à 70% sur l'échantillon global.",
-        "Taux BTTS de Standard Liège à 80% sur ses 5 derniers matchs.",
-        "Défenses perméables avec Standard (16 GA) et Waasland-Beveren (20 GA) en championnat."
+        "Taux BTTS empirique élevé à 70% pour le match.",
+        "Taux BTTS de Standard Liege à 80% sur ses 5 derniers matchs.",
+        "Fragilités défensives évidentes avec 10 buts encaissés chacun sur les 5 dernières rencontres."
       ],
       "ai_risks": [
-        "Standard Liège a une moyenne de buts marqués faible à domicile (1 but/match).",
-        "La forme globale de Standard est très négative (0W-1D-4L)."
+        "Standard Liege affiche une moyenne de seulement 1 but marqué sur la période récente.",
+        "La forme globale de Standard Liege est très négative avec 4 défaites de rang."
       ],
       "ai_confidence": "medium",
       "modelEngine": "gemini-stats-v1",
@@ -6427,7 +6422,7 @@
       "xgAway": 2,
       "xgTotal": 2.5,
       "formBTTS": 60,
-      "analysis": "Derby County : forme D-D-N-D-D (0V 1N 4D, 3 buts marqués / 14 encaissés sur 5) · Bolton Wanderers : forme V-D-D-N-V (2V 1N 2D, 7 buts marqués / 9 encaissés sur 5). Classement : Derby County 23e (7 pts), Bolton Wanderers 17e (17 pts). Stats empiriques (forme récente) : buts moy. 2.5, BTTS 60.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.45 / N: 3.65 / 2: 2.75 · Over 2.5: 1.69. Fiabilité 80%.",
+      "analysis": "Derby County : forme D-D-N-D-D (0V 1N 4D, 3 buts marqués / 14 encaissés sur 5) · Bolton Wanderers : forme V-D-D-N-V (2V 1N 2D, 7 buts marqués / 9 encaissés sur 5). Classement : Derby County 23e (7 pts), Bolton Wanderers 17e (17 pts). Stats empiriques (forme récente) : buts moy. 2.5, BTTS 60.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.7 / N: 3.6 / 2: 2.5 · Over 2.5: 1.71. Fiabilité 80%.",
       "analysisData": {
         "empiricalBttsRate": 0.6,
         "empiricalOver25Rate": 0.6,
@@ -6437,11 +6432,11 @@
       },
       "odds": {
         "provider": "DraftKings",
-        "home": 2.45,
-        "draw": 3.65,
-        "away": 2.75,
-        "over25": 1.69,
-        "under25": 2.15
+        "home": 2.7,
+        "draw": 3.6,
+        "away": 2.5,
+        "over25": 1.71,
+        "under25": 2.1
       },
       "oddsSource": "DraftKings",
       "formHome": {
@@ -6565,21 +6560,21 @@
       "statsOnly": true,
       "ai_abstain": false,
       "ai_market": "BTTS",
-      "ai_key_fact": "Derby County a encaissé 29 buts en 14 matchs de championnat.",
-      "ai_analysis": "Les données observées indiquent un taux empirique BTTS de 60% pour cette rencontre de Championship. Bolton Wanderers présente une moyenne offensive intéressante de 2 buts par match, tandis que Derby County affiche une défense particulièrement friable avec 29 buts encaissés en 14 rencontres. Malgré les difficultés offensives globales de Derby, la configuration défensive des deux équipes favorise l'option où les deux marquent.",
-      "ai_analysis_en": "Observed data indicates an empirical BTTS rate of 60% for this Championship fixture. Bolton Wanderers present an interesting offensive average of 2 goals per match, while Derby County show a particularly fragile defense with 29 goals conceded in 14 games. Despite Derby's overall offensive difficulties, both teams' defensive setup favors the both teams to score option.",
-      "ai_form_summary": "Derby County : 0W-1D-4L (3 GF, 14 GA, BTTS 60%). Bolton Wanderers : 2W-1D-2L (7 GF, 9 GA, BTTS 60%).",
-      "ai_form_summary_en": "Derby County: 0W-1D-4L (3 GF, 14 GA, BTTS 60%). Bolton Wanderers: 2W-1D-2L (7 GF, 9 GA, BTTS 60%).",
+      "ai_key_fact": "Derby County a encaissé 14 buts lors de ses 5 derniers matchs.",
+      "ai_analysis": "Malgré les difficultés offensives récentes de Derby County qui n'a inscrit que 3 buts sur ses 5 derniers matchs, le taux BTTS empirique s'établit à 60%. Les deux formations affichent des statistiques de BTTS identiques sur la même période. La grande fragilité défensive des deux équipes, illustrée par de lourds totaux de buts encaissés en championnat, soutient une option favorable aux buts des deux côtés.",
+      "ai_analysis_en": "Despite Derby County's recent offensive struggles scoring only 3 goals in their last 5 matches, the empirical BTTS rate stands at 60%. Both teams share identical BTTS rates over the same period. The significant defensive fragility of both sides, illustrated by heavy goals-against totals in the league, supports a favorable outlook for goals from both teams.",
+      "ai_form_summary": "Derby County : 0V-1D-4L, 3 buts pour, 14 buts contre. Bolton Wanderers : 2V-1D-2L, 7 buts pour, 9 buts contre.",
+      "ai_form_summary_en": "Derby County: 0W-1D-4L, 3 goals for, 14 goals against. Bolton Wanderers: 2W-1D-2L, 7 goals for, 9 goals against.",
       "ai_reasons": [
-        "Taux empirique BTTS de 60% sur l'échantillon observé.",
-        "Derby County encaisse beaucoup de buts (29 GA en 14 matchs).",
-        "Bolton Wanderers présente une moyenne de 2 buts marqués par match sur l'échantillon."
+        "Taux BTTS empirique de 60% pour le match.",
+        "Taux BTTS de 60% pour Derby County et Bolton Wanderers sur leurs 5 derniers matchs.",
+        "Défenses particulièrement perméables avec 29 buts encaissés par Derby et 26 par Bolton en championnat."
       ],
       "ai_risks": [
-        "Derby County a une attaque en difficulté avec seulement 0.5 but en moyenne sur l'échantillon.",
-        "La forme récente de Derby est très défavorable (0W-1D-4L)."
+        "Derby County n'a marqué que 3 buts lors de ses 5 derniers matchs (moyenne de 0.5 but par match).",
+        "La forme globale de Derby est très faible (0V-1D-4L)."
       ],
-      "ai_confidence": "medium",
+      "ai_confidence": "low",
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
@@ -6588,16 +6583,16 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 62,
-          "proba": 0.62,
+          "confidence": 60,
+          "proba": 0.6,
           "modelEngine": "gemini-3.5-flash-lite",
-          "bttsProb": 0.62
+          "bttsProb": 0.6
         }
       ],
-      "bttsProb": 0.62,
+      "bttsProb": 0.6,
       "prediction": "Oui",
-      "proba": 0.62,
-      "confidence": 62
+      "proba": 0.6,
+      "confidence": 60
     },
     {
       "id": "dynamodr-vs-spvgggre-2026-11-06",
@@ -6623,7 +6618,7 @@
       "xgAway": 1.5,
       "xgTotal": 2.83,
       "formBTTS": 50,
-      "analysis": "Dynamo Dresden : forme D-D-V-N-D (1V 1N 3D, 5 buts marqués / 8 encaissés sur 5) · SpVgg Greuther Fürth : forme V-D-V-D-N (2V 1N 2D, 5 buts marqués / 6 encaissés sur 5). Classement : Dynamo Dresden 18e (8 pts), SpVgg Greuther Fürth 9e (12 pts). Stats empiriques (forme récente) : buts moy. 2.83, BTTS 50.0%, Over 2.5 50.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.91 / N: 3.75 / 2: 3.7 · Over 2.5: 1.65. Fiabilité 78.13%.",
+      "analysis": "Dynamo Dresden : forme D-D-V-N-D (1V 1N 3D, 5 buts marqués / 8 encaissés sur 5) · SpVgg Greuther Fürth : forme V-D-V-D-N (2V 1N 2D, 5 buts marqués / 6 encaissés sur 5). Classement : Dynamo Dresden 18e (8 pts), SpVgg Greuther Fürth 9e (12 pts). Stats empiriques (forme récente) : buts moy. 2.83, BTTS 50.0%, Over 2.5 50.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2 / N: 3.7 / 2: 3.55 · Over 2.5: 1.65. Fiabilité 78.13%.",
       "analysisData": {
         "empiricalBttsRate": 0.5,
         "empiricalOver25Rate": 0.5,
@@ -6633,9 +6628,9 @@
       },
       "odds": {
         "provider": "DraftKings",
-        "home": 1.91,
-        "draw": 3.75,
-        "away": 3.7,
+        "home": 2,
+        "draw": 3.7,
+        "away": 3.55,
         "over25": 1.65,
         "under25": 2.15
       },
@@ -6759,25 +6754,41 @@
       "homeLambda": 1.33,
       "awayLambda": 1.5,
       "statsOnly": true,
-      "ai_abstain": true,
-      "ai_market": "ABSTAIN",
-      "ai_key_fact": "Le Dynamo Dresden possède la pire défense de la ligue avec 20 buts encaissés en 10 matchs.",
-      "ai_analysis": "Bien que le Dynamo Dresden encaisse beaucoup de buts (20 en 10 matchs), les taux empiriques de 50% pour le BTTS et l'Over 2.5 ne dégagent pas une opportunité claire. La forme récente des deux formations est trop mitigée pour justifier un pari sur ce marché. Par conséquent, il est préférable de s'abstenir sur cette rencontre.",
-      "ai_analysis_en": "Although Dynamo Dresden concedes many goals (20 in 10 games), the empirical rates of 50% for BTTS and Over 2.5 do not offer a clear edge. Recent form for both sides is too mixed to justify a bet on this market. Therefore, abstaining is the wisest choice.",
-      "ai_form_summary": "Dynamo Dresden sur 5 matchs : D-D-V-N-D (1V-1D-3L). SpVgg Greuther Fürth sur 5 matchs : V-D-V-D-N (2W-1D-2L).",
-      "ai_form_summary_en": "Dynamo Dresden last 5: D-D-V-N-D (1W-1D-3L). SpVgg Greuther Fürth last 5: V-D-V-D-N (2W-1D-2L).",
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Dynamo Dresden et SpVgg Greuther Fürth affichent toutes deux des défenses en difficulté avec respectivement 20 et 16 buts encaissés.",
+      "ai_analysis": "L'analyse statistique de cette rencontre de 2. Bundesliga montre des indicateurs partagés mais orientés vers un match ouvert. Dynamo Dresden présente un taux de BTTS de 60% lors de ses 5 derniers matchs et encaisse beaucoup de buts (20 en 10 journées). De son côté, SpVgg Greuther Fürth montre des stats correctes malgré un classement de milieu de tableau. L'empirique BTTS s'établit exactement à 0.5, justifiant une prudente sélection 'Yes' avec une probabilité mesurée.",
+      "ai_analysis_en": "Statistical analysis for this 2. Bundesliga fixture shows mixed indicators pointing towards a potential open match. Dynamo Dresden records a 60% BTTS rate in their last 5 games and concedes heavily (20 goals in 10 matches). Meanwhile, SpVgg Greuther Fürth displays stable attacking metrics despite a mid-table standing. The empirical BTTS sits right at 0.5, justifying a cautious 'Yes' selection with a calibrated probability.",
+      "ai_form_summary": "Dynamo Dresden : 1V-1D-3N sur les 5 derniers, 5 buts marqués, 8 encaissés (BTTS 60%). SpVgg Greuther Fürth : 2V-1D-2N, 5 buts marqués, 6 encaissés (BTTS 40%).",
+      "ai_form_summary_en": "Dynamo Dresden: 1W-1D-3L in last 5, 5 goals for, 8 against (BTTS 60%). SpVgg Greuther Fürth: 2W-1D-2L, 5 goals for, 6 against (BTTS 40%).",
       "ai_reasons": [
-        "Taux empiriques BTTS et Over 2.5 exactement à 50% sans signal statistique dominant.",
-        "Forme récente irrégulière des deux équipes avec Dynamo Dresden 1W-1D-3L et Fürth 2W-1D-2L."
+        "Taux empirique global du BTTS à 50% sur l'échantillon.",
+        "Dynamo Dresden affiche un taux de BTTS de 60% sur ses 5 derniers matchs.",
+        "Les deux équipes concèdent un volume défensif important (20 buts encaissés pour Dresden et 16 pour Fürth en 10 matchs)."
       ],
       "ai_risks": [
-        "Match équilibré entre une équipe à domicile en difficulté (18ème) et une équipe visiteuse de milieu de tableau (9ème)."
+        "L'attaque de Fürth à l'extérieur et la forme globale mitigée des deux équipes créent de l'incertitude.",
+        "Le taux BTTS récent de Fürth est plus faible à 40% sur ses 5 derniers matchs."
       ],
       "ai_confidence": "low",
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 52,
+          "proba": 0.52,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.52
+        }
+      ],
+      "bttsProb": 0.52,
+      "prediction": "Oui",
+      "proba": 0.52,
+      "confidence": 52
     },
     {
       "id": "rapidvie-vs-wolfsber-2026-11-06",
@@ -6803,7 +6814,7 @@
       "xgAway": 0.25,
       "xgTotal": 3.75,
       "formBTTS": 40,
-      "analysis": "Rapid Vienna : forme V-V-V-V-V (5V 0N 0D, 15 buts marqués / 2 encaissés sur 5) · Wolfsberger : forme N-D-D-D-D (0V 1N 4D, 2 buts marqués / 11 encaissés sur 5). Classement : Rapid Vienna 1e (30 pts), Wolfsberger 12e (6 pts). Stats empiriques (forme récente) : buts moy. 3.75, BTTS 40.0%, Over 2.5 50.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.26 / N: 6.5 / 2: 9. Fiabilité 76.25%.",
+      "analysis": "Rapid Vienna : forme V-V-V-V-V (5V 0N 0D, 15 buts marqués / 2 encaissés sur 5) · Wolfsberger : forme N-D-D-D-D (0V 1N 4D, 2 buts marqués / 11 encaissés sur 5). Classement : Rapid Vienna 1e (30 pts), Wolfsberger 12e (6 pts). Stats empiriques (forme récente) : buts moy. 3.75, BTTS 40.0%, Over 2.5 50.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.24 / N: 6.5 / 2: 10. Fiabilité 76.25%.",
       "analysisData": {
         "empiricalBttsRate": 0.4,
         "empiricalOver25Rate": 0.5,
@@ -6813,9 +6824,9 @@
       },
       "odds": {
         "provider": "DraftKings",
-        "home": 1.26,
+        "home": 1.24,
         "draw": 6.5,
-        "away": 9,
+        "away": 10,
         "over25": null,
         "under25": null
       },
@@ -6941,17 +6952,18 @@
       "statsOnly": true,
       "ai_abstain": true,
       "ai_market": "ABSTAIN",
-      "ai_key_fact": "Rapid Vienna est leader avec 30 points et une excellente forme récente (5V-0D-0L).",
-      "ai_analysis": "Rapid Vienna domine largement le championnat avec 5 victoires consécutives et une défense solide, n'ayant concédé que 2 buts lors de ses 5 derniers matchs. En face, Wolfsberger affiche une moyenne offensive famélique de 0.25 buts par match à l'extérieur. Le taux empirique BTTS de 40% étant inférieur au seuil recommandé, l'abstention est de rigueur.",
-      "ai_analysis_en": "Rapid Vienna dominates the league with 5 consecutive wins and a solid defense, conceding only 2 goals in their last 5 matches. Meanwhile, Wolfsberger shows a very poor offensive average of 0.25 goals per away game. With an empirical BTTS rate of 40% falling below the recommended threshold, abstaining is required.",
-      "ai_form_summary": "Rapid Vienna sur 5 matchs : V-V-V-V-V (5W-0D-0L). Wolfsberger sur 5 matchs : N-D-D-D-D (0W-1D-4L).",
-      "ai_form_summary_en": "Rapid Vienna last 5: V-V-V-V-V (5W-0D-0L). Wolfsberger last 5: N-D-D-D-D (0W-1D-4L).",
+      "ai_key_fact": "Rapid Vienna domine le classement (1er, 30 points) avec une défense solide concédant seulement 9 buts en 11 matchs.",
+      "ai_analysis": "Malgré la forme étincelante du Rapid Vienna (5 victoires consécutives, 15 buts marqués), les statistiques de Wolfsberger à l'extérieur sont extrêmement faibles avec une moyenne de 0.25 but marqué. Le taux empirique du BTTS se situe à 40% et le taux Over 2.5 à 50%. En raison du profil ultra-défensif de l'adversaire et du manque de garanties sur les buts visiteurs, aucun marché ne se détache avec certitude, justifiant un choix d'abstention strict.",
+      "ai_analysis_en": "Despite Rapid Vienna's stellar form (5 consecutive wins, 15 goals scored), Wolfsberger's away stats are extremely poor with an average of 0.25 goals scored per match. The empirical BTTS rate sits at 40% and Over 2.5 at 50%. Due to the visitor's low scoring output and Rapid's tight defense, no market offers a clear statistical edge, mandating an abstention.",
+      "ai_form_summary": "Rapid Vienna : 5V-0D-0N, 15 buts marqués, 2 encaissés (BTTS 40%). Wolfsberger : 0V-1D-4N, 2 buts marqués, 11 encaissés (BTTS 40%).",
+      "ai_form_summary_en": "Rapid Vienna: 5W-0D-0L, 15 goals for, 2 against (BTTS 40%). Wolfsberger: 0W-1D-4L, 2 goals for, 11 against (BTTS 40%).",
       "ai_reasons": [
-        "Faible taux empirique BTTS de 40% pour Rapid Vienna et Wolfsberger.",
-        "Wolfsberger présente une attaque très faible à l'extérieur avec seulement 0.25 buts par match."
+        "Wolfsberger affiche une moyenne de buts à l'extérieur très faible de 0.25 par match.",
+        "Rapid Vienna encaisse très peu de buts (seulement 2 lors de ses 5 derniers matchs et 9 au total en 11 matchs)."
       ],
       "ai_risks": [
-        "Rapid Vienna encaisse très peu de buts à domicile (2 sur ses 5 derniers matchs), ce qui réduit la probabilité que les deux équipes marquent."
+        "La domination massive du Rapid Vienna (leader avec 30 points) pourrait rendre le match à sens unique sans but adverse.",
+        "Le taux empirique du BTTS est de 40%, ce qui ne valide pas statistiquement un pari sur les deux équipes marquent."
       ],
       "ai_confidence": "low",
       "modelEngine": "gemini-stats-v1",
@@ -6983,7 +6995,7 @@
       "xgAway": 1,
       "xgTotal": 1.33,
       "formBTTS": 50,
-      "analysis": "Willem II : forme D-D-D-D-D (0V 0N 5D, 4 buts marqués / 20 encaissés sur 5) · PEC Zwolle : forme V-N-V-D-D (2V 1N 2D, 6 buts marqués / 6 encaissés sur 5). Classement : Willem II 18e (2 pts), PEC Zwolle 14e (11 pts). Stats empiriques (forme récente) : buts moy. 1.33, BTTS 50.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.95 / N: 3.8 / 2: 2.2 · Over 2.5: 1.57. Fiabilité 68.13%.",
+      "analysis": "Willem II : forme D-D-D-D-D (0V 0N 5D, 4 buts marqués / 20 encaissés sur 5) · PEC Zwolle : forme V-N-V-D-D (2V 1N 2D, 6 buts marqués / 6 encaissés sur 5). Classement : Willem II 18e (2 pts), PEC Zwolle 14e (11 pts). Stats empiriques (forme récente) : buts moy. 1.33, BTTS 50.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 3.15 / N: 3.75 / 2: 2.1 · Over 2.5: 1.63. Fiabilité 68.13%.",
       "analysisData": {
         "empiricalBttsRate": 0.5,
         "empiricalOver25Rate": 0.6,
@@ -6993,11 +7005,11 @@
       },
       "odds": {
         "provider": "DraftKings",
-        "home": 2.95,
-        "draw": 3.8,
-        "away": 2.2,
-        "over25": 1.57,
-        "under25": 2.3
+        "home": 3.15,
+        "draw": 3.75,
+        "away": 2.1,
+        "over25": 1.63,
+        "under25": 2.2
       },
       "oddsSource": "DraftKings",
       "formHome": {
@@ -7121,19 +7133,19 @@
       "statsOnly": true,
       "ai_abstain": false,
       "ai_market": "OVER_25",
-      "ai_key_fact": "Willem II encaisse énormément (39 buts en 11 matchs) poussant leur taux d'Over 2.5 à 80% sur les 5 derniers matchs.",
-      "ai_analysis": "La rencontre entre Willem II et le PEC Zwolle présente un profil favorable aux buts malgré les difficultés offensives des locaux. Willem II possède la défense la plus fragile de leur parcours, ce qui se traduit par un taux d'Over 2.5 de 80% sur leurs 5 derniers matchs. Bien que l'attaque de Willem II soit limitée, la perméabilité défensive globale des deux formations (39 buts encaissés pour Willem II et 23 pour Zwolle) justifie un pari sur l'Over 2.5 avec un taux empirique global de 60%.",
-      "ai_analysis_en": "The match between Willem II and PEC Zwolle shows a profile favorable to goals despite the home team's offensive struggles. Willem II has the weakest defense in the league, resulting in an 80% Over 2.5 rate over their last 5 matches. Although Willem II's attack is limited, the overall defensive fragility of both teams (39 goals conceded for Willem II and 23 for Zwolle) justifies a bet on Over 2.5 with an overall empirical rate of 60%.",
-      "ai_form_summary": "Willem II est en grande difficulté (0V-0D-5L) avec une défense très perméable, tandis que PEC Zwolle montre des résultats plus mitigés (2V-1D-2L).",
-      "ai_form_summary_en": "Willem II is struggling heavily (0W-0D-5L) with a very leaky defense, while PEC Zwolle shows mixed results (2W-1D-2L).",
+      "ai_key_fact": "Willem II affiche un taux d'Over 2.5 de 80% sur ses cinq derniers matchs.",
+      "ai_analysis": "Bien que l'attaque à domicile de Willem II soit limitée, la fragilité défensive extrême des locaux (20 buts encaissés récemment, 39 au total en 11 matchs) combinée à un taux d'Over 2.5 de 80% sur leurs 5 derniers matchs pousse vers une rencontre prolifique. PEC Zwolle (14e) offre des statistiques plus modérées mais l'urgence de points pour la lanterne rouge devrait dynamiser le jeu. Nous privilégions donc l'Over 2.5 basé sur ces observations empiriques.",
+      "ai_analysis_en": "Although Willem II's home attack is limited, the extreme defensive frailty of the hosts (20 goals conceded recently, 39 in total over 11 matches) combined with an 80% Over 2.5 rate in their last 5 games points towards an open match. PEC Zwolle (14th) offers more modest statistics, but the urgency for points from the bottom-ranked side should energize the game. We therefore lean towards Over 2.5 based on these empirical observations.",
+      "ai_form_summary": "Willem II en difficulté totale (0V-0D-5L, 20 buts encaissés). PEC Zwolle irrégulier (2V-1D-2L).",
+      "ai_form_summary_en": "Willem II in total difficulty (0W-0D-5L, 20 goals conceded). PEC Zwolle irregular (2W-1D-2L).",
       "ai_reasons": [
         "Le taux empirique d'Over 2.5 est de 60% sur l'échantillon analysé.",
-        "Willem II affiche un taux d'Over 2.5 de 80% sur ses 5 derniers matchs malgré une mauvaise forme.",
-        "La défense de Willem II est particulièrement perméable avec 39 buts encaissés en 11 matchs."
+        "Willem II présente un taux d'Over 2.5 de 80% sur ses 5 derniers matchs et une défense très perméable avec 20 buts encaissés.",
+        "La position de Willem II (18e) et sa nécessité de réagir face à PEC Zwolle (14e) favorisent un match ouvert."
       ],
       "ai_risks": [
-        "Willem II a des difficultés offensives avec une moyenne de 0.33 buts marqués à domicile.",
-        "PEC Zwolle a un taux d'Over 2.5 de seulement 40% sur ses 5 derniers matchs."
+        "Willem II a une moyenne de buts marqués faible à domicile (0.33).",
+        "Le taux empirique global BTTS est de seulement 50%."
       ],
       "ai_confidence": "medium",
       "modelEngine": "gemini-stats-v1",
@@ -7144,16 +7156,16 @@
         {
           "type": "Over 2.5",
           "prediction": "Oui",
-          "confidence": 62,
-          "proba": 0.62,
+          "confidence": 60,
+          "proba": 0.6,
           "modelEngine": "gemini-3.5-flash-lite",
-          "over25Prob": 0.62
+          "over25Prob": 0.6
         }
       ],
-      "over25Prob": 0.62,
+      "over25Prob": 0.6,
       "prediction": "Oui",
-      "proba": 0.62,
-      "confidence": 62
+      "proba": 0.6,
+      "confidence": 60
     },
     {
       "id": "everton-vs-coventry-2026-11-06",
@@ -7179,7 +7191,7 @@
       "xgAway": 0.67,
       "xgTotal": 1.67,
       "formBTTS": 40,
-      "analysis": "Everton : forme V-D-D-N-V (2V 1N 2D, 4 buts marqués / 6 encaissés sur 5) · Coventry City : forme V-D-D-V-V (3V 0N 2D, 9 buts marqués / 6 encaissés sur 5). Classement : Everton 7e (13 pts), Coventry City 16e (9 pts). Stats empiriques (forme récente) : buts moy. 1.67, BTTS 40.0%, Over 2.5 40.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.69 / N: 4 / 2: 4.8 · Over 2.5: 1.74. Fiabilité 63.75%.",
+      "analysis": "Everton : forme V-D-D-N-V (2V 1N 2D, 4 buts marqués / 6 encaissés sur 5) · Coventry City : forme V-D-D-V-V (3V 0N 2D, 9 buts marqués / 6 encaissés sur 5). Classement : Everton 7e (13 pts), Coventry City 16e (9 pts). Stats empiriques (forme récente) : buts moy. 1.67, BTTS 40.0%, Over 2.5 40.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.69 / N: 4 / 2: 4.9 · Over 2.5: 1.74. Fiabilité 63.75%.",
       "analysisData": {
         "empiricalBttsRate": 0.4,
         "empiricalOver25Rate": 0.4,
@@ -7191,7 +7203,7 @@
         "provider": "DraftKings",
         "home": 1.69,
         "draw": 4,
-        "away": 4.8,
+        "away": 4.9,
         "over25": 1.74,
         "under25": 2.1
       },
@@ -7317,18 +7329,18 @@
       "statsOnly": true,
       "ai_abstain": true,
       "ai_market": "ABSTAIN",
-      "ai_key_fact": "Everton présente un taux BTTS et Over 2.5 très bas de 20% sur ses 5 derniers matchs.",
-      "ai_analysis": "L'analyse statistique de la rencontre entre Everton et Coventry City ne permet pas de dégager un pari à forte valeur. Les taux empiriques du BTTS et de l'Over 2.5 sont tous deux sous la barre des 45% (40% chacun). De plus, Everton propose un profil très fermé avec des taux de 20% sur ces deux marchés lors de ses 5 derniers matchs, ce qui contredit légèrement la dynamique offensive plus ouverte de Coventry City. Par conséquent, il est préférable de s'abstenir.",
-      "ai_analysis_en": "The statistical analysis of the match between Everton and Coventry City does not offer a high-value bet. Both empirical BTTS and Over 2.5 rates are below 45% (40% each). Furthermore, Everton displays a very closed profile with 20% rates in both markets over their last 5 matches, contradicting Coventry City's slightly more open offensive dynamic. Therefore, it is better to abstain.",
-      "ai_form_summary": "Everton présente des matchs fermés (2V-1D-2L, 20% BTTS), tandis que Coventry City est un peu plus irrégulier (3V-0D-2L, 60% BTTS).",
-      "ai_form_summary_en": "Everton features tight matches (2W-1D-2L, 20% BTTS), while Coventry City is slightly more inconsistent (3W-0D-2L, 60% BTTS).",
+      "ai_key_fact": "Everton et Coventry City présentent tous deux des taux empiriques sous les seuils requis pour un pari confiant.",
+      "ai_analysis": "Les statistiques observées pour la rencontre entre Everton et Coventry City ne permettent pas de dégager une tendance fiable. Les taux empiriques de BTTS et d'Over 2.5 sont tous deux bloqués à 40%. De plus, les récents matchs d'Everton affichent un taux de 20% pour le BTTS et l'Over 2.5. Conformément à nos règles, nous appliquons un ABSTAIN par manque de signaux concordants.",
+      "ai_analysis_en": "The observed statistics for the match between Everton and Coventry City do not allow for a reliable trend. Both empirical BTTS and Over 2.5 rates are stuck at 40%. Furthermore, Everton's recent matches show a 20% rate for both BTTS and Over 2.5. In accordance with our rules, we apply an ABSTAIN due to a lack of matching signals.",
+      "ai_form_summary": "Everton stable (2V-1D-2L, 4 buts marqués). Coventry City légèrement plus prolifique (3V-0D-2L, 9 buts marqués).",
+      "ai_form_summary_en": "Everton stable (2W-1D-2L, 4 goals scored). Coventry City slightly more prolific (3W-0D-2L, 9 goals scored).",
       "ai_reasons": [
-        "Le taux empirique BTTS est faible à 40%.",
-        "Le taux empirique Over 2.5 est également faible à 40%.",
-        "Everton affiche un taux BTTS de seulement 20% sur ses 5 derniers matchs."
+        "Le taux empirique BTTS est de seulement 40% sur l'échantillon.",
+        "Le taux empirique Over 2.5 est également de 40%, ce qui ne montre pas de tendance claire vers un match ouvert.",
+        "Everton affiche des taux bas de BTTS (20%) et d'Over 2.5 (20%) sur ses 5 derniers matchs."
       ],
       "ai_risks": [
-        "Coventry City montre un taux BTTS de 60% sur ses 5 derniers matchs, créant une contradiction avec les stats d'Everton."
+        "Coventry City montre des stats un peu plus offensives mais reste insuffisant pour garantir un marché sans risque."
       ],
       "ai_confidence": "low",
       "modelEngine": "gemini-stats-v1",
@@ -7530,7 +7542,8 @@
       "over25Prob": 0.58,
       "prediction": "Oui",
       "proba": 0.58,
-      "confidence": 58
+      "confidence": 58,
+      "status": "PENDING"
     },
     {
       "id": "venezia-vs-udinese-2026-11-06",
@@ -7694,19 +7707,19 @@
       "statsOnly": true,
       "ai_abstain": true,
       "ai_market": "ABSTAIN",
-      "ai_key_fact": "Venezia n'a inscrit que 2 buts lors de ses 5 derniers matchs.",
-      "ai_analysis": "Malgré la mauvaise forme des deux équipes en bas de tableau de Serie A, les indicateurs statistiques ne fournissent pas de signal clair. Le taux empirique BTTS de 30% et le taux Over 2.5 de 40% sont trop faibles pour engager un pari fiable. Par conséquent, la règle d'abstention s'applique logiquement ici.",
-      "ai_analysis_en": "Despite the poor form of both teams at the bottom of the Serie A table, the statistical indicators do not provide a clear signal. The 30% empirical BTTS rate and 40% Over 2.5 rate are too low to commit to a reliable bet. Therefore, the abstention rule applies logically here.",
-      "ai_form_summary": "Venezia : 1V-0N-4D sur les 5 derniers (2 buts pour, 7 contre). Udinese : 0V-1N-4D sur les 5 derniers (3 buts pour, 12 contre).",
-      "ai_form_summary_en": "Venezia: 1W-0D-4L in last 5 (2 goals for, 7 against). Udinese: 0W-1D-4L in last 5 (3 goals for, 12 against).",
+      "ai_key_fact": "Venezia et Udinese occupent les deux dernières places (20ème et 19ème) avec des taux BTTS et Over faibles.",
+      "ai_analysis": "Ce duel de bas de tableau entre Venezia et Udinese ne présente pas de garanties statistiques suffisantes. Avec des taux empiriques de BTTS à 30% et d'Over 2.5 à 40%, combinés à des attaques en grande difficulté, le marché du match est trop imprévisible. La règle d'abstention s'applique logiquement.",
+      "ai_analysis_en": "This bottom-of-the-table clash between Venezia and Udinese lacks sufficient statistical guarantees. With empirical BTTS at 30% and Over 2.5 at 40%, combined with struggling attacks, the match market is too unpredictable. The abstention rule applies logically.",
+      "ai_form_summary": "Venezia : 1V-0N-4L sur les 5 derniers (2 BP, 7 BC, 20% Over). Udinese : 0V-1D-4L sur les 5 derniers (3 BP, 12 BC, 60% Over).",
+      "ai_form_summary_en": "Venezia: 1W-0D-4L in last 5 (2 GF, 7 GA, 20% Over). Udinese: 0W-1D-4L in last 5 (3 GF, 12 GA, 60% Over).",
       "ai_reasons": [
-        "Le taux empirique BTTS est très faible à 30%.",
-        "Le taux empirique Over 2.5 est de 40%, sous le seuil requis pour un signal fort.",
-        "Venezia et Udinese affichent de très faibles taux de buts récents (2 et 3 buts sur les 5 derniers matchs)."
+        "Les taux empiriques BTTS (30%) et Over 2.5 (40%) sont tous deux faibles.",
+        "Venezia affiche une attaque très stérile avec seulement 2 buts inscrits sur ses 5 derniers matchs.",
+        "Udinese montre également de grandes difficultés avec 4 défaites sur ses 5 derniers matchs."
       ],
       "ai_risks": [
-        "Rencontre entre le 19e et le 20e de Serie A pouvant mener à un match bloqué ou tendu.",
-        "Faible productivité offensive générale des deux formations."
+        "Match de bas de tableau (20ème contre 19ème) pouvant se solder par un score fermé ou un faux rythme.",
+        "Faible production offensive globale des deux formations (6 GF pour Venezia et 11 GF pour Udinese en 10 matchs)."
       ],
       "ai_confidence": "low",
       "modelEngine": "gemini-stats-v1",
@@ -7908,7 +7921,8 @@
       "bttsProb": 0.72,
       "prediction": "Oui",
       "proba": 0.72,
-      "confidence": 72
+      "confidence": 72,
+      "status": "PENDING"
     },
     {
       "id": "adodenha-vs-spartaro-2026-11-07",
@@ -8104,7 +8118,8 @@
       "bttsProb": 0.7,
       "prediction": "Oui",
       "proba": 0.7,
-      "confidence": 70
+      "confidence": 70,
+      "status": "PENDING"
     },
     {
       "id": "sporting-vs-moreiren-2026-11-07",
@@ -8130,7 +8145,7 @@
       "xgAway": 1.5,
       "xgTotal": 3.5,
       "formBTTS": 80,
-      "analysis": "Sporting CP : forme V-D-V-N-N (2V 2N 1D, 9 buts marqués / 6 encaissés sur 5) · Moreirense : forme V-V-D-N-V (3V 1N 1D, 9 buts marqués / 5 encaissés sur 5). Classement : Sporting CP 3e (21 pts), Moreirense 9e (14 pts). Stats empiriques (forme récente) : buts moy. 3.5, BTTS 80.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.15 / N: 7.5 / 2: 13. Fiabilité 93.75%.",
+      "analysis": "Sporting CP : forme V-D-V-N-N (2V 2N 1D, 9 buts marqués / 6 encaissés sur 5) · Moreirense : forme V-V-D-N-V (3V 1N 1D, 9 buts marqués / 5 encaissés sur 5). Classement : Sporting CP 3e (21 pts), Moreirense 9e (14 pts). Stats empiriques (forme récente) : buts moy. 3.5, BTTS 80.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.17 / N: 7.5 / 2: 13. Fiabilité 93.75%.",
       "analysisData": {
         "empiricalBttsRate": 0.8,
         "empiricalOver25Rate": 0.6,
@@ -8140,7 +8155,7 @@
       },
       "odds": {
         "provider": "DraftKings",
-        "home": 1.15,
+        "home": 1.17,
         "draw": 7.5,
         "away": 13,
         "over25": null,
@@ -8268,21 +8283,21 @@
       "statsOnly": true,
       "ai_abstain": false,
       "ai_market": "BTTS",
-      "ai_key_fact": "Les taux BTTS empiriques et de forme s'élèvent tous deux à 80% pour les deux formations.",
-      "ai_analysis": "Les statistiques observées révèlent une tendance nette au partage des buts, avec un taux BTTS empirique et de forme de 80% pour le Sporting CP comme pour Moreirense. Malgré le statut de net favori du Sporting, leurs derniers matchs affichent des fragilités défensives combinées à une bonne efficacité offensive. La sélection BTTS 'Yes' s'appuie donc sur ces dynamiques récentes concordantes.",
-      "ai_analysis_en": "The observed statistics reveal a clear tendency for both teams to score, with an empirical and recent form BTTS rate of 80% for both Sporting CP and Moreirense. Despite Sporting's status as heavy favorites, their recent matches show defensive vulnerabilities combined with good attacking efficiency. The BTTS 'Yes' selection is therefore supported by these matching recent dynamics.",
-      "ai_form_summary": "Sporting CP (2W-2D-1L, 9 buts pour, 6 contre) et Moreirense (3W-1D-1L, 9 buts pour, 5 contre).",
-      "ai_form_summary_en": "Sporting CP (2W-2D-1L, 9 goals for, 6 against) and Moreirense (3W-1D-1L, 9 goals for, 5 against).",
+      "ai_key_fact": "Les deux équipes affichent un taux de BTTS de 80% lors de leurs 8 derniers matchs respectifs.",
+      "ai_analysis": "Les statistiques observées révèlent une forte propension des deux équipes à marquer et encaisser des buts. Avec un taux empirique de BTTS de 80% et un indice formBTTS aligné au même niveau, les conditions sont réunies pour voir les deux formations trouver le chemin des filets. Malgré le statut de grand favori du Sporting CP, Moreirense présente des arguments offensifs récents solides.",
+      "ai_analysis_en": "The observed statistics reveal a strong tendency for both teams to score and concede goals. With an empirical BTTS rate of 80% and a matching formBTTS index, conditions are favorable for both sides to find the back of the net. Despite Sporting CP being heavy favorites, Moreirense shows solid recent offensive arguments.",
+      "ai_form_summary": "Sporting CP (2V-2N-1D, 9 buts marqués, 6 encaissés) Moreirense (3V-1N-1D, 9 buts marqués, 5 encaissés)",
+      "ai_form_summary_en": "Sporting CP (2W-2D-1L, 9 goals scored, 6 conceded) Moreirense (3W-1D-1L, 9 goals scored, 5 conceded)",
       "ai_reasons": [
-        "Taux empirique BTTS élevé à 80% pour les deux équipes.",
-        "Taux BTTS en forme récente de 80% pour Sporting CP et Moreirense.",
-        "Moyennes de buts marqués correctes (Sporting 2,0 / Moreirense 1,5)."
+        "Taux empirique BTTS élevé à 80% sur les échantillons respectifs.",
+        "Indice formBTTS à 80 traduisant une dynamique offensive constante pour les deux formations.",
+        "Moyennes de buts marqués correctes (Sporting 2.0, Moreirense 1.5) sur leurs huit derniers matchs."
       ],
       "ai_risks": [
-        "Sporting CP a une cote très faible à la victoire, ce qui peut indiquer une domination unilatérale.",
-        "Solde défensif global honorable de Sporting CP (11 buts encaissés en 10 matchs)."
+        "La cote très faible du Sporting (1.17) suggère un match potentiellement à sens unique si la défense adverse craque totalement.",
+        "La solidité défensive relative de Moreirense en déplacement (5 buts encaissés en 5 matchs)."
       ],
-      "ai_confidence": "medium",
+      "ai_confidence": "high",
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
@@ -8464,19 +8479,19 @@
       "statsOnly": true,
       "ai_abstain": false,
       "ai_market": "OVER_25",
-      "ai_key_fact": "Le taux Over 2.5 atteint 80% tant au niveau empirique que dans la forme récente des deux équipes.",
-      "ai_analysis": "Ce match présente des indicateurs offensifs très solides avec un taux Over 2.5 établi à 80% à la fois empiriquement et sur les 5 derniers matchs pour les deux formations. Les moyennes de buts marqués confirment cette propension aux rencontres prolifiques. La sélection Over 2.5 'Yes' est donc logiquement privilégiée au vu de ces données cohérentes.",
-      "ai_analysis_en": "This match features very strong attacking indicators with an Over 2.5 rate established at 80% both empirically and over the last 5 matches for both teams. The goal averages confirm this propensity for high-scoring encounters. The Over 2.5 'Yes' selection is therefore logically preferred given these consistent data points.",
-      "ai_form_summary": "SV Josko Ried (3W-2D-0L, 12 buts pour, 7 contre) et LASK Linz (2W-1D-2L, 10 buts pour, 9 contre).",
-      "ai_form_summary_en": "SV Josko Ried (3W-2D-0L, 12 goals for, 7 against) and LASK Linz (2W-1D-2L, 10 goals for, 9 against).",
+      "ai_key_fact": "Les deux équipes affichent un taux Over 2.5 de 80% sur leurs huit derniers matchs.",
+      "ai_analysis": "Ce match présente des indicateurs très offensifs avec un taux Over 2.5 atteignant 80% pour les deux formations. Les moyennes de buts par match dépassent largement le seuil requis pour envisager une rencontre prolifique. L'historique récent de SV Josko Ried et LASK Linz confirme cette tendance axée sur le spectacle et le volume de buts.",
+      "ai_analysis_en": "This match features very strong offensive indicators with an Over 2.5 rate reaching 80% for both teams. The average goals per match well exceed the threshold needed to expect a high-scoring encounter. The recent history of SV Josko Ried and LASK Linz confirms this trend focused on entertainment and goal volume.",
+      "ai_form_summary": "SV Josko Ried (3V-2N-0D, 12 buts marqués, 7 encaissés) LASK Linz (2V-1N-2D, 10 buts marqués, 9 encaissés)",
+      "ai_form_summary_en": "SV Josko Ried (3W-2D-0L, 12 goals scored, 7 conceded) LASK Linz (2W-1D-2L, 10 goals scored, 9 conceded)",
       "ai_reasons": [
         "Taux empirique Over 2.5 élevé à 80% pour les deux équipes.",
-        "Taux Over 2.5 en forme récente de 80% pour SV Josko Ried et LASK Linz.",
-        "Moyennes de buts par match élevées (Josko Ried à 2,25 et LASK Linz à 2,75)."
+        "Moyennes de buts élevés sur l'échantillon récent (Ried à 2.25, LASK Linz à 2.75).",
+        "Statistiques globales de buts encaissés importantes sur la saison (Ried GA 18, LASK GA 13 en 11 matchs)."
       ],
       "ai_risks": [
-        "Variabilité potentielle sur un échantillon de 8 matchs de forme.",
-        "LASK Linz présente un taux BTTS de forme légèrement inférieur à 60%."
+        "Le taux de BTTS récent de LASK est de 60%, ce qui montre qu'ils peuvent parfois museler leur adversaire.",
+        "L'écart au classement entre LASK (3e) et Ried (6e) pourrait créer un déséquilibre tactique."
       ],
       "ai_confidence": "high",
       "modelEngine": "gemini-stats-v1",
@@ -8505,7 +8520,7 @@
       "away": "New England Revolution",
       "league": "MLS",
       "date": "2026-11-07",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "time": "21:00",
       "matchSemantic": "orlandoc-vs-newengla-2026-11-07",
       "source": "empirical-form-data",
@@ -8659,20 +8674,20 @@
       "awayLambda": 1.67,
       "statsOnly": true,
       "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_key_fact": "Les deux équipes affichent un taux de BTTS de 80% dans leurs formes récentes respectives.",
-      "ai_analysis": "L'analyse des statistiques observées met en évidence une forte propension des deux formations à marquer et à concéder des buts. Orlando City présente un taux de BTTS de 80% tout comme New England Revolution sur leurs 5 derniers matchs. Avec des moyennes de buts respectives de 3 et 1.67 buts par match, l'indicateur empirique BTTS atteint 80%, justifiant pleinement une sélection favorable aux deux équipes marquent.",
-      "ai_analysis_en": "The analysis of observed statistics highlights a strong tendency for both teams to score and concede goals. Orlando City shows an 80% BTTS rate just like New England Revolution in their last 5 matches. With respective goal averages of 3 and 1.67 goals per match, the empirical BTTS indicator reaches 80%, fully justifying a selection favoring both teams to score.",
-      "ai_form_summary": "Orlando (1W-3D-1L, 11-12 buts) et New England (4W-0D-1L, 10-7 buts) affichent une excellente dynamique offensive.",
-      "ai_form_summary_en": "Orlando (1W-3D-1L, 11-12 goals) and New England (4W-0D-1L, 10-7 goals) display excellent offensive momentum.",
+      "ai_market": "OVER_25",
+      "ai_key_fact": "Orlando City présente un taux d'Over 2.5 de 100% sur ses 5 derniers matchs avec une moyenne de 3 buts.",
+      "ai_analysis": "Les statistiques observées révèlent une forte tendance aux matchs ouverts pour Orlando City SC, qui affiche un taux d'Over 2.5 de 100% sur ses 5 derniers matchs et une moyenne de 3 buts par rencontre. New England Revolution présente également de superbes statistiques offensives récentes (4 victoires sur les 5 derniers matchs, 10 buts marqués). Avec un taux empirique global de 90% pour l'Over 2.5, toutes les conditions statistiques sont réunies pour valider cette option.",
+      "ai_analysis_en": "Observed statistics reveal a strong tendency for open matches involving Orlando City SC, who boast a 100% Over 2.5 rate over their last 5 games and an average of 3 goals per match. New England Revolution also shows great recent offensive stats with 4 wins in their last 5 matches and 10 goals scored. With an overall empirical Over 2.5 rate of 90%, all statistical conditions are met to support this option.",
+      "ai_form_summary": "Orlando City SC : 1V-3D-1N (BTTS 80%, Over 2.5 100%). New England Revolution : 4V-0D-1L (BTTS 80%, Over 2.5 80%).",
+      "ai_form_summary_en": "Orlando City SC: 1W-3D-1D (BTTS 80%, Over 2.5 100%). New England Revolution: 4W-0D-1L (BTTS 80%, Over 2.5 80%).",
       "ai_reasons": [
-        "Taux empirique BTTS global de 80% basé sur les échantillons fournis.",
-        "Taux de BTTS de 80% sur les 5 derniers matchs pour Orlando City et New England Revolution.",
-        "Moyennes de buts élevés avec Orlando à 3 buts/match et New England à 1.67 buts/match."
+        "Taux empirique d'Over 2.5 très élevé à 90 % sur l'échantillon global",
+        "Taux d'Over 2.5 à 100 % sur les 5 derniers matchs d'Orlando City SC",
+        "Moyennes de buts élevées avec 3 buts marqués par match pour Orlando et 1.67 pour New England"
       ],
       "ai_risks": [
-        "La défense de New England encaisse relativement peu (46 buts en 33 matchs au classement général).",
-        "La cote à domicile est fixée à 1.95, indiquant un match potentiellement disputé."
+        "La cote Over 2.5 n'est pas renseignée chez le bookmaker",
+        "New England affiche une défense relativement solide dans l'ensemble (46 buts encaissés en 33 matchs)"
       ],
       "ai_confidence": "high",
       "modelEngine": "gemini-stats-v1",
@@ -8681,19 +8696,18 @@
       "ai_response_status": "pick",
       "predictions": [
         {
-          "type": "BTTS",
+          "type": "Over 2.5",
           "prediction": "Oui",
-          "confidence": 74,
-          "proba": 0.74,
+          "confidence": 75,
+          "proba": 0.75,
           "modelEngine": "gemini-3.5-flash-lite",
-          "bttsProb": 0.74
+          "over25Prob": 0.75
         }
       ],
-      "bttsProb": 0.74,
+      "over25Prob": 0.75,
       "prediction": "Oui",
-      "proba": 0.74,
-      "confidence": 74,
-      "status": "PENDING"
+      "proba": 0.75,
+      "confidence": 75
     },
     {
       "id": "cardiffc-vs-burnley-2026-11-07",
@@ -8857,19 +8871,19 @@
       "statsOnly": true,
       "ai_abstain": false,
       "ai_market": "BTTS",
-      "ai_key_fact": "Burnley enregistre un taux de BTTS de 80% sur ses 5 derniers matchs malgré un bilan de 0 victoire.",
-      "ai_analysis": "Cardiff City et Burnley affichent des statistiques favorables au marché des buts des deux équipes, avec un taux empirique global de 70%. Bien que Burnley traverse une période difficile sans victoire (3 nuls, 2 défaites), l'équipe maintient un taux de BTTS de 80% sur ses 5 dernières sorties. Conjugué aux 3 buts de moyenne offensive de Cardiff, le scénario d'un match avec des buts de part et d'autre est crédible.",
-      "ai_analysis_en": "Cardiff City and Burnley show favorable statistics for both teams to score, with an overall empirical rate of 70%. Although Burnley is going through a difficult winless patch (3 draws, 2 losses), the team maintains an 80% BTTS rate over their last 5 outings. Combined with Cardiff's average of 3 goals, the scenario of goals from both sides is credible.",
-      "ai_form_summary": "Cardiff City : 2W-2D-1L (11 buts pour, 9 contre, 60% BTTS). Burnley : 0W-3D-2L (5 buts pour, 9 contre, 80% BTTS).",
-      "ai_form_summary_en": "Cardiff City: 2W-2D-1L (11 GF, 9 GA, 60% BTTS). Burnley: 0W-3D-2L (5 GF, 9 GA, 80% BTTS).",
+      "ai_key_fact": "Burnley affiche un taux de BTTS de 80% sur ses 5 derniers matchs malgré des difficultés de résultats.",
+      "ai_analysis": "Cardiff City et Burnley se rencontrent avec des statistiques favorables au marché des deux équipes marquent. L'indicateur empirique global s'établit à 70%, tandis que Burnley enregistre un taux de BTTS de 80% sur ses 5 derniers matchs. Malgré la méforme des visiteurs, leurs matchs récents ont souvent vu les deux formations trouver le chemin des filets, appuyé par des défenses perméables (23 et 26 buts encaissés en 14 matchs de championnat).",
+      "ai_analysis_en": "Cardiff City and Burnley meet with statistics favoring the Both Teams to Score market. The overall empirical indicator stands at 70%, while Burnley records an 80% BTTS rate over their last 5 matches. Despite the visitors' poor form, their recent games have frequently seen both sides find the back of the net, supported by leaky defenses (23 and 26 goals conceded in 14 league matches).",
+      "ai_form_summary": "Cardiff City : 2W-2D-1L (BTTS 60%, Over 2.5 80%). Burnley : 0W-3D-2L (BTTS 80%, Over 2.5 60%).",
+      "ai_form_summary_en": "Cardiff City: 2W-2D-1L (BTTS 60%, Over 2.5 80%). Burnley: 0W-3D-2L (BTTS 80%, Over 2.5 60%).",
       "ai_reasons": [
-        "Taux empirique BTTS de 70% sur l'échantillon global.",
-        "Burnley affiche un taux de BTTS de 80% sur ses 5 derniers matchs.",
-        "Cardiff City présente un taux de BTTS de 60% sur ses 5 dernières rencontres."
+        "Taux empirique du BTTS élevé à 70% sur l'ensemble de l'échantillon",
+        "Taux de BTTS de 80% sur les 5 derniers matchs de Burnley",
+        "Cardiff City et Burnley affichent des fragilités défensives notables avec respectivement 23 et 26 buts encaissés en 14 matchs"
       ],
       "ai_risks": [
-        "Burnley en difficulté offensivement sur la forme récente avec seulement 5 buts marqués en 5 matchs.",
-        "Le classement général montre des défenses perméables (23 buts encaissés pour Cardiff, 26 pour Burnley)."
+        "Burnley traverse une période difficile sans victoire sur ses 5 derniers matchs (0W-3D-2L)",
+        "L'attaque de Burnley reste modeste avec seulement 5 buts inscrits sur ses 5 dernières rencontres"
       ],
       "ai_confidence": "medium",
       "modelEngine": "gemini-stats-v1",
@@ -8915,7 +8929,7 @@
       "xgAway": 1.25,
       "xgTotal": 3.75,
       "formBTTS": 70,
-      "analysis": "AS Roma : forme V-V-N-V-N (3V 2N 0D, 14 buts marqués / 7 encaissés sur 5) · Sassuolo : forme D-D-D-D-N (0V 1N 4D, 7 buts marqués / 17 encaissés sur 5). Classement : AS Roma 3e (24 pts), Sassuolo 17e (8 pts). Stats empiriques (forme récente) : buts moy. 3.75, BTTS 70.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.28 / N: 5.75 / 2: 8. Fiabilité 89.38%.",
+      "analysis": "AS Roma : forme V-V-N-V-N (3V 2N 0D, 14 buts marqués / 7 encaissés sur 5) · Sassuolo : forme D-D-D-D-N (0V 1N 4D, 7 buts marqués / 17 encaissés sur 5). Classement : AS Roma 3e (24 pts), Sassuolo 17e (8 pts). Stats empiriques (forme récente) : buts moy. 3.75, BTTS 70.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.27 / N: 5.75 / 2: 8. Fiabilité 89.38%.",
       "analysisData": {
         "empiricalBttsRate": 0.7,
         "empiricalOver25Rate": 0.6,
@@ -8925,7 +8939,7 @@
       },
       "odds": {
         "provider": "DraftKings",
-        "home": 1.28,
+        "home": 1.27,
         "draw": 5.75,
         "away": 8,
         "over25": null,
@@ -9053,19 +9067,19 @@
       "statsOnly": true,
       "ai_abstain": false,
       "ai_market": "BTTS",
-      "ai_key_fact": "Sassuolo encaisse 17 buts sur ses 5 derniers matchs malgré un taux BTTS de 0.8.",
-      "ai_analysis": "L'AS Roma reçoit Sassuolo dans le cadre de la Serie A avec des dynamiques de buts contrastées au classement mais favorables aux deux équipes sur les derniers matchs. Sassuolo concède beaucoup de buts (17 sur ses 5 dernières rencontres) tout en affichant un taux de BTTS récent de 0.8, ce qui compense la solidité relative de la défense romaine. Avec un taux empirique global de 0.7, le match présente des garanties suffisantes pour envisager que les deux équipes marquent.",
-      "ai_analysis_en": "AS Roma hosts Sassuolo in Serie A with contrasting defensive records in the standings but favorable scoring trends in recent matches. Sassuolo concedes heavily (17 goals in their last 5 games) while maintaining a recent BTTS rate of 0.8, which offsets Roma's general defensive solidity. With an empirical BTTS rate of 0.7, the match shows sufficient data backing for both teams to score.",
-      "ai_form_summary": "AS Roma: 3V-2N-0D (14 BP, 7 BC) / Sassuolo: 0V-1N-4D (7 BP, 17 BC)",
-      "ai_form_summary_en": "AS Roma: 3W-2D-0L (14 GF, 7 GA) / Sassuolo: 0W-1D-4L (7 GF, 17 GA)",
+      "ai_key_fact": "Sassuolo encaisse beaucoup (17 buts sur les 5 derniers) mais affiche 80% de BTTS sur cette période.",
+      "ai_analysis": "L'AS Roma accueille Sassuolo avec des statistiques offensives solides mais une défense perméable, affichant un taux empirique BTTS de 70%. Sassuolo concède énormément de buts (17 sur les 5 derniers matchs) tout en parvenant à trouver le chemin des filets, ce qui soutient l'option BTTS Yes. Bien que la Roma soit nettement favorite selon les cotes, la fragilité défensive des visiteurs et leur propension à participer à des matchs ouverts maintiennent cette probabilité autour de 65%.",
+      "ai_analysis_en": "AS Roma hosts Sassuolo with solid offensive stats but a leaky defense, showing an empirical BTTS rate of 70%. Sassuolo concedes heavily (17 goals in their last 5 matches) while still managing to score, supporting the BTTS Yes option. Although Roma is a clear favorite according to odds, the visitors' defensive fragility and tendency to feature in open matches keep this probability around 65%.",
+      "ai_form_summary": "Roma : V-V-N-V-N (3W-2D-0L, 14 buts pour, 7 contre). Sassuolo : D-D-D-D-N (0W-1D-4L, 7 buts pour, 17 contre).",
+      "ai_form_summary_en": "Roma: W-W-D-W-D (3W-2D-0L, 14 GF, 7 GA). Sassuolo: L-L-L-L-D (0W-1D-4L, 7 GF, 17 GA).",
       "ai_reasons": [
-        "Sassuolo affiche un taux de BTTS récent de 0.8 sur ses 5 derniers matchs.",
-        "L'AS Roma présente un taux BTTS empirique de 0.6 et encaisse 7 buts sur ses 5 derniers matchs.",
-        "Le taux BTTS empirique global du match est élevé à 0.7 avec un formBTTS évalué à 70."
+        "Taux empirique BTTS global de 70% basé sur des échantillons de haute qualité",
+        "Sassuolo affiche un taux BTTS de 80% sur ses 5 derniers matchs malgré une mauvaise forme",
+        "AS Roma encaisse régulièrement (7 buts encaissés en 5 matchs) tout en marquant 14 buts"
       ],
       "ai_risks": [
-        "La Roma est 3ème et encaisse relativement peu au classement général (10 buts en 10 matchs), ce qui pourrait limiter les incursions adverses.",
-        "La cote de Sassuolo est très élevée (8.0), suggérant un déséquilibre important en faveur de la Roma."
+        "Sassuolo traverse une série très difficile (4 défaites en 5 matchs) et pourrait être muet à l'extérieur",
+        "La cote de la Roma à domicile est très basse (1.27), ce qui indique un déséquilibre théorique"
       ],
       "ai_confidence": "medium",
       "modelEngine": "gemini-stats-v1",
@@ -9076,16 +9090,16 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 67,
-          "proba": 0.67,
+          "confidence": 65,
+          "proba": 0.65,
           "modelEngine": "gemini-3.5-flash-lite",
-          "bttsProb": 0.67
+          "bttsProb": 0.65
         }
       ],
-      "bttsProb": 0.67,
+      "bttsProb": 0.65,
       "prediction": "Oui",
-      "proba": 0.67,
-      "confidence": 67
+      "proba": 0.65,
+      "confidence": 65
     },
     {
       "id": "raallalo-vs-cerclebr-2026-11-07",
@@ -9249,21 +9263,21 @@
       "statsOnly": true,
       "ai_abstain": false,
       "ai_market": "OVER_25",
-      "ai_key_fact": "Les deux équipes affichent un taux d'Over 2.5 de 0.8 sur leurs 5 derniers matchs.",
-      "ai_analysis": "RAAL La Louvière et le Cercle Brugge KSV s'affrontent en Jupiler Pro League dans une rencontre où les statistiques d'efficacité offensive et défensive penchent nettement vers le spectacle. Les deux formations affichent un taux d'Over 2.5 de 0.8 sur leurs 5 derniers matchs ainsi qu'au niveau empirique global. Les nombreuses lacunes défensives observées au classement (plus de 20 buts encaissés de chaque côté en 10 matchs) renforcent la probabilité de voir plus de 2.5 buts.",
-      "ai_analysis_en": "RAAL La Louvière and Cercle Brugge KSV meet in the Jupiler Pro League in a fixture where scoring and defensive stats strongly point towards goals. Both teams register an Over 2.5 rate of 0.8 in their last 5 matches and identical empirical rates overall. Significant defensive frailties shown in the standings (over 20 goals conceded by each side in 10 games) support a high probability for over 2.5 goals.",
-      "ai_form_summary": "RAAL La Louvière: 2V-0N-3D (9 BP, 11 BC) / Cercle Brugge: 1V-1N-3D (8 BP, 12 BC)",
-      "ai_form_summary_en": "RAAL La Louvière: 2W-0D-3L (9 GF, 11 GA) / Cercle Brugge: 1W-1D-3L (8 GF, 12 GA)",
+      "ai_key_fact": "Cercle Brugge enregistre un taux de 100% de BTTS et 80% d'Over 2.5 sur ses 5 derniers matchs.",
+      "ai_analysis": "La rencontre entre RAAL La Louvière et le Cercle Brugge KSV présente des indicateurs très favorables au marché des buts, avec un taux empirique d'Over 2.5 établi à 80%. Les deux formations affichent des statistiques défensives délicates, concédant respectivement 23 et 22 buts en 10 matchs joués. Les récents matchs de Cercle Brugge illustrent une dynamique particulièrement ouverte avec 100% de matchs BTTS et 80% d'Over 2.5, justifiant une probabilité estimée à 72%.",
+      "ai_analysis_en": "The match between RAAL La Louvière and Cercle Brugge KSV features very favorable indicators for goals markets, with an empirical Over 2.5 rate set at 80%. Both sides show difficult defensive stats, conceding 23 and 22 goals respectively over 10 played matches. Cercle Brugge's recent matches illustrate a particularly open dynamic with 100% BTTS and 80% Over 2.5 rates, justifying an estimated probability of 72%.",
+      "ai_form_summary": "La Louvière : D-V-D-D-V (2W-0D-3L, 9 buts pour, 11 contre). Cercle Brugge : V-D-D-D-N (1W-1D-3L, 8 buts pour, 12 contre).",
+      "ai_form_summary_en": "La Louvière: L-W-L-L-W (2W-0D-3L, 9 GF, 11 GA). Cercle Brugge: W-L-L-L-D (1W-1D-3L, 8 GF, 12 GA).",
       "ai_reasons": [
-        "Le taux empirique d'Over 2.5 est très élevé à 0.8.",
-        "Le taux d'Over 2.5 sur les 5 derniers matchs est de 0.8 pour les deux formations.",
-        "Les deux équipes possèdent des défenses très perméables au classement, avec 23 buts encaissés pour La Louvière et 22 pour le Cercle Brugge en 10 matchs."
+        "Taux empirique Over 2.5 élevé à 80% pour les deux équipes sur leurs 5 derniers matchs",
+        "Taux BTTS de l'équipe visiteuse (Cercle Brugge) atteignant 100% sur la même période",
+        "Moyennes de buts élevés observées (2.25 pour l'équipe à domicile et 1.25 pour l'extérieur)"
       ],
       "ai_risks": [
-        "Les deux équipes luttent en bas de classement (16ème et 17ème), ce qui pourrait parfois crisper les phases offensives si la peur de perdre l'emporte.",
-        "La cote de l'Over 2.5 est fixée à 1.83, intégrant déjà une probabilité implicite notable."
+        "Les deux équipes luttent en bas de classement (rangs 16 et 17), ce qui pourrait engendrer de la nervosité",
+        "Les bilans récents montrent de nombreuses défaites, risquant d'affecter l'efficacité offensive"
       ],
-      "ai_confidence": "high",
+      "ai_confidence": "medium",
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
@@ -9272,16 +9286,16 @@
         {
           "type": "Over 2.5",
           "prediction": "Oui",
-          "confidence": 75,
-          "proba": 0.75,
+          "confidence": 72,
+          "proba": 0.72,
           "modelEngine": "gemini-3.5-flash-lite",
-          "over25Prob": 0.75
+          "over25Prob": 0.72
         }
       ],
-      "over25Prob": 0.75,
+      "over25Prob": 0.72,
       "prediction": "Oui",
-      "proba": 0.75,
-      "confidence": 75
+      "proba": 0.72,
+      "confidence": 72
     },
     {
       "id": "monza-vs-atalanta-2026-11-08",
@@ -9290,7 +9304,7 @@
       "away": "Atalanta",
       "league": "Serie A",
       "date": "2026-11-08",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "time": "14:00",
       "matchSemantic": "monza-vs-atalanta-2026-11-08",
       "source": "empirical-form-data",
@@ -9444,19 +9458,19 @@
       "awayLambda": 1.25,
       "statsOnly": true,
       "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_key_fact": "Monza et Atalanta affichent un taux Over 2.5 de 100% sur leurs récents échantillons.",
-      "ai_analysis": "L'analyse des statistiques observées met en évidence une tendance très nette vers les buts. Monza et Atalanta affichent un taux empirique Over 2.5 de 100% ainsi qu'un taux BTTS de 80%. Les statistiques défensives des deux équipes, avec respectivement 24 et 20 buts encaissés en 10 matchs, renforcent la probabilité d'une rencontre ouverte.",
-      "ai_analysis_en": "Analysis of the observed statistics highlights a very clear trend towards goals. Both Monza and Atalanta show a 100% empirical Over 2.5 rate and an 80% BTTS rate. The defensive stats of both teams, with 24 and 20 goals conceded in 10 matches respectively, strongly support the probability of an open game.",
-      "ai_form_summary": "Monza (1W-0D-4L) et Atalanta (1W-2D-2L) peinent à gagner mais produisent des matchs très ouverts.",
-      "ai_form_summary_en": "Monza (1W-0D-4L) and Atalanta (1W-2D-2L) struggle to win but consistently play in high-scoring games.",
+      "ai_market": "BTTS",
+      "ai_key_fact": "Monza et l'Atalanta affichent toutes deux un taux BTTS de 80% et un taux Over 2.5 de 100%.",
+      "ai_analysis": "L'analyse des statistiques observées met en évidence une forte propension des deux équipes à marquer et à concéder des buts. Monza et l'Atalanta affichent un taux BTTS empirique de 80% ainsi qu'un taux Over 2.5 de 100% sur leurs derniers échantillons. Les difficultés défensives des deux formations, illustrées par des totaux de buts encaissés élevés en Serie A, renforcent la probabilité de voir les deux équipes trouver le chemin des filets.",
+      "ai_analysis_en": "Analysis of the observed statistics highlights a strong propensity for both teams to score and concede goals. Monza and Atalanta show an empirical BTTS rate of 80% and a 100% Over 2.5 rate in their recent samples. The defensive difficulties of both sides, illustrated by high goals-against totals in Serie A, reinforce the probability of both teams finding the back of the net.",
+      "ai_form_summary": "Monza (1W-0D-4L) : 9 buts pour, 12 buts contre. Atalanta (1W-2D-2L) : 11 buts pour, 13 buts contre.",
+      "ai_form_summary_en": "Monza (1W-0D-4L): 9 goals for, 12 goals against. Atalanta (1W-2D-2L): 11 goals for, 13 goals against.",
       "ai_reasons": [
-        "Taux empirique Over 2.5 à 100% pour Monza et Atalanta sur le dernier échantillon.",
-        "Taux de BTTS élevé à 80% pour les deux formations.",
-        "Défenses en difficulté avec Monza encaissant 24 buts et Atalanta 20 buts en 10 matchs."
+        "Taux BTTS empirique très élevé à 80% pour les deux équipes.",
+        "Taux Over 2.5 de 100% sur les échantillons récents de Monza et de l'Atalanta.",
+        "Défenses perméables avec 24 buts encaissés en 10 matchs pour Monza et 20 pour l'Atalanta."
       ],
       "ai_risks": [
-        "Atalanta à l'extérieur pourrait verrouiller face au relégable Monza."
+        "L'Atalanta reste favorite à l'extérieur avec une cote de 2.0 et pourrait verrouiller le score si elle mène."
       ],
       "ai_confidence": "high",
       "modelEngine": "gemini-stats-v1",
@@ -9465,18 +9479,19 @@
       "ai_response_status": "pick",
       "predictions": [
         {
-          "type": "Over 2.5",
+          "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 75,
-          "proba": 0.75,
+          "confidence": 72,
+          "proba": 0.72,
           "modelEngine": "gemini-3.5-flash-lite",
-          "over25Prob": 0.75
+          "bttsProb": 0.72
         }
       ],
-      "over25Prob": 0.75,
+      "bttsProb": 0.72,
       "prediction": "Oui",
-      "proba": 0.75,
-      "confidence": 75
+      "proba": 0.72,
+      "confidence": 72,
+      "status": "PENDING"
     },
     {
       "id": "austinfc-vs-portland-2026-11-08",
@@ -9640,18 +9655,19 @@
       "statsOnly": true,
       "ai_abstain": false,
       "ai_market": "BTTS",
-      "ai_key_fact": "Austin FC et Portland Timbers ont encaissé à eux deux plus de 120 buts cette saison en MLS.",
-      "ai_analysis": "Les données observées indiquent un match propice aux buts des deux côtés. Austin FC présente un taux BTTS de 100% sur ses derniers matchs, tandis que les deux formations affichent des bilans défensifs très lourds avec plus de 60 buts concédés chacune en 33 rencontres. Le taux BTTS empirique global s'établit à 80%.",
-      "ai_analysis_en": "The observed data indicate a match favorable to goals from both sides. Austin FC shows a 100% BTTS rate in recent matches, while both teams exhibit very heavy defensive records with over 60 goals conceded each in 33 games. The overall empirical BTTS rate stands at 80%.",
-      "ai_form_summary": "Austin FC (1W-0D-4L) est en difficulté mais marque régulièrement, face à des Timbers (3W-1D-1L) en meilleure forme.",
-      "ai_form_summary_en": "Austin FC (1W-0D-4L) struggles but regularly scores, facing Timbers (3W-1D-1L) in better form.",
+      "ai_key_fact": "Austin FC et Portland Timbers comptent respectivement 63 et 61 buts encaissés en 33 matchs de MLS.",
+      "ai_analysis": "Les statistiques globales de la saison et les formes récentes indiquent de sérieux problèmes défensifs pour les deux franchises de MLS. Austin FC encaisse beaucoup (63 buts au total) mais marque régulièrement à domicile, affichant un taux BTTS de 100% sur ses cinq dernières sorties. Portland, avec 60 buts marqués et 61 encaissés, participe fréquemment à des rencontres ouvertes, rendant l'option BTTS Yes très cohérente.",
+      "ai_analysis_en": "Overall season statistics and recent forms indicate serious defensive problems for both MLS franchises. Austin FC concedes heavily (63 total goals) but scores regularly at home, posting a 100% BTTS rate in their last five outings. Portland, with 60 goals scored and 61 conceded, frequently features in open matches, making the BTTS Yes option highly consistent.",
+      "ai_form_summary": "Austin FC (1W-0D-4L) encaisse 12 buts sur ses 5 derniers matchs. Portland Timbers (3W-1D-1L) est en meilleure forme avec 9 buts marqués et 7 encaissés.",
+      "ai_form_summary_en": "Austin FC (1W-0D-4L) conceded 12 goals in their last 5 matches. Portland Timbers (3W-1D-1L) is in better form with 9 goals scored and 7 conceded.",
       "ai_reasons": [
-        "Taux BTTS empirique de 80% combiné (100% pour Austin FC et 60% pour Portland Timbers).",
-        "Défenses particulièrement perméables avec 63 buts encaissés pour Austin et 61 pour Portland.",
-        "Austin affiche un taux Over 2.5 de 100% sur ses derniers matchs."
+        "Taux empirique BTTS de 80% pour Austin FC et 60% pour Portland Timbers.",
+        "Défenses très perméables sur l'ensemble de la saison : 63 buts encaissés pour Austin FC et 61 pour Portland en 33 matchs.",
+        "Taux BTTS de 100% pour Austin FC sur ses 5 derniers matchs."
       ],
       "ai_risks": [
-        "Portland Timbers montre une forme récente plus solide (3 victoires sur les 5 derniers matchs)."
+        "Portland Timbers affiche une forme récente plus solide (3W-1D-1L) qui pourrait étouffer l'attaque adverse.",
+        "Austin FC a un bilan à domicile délicat avec 4 défaites sur ses 5 derniers matchs."
       ],
       "ai_confidence": "medium",
       "modelEngine": "gemini-stats-v1",
@@ -9866,7 +9882,8 @@
       "bttsProb": 0.72,
       "prediction": "Oui",
       "proba": 0.72,
-      "confidence": 72
+      "confidence": 72,
+      "status": "PENDING"
     },
     {
       "id": "sandiego-vs-sporting-2026-11-08",
@@ -10061,7 +10078,8 @@
       "bttsProb": 0.7,
       "prediction": "Oui",
       "proba": 0.7,
-      "confidence": 70
+      "confidence": 70,
+      "status": "PENDING"
     },
     {
       "id": "minnesot-vs-sanjosee-2026-11-08",
@@ -10256,7 +10274,8 @@
       "bttsProb": 0.72,
       "prediction": "Oui",
       "proba": 0.72,
-      "confidence": 72
+      "confidence": 72,
+      "status": "PENDING"
     },
     {
       "id": "scfreibu-vs-fcunionb-2026-11-08",
@@ -10265,7 +10284,7 @@
       "away": "1. FC Union Berlin",
       "league": "Bundesliga",
       "date": "2026-11-08",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "time": "16:30",
       "matchSemantic": "scfreibu-vs-fcunionb-2026-11-08",
       "source": "empirical-form-data",
@@ -10419,20 +10438,19 @@
       "awayLambda": 0.33,
       "statsOnly": true,
       "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_key_fact": "SC Freiburg enregistre un taux Over 2.5 de 100% sur ses 5 derniers matchs à domicile.",
-      "ai_analysis": "SC Freiburg présente des statistiques offensives très dynamiques à domicile avec 3 buts de moyenne et un taux Over 2.5 de 100% sur ses 5 derniers matchs. Bien qu'Union Berlin propose des chiffres plus fermés avec un taux de 20% et une moyenne extérieure de 0.33, la forte production de Freiburg à elle seule pousse la probabilité de l'Over 2.5 au-dessus du seuil de valeur.",
-      "ai_analysis_en": "SC Freiburg displays very dynamic home offensive statistics with an average of 3 goals and a 100% Over 2.5 rate over their last 5 matches. Although Union Berlin offers tighter figures with a 20% rate and an away average of 0.33, Freiburg's high production alone pushes the Over 2.5 probability above the value threshold.",
-      "ai_form_summary": "SC Freiburg (2V-1N-2L) avec 8 buts pour et 9 contre. Union Berlin (1V-3N-1L) avec 3 buts pour et 9 contre.",
-      "ai_form_summary_en": "SC Freiburg (2W-1D-2L) with 8 goals for and 9 against. Union Berlin (1W-3D-1L) with 3 goals for and 9 against.",
+      "ai_market": "BTTS",
+      "ai_key_fact": "SC Freiburg affiche un taux BTTS de 100% sur ses 5 derniers matchs malgré la faiblesse offensive récente d'Union Berlin.",
+      "ai_analysis": "Le SC Freiburg montre une dynamique offensive et défensive très ouverte avec un taux BTTS de 100% sur ses 5 derniers matchs et 18 buts marqués en 8 rencontres de Bundesliga. Bien que l'Union Berlin présente des statistiques plus hermétiques à l'extérieur, le taux empirique global de 70% et la forme récente de Freiburg inclinent vers une sélection positive sur le BTTS.",
+      "ai_analysis_en": "SC Freiburg shows a very open offensive and defensive dynamic with a 100% BTTS rate in their last 5 matches and 18 goals scored in 8 Bundesliga games. Although Union Berlin displays tighter stats away, the overall empirical BTTS rate of 70% and Freiburg's recent form lean towards a positive selection on BTTS.",
+      "ai_form_summary": "SC Freiburg irrégulier mais prolifique (2W-1D-2L, 8 buts pour, 9 contre) ; Union Berlin en difficulté (1W-3D-1L, 3 buts pour, 9 contre).",
+      "ai_form_summary_en": "SC Freiburg irregular but prolific (2W-1D-2L, 8 GF, 9 GA); Union Berlin struggling (1W-3D-1L, 3 GF, 9 GA).",
       "ai_reasons": [
-        "SC Freiburg affiche un taux Over 2.5 de 100% sur ses 5 derniers matchs.",
-        "La moyenne de buts de Freiburg à domicile s'élève à 3 buts par match.",
-        "Le taux empirique global Over 2.5 est de 60% pour cette affiche."
+        "Le SC Freiburg affiche un taux BTTS de 100% sur ses 5 derniers matchs.",
+        "Le taux BTTS empirique global s'établit à 70%.",
+        "SC Freiburg a inscrit 18 buts en 8 matchs de championnat."
       ],
       "ai_risks": [
-        "Union Berlin a un taux Over 2.5 de seulement 20% sur ses 5 derniers matchs.",
-        "La moyenne de buts à l'extérieur d'Union Berlin est très faible à 0.33."
+        "Union Berlin a un taux BTTS récent plus faible à 40% et un faible total de buts à l'extérieur (0.33 par match)."
       ],
       "ai_confidence": "medium",
       "modelEngine": "gemini-stats-v1",
@@ -10441,15 +10459,15 @@
       "ai_response_status": "pick",
       "predictions": [
         {
-          "type": "Over 2.5",
+          "type": "BTTS",
           "prediction": "Oui",
           "confidence": 65,
           "proba": 0.65,
           "modelEngine": "gemini-3.5-flash-lite",
-          "over25Prob": 0.65
+          "bttsProb": 0.65
         }
       ],
-      "over25Prob": 0.65,
+      "bttsProb": 0.65,
       "prediction": "Oui",
       "proba": 0.65,
       "confidence": 65
@@ -10616,19 +10634,19 @@
       "statsOnly": true,
       "ai_abstain": false,
       "ai_market": "BTTS",
-      "ai_key_fact": "Twente et Ajax affichent respectivement 28 et 30 buts marqués en 11 matchs de championnat.",
-      "ai_analysis": "L'analyse des statistiques observe un taux BTTS empirique de 70% pour cette affiche d'Eredivisie. Les deux formations montrent de belles dispositions offensives avec 28 buts pour Twente et 30 pour l'Ajax après 11 rencontres. Les taux de BTTS récents soutiennent cette tendance malgré la solidité défensive relative de Twente.",
-      "ai_analysis_en": "Statistical analysis shows an empirical BTTS rate of 70% for this Eredivisie fixture. Both teams display strong offensive output with 28 goals for Twente and 30 for Ajax after 11 matches. Recent BTTS rates support this trend despite Twente's relative defensive solidity.",
-      "ai_form_summary": "Twente : 3V-1D-1L (16 BP, 5 BC), Ajax : 3V-2D-0L (11 BP, 6 BC)",
-      "ai_form_summary_en": "Twente: 3W-1D-1L (16 GF, 5 GA), Ajax: 3W-2D-0L (11 GF, 6 GA)",
+      "ai_key_fact": "L'Ajax présente un taux BTTS de 80% et Twente affiche un taux empirique global de 70%.",
+      "ai_analysis": "L'affiche entre le FC Twente et l'Ajax Amsterdam réunit deux formations prolifiques en Eredivisie. Les statistiques empiriques montrent un taux BTTS de 70%, renforcé par les 80% de matchs avec buts des deux côtés pour l'Ajax lors de ses cinq dernières sorties. Bien que Twente dispose d'une arrière-garde solide, la puissance de feu des visiteurs (30 buts marqués) suggère des opportunités de part et d'autre.",
+      "ai_analysis_en": "The clash between FC Twente and Ajax Amsterdam features two prolific sides in the Eredivisie. Empirical statistics show a 70% BTTS rate, supported by Ajax's 80% BTTS rate over their last five outings. Although Twente possesses a solid defense, the visitors' attacking power (30 goals scored) suggests scoring opportunities at both ends.",
+      "ai_form_summary": "Twente : 3V-1D-1N (16 buts pour, 5 contre). Ajax : 3V-2D-0N (11 buts pour, 6 contre).",
+      "ai_form_summary_en": "Twente: 3W-1D-1L (16 goals for, 5 against). Ajax: 3W-2D-0L (11 goals for, 6 against).",
       "ai_reasons": [
         "Taux BTTS empirique élevé à 70% sur les échantillons fournis.",
-        "Taux BTTS de la forme récente des deux équipes (60% Twente, 80% Ajax).",
-        "Solides statistiques offensives avec Twente (28 GF) et Ajax (30 GF) en championnat."
+        "Taux BTTS de l'équipe visiteuse (Ajax) à 80% sur ses 5 derniers matchs.",
+        "Bonnes capacités offensives : 28 buts marqués par Twente et 30 par l'Ajax en championnat."
       ],
       "ai_risks": [
-        "La défense de Twente est relativement hermétique avec seulement 10 buts encaissés en 11 matchs.",
-        "Cote du marché incertaine pour le Over 2.5 mais les tendances de buts restent favorables."
+        "La défense de Twente n'a concédé que 10 buts en 11 matchs de championnat.",
+        "Le taux Over 2.5 est modéré à 60% malgré de fortes statistiques offensives."
       ],
       "ai_confidence": "medium",
       "modelEngine": "gemini-stats-v1",
@@ -10812,19 +10830,19 @@
       "statsOnly": true,
       "ai_abstain": false,
       "ai_market": "OVER_25",
-      "ai_key_fact": "Kilmarnock présente un taux Over 2.5 de 100% sur ses cinq derniers matchs.",
-      "ai_analysis": "Les données indiquent un taux Over 2.5 empirique de 80% ainsi qu'une moyenne de 3 buts par match pour Celtic à domicile. Kilmarnock affiche de son côté un taux de 100% d'Over 2.5 sur ses cinq dernières rencontres malgré une moyenne extérieure plus modeste. Ces éléments confirment une forte propension aux matchs ouverts.",
-      "ai_analysis_en": "The data indicates an empirical Over 2.5 rate of 80% along with a 3-goal home average for Celtic. Kilmarnock records a 100% Over 2.5 rate in their last five matches despite a lower away average. These factors confirm a strong tendency for high-scoring games.",
-      "ai_form_summary": "Celtic : 3V-1D-1L (13 BP, 6 BC), Kilmarnock : 1V-1D-3L (7 BP, 13 BC)",
-      "ai_form_summary_en": "Celtic: 3W-1D-1L (13 GF, 6 GA), Kilmarnock: 1W-1D-3L (7 GF, 13 GA)",
+      "ai_key_fact": "Kilmarnock enregistre un taux Over 2.5 de 100% sur ses cinq derniers matchs avec une défense perméable.",
+      "ai_analysis": "La rencontre entre le Celtic et Kilmarnock présente un profil favorable au marché des buts, porté par un taux empirique Over 2.5 de 80%. Kilmarnock affiche 100% de matchs au-dessus de 2.5 buts sur ses cinq dernières sorties malgré des difficultés offensives. De son côté, le Celtic domine le classement avec 27 buts inscrits et une moyenne offensive de 3 buts par match sur l'échantillon.",
+      "ai_analysis_en": "The fixture between Celtic and Kilmarnock presents a favorable profile for goals, driven by an 80% empirical Over 2.5 rate. Kilmarnock records a 100% Over 2.5 rate over their last five outings despite offensive struggles. Meanwhile, Celtic leads the standings with 27 goals scored and a 3-goal match average in the sample.",
+      "ai_form_summary": "Celtic : 3V-1D-1N (13 buts pour, 6 contre). Kilmarnock : 1V-1D-3N (7 buts pour, 13 contre).",
+      "ai_form_summary_en": "Celtic: 3W-1D-1L (13 goals for, 6 against). Kilmarnock: 1W-1D-3L (7 goals for, 13 against).",
       "ai_reasons": [
-        "Taux Over 2.5 empirique très élevé à 80% pour ce match.",
-        "Taux Over 2.5 de la forme récente de Kilmarnock à 100%.",
-        "Moyenne de buts de Celtic à domicile de 3.0 par match sur l'échantillon."
+        "Taux empirique Over 2.5 élevé à 80% sur l'échantillon global.",
+        "Taux Over 2.5 de Kilmarnock à 100% sur ses 5 derniers matchs.",
+        "Celtic affiche une moyenne de 3 buts marqués par match sur son échantillon."
       ],
       "ai_risks": [
-        "La moyenne de buts de Kilmarnock à l'extérieur est faible (0.6).",
-        "La cote de Celtic est très basse (1.17), traduisant un déséquilibre important dans la rencontre."
+        "La moyenne de buts de Kilmarnock est faible (0.6 par match) sur l'échantillon.",
+        "La défense de Celtic est rigoureuse avec seulement 10 buts encaissés en 12 matchs."
       ],
       "ai_confidence": "high",
       "modelEngine": "gemini-stats-v1",
