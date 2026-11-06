@@ -38,6 +38,8 @@ const CODE_ONLY_DATA_FILES = new Set([
   'team-context.json',
 ])
 const CODE_ONLY_DATA_DIRS = ['predictions-archive/']
+const HISTORY_JSON_ONLY_FILES = new Set(['win-history.json', 'history-exclusions.json'])
+const REQUIRED_HISTORY_JSON_PATHS = ['history-exclusions.json', 'win-history.json']
 const EXPLICIT_ROOT_UPLOADS = ['robots.txt', 'sitemap.xml']
 const REQUIRED_ROOT_FILES = ['.htaccess', ...EXPLICIT_ROOT_UPLOADS]
 
@@ -68,15 +70,21 @@ function isCodeOnlyDataPath(rel) {
   return CODE_ONLY_DATA_FILES.has(rel) || CODE_ONLY_DATA_DIRS.some(prefix => rel.startsWith(prefix))
 }
 
-function getDifferentialPaths(diffStats, { codeOnly }) {
+function getDifferentialPaths(diffStats, { codeOnly, historyJsonMode }) {
   if (!diffStats || typeof diffStats !== 'object' || diffStats.schemaVersion !== 2) {
     throw new Error('Diff absent/invalide: un deploy-diff-stats.json v2 obligatoire est requis; transfert intégral refusé')
   }
   if (diffStats.codeOnlyMode !== codeOnly || diffStats.remoteManifestMustNotBePublished !== codeOnly) {
     throw new Error('Mode du diff incompatible avec le mode de déploiement demandé')
   }
+  if ((diffStats.historyJsonMode ?? false) !== historyJsonMode || (historyJsonMode && !codeOnly)) {
+    throw new Error('Mode history-json incompatible avec le mode code-only demandé')
+  }
   for (const field of ['newPaths', 'changedPaths', 'missingOnRemote', 'codeOnlyExcludedPaths']) {
     if (!Array.isArray(diffStats[field])) throw new Error(`Diff v2 invalide: ${field} doit être un tableau`)
+  }
+  if (historyJsonMode && diffStats.codeOnlyExcludedPaths.some(path => HISTORY_JSON_ONLY_FILES.has(path))) {
+    throw new Error('Le diff exclut un JSON historique requis par le mode ciblé')
   }
   const paths = [...diffStats.newPaths, ...diffStats.changedPaths, ...diffStats.missingOnRemote]
   if (new Set(paths).size !== paths.length) throw new Error('Diff v2 invalide: doublon entre les listes de chemins')
@@ -115,15 +123,15 @@ function buildLftpCommands(uploadPaths, { explicitRootFiles, codeOnly }) {
 
 /**
  * @param {object} manifest
- * @param {{ codeOnly?: boolean, diffStats?: any }} options
+ * @param {{ codeOnly?: boolean, historyJsonMode?: boolean, diffStats?: any }} options
  */
-export function buildUploadPlan(manifest, { codeOnly = false, diffStats } = {}) {
+export function buildUploadPlan(manifest, { codeOnly = false, historyJsonMode = false, diffStats } = {}) {
   if (!manifest || typeof manifest !== 'object' || !manifest.files || typeof manifest.files !== 'object' || Array.isArray(manifest.files)) {
     throw new Error('Manifeste local invalide: files doit être un objet')
   }
   const entries = Object.entries(manifest.files)
   if (!entries.length) throw new Error('Manifeste local vide: refus de créer une allowlist de transfert')
-  const { paths: differentialPaths, codeOnlyExcludedPaths: statsExcludedDataPaths } = getDifferentialPaths(diffStats, { codeOnly })
+  const { paths: differentialPaths, codeOnlyExcludedPaths: statsExcludedDataPaths } = getDifferentialPaths(diffStats, { codeOnly, historyJsonMode })
 
   const fileMeta = new Map()
   for (const [rawPath, meta] of entries) {
@@ -162,7 +170,7 @@ export function buildUploadPlan(manifest, { codeOnly = false, diffStats } = {}) 
       excludedInternalPaths.push(rel)
       continue
     }
-    if (codeOnly && isCodeOnlyDataPath(rel)) {
+    if (codeOnly && isCodeOnlyDataPath(rel) && !(historyJsonMode && HISTORY_JSON_ONLY_FILES.has(rel))) {
       excludedDataSet.add(rel)
       continue
     }
@@ -170,6 +178,12 @@ export function buildUploadPlan(manifest, { codeOnly = false, diffStats } = {}) 
   }
   const uniqueUploadPaths = [...new Set(uploadPaths)].sort()
   if (uniqueUploadPaths.length !== uploadPaths.length) throw new Error('Diff invalide: chemins d’upload dupliqués')
+  if (historyJsonMode) {
+    const dataUploadPaths = uniqueUploadPaths.filter(isCodeOnlyDataPath).sort()
+    if (JSON.stringify(dataUploadPaths) !== JSON.stringify(REQUIRED_HISTORY_JSON_PATHS)) {
+      throw new Error('Mode history-json refusé: l’allowlist doit contenir exactement win-history.json et history-exclusions.json parmi les données')
+    }
+  }
   for (const rel of excludedDataSet) excludedDataPaths.push(rel)
   excludedDataPaths.sort()
 
@@ -178,10 +192,11 @@ export function buildUploadPlan(manifest, { codeOnly = false, diffStats } = {}) 
   const protectedRootFiles = REQUIRED_ROOT_FILES.map(rel => ({ path: rel, ...fileMeta.get(rel) }))
   const commands = buildLftpCommands(uniqueUploadPaths, { explicitRootFiles, codeOnly })
 
-  return {
+  const plan = {
     schemaVersion: 1,
     generatedAt: new Date().toISOString(),
     codeOnly,
+    historyJsonMode,
     manifestFileCount: fileMeta.size,
     diffFileCount: differentialPaths.length,
     uploadFileCount: uniqueUploadPaths.length,
@@ -195,8 +210,45 @@ export function buildUploadPlan(manifest, { codeOnly = false, diffStats } = {}) 
     explicitRootFiles,
     protectedRootFiles,
     remoteManifestUpdated: !codeOnly,
-    policy: 'Transfert strictement différentiel par commandes LFTP put exactes issues du diff v2 validé contre le manifeste distant complet, une commande par fichier. Aucun mirror/delete. En code-only, les JSON de pronostics/historiques/archives sont exclus et le manifeste distant n’est pas remplacé. robots.txt et sitemap.xml sont envoyés explicitement après les actifs; .htaccess est exclu et publié séparément après succès.',
+    policy: 'Transfert strictement différentiel par commandes LFTP put exactes issues du diff v2 validé contre le manifeste distant complet, une commande par fichier. Aucun mirror/delete. En code-only, les données et archives sont exclues; le mode history-json n’autorise que win-history.json et history-exclusions.json, et le manifeste distant n’est pas remplacé. robots.txt et sitemap.xml sont envoyés explicitement après les actifs; .htaccess est exclu et publié séparément après succès.',
   }
+  if (historyJsonMode) assertHistoryJsonOnlyPlan(plan, diffStats)
+  return plan
+}
+
+export function assertHistoryJsonOnlyPlan(plan, diffStats) {
+  if (!plan || plan.codeOnly !== true || plan.historyJsonMode !== true || plan.remoteManifestUpdated !== false) {
+    throw new Error('Plan history-json invalide: il doit rester code-only et ne pas publier le manifeste distant')
+  }
+  if (!diffStats || diffStats.codeOnlyMode !== true || diffStats.historyJsonMode !== true || diffStats.remoteManifestMustNotBePublished !== true || plan.diffFileCount !== diffStats.changedCount) {
+    throw new Error('Plan history-json invalide: modes ou compteurs diff incohérents')
+  }
+  if (!Array.isArray(plan.uploadPaths) || !Array.isArray(plan.commands) || new Set(plan.uploadPaths).size !== plan.uploadPaths.length || plan.uploadFileCount !== plan.uploadPaths.length || plan.commandCount !== plan.commands.length) {
+    throw new Error('Plan history-json invalide: chemins/commandes absents, dupliqués ou mal comptés')
+  }
+  const dataUploadPaths = plan.uploadPaths.filter(isCodeOnlyDataPath).sort()
+  if (JSON.stringify(dataUploadPaths) !== JSON.stringify(REQUIRED_HISTORY_JSON_PATHS)) {
+    throw new Error('Plan history-json invalide: seuls win-history.json et history-exclusions.json sont autorisés parmi les données')
+  }
+  if (diffStats.codeOnlyExcludedPaths.some(path => HISTORY_JSON_ONLY_FILES.has(path))) {
+    throw new Error('Plan history-json invalide: un JSON requis figure encore parmi les exclusions')
+  }
+  const protectedPutCommands = (Array.isArray(plan.commands) ? plan.commands : []).flatMap(command => {
+    const match = command.match(/^put '([^']+)' -o '([^']+)'$/)
+    if (!match || !isCodeOnlyDataPath(match[1])) return []
+    return [{ source: match[1], destination: match[2] }]
+  }).sort((a, b) => a.source.localeCompare(b.source))
+  const expectedCommands = REQUIRED_HISTORY_JSON_PATHS.map(path => ({ source: path, destination: `./${path}` }))
+  if (JSON.stringify(protectedPutCommands) !== JSON.stringify(expectedCommands)) {
+    throw new Error('Plan history-json invalide: les commandes LFTP data ne correspondent pas exactement aux deux chemins autorisés')
+  }
+  for (const path of REQUIRED_HISTORY_JSON_PATHS) {
+    const exactCommand = `put '${path}' -o './${path}'`
+    if (plan.commands.filter(command => command === exactCommand).length !== 1) {
+      throw new Error(`Plan history-json invalide: commande LFTP absente ou dupliquée pour ${path}`)
+    }
+  }
+  return true
 }
 
 export function buildTransferReport(plan, logText, ftpExitCode) {
@@ -212,6 +264,7 @@ export function buildTransferReport(plan, logText, ftpExitCode) {
     schemaVersion: 1,
     generatedAt: new Date().toISOString(),
     codeOnly: plan.codeOnly,
+    historyJsonMode: plan.historyJsonMode === true,
     status: ftpExitCode === 0 ? 'success' : 'failed',
     ftpExitCode,
     diffFileCount: plan.diffFileCount,
@@ -243,16 +296,20 @@ function runCli() {
   const args = readArgs(rawArgs)
   if (command === 'plan') {
     if (!args.manifest || !args['diff-stats'] || !args['script-file'] || !args.plan) {
-      throw new Error('Usage: plan --manifest=... --diff-stats=... --script-file=... --plan=... [--code-only=true]')
+      throw new Error('Usage: plan --manifest=... --diff-stats=... --script-file=... --plan=... [--code-only=true] [--history-json-only=true]')
     }
     const manifest = JSON.parse(fs.readFileSync(args.manifest, 'utf8'))
     const diffStats = JSON.parse(fs.readFileSync(args['diff-stats'], 'utf8'))
-    const plan = buildUploadPlan(manifest, { codeOnly: args['code-only'] === 'true', diffStats })
+    const plan = buildUploadPlan(manifest, {
+      codeOnly: args['code-only'] === 'true',
+      historyJsonMode: args['history-json-only'] === 'true',
+      diffStats,
+    })
     fs.mkdirSync(path.dirname(path.resolve(args['script-file'])), { recursive: true })
     fs.mkdirSync(path.dirname(path.resolve(args.plan)), { recursive: true })
     fs.writeFileSync(args['script-file'], `${plan.commands.join('\n')}\n`)
     fs.writeFileSync(args.plan, `${JSON.stringify(plan, null, 2)}\n`)
-    console.log(`[ftp-allowlist] codeOnly=${plan.codeOnly}; diff=${plan.diffFileCount}; files=${plan.uploadFileCount}; commands=${plan.commandCount}; bytes=${plan.uploadBytes}; dataExcluded=${plan.excludedDataPaths.length}; roots=${EXPLICIT_ROOT_UPLOADS.join(',')}`)
+    console.log(`[ftp-allowlist] codeOnly=${plan.codeOnly}; historyJsonMode=${plan.historyJsonMode}; diff=${plan.diffFileCount}; files=${plan.uploadFileCount}; commands=${plan.commandCount}; bytes=${plan.uploadBytes}; dataExcluded=${plan.excludedDataPaths.length}; roots=${EXPLICIT_ROOT_UPLOADS.join(',')}`)
     return
   }
   if (command === 'report') {

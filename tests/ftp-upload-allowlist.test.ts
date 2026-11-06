@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { buildTransferReport, buildUploadPlan } from '../scripts/prepare-ftp-upload-allowlist.mjs'
+import { assertHistoryJsonOnlyPlan, buildTransferReport, buildUploadPlan } from '../scripts/prepare-ftp-upload-allowlist.mjs'
 
 const manifest = (files: Record<string, string>) => ({
   fileCount: Object.keys(files).length,
@@ -8,10 +8,13 @@ const manifest = (files: Record<string, string>) => ({
 
 const diffStats = (paths: string[], {
   codeOnly = true,
+  historyJsonMode = false,
   excluded = [],
-}: { codeOnly?: boolean; excluded?: string[] } = {}) => ({
+}: { codeOnly?: boolean; historyJsonMode?: boolean; excluded?: string[] } = {}) => ({
   schemaVersion: 2,
+  changedCount: paths.length,
   codeOnlyMode: codeOnly,
+  historyJsonMode,
   remoteManifestMustNotBePublished: codeOnly,
   newPaths: paths,
   changedPaths: [],
@@ -81,6 +84,52 @@ describe('validated FTP upload allowlist', () => {
     expect(plan.commands.indexOf("put 'robots.txt' -o './robots.txt'")).toBeGreaterThan(
       plan.commands.indexOf("put 'team-media/crest.jpg' -o './team-media/crest.jpg'"),
     )
+  })
+
+  it('allows exactly the two forced history JSON files in targeted code-only mode', () => {
+    const historyPaths = ['history-exclusions.json', 'win-history.json']
+    const excludedPaths = [
+      'predictions-archive/old.json', 'predictions.json', 'team-context.json',
+      'transfers.json', 'vip-combos.json',
+    ]
+    const paths = ['index.html', ...historyPaths, ...excludedPaths]
+    const stats = diffStats(paths, { historyJsonMode: true, excluded: excludedPaths })
+    const plan = buildUploadPlan(manifest({
+      '.htaccess': 'htaccess',
+      'robots.txt': 'robots',
+      'sitemap.xml': 'sitemap',
+      'index.html': 'code',
+      'history-exclusions.json': 'exclusions',
+      'win-history.json': 'history',
+      'predictions.json': 'predictions',
+      'predictions-archive/old.json': 'archive',
+      'team-context.json': 'context',
+      'transfers.json': 'transfers',
+      'vip-combos.json': 'vip',
+    }), { codeOnly: true, historyJsonMode: true, diffStats: stats })
+
+    expect(plan.uploadPaths).toEqual(['history-exclusions.json', 'index.html', 'win-history.json'])
+    expect(plan.uploadPaths.filter(path => /^(?:predictions|win-history|history-exclusions|transfers|vip-combos|team-context)\.json$/.test(path) || path.startsWith('predictions-archive/')))
+      .toEqual(historyPaths)
+    expect(plan.excludedDataPaths).toEqual(excludedPaths)
+    expect(plan.remoteManifestUpdated).toBe(false)
+    expect(plan.commands).toContain("put 'history-exclusions.json' -o './history-exclusions.json'")
+    expect(plan.commands).toContain("put 'win-history.json' -o './win-history.json'")
+    expect(assertHistoryJsonOnlyPlan(plan, stats)).toBe(true)
+    const unsafePlan = {
+      ...plan,
+      uploadPaths: [...plan.uploadPaths, 'predictions.json'],
+      commands: [...plan.commands, "put 'predictions.json' -o './predictions.json'"],
+      uploadFileCount: plan.uploadFileCount + 1,
+      commandCount: plan.commandCount + 1,
+    }
+    expect(() => assertHistoryJsonOnlyPlan(unsafePlan, stats)).toThrow(/seuls win-history\.json et history-exclusions\.json/)
+
+    const withoutWinHistory = diffStats(['history-exclusions.json'], { historyJsonMode: true })
+    expect(() => buildUploadPlan(manifest({
+      '.htaccess': 'htaccess', 'robots.txt': 'robots', 'sitemap.xml': 'sitemap',
+      'history-exclusions.json': 'exclusions', 'win-history.json': 'history',
+    }), { codeOnly: true, historyJsonMode: true, diffStats: withoutWinHistory })).toThrow(/exactement win-history\.json et history-exclusions\.json/)
   })
 
   it('filters code-only data even if a malformed diff includes it, while retaining media and JSON-named app chunks', () => {

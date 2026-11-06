@@ -89,6 +89,77 @@ describe('ftp-diff forced paths', () => {
     expect(deployList).not.toContain('^team-context\\.json$')
   })
 
+  it('forces only the two history JSON paths in targeted code-only mode', () => {
+    const { root, outDir, script } = makeFixture()
+    const files = {
+      'index.html': 'current code page\n',
+      'history-exclusions.json': '{"entries":[]}\n',
+      'win-history.json': '{"history":[]}\n',
+      'predictions.json': '{"predictions":[]}\n',
+      'transfers.json': '{"transfers":[]}\n',
+      'vip-combos.json': '{"combos":[]}\n',
+      'team-context.json': '{"teams":[]}\n',
+      'predictions-archive/old.json': '{"archive":[]}\n',
+    }
+    const previousFiles: Record<string, { hash: string; size: number }> = {}
+    let previousTotalBytes = 0
+    for (const [rel, content] of Object.entries(files)) {
+      const fullPath = path.join(outDir, rel)
+      mkdirSync(path.dirname(fullPath), { recursive: true })
+      const bytes = Buffer.from(content)
+      writeFileSync(fullPath, bytes)
+      const previousBytes = ['history-exclusions.json', 'win-history.json'].includes(rel)
+        ? bytes
+        : Buffer.from(`previous ${content}`)
+      previousFiles[rel] = {
+        hash: createHash('sha256').update(previousBytes).digest('hex').slice(0, 16),
+        size: previousBytes.length,
+      }
+      previousTotalBytes += previousBytes.length
+    }
+    writeFileSync(
+      path.join(outDir, 'deploy-manifest.prev.json'),
+      JSON.stringify({ version: 2, fileCount: Object.keys(previousFiles).length, totalBytes: previousTotalBytes, files: previousFiles }),
+    )
+
+    execFileSync(process.execPath, [
+      script, 'prepare', '--require-prev', '--code-only', '--history-json-only',
+      '--force-path=history-exclusions.json', '--force-path=win-history.json',
+    ], { cwd: root, encoding: 'utf8' })
+
+    const stats = JSON.parse(readFileSync(path.join(outDir, 'deploy-diff-stats.json'), 'utf8'))
+    const deployList = readFileSync(path.join(outDir, 'deploy-list.txt'), 'utf8')
+    expect(stats.codeOnlyMode).toBe(true)
+    expect(stats.historyJsonMode).toBe(true)
+    expect(stats.remoteManifestMustNotBePublished).toBe(true)
+    expect(stats.codeOnlyExcludedPaths).toEqual([
+      'predictions-archive/old.json', 'predictions.json', 'team-context.json', 'transfers.json', 'vip-combos.json',
+    ])
+    expect(stats.changedCount).toBe(3)
+    expect(stats.changedPaths).toEqual(['index.html', 'history-exclusions.json', 'win-history.json'])
+    expect(deployList).toContain('^history-exclusions\\.json$')
+    expect(deployList).toContain('^win-history\\.json$')
+    expect(deployList).not.toContain('predictions-archive')
+    expect(deployList).not.toContain('^predictions\\.json$')
+    expect(deployList).not.toContain('^transfers\\.json$')
+  })
+
+  it('fails closed when a forced history JSON path is missing from out', () => {
+    const { root, outDir, script } = makeFixture()
+    const content = Buffer.from('current page\n')
+    writeFileSync(path.join(outDir, 'index.html'), content)
+    writeFileSync(path.join(outDir, 'deploy-manifest.prev.json'), JSON.stringify({
+      version: 2,
+      fileCount: 1,
+      totalBytes: content.length,
+      files: { 'index.html': { hash: createHash('sha256').update('old page\n').digest('hex').slice(0, 16), size: 9 } },
+    }))
+    expect(() => execFileSync(process.execPath, [
+      script, 'prepare', '--require-prev', '--code-only', '--history-json-only',
+      '--force-path=history-exclusions.json', '--force-path=win-history.json',
+    ], { cwd: root, encoding: 'utf8' })).toThrow(/fichier absent de out\/|non-zero exit code/)
+  })
+
   it('includes unchanged required root files and counts their bytes', () => {
     const { root, outDir, script } = makeFixture()
     const files = {

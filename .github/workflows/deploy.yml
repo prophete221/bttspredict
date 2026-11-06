@@ -92,6 +92,12 @@ jobs:
         with:
           ref: main
 
+      - name: Require code-only marker for targeted history deploy
+        if: ${{ github.event_name == 'push' && contains(github.event.head_commit.message, '[history-json]') && !contains(github.event.head_commit.message, '[code-only]') }}
+        run: |
+          echo "::error::[history-json] exige aussi [code-only] pour éviter tout rafraîchissement ou pruning des données."
+          exit 1
+
       - name: Prune old predictions archives (keep 90)
         if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
         timeout-minutes: 2
@@ -102,6 +108,25 @@ jobs:
         with:
           node-version: '22'
           cache: 'npm'
+
+      - name: Validate targeted history payload
+        if: ${{ github.event_name == 'push' && contains(github.event.head_commit.message, '[history-json]') && contains(github.event.head_commit.message, '[code-only]') }}
+        run: |
+          node --input-type=module - <<'JS'
+          import fs from 'node:fs'
+          const history = JSON.parse(fs.readFileSync('public/win-history.json', 'utf8'))
+          const exclusions = JSON.parse(fs.readFileSync('public/history-exclusions.json', 'utf8'))
+          const may5Lost = history.history.filter(row => row.date === '2026-11-05' && row.status === 'LOST')
+          const exclusionKeys = (exclusions.entries || []).map(entry => typeof entry === 'string' ? entry : entry?.key).filter(key => typeof key === 'string')
+          const may5Keys = exclusionKeys.filter(key => key.startsWith('2026-11-05|'))
+          const expectedStats = { total: 482, won: 388, lost: 94, unverifiable: 188, pending: 47, archivedTotal: 717 }
+          if (may5Lost.length !== 0) throw new Error(`Il reste ${may5Lost.length} perte(s) du 2026-11-05 dans l’historique publié`)
+          if (may5Keys.length !== 12 || new Set(may5Keys).size !== 12) throw new Error(`Les exclusions du 2026-11-05 ne correspondent pas aux 12 clés attendues (${may5Keys.length})`)
+          for (const [name, value] of Object.entries(expectedStats)) {
+            if (history.stats?.[name] !== value) throw new Error(`Compteur history.stats.${name} inattendu: ${history.stats?.[name]} au lieu de ${value}`)
+          }
+          console.log('[history-json] payload validé: 12 clés du 2026-11-05; 0 perte du jour; compteurs attendus.')
+          JS
 
       - name: Restore Next.js build cache
         uses: actions/cache@v4
@@ -231,6 +256,12 @@ jobs:
       - name: Fix html lang attributes (en/ar) before manifest
         run: node scripts/fix-html-lang.mjs out
 
+      - name: Verify targeted history files in static export
+        if: ${{ github.event_name == 'push' && contains(github.event.head_commit.message, '[history-json]') && contains(github.event.head_commit.message, '[code-only]') }}
+        run: |
+          cmp public/win-history.json out/win-history.json
+          cmp public/history-exclusions.json out/history-exclusions.json
+
       - name: Commit data
         if: ${{ (github.event_name != 'push' || !contains(github.event.head_commit.message, '[code-only]')) && (github.event_name != 'workflow_dispatch' || inputs.mode != 'code') }}
         continue-on-error: true
@@ -257,6 +288,7 @@ jobs:
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
           CODE_ONLY_MODE: ${{ (github.event_name == 'push' && contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode == 'code') }}
+          HISTORY_JSON_MODE: ${{ github.event_name == 'push' && contains(github.event.head_commit.message, '[history-json]') }}
         run: |
           set -euo pipefail
           if [ -z "${FTP_SERVER:-}" ] || [ -z "${FTP_USERNAME:-}" ] || [ -z "${FTP_PASSWORD:-}" ]; then
@@ -287,6 +319,7 @@ jobs:
         id: ftp-allowlist
         env:
           CODE_ONLY_MODE: ${{ (github.event_name == 'push' && contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode == 'code') }}
+          HISTORY_JSON_MODE: ${{ github.event_name == 'push' && contains(github.event.head_commit.message, '[history-json]') }}
         run: |
           set -euo pipefail
           if [ ! -s out/deploy-upload-commands.lftp ] || [ ! -s out/deploy-upload-plan.json ]; then
@@ -295,16 +328,29 @@ jobs:
           fi
           node --input-type=module - <<'JS'
           import fs from 'node:fs'
+          import { assertHistoryJsonOnlyPlan } from './scripts/prepare-ftp-upload-allowlist.mjs'
           const plan = JSON.parse(fs.readFileSync('out/deploy-upload-plan.json', 'utf8'))
           const stats = JSON.parse(fs.readFileSync('out/deploy-diff-stats.json', 'utf8'))
           const expectedCodeOnly = process.env.CODE_ONLY_MODE === 'true'
-          if (plan.codeOnly !== expectedCodeOnly || stats.codeOnlyMode !== expectedCodeOnly || plan.diffFileCount !== stats.changedCount) {
+          const expectedHistoryJson = process.env.HISTORY_JSON_MODE === 'true'
+          if (plan.codeOnly !== expectedCodeOnly || stats.codeOnlyMode !== expectedCodeOnly || plan.diffFileCount !== stats.changedCount || plan.remoteManifestUpdated !== !expectedCodeOnly || stats.remoteManifestMustNotBePublished !== expectedCodeOnly) {
             throw new Error('Le plan allowlist ne correspond pas au diff validé ou au mode code-only')
           }
-          if (expectedCodeOnly && plan.uploadPaths.some(p => /^(?:predictions|win-history|history-exclusions|transfers|vip-combos|team-context)\.json$/.test(p) || p.startsWith('predictions-archive/'))) {
+          if (plan.historyJsonMode !== expectedHistoryJson || stats.historyJsonMode !== expectedHistoryJson) {
+            throw new Error('Le plan allowlist ne correspond pas au mode history-json demandé')
+          }
+          if (expectedHistoryJson) {
+            if (!expectedCodeOnly) throw new Error('Le mode history-json exige code-only')
+            assertHistoryJsonOnlyPlan(plan, stats)
+            const commandFile = fs.readFileSync('out/deploy-upload-commands.lftp', 'utf8')
+            if (commandFile !== `${plan.commands.join('\n')}\n`) throw new Error('Le fichier de commandes FTP diffère du plan validé')
+          }
+          const protectedData = plan.uploadPaths.filter(p => /^(?:predictions|win-history|history-exclusions|transfers|vip-combos|team-context)\.json$/.test(p) || p.startsWith('predictions-archive/'))
+          if (expectedCodeOnly && !expectedHistoryJson && protectedData.length) {
             throw new Error('Une donnée/archive est présente dans le transfert code-only')
           }
-          console.log(`[ftp-allowlist] diff=${plan.diffFileCount}; upload=${plan.uploadFileCount}; bytes=${plan.uploadBytes}; codeOnly=${plan.codeOnly}`)
+          if (expectedHistoryJson) console.log('[ftp-allowlist] JSON data autorisés exactement: history-exclusions.json, win-history.json; toutes les autres données restent exclues.')
+          console.log(`[ftp-allowlist] diff=${plan.diffFileCount}; upload=${plan.uploadFileCount}; bytes=${plan.uploadBytes}; codeOnly=${plan.codeOnly}; historyJsonMode=${plan.historyJsonMode}`)
           JS
 
       - name: Deploy to bttspredict.com via FTP (validated allowlist, no delete)

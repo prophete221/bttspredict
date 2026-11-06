@@ -5,7 +5,7 @@
  * Manifeste v2 :
  *   { version: 2, generatedAt, fileCount, totalBytes, files: { path: { hash, size } } }
  *
- * prepare [--require-prev] [--allow-legacy-v1] [--live-inventory=<tsv>] [--force-path=<path> ...]
+ * prepare [--require-prev] [--allow-legacy-v1] [--live-inventory=<tsv>] [--force-path=<path> ...] [--code-only --history-json-only]
  *   - génère out/deploy-manifest.json (v2)
  *   - compare au manifeste précédent out/deploy-manifest.prev.json
  *   - avec --require-prev : refuse si prev absent, version/schéma invalides
@@ -19,6 +19,8 @@
  *   - écrit out/deploy-list.txt (patterns lftp des fichiers modifiés/nouveaux)
  *   - écrit out/deploy-diff-stats.json (newPaths, changedPaths, bytesToAdd, ...)
  *   - --force-path inclut un fichier présent même si son hash est inchangé
+ *   - --history-json-only exige --code-only et n’autorise que win-history.json
+ *     et history-exclusions.json parmi les fichiers de données
  *
  * Ne produit JAMAIS une liste "tous les fichiers" par absence de prev.
  */
@@ -65,7 +67,8 @@ const EXCLUDED_FILES = new Set([
 // Dossiers internes du déploiement exclus du manifeste et du transfert.
 const EXCLUDED_DIRS = new Set(['predeploy-backups', 'ftp-diag'])
 
-// En mode code-only, les fichiers de données restent à la version distante.
+// En code-only, les fichiers de données restent distants, sauf les deux JSON
+// d'historique explicitement forcés dans le mode history-json-only.
 const CODE_ONLY_DATA_FILES = new Set([
   'predictions.json',
   'win-history.json',
@@ -75,6 +78,8 @@ const CODE_ONLY_DATA_FILES = new Set([
   'team-context.json',
 ])
 const CODE_ONLY_DATA_DIRS = ['predictions-archive/']
+
+const HISTORY_JSON_ONLY_FILES = new Set(['win-history.json', 'history-exclusions.json'])
 
 function isCodeOnlyDataPath(rel) {
   return CODE_ONLY_DATA_FILES.has(rel) || CODE_ONLY_DATA_DIRS.some((prefix) => rel.startsWith(prefix))
@@ -182,6 +187,11 @@ function cmdPrepare() {
   const requirePrev = process.argv.includes('--require-prev')
   const allowLegacyV1 = process.argv.includes('--allow-legacy-v1')
   const codeOnly = process.argv.includes('--code-only')
+  const historyJsonOnly = process.argv.includes('--history-json-only')
+  if (historyJsonOnly && !codeOnly) {
+    console.error('[ftp-diff] --history-json-only exige aussi --code-only.')
+    process.exit(1)
+  }
   const liveArg = process.argv.find((arg) => arg.startsWith('--live-inventory='))
   let liveRemotePaths = null
   if (liveArg) {
@@ -281,7 +291,7 @@ function cmdPrepare() {
   }
 
   const codeOnlyExcludedPaths = codeOnly
-    ? [...new Set(changed.filter(isCodeOnlyDataPath))].sort()
+    ? [...new Set(changed.filter((rel) => isCodeOnlyDataPath(rel) && !(historyJsonOnly && HISTORY_JSON_ONLY_FILES.has(rel))))].sort()
     : []
   const codeOnlyExcludedSet = new Set(codeOnlyExcludedPaths)
   const transferPaths = changed.filter((rel) => !codeOnlyExcludedSet.has(rel))
@@ -310,6 +320,7 @@ function cmdPrepare() {
     newPaths: transferNewPaths,
     changedPaths: transferChangedPaths,
     codeOnlyMode: codeOnly,
+    historyJsonMode: historyJsonOnly,
     codeOnlyExcludedPaths,
     codeOnlyExcludedBytes,
     remoteManifestMustNotBePublished: codeOnly,
@@ -322,6 +333,9 @@ function cmdPrepare() {
   )
   if (codeOnly) {
     console.log(`[ftp-diff] code-only: ${codeOnlyExcludedPaths.length} fichiers de données exclus (${codeOnlyExcludedBytes} octets); manifeste distant à conserver inchangé.`)
+  }
+  if (historyJsonOnly) {
+    console.log('[ftp-diff] history-json-only: seuls win-history.json et history-exclusions.json sont autorisés en données; ils doivent être forcés par l’appelant.')
   }
 }
 
@@ -340,6 +354,6 @@ if (cmd === 'prepare') cmdPrepare()
 else if (cmd === 'finish') cmdFinish()
 else if (cmd === 'manifest') cmdManifest()
 else {
-  console.error('Usage: node scripts/ftp-diff.mjs [prepare|finish|manifest] [--require-prev] [--code-only] [--force-path=<path> ...]')
+  console.error('Usage: node scripts/ftp-diff.mjs [prepare|finish|manifest] [--require-prev] [--code-only] [--history-json-only] [--force-path=<path> ...]')
   process.exit(1)
 }
