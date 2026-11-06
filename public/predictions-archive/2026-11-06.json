@@ -6415,6 +6415,187 @@
       "proba": 0.65,
       "confidence": 65,
       "status": "PENDING"
+    },
+    {
+      "id": "scfreibu-vs-fcunionb-2026-11-08",
+      "match": "SC Freiburg vs 1. FC Union Berlin",
+      "home": "SC Freiburg",
+      "away": "1. FC Union Berlin",
+      "league": "Bundesliga",
+      "date": "2026-11-08",
+      "type": "BTTS",
+      "time": "16:30",
+      "matchSemantic": "scfreibu-vs-fcunionb-2026-11-08",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/126.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/598.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 3,
+      "xgAway": 0.33,
+      "xgTotal": 3.33,
+      "formBTTS": 70,
+      "analysis": "SC Freiburg : forme V-D-D-V-N (2V 1N 2D, 8 buts marqués / 9 encaissés sur 5) · 1. FC Union Berlin : forme N-N-N-V-D (1V 3N 1D, 3 buts marqués / 9 encaissés sur 5). Classement : SC Freiburg 3e (16 pts), 1. FC Union Berlin 16e (7 pts). Stats empiriques (forme récente) : buts moy. 3.33, BTTS 70.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.48 / N: 4.4 / 2: 5.75 · Over 2.5: 1.63. Fiabilité 89.38%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.7,
+        "empiricalOver25Rate": 0.6,
+        "homeLambda": 3,
+        "awayLambda": 0.33,
+        "xgTotal": 3.33
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.48,
+        "draw": 4.4,
+        "away": 5.75,
+        "over25": 1.63,
+        "under25": 2.25
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "V-D-D-V-N",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 8,
+        "goalsAgainst": 9,
+        "bttsRate": 1,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-N-N-V-D",
+        "wins": 1,
+        "draws": 3,
+        "losses": 1,
+        "goalsFor": 3,
+        "goalsAgainst": 9,
+        "bttsRate": 0.4,
+        "over25Rate": 0.2,
+        "cleanSheets": 2,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-31",
+          "opponent": "FC Augsburg",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Bayern Munich",
+          "venue": "H",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Bayer Leverkusen",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Schalke 04",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Eintracht Frankfurt",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-01",
+          "opponent": "FC Cologne",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "FC Augsburg",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Borussia Dortmund",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "SV Elversberg",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-18",
+          "opponent": "Bayern Munich",
+          "venue": "A",
+          "score": "0-7",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 3,
+        "points": 16,
+        "played": 8,
+        "gf": 18,
+        "ga": 10
+      },
+      "standingsAway": {
+        "rank": 16,
+        "points": 7,
+        "played": 8,
+        "gf": 7,
+        "ga": 19
+      },
+      "empiricalBttsRate": 0.7,
+      "empiricalOver25Rate": 0.6,
+      "homeLambda": 3,
+      "awayLambda": 0.33,
+      "statsOnly": true,
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "Union Berlin présente un taux BTTS de seulement 40% et une moyenne de 0.33 buts marqués à l'extérieur.",
+      "ai_analysis": "Bien que le SC Freiburg affiche des statistiques offensives séduisantes à domicile avec un taux de 100% sur le BTTS et l'Over 2.5 dans son échantillon, les performances de 1. FC Union Berlin à l'extérieur sont trop restrictives. L'équipe visiteuse n'affiche que 0.33 buts par match et un taux BTTS de 40%, ce qui crée un signal contradictoire important incitant à l'abstention.",
+      "ai_analysis_en": "Although SC Freiburg displays attractive home offensive stats with a 100% rate on both BTTS and Over 2.5 in its sample, 1. FC Union Berlin's away performances are too restrictive. The visiting team averages only 0.33 goals per match with a 40% BTTS rate, creating a significant conflicting signal that dictates abstention.",
+      "ai_form_summary": "Freiburg : 2V-1N-2D, 8 buts marqués, 9 encaissés (BTTS: 100%). Union Berlin : 1V-3N-1D, 3 buts marqués, 9 encaissés (BTTS: 40%).",
+      "ai_form_summary_en": "Freiburg: 2W-1D-2L, 8 goals for, 9 against (BTTS: 100%). Union Berlin: 1W-3D-1L, 3 goals for, 9 against (BTTS: 40%).",
+      "ai_reasons": [
+        "Forte disparité de forme et de buts entre SC Freiburg (très offensif à domicile) et Union Berlin (très faible à l'extérieur).",
+        "Le taux BTTS de l'équipe extérieure Union Berlin est de seulement 40% sur ses derniers matches."
+      ],
+      "ai_risks": [
+        "Union Berlin ne totalise que 0.33 buts par match en moyenne à l'extérieur, menaçant le marché BTTS.",
+        "Données de l'équipe visiteuse montrant un taux Over 2.5 très bas à 20%."
+      ],
+      "ai_confidence": "low",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "abstain"
     }
   ],
   "stats": {
@@ -12836,6 +13017,188 @@
       "prediction": "Oui",
       "proba": 0.65,
       "confidence": 65,
+      "status": "PENDING"
+    },
+    {
+      "id": "scfreibu-vs-fcunionb-2026-11-08",
+      "match": "SC Freiburg vs 1. FC Union Berlin",
+      "home": "SC Freiburg",
+      "away": "1. FC Union Berlin",
+      "league": "Bundesliga",
+      "date": "2026-11-08",
+      "type": "BTTS",
+      "time": "16:30",
+      "matchSemantic": "scfreibu-vs-fcunionb-2026-11-08",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/126.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/598.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 3,
+      "xgAway": 0.33,
+      "xgTotal": 3.33,
+      "formBTTS": 70,
+      "analysis": "SC Freiburg : forme V-D-D-V-N (2V 1N 2D, 8 buts marqués / 9 encaissés sur 5) · 1. FC Union Berlin : forme N-N-N-V-D (1V 3N 1D, 3 buts marqués / 9 encaissés sur 5). Classement : SC Freiburg 3e (16 pts), 1. FC Union Berlin 16e (7 pts). Stats empiriques (forme récente) : buts moy. 3.33, BTTS 70.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.48 / N: 4.4 / 2: 5.75 · Over 2.5: 1.63. Fiabilité 89.38%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.7,
+        "empiricalOver25Rate": 0.6,
+        "homeLambda": 3,
+        "awayLambda": 0.33,
+        "xgTotal": 3.33
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.48,
+        "draw": 4.4,
+        "away": 5.75,
+        "over25": 1.63,
+        "under25": 2.25
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "V-D-D-V-N",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 8,
+        "goalsAgainst": 9,
+        "bttsRate": 1,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-N-N-V-D",
+        "wins": 1,
+        "draws": 3,
+        "losses": 1,
+        "goalsFor": 3,
+        "goalsAgainst": 9,
+        "bttsRate": 0.4,
+        "over25Rate": 0.2,
+        "cleanSheets": 2,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-31",
+          "opponent": "FC Augsburg",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Bayern Munich",
+          "venue": "H",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Bayer Leverkusen",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Schalke 04",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Eintracht Frankfurt",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-01",
+          "opponent": "FC Cologne",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "FC Augsburg",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Borussia Dortmund",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "SV Elversberg",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-18",
+          "opponent": "Bayern Munich",
+          "venue": "A",
+          "score": "0-7",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 3,
+        "points": 16,
+        "played": 8,
+        "gf": 18,
+        "ga": 10
+      },
+      "standingsAway": {
+        "rank": 16,
+        "points": 7,
+        "played": 8,
+        "gf": 7,
+        "ga": 19
+      },
+      "empiricalBttsRate": 0.7,
+      "empiricalOver25Rate": 0.6,
+      "homeLambda": 3,
+      "awayLambda": 0.33,
+      "statsOnly": true,
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "Union Berlin présente un taux BTTS de seulement 40% et une moyenne de 0.33 buts marqués à l'extérieur.",
+      "ai_analysis": "Bien que le SC Freiburg affiche des statistiques offensives séduisantes à domicile avec un taux de 100% sur le BTTS et l'Over 2.5 dans son échantillon, les performances de 1. FC Union Berlin à l'extérieur sont trop restrictives. L'équipe visiteuse n'affiche que 0.33 buts par match et un taux BTTS de 40%, ce qui crée un signal contradictoire important incitant à l'abstention.",
+      "ai_analysis_en": "Although SC Freiburg displays attractive home offensive stats with a 100% rate on both BTTS and Over 2.5 in its sample, 1. FC Union Berlin's away performances are too restrictive. The visiting team averages only 0.33 goals per match with a 40% BTTS rate, creating a significant conflicting signal that dictates abstention.",
+      "ai_form_summary": "Freiburg : 2V-1N-2D, 8 buts marqués, 9 encaissés (BTTS: 100%). Union Berlin : 1V-3N-1D, 3 buts marqués, 9 encaissés (BTTS: 40%).",
+      "ai_form_summary_en": "Freiburg: 2W-1D-2L, 8 goals for, 9 against (BTTS: 100%). Union Berlin: 1W-3D-1L, 3 goals for, 9 against (BTTS: 40%).",
+      "ai_reasons": [
+        "Forte disparité de forme et de buts entre SC Freiburg (très offensif à domicile) et Union Berlin (très faible à l'extérieur).",
+        "Le taux BTTS de l'équipe extérieure Union Berlin est de seulement 40% sur ses derniers matches."
+      ],
+      "ai_risks": [
+        "Union Berlin ne totalise que 0.33 buts par match en moyenne à l'extérieur, menaçant le marché BTTS.",
+        "Données de l'équipe visiteuse montrant un taux Over 2.5 très bas à 20%."
+      ],
+      "ai_confidence": "low",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "abstain",
       "status": "PENDING"
     }
   ],
