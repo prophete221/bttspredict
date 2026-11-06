@@ -103,6 +103,30 @@ describe('teaser VIP verrouillé dans les cartes gratuites', () => {
     expect(formSource).toMatch(/Step \{current\} of 7|Étape \{current\} sur 7|الخطوة \{current\} من 7/)
   })
 
+  it('place la vidéo à la place du panneau hero, avant l’aperçu VIP, sans copie dans le parcours', () => {
+    const pageSource = readFileSync(resolve(__dirname, '..', 'src/app/vip/page.tsx'), 'utf8')
+    const cssSource = readFileSync(resolve(__dirname, '..', 'src/app/vip/vip.css'), 'utf8')
+    const heroCardStart = pageSource.indexOf('<div className="vipx-hero__card">')
+    const videoStart = pageSource.indexOf('<video\n                className="vipx-hero__video"')
+    const heroCardEnd = pageSource.indexOf('</div>', videoStart)
+    const previewStart = pageSource.indexOf('<VipLockedPicks')
+    const trustBadgesStart = pageSource.indexOf('className="vipx-hero__trust"')
+
+    expect(heroCardStart).toBeGreaterThanOrEqual(0)
+    expect(trustBadgesStart).toBeLessThan(videoStart)
+    expect(heroCardStart).toBeLessThan(videoStart)
+    expect(videoStart).toBeLessThan(heroCardEnd)
+    expect(videoStart).toBeLessThan(previewStart)
+    expect(pageSource.match(/<video\b/g)).toHaveLength(1)
+    expect(pageSource).not.toContain('vipx-hero__art')
+    expect(pageSource).not.toContain('vipx-flow__video')
+    expect(pageSource).toContain('poster="/videos/vip-parcours-poster.jpg"')
+    expect(pageSource).toContain('<source src="/videos/vip-parcours.mp4" type="video/mp4" />')
+    expect(cssSource).toContain('.vipx .vipx-hero__video')
+    expect(cssSource).toContain('aspect-ratio: 1.36')
+    expect(cssSource).toContain('min-block-size: 210px')
+  })
+
   it('ne montre plus les messages de diagnostic Gemini sans supprimer la provenance positive', () => {
     const files = [
       'src/components/bttsbet/BttsTodayDashboard.tsx',

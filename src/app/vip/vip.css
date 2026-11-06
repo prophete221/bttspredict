@@ -2190,6 +2190,21 @@
 .vipx-hero__art-note strong { color: #f2f5f3; font-size: .8rem; letter-spacing: .02em; }
 .vipx-hero__art-note span { color: #879397; font-size: .62rem; }
 
+.vipx .vipx-hero__video {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  max-inline-size: 470px;
+  min-block-size: 284px;
+  aspect-ratio: 1.36;
+  margin-inline: auto;
+  border: 1px solid rgba(235, 70, 72, .20);
+  border-radius: 22px;
+  background: #050b0e;
+  box-shadow: 0 22px 54px rgba(0, 0, 0, .28);
+  object-fit: contain;
+}
+
 .vipx-content-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(350px, .92fr);
@@ -2288,7 +2303,7 @@
 @media (max-width: 1040px) {
   .vipx .vipx-hero__grid { grid-template-columns: minmax(0, 1fr); gap: 22px; }
   .vipx .vipx-hero__card { order: 2; }
-  .vipx-hero__art { min-height: 250px; }
+  .vipx .vipx-hero__video { min-block-size: 250px; }
   .vipx-content-grid { grid-template-columns: minmax(0, 1fr); }
   .vipx-content-grid__aside .vipx-flow__steps--full { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .vipx-content-grid__aside .vipx-flow__panels { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -2301,11 +2316,7 @@
   .vipx .vipx-hero__copy h1 { font-size: clamp(2rem, 9vw, 2.7rem); }
   .vipx .vipx-hero__trust { margin-block-start: 16px; gap: 8px 12px; }
   .vipx .vipx-hero__trust li { font-size: .68rem; }
-  .vipx-hero__art { min-height: 210px; max-width: 100%; border-radius: 18px; }
-  .vipx-hero__art-logo-wrap { width: 118px; }
-  .vipx-hero__art-logo-wrap img { width: 88px; height: 88px; }
-  .vipx-hero__art-tag { inset-block-start: 12px; inset-inline-end: 12px; }
-  .vipx-hero__art-note { inset-inline-start: 13px; inset-block-end: 12px; }
+  .vipx .vipx-hero__video { min-block-size: 210px; max-inline-size: 100%; border-radius: 18px; }
   .vipx-content-grid { gap: 12px; padding-block: 8px 4px; }
   .vipx-content-grid__aside .vipx-flow--card { padding: 15px; border-radius: 16px; }
   .vipx-content-grid__aside .vipx-flow__steps--full,

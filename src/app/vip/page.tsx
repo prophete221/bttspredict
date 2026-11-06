@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
 import { useLanguage } from '@/components/bttsbet/LanguageSwitcher'
 import { localizedPath, type Locale } from '@/lib/i18n'
@@ -33,28 +33,6 @@ const VIP_LOGOS: Record<VipBook, string> = {
   linebet: '/logos/linebet-logo.jpg',
   melbet: '/logos/melbet-logo.jpg',
   '888starz': '/logos/888starz-logo.jpg',
-}
-
-/* Effet 3D : inclinaison douce au survol / au doigt (désactivée si prefers-reduced-motion) */
-/* Le ref est créé dans le composant (pattern standard) et passé en paramètre :
-   aucune propriété de ref n'est exposée dans l'objet retourné (react-hooks/refs). */
-function useTilt(
-  ref: React.RefObject<HTMLDivElement | null>,
-  max = 8,
-) {
-  const onPointerMove = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
-    const el = ref.current
-    if (!el) return
-    if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-    const rect = el.getBoundingClientRect()
-    const px = (e.clientX - rect.left) / rect.width - 0.5
-    const py = (e.clientY - rect.top) / rect.height - 0.5
-    el.style.transform = `rotateY(${(px * max).toFixed(2)}deg) rotateX(${(-py * max).toFixed(2)}deg)`
-  }, [ref, max])
-  const onPointerLeave = useCallback(() => {
-    if (ref.current) ref.current.style.transform = ''
-  }, [ref])
-  return { onPointerMove, onPointerLeave }
 }
 
 /* ────────────────────────── Icônes inline ────────────────────────── */
@@ -284,9 +262,6 @@ export default function VipPage() {
   const flow = VIP_FLOW[lang]
   const [showVipUnlock, setShowVipUnlock] = useState(false)
 
-  const heroArtRef = useRef<HTMLDivElement | null>(null)
-  const heroArtTilt = useTilt(heroArtRef, 7)
-
   /* Mesure : 1 visite de la page VIP par session (visite ≠ clic ≠ inscription) */
   useEffect(() => {
     trackAffiliateAction('platform', 'vip_page_view', 'vip-page-visit')
@@ -324,18 +299,20 @@ export default function VipPage() {
               </ul>
             </div>
 
-            {/* Illustration de marque, reprise de la direction visuelle approuvée. */}
-            <div className="vipx-hero__card" aria-hidden="true">
-              <div className="vipx-scene">
-                <div className="vipx-hero__art vipx-tilt" ref={heroArtRef} onPointerMove={heroArtTilt.onPointerMove} onPointerLeave={heroArtTilt.onPointerLeave}>
-                  <div className="vipx-hero__art-halo" />
-                  <div className="vipx-hero__art-beam" />
-                  <div className="vipx-hero__art-pitch" />
-                  <div className="vipx-hero__art-tag"><i />{flow.statusTitle}</div>
-                  <div className="vipx-hero__art-logo-wrap"><img src="/brand/bttspredict-fireball-transparent.png" alt="" width="140" height="140" /></div>
-                  <div className="vipx-hero__art-note"><strong>BTTSPredict</strong><span>{text.memberVerified}</span></div>
-                </div>
-              </div>
+            {/* La vidéo occupe le panneau hero encadré, juste avant l’aperçu VIP. */}
+            <div className="vipx-hero__card">
+              <video
+                className="vipx-hero__video"
+                controls
+                preload="metadata"
+                playsInline
+                poster="/videos/vip-parcours-poster.jpg"
+                aria-label={lang === 'fr' ? 'Vidéo du parcours VIP en français' : lang === 'en' ? 'French-language VIP walkthrough video' : 'فيديو شرح VIP باللغة الفرنسية'}
+                data-testid="vip-hero-walkthrough-video"
+              >
+                <source src="/videos/vip-parcours.mp4" type="video/mp4" />
+                {lang === 'ar' ? 'المتصفح لا يدعم تشغيل الفيديو.' : lang === 'en' ? 'Your browser does not support video playback.' : 'Ton navigateur ne prend pas en charge la lecture vidéo.'}
+              </video>
             </div>
           </div>
         </section>
@@ -360,31 +337,6 @@ export default function VipPage() {
               <span>{flow.statusText}</span>
             </div>
           </div>
-
-          <section className="vipx-flow__video" aria-labelledby="vipx-flow-video-title">
-            <div className="vipx-flow__video-copy">
-              <h3 id="vipx-flow-video-title">
-                {lang === 'fr' ? 'Le parcours VIP en vidéo' : lang === 'en' ? 'VIP access walkthrough' : 'شرح مسار الوصول إلى VIP'}
-              </h3>
-              <p>
-                {lang === 'fr' ? 'Les sept étapes, expliquées simplement.' : lang === 'en' ? 'The seven steps, explained simply.' : 'شرح مبسط للخطوات السبع.'}
-              </p>
-            </div>
-            <video
-              className="vipx-flow__video-player"
-              controls
-              preload="metadata"
-              playsInline
-              poster="/videos/vip-parcours-poster.jpg"
-              aria-label={lang === 'fr' ? 'Vidéo du parcours VIP en français' : lang === 'en' ? 'French-language VIP walkthrough video' : 'فيديو شرح VIP باللغة الفرنسية'}
-            >
-              <source src="/videos/vip-parcours.mp4" type="video/mp4" />
-              {lang === 'ar' ? 'المتصفح لا يدعم تشغيل الفيديو.' : lang === 'en' ? 'Your browser does not support video playback.' : 'Ton navigateur ne prend pas en charge la lecture vidéo.'}
-            </video>
-            <p className="vipx-flow__video-note">
-              {lang === 'fr' ? 'Version française, sans audio.' : lang === 'en' ? 'French version; no audio.' : 'النسخة الفرنسية؛ بدون صوت.'}
-            </p>
-          </section>
 
           <button type="button" className="vipx-btn vipx-btn--gold vipx-flow__start" onClick={openWizard}>
             {flow.wizardStart}<span aria-hidden="true">→</span>
