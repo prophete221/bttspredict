@@ -5,11 +5,46 @@ import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import sitemap from '@/app/sitemap'
 import { GET as getPublicPredictions } from '@/app/predictions.json/route'
+import MissingMarketVipLink from '@/components/bttsbet/MissingMarketVipLink'
 import VipMarketTeaser from '@/components/bttsbet/VipMarketTeaser'
 
 vi.mock('next/navigation', () => ({ usePathname: () => '/' }))
 
 afterEach(cleanup)
+
+describe('CTA VIP pour un marché sans décision Gemini', () => {
+  it.each([
+    ['fr', 'Débloquer VIP', '/vip'],
+    ['en', 'Unlock VIP', '/en/vip'],
+    ['ar', 'افتح VIP', '/ar/vip'],
+  ] as const)('remplace le tiret par un lien localisé en %s, sans créer de marché verrouillé supplémentaire', (locale, label, href) => {
+    const { container } = render(
+      <>
+        <MissingMarketVipLink locale={locale} market="BTTS" />
+        <MissingMarketVipLink locale={locale} market="Over 2.5" />
+        <VipMarketTeaser locale={locale} />
+      </>,
+    )
+    const actions = [...container.querySelectorAll<HTMLAnchorElement>('[data-testid="missing-market-vip-link"]')]
+
+    expect(actions).toHaveLength(2)
+    expect(actions.map((action) => action.textContent?.trim())).toEqual([label, label])
+    expect(actions.map((action) => action.getAttribute('href'))).toEqual([href, href])
+    expect([...container.querySelectorAll('[data-missing-market]')].map((node) => node.getAttribute('data-missing-market'))).toEqual(['BTTS', 'Over 2.5'])
+    expect(container.querySelectorAll('[data-vip-market]')).toHaveLength(2)
+    expect(screen.queryByRole('dialog')).toBeNull()
+  })
+
+  it('est utilisé comme fallback uniquement pour les marchés absents dans les deux cartes de pronostics', () => {
+    const freePredictionsSource = readFileSync(resolve(__dirname, '..', 'src/components/bttsbet/FreePredictions.tsx'), 'utf8')
+    const dashboardSource = readFileSync(resolve(__dirname, '..', 'src/components/bttsbet/BttsTodayDashboard.tsx'), 'utf8')
+
+    expect(freePredictionsSource).toContain('<MissingMarketVipLink locale={lang} market="BTTS" />')
+    expect(freePredictionsSource).toContain('<MissingMarketVipLink locale={lang} market="Over 2.5" />')
+    expect(dashboardSource).toMatch(/missingMarket=\{!bttsPick \? 'BTTS' : undefined\}/)
+    expect(dashboardSource).toMatch(/missingMarket=\{!over25Pick \? 'Over 2\.5' : undefined\}/)
+  })
+})
 
 describe('teaser VIP verrouillé dans les cartes gratuites', () => {
   it.each([

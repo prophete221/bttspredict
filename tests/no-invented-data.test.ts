@@ -33,7 +33,8 @@ describe('no invented data — fallbacks interdits', () => {
     expect(source).not.toMatch(/computeBtts|computeOver25|local_decision|apply_local_fallback/i)
     expect(source).toMatch(/bttsPred \? \(bttsPred\.prediction/)
     expect(source).toMatch(/over25Pred \? \(over25Pred\.prediction/)
-    expect(source).toContain(": '—'")
+    expect(source).toContain('<MissingMarketVipLink locale={lang} market="BTTS" />')
+    expect(source).toContain('<MissingMarketVipLink locale={lang} market="Over 2.5" />')
     // Libellés humains branchés
     expect(source).toContain('humanMethodLabel')
     expect(source).toContain('predictionQuality')

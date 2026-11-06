@@ -13,6 +13,7 @@ import { humanMethodLabel, predictionQuality, type PredictionQuality as DataQual
 import { analysisHeading } from '@/lib/predictionPresentation'
 import { getDakarDayDiff, getDakarMatchStatus, parseDakarDateTime } from '@/lib/dakar-date'
 import VipMarketTeaser from './VipMarketTeaser'
+import MissingMarketVipLink from './MissingMarketVipLink'
 import { getGeminiPicks } from '@/lib/gemini-predictions'
 
 // ─── Helpers ────────────────────────────────────────────────────────────
@@ -330,7 +331,7 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
             <div className="space-y-2 text-center">
               <div className="text-xs uppercase tracking-widest font-semibold text-primary">BTTS</div>
               <div className="text-2xl sm:text-3xl font-bold" style={{ color: bttsPred?.prediction === 'Oui' ? '#2F7DFF' : '#9DABBB' }}>
-                {bttsPred ? (bttsPred.prediction === 'Oui' ? t.predictions.bttsYes : t.predictions.bttsNo) : '—'}
+                {bttsPred ? (bttsPred.prediction === 'Oui' ? t.predictions.bttsYes : t.predictions.bttsNo) : <MissingMarketVipLink locale={lang} market="BTTS" />}
               </div>
             </div>
 
@@ -338,7 +339,7 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
             <div className="space-y-2 text-center border-l border-[#223041] pl-3 sm:pl-4">
               <div className="text-xs uppercase tracking-widest font-semibold text-primary">Over 2.5</div>
               <div className="text-2xl sm:text-3xl font-bold" style={{ color: over25Pred?.prediction === 'Oui' ? '#2F7DFF' : '#9DABBB' }}>
-                {over25Pred ? (over25Pred.prediction === 'Oui' ? t.predictions.bttsYes : t.predictions.bttsNo) : '—'}
+                {over25Pred ? (over25Pred.prediction === 'Oui' ? t.predictions.bttsYes : t.predictions.bttsNo) : <MissingMarketVipLink locale={lang} market="Over 2.5" />}
               </div>
             </div>
           </div>

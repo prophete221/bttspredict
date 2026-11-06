@@ -38,6 +38,7 @@ import { getDakarDateString, getDakarMatchStatus, getDakarDayDiff } from '@/lib/
 import BookmakerCardLinks from './BookmakerCardLinks'
 import ShareAnalysisButton from './ShareAnalysisButton'
 import VipMarketTeaser from './VipMarketTeaser'
+import MissingMarketVipLink from './MissingMarketVipLink'
 import { getGeminiPicks, getGeminiProbability, type GeminiPrediction } from '@/lib/gemini-predictions'
 
 // ─── Palette (V3 — bleu analyse, sémantique WIN/LOST/PENDING) ────────────────
@@ -300,14 +301,14 @@ function TeamLogo({ src, name }: { src?: string; name: string }) {
 }
 
 // ─── ProbBar — barre de probabilité animée (marché BTTS / Over 2.5) ─────
-function ProbBar({ label, value, color, dim, locale }: { label: string; value?: number; color: string; dim?: boolean; locale: Locale }) {
+function ProbBar({ label, value, color, dim, locale, missingMarket }: { label: string; value?: number; color: string; dim?: boolean; locale: Locale; missingMarket?: 'BTTS' | 'Over 2.5' }) {
   const noData = value == null || !Number.isFinite(value) || dim
   return (
     <div className="btx-prob">
       <div className="btx-prob__head">
         <span className="btx-prob__label">{label}</span>
-        <span className="btx-prob__value" style={{ ['--pc' as string]: color, opacity: noData ? 0.45 : 1 }}>
-          {noData ? '—' : fmtPct(value, locale)}
+        <span className="btx-prob__value" style={{ ['--pc' as string]: color, opacity: noData && !missingMarket ? 0.45 : 1 }}>
+          {noData && missingMarket ? <MissingMarketVipLink locale={locale} market={missingMarket} /> : noData ? '—' : fmtPct(value, locale)}
         </span>
       </div>
       <div className="btx-bar" style={{ opacity: noData ? 0.4 : 1 }}>
@@ -431,6 +432,7 @@ function MatchCard({ match, index, status, lang, labels, now }: {
             color="#34D399"
             dim={!sufficientData || !bttsPick}
             locale={lang}
+            missingMarket={!bttsPick ? 'BTTS' : undefined}
           />
           <ProbBar
             label={`Over 2.5${over25Pick ? ` · ${over25Pick.prediction === 'Oui' ? (lang === 'en' ? 'Yes' : lang === 'ar' ? 'نعم' : 'Oui') : (lang === 'en' ? 'No' : lang === 'ar' ? 'لا' : 'Non')}` : ''}`}
@@ -438,6 +440,7 @@ function MatchCard({ match, index, status, lang, labels, now }: {
             color="#FBBF24"
             dim={!sufficientData || !over25Pick}
             locale={lang}
+            missingMarket={!over25Pick ? 'Over 2.5' : undefined}
           />
         </div>
         {/* ─── Moyennes récentes de buts marqués ─── */}
