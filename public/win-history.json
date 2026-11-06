@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-11-05T22:58:41.234Z",
+  "generatedAt": "2026-11-06T05:07:59.269Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,17 +15,17 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 499,
-    "won": 392,
-    "lost": 107,
-    "pending": 44,
+    "total": 494,
+    "won": 388,
+    "lost": 106,
+    "pending": 47,
     "unverifiable": 176,
-    "archivedTotal": 719,
-    "rate": 78.6,
+    "archivedTotal": 717,
+    "rate": 78.5,
     "gold": {
-      "total": 377,
-      "won": 302,
-      "lost": 75,
+      "total": 372,
+      "won": 298,
+      "lost": 74,
       "rate": 80.1
     },
     "standard": {
@@ -36,16 +36,16 @@
     },
     "byType": {
       "btts": {
-        "total": 428,
-        "won": 345,
+        "total": 425,
+        "won": 342,
         "lost": 83,
-        "rate": 80.6
+        "rate": 80.5
       },
       "over25": {
-        "total": 71,
-        "won": 47,
-        "lost": 24,
-        "rate": 66.2
+        "total": 69,
+        "won": 46,
+        "lost": 23,
+        "rate": 66.7
       }
     },
     "trend14": [
@@ -149,8 +149,8 @@
       }
     ],
     "period": {
-      "from": "2026-08-08",
-      "to": "2026-11-05",
+      "from": "2026-08-09",
+      "to": "2026-11-06",
       "days": 90
     }
   },
@@ -6553,32 +6553,6 @@
     },
     {
       "date": "2026-08-09",
-      "match": "St. Pauli vs SpVgg Greuther Fürth",
-      "league": "2. Bundesliga",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.54,
-      "status": "WON",
-      "finalScore": "1-1",
-      "verifiedAt": "2026-10-23T05:47:17.650Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-08-09",
-      "match": "St. Pauli vs SpVgg Greuther Fürth",
-      "league": "2. Bundesliga",
-      "market": "over25",
-      "tier": "GOLD",
-      "proba": 0.54,
-      "status": "LOST",
-      "finalScore": "1-1",
-      "verifiedAt": "2026-10-23T05:47:17.650Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-08-09",
       "match": "FC Porto vs Alverca",
       "league": "Liga Portugal",
       "market": "btts",
@@ -6600,45 +6574,6 @@
       "status": "LOST",
       "finalScore": "2-0",
       "verifiedAt": "2026-08-09T21:58:32.023Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-08-08",
-      "match": "PSV Eindhoven vs Fortuna Sittard",
-      "league": "Eredivisie",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.54,
-      "status": "WON",
-      "finalScore": "2-2",
-      "verifiedAt": "2026-08-08T21:48:03.520Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-08-08",
-      "match": "1. FC Heidenheim 1846 vs VfL Osnabruck",
-      "league": "2. Bundesliga",
-      "market": "over25",
-      "tier": "GOLD",
-      "proba": 0.54,
-      "status": "WON",
-      "finalScore": "4-3",
-      "verifiedAt": "2026-08-08T21:48:03.519Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-08-08",
-      "match": "1. FC Heidenheim 1846 vs VfL Osnabruck",
-      "league": "2. Bundesliga",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.54,
-      "status": "WON",
-      "finalScore": "4-3",
-      "verifiedAt": "2026-08-08T21:48:03.518Z",
       "source": "ESPN public",
       "prediction": "Oui"
     }
