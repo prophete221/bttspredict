@@ -6,7 +6,6 @@ import type { Locale } from '@/lib/i18n'
 const COPY: Record<Locale, {
   eyebrow: string
   title: string
-  description: string
   cardLabel: string
   locked: string
   fixturePlaceholder: string
@@ -18,7 +17,6 @@ const COPY: Record<Locale, {
   fr: {
     eyebrow: 'Aperçu VIP verrouillé',
     title: 'Les pronostics VIP restent verrouillés',
-    description: 'Ces cartes sont des exemples visuels génériques. Aucun match, choix, cote ou signal réel n’est affiché ici.',
     cardLabel: 'Carte de pronostic VIP verrouillée',
     locked: 'Verrouillé',
     fixturePlaceholder: 'Rencontre masquée',
@@ -30,7 +28,6 @@ const COPY: Record<Locale, {
   en: {
     eyebrow: 'Locked VIP preview',
     title: 'VIP predictions remain locked',
-    description: 'These cards are generic visual examples. No real fixture, pick, odds or signal is shown here.',
     cardLabel: 'Locked VIP prediction card',
     locked: 'Locked',
     fixturePlaceholder: 'Fixture hidden',
@@ -42,7 +39,6 @@ const COPY: Record<Locale, {
   ar: {
     eyebrow: 'معاينة VIP مقفلة',
     title: 'توقعات VIP تبقى مقفلة',
-    description: 'هذه البطاقات أمثلة مرئية عامة فقط. لا تُعرض هنا أي مباراة أو اختيار أو احتمالات أو إشارات حقيقية.',
     cardLabel: 'بطاقة توقع VIP مقفلة',
     locked: 'مقفل',
     fixturePlaceholder: 'مباراة مخفية',
@@ -78,7 +74,6 @@ export default function VipLockedPicks({ onRequestReview }: { onRequestReview: (
       <header className="vipx-section-head">
         <span className="vipx-eyebrow"><i aria-hidden="true" />{text.eyebrow}</span>
         <h2 id="vip-locked-prediction-title">{text.title}</h2>
-        <p>{text.description}</p>
       </header>
 
       <ul className="vipx-locked-preview-grid">

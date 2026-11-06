@@ -52,7 +52,7 @@ describe('no invented data — fallbacks interdits', () => {
     expect(partnerLinks).toContain("trackAffiliateAction(id, 'signup_cta_click', placement")
   })
 
-  it('la page VIP ne lit pas le flux public et garde les aperçus génériques verrouillés', () => {
+  it('la page VIP ne lit pas le flux public et conserve les cartes et contrôles d’accès', () => {
     const source = readSource('src/app/vip/page.tsx')
     const lockedPicks = readSource('src/app/vip/VipLockedPicks.tsx')
     const unlockModal = readSource('src/components/bttsbet/VipUnlockModal.tsx')
@@ -61,9 +61,15 @@ describe('no invented data — fallbacks interdits', () => {
     expect(source).not.toContain('onlyVipFixtures')
     expect(source).not.toContain('vipPreview')
     expect(source).toContain('<VipLockedPicks')
-    expect(lockedPicks).toContain('Aucun match, choix, cote ou signal réel n’est affiché ici.')
-    expect(lockedPicks).toContain('No real fixture, pick, odds or signal is shown here.')
-    expect(lockedPicks).toContain('لا تُعرض هنا أي مباراة أو اختيار أو احتمالات أو إشارات حقيقية.')
+    expect(lockedPicks).not.toContain('Ces cartes sont des exemples visuels génériques. Aucun match, choix, cote ou signal réel n’est affiché ici.')
+    expect(lockedPicks).not.toContain('These cards are generic visual examples. No real fixture, pick, odds or signal is shown here.')
+    expect(lockedPicks).not.toContain('هذه البطاقات أمثلة مرئية عامة فقط. لا تُعرض هنا أي مباراة أو اختيار أو احتمالات أو إشارات حقيقية.')
+    expect(lockedPicks).toContain('L’accès reste bloqué jusqu’à la validation personnelle du propriétaire.')
+    expect(lockedPicks).toContain('Access stays locked until the owner personally approves it.')
+    expect(lockedPicks).toContain('يبقى الوصول مقفلاً حتى يوافق المالك شخصياً.')
+    expect(lockedPicks).toContain('Envoyer une demande ne déverrouille pas le contenu automatiquement.')
+    expect(lockedPicks).toContain('Sending a request does not unlock the content automatically.')
+    expect(lockedPicks).toContain('إرسال الطلب لا يفتح المحتوى تلقائياً.')
     expect(unlockModal).toContain('role="dialog"')
     expect(unlockModal).toContain('L’accès à vie reste verrouillé jusqu’à la confirmation manuelle du propriétaire.')
     expect(unlockModal).toContain('Lifetime access stays locked until the owner manually approves it.')
