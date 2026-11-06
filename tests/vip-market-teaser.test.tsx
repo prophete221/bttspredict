@@ -21,12 +21,23 @@ describe('teaser VIP verrouillé dans les cartes gratuites', () => {
     const markets = [...container.querySelectorAll<HTMLElement>('[data-vip-market]')]
 
     expect(markets).toHaveLength(2)
+    expect(container.querySelector('[data-testid="vip-market-teaser"]')?.classList.contains('prediction-match-card__vip-teaser')).toBe(true)
     expect(markets.map((market) => market.textContent?.trim())).toEqual([first, second])
     const vipLink = screen.getByRole('link', { name: unlock })
     expect(vipLink.getAttribute('href')).toBe(locale === 'fr' ? '/vip' : `/${locale}/vip`)
     expect(screen.queryByRole('dialog')).toBeNull()
     expect(container.textContent).not.toMatch(/\d+(?:[.,]\d+)?\s*%/)
     expect(container.innerHTML).not.toMatch(/generic preview|no picks or odds|aperçu générique|sans choix ni cote|معاينة عامة|دون اختيارات أو احتمالات/i)
+  })
+
+  it('sépare les marchés VIP du pied d’analyse dans la grille Over 2.5', () => {
+    const freePredictionsSource = readFileSync(resolve(__dirname, '..', 'src/components/bttsbet/FreePredictions.tsx'), 'utf8')
+    const globalCss = readFileSync(resolve(__dirname, '..', 'src/app/globals.css'), 'utf8')
+
+    expect(freePredictionsSource).toContain('prediction-match-card__footer')
+    expect(globalCss).toContain('"vip vip" "details details" "actions actions"')
+    expect(globalCss).toContain('.prediction-match-card__body > .prediction-match-card__vip-teaser { grid-area: vip;')
+    expect(globalCss).toContain('.prediction-match-card__body > .prediction-match-card__footer { grid-area: actions;')
   })
 
   it('est présent dans les variantes de cartes gratuites utilisées sur le site', () => {

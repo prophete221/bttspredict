@@ -479,7 +479,7 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
         </AnimatePresence>
 
         {/* Footer toggle — CTA contextualisé avec noms d'équipes */}
-        <div className="flex items-stretch gap-2 mt-3 pt-3 border-t border-edge">
+        <div className="prediction-match-card__footer flex items-stretch gap-2 mt-3 pt-3 border-t border-edge">
           <button
             onClick={() => {
               const opening = !expanded

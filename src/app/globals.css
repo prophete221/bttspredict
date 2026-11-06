@@ -10592,7 +10592,7 @@ body { background-color: #0a111a; }
 .page-design--over25 #free-predictions .grid:has(> .prediction-match-card) { grid-template-columns: minmax(0, 1fr) !important; gap: 0 !important; border-top: 1px solid rgba(219, 230, 234, 0.13); }
 .page-design--over25 .prediction-match-card { color: #f1efe8 !important; background: #101a25 !important; border: 0 !important; border-bottom: 1px solid rgba(219, 230, 234, 0.13) !important; border-radius: 0 !important; box-shadow: none !important; }
 .page-design--over25 .prediction-match-card__accent { display: none !important; }
-.page-design--over25 .prediction-match-card__body { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(260px, 0.95fr); grid-template-areas: "meta meta" "teams analysis" "details details" "actions actions"; align-items: center; gap: 10px 24px; padding: 14px 12px !important; }
+.page-design--over25 .prediction-match-card__body { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(260px, 0.95fr); grid-template-areas: "meta meta" "teams analysis" "vip vip" "details details" "actions actions"; align-items: center; gap: 10px 24px; padding: 14px 12px !important; }
 .page-design--over25 .prediction-match-card__meta { grid-area: meta; margin: 0 !important; padding-bottom: 8px; border-bottom: 1px solid rgba(219, 230, 234, 0.09); }
 .page-design--over25 .prediction-match-card__teams { grid-area: teams; margin: 0 !important; padding: 8px 0; }
 .page-design--over25 .prediction-match-card__team { flex-direction: row !important; text-align: start !important; gap: 8px !important; }
@@ -10603,7 +10603,8 @@ body { background-color: #0a111a; }
 .page-design--over25 .prediction-match-card__analysis [style*="#2F7DFF"] { color: #9adbe3 !important; }
 .page-design--over25 .prediction-match-card__analysis svg { stroke: #63c6d7 !important; }
 .page-design--over25 .prediction-match-card__body > .overflow-hidden { grid-area: details; }
-.page-design--over25 .prediction-match-card__body > .mt-3 { grid-area: actions; margin-top: 0 !important; padding-top: 8px !important; }
+.page-design--over25 .prediction-match-card__body > .prediction-match-card__vip-teaser { grid-area: vip; margin-top: 0 !important; }
+.page-design--over25 .prediction-match-card__body > .prediction-match-card__footer { grid-area: actions; margin-top: 0 !important; padding-top: 8px !important; }
 .page-design--over25 .over25-info-section,
 .page-design--over25 .over25-related-section { width: min(100%, 1270px) !important; max-width: 1270px !important; }
 .page-design--over25 .over25-info-card,
@@ -10712,7 +10713,7 @@ body { background-color: #0a111a; }
   .page-design--over25 .over25-partner-strip > div { grid-template-columns: minmax(0, 1fr); padding: 12px !important; }
   .page-design--over25 .over25-partner-strip > div > div { grid-column: 1; grid-row: auto; }
   .page-design--over25 .over25-results-section { padding: 8px 16px 32px !important; }
-  .page-design--over25 .prediction-match-card__body { grid-template-columns: minmax(0, 1fr); grid-template-areas: "meta" "teams" "analysis" "details" "actions"; gap: 8px; padding: 11px !important; }
+  .page-design--over25 .prediction-match-card__body { grid-template-columns: minmax(0, 1fr); grid-template-areas: "meta" "teams" "analysis" "vip" "details" "actions"; gap: 8px; padding: 11px !important; }
   .page-design--over25 .prediction-match-card__teams { gap: 8px !important; }
   .page-design--over25 .prediction-match-card__team { flex-direction: column !important; text-align: center !important; gap: 6px !important; }
   .page-design--over25 .prediction-match-card__team:last-child { flex-direction: column !important; text-align: center !important; }
