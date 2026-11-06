@@ -118,3 +118,15 @@ Le test existant `npm test -- tests/seo-preservation.test.ts` réussit (8 tests)
 - **Garde-fous et état local :** les empreintes des cinq fichiers de page protégés correspondent aux valeurs de référence; aucun de ces fichiers n’a été modifié. Les 93 JSON publics contrôlés (prédictions et archives) gardent leurs empreintes; aucun changement aux snapshots ou archives glissantes. Les dossiers préexistants `out/` et `.next/` ont été déplacés pendant le build, puis restaurés après vérification de l’export frais. Branche locale toujours `redesign/professional-global-2026-11-03`, HEAD source `149733160d0c9e7796dc36d3f86f80a2284eecf8`, amont local observé `325526d93c63fc52143741a5b739cf68f7ba0809`; aucun commit, push, merge, changement à `main` ou intervention en production.
 
 **À faire :** revue du diff et du bilan; attendre une autorisation distincte avant tout push. Le statut HTTP public de la nouvelle route n’a pas été testé, car aucun déploiement n’a été demandé ni effectué.
+
+
+## Mise à jour du 5 novembre 2026 — Correctif Gemini/UI déployé
+
+**Résultat :** le correctif ciblé du préflight FTP est en production. Le veto global qui échouait sur une page Match historique terminée a été remplacé par une conservation explicite des pages présentes dans le manifeste courant; le périmètre de suppression limité et les protections existantes sont maintenus.
+
+- **Git :** `main` contient le correctif `cc08038617a2bfd9d1659ee37f12fc7301c687d2`, puis le commit de données automatique `9d809114e60c4e83777665871146525664d53394`.
+- **Gemini :** 22 réponses vérifiées sur 24; les deux candidats non vérifiés ont été exclus. Le flux public comporte 22 sélections, toutes marquées `gemini-stats-v1`, `gemini-3.5-flash-lite` et `pick`. Les taux empiriques conservés dans le JSON sont des métriques de contexte, pas des pronostics de repli.
+- **Sécurité FTP :** le run [#42125234994](https://github.com/prophete221/bttspredict/actions/runs/42125234994) a réussi tous les contrôles. Le plan a conservé 635/635 enregistrements distants et n’a produit aucune suppression; l’allowlist a transféré 1 756 fichiers, FTP code 0. La page AR terminée AGF–Braga a été confirmée parmi les chemins envoyés et vérifiée en HTTP 200 avec l’empreinte du manifeste.
+- **Validation :** 50 fichiers Vitest, 25 tests Python, lint, TypeScript et build statique réussis dans Actions. `predictions.json` public répond HTTP 200. Les preuves détaillées sont consignées dans `RAPPORT_CORRECTION_PREFLIGHT_FTP_GEMINI_2026-11-05.md`.
+- **Limite locale :** l’installation `npm ci` locale a échoué sur saturation des inodes; les contrôles complets ont été exécutés avec succès dans le runner distant. Aucun autre worktree n’a été nettoyé ou modifié.
+- **Décision :** aucune action supplémentaire n’est en attente pour le correctif autorisé; aucune autre modification applicative n’est incluse dans cette mise à jour d’état.
