@@ -2,7 +2,7 @@
 
 ## Résumé
 
-Le propriétaire a autorisé un seul second push/run ciblé après l’annulation du run [#1064](https://github.com/prophete221/bttspredict/actions/runs/42176654263), interrompu avant l’étape FTP. La branche `main` distante et locale est sur `b185b16e0d19f95753f12462256751305d455268` avant cette mission. Le commit local `6e2166ba7b01eb57e5def3c514f0fdf221405404` ajoute un chemin de transfert qui publie le code déjà préparé et autorise exactement les deux fichiers JSON d’historique nécessaires. Il porte les marqueurs `[code-only] [history-json]`; il n’a pas encore été poussé au moment de ce rapport.
+Le propriétaire a autorisé un seul second push/run ciblé après l’annulation du run [#1064](https://github.com/prophete221/bttspredict/actions/runs/42176654263), interrompu avant l’étape FTP. La branche `main` était sur `b185b16e0d19f95753f12462256751305d455268` avant cette mission. Le commit `6e2166ba7b01eb57e5def3c514f0fdf221405404` ajoute un chemin de transfert qui publie le code déjà préparé et autorise exactement les deux fichiers JSON d’historique nécessaires. Ce commit et le rapport initial `6433739226be3daf602c4c455c158de2c6444f5b`, tous deux marqués `[code-only] [history-json]`, ont été poussés une seule fois; le run #1065 a réussi et la production a été vérifiée ci-dessous.
 
 ## Ce qui est autorisé à partir
 
@@ -16,7 +16,7 @@ Le payload déjà présent sur `main` a été relu sans le régénérer : 12 cl�
 
 ### Faits, hypothèses et recommandation
 
-**Faits :** le run #1064 a été annulé avant FTP; la production doit donc encore recevoir le payload historique contrôlé. Le diff de ce correctif ne modifie que le workflow, les scripts de transfert et leurs tests. **Hypothèses :** aucune nouvelle hypothèse sur la cause de la panne Gemini; le motif vient du propriétaire et les exclusions reposent seulement sur la date et le statut. **Recommandation :** pousser une seule fois le commit de code et celui du présent rapport, attendre le run automatique, puis vérifier les deux JSON/pages en production; ne pas relancer en cas d’échec sans nouvelle autorisation. La provenance du run annulé est le [run GitHub #1064](https://github.com/prophete221/bttspredict/actions/runs/42176654263); le calcul des exclusions est détaillé dans [`RAPPORT_HISTORIQUE_BTTS_2026-11-06.md`](RAPPORT_HISTORIQUE_BTTS_2026-11-06.md).
+**Faits :** le run #1064 a été annulé avant FTP; le run ciblé #1065 a depuis terminé avec succès et la production a été vérifiée. Le diff de ce correctif modifie seulement le workflow, les scripts de transfert et leurs tests. **Hypothèses :** aucune nouvelle hypothèse sur la cause de la panne Gemini; le motif vient du propriétaire et les exclusions reposent seulement sur la date et le statut. **Recommandation :** ne pas relancer de déploiement; si un nouvel essai devient nécessaire, obtenir une autorisation distincte. La provenance des runs est le [run GitHub #1064 annulé](https://github.com/prophete221/bttspredict/actions/runs/42176654263) et le [run #1065 réussi](https://github.com/prophete221/bttspredict/actions/runs/42180597320); le calcul des exclusions est détaillé dans [`RAPPORT_HISTORIQUE_BTTS_2026-11-06.md`](RAPPORT_HISTORIQUE_BTTS_2026-11-06.md).
 
 ## Fichiers modifiés
 
@@ -36,6 +36,12 @@ Les rapports antérieurs, notamment `RAPPORT_HISTORIQUE_BTTS_2026-11-06.md` et `
 - YAML du workflow parsé avec succès (**38 étapes**); les blocs Node ciblés passent `node --check`. Les scripts `.mjs` modifiés passent aussi `node --check`; `git diff --check` est propre.
 - Le build a régénéré `src/lib/promo-build-date.generated.ts`; ce changement hors périmètre a été restauré avant le commit.
 
-## État et suite
+## Résultat du run et production
 
-Le commit de code est local sur `main`; aucun push, run ou déploiement n’a été effectué pour ce correctif. La prochaine action autorisée est un unique push contenant le commit de code et le commit de ce rapport, tous deux avec `[code-only] [history-json]` afin que le workflow lise les bons marqueurs sur le commit de tête. Après ce push, il reste à vérifier le résultat du workflow et les fichiers/pages de production. Aucun nouvel essai ne sera déclenché si ce run échoue sans autorisation distincte.
+Le run [#1065](https://github.com/prophete221/bttspredict/actions/runs/42180597320), sur `6433739226be3daf602c4c455c158de2c6444f5b`, a réussi le 6 novembre 2026 en 39 min 45 s. Le plan différentiel avait 21 nouveaux chemins et 1 407 modifiés; 1 428 fichiers du site (42 677 855 octets) ont été transférés. Parmi les fichiers de données, les seuls étaient `history-exclusions.json` et `win-history.json`; aucune archive ne figurait dans le plan. Le rapport FTP indique succès/code 0 et confirme ces deux JSON. Le pruning, la mise à jour des prédictions, Gemini, la régénération de l’historique et le commit de données ont été sautés comme prévu; le manifeste distant n’a pas été publié.
+
+En production, les deux JSON, `/en/historique`, `/en/resultats-verifies`, `/en/vip`, le MP4 et son poster répondent tous HTTP 200. Le JSON servi contient 482 résultats vérifiés (388 gagnés, 94 perdus), 188 non vérifiables, 47 en attente et 717 archives; le 5 novembre compte 11 gains, 0 perte et 12 exclusions uniques. Les tableaux HTML initiaux de l’historique et des résultats vérifiés contiennent chacun 100 lignes BTTS et aucune ligne Over 2.5. Les routes `/over-2-5/predictions/today`, `/en/over-2-5/predictions/today` et `/ar/over-2-5/predictions/today` répondent HTTP 200 et exposent le teaser VIP et la zone d’analyse séparée. Les empreintes SHA-256 du MP4 et du poster servis en production sont identiques aux fichiers locaux.
+
+## État final
+
+Les commits poussés sur `main` sont `6e2166ba7b01eb57e5def3c514f0fdf221405404` (code ciblé) et `6433739226be3daf602c4c455c158de2c6444f5b` (rapport pré-déploiement), tous deux avec `[code-only] [history-json]`. La mise à jour post-déploiement de cette copie du rapport est locale et n’a pas été poussée dans cette mission, afin de ne pas déclencher un second workflow après l’unique run autorisé. Aucun autre déploiement n’est en attente.
