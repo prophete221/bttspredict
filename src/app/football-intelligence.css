@@ -1724,10 +1724,10 @@ body::before { display: none !important; }
 #main-content .prediction-match-card__analysis { background: #102F3A !important; }
 #main-content .prediction-match-card .text-papier,
 #main-content .prediction-match-card .text-primary,
-#main-content .prediction-match-card .text-[#F2F6FA] { color: #F2F6FA !important; }
+#main-content .prediction-match-card .text-\[\#F2F6FA\] { color: #F2F6FA !important; }
 #main-content .prediction-match-card .text-cendre,
-#main-content .prediction-match-card .text-[#9DABBB],
-#main-content .prediction-match-card .text-[#6B7A8C],
+#main-content .prediction-match-card .text-\[\#9DABBB\],
+#main-content .prediction-match-card .text-\[\#6B7A8C\],
 #main-content .prediction-match-card__meta { color: #CDD7DB !important; }
 #main-content .prediction-match-card__body,
 #main-content .prediction-match-card__teams { color: #F2F6FA !important; }
