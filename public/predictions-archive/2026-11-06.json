@@ -6801,7 +6801,9 @@
       "prediction": "Oui",
       "proba": 0.72,
       "confidence": 72,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-0",
+      "verifiedAt": "2026-11-07T00:38:24.179Z"
     },
     {
       "id": "tsveintr-vs-energiec-2026-11-06",
@@ -6998,7 +7000,9 @@
       "prediction": "Non",
       "proba": 0.58,
       "confidence": 58,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "0-0",
+      "verifiedAt": "2026-11-07T00:38:24.179Z"
     },
     {
       "id": "toulouse-vs-strasbou-2026-11-06",
@@ -7196,7 +7200,9 @@
       "prediction": "Oui",
       "proba": 0.72,
       "confidence": 72,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-11-07T00:38:24.179Z"
     },
     {
       "id": "hamburgs-vs-borussia-2026-11-06",
@@ -7386,7 +7392,9 @@
       "prediction": "Oui",
       "proba": 0.65,
       "confidence": 65,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-11-07T00:38:24.179Z"
     },
     {
       "id": "standard-vs-waasland-2026-11-06",
@@ -7583,7 +7591,9 @@
       "prediction": "Oui",
       "proba": 0.68,
       "confidence": 68,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-11-07T00:38:24.180Z"
     },
     {
       "id": "derbycou-vs-boltonwa-2026-11-06",
@@ -7780,7 +7790,9 @@
       "prediction": "Oui",
       "proba": 0.62,
       "confidence": 62,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-11-07T00:38:24.180Z"
     },
     {
       "id": "dynamodr-vs-spvgggre-2026-11-06",
@@ -7961,7 +7973,9 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-11-07T00:38:24.180Z"
     },
     {
       "id": "rapidvie-vs-wolfsber-2026-11-06",
@@ -8142,7 +8156,9 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "6-0",
+      "verifiedAt": "2026-11-07T00:38:24.181Z"
     },
     {
       "id": "willemii-vs-peczwoll-2026-11-06",
@@ -8339,7 +8355,9 @@
       "prediction": "Oui",
       "proba": 0.62,
       "confidence": 62,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-11-07T00:38:24.181Z"
     },
     {
       "id": "everton-vs-coventry-2026-11-06",
@@ -8521,7 +8539,9 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-11-07T00:38:24.182Z"
     },
     {
       "id": "fcfamali-vs-arouca-2026-11-06",
@@ -8718,7 +8738,9 @@
       "prediction": "Oui",
       "proba": 0.58,
       "confidence": 58,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-07T00:38:24.182Z"
     },
     {
       "id": "venezia-vs-udinese-2026-11-06",
@@ -8901,7 +8923,9 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-07T00:38:24.182Z"
     },
     {
       "id": "mainz-vs-bayernmu-2026-11-07",
@@ -12231,7 +12255,9 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "0-0",
+      "verifiedAt": "2026-11-07T00:38:24.179Z"
     },
     {
       "id": "dynamodr-vs-spvgggre-2026-11-06",
@@ -12428,7 +12454,9 @@
       "prediction": "Oui",
       "proba": 0.52,
       "confidence": 52,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-11-07T00:38:24.180Z"
     },
     {
       "id": "orlandoc-vs-newengla-2026-11-07",

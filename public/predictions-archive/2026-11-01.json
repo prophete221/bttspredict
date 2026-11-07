@@ -27895,7 +27895,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-11-07T00:38:24.180Z"
     },
     {
       "id": "tsveintr-vs-energiec-2026-11-06",
@@ -28110,7 +28112,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.87 · N 3.95 · 2 3.45",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "0-0",
+      "verifiedAt": "2026-11-07T00:38:24.179Z"
     },
     {
       "id": "sevilla-vs-alavs-2026-11-06",
@@ -28325,7 +28329,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 2.1 · N 3.25 · 2 3.65 · O2.5 2.2",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-0",
+      "verifiedAt": "2026-11-07T00:38:24.179Z"
     },
     {
       "id": "toulouse-vs-strasbou-2026-11-06",
@@ -28540,7 +28546,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 2.05 · N 3.65 · 2 3.25 · O2.5 1.57",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-11-07T00:38:24.179Z"
     },
     {
       "id": "standard-vs-waasland-2026-11-06",
@@ -28748,7 +28756,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-11-07T00:38:24.180Z"
     },
     {
       "id": "dynamodr-vs-spvgggre-2026-11-06",
@@ -28956,7 +28966,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-11-07T00:38:24.180Z"
     },
     {
       "id": "rapidvie-vs-wolfsber-2026-11-06",
@@ -29164,7 +29176,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "6-0",
+      "verifiedAt": "2026-11-07T00:38:24.187Z"
     },
     {
       "id": "willemii-vs-peczwoll-2026-11-06",
@@ -29372,7 +29386,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-11-07T00:38:24.181Z"
     },
     {
       "id": "marseill-vs-toulouse-2026-11-01",
@@ -31951,7 +31967,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-11-07T00:38:24.179Z"
     },
     {
       "id": "rapidvie-vs-wolfsber-2026-11-06",
@@ -32156,7 +32174,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "6-0",
+      "verifiedAt": "2026-11-07T00:38:24.181Z"
     },
     {
       "id": "atalanta-vs-parma-2026-11-02",
