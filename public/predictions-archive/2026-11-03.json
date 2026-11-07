@@ -20898,7 +20898,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-11-07T21:17:31.475Z"
     },
     {
       "id": "sporting-vs-moreiren-2026-11-07",
@@ -21321,7 +21323,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 5.5 · N 4.8 · 2 1.44",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-4",
+      "verifiedAt": "2026-11-07T21:17:31.476Z"
     },
     {
       "id": "orlandoc-vs-newengla-2026-11-07",

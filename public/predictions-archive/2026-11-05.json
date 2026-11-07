@@ -20250,7 +20250,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-11-07T21:17:31.475Z"
     },
     {
       "id": "sporting-vs-moreiren-2026-11-07",
@@ -20673,7 +20675,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 5.5 · N 4.8 · 2 1.44",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-4",
+      "verifiedAt": "2026-11-07T21:17:31.476Z"
     },
     {
       "id": "orlandoc-vs-newengla-2026-11-07",
@@ -24524,7 +24528,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 2.45 · N 3.5 · 2 2.6 · O2.5 1.53",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-11-07T21:17:22.818Z"
     },
     {
       "id": "svjoskor-vs-lasklinz-2026-11-07",
@@ -24737,7 +24743,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 5.25 · N 4.7 · 2 1.48",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-4",
+      "verifiedAt": "2026-11-07T21:17:27.163Z"
     },
     {
       "id": "orlandoc-vs-newengla-2026-11-07",
@@ -30100,7 +30108,9 @@
       "prediction": "Oui",
       "proba": 0.7,
       "confidence": 70,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-11-07T21:17:31.475Z"
     },
     {
       "id": "realsalt-vs-lagalaxy-2026-11-08",

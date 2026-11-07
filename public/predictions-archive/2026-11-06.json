@@ -9321,7 +9321,9 @@
       "prediction": "Oui",
       "proba": 0.7,
       "confidence": 70,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-11-07T21:17:31.475Z"
     },
     {
       "id": "sporting-vs-moreiren-2026-11-07",
@@ -9715,7 +9717,9 @@
       "prediction": "Oui",
       "proba": 0.75,
       "confidence": 75,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-4",
+      "verifiedAt": "2026-11-07T21:17:27.163Z"
     },
     {
       "id": "orlandoc-vs-newengla-2026-11-07",
