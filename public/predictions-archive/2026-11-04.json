@@ -17934,7 +17934,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 4.8 · N 5.25 · 2 1.43",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-07T17:15:46.420Z"
     },
     {
       "id": "adodenha-vs-spartaro-2026-11-07",
@@ -18989,7 +18991,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "5-4",
+      "verifiedAt": "2026-11-07T17:15:50.103Z"
     },
     {
       "id": "asroma-vs-sassuolo-2026-11-07",

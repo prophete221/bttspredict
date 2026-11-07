@@ -9122,7 +9122,9 @@
       "prediction": "Oui",
       "proba": 0.72,
       "confidence": 72,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-07T17:15:46.420Z"
     },
     {
       "id": "adodenha-vs-spartaro-2026-11-07",
@@ -10107,7 +10109,9 @@
       "prediction": "Oui",
       "proba": 0.65,
       "confidence": 65,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "5-4",
+      "verifiedAt": "2026-11-07T17:15:50.103Z"
     },
     {
       "id": "asroma-vs-sassuolo-2026-11-07",
