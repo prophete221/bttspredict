@@ -2,6 +2,7 @@
 
 import { AFFILIATE } from '@/lib/constants'
 import PromoLandingShell from '@/components/bttsbet/PromoLandingShell'
+import styles from '@/components/bttsbet/PromoBookmakerGlass.module.css'
 import { getPromoFaq } from '@/lib/promo-faq'
 
 const CODE = 'VISION221'
@@ -17,28 +18,30 @@ const ALL_LINKS = [
 
 export default function LinebetClient(_props: { reviewDate?: string } = {}) {
   return (
-    <PromoLandingShell
-      brand={BRAND}
-      code={CODE}
-      bookmakerId="linebet"
-      accent="#2F7DFF"
-      logo="/logos/linebet-logo.jpg"
-      logoBg="#0d1b2a"
-      signupUrl={AFFILIATE.linebet}
-      downloadUrl={AFFILIATE.linebetDownload}
-      lang="fr"
-      title="Code promo Linebet Sénégal VISION221 : offre mondiale à 300 %"
-      badge="OFFRE LINEBET"
-      intro="Retrouvez le code exact VISION221 et les détails de l’offre mondiale de 300 % de Linebet."
-      offerHeadline="Offre mondiale à 300 %"
-      offerSub="Plus de cashback et des bonus hebdomadaires."
-      benefits={['Offre mondiale à 300 %', 'Plus de cashback et des bonus hebdomadaires', 'Code exact VISION221', 'Lien Linebet']}
-      steps={[
-        { n: '01', title: 'Consulter Linebet', desc: 'Ouvrez Linebet via le lien affiché sur cette page.' },
-        { n: '02', title: 'Code promo', desc: 'Code exact : VISION221' },
-      ]}
-      faq={getPromoFaq('linebet', 'fr')}
-      crossLinks={ALL_LINKS.filter((l) => l.id !== SELF).map(({ label, href }) => ({ label, href }))}
-    />
+    <div className={`${styles.glassPage} ${styles.linebet}`}>
+      <PromoLandingShell
+        brand={BRAND}
+        code={CODE}
+        bookmakerId="linebet"
+        accent="#2F7DFF"
+        logo="/logos/linebet-logo.jpg"
+        logoBg="#0d1b2a"
+        signupUrl={AFFILIATE.linebet}
+        downloadUrl={AFFILIATE.linebetDownload}
+        lang="fr"
+        title="Code promo Linebet VISION221 : offre mondiale 300 %"
+        badge="CODE PROMO LINEBET · VISION221"
+        intro="Le code promo Linebet VISION221 fonctionne dans le monde entier. L’offre comprend un bonus de dépôt de 300 %, du cashback et des bonus hebdomadaires ; vérifiez auprès de Linebet les modalités applicables dans votre pays."
+        offerHeadline="Offre Linebet dans le monde"
+        offerSub="Code VISION221 · bonus de dépôt mondial de 300 % · cashback et bonus hebdomadaires."
+        benefits={['Code Linebet : VISION221', 'Fonctionne dans le monde entier', 'Bonus de dépôt mondial de 300 %', 'Cashback et bonus hebdomadaires']}
+        steps={[
+          { n: '01', title: 'Copier VISION221', desc: 'Le code promo Linebet VISION221 fonctionne dans le monde entier.' },
+          { n: '02', title: 'Consulter Linebet', desc: 'Vérifiez auprès de l’opérateur les modalités applicables dans votre pays.' },
+        ]}
+        faq={getPromoFaq('linebet', 'fr')}
+        crossLinks={ALL_LINKS.filter((l) => l.id !== SELF).map(({ label, href }) => ({ label, href }))}
+      />
+    </div>
   )
 }

@@ -23,7 +23,7 @@ const SITE_URL = 'https://bttspredict.com'
 
 export const metadata: Metadata = {
   title: 'Code Promo Linebet VISION221 Sénégal',
-  description: 'Code promo Linebet Sénégal. Conditions et montants à vérifier auprès de l\'opérateur. Lien d\'affiliation rémunéré. 18+.',
+  description: 'Code promo Linebet VISION221 valable dans le monde entier : bonus de dépôt de 300 %, cashback et bonus hebdomadaires. 18+.',
   robots: { index: true, follow: true },
   alternates: {
     // (2026-09-28) Canonical vers la page principale — conformément à
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Code Promo Linebet Sénégal | BTTSPredict',
-    description: 'Code promo Linebet Sénégal. 18+.',
+    description: 'Code promo Linebet VISION221 valable dans le monde entier : bonus de dépôt de 300 %, cashback et bonus hebdomadaires. 18+.',
     url: `${SITE_URL}${TARGET}`,
     type: 'website',
   },
@@ -60,8 +60,8 @@ export default function LinebetPromoCodePage() {
           Linebet Promo Code VISION221 Sénégal
         </h1>
         <p style={{ fontSize: '0.875rem', marginBottom: '1.5rem', color: '#9DABBB', lineHeight: 1.6 }}>
-          Le code promo <strong style={{ color: '#2F7DFF' }}>VISION221</strong> est disponible sur la page principale.
-          Redirection en cours vers la page Code Promo Linebet Sénégal...
+          Le code promo <strong style={{ color: '#2F7DFF' }}>VISION221</strong> fonctionne dans le monde entier.
+          L’offre comprend un bonus de dépôt de 300 %, du cashback et des bonus hebdomadaires. Redirection vers la page principale...
         </p>
         <a
           href={TARGET}

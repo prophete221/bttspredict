@@ -18,16 +18,16 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params
   const isEnglish = locale === 'en'
   if (!isEnglish && locale !== 'ar') return {}
-  const title = isEnglish ? '888Starz Promo Code btts221 for a 300% Worldwide Offer' : 'رمز 888Starz الترويجي btts221 لعرض عالمي بنسبة 300%'
+  const title = isEnglish ? '888Starz Promo Code btts221: 300% Worldwide Bonus' : 'رمز 888Starz الترويجي btts221: مكافأة عالمية 300%'
   const description = isEnglish
-    ? '888Starz promo code btts221 for its 300% worldwide offer, plus extra cashback and weekly bonuses. 18+. Please gamble responsibly.'
-    : 'رمز 888Starz الترويجي btts221 لعرض 300% المتاح عالميًا، مع استرداد نقدي إضافي ومكافآت أسبوعية. للبالغين 18+، والعب بمسؤولية.'
+    ? '888Starz code btts221 works worldwide. The offer includes a 300% deposit bonus, cashback and weekly bonuses. 18+.'
+    : 'يعمل رمز 888Starz btts221 حول العالم. يشمل العرض مكافأة إيداع بنسبة 300%، واستردادًا نقديًا ومكافآت أسبوعية. 18+.'
   return {
     title,
     description,
     keywords: isEnglish
-      ? ['888Starz promo code', 'btts221', '888Starz 300% worldwide']
-      : ['رمز 888Starz الترويجي', 'btts221', '888Starz 300% حول العالم'],
+      ? ['888Starz promo code', '888Starz promo code btts221', 'btts221', '888Starz 300% worldwide']
+      : ['رمز 888Starz الترويجي', 'رمز 888Starz btts221', 'btts221', '888Starz 300% حول العالم'],
     alternates: {
       canonical: isEnglish ? EN_URL : AR_URL,
       languages: { fr: FR_URL, en: EN_URL, ar: AR_URL, 'x-default': FR_URL },

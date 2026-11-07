@@ -7,17 +7,17 @@ import { checkSeo } from '@/lib/seo'
 const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'code-promo-1xbet'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
-const TITLE = 'Code promo 1xBet vipbtts : offre mondiale à 300 %'
-const DESCRIPTION = 'Code promo 1xBet vipbtts : offre mondiale de 300 %, plus de cashback et des bonus hebdomadaires. 18+ ; jouez de manière responsable.'
-const OPEN_GRAPH_TITLE = 'Code promo 1xBet vipbtts 300% worldwide'
-const OPEN_GRAPH_DESCRIPTION = 'Code promo 1xBet vipbtts : bonus 300% worldwide, davantage de cashback et des bonus hebdomadaires. 18+.'
+const TITLE = 'Code promo 1xBet vipbtts : bonus mondial 300 %'
+const DESCRIPTION = 'Code promo 1xBet vipbtts valable dans le monde entier : bonus de dépôt de 300 %, cashback et bonus hebdomadaires. 18+.'
+const OPEN_GRAPH_TITLE = 'Code promo 1xBet vipbtts : bonus mondial 300 %'
+const OPEN_GRAPH_DESCRIPTION = 'Le code 1xBet vipbtts fonctionne dans le monde entier. L’offre comprend un bonus de dépôt de 300 %, du cashback et des bonus hebdomadaires. 18+.'
 
 checkSeo(SLUG, TITLE, DESCRIPTION)
 
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  keywords: ['code promo 1xBet', '1xBet promo code', 'vipbtts', '1xBet 300% worldwide', 'code vipbtts 1xBet'],
+  keywords: ['code promo 1xBet', 'code promo 1xBet vipbtts', 'vipbtts', '1xBet bonus 300%'],
   alternates: {
     canonical: PAGE_URL,
     languages: {

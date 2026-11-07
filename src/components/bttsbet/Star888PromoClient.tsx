@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { AFFILIATE, BOOKMAKERS } from '@/lib/constants'
 import { trackAffiliateAction, trackAffiliateCodeCopy } from '@/lib/affiliateTracking'
 import { copyTextToClipboard } from '@/lib/clipboard'
+import { getPromoFaq } from '@/lib/promo-faq'
 
 type Lang = 'fr' | 'en' | 'ar'
 
@@ -17,6 +18,9 @@ const COPY: Record<Lang, {
   title: string
   positioning: string
   offer: string
+  highlights: string[]
+  guideTitle: string
+  steps: { title: string; body: string }[]
   codeLabel: string
   copy: string
   copied: string
@@ -24,14 +28,22 @@ const COPY: Record<Lang, {
   visit: string
   download: string
   disclosure: string
+  affiliateDisclosure: string
   responsible: string
+  faqTitle: string
 }> = {
   fr: {
     dir: 'ltr',
     badge: 'OFFRE 888STARZ',
-    title: 'Code promo 888Starz btts221 pour l’offre mondiale à 300 %',
-    positioning: 'Plus de cashback et des bonus hebdomadaires.',
-    offer: 'Offre mondiale à 300 %',
+    title: 'Code promo 888Starz btts221 : bonus mondial de 300 %',
+    positioning: 'Le code 888Starz btts221 fonctionne dans le monde entier. L’offre comprend un bonus de dépôt mondial de 300 %, du cashback et des bonus hebdomadaires. Consultez 888Starz pour les modalités en vigueur.',
+    offer: 'Bonus de dépôt mondial 300 %',
+    highlights: ['Cashback', 'Bonus hebdomadaires', 'Code exact : btts221'],
+    guideTitle: 'Comment utiliser ce guide',
+    steps: [
+      { title: 'Copier le code', body: 'Recopiez btts221 tel qu’il apparaît sur cette page.' },
+      { title: 'Vérifier les modalités', body: 'Consultez les conditions en vigueur directement auprès de 888Starz.' },
+    ],
     codeLabel: 'Code promo',
     copy: 'Copier le code',
     copied: 'Code copié',
@@ -39,14 +51,22 @@ const COPY: Record<Lang, {
     visit: 'Consulter 888Starz',
     download: 'Télécharger l’APK',
     disclosure: '18+',
+    affiliateDisclosure: 'Les liens vers 888Starz sont affiliés ; BTTSPredict peut percevoir une commission si vous les utilisez.',
     responsible: 'Jouer responsable',
+    faqTitle: 'Questions fréquentes',
   },
   en: {
     dir: 'ltr',
     badge: '888STARZ OFFER',
-    title: '888Starz Promo Code btts221 for a 300% Worldwide Offer',
-    positioning: 'Extra cashback and weekly bonuses.',
-    offer: '300% Worldwide Offer',
+    title: '888Starz btts221 Promo Code: 300% Worldwide Bonus',
+    positioning: '888Starz code btts221 works worldwide. The offer includes a 300% worldwide deposit bonus, cashback and weekly bonuses. Check current terms with 888Starz.',
+    offer: '300% Worldwide Deposit Bonus',
+    highlights: ['Cashback', 'Weekly bonuses', 'Exact code: btts221'],
+    guideTitle: 'How to use this guide',
+    steps: [
+      { title: 'Copy the code', body: 'Copy btts221 exactly as shown on this page.' },
+      { title: 'Check the terms', body: 'Review the current terms directly with 888Starz.' },
+    ],
     codeLabel: 'Promo code',
     copy: 'Copy code',
     copied: 'Code copied',
@@ -54,14 +74,22 @@ const COPY: Record<Lang, {
     visit: 'Visit 888Starz',
     download: 'Download APK',
     disclosure: '18+',
+    affiliateDisclosure: 'Links to 888Starz are affiliate links; BTTSPredict may receive a commission if you use them.',
     responsible: 'Play responsibly',
+    faqTitle: 'Frequently asked questions',
   },
   ar: {
     dir: 'rtl',
     badge: 'عرض 888Starz',
-    title: 'رمز 888Starz الترويجي btts221 لعرض عالمي بنسبة 300%',
-    positioning: 'استرداد نقدي إضافي ومكافآت أسبوعية.',
-    offer: 'عرض عالمي بنسبة 300%',
+    title: 'رمز 888Starz الترويجي btts221: عرض عالمي بنسبة 300%',
+    positioning: 'يعمل رمز 888Starz ‏btts221 حول العالم. يشمل العرض مكافأة إيداع عالمية بنسبة 300%، واستردادًا نقديًا ومكافآت أسبوعية. راجع الشروط السارية لدى 888Starz.',
+    offer: 'مكافأة إيداع عالمية 300%',
+    highlights: ['استرداد نقدي', 'مكافآت أسبوعية', 'الرمز الدقيق: btts221'],
+    guideTitle: 'طريقة استخدام هذا الدليل',
+    steps: [
+      { title: 'انسخ الرمز', body: 'انسخ btts221 كما يظهر في هذه الصفحة.' },
+      { title: 'تحقق من الشروط', body: 'راجع الشروط الحالية مباشرة لدى 888Starz.' },
+    ],
     codeLabel: 'الرمز الترويجي',
     copy: 'نسخ الرمز',
     copied: 'تم نسخ الرمز',
@@ -69,25 +97,65 @@ const COPY: Record<Lang, {
     visit: 'زيارة 888Starz',
     download: 'تحميل APK',
     disclosure: '+18',
+    affiliateDisclosure: 'روابط 888Starz تابعة؛ قد تحصل BTTSPredict على عمولة عند استخدامها.',
     responsible: 'اللعب المسؤول',
+    faqTitle: 'الأسئلة الشائعة',
   },
 }
 
 const CODE_COPY: Record<Lang, Pick<typeof COPY.fr, 'title' | 'positioning' | 'offer'>> = {
   fr: {
-    title: 'Découvrez le code promo 888Starz btts221 et l’offre mondiale à 300 %',
-    positioning: 'Retrouvez le code exact et les détails de l’offre 888Starz annoncée dans le monde entier.',
-    offer: 'Bonus mondial de 300 %',
+    title: 'Guide du code promo 888Starz btts221 et du bonus mondial de 300 %',
+    positioning: 'Le code 888Starz btts221 fonctionne dans le monde entier. L’offre comprend un bonus de dépôt mondial de 300 %, du cashback et des bonus hebdomadaires. Consultez 888Starz pour les modalités en vigueur.',
+    offer: 'Bonus de dépôt mondial 300 %',
   },
   en: {
-    title: 'Explore the 888Starz btts221 Promo Code and 300% Worldwide Offer',
-    positioning: 'Find the exact code and details of 888Starz’s worldwide promotion.',
-    offer: '300% Worldwide Bonus',
+    title: '888Starz btts221 Code Guide: 300% Worldwide Bonus',
+    positioning: '888Starz code btts221 works worldwide. The offer includes a 300% worldwide deposit bonus, cashback and weekly bonuses. Check terms with 888Starz.',
+    offer: '300% Worldwide Deposit Bonus',
   },
   ar: {
-    title: 'اكتشف رمز 888Starz الترويجي btts221 والعرض العالمي بنسبة 300%',
-    positioning: 'تعرّف على الرمز الدقيق وتفاصيل عرض 888Starz المتاح عالميًا.',
-    offer: 'عرض عالمي بنسبة 300%',
+    title: 'دليل رمز 888Starz الترويجي btts221 والعرض العالمي بنسبة 300%',
+    positioning: 'يعمل رمز 888Starz ‏btts221 حول العالم. يشمل العرض مكافأة إيداع عالمية بنسبة 300%، واستردادًا نقديًا ومكافآت أسبوعية. راجع الشروط لدى 888Starz.',
+    offer: 'مكافأة إيداع عالمية 300%',
+  },
+}
+
+type MainPromoCopy = Pick<typeof COPY.fr, 'title' | 'positioning' | 'offer' | 'highlights' | 'guideTitle' | 'steps'>
+
+const MAIN_PROMO_COPY: Record<Lang, MainPromoCopy> = {
+  fr: {
+    title: 'Code promo 888Starz btts221 : bonus mondial 300 %',
+    positioning: 'Le code promo 888Starz btts221 fonctionne dans le monde entier. L’offre comprend un bonus de dépôt mondial de 300 %, du cashback et des bonus hebdomadaires.',
+    offer: 'Bonus de dépôt mondial 300 %',
+    highlights: ['Bonus de dépôt 300 %', 'Cashback', 'Bonus hebdomadaires · code btts221'],
+    guideTitle: 'Comment utiliser le code btts221',
+    steps: [
+      { title: 'Copier btts221', body: 'Recopiez le code exact avant de consulter l’offre 888Starz.' },
+      { title: 'Consulter 888Starz', body: 'Vérifiez auprès de l’opérateur les modalités en vigueur.' },
+    ],
+  },
+  en: {
+    title: '888Starz Promo Code btts221: 300% Worldwide Bonus',
+    positioning: '888Starz promo code btts221 works worldwide. The offer includes a 300% worldwide deposit bonus, cashback and weekly bonuses.',
+    offer: '300% Worldwide Deposit Bonus',
+    highlights: ['300% deposit bonus', 'Cashback', 'Weekly bonuses · code btts221'],
+    guideTitle: 'How to use code btts221',
+    steps: [
+      { title: 'Copy btts221', body: 'Copy the exact code before reviewing the 888Starz offer.' },
+      { title: 'Check with 888Starz', body: 'Review the offer terms directly with the operator.' },
+    ],
+  },
+  ar: {
+    title: 'رمز 888Starz الترويجي btts221: مكافأة عالمية 300%',
+    positioning: 'يعمل رمز 888Starz الترويجي btts221 حول العالم. يشمل العرض مكافأة إيداع عالمية بنسبة 300%، واستردادًا نقديًا ومكافآت أسبوعية.',
+    offer: 'مكافأة إيداع عالمية 300%',
+    highlights: ['مكافأة إيداع 300%', 'استرداد نقدي', 'مكافآت أسبوعية · الرمز btts221'],
+    guideTitle: 'طريقة استخدام الرمز btts221',
+    steps: [
+      { title: 'انسخ btts221', body: 'انسخ الرمز الدقيق قبل مراجعة عرض 888Starz.' },
+      { title: 'راجع العرض لدى 888Starz', body: 'تحقق من شروط العرض مباشرة لدى المشغّل.' },
+    ],
   },
 }
 
@@ -104,9 +172,14 @@ export default function Star888PromoClient({
 }: {
   lang?: Lang
   showDownload?: boolean
-  variant?: 'general' | 'code'
+  variant?: 'general' | 'code' | 'main'
 }) {
-  const copy = variant === 'code' ? { ...COPY[lang], ...CODE_COPY[lang] } : COPY[lang]
+  const copy = variant === 'code'
+    ? { ...COPY[lang], ...CODE_COPY[lang] }
+    : variant === 'main'
+      ? { ...COPY[lang], ...MAIN_PROMO_COPY[lang] }
+      : COPY[lang]
+  const faq = getPromoFaq('888starz', lang)
   const [copied, setCopied] = useState(false)
   const [copyFailed, setCopyFailed] = useState(false)
 
@@ -156,6 +229,14 @@ export default function Star888PromoClient({
             <div className="mt-8 border-s-4 border-[#D9164C] ps-4">
               <p className="text-xs font-bold uppercase tracking-[.16em] text-[#8FA9AF]">888Starz</p>
               <p className="mt-1 text-3xl font-extrabold tracking-tight text-[#D9164C] sm:text-4xl">{copy.offer}</p>
+            </div>
+            <div className="mt-5 grid gap-2 sm:grid-cols-3" data-promo-highlights>
+              {copy.highlights.map((highlight, index) => (
+                <div key={highlight} className="rounded-lg border border-white/10 bg-[#0B2B36] p-3">
+                  <span className="text-[10px] font-bold tracking-widest text-[#FF7A9C]">0{index + 1}</span>
+                  <p className="mt-1 text-xs font-semibold leading-relaxed text-[#CBDDE0]">{highlight}</p>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -208,12 +289,37 @@ export default function Star888PromoClient({
               </a>
             )}
 
+            <p data-affiliate-disclosure className="mt-4 text-center text-xs leading-relaxed text-[#9FB6BB]">{copy.affiliateDisclosure}</p>
+
             <div className="mt-5 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-center text-xs text-[#9FB6BB]">
               <span>{copy.disclosure}</span>
               <span aria-hidden="true">·</span>
               <a href={lang === 'fr' ? '/jouer-responsable' : `/${lang}/jouer-responsable`} className="font-semibold text-white underline underline-offset-2 hover:text-[#FF7A9C]">{copy.responsible}</a>
             </div>
           </div>
+        </div>
+      </section>
+      <section data-promo-steps aria-labelledby="star888-steps-title" className="mx-auto mt-8 w-full max-w-5xl rounded-2xl border border-white/10 bg-[#06232E] p-5 sm:p-8">
+        <h2 id="star888-steps-title" className="text-xl font-bold text-white sm:text-2xl">{copy.guideTitle}</h2>
+        <div className="mt-5 grid gap-3 sm:grid-cols-2">
+          {copy.steps.map((step, index) => (
+            <div key={step.title} className="rounded-xl border border-[#D9164C]/25 bg-[#0B2B36] p-4">
+              <span className="text-xs font-bold tracking-widest text-[#FF7A9C]">0{index + 1}</span>
+              <h3 className="mt-1 font-bold text-white">{step.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-[#B9CDD2]">{step.body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <section data-promo-faq aria-labelledby="star888-faq-title" className="mx-auto mt-8 w-full max-w-5xl rounded-2xl border border-white/10 bg-[#06232E] p-5 sm:p-8">
+        <h2 id="star888-faq-title" className="text-xl font-bold text-white sm:text-2xl">{copy.faqTitle}</h2>
+        <div className="mt-5 grid gap-4 sm:grid-cols-2">
+          {faq.map((item) => (
+            <div key={item.q} className="rounded-xl border border-white/10 bg-[#0B2B36] p-4">
+              <h3 className="text-base font-bold text-white">{item.q}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-[#B9CDD2]">{item.a}</p>
+            </div>
+          ))}
         </div>
       </section>
     </main>

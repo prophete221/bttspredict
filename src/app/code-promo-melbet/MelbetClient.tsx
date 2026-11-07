@@ -2,6 +2,7 @@
 
 import { AFFILIATE } from '@/lib/constants'
 import PromoLandingShell from '@/components/bttsbet/PromoLandingShell'
+import styles from '@/components/bttsbet/PromoBookmakerGlass.module.css'
 import { getPromoFaq } from '@/lib/promo-faq'
 
 const CODE = 'Bttswin'
@@ -17,28 +18,30 @@ const ALL_LINKS = [
 
 export default function MelbetClient(_props: { reviewDate?: string } = {}) {
   return (
-    <PromoLandingShell
-      brand={BRAND}
-      code={CODE}
-      bookmakerId="melbet"
-      accent="#F59E0B"
-      logo="/logos/melbet-logo.jpg"
-      logoBg="#1b1b1b"
-      signupUrl={AFFILIATE.melbet}
-      downloadUrl={AFFILIATE.melbetDownload}
-      lang="fr"
-      title="Code promo Melbet Bttswin : bonus mondial de 300 %"
-      badge="OFFRE MELBET"
-      intro="Retrouvez le code exact Bttswin et les informations sur l’offre Melbet de 300 %, annoncée dans le monde entier."
-      offerHeadline="Bonus mondial de 300 %"
-      offerSub="Plus de cashback et des bonus hebdomadaires."
-      benefits={['Bonus mondial de 300 %', 'Plus de cashback et des bonus hebdomadaires', 'Code exact Bttswin', 'Lien Melbet']}
-      steps={[
-        { n: '01', title: 'Consulter Melbet', desc: 'Ouvrez Melbet via le lien affiché sur cette page.' },
-        { n: '02', title: 'Code promo', desc: 'Code exact : Bttswin' },
-      ]}
-      faq={getPromoFaq('melbet', 'fr')}
-      crossLinks={ALL_LINKS.filter((l) => l.id !== SELF).map(({ label, href }) => ({ label, href }))}
-    />
+    <div className={`${styles.glassPage} ${styles.melbet}`}>
+      <PromoLandingShell
+        brand={BRAND}
+        code={CODE}
+        bookmakerId="melbet"
+        accent="#F59E0B"
+        logo="/logos/melbet-logo.jpg"
+        logoBg="#1b1b1b"
+        signupUrl={AFFILIATE.melbet}
+        downloadUrl={AFFILIATE.melbetDownload}
+        lang="fr"
+        title="Code promo Melbet Bttswin : 300 % + cashback"
+        badge="GUIDE MELBET"
+        intro="Le code promo Melbet Bttswin fonctionne dans le monde entier. L’offre comprend un bonus de dépôt de 300 %, du cashback et des bonus hebdomadaires. Recopiez Bttswin en respectant le B majuscule."
+        offerHeadline="Melbet : bonus et cashback"
+        offerSub="Bonus mondial de dépôt 300 % · cashback · bonus hebdomadaires."
+        benefits={['Code exact : Bttswin', 'Bonus mondial de dépôt 300 %', 'Cashback', 'Bonus hebdomadaires']}
+        steps={[
+          { n: '01', title: 'Recopier le code Bttswin', desc: 'Le code fourni pour Melbet est Bttswin, avec un B initial majuscule.' },
+          { n: '02', title: 'Consulter Melbet', desc: 'Vérifiez les modalités de l’offre directement auprès de l’opérateur.' },
+        ]}
+        faq={getPromoFaq('melbet', 'fr')}
+        crossLinks={ALL_LINKS.filter((l) => l.id !== SELF).map(({ label, href }) => ({ label, href }))}
+      />
+    </div>
   )
 }

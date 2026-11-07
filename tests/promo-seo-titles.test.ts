@@ -7,62 +7,88 @@ const OUT = resolve(ROOT, 'out')
 
 /** Codes exacts, à la casse près. */
 const PROMO_PAGES: Array<{ file: string; code: string; title: string }> = [
-  { file: 'src/app/code-promo-1xbet/page.tsx', code: 'vipbtts', title: 'Code promo 1xBet vipbtts : offre mondiale à 300 %' },
-  { file: 'src/app/code-promo-linebet-senegal/page.tsx', code: 'VISION221', title: 'Linebet Sénégal : code promo VISION221 et offre à 300 %' },
-  { file: 'src/app/code-promo-melbet/page.tsx', code: 'Bttswin', title: 'Code promo Melbet Bttswin : offre mondiale à 300 %' },
-  { file: 'src/app/bonus-888starz/page.tsx', code: 'btts221', title: 'Code promo 888Starz btts221 : offre mondiale à 300 %' },
+  { file: 'src/app/code-promo-1xbet/page.tsx', code: 'vipbtts', title: 'Code promo 1xBet vipbtts : bonus mondial 300 %' },
+  { file: 'src/app/code-promo-linebet-senegal/page.tsx', code: 'VISION221', title: 'Code promo Linebet VISION221 : offre mondiale 300 %' },
+  { file: 'src/app/code-promo-melbet/page.tsx', code: 'Bttswin', title: 'Code promo Melbet Bttswin : 300 % + cashback' },
+  { file: 'src/app/bonus-888starz/page.tsx', code: 'btts221', title: 'Code promo 888Starz btts221 : bonus mondial 300 %' },
   { file: 'src/app/bonus-888starz-btts221/page.tsx', code: 'btts221', title: '888Starz btts221 : code promo et offre mondiale à 300 %' },
-  { file: 'src/app/[locale]/code-promo-1xbet/page.tsx', code: 'vipbtts', title: '1xBet Promo Code vipbtts for a 300% Worldwide Offer' },
-  { file: 'src/app/[locale]/code-promo-linebet-senegal/page.tsx', code: 'VISION221', title: 'Linebet Promo Code VISION221 for a 300% Worldwide Offer' },
-  { file: 'src/app/[locale]/code-promo-melbet/page.tsx', code: 'Bttswin', title: 'Melbet Promo Code Bttswin for a 300% Worldwide Offer' },
-  { file: 'src/app/[locale]/bonus-888starz/page.tsx', code: 'btts221', title: '888Starz Promo Code btts221 for a 300% Worldwide Offer' },
+  { file: 'src/app/[locale]/code-promo-1xbet/page.tsx', code: 'vipbtts', title: '1xBet Promo Code vipbtts: 300% Worldwide Bonus' },
+  { file: 'src/app/[locale]/code-promo-linebet-senegal/page.tsx', code: 'VISION221', title: 'Linebet Promo Code VISION221: Worldwide 300% Offer' },
+  { file: 'src/app/[locale]/code-promo-melbet/page.tsx', code: 'Bttswin', title: 'Melbet Promo Code Bttswin: 300% + Cashback' },
+  { file: 'src/app/[locale]/bonus-888starz/page.tsx', code: 'btts221', title: '888Starz Promo Code btts221: 300% Worldwide Bonus' },
   { file: 'src/app/[locale]/bonus-888starz-btts221/page.tsx', code: 'btts221', title: '888Starz btts221 Promo Code for a 300% Worldwide Bonus' },
-  { file: 'src/app/[locale]/code-promo-1xbet/page.tsx', code: 'vipbtts', title: 'رمز 1xBet الترويجي vipbtts لعرض عالمي بنسبة 300%' },
-  { file: 'src/app/[locale]/code-promo-linebet-senegal/page.tsx', code: 'VISION221', title: 'رمز Linebet الترويجي VISION221 لعرض عالمي بنسبة 300%' },
-  { file: 'src/app/[locale]/code-promo-melbet/page.tsx', code: 'Bttswin', title: 'رمز Melbet الترويجي Bttswin لعرض عالمي بنسبة 300%' },
-  { file: 'src/app/[locale]/bonus-888starz/page.tsx', code: 'btts221', title: 'رمز 888Starz الترويجي btts221 لعرض عالمي بنسبة 300%' },
+  { file: 'src/app/[locale]/code-promo-1xbet/page.tsx', code: 'vipbtts', title: 'رمز 1xBet الترويجي vipbtts: مكافأة عالمية 300%' },
+  { file: 'src/app/[locale]/code-promo-linebet-senegal/page.tsx', code: 'VISION221', title: 'رمز Linebet VISION221 الترويجي: عرض عالمي 300%' },
+  { file: 'src/app/[locale]/code-promo-melbet/page.tsx', code: 'Bttswin', title: 'رمز Melbet الترويجي Bttswin: 300% واسترداد نقدي' },
+  { file: 'src/app/[locale]/bonus-888starz/page.tsx', code: 'btts221', title: 'رمز 888Starz الترويجي btts221: مكافأة عالمية 300%' },
   { file: 'src/app/[locale]/bonus-888starz-btts221/page.tsx', code: 'btts221', title: 'رمز 888Starz btts221 الترويجي وعرض عالمي بنسبة 300%' },
   { file: 'src/app/linebet-promo-code/page.tsx', code: 'VISION221', title: 'Code Promo Linebet VISION221 Sénégal' },
 ]
 
 const PROMO_H1S: Array<{ file: string; code: string; text: string }> = [
-  { file: 'src/app/code-promo-1xbet/XbetClient.tsx', code: 'vipbtts', text: 'Code promo 1xBet vipbtts : offre mondiale à 300 %' },
-  { file: 'src/app/code-promo-linebet-senegal/LinebetClient.tsx', code: 'VISION221', text: 'Code promo Linebet Sénégal VISION221 : offre mondiale à 300 %' },
-  { file: 'src/app/code-promo-melbet/MelbetClient.tsx', code: 'Bttswin', text: 'Code promo Melbet Bttswin : bonus mondial de 300 %' },
-  { file: 'src/components/bttsbet/LocalizedPromoClient.tsx', code: 'vipbtts', text: '1xBet Promo Code vipbtts for a 300% Worldwide Offer' },
-  { file: 'src/components/bttsbet/LocalizedPromoClient.tsx', code: 'VISION221', text: 'Linebet Promo Code VISION221 for a 300% Worldwide Offer' },
-  { file: 'src/components/bttsbet/LocalizedPromoClient.tsx', code: 'Bttswin', text: 'Melbet Promo Code Bttswin for a 300% Worldwide Offer' },
-  { file: 'src/components/bttsbet/LocalizedPromoClient.tsx', code: 'vipbtts', text: 'رمز 1xBet الترويجي vipbtts لعرض عالمي بنسبة 300%' },
-  { file: 'src/components/bttsbet/LocalizedPromoClient.tsx', code: 'VISION221', text: 'رمز Linebet الترويجي VISION221 لعرض عالمي بنسبة 300%' },
-  { file: 'src/components/bttsbet/LocalizedPromoClient.tsx', code: 'Bttswin', text: 'رمز Melbet الترويجي Bttswin لعرض عالمي بنسبة 300%' },
-  { file: 'src/components/bttsbet/Star888PromoClient.tsx', code: 'btts221', text: 'Code promo 888Starz btts221 pour l’offre mondiale à 300 %' },
-  { file: 'src/components/bttsbet/Star888PromoClient.tsx', code: 'btts221', text: '888Starz Promo Code btts221 for a 300% Worldwide Offer' },
-  { file: 'src/components/bttsbet/Star888PromoClient.tsx', code: 'btts221', text: 'رمز 888Starz الترويجي btts221 لعرض عالمي بنسبة 300%' },
-  { file: 'src/components/bttsbet/Star888PromoClient.tsx', code: 'btts221', text: 'Découvrez le code promo 888Starz btts221 et l’offre mondiale à 300 %' },
-  { file: 'src/components/bttsbet/Star888PromoClient.tsx', code: 'btts221', text: 'Explore the 888Starz btts221 Promo Code and 300% Worldwide Offer' },
-  { file: 'src/components/bttsbet/Star888PromoClient.tsx', code: 'btts221', text: 'اكتشف رمز 888Starz الترويجي btts221 والعرض العالمي بنسبة 300%' },
+  { file: 'src/app/code-promo-1xbet/XbetClient.tsx', code: 'vipbtts', text: 'Code promo 1xBet vipbtts : bonus mondial 300 %' },
+  { file: 'src/app/code-promo-linebet-senegal/LinebetClient.tsx', code: 'VISION221', text: 'Code promo Linebet VISION221 : offre mondiale 300 %' },
+  { file: 'src/app/code-promo-melbet/MelbetClient.tsx', code: 'Bttswin', text: 'Code promo Melbet Bttswin : 300 % + cashback' },
+  { file: 'src/components/bttsbet/LocalizedPromoClient.tsx', code: 'vipbtts', text: '1xBet Promo Code vipbtts: 300% Worldwide Bonus' },
+  { file: 'src/components/bttsbet/LocalizedPromoClient.tsx', code: 'VISION221', text: 'Linebet Promo Code VISION221: Worldwide 300% Offer' },
+  { file: 'src/components/bttsbet/LocalizedPromoClient.tsx', code: 'Bttswin', text: 'Melbet Promo Code Bttswin: 300% + Cashback' },
+  { file: 'src/components/bttsbet/LocalizedPromoClient.tsx', code: 'vipbtts', text: 'رمز 1xBet الترويجي vipbtts: مكافأة عالمية 300%' },
+  { file: 'src/components/bttsbet/LocalizedPromoClient.tsx', code: 'VISION221', text: 'رمز Linebet VISION221 الترويجي: عرض عالمي 300%' },
+  { file: 'src/components/bttsbet/LocalizedPromoClient.tsx', code: 'Bttswin', text: 'رمز Melbet الترويجي Bttswin: 300% واسترداد نقدي' },
+  { file: 'src/components/bttsbet/Star888PromoClient.tsx', code: 'btts221', text: 'Code promo 888Starz btts221 : bonus mondial 300 %' },
+  { file: 'src/components/bttsbet/Star888PromoClient.tsx', code: 'btts221', text: '888Starz Promo Code btts221: 300% Worldwide Bonus' },
+  { file: 'src/components/bttsbet/Star888PromoClient.tsx', code: 'btts221', text: 'رمز 888Starz الترويجي btts221: مكافأة عالمية 300%' },
+  { file: 'src/components/bttsbet/Star888PromoClient.tsx', code: 'btts221', text: 'Guide du code promo 888Starz btts221 et du bonus mondial de 300 %' },
+  { file: 'src/components/bttsbet/Star888PromoClient.tsx', code: 'btts221', text: '888Starz btts221 Code Guide: 300% Worldwide Bonus' },
+  { file: 'src/components/bttsbet/Star888PromoClient.tsx', code: 'btts221', text: 'دليل رمز 888Starz الترويجي btts221 والعرض العالمي بنسبة 300%' },
 ]
 
 const PROMO_BODY_COPY: Array<{ file: string; code?: string; text: string }> = [
-  { file: 'src/app/code-promo-1xbet/XbetClient.tsx', code: 'vipbtts', text: 'Découvrez l’offre 1xBet de 300 %, annoncée dans le monde entier, avec le code vipbtts' },
-  { file: 'src/app/code-promo-1xbet/XbetClient.tsx', text: 'Plus de cashback et des bonus hebdomadaires' },
-  { file: 'src/app/code-promo-linebet-senegal/LinebetClient.tsx', code: 'VISION221', text: 'Retrouvez le code exact VISION221 et les détails de l’offre mondiale de 300 % de Linebet.' },
-  { file: 'src/app/code-promo-linebet-senegal/LinebetClient.tsx', text: 'Plus de cashback et des bonus hebdomadaires' },
-  { file: 'src/app/code-promo-melbet/MelbetClient.tsx', code: 'Bttswin', text: 'Retrouvez le code exact Bttswin et les informations sur l’offre Melbet de 300 %, annoncée dans le monde entier.' },
-  { file: 'src/app/code-promo-melbet/MelbetClient.tsx', text: 'Plus de cashback et des bonus hebdomadaires' },
-  { file: 'src/components/bttsbet/LocalizedPromoClient.tsx', code: 'vipbtts', text: 'Explore 1xBet’s worldwide 300% offer and the exact code vipbtts' },
-  { file: 'src/components/bttsbet/LocalizedPromoClient.tsx', code: 'VISION221', text: 'Explore Linebet’s worldwide 300% offer and the exact code VISION221' },
-  { file: 'src/components/bttsbet/LocalizedPromoClient.tsx', code: 'Bttswin', text: 'Explore Melbet’s worldwide 300% offer and the exact code Bttswin' },
-  { file: 'src/components/bttsbet/LocalizedPromoClient.tsx', code: 'vipbtts', text: 'تعرّف على عرض 1xBet بنسبة 300% المعلن عالميًا، مع الرمز vipbtts' },
-  { file: 'src/components/bttsbet/LocalizedPromoClient.tsx', code: 'VISION221', text: 'تعرّف على عرض Linebet بنسبة 300% المعلن عالميًا، مع الرمز VISION221' },
-  { file: 'src/components/bttsbet/LocalizedPromoClient.tsx', code: 'Bttswin', text: 'تعرّف على عرض Melbet بنسبة 300% المعلن عالميًا، مع الرمز Bttswin' },
-  { file: 'src/components/bttsbet/Star888PromoClient.tsx', text: 'Plus de cashback et des bonus hebdomadaires.' },
-  { file: 'src/components/bttsbet/Star888PromoClient.tsx', text: 'Extra cashback and weekly bonuses.' },
-  { file: 'src/components/bttsbet/Star888PromoClient.tsx', text: 'استرداد نقدي إضافي ومكافآت أسبوعية.' },
-  { file: 'src/components/bttsbet/Star888PromoClient.tsx', text: 'Retrouvez le code exact et les détails de l’offre 888Starz annoncée dans le monde entier.' },
-  { file: 'src/components/bttsbet/Star888PromoClient.tsx', text: 'Find the exact code and details of 888Starz’s worldwide promotion.' },
-  { file: 'src/components/bttsbet/Star888PromoClient.tsx', text: 'تعرّف على الرمز الدقيق وتفاصيل عرض 888Starz المتاح عالميًا.' },
+  { file: 'src/app/code-promo-1xbet/XbetClient.tsx', code: 'vipbtts', text: 'Le code promo 1xBet vipbtts fonctionne dans le monde entier.' },
+  { file: 'src/app/code-promo-linebet-senegal/LinebetClient.tsx', code: 'VISION221', text: 'Le code promo Linebet VISION221 fonctionne dans le monde entier.' },
+  { file: 'src/app/code-promo-melbet/MelbetClient.tsx', code: 'Bttswin', text: 'Le code promo Melbet Bttswin fonctionne dans le monde entier.' },
+  { file: 'src/components/bttsbet/LocalizedPromoClient.tsx', code: 'vipbtts', text: '1xBet promo code vipbtts works worldwide.' },
+  { file: 'src/components/bttsbet/LocalizedPromoClient.tsx', code: 'VISION221', text: 'Linebet promo code VISION221 works worldwide.' },
+  { file: 'src/components/bttsbet/LocalizedPromoClient.tsx', code: 'Bttswin', text: 'Melbet code Bttswin works worldwide.' },
+  { file: 'src/components/bttsbet/LocalizedPromoClient.tsx', code: 'vipbtts', text: 'يعمل رمز 1xBet vipbtts حول العالم.' },
+  { file: 'src/components/bttsbet/LocalizedPromoClient.tsx', code: 'VISION221', text: 'يعمل رمز Linebet VISION221 حول العالم.' },
+  { file: 'src/components/bttsbet/LocalizedPromoClient.tsx', code: 'Bttswin', text: 'Bttswin حول العالم.' },
+  { file: 'src/components/bttsbet/Star888PromoClient.tsx', code: 'btts221', text: 'Le code 888Starz btts221 fonctionne dans le monde entier.' },
+  { file: 'src/components/bttsbet/Star888PromoClient.tsx', code: 'btts221', text: '888Starz code btts221 works worldwide.' },
+  { file: 'src/components/bttsbet/Star888PromoClient.tsx', code: 'btts221', text: 'btts221 حول العالم.' },
+  { file: 'src/lib/promo-faq.ts', code: 'vipbtts', text: 'Le code promo 1xBet est vipbtts et fonctionne dans le monde entier.' },
+  { file: 'src/lib/promo-faq.ts', code: 'VISION221', text: 'Le code VISION221 fonctionne dans le monde entier' },
+  { file: 'src/lib/promo-faq.ts', code: 'Bttswin', text: 'Le code promo Melbet est Bttswin et fonctionne dans le monde entier.' },
+  { file: 'src/lib/promo-faq.ts', code: 'btts221', text: 'Le code promo 888Starz est btts221 et fonctionne dans le monde entier.' },
 ]
+
+const PROMO_COPY_FILES = [
+  'src/app/code-promo-1xbet/page.tsx',
+  'src/app/code-promo-1xbet/XbetClient.tsx',
+  'src/app/code-promo-linebet-senegal/page.tsx',
+  'src/app/code-promo-linebet-senegal/LinebetClient.tsx',
+  'src/app/code-promo-melbet/page.tsx',
+  'src/app/code-promo-melbet/MelbetClient.tsx',
+  'src/app/bonus-888starz/page.tsx',
+  'src/app/bonus-888starz-btts221/page.tsx',
+  'src/app/linebet-promo-code/page.tsx',
+  'src/app/[locale]/code-promo-1xbet/page.tsx',
+  'src/app/[locale]/code-promo-linebet-senegal/page.tsx',
+  'src/app/[locale]/code-promo-melbet/page.tsx',
+  'src/app/[locale]/bonus-888starz/page.tsx',
+  'src/app/[locale]/bonus-888starz-btts221/page.tsx',
+  'src/components/bttsbet/LocalizedPromoClient.tsx',
+  'src/components/bttsbet/Star888PromoClient.tsx',
+  'src/components/bttsbet/PromoLandingShell.tsx',
+  'src/lib/promo-faq.ts',
+] as const
+
+const PROMO_SEO_LIMITS = [
+  'src/app/code-promo-1xbet/page.tsx',
+  'src/app/code-promo-linebet-senegal/page.tsx',
+  'src/app/code-promo-melbet/page.tsx',
+  'src/app/bonus-888starz/page.tsx',
+] as const
 
 /** Titres réellement rendus, vérifiés après build dans out/. */
 const PROMO_EXPORTS: Array<{ html: string; code: string }> = [
@@ -105,6 +131,31 @@ describe('Titres SEO des pages promo', () => {
     const source = readFileSync(resolve(ROOT, file), 'utf8')
     expect(source).toContain(text)
     if (code) expect(text).toContain(code)
+  })
+
+  it('affirme les faits confirmés sans les attribuer au partenaire ni majorer le cashback', () => {
+    const source = PROMO_COPY_FILES.map(file => readFileSync(resolve(ROOT, file), 'utf8')).join('\n')
+    expect(source).not.toMatch(/partner confirms|partner-confirmed|according to the partner|le partenaire confirme|confirmé par le partenaire|selon le partenaire|يؤكد الشريك|وفقًا للشريك/i)
+    expect(source).not.toMatch(/advertised offer|announced offer|offre annoncée|العرض المعلن|extra cashback|more cashback|plus de cashback|davantage de cashback|cashback supérieur|استرداد نقدي إضافي|استرداد نقدي أكبر/i)
+  })
+
+  it('présente Linebet comme mondial sans le limiter au Sénégal et garde son URL historique', () => {
+    const page = readFileSync(resolve(ROOT, 'src/app/code-promo-linebet-senegal/page.tsx'), 'utf8')
+    const client = readFileSync(resolve(ROOT, 'src/app/code-promo-linebet-senegal/LinebetClient.tsx'), 'utf8')
+    expect(page).toContain("const TITLE = 'Code promo Linebet VISION221 : offre mondiale 300 %'")
+    expect(client).toContain('fonctionne dans le monde entier')
+    expect(client).not.toMatch(/(?:title|badge|intro)="[^"]*(?:Sénégal|Senegal)/i)
+    expect(page).toContain("'code promo Linebet Sénégal'")
+    expect(page).toContain("const SLUG = 'code-promo-linebet-senegal'")
+  })
+
+  it.each(PROMO_SEO_LIMITS)('%s respecte les limites de title et description', file => {
+    const source = readFileSync(resolve(ROOT, file), 'utf8')
+    const title = source.match(/const TITLE = '([^']*)'/)?.[1]
+    const description = source.match(/const DESCRIPTION = '([^']*)'/)?.[1]
+    if (!title || !description) throw new Error(`${file} ne définit pas son title et sa description`)
+    expect(title.length).toBeLessThanOrEqual(60)
+    expect(description.length).toBeLessThanOrEqual(150)
   })
 
   const hasExport = existsSync(OUT)
