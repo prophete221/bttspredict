@@ -76,115 +76,115 @@ type PromoText = {
 const LOCALIZED_COPY: Record<Exclude<BookmakerId, '888starz'>, Record<'fr' | 'en' | 'ar', PromoText>> = {
   '1xbet': {
     fr: {
-      badge: 'OFFRE 1XBET',
-      title: 'Code promo 1xBet vipbtts : offre mondiale à 300 %',
-      intro: 'Découvrez l’offre 1xBet de 300 %, annoncée dans le monde entier, avec le code vipbtts',
-      offerHeadline: 'Offre mondiale à 300 %',
-      offerSub: 'Plus de cashback et des bonus hebdomadaires.',
-      benefits: ['Offre mondiale à 300 %', 'Plus de cashback et des bonus hebdomadaires', 'Code exact vipbtts', 'Lien 1xBet'],
+      badge: 'GUIDE CODE 1XBET',
+      title: 'Code promo 1xBet vipbtts : bonus mondial 300 %',
+      intro: 'Le code promo 1xBet vipbtts fonctionne dans le monde entier. L’offre comprend un bonus de dépôt mondial de 300 %, du cashback et des bonus hebdomadaires. Consultez 1xBet pour les modalités en vigueur.',
+      offerHeadline: 'Bonus de dépôt 1xBet',
+      offerSub: 'Bonus de dépôt mondial de 300 % · cashback · bonus hebdomadaires.',
+      benefits: ['Code exact : vipbtts', 'Bonus de dépôt mondial de 300 %', 'Cashback', 'Bonus hebdomadaires'],
       steps: [
-        { n: '01', title: 'Consulter 1xBet', desc: 'Ouvrez 1xBet via le lien affiché sur cette page.' },
-        { n: '02', title: 'Code promo', desc: 'Code exact : vipbtts' },
+        { n: '01', title: 'Copier le code exact', desc: 'Recopiez vipbtts tel qu’il apparaît sur cette page.' },
+        { n: '02', title: 'Consulter les conditions 1xBet', desc: 'Le bouton ouvre le site de l’opérateur ; vérifiez-y les modalités en vigueur.' },
       ],
     },
     en: {
-      badge: '1XBET OFFER',
-      title: '1xBet Promo Code vipbtts for a 300% Worldwide Offer',
-      intro: 'Explore 1xBet’s worldwide 300% offer and the exact code vipbtts',
-      offerHeadline: '300% Worldwide Offer',
-      offerSub: 'Extra cashback and weekly bonuses.',
-      benefits: ['300% worldwide offer', 'Extra cashback and weekly bonuses', 'Exact code vipbtts', '1xBet link'],
+      badge: '1XBET CODE GUIDE',
+      title: '1xBet Promo Code vipbtts: 300% Worldwide Bonus',
+      intro: '1xBet promo code vipbtts works worldwide. The offer includes a 300% worldwide deposit bonus, cashback and weekly bonuses. Check current terms with 1xBet.',
+      offerHeadline: '1xBet deposit bonus',
+      offerSub: '300% worldwide deposit bonus · cashback · weekly bonuses.',
+      benefits: ['Exact code: vipbtts', '300% worldwide deposit bonus', 'Cashback', 'Weekly bonuses'],
       steps: [
-        { n: '01', title: 'Visit 1xBet', desc: 'Follow the link shown on this page.' },
-        { n: '02', title: 'Promo code', desc: 'Exact code: vipbtts' },
+        { n: '01', title: 'Copy the exact code', desc: 'Copy vipbtts exactly as shown on this page.' },
+        { n: '02', title: 'Check 1xBet’s terms', desc: 'The button opens the operator’s site; review the current terms there.' },
       ],
     },
     ar: {
-      badge: 'عرض 1xBet',
-      title: 'رمز 1xBet الترويجي vipbtts لعرض عالمي بنسبة 300%',
-      intro: 'تعرّف على عرض 1xBet بنسبة 300% المعلن عالميًا، مع الرمز vipbtts',
-      offerHeadline: 'عرض عالمي بنسبة 300%',
-      offerSub: 'استرداد نقدي إضافي ومكافآت أسبوعية.',
-      benefits: ['عرض عالمي بنسبة 300%', 'استرداد نقدي إضافي ومكافآت أسبوعية', 'الرمز الدقيق vipbtts', 'رابط 1xBet'],
+      badge: 'دليل رمز 1xBet',
+      title: 'رمز 1xBet الترويجي vipbtts: مكافأة عالمية 300%',
+      intro: 'يعمل رمز 1xBet vipbtts حول العالم. يشمل العرض مكافأة إيداع عالمية بنسبة 300%، واستردادًا نقديًا ومكافآت أسبوعية. راجع الشروط السارية لدى 1xBet.',
+      offerHeadline: 'مكافأة إيداع 1xBet',
+      offerSub: 'مكافأة إيداع عالمية 300% · استرداد نقدي · مكافآت أسبوعية.',
+      benefits: ['الرمز الدقيق: vipbtts', 'مكافأة إيداع عالمية 300%', 'استرداد نقدي', 'مكافآت أسبوعية'],
       steps: [
-        { n: '01', title: 'زيارة 1xBet', desc: 'استخدم الرابط الظاهر في هذه الصفحة.' },
-        { n: '02', title: 'الرمز الترويجي', desc: 'الرمز الدقيق: vipbtts' },
+        { n: '01', title: 'انسخ الرمز الدقيق', desc: 'انسخ vipbtts كما يظهر في هذه الصفحة.' },
+        { n: '02', title: 'تحقق من شروط 1xBet', desc: 'يفتح الزر موقع المشغّل؛ راجع الشروط السارية هناك.' },
       ],
     },
   },
   linebet: {
     fr: {
-      badge: 'OFFRE LINEBET',
-      title: 'Code promo Linebet Sénégal VISION221 : offre mondiale à 300 %',
-      intro: 'Retrouvez le code exact VISION221 et les détails de l’offre mondiale de 300 % de Linebet.',
-      offerHeadline: 'Offre mondiale à 300 %',
-      offerSub: 'Plus de cashback et des bonus hebdomadaires.',
-      benefits: ['Offre mondiale à 300 %', 'Plus de cashback et des bonus hebdomadaires', 'Code exact VISION221', 'Lien Linebet'],
+      badge: 'GUIDE INTERNATIONAL LINEBET',
+      title: 'Code promo Linebet VISION221 : offre mondiale 300 %',
+      intro: 'Le code promo Linebet VISION221 fonctionne dans le monde entier. L’offre comprend un bonus de dépôt de 300 %, du cashback et des bonus hebdomadaires ; vérifiez auprès de Linebet les modalités applicables dans votre pays.',
+      offerHeadline: 'Offre Linebet dans le monde',
+      offerSub: 'Code VISION221 · bonus de dépôt mondial de 300 % · cashback et bonus hebdomadaires.',
+      benefits: ['Code Linebet : VISION221', 'Fonctionne dans le monde entier', 'Bonus de dépôt mondial de 300 %', 'Cashback et bonus hebdomadaires'],
       steps: [
-        { n: '01', title: 'Consulter Linebet', desc: 'Ouvrez Linebet via le lien affiché sur cette page.' },
-        { n: '02', title: 'Code promo', desc: 'Code exact : VISION221' },
+        { n: '01', title: 'Copier VISION221', desc: 'Le code promo Linebet VISION221 fonctionne dans le monde entier.' },
+        { n: '02', title: 'Vérifier les règles locales', desc: 'Consultez Linebet pour les conditions et la disponibilité applicables dans votre pays.' },
       ],
     },
     en: {
-      badge: 'LINEBET OFFER',
-      title: 'Linebet Promo Code VISION221 for a 300% Worldwide Offer',
-      intro: 'Explore Linebet’s worldwide 300% offer and the exact code VISION221',
-      offerHeadline: '300% Worldwide Offer',
-      offerSub: 'Extra cashback and weekly bonuses.',
-      benefits: ['300% worldwide offer', 'Extra cashback and weekly bonuses', 'Exact code VISION221', 'Linebet link'],
+      badge: 'INTERNATIONAL LINEBET GUIDE',
+      title: 'Linebet Promo Code VISION221: Worldwide 300% Offer',
+      intro: 'Linebet promo code VISION221 works worldwide. The offer includes a 300% worldwide deposit bonus, cashback and weekly bonuses. Check current terms with Linebet.',
+      offerHeadline: 'Linebet worldwide offer',
+      offerSub: 'VISION221 code · 300% worldwide deposit bonus · cashback and weekly bonuses.',
+      benefits: ['Linebet code: VISION221', 'Works worldwide', '300% worldwide deposit bonus', 'Cashback and weekly bonuses'],
       steps: [
-        { n: '01', title: 'Visit Linebet', desc: 'Follow the link shown on this page.' },
-        { n: '02', title: 'Promo code', desc: 'Exact code: VISION221' },
+        { n: '01', title: 'Copy VISION221', desc: 'Linebet promo code VISION221 works worldwide.' },
+        { n: '02', title: 'Check local rules', desc: 'Ask Linebet about the terms and availability that apply in your country.' },
       ],
     },
     ar: {
-      badge: 'عرض Linebet',
-      title: 'رمز Linebet الترويجي VISION221 لعرض عالمي بنسبة 300%',
-      intro: 'تعرّف على عرض Linebet بنسبة 300% المعلن عالميًا، مع الرمز VISION221',
-      offerHeadline: 'عرض عالمي بنسبة 300%',
-      offerSub: 'استرداد نقدي إضافي ومكافآت أسبوعية.',
-      benefits: ['عرض عالمي بنسبة 300%', 'استرداد نقدي إضافي ومكافآت أسبوعية', 'الرمز الدقيق VISION221', 'رابط Linebet'],
+      badge: 'دليل Linebet الدولي',
+      title: 'رمز Linebet VISION221 الترويجي: عرض عالمي 300%',
+      intro: 'يعمل رمز Linebet VISION221 حول العالم. يشمل العرض مكافأة إيداع عالمية بنسبة 300%، واستردادًا نقديًا ومكافآت أسبوعية. راجع الشروط السارية لدى Linebet.',
+      offerHeadline: 'عرض Linebet حول العالم',
+      offerSub: 'رمز VISION221 · مكافأة إيداع عالمية 300% · استرداد نقدي ومكافآت أسبوعية.',
+      benefits: ['رمز Linebet: VISION221', 'يعمل حول العالم', 'مكافأة إيداع عالمية 300%', 'استرداد نقدي ومكافآت أسبوعية'],
       steps: [
-        { n: '01', title: 'زيارة Linebet', desc: 'استخدم الرابط الظاهر في هذه الصفحة.' },
-        { n: '02', title: 'الرمز الترويجي', desc: 'الرمز الدقيق: VISION221' },
+        { n: '01', title: 'انسخ VISION221', desc: 'يعمل رمز Linebet VISION221 حول العالم.' },
+        { n: '02', title: 'تحقق من القوانين المحلية', desc: 'اسأل Linebet عن الشروط والتوافر المطبقين في بلدك.' },
       ],
     },
   },
   melbet: {
     fr: {
-      badge: 'OFFRE MELBET',
-      title: 'Code promo Melbet Bttswin : bonus mondial de 300 %',
-      intro: 'Retrouvez le code exact Bttswin et les informations sur l’offre Melbet de 300 %, annoncée dans le monde entier.',
-      offerHeadline: 'Bonus mondial de 300 %',
-      offerSub: 'Plus de cashback et des bonus hebdomadaires.',
-      benefits: ['Bonus mondial de 300 %', 'Plus de cashback et des bonus hebdomadaires', 'Code exact Bttswin', 'Lien Melbet'],
+      badge: 'GUIDE MELBET',
+      title: 'Code promo Melbet Bttswin : 300 % + cashback',
+      intro: 'Le code promo Melbet Bttswin fonctionne dans le monde entier. L’offre comprend un bonus de dépôt de 300 %, du cashback et des bonus hebdomadaires. Recopiez Bttswin en respectant le B majuscule.',
+      offerHeadline: 'Melbet : bonus et cashback',
+      offerSub: 'Bonus mondial de dépôt 300 % · cashback · bonus hebdomadaires.',
+      benefits: ['Code exact : Bttswin', 'Bonus mondial de dépôt 300 %', 'Cashback', 'Bonus hebdomadaires'],
       steps: [
-        { n: '01', title: 'Consulter Melbet', desc: 'Ouvrez Melbet via le lien affiché sur cette page.' },
-        { n: '02', title: 'Code promo', desc: 'Code exact : Bttswin' },
+        { n: '01', title: 'Recopier le code Bttswin', desc: 'Le code fourni pour Melbet est Bttswin, avec un B initial majuscule.' },
+        { n: '02', title: 'Lire les conditions Melbet', desc: 'Les modalités détaillées ne sont pas précisées ici ; vérifiez-les sur le site de l’opérateur.' },
       ],
     },
     en: {
-      badge: 'MELBET OFFER',
-      title: 'Melbet Promo Code Bttswin for a 300% Worldwide Offer',
-      intro: 'Explore Melbet’s worldwide 300% offer and the exact code Bttswin',
-      offerHeadline: '300% Worldwide Offer',
-      offerSub: 'Extra cashback and weekly bonuses.',
-      benefits: ['300% worldwide offer', 'Extra cashback and weekly bonuses', 'Exact code Bttswin', 'Melbet link'],
+      badge: 'MELBET GUIDE',
+      title: 'Melbet Promo Code Bttswin: 300% + Cashback',
+      intro: 'Melbet code Bttswin works worldwide. The offer includes a 300% deposit bonus, cashback and weekly bonuses. Copy Bttswin with its initial capital B.',
+      offerHeadline: 'Melbet bonus and cashback',
+      offerSub: '300% worldwide deposit bonus · cashback · weekly bonuses.',
+      benefits: ['Exact code: Bttswin', '300% worldwide deposit bonus', 'Cashback', 'Weekly bonuses'],
       steps: [
-        { n: '01', title: 'Visit Melbet', desc: 'Follow the link shown on this page.' },
-        { n: '02', title: 'Promo code', desc: 'Exact code: Bttswin' },
+        { n: '01', title: 'Copy the Bttswin code', desc: 'The code provided for Melbet is Bttswin, with an initial capital B.' },
+        { n: '02', title: 'Read Melbet’s terms', desc: 'Detailed terms are not listed here; check them on the operator’s site.' },
       ],
     },
     ar: {
-      badge: 'عرض Melbet',
-      title: 'رمز Melbet الترويجي Bttswin لعرض عالمي بنسبة 300%',
-      intro: 'تعرّف على عرض Melbet بنسبة 300% المعلن عالميًا، مع الرمز Bttswin',
-      offerHeadline: 'عرض عالمي بنسبة 300%',
-      offerSub: 'استرداد نقدي إضافي ومكافآت أسبوعية.',
-      benefits: ['عرض عالمي بنسبة 300%', 'استرداد نقدي إضافي ومكافآت أسبوعية', 'الرمز الدقيق Bttswin', 'رابط Melbet'],
+      badge: 'دليل Melbet',
+      title: 'رمز Melbet الترويجي Bttswin: 300% واسترداد نقدي',
+      intro: 'يعمل رمز Melbet ‏Bttswin حول العالم. يشمل العرض مكافأة إيداع بنسبة 300%، واستردادًا نقديًا ومكافآت أسبوعية. انسخ Bttswin مع الانتباه إلى أن الحرف الأول B كبير.',
+      offerHeadline: 'مكافأة Melbet والاسترداد النقدي',
+      offerSub: 'مكافأة إيداع عالمية 300% · استرداد نقدي · مكافآت أسبوعية.',
+      benefits: ['الرمز الدقيق: Bttswin', 'مكافأة إيداع عالمية 300%', 'استرداد نقدي', 'مكافآت أسبوعية'],
       steps: [
-        { n: '01', title: 'زيارة Melbet', desc: 'استخدم الرابط الظاهر في هذه الصفحة.' },
-        { n: '02', title: 'الرمز الترويجي', desc: 'الرمز الدقيق: Bttswin' },
+        { n: '01', title: 'انسخ رمز Bttswin', desc: 'الرمز المقدم لـ Melbet هو Bttswin بحرف B كبير في البداية.' },
+        { n: '02', title: 'اقرأ شروط Melbet', desc: 'لم تُدرج الشروط التفصيلية هنا؛ راجعها على موقع المشغّل.' },
       ],
     },
   },
@@ -206,13 +206,12 @@ export default function LocalizedPromoClient({
     return (
       <>
         <Navbar />
-        <Star888PromoClient lang={langKey} showDownload />
+        <Star888PromoClient lang={langKey} showDownload variant="main" />
       </>
     )
   }
 
   const copy = LOCALIZED_COPY[bookmaker][langKey]
-
   const prefix = langKey === 'fr' ? '' : `/${langKey}`
   const crossLinks = CROSS.filter((c) => c.id !== bookmaker).map((c) => ({
     label: c.label[langKey],
@@ -221,27 +220,27 @@ export default function LocalizedPromoClient({
 
   return (
     <>
-    <Navbar />
-    <PromoLandingShell
-      brand={info.brand}
-      code={info.code}
-      bookmakerId={bookmaker}
-      accent={info.accent}
-      logo={info.logo}
-      logoBg={info.logoBg}
-      signupUrl={info.signup}
-      downloadUrl={info.download}
-      lang={langKey}
-      title={copy.title}
-      badge={copy.badge}
-      intro={copy.intro}
-      offerHeadline={copy.offerHeadline}
-      offerSub={copy.offerSub}
-      benefits={copy.benefits}
-      steps={copy.steps}
-      faq={faq}
-      crossLinks={crossLinks}
-    />
+      <Navbar />
+      <PromoLandingShell
+        brand={info.brand}
+        code={info.code}
+        bookmakerId={bookmaker}
+        accent={info.accent}
+        logo={info.logo}
+        logoBg={info.logoBg}
+        signupUrl={info.signup}
+        downloadUrl={info.download}
+        lang={langKey}
+        title={copy.title}
+        badge={copy.badge}
+        intro={copy.intro}
+        offerHeadline={copy.offerHeadline}
+        offerSub={copy.offerSub}
+        benefits={copy.benefits}
+        steps={copy.steps}
+        faq={faq}
+        crossLinks={crossLinks}
+      />
     </>
   )
 }

@@ -18,16 +18,16 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params
   const isEnglish = locale === 'en'
   if (!isEnglish && locale !== 'ar') return {}
-  const title = isEnglish ? 'Linebet Promo Code VISION221 for a 300% Worldwide Offer' : 'رمز Linebet الترويجي VISION221 لعرض عالمي بنسبة 300%'
+  const title = isEnglish ? 'Linebet Promo Code VISION221: Worldwide 300% Offer' : 'رمز Linebet VISION221 الترويجي: عرض عالمي 300%'
   const description = isEnglish
-    ? 'Linebet promo code VISION221 for its 300% worldwide offer, plus extra cashback and weekly bonuses. 18+. Please gamble responsibly.'
-    : 'رمز Linebet الترويجي VISION221 لعرض 300% المتاح عالميًا، مع استرداد نقدي إضافي ومكافآت أسبوعية. للبالغين 18+، والعب بمسؤولية.'
+    ? 'Linebet code VISION221 works worldwide. The offer includes a 300% deposit bonus, cashback and weekly bonuses. 18+.'
+    : 'يعمل رمز Linebet VISION221 حول العالم. يشمل العرض مكافأة إيداع بنسبة 300%، واستردادًا نقديًا ومكافآت أسبوعية. 18+.'
   return {
     title,
     description,
     keywords: isEnglish
-      ? ['Linebet promo code', 'VISION221', 'Linebet 300% worldwide']
-      : ['رمز Linebet الترويجي', 'VISION221', 'Linebet 300% حول العالم'],
+      ? ['Linebet promo code', 'Linebet promo code VISION221', 'Linebet Senegal promo code', 'VISION221', 'Linebet 300% worldwide']
+      : ['رمز Linebet الترويجي', 'رمز Linebet VISION221', 'VISION221', 'Linebet 300% حول العالم'],
     alternates: {
       canonical: isEnglish ? EN_URL : AR_URL,
       languages: { fr: FR_URL, en: EN_URL, ar: AR_URL, 'x-default': FR_URL },

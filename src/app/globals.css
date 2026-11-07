@@ -11674,3 +11674,161 @@ body { background-color: #0a111a !important; color: #f1efe8; }
   color: #C7DEFF !important;
   -webkit-text-fill-color: #C7DEFF !important;
 }
+
+
+/* Promo bookmaker pages: shared practical patterns, distinct identity and hierarchy per operator. */
+.promo-shell--1xbet {
+  --promo-accent: #4f94ff;
+  --promo-accent-soft: rgba(79, 148, 255, .10);
+  --promo-line: rgba(79, 148, 255, .28);
+  background-image: radial-gradient(ellipse at 8% 8%, rgba(35, 94, 181, .14), transparent 34%) !important;
+}
+.promo-shell--linebet {
+  --promo-accent: #68a6ff;
+  --promo-accent-soft: rgba(47, 125, 255, .10);
+  --promo-line: rgba(104, 166, 255, .30);
+  background-image: radial-gradient(ellipse at 88% 7%, rgba(47, 125, 255, .14), transparent 34%) !important;
+}
+.promo-shell--melbet {
+  --promo-accent: #f2b846;
+  --promo-accent-soft: rgba(245, 158, 11, .10);
+  --promo-line: rgba(242, 184, 70, .28);
+  background-image: radial-gradient(ellipse at 50% 0%, rgba(180, 112, 19, .13), transparent 38%) !important;
+}
+.promo-shell--1xbet > main.promo-main {
+  grid-template-areas: "story trust" "offer offer" "benefits benefits" "steps steps" "faq faq" "crosslinks crosslinks" "responsible responsible";
+}
+.promo-shell--linebet > main.promo-main {
+  grid-template-areas: "story story" "offer trust" "benefits benefits" "steps steps" "faq faq" "crosslinks crosslinks" "responsible responsible";
+}
+.promo-shell--melbet > main.promo-main {
+  grid-template-areas: "story offer" "trust benefits" "steps steps" "faq faq" "crosslinks crosslinks" "responsible responsible";
+}
+.promo-shell--1xbet .promo-main__story {
+  border-inline-start: 3px solid var(--promo-accent);
+  padding-inline-start: 18px !important;
+}
+.promo-shell--linebet .promo-main__story {
+  padding: 22px 24px !important;
+  border: 1px solid var(--promo-line) !important;
+  border-radius: 18px !important;
+  background: linear-gradient(120deg, rgba(47, 125, 255, .13), rgba(16, 28, 42, .86) 54%) !important;
+}
+.promo-shell--melbet .promo-main__story {
+  padding: 8px 0 8px 18px !important;
+  border-inline-start: 3px solid var(--promo-accent);
+  background: linear-gradient(90deg, rgba(245, 158, 11, .06), transparent 72%);
+}
+.promo-shell--1xbet .promo-story__badge,
+.promo-shell--1xbet .promo-main__trust > div > div p:first-child,
+.promo-shell--1xbet .promo-main__offer > div p:first-child,
+.promo-shell--1xbet .promo-main__steps > div > div span,
+.promo-shell--1xbet .promo-main__faq button > span:last-child { color: #8dbaff !important; }
+.promo-shell--linebet .promo-story__badge,
+.promo-shell--linebet .promo-main__trust > div > div p:first-child,
+.promo-shell--linebet .promo-main__offer > div p:first-child,
+.promo-shell--linebet .promo-main__steps > div > div span,
+.promo-shell--linebet .promo-main__faq button > span:last-child { color: #91bdff !important; }
+.promo-shell--melbet .promo-story__badge,
+.promo-shell--melbet .promo-main__trust > div > div p:first-child,
+.promo-shell--melbet .promo-main__offer > div p:first-child,
+.promo-shell--melbet .promo-main__steps > div > div span,
+.promo-shell--melbet .promo-main__faq button > span:last-child { color: #f2c56b !important; }
+.promo-shell--1xbet .promo-story__badge { border-color: rgba(79, 148, 255, .42) !important; background: rgba(79, 148, 255, .10) !important; }
+.promo-shell--linebet .promo-story__badge { border-color: rgba(104, 166, 255, .45) !important; background: rgba(47, 125, 255, .12) !important; }
+.promo-shell--melbet .promo-story__badge { border-color: rgba(242, 184, 70, .42) !important; background: rgba(245, 158, 11, .10) !important; }
+.promo-shell--1xbet .promo-story__badge > span:first-child,
+.promo-shell--1xbet .promo-main__steps > div > div span { background-color: #4f94ff !important; }
+.promo-shell--linebet .promo-story__badge > span:first-child,
+.promo-shell--linebet .promo-main__steps > div > div span { background-color: #68a6ff !important; }
+.promo-shell--melbet .promo-story__badge > span:first-child,
+.promo-shell--melbet .promo-main__steps > div > div span { background-color: #f2b846 !important; }
+.promo-shell--1xbet .promo-story__logo { background: #111e31 !important; border-color: rgba(79, 148, 255, .35) !important; }
+.promo-shell--linebet .promo-story__logo { background: #10233a !important; border-color: rgba(104, 166, 255, .40) !important; }
+.promo-shell--melbet .promo-story__logo { background: #241d10 !important; border-color: rgba(242, 184, 70, .35) !important; }
+.promo-shell--1xbet .promo-story__actions [data-cta^="promo-copy-"] { border-color: rgba(79, 148, 255, .55) !important; background: linear-gradient(135deg, #173b70, #14263c) !important; }
+.promo-shell--linebet .promo-story__actions [data-cta^="promo-copy-"] { border-color: rgba(104, 166, 255, .58) !important; background: linear-gradient(120deg, #163e78, #11273e) !important; }
+.promo-shell--melbet .promo-story__actions [data-cta^="promo-copy-"] { border-color: rgba(242, 184, 70, .55) !important; background: linear-gradient(135deg, #49320f, #241d12) !important; }
+.promo-shell--1xbet .promo-story__actions [data-cta^="promo-signup-"] { border-color: #4f94ff !important; background: #4f94ff !important; }
+.promo-shell--linebet .promo-story__actions [data-cta^="promo-signup-"] { border-color: #347fe7 !important; background: #347fe7 !important; }
+.promo-shell--melbet .promo-story__actions [data-cta^="promo-signup-"] { border-color: #d59620 !important; background: #d59620 !important; }
+.promo-shell--1xbet .promo-main__offer > div,
+.promo-shell--1xbet .promo-main__trust > div { background: linear-gradient(145deg, rgba(30, 57, 92, .55), #111c26 70%) !important; border-color: rgba(79, 148, 255, .24) !important; }
+.promo-shell--linebet .promo-main__offer > div,
+.promo-shell--linebet .promo-main__trust > div { background: linear-gradient(145deg, rgba(24, 59, 102, .48), #111c26 72%) !important; border-color: rgba(104, 166, 255, .26) !important; }
+.promo-shell--melbet .promo-main__offer > div,
+.promo-shell--melbet .promo-main__trust > div { background: linear-gradient(145deg, rgba(90, 58, 13, .34), #111c26 72%) !important; border-color: rgba(242, 184, 70, .24) !important; }
+.promo-shell--1xbet .promo-main__offer > div p:first-child { color: #8dbaff !important; }
+.promo-shell--linebet .promo-main__offer > div p:first-child { color: #91bdff !important; }
+.promo-shell--melbet .promo-main__offer > div p:first-child { color: #f2c56b !important; }
+.promo-shell--1xbet .promo-main__steps > div > div,
+.promo-shell--1xbet .promo-main__faq > div > div { border-color: rgba(79, 148, 255, .22) !important; }
+.promo-shell--linebet .promo-main__steps > div > div,
+.promo-shell--linebet .promo-main__faq > div > div { border-color: rgba(104, 166, 255, .24) !important; }
+.promo-shell--melbet .promo-main__steps > div > div,
+.promo-shell--melbet .promo-main__faq > div > div { border-color: rgba(242, 184, 70, .22) !important; }
+.promo-shell--1xbet .promo-main__benefits,
+.promo-shell--linebet .promo-main__benefits,
+.promo-shell--melbet .promo-main__benefits {
+  grid-area: benefits;
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0 !important;
+}
+.promo-shell--1xbet .promo-main__benefits > [data-promo-highlight],
+.promo-shell--linebet .promo-main__benefits > [data-promo-highlight],
+.promo-shell--melbet .promo-main__benefits > [data-promo-highlight] {
+  display: flex !important;
+  min-width: 0;
+  min-height: 86px;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 13px 14px;
+  border: 1px solid var(--promo-line) !important;
+  border-top: 2px solid var(--promo-accent) !important;
+  border-radius: 12px;
+  background: var(--promo-accent-soft) !important;
+}
+.promo-shell--1xbet .promo-main__benefits > [data-promo-highlight] > span,
+.promo-shell--linebet .promo-main__benefits > [data-promo-highlight] > span,
+.promo-shell--melbet .promo-main__benefits > [data-promo-highlight] > span {
+  color: var(--promo-accent) !important;
+  font: 700 10px/1 ui-monospace, SFMono-Regular, monospace !important;
+  letter-spacing: .16em !important;
+}
+.promo-shell--1xbet .promo-main__benefits > [data-promo-highlight] p,
+.promo-shell--linebet .promo-main__benefits > [data-promo-highlight] p,
+.promo-shell--melbet .promo-main__benefits > [data-promo-highlight] p {
+  color: #d6e0ea !important;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.promo-shell--1xbet .promo-main__steps > h2,
+.promo-shell--1xbet .promo-main__faq > h2,
+.promo-shell--1xbet .promo-main__crosslinks > h2 { text-decoration-color: #4f94ff; }
+.promo-shell--linebet .promo-main__steps > h2,
+.promo-shell--linebet .promo-main__faq > h2,
+.promo-shell--linebet .promo-main__crosslinks > h2 { text-decoration-color: #68a6ff; }
+.promo-shell--melbet .promo-main__steps > h2,
+.promo-shell--melbet .promo-main__faq > h2,
+.promo-shell--melbet .promo-main__crosslinks > h2 { text-decoration-color: #f2b846; }
+@media (max-width: 700px) {
+  .promo-shell--1xbet > main.promo-main {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "story" "offer" "benefits" "trust" "steps" "faq" "crosslinks" "responsible";
+  }
+  .promo-shell--linebet > main.promo-main { grid-template-areas: "story" "offer" "benefits" "trust" "steps" "faq" "crosslinks" "responsible"; }
+  .promo-shell--melbet > main.promo-main { grid-template-areas: "story" "offer" "benefits" "trust" "steps" "faq" "crosslinks" "responsible"; }
+  .promo-shell--1xbet .promo-main__story { padding-inline-start: 12px !important; }
+  .promo-shell--linebet .promo-main__story { padding: 16px !important; }
+  .promo-shell--melbet .promo-main__story { padding-inline-start: 12px !important; }
+  .promo-shell--1xbet .promo-main__benefits,
+  .promo-shell--linebet .promo-main__benefits,
+  .promo-shell--melbet .promo-main__benefits { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .promo-shell--1xbet .promo-main__benefits > [data-promo-highlight],
+  .promo-shell--linebet .promo-main__benefits > [data-promo-highlight],
+  .promo-shell--melbet .promo-main__benefits > [data-promo-highlight] { min-height: 74px; padding: 10px; }
+}

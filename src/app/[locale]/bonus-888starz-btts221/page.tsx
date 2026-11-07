@@ -21,8 +21,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   if (!isEnglish && locale !== 'ar') notFound()
   const title = isEnglish ? '888Starz btts221 Promo Code for a 300% Worldwide Bonus' : 'رمز 888Starz btts221 الترويجي وعرض عالمي بنسبة 300%'
   const description = isEnglish
-    ? '888Starz btts221 promo code for its 300% worldwide offer, plus extra cashback and weekly bonuses. 18+. Please gamble responsibly.'
-    : 'رمز 888Starz btts221 الترويجي لعرض 300% المتاح عالميًا، مع استرداد نقدي إضافي ومكافآت أسبوعية. للبالغين 18+، والعب بمسؤولية.'
+    ? '888Starz code btts221 works worldwide. The offer includes a 300% deposit bonus, cashback and weekly bonuses. 18+. Please gamble responsibly.'
+    : 'يعمل رمز 888Starz btts221 حول العالم. يشمل العرض مكافأة إيداع بنسبة 300%، واستردادًا نقديًا ومكافآت أسبوعية. للبالغين 18+، والعب بمسؤولية.'
   return {
     title,
     description,
@@ -41,8 +41,8 @@ function localizedStructuredData(lang: LocalizedLang) {
   const pageUrl = lang === 'en' ? EN_URL : AR_URL
   const title = lang === 'en' ? '888Starz btts221 Promo Code for a 300% Worldwide Bonus' : 'رمز 888Starz btts221 الترويجي وعرض عالمي بنسبة 300%'
   const description = lang === 'en'
-    ? '888Starz btts221 promo code for its 300% worldwide offer, plus extra cashback and weekly bonuses. 18+. Please gamble responsibly.'
-    : 'رمز 888Starz btts221 الترويجي لعرض 300% المتاح عالميًا، مع استرداد نقدي إضافي ومكافآت أسبوعية. للبالغين 18+، والعب بمسؤولية.'
+    ? '888Starz code btts221 works worldwide. The offer includes a 300% deposit bonus, cashback and weekly bonuses. 18+. Please gamble responsibly.'
+    : 'يعمل رمز 888Starz btts221 حول العالم. يشمل العرض مكافأة إيداع بنسبة 300%، واستردادًا نقديًا ومكافآت أسبوعية. للبالغين 18+، والعب بمسؤولية.'
   const faq = buildPromoFaqJsonLd('888starz', lang)
   return [
     {

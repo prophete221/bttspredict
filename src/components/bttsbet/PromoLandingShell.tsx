@@ -39,6 +39,7 @@ export type PromoLandingProps = {
     others: string
     stickySignup: string
     responsible: string
+    affiliateDisclosure: string
   }>
 }
 
@@ -76,28 +77,6 @@ function FadeIn({
   )
 }
 
-function Marquee({ items, accent }: { items: string[]; accent: string }) {
-  const doubled = [...items, ...items]
-  return (
-    <div className="promo-benefit-marquee relative overflow-hidden py-3" style={{ borderTop: `1px solid ${accent}22`, borderBottom: `1px solid ${accent}22` }}>
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 sm:w-20" style={{ background: 'linear-gradient(90deg,#0A111A,transparent)' }} />
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 sm:w-20" style={{ background: 'linear-gradient(270deg,#0A111A,transparent)' }} />
-      <motion.div
-        className="flex gap-8 whitespace-nowrap"
-        animate={{ x: ['0%', '-50%'] }}
-        transition={{ duration: 22, repeat: Infinity, ease: 'linear' }}
-      >
-        {doubled.map((b, i) => (
-          <span key={`${b}-${i}`} className="text-xs sm:text-sm font-bold uppercase tracking-[0.18em]" style={{ color: accent }}>
-            {b}
-            <span className="mx-4 opacity-40">◆</span>
-          </span>
-        ))}
-      </motion.div>
-    </div>
-  )
-}
-
 export default function PromoLandingShell(p: PromoLandingProps) {
   const [copied, setCopied] = useState(false)
   const [copyFailed, setCopyFailed] = useState(false)
@@ -117,6 +96,11 @@ export default function PromoLandingShell(p: PromoLandingProps) {
     others: p.labels?.others ?? (p.lang === 'en' ? 'Other offers' : p.lang === 'ar' ? 'عروض أخرى' : 'Autres offres'),
     stickySignup: p.labels?.stickySignup ?? (p.lang === 'en' ? 'Open' : p.lang === 'ar' ? 'افتح' : 'Ouvrir'),
     responsible: p.labels?.responsible ?? (p.lang === 'en' ? 'Play responsibly' : p.lang === 'ar' ? 'العب بمسؤولية' : 'Jouez responsable'),
+    affiliateDisclosure: p.labels?.affiliateDisclosure ?? (p.lang === 'en'
+      ? 'Links to the operator are affiliate links; BTTSPredict may receive a commission if you use them.'
+      : p.lang === 'ar'
+        ? 'روابط المشغّل تابعة؛ قد تحصل BTTSPredict على عمولة عند استخدامها.'
+        : 'Les liens vers l’opérateur sont affiliés ; BTTSPredict peut percevoir une commission si vous les utilisez.'),
   }
 
   const accent = p.accent
@@ -295,13 +279,21 @@ export default function PromoLandingShell(p: PromoLandingProps) {
                 </span>
               </a>
             </div>
+            <p data-affiliate-disclosure className="mt-3 px-2 text-center text-[11px] leading-relaxed text-[#9DABBB]">
+              {L.affiliateDisclosure}
+            </p>
           </motion.div>
         </section>
 
-        {/* Marquee */}
-        <div className="promo-main__benefits mt-10">
-          <Marquee items={p.benefits} accent={accent} />
-        </div>
+        {/* Offer snapshot: static, scannable facts instead of a duplicated moving ticker. */}
+        <section className="promo-main__benefits" aria-label={p.lang === 'en' ? 'Offer highlights' : p.lang === 'ar' ? 'أبرز عناصر العرض' : 'Repères sur l’offre'}>
+          {p.benefits.map((benefit, index) => (
+            <div key={`${p.bookmakerId}-${index}`} data-promo-highlight>
+              <span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+              <p>{benefit}</p>
+            </div>
+          ))}
+        </section>
 
         {/* Offer card */}
         <FadeIn className="promo-main__offer mt-10" delay={0.05}>
@@ -334,10 +326,10 @@ export default function PromoLandingShell(p: PromoLandingProps) {
                   ? ['الرمز الدقيق', 'استخدم الرمز بنفس الأحرف المعروضة.']
                   : ['Code exact', 'Utilise le code avec la casse affichée.'],
               p.lang === 'en'
-                ? ['Offer', '300% worldwide, with more cashback and weekly bonuses.']
+                ? ['Offer', '300% worldwide deposit bonus, cashback and weekly bonuses.']
                 : p.lang === 'ar'
-                  ? ['العرض', '300% حول العالم، مع استرداد نقدي أكبر ومكافآت أسبوعية.']
-                  : ['Offre', '300 % worldwide, avec davantage de cashback et des bonus hebdomadaires.'],
+                  ? ['العرض', 'مكافأة إيداع عالمية 300%، واسترداد نقدي ومكافآت أسبوعية.']
+                  : ['Offre', 'Bonus de dépôt mondial de 300 %, cashback et bonus hebdomadaires.'],
               p.lang === 'en'
                 ? ['18+ only', 'Play responsibly. Availability depends on local regulation.']
                 : p.lang === 'ar'

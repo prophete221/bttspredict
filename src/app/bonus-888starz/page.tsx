@@ -11,17 +11,17 @@ const Star888Client = dynamic(() => import('./Star888Client'), { loading: () => 
 const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'bonus-888starz'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
-const TITLE = 'Code promo 888Starz btts221 : offre mondiale à 300 %'
-const DESCRIPTION = 'Code promo 888Starz btts221 : offre mondiale de 300 %, cashback et bonus hebdomadaires. 18+.'
-const OPEN_GRAPH_TITLE = 'Code promo 888Starz btts221 300% worldwide'
-const OPEN_GRAPH_DESCRIPTION = 'Code promo 888Starz btts221 : bonus 300% worldwide, davantage de cashback et des bonus hebdomadaires. 18+.'
+const TITLE = 'Code promo 888Starz btts221 : bonus mondial 300 %'
+const DESCRIPTION = 'Code promo 888Starz btts221 valable dans le monde entier : bonus de dépôt de 300 %, cashback et bonus hebdomadaires. 18+.'
+const OPEN_GRAPH_TITLE = 'Code promo 888Starz btts221 : bonus mondial 300 %'
+const OPEN_GRAPH_DESCRIPTION = 'Le code 888Starz btts221 fonctionne dans le monde entier. L’offre comprend un bonus de dépôt de 300 %, du cashback et des bonus hebdomadaires. 18+.'
 
 if (process.env.NODE_ENV === 'production') checkSeo(SLUG, TITLE, DESCRIPTION)
 
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  keywords: ['code promo 888Starz', '888Starz promo code', 'btts221', 'code btts221 888Starz', '888Starz Senegal', '888Starz 300% worldwide'],
+  keywords: ['code promo 888Starz', 'code promo 888Starz btts221', 'bonus 888Starz', 'btts221', '888Starz 300% worldwide'],
   alternates: {
     canonical: PAGE_URL,
     languages: {
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     },
   },
   robots: { index: true, follow: true },
-  openGraph: { title: OPEN_GRAPH_TITLE, description: OPEN_GRAPH_DESCRIPTION, url: PAGE_URL, siteName: 'BTTSPredict', type: 'article', locale: 'fr_SN', images: [{ url: '/og-image.png', width: 1200, height: 630, alt: OPEN_GRAPH_TITLE }] },
+  openGraph: { title: OPEN_GRAPH_TITLE, description: OPEN_GRAPH_DESCRIPTION, url: PAGE_URL, siteName: 'BTTSPredict', type: 'article', locale: 'fr_FR', images: [{ url: '/og-image.png', width: 1200, height: 630, alt: OPEN_GRAPH_TITLE }] },
   twitter: { card: 'summary_large_image', title: OPEN_GRAPH_TITLE, description: OPEN_GRAPH_DESCRIPTION, images: ['/og-image.png'] },
 }
 

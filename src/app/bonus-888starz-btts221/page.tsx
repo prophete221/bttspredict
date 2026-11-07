@@ -10,9 +10,9 @@ const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'bonus-888starz-btts221'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
 const TITLE = '888Starz btts221 : code promo et offre mondiale à 300 %'
-const DESCRIPTION = 'Code promo 888Starz btts221 : offre mondiale de 300 %, cashback et bonus hebdomadaires. 18+.'
+const DESCRIPTION = 'Code promo 888Starz btts221 valable dans le monde entier : bonus de dépôt de 300 %, cashback et bonus hebdomadaires. 18+.'
 const OPEN_GRAPH_TITLE = 'Code promo 888Starz btts221 300% worldwide'
-const OPEN_GRAPH_DESCRIPTION = 'Code promo 888Starz btts221 : bonus 300% worldwide, davantage de cashback et des bonus hebdomadaires. 18+.'
+const OPEN_GRAPH_DESCRIPTION = 'Le code 888Starz btts221 fonctionne dans le monde entier. L’offre comprend un bonus de dépôt de 300 %, du cashback et des bonus hebdomadaires. 18+.'
 
 if (process.env.NODE_ENV === 'production') checkSeo(SLUG, TITLE, DESCRIPTION)
 

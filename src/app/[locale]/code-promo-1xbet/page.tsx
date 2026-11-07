@@ -18,16 +18,16 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params
   const isEnglish = locale === 'en'
   if (!isEnglish && locale !== 'ar') return {}
-  const title = isEnglish ? '1xBet Promo Code vipbtts for a 300% Worldwide Offer' : 'رمز 1xBet الترويجي vipbtts لعرض عالمي بنسبة 300%'
+  const title = isEnglish ? '1xBet Promo Code vipbtts: 300% Worldwide Bonus' : 'رمز 1xBet الترويجي vipbtts: مكافأة عالمية 300%'
   const description = isEnglish
-    ? '1xBet promo code vipbtts for its 300% worldwide offer, plus extra cashback and weekly bonuses. 18+. Please gamble responsibly.'
-    : 'رمز 1xBet الترويجي vipbtts لعرض 300% المتاح عالميًا، مع استرداد نقدي إضافي ومكافآت أسبوعية. للبالغين 18+، والعب بمسؤولية.'
+    ? '1xBet code vipbtts works worldwide. The offer includes a 300% deposit bonus, cashback and weekly bonuses. 18+.'
+    : 'يعمل رمز 1xBet vipbtts حول العالم. يشمل العرض مكافأة إيداع بنسبة 300%، واستردادًا نقديًا ومكافآت أسبوعية. 18+.'
   return {
     title,
     description,
     keywords: isEnglish
-      ? ['1xBet promo code', 'vipbtts', '1xBet 300% worldwide']
-      : ['رمز 1xBet الترويجي', 'vipbtts', '1xBet 300% حول العالم'],
+      ? ['1xBet promo code', '1xBet promo code vipbtts', 'vipbtts', '1xBet 300% worldwide']
+      : ['رمز 1xBet الترويجي', 'رمز 1xBet vipbtts', 'vipbtts', '1xBet 300% حول العالم'],
     alternates: {
       canonical: isEnglish ? EN_URL : AR_URL,
       languages: { fr: FR_URL, en: EN_URL, ar: AR_URL, 'x-default': FR_URL },
