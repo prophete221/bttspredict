@@ -1772,7 +1772,8 @@
       "bttsProb": 0.72,
       "prediction": "Oui",
       "proba": 0.72,
-      "confidence": 72
+      "confidence": 72,
+      "status": "PENDING"
     },
     {
       "id": "redbulln-vs-atlantau-2026-11-07",
@@ -1967,7 +1968,8 @@
       "over25Prob": 0.7,
       "prediction": "Oui",
       "proba": 0.7,
-      "confidence": 70
+      "confidence": 70,
+      "status": "PENDING"
     },
     {
       "id": "queenspa-vs-lincolnc-2026-11-07",
@@ -2162,7 +2164,8 @@
       "over25Prob": 0.75,
       "prediction": "Oui",
       "proba": 0.75,
-      "confidence": 75
+      "confidence": 75,
+      "status": "PENDING"
     },
     {
       "id": "westbrom-vs-millwall-2026-11-07",
@@ -2357,7 +2360,8 @@
       "bttsProb": 0.72,
       "prediction": "Oui",
       "proba": 0.72,
-      "confidence": 72
+      "confidence": 72,
+      "status": "PENDING"
     },
     {
       "id": "rbleipzi-vs-fcaugsbu-2026-11-07",
@@ -2553,7 +2557,8 @@
       "over25Prob": 0.68,
       "prediction": "Oui",
       "proba": 0.68,
-      "confidence": 68
+      "confidence": 68,
+      "status": "PENDING"
     },
     {
       "id": "vfbstutt-vs-werderbr-2026-11-07",
@@ -2749,7 +2754,8 @@
       "bttsProb": 0.6,
       "prediction": "Oui",
       "proba": 0.6,
-      "confidence": 60
+      "confidence": 60,
+      "status": "PENDING"
     },
     {
       "id": "herthabe-vs-vflwolfs-2026-11-07",
@@ -2945,7 +2951,8 @@
       "bttsProb": 0.58,
       "prediction": "Oui",
       "proba": 0.58,
-      "confidence": 58
+      "confidence": 58,
+      "status": "PENDING"
     },
     {
       "id": "kvcweste-vs-royalcha-2026-11-07",
@@ -3141,7 +3148,8 @@
       "over25Prob": 0.65,
       "prediction": "Oui",
       "proba": 0.65,
-      "confidence": 65
+      "confidence": 65,
+      "status": "PENDING"
     },
     {
       "id": "chicagof-vs-columbus-2026-11-07",
@@ -3337,7 +3345,8 @@
       "over25Prob": 0.68,
       "prediction": "Oui",
       "proba": 0.68,
-      "confidence": 68
+      "confidence": 68,
+      "status": "PENDING"
     },
     {
       "id": "intermia-vs-charlott-2026-11-07",
@@ -3533,7 +3542,8 @@
       "over25Prob": 0.72,
       "prediction": "Oui",
       "proba": 0.72,
-      "confidence": 72
+      "confidence": 72,
+      "status": "PENDING"
     },
     {
       "id": "fcnrnber-vs-svdarmst-2026-11-07",
@@ -3729,7 +3739,8 @@
       "bttsProb": 0.58,
       "prediction": "Oui",
       "proba": 0.58,
-      "confidence": 58
+      "confidence": 58,
+      "status": "PENDING"
     },
     {
       "id": "portsmou-vs-stokecit-2026-11-07",
@@ -3925,7 +3936,8 @@
       "bttsProb": 0.52,
       "prediction": "Oui",
       "proba": 0.52,
-      "confidence": 52
+      "confidence": 52,
+      "status": "PENDING"
     },
     {
       "id": "wrexham-vs-wolverha-2026-11-07",
@@ -4107,7 +4119,8 @@
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "abstain",
+      "status": "PENDING"
     },
     {
       "id": "blackbur-vs-westhamu-2026-11-07",
@@ -4303,7 +4316,8 @@
       "over25Prob": 0.68,
       "prediction": "Oui",
       "proba": 0.68,
-      "confidence": 68
+      "confidence": 68,
+      "status": "PENDING"
     },
     {
       "id": "monza-vs-atalanta-2026-11-08",
@@ -5876,6 +5890,778 @@
       "proba": 0.72,
       "confidence": 72,
       "status": "PENDING"
+    },
+    {
+      "id": "adodenha-vs-spartaro-2026-11-07",
+      "match": "ADO Den Haag vs Sparta Rotterdam",
+      "home": "ADO Den Haag",
+      "away": "Sparta Rotterdam",
+      "league": "Eredivisie",
+      "date": "2026-11-07",
+      "type": "BTTS",
+      "time": "17:45",
+      "matchSemantic": "adodenha-vs-spartaro-2026-11-07",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2726.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/151.png",
+      "tier": "GOLD",
+      "reliabilityScore": 93.75,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.75,
+      "xgAway": 2,
+      "xgTotal": 3.75,
+      "formBTTS": 80,
+      "analysis": "ADO Den Haag : forme D-D-V-N-N (1V 2N 2D, 7 buts marqués / 8 encaissés sur 5) · Sparta Rotterdam : forme V-D-V-N-D (2V 1N 2D, 10 buts marqués / 13 encaissés sur 5). Classement : ADO Den Haag 17e (6 pts), Sparta Rotterdam 11e (12 pts). Stats empiriques (forme récente) : buts moy. 3.75, BTTS 80.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.45 / N: 3.55 / 2: 2.6. Fiabilité 93.75%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.8,
+        "empiricalOver25Rate": 0.8,
+        "homeLambda": 1.75,
+        "awayLambda": 2,
+        "xgTotal": 3.75
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.45,
+        "draw": 3.55,
+        "away": 2.6,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-D-V-N-N",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 7,
+        "goalsAgainst": 8,
+        "bttsRate": 0.8,
+        "over25Rate": 0.6,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-D-V-N-D",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 10,
+        "goalsAgainst": 13,
+        "bttsRate": 0.8,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-01",
+          "opponent": "PEC Zwolle",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Heerenveen",
+          "venue": "H",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "PSV Eindhoven",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Telstar",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "SC Cambuur",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-01",
+          "opponent": "FC Groningen",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Ajax Amsterdam",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Willem II",
+          "venue": "H",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Go Ahead Eagles",
+          "venue": "A",
+          "score": "3-3",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Heerenveen",
+          "venue": "H",
+          "score": "0-4",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 17,
+        "points": 6,
+        "played": 11,
+        "gf": 13,
+        "ga": 24
+      },
+      "standingsAway": {
+        "rank": 11,
+        "points": 12,
+        "played": 11,
+        "gf": 20,
+        "ga": 26
+      },
+      "empiricalBttsRate": 0.8,
+      "empiricalOver25Rate": 0.8,
+      "homeLambda": 1.75,
+      "awayLambda": 2,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Les deux formations affichent un taux BTTS de 80% sur leurs matchs récents.",
+      "ai_analysis": "Cette confrontation en Eredivisie réunit deux équipes aux dynamiques défensives perméables, comme l'attestent leurs classements respectifs. Le taux BTTS atteint 80% des deux côtés sur l'échantillon observé, couplé à des moyennes de buts par match supérieures à 1.75. Les indicateurs statistiques soutiennent l'option d'un match où les deux défenses seront mises en difficulté.",
+      "ai_analysis_en": "This Eredivisie fixture brings together two teams with porous defensive dynamics, as evidenced by their respective standings. The BTTS rate reaches 80% on both sides over the observed sample, coupled with goals-per-match averages above 1.75. Statistical indicators support the option of a match where both defences will struggle.",
+      "ai_form_summary": "ADO Den Haag (1V-2N-2D) et Sparta Rotterdam (2V-1N-2D) montrent des fragilités défensives notables.",
+      "ai_form_summary_en": "ADO Den Haag (1W-2D-2L) and Sparta Rotterdam (2W-1D-2L) show notable defensive fragilities.",
+      "ai_reasons": [
+        "Taux BTTS empirique de 80% pour ADO Den Haag et Sparta Rotterdam.",
+        "Taux Over 2.5 de 100% pour Sparta Rotterdam sur ses 5 derniers matchs de forme.",
+        "Moyennes de buts élevés avec 1.75 pour ADO Den Haag et 2.0 pour Sparta Rotterdam."
+      ],
+      "ai_risks": [
+        "L'irrégularité des deux formations au classement (17e et 11e) peut induire des phases de jeu fermées.",
+        "Le taux Over 2.5 d'ADO Den Haag reste modéré à 60% sur ses 5 derniers matchs."
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 70,
+          "proba": 0.7,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.7
+        }
+      ],
+      "bttsProb": 0.7,
+      "prediction": "Oui",
+      "proba": 0.7,
+      "confidence": 70,
+      "status": "PENDING"
+    },
+    {
+      "id": "philadel-vs-torontof-2026-11-07",
+      "match": "Philadelphia Union vs Toronto FC",
+      "home": "Philadelphia Union",
+      "away": "Toronto FC",
+      "league": "MLS",
+      "date": "2026-11-07",
+      "type": "BTTS",
+      "time": "21:00",
+      "matchSemantic": "philadel-vs-torontof-2026-11-07",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10739.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7318.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.25,
+      "xgAway": 1.2,
+      "xgTotal": 3.45,
+      "formBTTS": 70,
+      "analysis": "Philadelphia Union : forme D-N-D-N-V (1V 2N 2D, 6 buts marqués / 6 encaissés sur 5) · Toronto FC : forme D-V-D-V-N (2V 1N 2D, 10 buts marqués / 11 encaissés sur 5). Classement : Philadelphia Union 6e (47 pts), Toronto FC 12e (39 pts). Stats empiriques (forme récente) : buts moy. 3.45, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.42 / N: 4.9 / 2: 5.75. Fiabilité 89.38%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.7,
+        "empiricalOver25Rate": 0.7,
+        "homeLambda": 2.25,
+        "awayLambda": 1.2,
+        "xgTotal": 3.45
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.42,
+        "draw": 4.9,
+        "away": 5.75,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-N-D-N-V",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 6,
+        "goalsAgainst": 6,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-V-D-V-N",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 10,
+        "goalsAgainst": 11,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-31",
+          "opponent": "FC Cincinnati",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-29",
+          "opponent": "Nashville SC",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "New England Revolution",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Charlotte FC",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-15",
+          "opponent": "Chicago Fire FC",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-01",
+          "opponent": "Atlanta United FC",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-28",
+          "opponent": "D.C. United",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Columbus Crew",
+          "venue": "A",
+          "score": "2-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Red Bull New York",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-14",
+          "opponent": "Orlando City SC",
+          "venue": "H",
+          "score": "3-3",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 6,
+        "points": 47,
+        "played": 33,
+        "gf": 62,
+        "ga": 51
+      },
+      "standingsAway": {
+        "rank": 12,
+        "points": 39,
+        "played": 33,
+        "gf": 51,
+        "ga": 63
+      },
+      "empiricalBttsRate": 0.7,
+      "empiricalOver25Rate": 0.7,
+      "homeLambda": 2.25,
+      "awayLambda": 1.2,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Toronto affiche un taux BTTS de 80% sur ses cinq derniers matchs.",
+      "ai_analysis": "Les statistiques observées montrent un profil favorable au BTTS pour cette rencontre de MLS. Toronto FC présente un taux de BTTS récent de 0.8, tandis que Philadelphia Union affiche de bonnes moyennes de buts de 2.25. L'empirique global s'établit à 0.7, justifiant une sélection mesurée sur le marché des deux équipes marquent.",
+      "ai_analysis_en": "Observed statistics show a favorable profile for BTTS in this MLS fixture. Toronto FC records a recent BTTS rate of 0.8, while Philadelphia Union boasts a strong goals average of 2.25. The overall empirical rate stands at 0.7, justifying a measured selection on the Both Teams to Score market.",
+      "ai_form_summary": "Philadelphia Union : 1W-2D-2L (6 buts pour, 6 contre). Toronto FC : 2W-1D-2L (10 buts pour, 11 contre).",
+      "ai_form_summary_en": "Philadelphia Union: 1W-2D-2L (6 goals for, 6 against). Toronto FC: 2W-1D-2L (10 goals for, 11 against).",
+      "ai_reasons": [
+        "Taux empirique BTTS de 0.7 et formBTTS à 70 sur l'échantillon.",
+        "Taux de BTTS récent de Toronto FC à 0.8 sur ses 5 derniers matchs.",
+        "Moyennes de buts de Philadelphia Union (2.25) soutenant la probabilité d'un match animé."
+      ],
+      "ai_risks": [
+        "Philadelphia Union a un taux BTTS un peu plus bas sur ses 5 derniers matchs (0.6).",
+        "Écart de classement important (6ème vs 12ème) pouvant influencer la dynamique."
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 65,
+          "proba": 0.65,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.65
+        }
+      ],
+      "bttsProb": 0.65,
+      "prediction": "Oui",
+      "proba": 0.65,
+      "confidence": 65,
+      "status": "PENDING"
+    },
+    {
+      "id": "ajauxerr-vs-parisfc-2026-11-07",
+      "match": "AJ Auxerre vs Paris FC",
+      "home": "AJ Auxerre",
+      "away": "Paris FC",
+      "league": "Ligue 1",
+      "date": "2026-11-07",
+      "type": "BTTS",
+      "time": "18:00",
+      "matchSemantic": "ajauxerr-vs-parisfc-2026-11-07",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/172.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6851.png",
+      "tier": "GOLD",
+      "reliabilityScore": 88.75,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.25,
+      "xgAway": 1.33,
+      "xgTotal": 2.58,
+      "formBTTS": 90,
+      "analysis": "AJ Auxerre : forme D-N-V-D-V (2V 1N 2D, 8 buts marqués / 12 encaissés sur 5) · Paris FC : forme V-D-V-D-V (3V 0N 2D, 10 buts marqués / 8 encaissés sur 5). Classement : AJ Auxerre 14e (10 pts), Paris FC 4e (17 pts). Stats empiriques (forme récente) : buts moy. 2.58, BTTS 90.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 4.2 / N: 4 / 2: 1.77 · Over 2.5: 1.71. Fiabilité 88.75%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.9,
+        "empiricalOver25Rate": 0.8,
+        "homeLambda": 1.25,
+        "awayLambda": 1.33,
+        "xgTotal": 2.58
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 4.2,
+        "draw": 4,
+        "away": 1.77,
+        "over25": 1.71,
+        "under25": 2.1
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-N-V-D-V",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 8,
+        "goalsAgainst": 12,
+        "bttsRate": 1,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-D-V-D-V",
+        "wins": 3,
+        "draws": 0,
+        "losses": 2,
+        "goalsFor": 10,
+        "goalsAgainst": 8,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-01",
+          "opponent": "Strasbourg",
+          "venue": "A",
+          "score": "1-5",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Le Mans",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Le Havre AC",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Stade Rennais",
+          "venue": "A",
+          "score": "1-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Brest",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-01",
+          "opponent": "AS Monaco",
+          "venue": "H",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Lens",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Stade Rennais",
+          "venue": "H",
+          "score": "4-3",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Lorient",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Strasbourg",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 14,
+        "points": 10,
+        "played": 9,
+        "gf": 13,
+        "ga": 23
+      },
+      "standingsAway": {
+        "rank": 4,
+        "points": 17,
+        "played": 9,
+        "gf": 16,
+        "ga": 10
+      },
+      "empiricalBttsRate": 0.9,
+      "empiricalOver25Rate": 0.8,
+      "homeLambda": 1.25,
+      "awayLambda": 1.33,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "AJ Auxerre atteint un taux de BTTS de 100% sur ses cinq derniers matchs.",
+      "ai_analysis": "Ce match de Ligue 1 présente des indicateurs très solides pour le marché BTTS, avec un taux empirique impressionnant de 0.9 et un formBTTS de 90. Auxerre encaisse régulièrement (12 buts sur les 5 derniers matchs) tout en marquant, et Paris FC maintient également un taux de 0.8. Les données confirment une forte probabilité que les deux équipes trouvent le chemin des filets.",
+      "ai_analysis_en": "This Ligue 1 fixture displays very solid indicators for the BTTS market, featuring an impressive 0.9 empirical rate and a formBTTS of 90. Auxerre consistently concedes while scoring, and Paris FC maintains an 0.8 rate over their last 5 matches. The data confirms a high probability of both teams scoring.",
+      "ai_form_summary": "AJ Auxerre : 2W-1D-2L (8 buts pour, 12 contre). Paris FC : 3W-0D-2L (10 buts pour, 8 contre).",
+      "ai_form_summary_en": "AJ Auxerre: 2W-1D-2L (8 goals for, 12 against). Paris FC: 3W-0D-2L (10 goals for, 8 against).",
+      "ai_reasons": [
+        "Taux empirique BTTS très élevé de 0.9 et formBTTS à 90.",
+        "AJ Auxerre affiche un taux BTTS de 1 sur ses 5 derniers matchs avec 12 buts encaissés.",
+        "Paris FC présente un taux BTTS de 0.8 sur ses 5 derniers matchs."
+      ],
+      "ai_risks": [
+        "L'AJ Auxerre ne tourne qu'à 1.25 buts par match en moyenne.",
+        "Classement disparate entre le 4ème (Paris FC) et le 14ème (Auxerre)."
+      ],
+      "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 72,
+          "proba": 0.72,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.72
+        }
+      ],
+      "bttsProb": 0.72,
+      "prediction": "Oui",
+      "proba": 0.72,
+      "confidence": 72
+    },
+    {
+      "id": "portsmou-vs-stokecit-2026-11-07",
+      "match": "Portsmouth vs Stoke City",
+      "home": "Portsmouth",
+      "away": "Stoke City",
+      "league": "Championship",
+      "date": "2026-11-07",
+      "type": "BTTS",
+      "time": "12:30",
+      "matchSemantic": "portsmou-vs-stokecit-2026-11-07",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/385.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/336.png",
+      "tier": "GOLD",
+      "reliabilityScore": 80.63,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.5,
+      "xgAway": 1.75,
+      "xgTotal": 4.25,
+      "formBTTS": 50,
+      "analysis": "Portsmouth : forme V-N-V-N-V (3V 2N 0D, 7 buts marqués / 3 encaissés sur 5) · Stoke City : forme V-V-N-V-D (3V 1N 1D, 7 buts marqués / 4 encaissés sur 5). Classement : Portsmouth 10e (22 pts), Stoke City 4e (26 pts). Stats empiriques (forme récente) : buts moy. 4.25, BTTS 50.0%, Over 2.5 40.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.2 / N: 3.3 / 2: 3.4 · Over 2.5: 2.15. Fiabilité 80.63%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.5,
+        "empiricalOver25Rate": 0.4,
+        "homeLambda": 2.5,
+        "awayLambda": 1.75,
+        "xgTotal": 4.25
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.2,
+        "draw": 3.3,
+        "away": 3.4,
+        "over25": 2.15,
+        "under25": 1.67
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "V-N-V-N-V",
+        "wins": 3,
+        "draws": 2,
+        "losses": 0,
+        "goalsFor": 7,
+        "goalsAgainst": 3,
+        "bttsRate": 0.6,
+        "over25Rate": 0.4,
+        "cleanSheets": 2,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-N-V-D",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 7,
+        "goalsAgainst": 4,
+        "bttsRate": 0.4,
+        "over25Rate": 0.4,
+        "cleanSheets": 3,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-03",
+          "opponent": "Swansea City",
+          "venue": "H",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Burnley",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Millwall",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-20",
+          "opponent": "Wolverhampton Wanderers",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Norwich City",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-03",
+          "opponent": "Blackburn Rovers",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Preston North End",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Bristol City",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Derby County",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-13",
+          "opponent": "Middlesbrough",
+          "venue": "H",
+          "score": "2-3",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 10,
+        "points": 22,
+        "played": 14,
+        "gf": 19,
+        "ga": 16
+      },
+      "standingsAway": {
+        "rank": 4,
+        "points": 26,
+        "played": 14,
+        "gf": 22,
+        "ga": 17
+      },
+      "empiricalBttsRate": 0.5,
+      "empiricalOver25Rate": 0.4,
+      "homeLambda": 2.5,
+      "awayLambda": 1.75,
+      "statsOnly": true,
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "Les taux Over 2.5 des deux équipes sont limités à 40% sur leurs 5 derniers matchs.",
+      "ai_analysis": "L'analyse des statistiques observées pour cette rencontre de Championship ne permet pas de dégager un profil suffisamment tranché. Avec un taux empirique de BTTS à 50% et un taux d'Over 2.5 limité à 40% pour les deux équipes, les indicateurs restent partagés. En l'absence de signaux forts et cohérents, la règle de prudence s'applique et conduit à s'abstenir sur ce match.",
+      "ai_analysis_en": "The analysis of observed statistics for this Championship fixture does not reveal a clear enough profile. With an empirical BTTS rate of 50% and an Over 2.5 rate limited to 40% for both teams, the indicators remain mixed. In the absence of strong and consistent signals, the prudence rule applies and leads to an abstention on this match.",
+      "ai_form_summary": "Portsmouth : 3V-2N-0D, 7 buts pour, 3 contre (BTTS: 60%, Over 2.5: 40%). Stoke City : 3V-1N-1D, 7 buts pour, 4 contre (BTTS: 40%, Over 2.5: 40%).",
+      "ai_form_summary_en": "Portsmouth: 3W-2D-0L, 7 goals for, 3 against (BTTS: 60%, Over 2.5: 40%). Stoke City: 3W-1D-1L, 7 goals for, 4 against (BTTS: 40%, Over 2.5: 40%).",
+      "ai_reasons": [
+        "Taux empirique du BTTS à 50% et taux Over 2.5 à 40%, en dessous des seuils de forte conviction.",
+        "Portsmouth présente un taux Over 2.5 de 40% sur ses 5 derniers matchs avec des scores serrés.",
+        "Stoke City affiche également un taux Over 2.5 de 40% et un taux BTTS de 40%."
+      ],
+      "ai_risks": [
+        "Les taux empiriques et de forme sont mitigés, ne permettant pas de trancher clairement entre BTTS et Under/Over.",
+        "Faible différentiel statistique entre les indicateurs offensifs et défensifs."
+      ],
+      "ai_confidence": "low",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "abstain"
     }
   ],
   "stats": {
@@ -11772,6 +12558,780 @@
       "prediction": "Oui",
       "proba": 0.72,
       "confidence": 72,
+      "status": "PENDING"
+    },
+    {
+      "id": "adodenha-vs-spartaro-2026-11-07",
+      "match": "ADO Den Haag vs Sparta Rotterdam",
+      "home": "ADO Den Haag",
+      "away": "Sparta Rotterdam",
+      "league": "Eredivisie",
+      "date": "2026-11-07",
+      "type": "BTTS",
+      "time": "17:45",
+      "matchSemantic": "adodenha-vs-spartaro-2026-11-07",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2726.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/151.png",
+      "tier": "GOLD",
+      "reliabilityScore": 93.75,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.75,
+      "xgAway": 2,
+      "xgTotal": 3.75,
+      "formBTTS": 80,
+      "analysis": "ADO Den Haag : forme D-D-V-N-N (1V 2N 2D, 7 buts marqués / 8 encaissés sur 5) · Sparta Rotterdam : forme V-D-V-N-D (2V 1N 2D, 10 buts marqués / 13 encaissés sur 5). Classement : ADO Den Haag 17e (6 pts), Sparta Rotterdam 11e (12 pts). Stats empiriques (forme récente) : buts moy. 3.75, BTTS 80.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.45 / N: 3.55 / 2: 2.6. Fiabilité 93.75%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.8,
+        "empiricalOver25Rate": 0.8,
+        "homeLambda": 1.75,
+        "awayLambda": 2,
+        "xgTotal": 3.75
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.45,
+        "draw": 3.55,
+        "away": 2.6,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-D-V-N-N",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 7,
+        "goalsAgainst": 8,
+        "bttsRate": 0.8,
+        "over25Rate": 0.6,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-D-V-N-D",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 10,
+        "goalsAgainst": 13,
+        "bttsRate": 0.8,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-01",
+          "opponent": "PEC Zwolle",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Heerenveen",
+          "venue": "H",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "PSV Eindhoven",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Telstar",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "SC Cambuur",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-01",
+          "opponent": "FC Groningen",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Ajax Amsterdam",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Willem II",
+          "venue": "H",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Go Ahead Eagles",
+          "venue": "A",
+          "score": "3-3",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Heerenveen",
+          "venue": "H",
+          "score": "0-4",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 17,
+        "points": 6,
+        "played": 11,
+        "gf": 13,
+        "ga": 24
+      },
+      "standingsAway": {
+        "rank": 11,
+        "points": 12,
+        "played": 11,
+        "gf": 20,
+        "ga": 26
+      },
+      "empiricalBttsRate": 0.8,
+      "empiricalOver25Rate": 0.8,
+      "homeLambda": 1.75,
+      "awayLambda": 2,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Les deux formations affichent un taux BTTS de 80% sur leurs matchs récents.",
+      "ai_analysis": "Cette confrontation en Eredivisie réunit deux équipes aux dynamiques défensives perméables, comme l'attestent leurs classements respectifs. Le taux BTTS atteint 80% des deux côtés sur l'échantillon observé, couplé à des moyennes de buts par match supérieures à 1.75. Les indicateurs statistiques soutiennent l'option d'un match où les deux défenses seront mises en difficulté.",
+      "ai_analysis_en": "This Eredivisie fixture brings together two teams with porous defensive dynamics, as evidenced by their respective standings. The BTTS rate reaches 80% on both sides over the observed sample, coupled with goals-per-match averages above 1.75. Statistical indicators support the option of a match where both defences will struggle.",
+      "ai_form_summary": "ADO Den Haag (1V-2N-2D) et Sparta Rotterdam (2V-1N-2D) montrent des fragilités défensives notables.",
+      "ai_form_summary_en": "ADO Den Haag (1W-2D-2L) and Sparta Rotterdam (2W-1D-2L) show notable defensive fragilities.",
+      "ai_reasons": [
+        "Taux BTTS empirique de 80% pour ADO Den Haag et Sparta Rotterdam.",
+        "Taux Over 2.5 de 100% pour Sparta Rotterdam sur ses 5 derniers matchs de forme.",
+        "Moyennes de buts élevés avec 1.75 pour ADO Den Haag et 2.0 pour Sparta Rotterdam."
+      ],
+      "ai_risks": [
+        "L'irrégularité des deux formations au classement (17e et 11e) peut induire des phases de jeu fermées.",
+        "Le taux Over 2.5 d'ADO Den Haag reste modéré à 60% sur ses 5 derniers matchs."
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 70,
+          "proba": 0.7,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.7
+        }
+      ],
+      "bttsProb": 0.7,
+      "prediction": "Oui",
+      "proba": 0.7,
+      "confidence": 70,
+      "status": "PENDING"
+    },
+    {
+      "id": "philadel-vs-torontof-2026-11-07",
+      "match": "Philadelphia Union vs Toronto FC",
+      "home": "Philadelphia Union",
+      "away": "Toronto FC",
+      "league": "MLS",
+      "date": "2026-11-07",
+      "type": "BTTS",
+      "time": "21:00",
+      "matchSemantic": "philadel-vs-torontof-2026-11-07",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10739.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7318.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.25,
+      "xgAway": 1.2,
+      "xgTotal": 3.45,
+      "formBTTS": 70,
+      "analysis": "Philadelphia Union : forme D-N-D-N-V (1V 2N 2D, 6 buts marqués / 6 encaissés sur 5) · Toronto FC : forme D-V-D-V-N (2V 1N 2D, 10 buts marqués / 11 encaissés sur 5). Classement : Philadelphia Union 6e (47 pts), Toronto FC 12e (39 pts). Stats empiriques (forme récente) : buts moy. 3.45, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.42 / N: 4.9 / 2: 5.75. Fiabilité 89.38%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.7,
+        "empiricalOver25Rate": 0.7,
+        "homeLambda": 2.25,
+        "awayLambda": 1.2,
+        "xgTotal": 3.45
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.42,
+        "draw": 4.9,
+        "away": 5.75,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-N-D-N-V",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 6,
+        "goalsAgainst": 6,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-V-D-V-N",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 10,
+        "goalsAgainst": 11,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-31",
+          "opponent": "FC Cincinnati",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-29",
+          "opponent": "Nashville SC",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "New England Revolution",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Charlotte FC",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-15",
+          "opponent": "Chicago Fire FC",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-01",
+          "opponent": "Atlanta United FC",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-28",
+          "opponent": "D.C. United",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Columbus Crew",
+          "venue": "A",
+          "score": "2-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Red Bull New York",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-14",
+          "opponent": "Orlando City SC",
+          "venue": "H",
+          "score": "3-3",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 6,
+        "points": 47,
+        "played": 33,
+        "gf": 62,
+        "ga": 51
+      },
+      "standingsAway": {
+        "rank": 12,
+        "points": 39,
+        "played": 33,
+        "gf": 51,
+        "ga": 63
+      },
+      "empiricalBttsRate": 0.7,
+      "empiricalOver25Rate": 0.7,
+      "homeLambda": 2.25,
+      "awayLambda": 1.2,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Toronto affiche un taux BTTS de 80% sur ses cinq derniers matchs.",
+      "ai_analysis": "Les statistiques observées montrent un profil favorable au BTTS pour cette rencontre de MLS. Toronto FC présente un taux de BTTS récent de 0.8, tandis que Philadelphia Union affiche de bonnes moyennes de buts de 2.25. L'empirique global s'établit à 0.7, justifiant une sélection mesurée sur le marché des deux équipes marquent.",
+      "ai_analysis_en": "Observed statistics show a favorable profile for BTTS in this MLS fixture. Toronto FC records a recent BTTS rate of 0.8, while Philadelphia Union boasts a strong goals average of 2.25. The overall empirical rate stands at 0.7, justifying a measured selection on the Both Teams to Score market.",
+      "ai_form_summary": "Philadelphia Union : 1W-2D-2L (6 buts pour, 6 contre). Toronto FC : 2W-1D-2L (10 buts pour, 11 contre).",
+      "ai_form_summary_en": "Philadelphia Union: 1W-2D-2L (6 goals for, 6 against). Toronto FC: 2W-1D-2L (10 goals for, 11 against).",
+      "ai_reasons": [
+        "Taux empirique BTTS de 0.7 et formBTTS à 70 sur l'échantillon.",
+        "Taux de BTTS récent de Toronto FC à 0.8 sur ses 5 derniers matchs.",
+        "Moyennes de buts de Philadelphia Union (2.25) soutenant la probabilité d'un match animé."
+      ],
+      "ai_risks": [
+        "Philadelphia Union a un taux BTTS un peu plus bas sur ses 5 derniers matchs (0.6).",
+        "Écart de classement important (6ème vs 12ème) pouvant influencer la dynamique."
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 65,
+          "proba": 0.65,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.65
+        }
+      ],
+      "bttsProb": 0.65,
+      "prediction": "Oui",
+      "proba": 0.65,
+      "confidence": 65,
+      "status": "PENDING"
+    },
+    {
+      "id": "ajauxerr-vs-parisfc-2026-11-07",
+      "match": "AJ Auxerre vs Paris FC",
+      "home": "AJ Auxerre",
+      "away": "Paris FC",
+      "league": "Ligue 1",
+      "date": "2026-11-07",
+      "type": "BTTS",
+      "time": "18:00",
+      "matchSemantic": "ajauxerr-vs-parisfc-2026-11-07",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/172.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6851.png",
+      "tier": "GOLD",
+      "reliabilityScore": 88.75,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.25,
+      "xgAway": 1.33,
+      "xgTotal": 2.58,
+      "formBTTS": 90,
+      "analysis": "AJ Auxerre : forme D-N-V-D-V (2V 1N 2D, 8 buts marqués / 12 encaissés sur 5) · Paris FC : forme V-D-V-D-V (3V 0N 2D, 10 buts marqués / 8 encaissés sur 5). Classement : AJ Auxerre 14e (10 pts), Paris FC 4e (17 pts). Stats empiriques (forme récente) : buts moy. 2.58, BTTS 90.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 4.2 / N: 4 / 2: 1.77 · Over 2.5: 1.71. Fiabilité 88.75%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.9,
+        "empiricalOver25Rate": 0.8,
+        "homeLambda": 1.25,
+        "awayLambda": 1.33,
+        "xgTotal": 2.58
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 4.2,
+        "draw": 4,
+        "away": 1.77,
+        "over25": 1.71,
+        "under25": 2.1
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-N-V-D-V",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 8,
+        "goalsAgainst": 12,
+        "bttsRate": 1,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-D-V-D-V",
+        "wins": 3,
+        "draws": 0,
+        "losses": 2,
+        "goalsFor": 10,
+        "goalsAgainst": 8,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-01",
+          "opponent": "Strasbourg",
+          "venue": "A",
+          "score": "1-5",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Le Mans",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Le Havre AC",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Stade Rennais",
+          "venue": "A",
+          "score": "1-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Brest",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-01",
+          "opponent": "AS Monaco",
+          "venue": "H",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Lens",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Stade Rennais",
+          "venue": "H",
+          "score": "4-3",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Lorient",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Strasbourg",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 14,
+        "points": 10,
+        "played": 9,
+        "gf": 13,
+        "ga": 23
+      },
+      "standingsAway": {
+        "rank": 4,
+        "points": 17,
+        "played": 9,
+        "gf": 16,
+        "ga": 10
+      },
+      "empiricalBttsRate": 0.9,
+      "empiricalOver25Rate": 0.8,
+      "homeLambda": 1.25,
+      "awayLambda": 1.33,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "AJ Auxerre atteint un taux de BTTS de 100% sur ses cinq derniers matchs.",
+      "ai_analysis": "Ce match de Ligue 1 présente des indicateurs très solides pour le marché BTTS, avec un taux empirique impressionnant de 0.9 et un formBTTS de 90. Auxerre encaisse régulièrement (12 buts sur les 5 derniers matchs) tout en marquant, et Paris FC maintient également un taux de 0.8. Les données confirment une forte probabilité que les deux équipes trouvent le chemin des filets.",
+      "ai_analysis_en": "This Ligue 1 fixture displays very solid indicators for the BTTS market, featuring an impressive 0.9 empirical rate and a formBTTS of 90. Auxerre consistently concedes while scoring, and Paris FC maintains an 0.8 rate over their last 5 matches. The data confirms a high probability of both teams scoring.",
+      "ai_form_summary": "AJ Auxerre : 2W-1D-2L (8 buts pour, 12 contre). Paris FC : 3W-0D-2L (10 buts pour, 8 contre).",
+      "ai_form_summary_en": "AJ Auxerre: 2W-1D-2L (8 goals for, 12 against). Paris FC: 3W-0D-2L (10 goals for, 8 against).",
+      "ai_reasons": [
+        "Taux empirique BTTS très élevé de 0.9 et formBTTS à 90.",
+        "AJ Auxerre affiche un taux BTTS de 1 sur ses 5 derniers matchs avec 12 buts encaissés.",
+        "Paris FC présente un taux BTTS de 0.8 sur ses 5 derniers matchs."
+      ],
+      "ai_risks": [
+        "L'AJ Auxerre ne tourne qu'à 1.25 buts par match en moyenne.",
+        "Classement disparate entre le 4ème (Paris FC) et le 14ème (Auxerre)."
+      ],
+      "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 72,
+          "proba": 0.72,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.72
+        }
+      ],
+      "bttsProb": 0.72,
+      "prediction": "Oui",
+      "proba": 0.72,
+      "confidence": 72,
+      "status": "PENDING"
+    },
+    {
+      "id": "portsmou-vs-stokecit-2026-11-07",
+      "match": "Portsmouth vs Stoke City",
+      "home": "Portsmouth",
+      "away": "Stoke City",
+      "league": "Championship",
+      "date": "2026-11-07",
+      "type": "BTTS",
+      "time": "12:30",
+      "matchSemantic": "portsmou-vs-stokecit-2026-11-07",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/385.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/336.png",
+      "tier": "GOLD",
+      "reliabilityScore": 80.63,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.5,
+      "xgAway": 1.75,
+      "xgTotal": 4.25,
+      "formBTTS": 50,
+      "analysis": "Portsmouth : forme V-N-V-N-V (3V 2N 0D, 7 buts marqués / 3 encaissés sur 5) · Stoke City : forme V-V-N-V-D (3V 1N 1D, 7 buts marqués / 4 encaissés sur 5). Classement : Portsmouth 10e (22 pts), Stoke City 4e (26 pts). Stats empiriques (forme récente) : buts moy. 4.25, BTTS 50.0%, Over 2.5 40.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.2 / N: 3.3 / 2: 3.4 · Over 2.5: 2.15. Fiabilité 80.63%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.5,
+        "empiricalOver25Rate": 0.4,
+        "homeLambda": 2.5,
+        "awayLambda": 1.75,
+        "xgTotal": 4.25
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.2,
+        "draw": 3.3,
+        "away": 3.4,
+        "over25": 2.15,
+        "under25": 1.67
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "V-N-V-N-V",
+        "wins": 3,
+        "draws": 2,
+        "losses": 0,
+        "goalsFor": 7,
+        "goalsAgainst": 3,
+        "bttsRate": 0.6,
+        "over25Rate": 0.4,
+        "cleanSheets": 2,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-N-V-D",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 7,
+        "goalsAgainst": 4,
+        "bttsRate": 0.4,
+        "over25Rate": 0.4,
+        "cleanSheets": 3,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-03",
+          "opponent": "Swansea City",
+          "venue": "H",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Burnley",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Millwall",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-20",
+          "opponent": "Wolverhampton Wanderers",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Norwich City",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-03",
+          "opponent": "Blackburn Rovers",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Preston North End",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Bristol City",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Derby County",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-13",
+          "opponent": "Middlesbrough",
+          "venue": "H",
+          "score": "2-3",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 10,
+        "points": 22,
+        "played": 14,
+        "gf": 19,
+        "ga": 16
+      },
+      "standingsAway": {
+        "rank": 4,
+        "points": 26,
+        "played": 14,
+        "gf": 22,
+        "ga": 17
+      },
+      "empiricalBttsRate": 0.5,
+      "empiricalOver25Rate": 0.4,
+      "homeLambda": 2.5,
+      "awayLambda": 1.75,
+      "statsOnly": true,
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "Les taux Over 2.5 des deux équipes sont limités à 40% sur leurs 5 derniers matchs.",
+      "ai_analysis": "L'analyse des statistiques observées pour cette rencontre de Championship ne permet pas de dégager un profil suffisamment tranché. Avec un taux empirique de BTTS à 50% et un taux d'Over 2.5 limité à 40% pour les deux équipes, les indicateurs restent partagés. En l'absence de signaux forts et cohérents, la règle de prudence s'applique et conduit à s'abstenir sur ce match.",
+      "ai_analysis_en": "The analysis of observed statistics for this Championship fixture does not reveal a clear enough profile. With an empirical BTTS rate of 50% and an Over 2.5 rate limited to 40% for both teams, the indicators remain mixed. In the absence of strong and consistent signals, the prudence rule applies and leads to an abstention on this match.",
+      "ai_form_summary": "Portsmouth : 3V-2N-0D, 7 buts pour, 3 contre (BTTS: 60%, Over 2.5: 40%). Stoke City : 3V-1N-1D, 7 buts pour, 4 contre (BTTS: 40%, Over 2.5: 40%).",
+      "ai_form_summary_en": "Portsmouth: 3W-2D-0L, 7 goals for, 3 against (BTTS: 60%, Over 2.5: 40%). Stoke City: 3W-1D-1L, 7 goals for, 4 against (BTTS: 40%, Over 2.5: 40%).",
+      "ai_reasons": [
+        "Taux empirique du BTTS à 50% et taux Over 2.5 à 40%, en dessous des seuils de forte conviction.",
+        "Portsmouth présente un taux Over 2.5 de 40% sur ses 5 derniers matchs avec des scores serrés.",
+        "Stoke City affiche également un taux Over 2.5 de 40% et un taux BTTS de 40%."
+      ],
+      "ai_risks": [
+        "Les taux empiriques et de forme sont mitigés, ne permettant pas de trancher clairement entre BTTS et Under/Over.",
+        "Faible différentiel statistique entre les indicateurs offensifs et défensifs."
+      ],
+      "ai_confidence": "low",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "abstain",
       "status": "PENDING"
     }
   ],
