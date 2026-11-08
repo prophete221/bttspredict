@@ -39,7 +39,7 @@ const LABELS: Record<Locale, {
   accountId: string; accountPlaceholder: string; accountHelp: string
   telegramTitle: string; telegramHelp: string; proofTitle: string; proofHelp: string; proofLocal: string; removeProof: string
   consent: string; privacy: string; submit: string; submitting: string; close: string; back: string; next: string
-  waitTitle: string; pendingStatus: string; approvedStatus: string; rejectedStatus: string
+  waitTitle: string; requestSummary: string; pendingStatus: string; approvedStatus: string; rejectedStatus: string
   refresh: string; refreshing: string; refreshed: string; refreshError: string
   invite: string; inviteExpiry: string; submitError: string; duplicateError: string; rateError: string
   proofTypeError: string; proofSizeError: string; proofDimensionsError: string; proofDecodeError: string; proofCompressError: string
@@ -62,9 +62,9 @@ const LABELS: Record<Locale, {
     consent: 'J’accepte que ces informations soient utilisées uniquement pour examiner ma demande VIP. Elles sont visibles par l’administration et supprimées au plus tard après 7 jours.',
     privacy: 'L’accès reste verrouillé jusqu’à la vérification manuelle du propriétaire. Aucun dépôt n’est collecté par BTTSPredict.',
     submit: 'Envoyer ma demande', submitting: 'Envoi…', close: 'Fermer', back: 'Retour', next: 'Continuer',
-    waitTitle: 'Suivi de ta demande', pendingStatus: 'Ta demande est enregistrée et attend une vérification manuelle. L’accès VIP n’est pas encore activé.',
+    waitTitle: 'Suivi de ta demande', requestSummary: 'Résumé et statut de ta demande', pendingStatus: 'Ta demande est enregistrée et attend une vérification manuelle. L’accès VIP n’est pas encore activé.',
     approvedStatus: 'Ta demande a été validée. Ouvre ton lien privé individuel ci-dessous.', rejectedStatus: 'La demande n’a pas été validée. Garde ta référence si tu as une question.',
-    refresh: 'Actualiser ma demande', refreshing: 'Actualisation…', refreshed: 'Le statut a été actualisé.', refreshError: 'Le statut n’a pas pu être confirmé. Réessaie dans quelques instants.',
+    refresh: 'Actualiser le statut de la demande', refreshing: 'Actualisation…', refreshed: 'Le statut a été actualisé.', refreshError: 'Le statut n’a pas pu être confirmé. Réessaie dans quelques instants.',
     invite: 'Ouvrir Telegram et rejoindre le canal VIP', inviteExpiry: 'Lien personnel limité à une place et valable pendant une durée limitée.',
     submitError: 'Le service n’a pas confirmé l’enregistrement. Vérifie les champs et réessaie.', duplicateError: 'Une demande est déjà en cours pour ce bookmaker et cet identifiant.', rateError: 'Trop de demandes ont été envoyées récemment. Réessaie plus tard.',
     proofTypeError: 'La capture doit être une image PNG ou JPEG.', proofSizeError: 'Le fichier dépasse la taille maximale autorisée. Choisis une image plus petite.',
@@ -89,9 +89,9 @@ const LABELS: Record<Locale, {
     consent: 'I agree that this information is used only to review my VIP request. It is visible to the administration and deleted within 7 days.',
     privacy: 'Access remains locked until the owner completes a manual review. BTTSPredict does not collect deposits.',
     submit: 'Send my request', submitting: 'Sending…', close: 'Close', back: 'Back', next: 'Continue',
-    waitTitle: 'Request status', pendingStatus: 'Your request is recorded and waiting for manual review. VIP access is not active yet.',
+    waitTitle: 'Request status', requestSummary: 'Application summary and status', pendingStatus: 'Your request is recorded and waiting for manual review. VIP access is not active yet.',
     approvedStatus: 'Your request was approved. Open your individual private link below.', rejectedStatus: 'The request was not approved. Keep your reference if you have a question.',
-    refresh: 'Refresh my request', refreshing: 'Refreshing…', refreshed: 'The status was refreshed.', refreshError: 'The status could not be confirmed. Please try again shortly.',
+    refresh: 'Refresh request status', refreshing: 'Refreshing…', refreshed: 'The status was refreshed.', refreshError: 'The status could not be confirmed. Please try again shortly.',
     invite: 'Open Telegram and join the VIP channel', inviteExpiry: 'Personal link limited to one person and valid for a limited time.',
     submitError: 'The service did not confirm the request. Check the fields and try again.', duplicateError: 'A request for this bookmaker and account ID is already in progress.', rateError: 'Too many requests were sent recently. Please try again later.',
     proofTypeError: 'The screenshot must be a PNG or JPEG image.', proofSizeError: 'The file exceeds the maximum allowed size. Choose a smaller image.',
@@ -116,9 +116,9 @@ const LABELS: Record<Locale, {
     consent: 'أوافق على استخدام هذه المعلومات حصراً لمراجعة طلب VIP. يراها فريق الإدارة وتحذف خلال 7 أيام.',
     privacy: 'يبقى الوصول مقفلاً حتى يراجع المالك الطلب يدوياً. لا تجمع BTTSPredict أي إيداعات.',
     submit: 'أرسل طلبي', submitting: 'جارٍ الإرسال…', close: 'إغلاق', back: 'رجوع', next: 'متابعة',
-    waitTitle: 'حالة الطلب', pendingStatus: 'تم تسجيل طلبك وهو بانتظار المراجعة اليدوية. لم يتم تفعيل وصول VIP بعد.',
+    waitTitle: 'حالة الطلب', requestSummary: 'ملخص الطلب وحالته', pendingStatus: 'تم تسجيل طلبك وهو بانتظار المراجعة اليدوية. لم يتم تفعيل وصول VIP بعد.',
     approvedStatus: 'تمت الموافقة على طلبك. افتح رابطك الخاص أدناه.', rejectedStatus: 'لم تتم الموافقة على الطلب. احتفظ بالمرجع إذا كان لديك سؤال.',
-    refresh: 'حدّث طلبي', refreshing: 'جارٍ التحديث…', refreshed: 'تم تحديث الحالة.', refreshError: 'تعذر تأكيد الحالة. حاول مجدداً بعد قليل.',
+    refresh: 'حدّث حالة الطلب', refreshing: 'جارٍ التحديث…', refreshed: 'تم تحديث الحالة.', refreshError: 'تعذر تأكيد الحالة. حاول مجدداً بعد قليل.',
     invite: 'افتح تيليغرام وانضم إلى قناة VIP', inviteExpiry: 'رابط شخصي يسمح بانضمام شخص واحد وصالح لمدة محدودة.',
     submitError: 'لم تؤكد الخدمة تسجيل الطلب. تحقق من الحقول وحاول مجدداً.', duplicateError: 'يوجد طلب قيد المعالجة لهذا المشغل ومعرّف الحساب.', rateError: 'تم إرسال طلبات كثيرة مؤخراً. حاول مرة أخرى لاحقاً.',
     proofTypeError: 'يجب أن تكون لقطة الشاشة بصيغة PNG أو JPEG.', proofSizeError: 'يتجاوز الملف الحجم الأقصى المسموح. اختر صورة أصغر.',
@@ -267,6 +267,7 @@ export default function VipUnlockModal({
   const [proofError, setProofError] = useState('')
   const [copied, setCopied] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const isSubmittingRef = useRef(false)
   const [isRefreshing, setIsRefreshing] = useState(false)
   const [receipt, setReceipt] = useState<Receipt | null>(restoredReceipt)
   const [requestStatus, setRequestStatus] = useState<RequestStatus | null>(null)
@@ -431,7 +432,7 @@ export default function VipUnlockModal({
 
   const submitRequest = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    if (step !== 4 || !partner || receipt || isSubmitting) return
+    if (step !== 4 || !partner || receipt || isSubmittingRef.current) return
     const form = event.currentTarget
     if (!form.reportValidity()) return
     const account = accountId.trim()
@@ -452,6 +453,7 @@ export default function VipUnlockModal({
       return
     }
 
+    isSubmittingRef.current = true
     setIsSubmitting(true)
     setStatusError(false)
     setStatusMessage(copy.submitting)
@@ -517,10 +519,18 @@ export default function VipUnlockModal({
       setStatusError(true)
       setStatusMessage(message)
     } finally {
+      isSubmittingRef.current = false
       setIsSubmitting(false)
     }
   }
 
+  const statusLabel = requestStatus?.status === 'pending_review'
+    ? lang === 'en' ? 'Pending review' : lang === 'ar' ? 'قيد المراجعة' : 'En attente d’examen'
+    : requestStatus?.status === 'approved_pending_telegram'
+      ? lang === 'en' ? 'Approved — Telegram access pending' : lang === 'ar' ? 'مقبول — بانتظار وصول تيليغرام' : 'Approuvée — accès Telegram en attente'
+      : requestStatus?.status === 'rejected'
+        ? lang === 'en' ? 'Rejected' : lang === 'ar' ? 'مرفوض' : 'Refusée'
+        : requestStatus?.status || (lang === 'en' ? 'Loading…' : lang === 'ar' ? 'جارٍ التحميل…' : 'Chargement…')
   const statusCopy = requestStatus?.status === 'approved_pending_telegram' ? copy.approvedStatus
     : requestStatus?.status === 'rejected' ? copy.rejectedStatus
       : copy.pendingStatus
@@ -628,7 +638,7 @@ export default function VipUnlockModal({
                 )}
 
                 {step === 4 && !receipt && partner && (
-                  <form id="vip-request-form" onSubmit={submitRequest}>
+                  <form id="vip-request-form" onSubmit={submitRequest} aria-busy={isSubmitting}>
                     <h3 className="text-sm font-bold">4. {lang === 'en' ? 'Telegram, account ID and proof' : lang === 'ar' ? 'تيليغرام ومعرّف الحساب والإثبات' : 'Telegram, identifiant et capture'}</h3>
                     <label htmlFor="vip-bookmaker-account-id" className="vip-access-flow__field-label">{copy.accountId}</label>
                     <input
@@ -672,22 +682,22 @@ export default function VipUnlockModal({
                     {proofError && <p className="vip-access-flow__message" role="alert">{proofError}</p>}
                     <label className="vip-access-flow__checkrow"><input type="checkbox" required checked={contactConsent} onChange={(event) => setContactConsent(event.target.checked)} /> <span>{copy.consent}</span></label>
                     <p className="mt-2 text-[11px] leading-relaxed" style={{ color: '#AAB7C5' }}>{copy.privacy}</p>
-                    {statusMessage && <p className="vip-access-flow__message" role="alert" data-error={String(statusError)}>{statusMessage}</p>}
+                    {statusMessage && !isSubmitting && <p className="vip-access-flow__message" role="alert" data-error={String(statusError)}>{statusMessage}</p>}
                   </form>
                 )}
 
                 {step === 4 && receipt && (
                   <section className="vip-access-flow__status" aria-labelledby="vip-request-status-title">
-                    <h3 id="vip-request-status-title" className="text-sm font-bold">{copy.waitTitle}</h3>
+                    <h3 id="vip-request-status-title" className="text-sm font-bold">{copy.requestSummary}</h3>
                     <p className="mt-2 text-xs leading-relaxed" style={{ color: '#AAB7C5' }}>{statusCopy}</p>
                     <dl className="vip-access-flow__receipt">
                       <div><dt>{lang === 'en' ? 'Reference' : lang === 'ar' ? 'المرجع' : 'Référence'}</dt><dd>{receipt.requestId}</dd></div>
-                      <div><dt>{lang === 'en' ? 'Status' : lang === 'ar' ? 'الحالة' : 'Statut'}</dt><dd>{requestStatus?.status || (lang === 'en' ? 'Loading…' : lang === 'ar' ? 'جارٍ التحميل…' : 'Chargement…')}</dd></div>
+                      <div><dt>{lang === 'en' ? 'Status' : lang === 'ar' ? 'الحالة' : 'Statut'}</dt><dd>{statusLabel}</dd></div>
                       <div><dt>{lang === 'en' ? 'Submitted' : lang === 'ar' ? 'تاريخ الإرسال' : 'Envoyée le'}</dt><dd>{formatDate(requestStatus?.createdAt || null)}</dd></div>
                       <div><dt>{lang === 'en' ? 'Reviewed' : lang === 'ar' ? 'تاريخ المراجعة' : 'Examinée le'}</dt><dd>{formatDate(requestStatus?.reviewedAt || null)}</dd></div>
                     </dl>
                     {statusMessage && <p className="vip-access-flow__message" role="status" data-error={String(statusError)}>{statusMessage}</p>}
-                    <button type="button" onClick={() => void refreshStatus(receipt)} disabled={isRefreshing} className="vip-access-flow__refresh">
+                    <button type="button" onClick={() => void refreshStatus(receipt)} disabled={isRefreshing} aria-busy={isRefreshing} className="vip-access-flow__refresh">
                       {isRefreshing ? copy.refreshing : copy.refresh}
                     </button>
                     {requestStatus?.status === 'approved_pending_telegram' && requestStatus.inviteReady && requestStatus.inviteLink && (
@@ -704,12 +714,24 @@ export default function VipUnlockModal({
 
               <div className="mt-5 flex items-center justify-between gap-3 border-t pt-4" style={{ borderColor: 'rgba(255,255,255,.1)' }}>
                 <button type="button" onClick={receipt ? () => onCloseRef.current() : goBack} className="vip-access-flow__secondary">{receipt ? copy.close : step === 1 ? copy.close : copy.back}</button>
+                {step === 4 && !receipt && isSubmitting && <span className="sr-only" role="status" aria-live="polite">{copy.submitting}</span>}
                 {step < 4 ? (
                   <button type="button" disabled={!canContinue} onClick={next} className="vip-access-flow__primary" style={{ opacity: canContinue ? 1 : 0.48 }}>{copy.next} <span aria-hidden="true">→</span></button>
                 ) : receipt ? (
                   <span className="vip-access-flow__manual-label">{copy.waitTitle}</span>
                 ) : (
-                  <button type="submit" form="vip-request-form" disabled={isSubmitting || !proofFile || Boolean(proofError)} className="vip-access-flow__primary" style={{ opacity: isSubmitting || !proofFile || Boolean(proofError) ? 0.58 : 1 }}>{isSubmitting ? copy.submitting : copy.submit} <span aria-hidden="true">→</span></button>
+                  <button type="submit" form="vip-request-form" disabled={isSubmitting || !proofFile || Boolean(proofError)} aria-busy={isSubmitting} className="vip-access-flow__primary" style={{ opacity: isSubmitting || !proofFile || Boolean(proofError) ? 0.58 : 1 }}>
+                    {isSubmitting ? (
+                      <span className="inline-flex items-center gap-2">
+                        <svg className="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="3" opacity="0.25" />
+                          <path d="M21 12a9 9 0 0 0-9-9" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+                        </svg>
+                        <span>{copy.submitting}</span>
+                      </span>
+                    ) : copy.submit}
+                    <span aria-hidden="true">→</span>
+                  </button>
                 )}
               </div>
             </div>

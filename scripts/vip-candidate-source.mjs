@@ -514,43 +514,13 @@ export function buildVipCandidates({ analysisPayload, freePayload = analysisPayl
     candidates.push(result.candidate)
   }
 
-  if (!candidates.length && fallbackFreshness.ok) {
-    const fallbackCandidates = []
-    for (const row of privateFixtureRows) {
-      audit.fallbackRowsEvaluated += 1
-      const result = checkedFallbackCandidate(row, fallbackFreshness.analyzedAt, now)
-      if (!result.candidates) {
-        audit.fallbackRejected[result.reason] = (audit.fallbackRejected[result.reason] ?? 0) + 1
-        continue
-      }
-      for (const candidate of result.candidates) {
-        if (freeKeys.has(candidate.candidateKey)) {
-          audit.excludedAlreadyFree += 1
-          continue
-        }
-        if (seen.has(candidate.candidateKey)) continue
-        seen.add(candidate.candidateKey)
-        fallbackCandidates.push(candidate)
-      }
-    }
-    fallbackCandidates.sort((a, b) => {
-      const left = fallbackStrength(a), right = fallbackStrength(b)
-      for (let index = 0; index < left.length; index++) if (right[index] !== left[index]) return right[index] - left[index]
-      return a.candidateKey.localeCompare(b.candidateKey)
-    })
-    if (fallbackCandidates.length) candidates.push(fallbackCandidates[0])
-  }
-
-  candidates.sort((a, b) => Number(a.qualityTier === 'fallback') - Number(b.qualityTier === 'fallback')
-    || Math.min(b.probability, b.homeSelectionRate, b.awaySelectionRate) - Math.min(a.probability, a.homeSelectionRate, a.awaySelectionRate)
+  // Empirical fallback generation is disabled: no strict Gemini pick means no candidate.
+  candidates.sort((a, b) => Math.min(b.probability, b.homeSelectionRate, b.awaySelectionRate) - Math.min(a.probability, a.homeSelectionRate, a.awaySelectionRate)
     || b.probability - a.probability
     || a.candidateKey.localeCompare(b.candidateKey))
-  const fallbackOnly = candidates[0]?.qualityTier === 'fallback'
-  audit.ownerOutcome = candidates.length ? fallbackOnly ? 'fallback_ready_for_automatic_publication' : 'ready_for_automatic_publication' : 'no_supported_pick'
+  audit.ownerOutcome = candidates.length ? 'ready_for_automatic_publication' : 'no_supported_pick'
   audit.ownerMessage = candidates.length
-    ? fallbackOnly
-      ? 'Aucun pick n’a atteint le seuil VIP renforcé; le meilleur taux empirique étayé est proposé comme sélection de repli, avec niveau de risque explicite.'
-      : `${candidates.length} candidat(s) au seuil VIP renforcé, prêts pour les vérifications de publication.`
+    ? `${candidates.length} candidat(s) au seuil VIP renforcé, prêts pour les vérifications de publication.`
     : 'Aucun pick ne possède les éléments nécessaires à une probabilité et à un niveau de risque fiables; rien n’est publié.'
   return { candidates, audit }
 }

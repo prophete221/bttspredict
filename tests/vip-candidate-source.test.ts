@@ -169,20 +169,16 @@ describe('VIP private candidate source', () => {
     expect(result.audit.inputRows).toBe(0)
   })
 
-  it('publishes only the strongest supported empirical fallback when no strict VIP pick exists', () => {
+  it('returns no candidate when only empirically supported fallback data exists', () => {
     const result = buildVipCandidates({ analysisPayload: fallbackPayload(), freePayload: payload([]), now: NOW })
-    expect(result.candidates).toHaveLength(1)
-    expect(result.candidates[0]).toMatchObject({
-      qualityTier: 'fallback', probabilitySource: 'recent-form-empirical',
-      market: 'BTTS', selection: 'YES', probability: 0.7, confidence: null,
-      aiConfidence: 'not_applicable', riskLevel: 'MODÉRÉ', matchState: 'PENDING',
-    })
-    expect((result.candidates[0] as any).riskReasons.join(' ')).toContain('Sélection de repli')
-    expect(result.audit.ownerOutcome).toBe('fallback_ready_for_automatic_publication')
-    expect(result.audit.fallbackRowsEvaluated).toBe(1)
+    expect(result.candidates).toEqual([])
+    expect(result.audit.ownerOutcome).toBe('no_supported_pick')
+    expect(result.audit.ownerMessage).toContain('rien n’est publié')
+    expect(result.audit.fallbackRowsEvaluated).toBe(0)
+    expect(result.audit.fallbackRejected).toEqual({})
   })
 
-  it('excludes missing empirical rates and exact free-feed duplicates from fallback choices', () => {
+  it('does not evaluate fallback rows or turn fallback duplicates into candidates', () => {
     const noRates = buildVipCandidates({
       analysisPayload: fallbackPayload([fallbackRow({
         empiricalBttsRate: null, empiricalOver25Rate: null,
@@ -191,15 +187,16 @@ describe('VIP private candidate source', () => {
       freePayload: payload([]), now: NOW,
     })
     expect(noRates.candidates).toEqual([])
+    expect(noRates.audit.fallbackRowsEvaluated).toBe(0)
 
     const freeDuplicate = buildVipCandidates({
       analysisPayload: fallbackPayload(),
       freePayload: { ...payload([]), free: [{ date: '2026-11-08', league: 'Serie A', home: 'Monza', away: 'Atalanta', type: 'BTTS', prediction: 'Oui' }] } as never,
       now: NOW,
     })
-    expect(freeDuplicate.candidates).toHaveLength(1)
-    expect(freeDuplicate.candidates[0]).toMatchObject({ market: 'OVER_25', selection: 'YES', qualityTier: 'fallback' })
-    expect(freeDuplicate.audit.excludedAlreadyFree).toBe(1)
+    expect(freeDuplicate.candidates).toEqual([])
+    expect(freeDuplicate.audit.excludedAlreadyFree).toBe(0)
+    expect(freeDuplicate.audit.fallbackRowsEvaluated).toBe(0)
   })
 
   it('never replaces a qualifying strict VIP candidate with a fallback', () => {
@@ -209,6 +206,7 @@ describe('VIP private candidate source', () => {
     const result = buildVipCandidates({ analysisPayload: analysis, freePayload: payload([]), now: NOW })
     expect(result.candidates).toHaveLength(1)
     expect(result.candidates[0].qualityTier).toBe('vip')
+    expect(result.audit.fallbackRowsEvaluated).toBe(0)
   })
 
   it('rejects an exact free pick, non-high confidence, or a probability unsupported by its market rate', () => {

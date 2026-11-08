@@ -17,9 +17,11 @@ function token(claimOverrides: Record<string, unknown> = {}) {
   const claims = base64url(JSON.stringify({
     iss: 'https://token.actions.githubusercontent.com',
     aud: OIDC_AUDIENCE,
-    sub: 'repo:prophete221/bttspredict:ref:refs/heads/main',
+    sub: 'repo:prophete221@88623801/bttspredict@1323126362:ref:refs/heads/main',
     repository: 'prophete221/bttspredict',
+    repository_id: '1323126362',
     repository_owner: 'prophete221',
+    repository_owner_id: '88623801',
     ref: 'refs/heads/main',
     workflow_ref: WORKFLOW_REF,
     event_name: 'schedule',
@@ -200,16 +202,13 @@ describe('private VIP candidate Worker service', () => {
     expect(vi.mocked(fetch).mock.calls.every(([input]) => String(input).includes('token.actions.githubusercontent.com'))).toBe(true)
   })
 
-  it('accepts only evidence-backed fallback probabilities and computes an explicit non-low risk', async () => {
-    const clean = await validateCandidate(fallbackCandidateFixture(), Date.now())
-    expect(clean.candidate).toMatchObject({
-      qualityTier: 'fallback', probabilitySource: 'recent-form-empirical',
-      probability: 0.62, confidence: null, aiConfidence: 'not_applicable',
-      matchState: 'PENDING', riskLevel: 'ÉLEVÉ', riskPolicy: 'risk-v1',
-    })
-    expect(clean.candidate.riskReasons.join(' ')).toContain('Sélection de repli')
-    await expect(validateCandidate({ ...fallbackCandidateFixture(), homeSelectionRate: null }, Date.now()))
+  it('rejects empirical fallback candidates even when recent-form evidence is complete', async () => {
+    await expect(validateCandidate(fallbackCandidateFixture(), Date.now()))
       .rejects.toThrow('candidate_failed_validation')
+    const { DB, batches } = mockDb()
+    const response = await handleCandidateSync(signedRequest(syncPayload([fallbackCandidateFixture()])), { DB }, new Headers())
+    expect(response.status).toBe(422)
+    expect(batches).toHaveLength(0)
   })
 
   it('accepts the opposite selection in the same market but rejects an exact free-feed duplicate', async () => {
@@ -234,6 +233,26 @@ describe('private VIP candidate Worker service', () => {
       { DB },
       new Headers(),
     )
+    expect(response.status).toBe(403)
+    expect(await response.json()).toMatchObject({ ok: false, error: 'machine_identity_not_allowed' })
+    expect(batches).toHaveLength(0)
+  })
+
+  it.each([
+    { sub: 'repo:prophete221/bttspredict:ref:refs/heads/main' },
+    { sub: 'repo:prophete221@88623801/bttspredict@999:ref:refs/heads/main' },
+    { repository_id: '999' },
+    { repository_owner_id: '999' },
+    { repository_id: undefined },
+    { repository_owner_id: undefined },
+    { ref: 'refs/heads/other' },
+    { workflow_ref: 'prophete221/bttspredict/.github/workflows/other.yml@refs/heads/main' },
+    { aud: 'https://unrelated.example' },
+    { event_name: 'pull_request' },
+    { sub: 'repo:prophete221@88623801/bttspredict@1323126362:environment:other' },
+  ])('rejects a non-authorized immutable identity claim %j before D1', async overrides => {
+    const { DB, batches } = mockDb()
+    const response = await handleCandidateSync(signedRequest(syncPayload([]), token(overrides)), { DB }, new Headers())
     expect(response.status).toBe(403)
     expect(await response.json()).toMatchObject({ ok: false, error: 'machine_identity_not_allowed' })
     expect(batches).toHaveLength(0)

@@ -1,4 +1,5 @@
 // @vitest-environment jsdom
+import { readFileSync } from 'node:fs'
 import { cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { useState } from 'react'
@@ -46,6 +47,13 @@ function stepText(locale: Locale, n: number) {
 
 function response(body: Record<string, unknown>, status = 200) {
   return { ok: status >= 200 && status < 300, status, json: async () => body }
+}
+
+function deferred<T>() {
+  let resolve!: (value: T) => void
+  let reject!: (reason?: unknown) => void
+  const promise = new Promise<T>((res, rej) => { resolve = res; reject = rej })
+  return { promise, resolve, reject }
 }
 
 async function reachStep3(locale: Locale = 'fr') {
@@ -158,6 +166,49 @@ describe('parcours VIP à quatre étapes, interactions localisées', () => {
     expect((within(dialog).getByRole('button', { name: 'Envoyer ma demande' }) as HTMLButtonElement).disabled).toBe(false)
     expect(fetch).not.toHaveBeenCalled()
   })
+
+  it.each([
+    ['PNG', 'deposit.png', 'image/png', new Uint8Array([137, 80, 78, 71, 13, 10, 26, 10])],
+    ['JPEG', 'deposit.jpg', 'image/jpeg', new Uint8Array([255, 216, 255, 217])],
+  ] as const)('garde les champs saisis lors d’un échec d’aperçu et d’un type invalide (%s)', async (_format, name, type, bytes) => {
+    const dialog = await reachStep4()
+    const account = within(dialog).getByLabelText('Identifiant du compte bookmaker') as HTMLInputElement
+    const telegram = within(dialog).getByLabelText('Nom d’utilisateur Telegram') as HTMLInputElement
+    const proofInput = within(dialog).getByLabelText('Capture après confirmation du dépôt') as HTMLInputElement
+    fireEvent.change(account, { target: { value: 'account-kept' } })
+    fireEvent.change(telegram, { target: { value: '@kept_user' } })
+
+    const syntheticImage = new File([bytes], name, { type })
+    fireEvent.change(proofInput, { target: { files: [syntheticImage] } })
+    const preview = within(dialog).getByTestId('vip-proof-preview').querySelector('img')!
+    expect(preview.getAttribute('src')).toBe('blob:vip-local-preview')
+    fireEvent.error(preview)
+    expect(within(dialog).getByRole('alert').textContent).toContain('Le navigateur ne peut pas lire')
+    expect(account.value).toBe('account-kept')
+    expect(telegram.value).toBe('@kept_user')
+    expect(proofInput.files?.[0]).toBe(syntheticImage)
+    expect((within(dialog).getByRole('button', { name: 'Envoyer ma demande' }) as HTMLButtonElement).disabled).toBe(true)
+
+    fireEvent.change(proofInput, { target: { files: [syntheticImage] } })
+    expect(within(dialog).queryByRole('alert')).toBeNull()
+    expect((within(dialog).getByRole('button', { name: 'Envoyer ma demande' }) as HTMLButtonElement).disabled).toBe(false)
+    expect(account.value).toBe('account-kept')
+    expect(telegram.value).toBe('@kept_user')
+
+    fireEvent.change(proofInput, { target: { files: [new File(['not an image'], 'wrong.txt', { type: 'text/plain' })] } })
+    expect(within(dialog).getByRole('alert').textContent).toContain('PNG ou JPEG')
+    expect(account.value).toBe('account-kept')
+    expect(telegram.value).toBe('@kept_user')
+    expect(fetch).not.toHaveBeenCalled()
+  })
+
+  it('autorise les aperçus blob uniquement dans la politique CSP VIP', () => {
+    const htaccess = readFileSync('public/.htaccess', 'utf8')
+    const vipPolicy = htaccess.split('\n').find((line) => line.includes('Content-Security-Policy') && line.includes('env=vip_api_csp'))
+    const generalPolicy = htaccess.split('\n').find((line) => line.includes('Content-Security-Policy') && line.includes('env=!vip_api_csp'))
+    expect(vipPolicy).toContain("img-src 'self' blob:")
+    expect(generalPolicy).not.toContain("img-src 'self' blob:")
+  })
 })
 
 describe('gestion du focus modal', () => {
@@ -194,6 +245,12 @@ describe('gestion du focus modal', () => {
 })
 
 describe('transport strictement simulé vers l’API de production', () => {
+  it('ne lit aucun statut et n’affiche aucun reçu tant qu’aucune demande n’a été soumise', async () => {
+    const dialog = await reachStep4()
+    expect(within(dialog).queryByRole('heading', { name: 'Résumé et statut de ta demande' })).toBeNull()
+    expect(fetch).not.toHaveBeenCalled()
+  })
+
   it('envoie uniquement via le fetch mocké, affiche le reçu puis le lien de suivi approuvé', async () => {
     const fetchMock = vi.mocked(fetch)
     fetchMock
@@ -211,6 +268,12 @@ describe('transport strictement simulé vers l’API de production', () => {
     submitFormForTest(dialog)
 
     await screen.findByText(/VIP-TEST-42/)
+    const submittedDialog = screen.getByRole('dialog')
+    expect(within(submittedDialog).getByRole('heading', { name: 'Résumé et statut de ta demande' })).toBeTruthy()
+    expect(within(submittedDialog).getByText('Référence')).toBeTruthy()
+    expect(within(submittedDialog).getByText('Statut')).toBeTruthy()
+    expect(within(submittedDialog).getByText('En attente d’examen')).toBeTruthy()
+    expect(within(submittedDialog).getByRole('button', { name: 'Actualiser le statut de la demande' })).toBeTruthy()
     await waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(3))
     expect(sessionStorage.getItem(STORAGE_KEY)).toContain('VIP-TEST-42')
     const post = fetchMock.mock.calls[0]
@@ -230,12 +293,104 @@ describe('transport strictement simulé vers l’API de production', () => {
       `${API}/requests/VIP-TEST-42/status`,
     ])
 
-    fireEvent.click(within(screen.getByRole('dialog')).getByRole('button', { name: 'Actualiser ma demande' }))
+    fireEvent.click(within(screen.getByRole('dialog')).getByRole('button', { name: 'Actualiser le statut de la demande' }))
     const invite = await screen.findByRole('link', { name: /Ouvrir Telegram et rejoindre le canal VIP/ })
     expect(invite.getAttribute('href')).toBe('https://t.me/+MockInvite_42')
+    expect(within(screen.getByRole('dialog')).getByText('Approuvée — accès Telegram en attente')).toBeTruthy()
     expect(fetchMock).toHaveBeenCalledTimes(4)
     expect(String(fetchMock.mock.calls[3][0])).toBe(`${API}/requests/VIP-TEST-42/status`)
     expect(fetchMock.mock.calls.every(([url]) => String(url).startsWith(API))).toBe(true)
+  })
+
+  it('restaure un reçu sauvegardé et actualise son statut sans créer de nouvelle demande', async () => {
+    const fetchMock = vi.mocked(fetch)
+    sessionStorage.setItem(STORAGE_KEY, JSON.stringify({ requestId: 'VIP-RESTORED-7', receiptToken: 'mock-restored-token' }))
+    fetchMock
+      .mockResolvedValueOnce(response({ ok: true, requestId: 'VIP-RESTORED-7', status: 'pending_review', inviteReady: false, inviteLink: null, inviteExpiresAt: null, telegramInviteMode: 'manual-approval-private-status', telegramEnabled: false, inviteSent: false, createdAt: '2026-11-08T10:00:00.000Z' }) as unknown as Response)
+      .mockResolvedValueOnce(response({ ok: true, requestId: 'VIP-RESTORED-7', status: 'approved_pending_telegram', inviteReady: true, inviteLink: 'https://t.me/+RestoredInvite_7', inviteExpiresAt: 1790000000, telegramInviteMode: 'manual-approval-private-status', telegramEnabled: false, inviteSent: false, createdAt: '2026-11-08T10:00:00.000Z', reviewedAt: '2026-11-08T10:30:00.000Z' }) as unknown as Response)
+
+    renderHarness('fr')
+    const dialog = screen.getByRole('dialog')
+    expect(await within(dialog).findByRole('heading', { name: 'Résumé et statut de ta demande' })).toBeTruthy()
+    expect(within(dialog).getByText('VIP-RESTORED-7')).toBeTruthy()
+    expect(within(dialog).getByText('En attente d’examen')).toBeTruthy()
+    fireEvent.click(within(dialog).getByRole('button', { name: 'Actualiser le statut de la demande' }))
+    expect(await within(dialog).findByText('Approuvée — accès Telegram en attente')).toBeTruthy()
+    expect(fetchMock.mock.calls.map(([url]) => String(url))).toEqual([
+      `${API}/requests/VIP-RESTORED-7/status`,
+      `${API}/requests/VIP-RESTORED-7/status`,
+    ])
+    expect(fetchMock.mock.calls.every(([, init]) => (init as RequestInit).method !== 'POST')).toBe(true)
+  })
+
+  it.each([
+    ['fr', 'Identifiant du compte bookmaker', 'Nom d’utilisateur Telegram', 'Capture après confirmation du dépôt', 'Envoi…'] as const,
+    ['en', 'Bookmaker account ID', 'Telegram username', 'Screenshot after deposit confirmation', 'Sending…'] as const,
+    ['ar', 'معرّف حساب شركة المراهنات', 'اسم المستخدم على تيليغرام', 'لقطة شاشة بعد تأكيد الإيداع', 'جارٍ الإرسال…'] as const,
+  ])('annonce un envoi localisé et ignore les soumissions répétées avant réponse (%s)', async (locale, accountLabel, telegramLabel, proofLabel, pendingLabel) => {
+    const fetchMock = vi.mocked(fetch)
+    const pendingRequest = deferred<Response>()
+    fetchMock
+      .mockReturnValueOnce(pendingRequest.promise)
+      .mockResolvedValueOnce(response({ ok: false }, 503) as unknown as Response)
+
+    const dialog = await reachStep4(locale)
+    fireEvent.change(within(dialog).getByLabelText(accountLabel), { target: { value: 'account-123' } })
+    fireEvent.change(within(dialog).getByLabelText(telegramLabel), { target: { value: '@test_user' } })
+    fireEvent.change(within(dialog).getByLabelText(proofLabel), { target: { files: [new File([new Uint8Array([137, 80, 78, 71])], 'deposit.png', { type: 'image/png' })] } })
+    fireEvent.click(within(dialog).getByRole('checkbox'))
+    const form = dialog.querySelector('form')!
+    vi.spyOn(form, 'reportValidity').mockReturnValue(true)
+    fireEvent.submit(form)
+
+    const submitButton = dialog.querySelector('button[type="submit"]') as HTMLButtonElement
+    await waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1))
+    expect(submitButton.disabled).toBe(true)
+    expect(submitButton.getAttribute('aria-busy')).toBe('true')
+    expect(form.getAttribute('aria-busy')).toBe('true')
+    expect(submitButton.querySelector('svg.animate-spin')).toBeTruthy()
+    expect(within(dialog).getByRole('status').textContent).toContain(pendingLabel)
+
+    fireEvent.submit(form)
+    expect(fetchMock).toHaveBeenCalledTimes(1)
+    pendingRequest.resolve(response({ ok: true, requestId: 'VIP-ASYNC', receiptToken: 'mock-token', status: 'pending_review', telegramInviteMode: 'manual-approval-private-status', telegramEnabled: false, inviteSent: false, ownerAlertSent: false }) as unknown as Response)
+    expect(await screen.findByText(/VIP-ASYNC/)).toBeTruthy()
+    await waitFor(() => expect(fetchMock.mock.calls.filter(([url]) => String(url) === `${API}/requests`)).toHaveLength(1))
+  })
+
+  it('ne reste pas bloqué après validation ou erreur réseau et autorise une nouvelle tentative', async () => {
+    const fetchMock = vi.mocked(fetch)
+    fetchMock
+      .mockRejectedValueOnce(new Error('offline'))
+      .mockResolvedValueOnce(response({ ok: false }, 500) as unknown as Response)
+    const dialog = await reachStep4()
+    const account = within(dialog).getByLabelText('Identifiant du compte bookmaker')
+    const telegram = within(dialog).getByLabelText('Nom d’utilisateur Telegram')
+    fireEvent.change(account, { target: { value: 'account-123' } })
+    fireEvent.change(telegram, { target: { value: 'bad' } })
+    fireEvent.change(within(dialog).getByLabelText('Capture après confirmation du dépôt'), { target: { files: [new File([new Uint8Array([137, 80, 78, 71])], 'deposit.png', { type: 'image/png' })] } })
+    fireEvent.click(within(dialog).getByRole('checkbox'))
+    const form = dialog.querySelector('form')!
+    vi.spyOn(form, 'reportValidity').mockReturnValue(true)
+    const submitButton = dialog.querySelector('button[type="submit"]') as HTMLButtonElement
+
+    fireEvent.submit(form)
+    expect(within(dialog).getByRole('alert').textContent).toContain('Indique ton nom Telegram')
+    expect(fetchMock).not.toHaveBeenCalled()
+    expect(submitButton.disabled).toBe(false)
+    expect(form.getAttribute('aria-busy')).toBe('false')
+
+    fireEvent.change(telegram, { target: { value: '@test_user' } })
+    fireEvent.submit(form)
+    expect(await screen.findByText('Le service n’a pas confirmé l’enregistrement. Vérifie les champs et réessaie.')).toBeTruthy()
+    await waitFor(() => expect(submitButton.disabled).toBe(false))
+    expect(submitButton.getAttribute('aria-busy')).toBe('false')
+    expect(form.getAttribute('aria-busy')).toBe('false')
+
+    fireEvent.submit(form)
+    expect(await screen.findByText('Le service n’a pas confirmé l’enregistrement. Vérifie les champs et réessaie.')).toBeTruthy()
+    await waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(2))
+    expect(submitButton.disabled).toBe(false)
   })
 
   it.each([
