@@ -13,6 +13,9 @@ const OIDC_JWKS_URL = `${OIDC_ISSUER}/.well-known/jwks`
 const OIDC_AUDIENCE = 'https://bttspredict.com/vip-candidates'
 const EXPECTED_REPOSITORY = 'prophete221/bttspredict'
 const EXPECTED_WORKFLOW_REF = 'prophete221/bttspredict/.github/workflows/deploy.yml@refs/heads/main'
+const EXPECTED_REPOSITORY_ID = '1323126362'
+const EXPECTED_OWNER_ID = '88623801'
+const EXPECTED_SUBJECT = 'repo:prophete221@88623801/bttspredict@1323126362:ref:refs/heads/main'
 const MATCH_STATE_ALIASES = new Map([
   ['PENDING', 'PENDING'], ['SCHEDULED', 'PENDING'], ['NOT_STARTED', 'PENDING'], ['UPCOMING', 'PENDING'],
   ['STATUS_SCHEDULED', 'PENDING'], ['STATUS_PRE_GAME', 'PENDING'], ['STATUS_DELAYED', 'PENDING'],
@@ -122,9 +125,11 @@ async function verifyGithubOidc(request) {
     && Number.isFinite(claims.iat) && claims.iat <= now + 60 && claims.iat >= now - 10 * 60
     && Number.isFinite(claims.nbf) && claims.nbf <= now + 60
   const identityOk = claims.iss === OIDC_ISSUER && audienceOk
-    && claims.sub === `repo:${EXPECTED_REPOSITORY}:ref:refs/heads/main`
+    && claims.sub === EXPECTED_SUBJECT
     && claims.repository === EXPECTED_REPOSITORY
+    && String(claims.repository_id) === EXPECTED_REPOSITORY_ID
     && claims.repository_owner === 'prophete221'
+    && String(claims.repository_owner_id) === EXPECTED_OWNER_ID
     && claims.ref === 'refs/heads/main'
     && claims.workflow_ref === EXPECTED_WORKFLOW_REF
     && ['push', 'schedule', 'workflow_dispatch'].includes(claims.event_name)
@@ -265,11 +270,6 @@ export async function validateCandidate(candidate, nowMs) {
     && candidate.sourceModel === 'gemini-3.5-flash-lite'
     && [empiricalSelectionRate, homeSelectionRate, awaySelectionRate].every(rate => rate >= 0.70)
     && [empiricalSelectionRate, homeSelectionRate, awaySelectionRate].every(rate => Math.abs(probability - rate) <= 0.15 + 1e-9)
-  const fallbackProbabilitySupported = qualityTier === 'fallback' && probabilitySource === 'recent-form-empirical'
-    && typeof probability === 'number' && Number.isFinite(probability) && probability > 0.5 && probability <= 1
-    && candidate.confidence === null && candidate.aiConfidence === 'not_applicable'
-    && candidate.sourceModel === 'empirical-team-form'
-    && Math.abs(probability - empiricalSelectionRate) <= 1e-9
   const supported = typeof candidateKey === 'string' && /^[a-f0-9]{64}$/.test(candidateKey)
     && market && ACCEPTED_MARKETS.has(market) && selection
     && boundedString(candidate.matchId, 160) && boundedString(candidate.home, 120)
@@ -279,7 +279,7 @@ export async function validateCandidate(candidate, nowMs) {
     && Number.isFinite(kickoffMs) && kickoffMs === expectedKickoffMs && kickoffMs > nowMs
     && Number.isFinite(analyzedMs) && analyzedMs <= nowMs + MAX_FUTURE_SKEW_MS
     && nowMs - analyzedMs <= MAX_ANALYSIS_AGE_MS
-    && (vipProbabilitySupported || fallbackProbabilitySupported)
+    && vipProbabilitySupported
     && candidate.dataQuality === 'HIGH' && candidate.dataSource === 'ESPN_TEAM_SCHEDULE'
     && Number.isInteger(candidate.matchCountHome) && candidate.matchCountHome >= 6
     && Number.isInteger(candidate.matchCountAway) && candidate.matchCountAway >= 6

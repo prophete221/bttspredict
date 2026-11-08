@@ -29,7 +29,9 @@ describe('deployment safety gates', () => {
     expect(headers).toHaveLength(2)
     expect(base).not.toContain(origin)
     expect(vip).toContain(origin)
-    expect(vip?.replace(` ${origin}`, '').replace(' env=vip_api_csp', '')).toBe(base?.replace(' env=!vip_api_csp', ''))
+    expect(base).not.toContain('blob:')
+    expect(vip).toContain("img-src 'self' blob:")
+    expect(vip?.replace(` ${origin}`, '').replace("img-src 'self' blob:", "img-src 'self'").replace(' env=vip_api_csp', '')).toBe(base?.replace(' env=!vip_api_csp', ''))
   })
 
   it('runs hard-failing tests, Python, lint, typecheck and build before any FTP operation', () => {
