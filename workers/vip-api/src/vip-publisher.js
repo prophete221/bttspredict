@@ -44,8 +44,8 @@ function normalizeSelection(value) {
 }
 
 function freeIdentity(row, pick = row) {
-  const market = normalizeMarket(pick.ai_market ?? pick.type ?? pick.market)
-  const selection = normalizeSelection(pick.prediction ?? pick.selection)
+  const market = [pick.ai_market, pick.type, pick.market].map(normalizeMarket).find(Boolean) || null
+  const selection = [pick.prediction, pick.selection].map(normalizeSelection).find(Boolean) || null
   const parts = [row.date, normalizeIdentity(row.league), normalizeIdentity(row.home), normalizeIdentity(row.away), market, selection]
   return /^\d{4}-\d{2}-\d{2}$/.test(String(parts[0] || '')) && parts.every(Boolean) ? parts.join('|') : null
 }
@@ -191,65 +191,193 @@ export async function telegramReadiness(env, fetcher = fetch) {
   return { botReachable: true, destinationAccessible: true, canPublish: Boolean(allowed) }
 }
 
-export function formatVipMessage(candidate) {
+const VIP_MESSAGE_LANGUAGES = [
+  { id: 'fr', flag: '🇫🇷', label: 'Français' },
+  { id: 'en', flag: '🇬🇧', label: 'English' },
+  { id: 'ar', flag: '🇸🇦', label: 'العربية' },
+]
+
+function localizedPercent(value, language, model = false) {
+  if (!Number.isFinite(value) || value < 0 || value > 1) throw new TypeError('risk_assessment_missing')
+  if (model && value < 0.0001) {
+    return language === 'fr' ? '<0,01 %' : language === 'en' ? '<0.01%' : 'أقل من ٠٫٠١٪'
+  }
+  if (model && value > 0.9999) {
+    return language === 'fr' ? '>99,99 %' : language === 'en' ? '>99.99%' : 'أكثر من ٩٩٫٩٩٪'
+  }
+  const locale = { fr: 'fr-FR', en: 'en-GB', ar: 'ar' }[language]
+  const percentage = model ? value * 100 : Math.round(value * 100)
+  const number = new Intl.NumberFormat(locale, { maximumFractionDigits: model ? 2 : 0 }).format(percentage)
+  return language === 'fr' ? `${number} %` : language === 'en' ? `${number}%` : `${number}٪`
+}
+
+function vipRiskReasonKey(candidate, freshnessHours) {
+  if (candidate.probability < 0.70) return 'below70'
+  if (candidate.probability > 0.78) return 'above78'
+  if (candidate.aiConfidence === 'low') return 'lowConfidence'
+  if (Math.min(candidate.homeSelectionRate, candidate.awaySelectionRate) < 0.55) return 'weakRate'
+  if (Math.abs(candidate.homeSelectionRate - candidate.awaySelectionRate) >= 0.25 - 1e-9) return 'teamRateGap'
+  if (freshnessHours > 8) return 'stale'
+  if (Math.abs(candidate.probability - candidate.empiricalSelectionRate) >= 0.12 - 1e-9) return 'modelGap'
+  if (candidate.riskLevel === 'FAIBLE') return 'low'
+  if (candidate.riskLevel === 'MODÉRÉ') return 'moderate'
+  return 'high'
+}
+
+const VIP_RISK_REASON = {
+  fr: {
+    below70: 'probabilité modèle sous 70 %', above78: 'estimation Gemini au-dessus de 78 %, hors de la plage de référence 70–78 %',
+    lowConfidence: 'confiance Gemini déclarée faible', weakRate: 'taux récent sous 55 % pour au moins une équipe',
+    teamRateGap: 'écart élevé entre les taux récents des deux équipes', stale: 'analyse âgée de plus de 8 h',
+    modelGap: 'écart estimation/fréquence d’au moins 12 points', low: 'critères de risque faible réunis; cela reste une estimation',
+    moderate: 'risque modéré; tenir compte des taux et des échantillons',
+    high: 'signaux de risque élevés; examiner les taux et la fraîcheur',
+  },
+  en: {
+    below70: 'model estimate below 70%', above78: 'Gemini estimate above 78%, outside the 70–78% reference band',
+    lowConfidence: 'Gemini declared low confidence', weakRate: 'recent rate below 55% for at least one team',
+    teamRateGap: 'large gap between the teams’ recent rates', stale: 'analysis is over 8 hours old',
+    modelGap: 'model-to-rate gap of at least 12 percentage points', low: 'low-risk criteria met; this remains an estimate',
+    moderate: 'moderate risk; consider the rates and sample sizes',
+    high: 'high-risk signals; review the rates and freshness',
+  },
+  ar: {
+    below70: 'احتمال النموذج أقل من 70٪', above78: 'تقدير Gemini أعلى من 78٪، خارج النطاق المرجعي 70–78٪',
+    lowConfidence: 'أعلن Gemini عن ثقة منخفضة', weakRate: 'المعدل الحديث أقل من 55٪ لفريق واحد على الأقل',
+    teamRateGap: 'فجوة كبيرة بين المعدلين الحديثين للفريقين', stale: 'عمر التحليل أكثر من 8 ساعات',
+    modelGap: 'الفارق بين التقدير والمعدل لا يقل عن 12 نقطة مئوية', low: 'تحققت شروط المخاطر المنخفضة، لكنه يظل تقديرًا',
+    moderate: 'مخاطر متوسطة؛ راجع المعدلات وحجم العينة',
+    high: 'مؤشرات مخاطر مرتفعة؛ راجع المعدلات وحداثة التحليل',
+  },
+}
+
+function safeVipText(value) {
+  if (typeof value !== 'string') throw new TypeError('risk_assessment_missing')
+  const normalized = value.replace(/[\u0000-\u001f\u007f\u2028\u2029]/g, ' ')
+    .replace(/[<>]/g, '').replace(/\s+/g, ' ').trim()
+  const result = Array.from(normalized).slice(0, 120).join('')
+  if (!result) throw new TypeError('risk_assessment_missing')
+  return result
+}
+
+function localizedVipPick(candidate, language, number = 1) {
   if (candidate.qualityTier !== 'vip' || candidate.probabilitySource !== 'gemini-estimate'
     || !['low', 'medium', 'high'].includes(candidate.aiConfidence)) {
     throw new TypeError('model_estimate_contract_missing')
   }
-  const market = candidate.market === 'BTTS' ? 'BTTS' : 'Over/Under 2,5'
-  const selection = candidate.market === 'BTTS'
-    ? candidate.selection === 'YES' ? 'Oui' : 'Non'
-    : candidate.selection === 'YES' ? 'Over 2,5' : 'Under 2,5'
-  const observed = rate => `${Math.round(rate * 100)} %`
-  const modelPercent = probability => {
-    if (probability < 0.0001) return '<0,01 %'
-    if (probability > 0.9999) return '>99,99 %'
-    return `${new Intl.NumberFormat('fr-FR', { maximumFractionDigits: 2 }).format(probability * 100)} %`
+  const riskLabels = {
+    FAIBLE: { fr: 'FAIBLE', en: 'LOW', ar: 'منخفضة' },
+    MODÉRÉ: { fr: 'MODÉRÉ', en: 'MODERATE', ar: 'متوسطة' },
+    ÉLEVÉ: { fr: 'ÉLEVÉ', en: 'HIGH', ar: 'مرتفعة' },
   }
-  const riskLabel = { FAIBLE: 'FAIBLE', MODÉRÉ: 'MODÉRÉ', ÉLEVÉ: 'ÉLEVÉ' }[candidate.riskLevel]
-  if (!riskLabel || !Array.isArray(candidate.riskReasons) || candidate.riskReasons.length < 2) {
+  const confidenceLabels = {
+    low: { fr: 'faible', en: 'low', ar: 'منخفضة' },
+    medium: { fr: 'moyenne', en: 'medium', ar: 'متوسطة' },
+    high: { fr: 'élevée', en: 'high', ar: 'عالية' },
+  }
+  const sourceRiskLabel = riskLabels[candidate.riskLevel]?.[language]
+  if (!sourceRiskLabel || !Array.isArray(candidate.riskReasons) || candidate.riskReasons.length < 2) {
     throw new TypeError('risk_assessment_missing')
   }
   const freshnessReason = candidate.riskReasons.find(value => typeof value === 'string' && value.startsWith('Fraîcheur :'))
-  if (!freshnessReason) throw new TypeError('freshness_assessment_missing')
-  const reason = candidate.riskReasons.find(value => value.includes('ÉLEVÉ'))
-    || candidate.riskReasons.find(value => !value.startsWith('Estimation Gemini'))
-    || candidate.riskReasons[1]
-  const short = value => String(value || '').replace(/[<>]/g, '').replace(/\s+/g, ' ').slice(0, 72)
+  const freshnessMatch = freshnessReason?.match(/environ\s+(\d+)\s*h\b/i)
+  if (!freshnessMatch) throw new TypeError('freshness_assessment_missing')
+  const freshnessHours = Number(freshnessMatch[1])
+  const empiricalRates = [candidate.empiricalSelectionRate, candidate.homeSelectionRate, candidate.awaySelectionRate]
+  const sampleCounts = [candidate.matchCountHome, candidate.matchCountAway, candidate.formCountHome, candidate.formCountAway]
+  if (!Number.isFinite(candidate.probability) || candidate.probability <= 0 || candidate.probability >= 1
+    || !empiricalRates.every(value => Number.isFinite(value) && value >= 0 && value <= 1)
+    || !sampleCounts.slice(0, 2).every(value => Number.isInteger(value) && value >= 8)
+    || !sampleCounts.slice(2).every(value => Number.isInteger(value) && value >= 5)) {
+    throw new TypeError('risk_assessment_missing')
+  }
+  const riskReasonKey = vipRiskReasonKey(candidate, freshnessHours)
+  const elevatedSignals = new Set(['below70', 'above78', 'lowConfidence', 'weakRate', 'teamRateGap', 'stale', 'modelGap'])
+  const riskLabel = elevatedSignals.has(riskReasonKey) ? riskLabels.ÉLEVÉ[language] : sourceRiskLabel
+  const riskReason = VIP_RISK_REASON[language][riskReasonKey]
+  const confidence = confidenceLabels[candidate.aiConfidence][language]
+  const isBtts = candidate.market === 'BTTS'
+  if (!isBtts && candidate.market !== 'OVER_25') throw new TypeError('risk_assessment_missing')
+  if (!['YES', 'NO'].includes(candidate.selection)) throw new TypeError('risk_assessment_missing')
+  const home = safeVipText(candidate.home)
+  const away = safeVipText(candidate.away)
+  const league = safeVipText(candidate.league)
+  const date = safeVipText(candidate.date)
+  const time = safeVipText(candidate.time)
+
+  const marketSelection = {
+    fr: isBtts ? `BTTS : ${candidate.selection === 'YES' ? 'Oui' : 'Non'}`
+      : candidate.selection === 'YES' ? 'Plus de 2,5 buts' : 'Moins de 2,5 buts',
+    en: isBtts ? `BTTS: ${candidate.selection === 'YES' ? 'Yes' : 'No'}`
+      : candidate.selection === 'YES' ? 'Over 2.5 goals' : 'Under 2.5 goals',
+    ar: isBtts ? `BTTS: ${candidate.selection === 'YES' ? 'نعم' : 'لا'}`
+      : candidate.selection === 'YES' ? 'أكثر من 2.5 هدف' : 'أقل من 2.5 هدف',
+  }[language]
+  const dateLine = language === 'fr' ? `${date} · ${time} (Dakar)`
+    : language === 'en' ? `${date} · ${time} (Dakar)`
+      : `${date} · ${time} بتوقيت داكار`
+  const modelLabel = language === 'fr' ? `Gemini ${localizedPercent(candidate.probability, language, true)} · confiance déclarée ${confidence}`
+    : language === 'en' ? `Gemini estimate ${localizedPercent(candidate.probability, language, true)} · declared confidence ${confidence}`
+      : `تقدير Gemini ${localizedPercent(candidate.probability, language, true)} · الثقة المعلنة ${confidence}`
+  const ratesLabel = language === 'fr'
+    ? `Taux récents non calibrés : global ${localizedPercent(candidate.empiricalSelectionRate, language)} · domicile ${localizedPercent(candidate.homeSelectionRate, language)} · extérieur ${localizedPercent(candidate.awaySelectionRate, language)}`
+    : language === 'en'
+      ? `Recent empirical rates (not calibrated): overall ${localizedPercent(candidate.empiricalSelectionRate, language)} · home ${localizedPercent(candidate.homeSelectionRate, language)} · away ${localizedPercent(candidate.awaySelectionRate, language)}`
+      : `المعدلات التجريبية الحديثة (غير معايرة): الإجمالي ${localizedPercent(candidate.empiricalSelectionRate, language)} · المضيف ${localizedPercent(candidate.homeSelectionRate, language)} · الضيف ${localizedPercent(candidate.awaySelectionRate, language)}`
+  const sampleFreshness = language === 'fr'
+    ? `Historique ${candidate.matchCountHome}/${candidate.matchCountAway} · forme ${candidate.formCountHome}/${candidate.formCountAway} · fraîcheur ~${freshnessHours} h`
+    : language === 'en'
+      ? `History ${candidate.matchCountHome}/${candidate.matchCountAway} · form ${candidate.formCountHome}/${candidate.formCountAway} · analysis ~${freshnessHours} h old`
+      : `السجل ${candidate.matchCountHome}/${candidate.matchCountAway} · الأداء ${candidate.formCountHome}/${candidate.formCountAway} · عمر التحليل نحو ${freshnessHours} ساعة`
+  const riskLine = language === 'fr' ? `Risque ${riskLabel} — ${riskReason}`
+    : language === 'en' ? `Risk ${riskLabel} — ${riskReason}`
+      : `مستوى المخاطر ${riskLabel} — ${riskReason}`
+
   return [
-    `${candidate.home} — ${candidate.away} · ${candidate.league}`,
-    `${candidate.date} · ${candidate.time} Dakar | ${market} : ${selection}`,
-    `Gemini ${modelPercent(candidate.probability)} · confiance ${candidate.aiConfidence}.`,
-    `Taux empiriques propres à ${candidate.market} ${candidate.selection} : global ${observed(candidate.empiricalSelectionRate)}, domicile ${observed(candidate.homeSelectionRate)}, extérieur ${observed(candidate.awaySelectionRate)} (fréquences, non calibrées).`,
-    `Historique ${candidate.matchCountHome}/${candidate.matchCountAway} · forme ${candidate.formCountHome}/${candidate.formCountAway}.`,
-    `Fraîcheur : ${short(freshnessReason.slice('Fraîcheur :'.length).trim())}`,
-    `Risque ${riskLabel} — ${short(reason)}${candidate.risks?.[0] ? ` · ${short(candidate.risks[0])}` : ''}`,
-    candidate.reasons?.[0] ? `Éléments : ${short(candidate.reasons[0])}` : '',
-  ].filter(Boolean).join('\n')
+    `${number}) ${home} ${language === 'ar' ? 'ضد' : language === 'en' ? 'vs' : '—'} ${away} · ${league}`,
+    `${dateLine} | ${marketSelection}`,
+    modelLabel,
+    ratesLabel,
+    sampleFreshness,
+    riskLine,
+  ].join('\n')
+}
+
+export function formatVipMessage(candidate) {
+  return VIP_MESSAGE_LANGUAGES.map(({ id, flag, label }) =>
+    `${flag} ${label}\n${localizedVipPick(candidate, id)}`).join('\n\n')
+}
+
+function formatVipBatchMessageFor(included) {
+  const count = included.length
+  const prefix = [
+    `BTTSPredict — Sélections VIP / VIP Picks / توقعات VIP (${count}/5)`,
+    'FR — Lot partiel ou complet selon les matchs revalidés.',
+    'EN — Partial or complete batch based on live rechecks.',
+    'AR — مجموعة جزئية أو كاملة بناءً على إعادة التحقق المباشر.',
+  ].join('\n')
+  const sections = VIP_MESSAGE_LANGUAGES.map(({ id, flag, label }) =>
+    `${flag} ${label}\n${included.map((item, index) => localizedVipPick(item.candidate, id, index + 1)).join('\n\n')}`)
+  const footer = [
+    'FR — Estimation, pas une garantie. 18+ · Jeu responsable.',
+    'EN — Estimate, not a guarantee. 18+ · Play responsibly.',
+    'AR — تقدير وليس ضمانًا. +18 · العب بمسؤولية.',
+  ].join('\n')
+  return `${prefix}\n\n${sections.join('\n\n──────────\n\n')}\n\n${footer}`
 }
 
 export function formatVipBatchMessage(candidates) {
   if (!Array.isArray(candidates) || candidates.length < 2 || candidates.length > 5) return null
   const included = []
   for (const candidate of candidates) {
-    let section
-    try { section = formatVipMessage(candidate) } catch { continue }
-    const tentative = [...included, { candidate, section }]
-    const prefix = `BTTSPredict — Sélections VIP (${tentative.length}/5)\nLot partiel ou complet, selon les matchs revalidés.`
-    const message = `${prefix}\n\n${tentative.map(item => item.section).join('\n\n──────────\n\n')}`
-    if (message.length <= 4096) included.push({ candidate, section })
+    try { VIP_MESSAGE_LANGUAGES.forEach(({ id }) => localizedVipPick(candidate, id)) } catch { continue }
+    const tentative = [...included, { candidate }]
+    if (formatVipBatchMessageFor(tentative).length <= 4096) included.push({ candidate })
   }
   if (included.length < 2) return null
-  const prefix = `BTTSPredict — Sélections VIP (${included.length}/5)\nLot partiel ou complet, selon les matchs revalidés.`
-  const footer = '\n\nEstimation, pas une garantie. 18+ · Jeu responsable.'
-  let message = `${prefix}\n\n${included.map(item => item.section).join('\n\n──────────\n\n')}${footer}`
-  while (included.length && message.length > 4096) {
-    included.pop()
-    const revisedPrefix = `BTTSPredict — Sélections VIP (${included.length}/5)\nLot partiel ou complet, selon les matchs revalidés.`
-    message = included.length
-      ? `${revisedPrefix}\n\n${included.map(item => item.section).join('\n\n──────────\n\n')}${footer}` : ''
-  }
-  return included.length >= 2 ? { message, count: included.length, candidates: included.map(item => item.candidate) } : null
+  while (included.length && formatVipBatchMessageFor(included).length > 4096) included.pop()
+  if (included.length < 2) return null
+  return { message: formatVipBatchMessageFor(included), count: included.length, candidates: included.map(item => item.candidate) }
 }
 
 // Each candidate gets a durable atomic claim; fixture-level exclusion spans all

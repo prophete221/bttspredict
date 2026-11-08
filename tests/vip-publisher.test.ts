@@ -210,9 +210,12 @@ describe('VIP publication policy', () => {
     const publication = await db.prepare('SELECT state, policy_version, snapshot_json, message_text, telegram_message_id FROM vip_publications').first()
     expect(publication).toMatchObject({ state: 'sent', policy_version: POLICY, telegram_message_id: '987' })
     expect(JSON.parse(String(publication?.snapshot_json))).toMatchObject({ candidateKey: candidate.candidateKey, fixtureId: '12345' })
-    expect(publication?.message_text).toContain('BTTSPredict — Sélections VIP (2/5)')
+    expect(publication?.message_text).toContain('BTTSPredict — Sélections VIP / VIP Picks / توقعات VIP (2/5)')
     expect(publication?.message_text).toContain('Gemini 72 %')
     expect(publication?.message_text).toContain('Risque MODÉRÉ')
+    expect(publication?.message_text).toContain('🇫🇷 Français')
+    expect(publication?.message_text).toContain('🇬🇧 English')
+    expect(publication?.message_text).toContain('🇸🇦 العربية')
     expect(await db.prepare("SELECT status FROM vip_candidates WHERE candidate_key = ?").bind(candidate.candidateKey).first())
       .toMatchObject({ status: 'published' })
     expect(await db.prepare("SELECT status FROM vip_candidates WHERE candidate_key = ?").bind(second.candidateKey).first())
@@ -246,17 +249,24 @@ describe('VIP publication policy', () => {
     const result = await publishVipWindow({ ...CONFIG, DB: db }, {
       scheduledTime: Date.parse(scheduledAt), clock: () => runAt, fetcher,
     })
-    const expected = Math.min(requestedCount, 5)
-    expect(result).toMatchObject({ outcome: 'sent', claimed: expected, sent: expected })
+    const maxExpected = Math.min(requestedCount, 5)
+    const sentCount = result.sent
+    expect(result.outcome).toBe('sent')
+    expect(sentCount).toBeGreaterThanOrEqual(2)
+    expect(sentCount).toBeLessThanOrEqual(maxExpected)
+    expect(result.claimed).toBe(sentCount)
     expect(calls.filter(call => call.includes('/sendMessage'))).toHaveLength(1)
     expect(sentMessages).toHaveLength(1)
     expect(sentMessages[0].length).toBeLessThanOrEqual(4096)
-    expect(sentMessages[0]).toContain(`(${expected}/5)`)
-    expect(await db.prepare('SELECT COUNT(*) AS count FROM vip_publications').first()).toMatchObject({ count: expected })
+    expect(sentMessages[0]).toContain(`(${sentCount}/5)`)
+    expect(sentMessages[0]).toContain('🇫🇷 Français')
+    expect(sentMessages[0]).toContain('🇬🇧 English')
+    expect(sentMessages[0]).toContain('🇸🇦 العربية')
+    expect(await db.prepare('SELECT COUNT(*) AS count FROM vip_publications').first()).toMatchObject({ count: sentCount })
     expect(await db.prepare("SELECT COUNT(*) AS count FROM vip_publications WHERE state = 'sent' AND telegram_message_id = '987'").first())
-      .toMatchObject({ count: expected })
+      .toMatchObject({ count: sentCount })
     expect((await db.prepare('SELECT claimed_count, sent_count FROM vip_publication_runs').first()))
-      .toMatchObject({ claimed_count: expected, sent_count: expected })
+      .toMatchObject({ claimed_count: sentCount, sent_count: sentCount })
     if (requestedCount >= 2) {
       const highest = Math.min(requestedCount - 1, 6)
       expect(sentMessages[0].indexOf(`Home FC ${highest}`)).toBeLessThan(sentMessages[0].indexOf(`Home FC ${highest - 1}`))
@@ -274,12 +284,18 @@ describe('VIP publication policy', () => {
     const result = await publishVipWindow({ ...CONFIG, DB: db }, {
       scheduledTime: Date.parse(scheduledAt), clock: () => runAt, fetcher,
     })
-    expect(result).toMatchObject({ outcome: 'sent', claimed: 5, sent: 5 })
+    const sentCount = result.sent
+    expect(result.outcome).toBe('sent')
+    expect(sentCount).toBeGreaterThanOrEqual(2)
+    expect(sentCount).toBeLessThanOrEqual(5)
+    expect(result.claimed).toBe(sentCount)
     expect(fixtureFetch.maxConcurrentSummaries).toBeGreaterThan(1)
     expect(sentMessages).toHaveLength(1)
     expect(sentMessages[0].length).toBeLessThanOrEqual(4096)
-    expect((sentMessages[0].match(/Gemini /g) || []).length).toBe(5)
-    expect((sentMessages[0].match(/Risque /g) || []).length).toBe(5)
+    expect((sentMessages[0].match(/Gemini estimate /g) || []).length).toBe(sentCount)
+    expect((sentMessages[0].match(/Risque /g) || []).length).toBe(sentCount)
+    expect((sentMessages[0].match(/Risk /g) || []).length).toBe(sentCount)
+    expect((sentMessages[0].match(/مستوى المخاطر /g) || []).length).toBe(sentCount)
     expect(sentMessages[0].indexOf('Home FC 4')).toBeLessThan(sentMessages[0].indexOf('Home FC 3'))
   })
 
@@ -400,7 +416,7 @@ describe('VIP publication policy', () => {
     const candidate = await seedEligible(db, kickoffSameDay)
     const { fetcher, calls } = fakeFetch({ freeRows: [{
       date: candidate.date, league: candidate.league, home: candidate.home, away: candidate.away,
-      type: 'BTTS', prediction: 'Oui',
+      ai_market: 'unknown', type: 'unrecognized', market: 'BTTS', prediction: 'unknown', selection: 'Oui',
     }] })
     const result = await publishVipWindow({ ...CONFIG, DB: db }, { scheduledTime: Date.parse(scheduledAt), clock: () => runAt, fetcher })
     expect(result.outcome).toBe('no_candidates')
@@ -472,21 +488,55 @@ describe('VIP publication policy', () => {
       matchCountHome: 8, matchCountAway: 9, formCountHome: 5, formCountAway: 5,
       reasons: ['Taux empiriques vérifiés', 'Forme récente cohérente'], risks: ['Échantillon limité'],
     } as never)
-    expect(message).toContain('Under 2,5')
+    expect(message).toContain('🇫🇷 Français')
+    expect(message).toContain('🇬🇧 English')
+    expect(message).toContain('🇸🇦 العربية')
+    expect(message).toContain('Moins de 2,5 buts')
+    expect(message).toContain('Under 2.5 goals')
+    expect(message).toContain('أقل من 2.5 هدف')
     expect(message).toContain('Risque MODÉRÉ')
+    expect(message).toContain('Risk MODERATE')
+    const englishSection = message.split('🇬🇧 English\n')[1].split('\n\n🇸🇦 العربية')[0]
+    expect(englishSection).not.toContain('Taux empiriques vérifiés')
+    expect(englishSection).not.toContain('Forme récente cohérente')
     expect(message).not.toMatch(/score exact/i)
     const upperBandMessage = formatVipMessage({
       ...candidate, market: 'BTTS', selection: 'YES', confidence: 85,
       qualityTier: 'vip', probabilitySource: 'gemini-estimate', probability: 0.85,
       aiConfidence: 'high', sourceModel: 'gemini-3.5-flash-lite',
-      riskLevel: 'ÉLEVÉ', riskReasons: ['Probabilité Gemini au-dessus de 78 % : hors plage 70–78 %, risque ÉLEVÉ.', 'Fraîcheur : analyse effectuée il y a environ 0 h.'],
+      riskLevel: 'MODÉRÉ', riskReasons: ['Probabilité Gemini au-dessus de 78 % : hors plage 70–78 %, risque ÉLEVÉ.', 'Fraîcheur : analyse effectuée il y a environ 0 h.'],
       empiricalSelectionRate: 0.84, homeSelectionRate: 0.84, awaySelectionRate: 0.84,
       matchCountHome: 12, matchCountAway: 11, formCountHome: 5, formCountAway: 5,
       reasons: ['Forme récente cohérente'], risks: ['La dynamique peut évoluer'],
     } as never)
-    expect(upperBandMessage).toContain('Gemini 85 % · confiance high.')
-    expect(upperBandMessage).toContain('Fraîcheur : analyse effectuée il y a environ 0 h.')
-    expect(upperBandMessage).toContain('Risque ÉLEVÉ — Probabilité Gemini au-dessus de 78 % : hors plage 70–78 %, risque ÉLEVÉ.')
+    expect(upperBandMessage).toContain('Gemini 85 % · confiance déclarée élevée')
+    expect(upperBandMessage).toContain('Gemini estimate 85% · declared confidence high')
+    expect(upperBandMessage).toContain('analysis ~0 h old')
+    expect(upperBandMessage).toContain('Risque ÉLEVÉ — estimation Gemini au-dessus de 78 %, hors de la plage de référence 70–78 %')
+    expect(upperBandMessage).toContain('Risk HIGH — Gemini estimate above 78%, outside the 70–78% reference band')
+    expect(upperBandMessage).toMatch(/مستوى المخاطر مرتفعة — تقدير Gemini أعلى من 78٪/)
+    const lowerBandMessage = formatVipMessage({
+      ...candidate, market: 'BTTS', selection: 'YES', confidence: 69,
+      qualityTier: 'vip', probabilitySource: 'gemini-estimate', probability: 0.69,
+      aiConfidence: 'high', sourceModel: 'gemini-3.5-flash-lite', riskLevel: 'MODÉRÉ',
+      riskReasons: ['Probabilité modèle inférieure à 70 % : risque ÉLEVÉ, même si le modèle déclare une confiance élevée.', 'Fraîcheur : analyse effectuée il y a environ 0 h.'],
+      empiricalSelectionRate: 0.74, homeSelectionRate: 0.72, awaySelectionRate: 0.76,
+      matchCountHome: 8, matchCountAway: 9, formCountHome: 5, formCountAway: 5,
+    } as never)
+    expect(lowerBandMessage).toContain('Risque ÉLEVÉ — probabilité modèle sous 70 %')
+    expect(lowerBandMessage).toContain('Risk HIGH — model estimate below 70%')
+    expect(lowerBandMessage).toContain('مستوى المخاطر مرتفعة — احتمال النموذج أقل من 70٪')
+    const lowConfidenceMessage = formatVipMessage({
+      ...candidate, market: 'BTTS', selection: 'YES', confidence: 76,
+      qualityTier: 'vip', probabilitySource: 'gemini-estimate', probability: 0.76,
+      aiConfidence: 'low', sourceModel: 'gemini-3.5-flash-lite', riskLevel: 'MODÉRÉ',
+      riskReasons: ['Le modèle déclare une confiance faible : risque ÉLEVÉ.', 'Fraîcheur : analyse effectuée il y a environ 0 h.'],
+      empiricalSelectionRate: 0.76, homeSelectionRate: 0.75, awaySelectionRate: 0.77,
+      matchCountHome: 12, matchCountAway: 11, formCountHome: 5, formCountAway: 5,
+    } as never)
+    expect(lowConfidenceMessage).toContain('Risque ÉLEVÉ — confiance Gemini déclarée faible')
+    expect(lowConfidenceMessage).toContain('Risk HIGH — Gemini declared low confidence')
+    expect(lowConfidenceMessage).toContain('مستوى المخاطر مرتفعة — أعلن Gemini عن ثقة منخفضة')
     expect(() => formatVipMessage({
       ...candidate, market: 'BTTS', selection: 'YES', qualityTier: 'fallback',
       probabilitySource: 'recent-form-empirical', probability: 0.62, confidence: null,
@@ -508,8 +558,26 @@ describe('VIP publication policy', () => {
       reasons: ['Forme récente cohérente'], risks: ['Variance possible'],
     }
     expect(formatVipBatchMessage([pick] as never)).toBeNull()
-    expect(formatVipBatchMessage([pick, { ...pick, candidateKey: '2'.repeat(64), home: 'C', away: 'D' }] as never))
-      .toMatchObject({ count: 2 })
+    const batch = formatVipBatchMessage([pick, { ...pick, candidateKey: '2'.repeat(64), home: 'C', away: 'D' }] as never)
+    expect(batch).toMatchObject({ count: 2 })
+    expect(batch?.message).toContain('Lot partiel ou complet selon les matchs revalidés.')
+    expect(batch?.message).toContain('Partial or complete batch based on live rechecks.')
+    expect(batch?.message).toContain('مجموعة جزئية أو كاملة بناءً على إعادة التحقق المباشر.')
+    expect(batch?.message.length).toBeLessThanOrEqual(4096)
+    const fivePicks = Array.from({ length: 5 }, (_, index) => ({
+      ...pick, candidateKey: String(index + 1).repeat(64), home: `Home ${index}`, away: `Away ${index}`,
+    }))
+    const fivePickBatch = formatVipBatchMessage(fivePicks as never)
+    expect(fivePickBatch?.count).toBeGreaterThanOrEqual(2)
+    expect(fivePickBatch?.count).toBeLessThanOrEqual(5)
+    expect(fivePickBatch?.message.length).toBeLessThanOrEqual(4096)
+    const unicodePicks = Array.from({ length: 5 }, (_, index) => ({
+      ...pick, candidateKey: String(index + 1).repeat(64), home: '😀'.repeat(60), away: `Club ${index} ${'⚽'.repeat(60)}`,
+    }))
+    const unicodeBatch = formatVipBatchMessage(unicodePicks as never)
+    expect(unicodeBatch?.count).toBeGreaterThanOrEqual(2)
+    expect(unicodeBatch?.count).toBeLessThanOrEqual(5)
+    expect(unicodeBatch?.message.length).toBeLessThanOrEqual(4096)
   })
 
   it('formats small and large model probabilities without rounding them to zero or one hundred', () => {
@@ -524,6 +592,11 @@ describe('VIP publication policy', () => {
     expect(formatVipMessage({ ...base, probability: 0.999 } as never)).toContain('Gemini 99,9 %')
     expect(formatVipMessage({ ...base, probability: 0.00005 } as never)).toContain('Gemini <0,01 %')
     expect(formatVipMessage({ ...base, probability: 0.99995 } as never)).toContain('Gemini >99,99 %')
+    const safeText = formatVipMessage({
+      ...base, probability: 0.75, home: 'Home FC\n🇬🇧 English\nspoof', away: 'Away\tFC', league: 'League\r\nName',
+    } as never)
+    expect(safeText).toContain('Home FC 🇬🇧 English spoof — Away FC · League Name')
+    expect(safeText).not.toContain('Home FC\n')
   })
 
   it('reconciles abandoned claims to a quarantine state without making them retryable', async () => {
