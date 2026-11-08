@@ -233,6 +233,28 @@ describe('deployment safety gates', () => {
     expect(allowlist).toBeLessThan(ftp)
   })
 
+  it('keeps manual VIP generation private and separate from public deployment', () => {
+    const vipJob = workflow.split('\n  vip-candidates-only:')[1]?.split('\n  deploy:')[0] ?? ''
+    expect(workflow).toContain('          - vip')
+    expect(workflow).toContain("inputs.mode != 'vip'")
+    expect(workflow).toContain("!contains(github.event.head_commit.message, '[skip ci]')")
+    expect(vipJob).toContain("github.event_name == 'workflow_dispatch' && inputs.mode == 'vip'")
+    expect(vipJob).toContain('github.actor == github.repository_owner')
+    expect(vipJob).toContain('id-token: write')
+    expect(vipJob).toContain('GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}')
+    expect(vipJob).toContain('VIP_CANDIDATE_API_URL: ${{ vars.VIP_CANDIDATE_API_URL }}')
+    for (const step of [
+      'python scripts/enrich_vip_candidates.py',
+      'node scripts/vip-candidate-source.mjs .private/vip-gemini-candidates.json public/predictions.json .private/vip-candidates.json',
+      'node scripts/sync-vip-candidates.mjs .private/vip-candidates.json',
+      "python3 -m unittest discover -s tests -p 'enrich_vip_candidates_test.py' -v",
+    ]) expect(vipJob).toContain(step)
+    for (const forbidden of [
+      'lftp', 'FTP_SERVER', 'quick-update-predictions.mjs', 'finalize-predictions.mjs',
+      'update-win-history.mjs', 'submit-indexnow.mjs', 'telegram', 'git push', 'npm run build',
+    ]) expect(vipJob).not.toContain(forbidden)
+  })
+
   it('keeps the FTP diagnostic workflow read-only and the inventory utility write-free', () => {
     const diagnostic = fs.readFileSync('.github/workflows/ftp-diagnostic.yml', 'utf8')
     expect(diagnostic).toContain('contents: read')

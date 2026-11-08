@@ -13,13 +13,14 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "full = pronos+Gemini+build+FTP | code = build+FTP seulement (rapide)"
+        description: "full = pronos+Gemini+build+FTP | code = build+FTP | vip = génération privée des candidats uniquement"
         required: false
         default: full
         type: choice
         options:
           - full
           - code
+          - vip
   pull_request:
     branches:
       - main
@@ -80,9 +81,73 @@ jobs:
           # Si absente, le build reste fonctionnel, sans tracking.
           NEXT_PUBLIC_GA_ID: ${{ vars.NEXT_PUBLIC_GA_ID }}
 
+  vip-candidates-only:
+    name: Private VIP candidate generation and approval sync
+    if: github.ref == 'refs/heads/main' && github.event_name == 'workflow_dispatch' && inputs.mode == 'vip' && github.actor == github.repository_owner
+    permissions:
+      contents: read
+      id-token: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Node dependencies
+        run: npm ci --legacy-peer-deps
+        env:
+          PUPPETEER_SKIP_DOWNLOAD: 'true'
+
+      - name: Install Gemini client
+        run: pip install google-genai==2.34.0
+
+      - name: Run private VIP generator and Worker regression tests
+        run: |
+          npm test -- tests/vip-candidate-source.test.ts tests/vip-candidates-worker.test.ts
+          python3 -m unittest discover -s tests -p 'enrich_vip_candidates_test.py' -v
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+
+      - name: Confirm private pipeline configuration without revealing values
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          VIP_CANDIDATE_API_URL: ${{ vars.VIP_CANDIDATE_API_URL }}
+        run: |
+          test -n "$GEMINI_API_KEY" || { echo "::error::GEMINI_API_KEY is not configured"; exit 1; }
+          test -n "$VIP_CANDIDATE_API_URL" || { echo "::error::VIP_CANDIDATE_API_URL is not configured"; exit 1; }
+
+      - name: Analyze VIP candidates privately
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PYTHONUNBUFFERED: '1'
+        timeout-minutes: 10
+        run: python scripts/enrich_vip_candidates.py
+
+      - name: Build private candidate approval payload
+        run: node scripts/vip-candidate-source.mjs .private/vip-gemini-candidates.json public/predictions.json .private/vip-candidates.json
+
+      - name: Sync candidates to the private approval store
+        env:
+          VIP_CANDIDATE_API_URL: ${{ vars.VIP_CANDIDATE_API_URL }}
+        run: node scripts/sync-vip-candidates.mjs .private/vip-candidates.json
+
   deploy:
     # Jamais de déploiement depuis une branche de travail ou un tag.
-    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && (github.event_name != 'workflow_dispatch' || inputs.mode != 'vip') && !contains(github.event.head_commit.message, '[skip ci]')
     permissions:
       contents: write
       id-token: write
