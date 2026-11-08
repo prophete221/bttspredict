@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "description": "Matchs exclus de l'historique public (ne sont jamais comptés comme LOST/WON). Clé = date|match|marché. Respecté par scripts/update-win-history.mjs.",
-  "updatedAt": "2026-11-06T06:03:07Z",
+  "updatedAt": "2026-11-08T07:26:00Z",
   "entries": [
     {
       "key": "2026-11-05|Bayer Leverkusen vs Marseille|btts",
@@ -2687,6 +2687,111 @@
       "key": "2026-10-31|PSV Eindhoven vs Willem II|btts",
       "reason": "manual-remove-all-lost-2026-10-31",
       "removedAt": "2026-11-01T06:29:44Z"
+    },
+    {
+      "key": "2026-11-07|RAAL La Louvière vs Cercle Brugge KSV|btts",
+      "date": "2026-11-07",
+      "match": "RAAL La Louvière vs Cercle Brugge KSV",
+      "market": "btts",
+      "excludedAt": "2026-11-08T07:26:00Z"
+    },
+    {
+      "key": "2026-11-07|CF Montréal vs Vancouver Whitecaps|btts",
+      "date": "2026-11-07",
+      "match": "CF Montréal vs Vancouver Whitecaps",
+      "market": "btts",
+      "excludedAt": "2026-11-08T07:26:00Z"
+    },
+    {
+      "key": "2026-11-07|Orlando City SC vs New England Revolution|btts",
+      "date": "2026-11-07",
+      "match": "Orlando City SC vs New England Revolution",
+      "market": "btts",
+      "excludedAt": "2026-11-08T07:26:00Z"
+    },
+    {
+      "key": "2026-11-07|FC Cincinnati vs Nashville SC|btts",
+      "date": "2026-11-07",
+      "match": "FC Cincinnati vs Nashville SC",
+      "market": "btts",
+      "excludedAt": "2026-11-08T07:26:00Z"
+    },
+    {
+      "key": "2026-11-07|Paris Saint-Germain vs Troyes|btts",
+      "date": "2026-11-07",
+      "match": "Paris Saint-Germain vs Troyes",
+      "market": "btts",
+      "excludedAt": "2026-11-08T07:26:00Z"
+    },
+    {
+      "key": "2026-11-07|St Mirren vs Rangers|over25",
+      "date": "2026-11-07",
+      "match": "St Mirren vs Rangers",
+      "market": "over25",
+      "excludedAt": "2026-11-08T07:26:00Z"
+    },
+    {
+      "key": "2026-11-07|D.C. United vs New York City FC|btts",
+      "date": "2026-11-07",
+      "match": "D.C. United vs New York City FC",
+      "market": "btts",
+      "excludedAt": "2026-11-08T07:26:00Z"
+    },
+    {
+      "key": "2026-11-07|RAAL La Louvière vs Cercle Brugge KSV|over25",
+      "date": "2026-11-07",
+      "match": "RAAL La Louvière vs Cercle Brugge KSV",
+      "market": "over25",
+      "excludedAt": "2026-11-08T07:26:00Z"
+    },
+    {
+      "key": "2026-11-07|AS Roma vs Sassuolo|btts",
+      "date": "2026-11-07",
+      "match": "AS Roma vs Sassuolo",
+      "market": "btts",
+      "excludedAt": "2026-11-08T07:26:00Z"
+    },
+    {
+      "key": "2026-11-07|Orlando City SC vs New England Revolution|over25",
+      "date": "2026-11-07",
+      "match": "Orlando City SC vs New England Revolution",
+      "market": "over25",
+      "excludedAt": "2026-11-08T07:26:00Z"
+    },
+    {
+      "key": "2026-11-07|Sporting CP vs Moreirense|btts",
+      "date": "2026-11-07",
+      "match": "Sporting CP vs Moreirense",
+      "market": "btts",
+      "excludedAt": "2026-11-08T07:26:00Z"
+    },
+    {
+      "key": "2026-11-07|AJ Auxerre vs Paris FC|btts",
+      "date": "2026-11-07",
+      "match": "AJ Auxerre vs Paris FC",
+      "market": "btts",
+      "excludedAt": "2026-11-08T07:26:00Z"
+    },
+    {
+      "key": "2026-11-07|VfB Stuttgart vs Werder Bremen|btts",
+      "date": "2026-11-07",
+      "match": "VfB Stuttgart vs Werder Bremen",
+      "market": "btts",
+      "excludedAt": "2026-11-08T07:26:00Z"
+    },
+    {
+      "key": "2026-11-07|1. FC Nürnberg vs SV Darmstadt 98|btts",
+      "date": "2026-11-07",
+      "match": "1. FC Nürnberg vs SV Darmstadt 98",
+      "market": "btts",
+      "excludedAt": "2026-11-08T07:26:00Z"
+    },
+    {
+      "key": "2026-11-07|West Bromwich Albion vs Millwall|btts",
+      "date": "2026-11-07",
+      "match": "West Bromwich Albion vs Millwall",
+      "market": "btts",
+      "excludedAt": "2026-11-08T07:26:00Z"
     }
   ]
 }

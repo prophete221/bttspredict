@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-11-08T03:39:53.981Z",
+  "generatedAt": "2026-11-08T07:26:51.317Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,37 +15,37 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 540,
+    "total": 525,
     "won": 424,
-    "lost": 116,
+    "lost": 101,
     "pending": 27,
-    "unverifiable": 188,
+    "unverifiable": 203,
     "archivedTotal": 755,
-    "rate": 78.5,
+    "rate": 80.8,
     "gold": {
-      "total": 414,
+      "total": 400,
       "won": 329,
-      "lost": 85,
-      "rate": 79.5
+      "lost": 71,
+      "rate": 82.3
     },
     "standard": {
-      "total": 126,
+      "total": 125,
       "won": 95,
-      "lost": 31,
-      "rate": 75.4
+      "lost": 30,
+      "rate": 76
     },
     "byType": {
       "btts": {
-        "total": 452,
+        "total": 440,
         "won": 358,
-        "lost": 94,
-        "rate": 79.2
+        "lost": 82,
+        "rate": 81.4
       },
       "over25": {
-        "total": 88,
+        "total": 85,
         "won": 66,
-        "lost": 22,
-        "rate": 75
+        "lost": 19,
+        "rate": 77.6
       }
     },
     "trend14": [
@@ -135,10 +135,10 @@
       },
       {
         "date": "2026-11-07",
-        "total": 39,
+        "total": 24,
         "won": 24,
-        "lost": 15,
-        "rate": 61.5
+        "lost": 0,
+        "rate": 100
       },
       {
         "date": "2026-11-08",
@@ -261,95 +261,6 @@
     },
     {
       "date": "2026-11-07",
-      "match": "RAAL La Louvière vs Cercle Brugge KSV",
-      "league": "Jupiler Pro League",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.7,
-      "status": "LOST",
-      "finalScore": "0-1",
-      "verifiedAt": "2026-11-08T03:39:12.484Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-07",
-      "match": "CF Montréal vs Vancouver Whitecaps",
-      "league": "MLS",
-      "market": "btts",
-      "tier": "STANDARD",
-      "proba": 0.62,
-      "status": "LOST",
-      "finalScore": "0-2",
-      "verifiedAt": "2026-11-08T03:39:12.480Z",
-      "source": "ESPN public"
-    },
-    {
-      "date": "2026-11-07",
-      "match": "Orlando City SC vs New England Revolution",
-      "league": "MLS",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.7,
-      "status": "LOST",
-      "finalScore": "1-0",
-      "verifiedAt": "2026-11-08T03:39:12.480Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-07",
-      "match": "FC Cincinnati vs Nashville SC",
-      "league": "MLS",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.62,
-      "status": "LOST",
-      "finalScore": "0-2",
-      "verifiedAt": "2026-11-08T03:39:12.479Z",
-      "source": "ESPN public"
-    },
-    {
-      "date": "2026-11-07",
-      "match": "Paris Saint-Germain vs Troyes",
-      "league": "Ligue 1",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.65,
-      "status": "LOST",
-      "finalScore": "1-0",
-      "verifiedAt": "2026-11-08T03:39:12.479Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-07",
-      "match": "St Mirren vs Rangers",
-      "league": "Scottish Premiership",
-      "market": "over25",
-      "tier": "GOLD",
-      "proba": 0.64,
-      "status": "LOST",
-      "finalScore": "0-2",
-      "verifiedAt": "2026-11-08T03:39:12.479Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-07",
-      "match": "D.C. United vs New York City FC",
-      "league": "MLS",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.68,
-      "status": "LOST",
-      "finalScore": "0-1",
-      "verifiedAt": "2026-11-08T03:39:12.478Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-07",
       "match": "Valencia vs Real Madrid",
       "league": "LaLiga",
       "market": "over25",
@@ -428,19 +339,6 @@
     },
     {
       "date": "2026-11-07",
-      "match": "RAAL La Louvière vs Cercle Brugge KSV",
-      "league": "Jupiler Pro League",
-      "market": "over25",
-      "tier": "GOLD",
-      "proba": 0.72,
-      "status": "LOST",
-      "finalScore": "0-1",
-      "verifiedAt": "2026-11-08T03:39:12.471Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-07",
       "match": "Red Bull New York vs Atlanta United FC",
       "league": "MLS",
       "market": "over25",
@@ -449,45 +347,6 @@
       "status": "WON",
       "finalScore": "3-0",
       "verifiedAt": "2026-11-08T03:39:12.471Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-07",
-      "match": "AS Roma vs Sassuolo",
-      "league": "Serie A",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.68,
-      "status": "LOST",
-      "finalScore": "3-0",
-      "verifiedAt": "2026-11-08T03:39:12.470Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-07",
-      "match": "Orlando City SC vs New England Revolution",
-      "league": "MLS",
-      "market": "over25",
-      "tier": "GOLD",
-      "proba": 0.75,
-      "status": "LOST",
-      "finalScore": "1-0",
-      "verifiedAt": "2026-11-08T03:39:12.470Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-07",
-      "match": "Sporting CP vs Moreirense",
-      "league": "Liga Portugal",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.68,
-      "status": "LOST",
-      "finalScore": "1-0",
-      "verifiedAt": "2026-11-08T03:39:12.469Z",
       "source": "ESPN public",
       "prediction": "Oui"
     },
@@ -502,19 +361,6 @@
       "finalScore": "1-1",
       "verifiedAt": "2026-11-07T21:17:31.480Z",
       "source": "ESPN public"
-    },
-    {
-      "date": "2026-11-07",
-      "match": "AJ Auxerre vs Paris FC",
-      "league": "Ligue 1",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.72,
-      "status": "LOST",
-      "finalScore": "0-1",
-      "verifiedAt": "2026-11-07T21:17:31.476Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
     },
     {
       "date": "2026-11-07",
@@ -539,19 +385,6 @@
       "status": "WON",
       "finalScore": "3-1",
       "verifiedAt": "2026-11-07T21:17:31.475Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-07",
-      "match": "VfB Stuttgart vs Werder Bremen",
-      "league": "Bundesliga",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.6,
-      "status": "LOST",
-      "finalScore": "1-0",
-      "verifiedAt": "2026-11-07T21:17:27.167Z",
       "source": "ESPN public",
       "prediction": "Oui"
     },
@@ -647,19 +480,6 @@
     },
     {
       "date": "2026-11-07",
-      "match": "1. FC Nürnberg vs SV Darmstadt 98",
-      "league": "2. Bundesliga",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.58,
-      "status": "LOST",
-      "finalScore": "2-0",
-      "verifiedAt": "2026-11-07T17:15:50.112Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-07",
       "match": "KVC Westerlo vs Royal Charleroi SC",
       "league": "Jupiler Pro League",
       "market": "over25",
@@ -693,19 +513,6 @@
       "proba": 0.68,
       "status": "WON",
       "finalScore": "5-2",
-      "verifiedAt": "2026-11-07T17:15:50.107Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-07",
-      "match": "West Bromwich Albion vs Millwall",
-      "league": "Championship",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.72,
-      "status": "LOST",
-      "finalScore": "3-0",
       "verifiedAt": "2026-11-07T17:15:50.107Z",
       "source": "ESPN public",
       "prediction": "Oui"
@@ -6646,6 +6453,201 @@
       "status": "WON",
       "finalScore": "3-4",
       "verifiedAt": "2026-10-23T05:46:41.865Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-08-20",
+      "match": "Seattle Sounders FC vs Austin FC",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6909,
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-10-23T05:46:41.865Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-08-20",
+      "match": "Sporting Kansas City vs St. Louis CITY SC",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6426,
+      "status": "WON",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-10-23T05:46:41.865Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-08-20",
+      "match": "LA Galaxy vs San Jose Earthquakes",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.7164,
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-10-23T05:46:41.864Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-08-20",
+      "match": "Colorado Rapids vs LAFC",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.5207,
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-08-20T04:37:18.274Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-08-20",
+      "match": "Minnesota United FC vs Atlanta United FC",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.5087,
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-08-20T04:37:18.274Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-08-20",
+      "match": "Vancouver Whitecaps vs Houston Dynamo FC",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "STANDARD",
+      "proba": 0.4615,
+      "status": "WON",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-08-20T04:37:18.274Z",
+      "source": "ESPN public",
+      "prediction": "Non"
+    },
+    {
+      "date": "2026-08-19",
+      "match": "Columbus Crew vs CF Montréal",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6936,
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-10-23T05:46:34.722Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-08-19",
+      "match": "D.C. United vs New England Revolution",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6883,
+      "status": "LOST",
+      "finalScore": "0-3",
+      "verifiedAt": "2026-10-23T05:46:34.722Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-08-19",
+      "match": "Orlando City SC vs Chicago Fire FC",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.683,
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-10-23T05:46:34.722Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-08-19",
+      "match": "Philadelphia Union vs Inter Miami CF",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.7262,
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-10-23T05:46:34.722Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-08-19",
+      "match": "Red Bull New York vs Nashville SC",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6406,
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-10-23T05:46:34.722Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-08-19",
+      "match": "Toronto FC vs Charlotte FC",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6986,
+      "status": "WON",
+      "finalScore": "3-3",
+      "verifiedAt": "2026-10-23T05:46:34.722Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-08-19",
+      "match": "FC Cincinnati vs New York City FC",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.8257,
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-10-23T05:46:34.721Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-08-17",
+      "match": "Cardiff City vs Wrexham",
+      "league": "Championship",
+      "market": "btts",
+      "tier": "STANDARD",
+      "proba": 0.5625,
+      "status": "WON",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-10-23T05:46:48.658Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-08-17",
+      "match": "Casa Pia vs Benfica",
+      "league": "Liga Portugal",
+      "market": "btts",
+      "tier": "STANDARD",
+      "proba": 0.5698,
+      "status": "LOST",
+      "finalScore": "0-7",
+      "verifiedAt": "2026-10-23T05:46:48.658Z",
       "source": "ESPN public",
       "prediction": "Oui"
     }
