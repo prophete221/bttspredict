@@ -3,6 +3,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { createHash } from 'node:crypto'
 import { fileURLToPath } from 'node:url'
+import { assessPickRisk } from '../workers/vip-api/src/vip-risk.js'
 
 export const GEMINI_MODEL = 'gemini-3.5-flash-lite'
 export const DAKAR_TIMEZONE = 'Africa/Dakar'
@@ -12,7 +13,7 @@ export const MIN_VIP_PROBABILITY = 0.70
 export const MIN_TEAM_MATCHES = 6
 export const MIN_FORM_MATCHES = 5
 
-const ACCEPTED_MATCH_STATUSES = new Set(['PENDING', 'SCHEDULED', 'NOT_STARTED', 'UPCOMING'])
+const ACCEPTED_MATCH_STATUSES = new Set(['PENDING', 'SCHEDULED', 'NOT_STARTED', 'UPCOMING', 'STATUS_SCHEDULED', 'STATUS_PRE_GAME', 'STATUS_DELAYED', 'STATUS_NOT_STARTED'])
 const CANDIDATE_STORE_VERSION = 1
 
 function normalizeText(value) {
@@ -39,11 +40,68 @@ function normalizeSelection(value) {
   return null
 }
 
-function rowsFromPayload(payload) {
-  if (Array.isArray(payload?.vipCandidates)) return payload.vipCandidates
-  if (Array.isArray(payload?.free)) return payload.free
-  if (Array.isArray(payload?.predictions)) return payload.predictions
-  return []
+function rowsFromPayload(payload, { privateRows = false } = {}) {
+  if (privateRows && Array.isArray(payload?.vipCandidates)) {
+    const rows = []
+    for (const row of payload.vipCandidates) {
+      if (!row || typeof row !== 'object' || Array.isArray(row)) continue
+      const id = String(row.fixtureId ?? row.id ?? '').trim()
+      const market = normalizeMarket(row.ai_market ?? row.type ?? row.market) ?? ''
+      const selection = normalizeSelection(row.prediction) ?? ''
+      const key = [id || [row.date, row.time, row.league, row.home, row.away].join('|'), row.id ?? '', market, selection, row.proba ?? '', row.confidence ?? '', row.ai_confidence ?? '', row.dataQuality ?? '', row.matchCountHome ?? '', row.matchCountAway ?? '', JSON.stringify(row.formHome ?? null), JSON.stringify(row.formAway ?? null), row.empiricalBttsRate ?? '', row.empiricalOver25Rate ?? ''].join('|')
+      const previousIndex = rows.findIndex(old => old.__privateIdentity === key)
+      if (previousIndex < 0) {
+        rows.push({ ...row, __privateIdentity: key })
+        continue
+      }
+      rows[previousIndex] = mergeDuplicateRows(rows[previousIndex], row)
+    }
+    return rows.map(({ __privateIdentity, ...row }) => row)
+  }
+  const rows = []
+  const origins = []
+  for (const field of ['free', 'freeUpcoming', 'upcoming', 'predictions']) {
+    if (!Array.isArray(payload?.[field])) continue
+    for (const row of payload[field]) {
+      if (!row || typeof row !== 'object' || Array.isArray(row)) continue
+      const id = String(row.fixtureId ?? row.id ?? '').trim()
+      const fixture = ['date', 'time', 'league', 'home', 'away'].map(key => String(row[key] ?? '').trim().toLowerCase()).join('|')
+      const index = rows.findIndex((old, i) => {
+        if (origins[i] === field) return false
+        const oldId = String(old.fixtureId ?? old.id ?? '').trim()
+        if (id && oldId) {
+          if (id !== oldId) return false
+          const oldMarket = normalizeMarket(old.ai_market ?? old.type ?? old.market)
+          const newMarket = normalizeMarket(row.ai_market ?? row.type ?? row.market)
+          const oldSelection = normalizeSelection(old.prediction)
+          const newSelection = normalizeSelection(row.prediction)
+          if (oldMarket && newMarket && oldSelection && newSelection && (oldMarket !== newMarket || oldSelection !== newSelection)) return false
+          if ((old.id ?? '') !== (row.id ?? '') || (old.proba ?? '') !== (row.proba ?? '') || (old.confidence ?? '') !== (row.confidence ?? '') || (old.ai_confidence ?? '') !== (row.ai_confidence ?? '') || (old.dataQuality ?? '') !== (row.dataQuality ?? '') || (old.matchCountHome ?? '') !== (row.matchCountHome ?? '') || (old.matchCountAway ?? '') !== (row.matchCountAway ?? '') || JSON.stringify(old.formHome ?? null) !== JSON.stringify(row.formHome ?? null) || JSON.stringify(old.formAway ?? null) !== JSON.stringify(row.formAway ?? null) || (old.empiricalBttsRate ?? '') !== (row.empiricalBttsRate ?? '') || (old.empiricalOver25Rate ?? '') !== (row.empiricalOver25Rate ?? '')) return false
+          return true
+        }
+        return !id && !oldId && fixture === ['date', 'time', 'league', 'home', 'away'].map(key => String(old[key] ?? '').trim().toLowerCase()).join('|')
+      })
+      if (index < 0) { rows.push({ ...row }); origins.push(field); continue }
+      rows[index] = mergeDuplicateRows(rows[index], row)
+    }
+  }
+  return rows
+}
+
+function mergeDuplicateRows(previous, row) {
+  const merged = { ...previous, ...row }
+  if (previous.date && previous.time && row.date && row.time && (previous.date !== row.date || previous.time !== row.time)) merged.kickoffConflict = true
+  if (previous.kickoffConflict || row.kickoffConflict) merged.kickoffConflict = true
+  for (const field of ['status', 'matchState', 'sourceStatus']) {
+    const oldValue = String(previous[field] ?? '').trim()
+    const newValue = String(row[field] ?? '').trim()
+    if (oldValue && newValue && oldValue.toLowerCase() !== newValue.toLowerCase()) merged[field] = 'CONFLICT'
+    else if (oldValue && !newValue) merged[field] = previous[field]
+    else if (!oldValue && newValue) merged[field] = row[field]
+    else if (oldValue && newValue) merged[field] = previous[field]
+    else delete merged[field]
+  }
+  return merged
 }
 
 function dakarDate(date) {
@@ -209,16 +267,37 @@ function checkedCandidate(row, analyzedAt, now) {
     !Number.isInteger(row.formAway?.count) || row.formAway.count < MIN_FORM_MATCHES
   ) return { reason: 'incomplete_sample' }
 
-  const status = String(row.status ?? '').trim().toUpperCase()
-  if (!ACCEPTED_MATCH_STATUSES.has(status)) return { reason: status === 'POSTPONED' ? 'postponed' : 'match_state_unknown_or_started' }
-  const kickoff = parseKickoff(row.date, row.time)
-  if (!kickoff) return { reason: 'invalid_kickoff' }
+  const displayedKickoff = parseKickoff(row.date, row.time)
+  if (row.kickoffConflict) return { reason: 'kickoff_conflict' }
+  if (!displayedKickoff) return { reason: 'invalid_kickoff' }
+  let kickoff = displayedKickoff
+  if (row.sourceKickoffAt !== undefined) {
+    const sourceKickoff = typeof row.sourceKickoffAt === 'string' ? Date.parse(row.sourceKickoffAt) : NaN
+    if (!Number.isFinite(sourceKickoff) || new Date(sourceKickoff).toISOString() !== row.sourceKickoffAt
+      || new Date(sourceKickoff).toISOString().slice(0, 16) !== displayedKickoff.toISOString().slice(0, 16)) {
+      return { reason: 'source_kickoff_mismatch' }
+    }
+    kickoff = new Date(sourceKickoff)
+  }
+  const statusAliases = {
+    STATUS_SCHEDULED: 'PENDING', STATUS_PRE_GAME: 'PENDING', STATUS_DELAYED: 'PENDING',
+    STATUS_NOT_STARTED: 'PENDING', PENDING: 'PENDING', SCHEDULED: 'PENDING',
+    NOT_STARTED: 'PENDING', UPCOMING: 'PENDING',
+  }
+  const explicitStates = ['status', 'matchState', 'sourceStatus']
+    .map(field => String(row[field] ?? '').trim().toUpperCase())
+    .filter(Boolean)
+  const normalizedStates = explicitStates.map(value => statusAliases[value] ?? null)
+  if (explicitStates.some(value => ['POSTPONED', 'STATUS_POSTPONED'].includes(value))) return { reason: 'postponed' }
+  if (normalizedStates.some(value => value === null) || normalizedStates.some(value => value !== normalizedStates[0])) {
+    return { reason: 'match_state_unknown_or_started' }
+  }
+  const status = normalizedStates[0] ?? (kickoff.getTime() > now.getTime() ? 'PENDING' : '')
+  if (!ACCEPTED_MATCH_STATUSES.has(status)) return { reason: 'match_state_unknown_or_started' }
   if (kickoff.getTime() <= now.getTime()) return { reason: 'kickoff_reached' }
-
   const key = stableCandidateKey(row)
   if (!key) return { reason: 'unidentifiable_candidate' }
-  return {
-    candidate: {
+  const candidate = {
       candidateKey: key,
       matchId: row.id,
       home: row.home.trim(),
@@ -226,8 +305,11 @@ function checkedCandidate(row, analyzedAt, now) {
       league: row.league.trim(),
       date: row.date,
       time: row.time,
-      matchState: status,
+      matchState: 'PENDING',
+      ...(typeof row.status === 'string' ? { sourceMatchStatus: row.status } : {}),
+      ...(typeof row.sourceStatus === 'string' ? { sourceStatus: row.sourceStatus } : {}),
       kickoffAt: kickoff.toISOString(),
+      ...Object.fromEntries(['fixtureId', 'leagueSlug', 'homeTeamId', 'awayTeamId', 'sourceKickoffAt'].filter(field => typeof row[field] === 'string').map(field => [field, row[field]])),
       market,
       freeMarket,
       freeSelection,
@@ -235,6 +317,8 @@ function checkedCandidate(row, analyzedAt, now) {
       probability,
       confidence: expectedConfidence,
       aiConfidence: row.ai_confidence,
+      qualityTier: 'vip',
+      probabilitySource: 'gemini-estimate',
       dataQuality: row.dataQuality,
       dataSource: row.dataSource,
       matchCountHome: row.matchCountHome,
@@ -249,8 +333,118 @@ function checkedCandidate(row, analyzedAt, now) {
       empiricalSelectionRate,
       analyzedAt,
       status: 'pending_owner_approval',
-    },
+    }
+  const risk = assessPickRisk(candidate, now.getTime())
+  if (!risk) return { reason: 'risk_evidence_missing' }
+  candidate.riskLevel = risk.level
+  candidate.riskReasons = risk.reasons
+  candidate.riskPolicy = risk.policy
+  return {
+    candidate,
   }
+}
+
+function checkPrivateFixtureFreshness(payload, now) {
+  const rootDate = String(payload?.date ?? '')
+  const analyzedMs = typeof payload?.lastUpdated === 'string' ? Date.parse(payload.lastUpdated) : NaN
+  const sourceMs = typeof payload?.sourceLastUpdated === 'string' ? Date.parse(payload.sourceLastUpdated) : NaN
+  if (payload?.privateFixturesComplete !== true || !Array.isArray(payload?.privateFixtures)
+    || !/^\d{4}-\d{2}-\d{2}$/.test(rootDate) || rootDate !== dakarDate(now)
+    || !Number.isFinite(analyzedMs) || !Number.isFinite(sourceMs)) return { ok: false, reason: 'private_fixture_source_incomplete' }
+  for (const timestamp of [analyzedMs, sourceMs]) {
+    const age = now.getTime() - timestamp
+    if (age < -5 * 60 * 1000) return { ok: false, reason: 'private_fixture_timestamp_in_future' }
+    if (age > MAX_ANALYSIS_AGE_MS) return { ok: false, reason: 'private_fixture_source_stale' }
+  }
+  return { ok: true, analyzedAt: new Date(analyzedMs).toISOString(), sourceUpdatedAt: new Date(sourceMs).toISOString() }
+}
+
+function checkedFallbackCandidate(row, analyzedAt, now) {
+  if (!row || typeof row !== 'object' || Array.isArray(row)) return { reason: 'invalid_fallback_fixture' }
+  if (row.kickoffConflict || row.dataQuality !== 'HIGH' || row.dataSource !== 'ESPN_TEAM_SCHEDULE'
+    || !Number.isInteger(row.matchCountHome) || row.matchCountHome < MIN_TEAM_MATCHES
+    || !Number.isInteger(row.matchCountAway) || row.matchCountAway < MIN_TEAM_MATCHES
+    || !Number.isInteger(row.formHome?.count) || row.formHome.count < MIN_FORM_MATCHES
+    || !Number.isInteger(row.formAway?.count) || row.formAway.count < MIN_FORM_MATCHES) {
+    return { reason: 'fallback_evidence_or_sample_insufficient' }
+  }
+  if (![row.id, row.home, row.away, row.league].every(value => typeof value === 'string' && value.trim())
+    || typeof row.date !== 'string' || typeof row.time !== 'string') return { reason: 'incomplete_fallback_fixture' }
+  if (!/^\d{1,20}$/.test(String(row.fixtureId ?? ''))
+    || !/^[a-z0-9]+(?:\.[a-z0-9]+){1,3}$/.test(String(row.leagueSlug ?? ''))
+    || !/^\d{1,20}$/.test(String(row.homeTeamId ?? '')) || !/^\d{1,20}$/.test(String(row.awayTeamId ?? ''))
+    || String(row.homeTeamId) === String(row.awayTeamId)) return { reason: 'fallback_fixture_identity_missing' }
+
+  const displayedKickoff = parseKickoff(row.date, row.time)
+  const sourceKickoff = typeof row.sourceKickoffAt === 'string' ? Date.parse(row.sourceKickoffAt) : NaN
+  if (!displayedKickoff || !Number.isFinite(sourceKickoff) || new Date(sourceKickoff).toISOString() !== row.sourceKickoffAt
+    || sourceKickoff !== displayedKickoff.getTime() || sourceKickoff <= now.getTime()) return { reason: 'fallback_kickoff_invalid' }
+  const statusAliases = {
+    STATUS_SCHEDULED: 'PENDING', STATUS_PRE_GAME: 'PENDING', STATUS_DELAYED: 'PENDING',
+    STATUS_NOT_STARTED: 'PENDING', PENDING: 'PENDING', SCHEDULED: 'PENDING', NOT_STARTED: 'PENDING', UPCOMING: 'PENDING',
+  }
+  const rawStates = ['status', 'matchState', 'sourceStatus'].map(field => String(row[field] ?? '').trim().toUpperCase()).filter(Boolean)
+  const states = rawStates.map(value => statusAliases[value] ?? null)
+  if (states.some(value => value !== 'PENDING') || states.some(value => value !== states[0])) return { reason: 'fallback_match_state_unknown_or_started' }
+
+  const markets = [
+    { market: 'BTTS', yesRate: row.empiricalBttsRate, formKey: 'bttsRate' },
+    { market: 'OVER_25', yesRate: row.empiricalOver25Rate, formKey: 'over25Rate' },
+  ]
+  const choices = []
+  for (const item of markets) {
+    const homeYes = row.formHome[item.formKey]
+    const awayYes = row.formAway[item.formKey]
+    if (![item.yesRate, homeYes, awayYes].every(rate => typeof rate === 'number' && Number.isFinite(rate) && rate >= 0 && rate <= 1)
+      || Math.abs(item.yesRate - (homeYes + awayYes) / 2) > 0.01 + 1e-9) continue
+    const selection = item.yesRate > 0.5 ? 'YES' : item.yesRate < 0.5 ? 'NO' : null
+    if (!selection) continue
+    const multiplier = selection === 'YES' ? 1 : -1
+    const empiricalSelectionRate = selection === 'YES' ? item.yesRate : 1 - item.yesRate
+    const homeSelectionRate = selection === 'YES' ? homeYes : 1 - homeYes
+    const awaySelectionRate = selection === 'YES' ? awayYes : 1 - awayYes
+    if (empiricalSelectionRate <= 0.5) continue
+    const keyRow = { ...row, market: item.market, type: item.market, prediction: selection === 'YES' ? 'Oui' : 'Non' }
+    const candidateKey = stableCandidateKey(keyRow)
+    if (!candidateKey) continue
+    const marketLabel = item.market === 'BTTS' ? 'BTTS' : 'Over 2,5'
+    const candidate = {
+      candidateKey,
+      matchId: row.id.trim(), home: row.home.trim(), away: row.away.trim(), league: row.league.trim(),
+      date: row.date, time: row.time, matchState: 'PENDING',
+      ...(typeof row.status === 'string' ? { sourceMatchStatus: row.status } : {}),
+      ...(typeof row.sourceStatus === 'string' ? { sourceStatus: row.sourceStatus } : {}),
+      kickoffAt: new Date(sourceKickoff).toISOString(), fixtureId: String(row.fixtureId), leagueSlug: row.leagueSlug,
+      homeTeamId: String(row.homeTeamId), awayTeamId: String(row.awayTeamId), sourceKickoffAt: new Date(sourceKickoff).toISOString(),
+      market: item.market, freeMarket: null, freeSelection: null, selection,
+      probability: empiricalSelectionRate, confidence: null, aiConfidence: 'not_applicable',
+      qualityTier: 'fallback', probabilitySource: 'recent-form-empirical',
+      dataQuality: row.dataQuality, dataSource: row.dataSource,
+      matchCountHome: row.matchCountHome, matchCountAway: row.matchCountAway,
+      formCountHome: row.formHome.count, formCountAway: row.formAway.count,
+      sourceModel: 'empirical-team-form', homeSelectionRate, awaySelectionRate, empiricalSelectionRate,
+      reasons: [
+        `Taux empirique récent ${marketLabel} ${selection === 'YES' ? 'Oui' : 'Non'} : ${Math.round(empiricalSelectionRate * 100)} %.`,
+        `Forme observée : domicile ${Math.round(homeSelectionRate * 100)} %, extérieur ${Math.round(awaySelectionRate * 100)} %.`,
+      ],
+      risks: ['Sélection de repli, sous le seuil VIP renforcé.', `Échantillons récents : ${row.formHome.count}/${row.formAway.count} matchs. `],
+      analyzedAt, status: 'pending_owner_approval',
+    }
+    const risk = assessPickRisk(candidate, now.getTime())
+    if (!risk) continue
+    candidate.riskLevel = risk.level
+    candidate.riskReasons = risk.reasons
+    candidate.riskPolicy = risk.policy
+    choices.push(candidate)
+  }
+  if (!choices.length) return { reason: 'fallback_probability_or_risk_evidence_missing' }
+  return { candidates: choices }
+}
+
+function fallbackStrength(candidate) {
+  return [Math.min(candidate.probability, candidate.homeSelectionRate, candidate.awaySelectionRate),
+    candidate.probability, Math.min(candidate.matchCountHome, candidate.matchCountAway),
+    Math.min(candidate.formCountHome, candidate.formCountAway), -Math.abs(candidate.homeSelectionRate - candidate.awaySelectionRate)]
 }
 
 /**
@@ -260,29 +454,42 @@ function checkedCandidate(row, analyzedAt, now) {
 export function buildVipCandidates({ analysisPayload, freePayload = analysisPayload, now = new Date() }) {
   if (!(now instanceof Date) || !Number.isFinite(now.getTime())) throw new TypeError('now must be a valid Date')
   const freshness = checkFreshness(analysisPayload, now)
-  const sourceRows = rowsFromPayload(analysisPayload)
-  const freeRows = rowsFromPayload(freePayload)
+  const fallbackFreshness = checkPrivateFixtureFreshness(analysisPayload, now)
+  const sourceRows = freshness.ok ? rowsFromPayload(analysisPayload, { privateRows: true }) : []
+  const privateFixtureRows = fallbackFreshness.ok ? analysisPayload.privateFixtures : []
+  const freeRows = rowsFromPayload(freePayload, { privateRows: false })
+  const currentFreshness = freshness.ok ? freshness : fallbackFreshness.ok ? fallbackFreshness : freshness
   const audit = {
-    inputRows: sourceRows.length,
+    inputRows: sourceRows.length + privateFixtureRows.length,
     verifiedGeminiRows: 0,
     eligibleBeforeFreeExclusion: 0,
     excludedAlreadyFree: 0,
     excludedDuplicateKey: 0,
+    fallbackRowsEvaluated: 0,
+    fallbackRejected: {},
     rejected: {},
-    ownerOutcome: freshness.ok ? 'evaluating' : 'source_incomplete',
-    ownerMessage: freshness.ok ? null : 'Analyse incomplète ou source non fraîche; aucun pick n’est déclaré.',
-    payloadFresh: freshness.ok,
-    evaluationComplete: freshness.ok,
-    analyzedAt: freshness.analyzedAt ?? null,
-    sourceUpdatedAt: freshness.sourceUpdatedAt ?? null,
-    freshnessReason: freshness.reason ?? null,
+    ownerOutcome: currentFreshness.ok ? 'evaluating' : 'source_incomplete',
+    ownerMessage: currentFreshness.ok ? null : 'Analyse ou fixtures privées incomplètes/non fraîches; aucune probabilité ne sera inventée.',
+    payloadFresh: currentFreshness.ok,
+    evaluationComplete: currentFreshness.ok,
+    analyzedAt: currentFreshness.analyzedAt ?? null,
+    sourceUpdatedAt: currentFreshness.sourceUpdatedAt ?? null,
+    freshnessReason: currentFreshness.reason ?? null,
   }
-  if (!freshness.ok) {
-    audit.rejected[freshness.reason] = sourceRows.length
+  if (!currentFreshness.ok) {
+    audit.rejected[freshness.reason || fallbackFreshness.reason || 'source_incomplete'] = audit.inputRows
     return { candidates: [], audit }
   }
 
-  const freeKeys = new Set(freeRows.map(stableCandidateKey).filter(Boolean))
+  const freeKeys = new Set()
+  for (const row of freeRows) {
+    const key = stableCandidateKey(row)
+    if (key) freeKeys.add(key)
+    for (const pick of Array.isArray(row.predictions) ? row.predictions : []) {
+      const nestedKey = stableCandidateKey({ ...row, ...pick })
+      if (nestedKey) freeKeys.add(nestedKey)
+    }
+  }
   const seen = new Set()
   const candidates = []
   for (const row of sourceRows) {
@@ -307,21 +514,54 @@ export function buildVipCandidates({ analysisPayload, freePayload = analysisPayl
     candidates.push(result.candidate)
   }
 
-  candidates.sort((a, b) => Number(a.market === a.freeMarket) - Number(b.market === b.freeMarket)
-    || b.probability - a.probability || a.candidateKey.localeCompare(b.candidateKey))
-  audit.ownerOutcome = candidates.length ? 'awaiting_owner_approval' : 'no_eligible_picks_today'
+  if (!candidates.length && fallbackFreshness.ok) {
+    const fallbackCandidates = []
+    for (const row of privateFixtureRows) {
+      audit.fallbackRowsEvaluated += 1
+      const result = checkedFallbackCandidate(row, fallbackFreshness.analyzedAt, now)
+      if (!result.candidates) {
+        audit.fallbackRejected[result.reason] = (audit.fallbackRejected[result.reason] ?? 0) + 1
+        continue
+      }
+      for (const candidate of result.candidates) {
+        if (freeKeys.has(candidate.candidateKey)) {
+          audit.excludedAlreadyFree += 1
+          continue
+        }
+        if (seen.has(candidate.candidateKey)) continue
+        seen.add(candidate.candidateKey)
+        fallbackCandidates.push(candidate)
+      }
+    }
+    fallbackCandidates.sort((a, b) => {
+      const left = fallbackStrength(a), right = fallbackStrength(b)
+      for (let index = 0; index < left.length; index++) if (right[index] !== left[index]) return right[index] - left[index]
+      return a.candidateKey.localeCompare(b.candidateKey)
+    })
+    if (fallbackCandidates.length) candidates.push(fallbackCandidates[0])
+  }
+
+  candidates.sort((a, b) => Number(a.qualityTier === 'fallback') - Number(b.qualityTier === 'fallback')
+    || Math.min(b.probability, b.homeSelectionRate, b.awaySelectionRate) - Math.min(a.probability, a.homeSelectionRate, a.awaySelectionRate)
+    || b.probability - a.probability
+    || a.candidateKey.localeCompare(b.candidateKey))
+  const fallbackOnly = candidates[0]?.qualityTier === 'fallback'
+  audit.ownerOutcome = candidates.length ? fallbackOnly ? 'fallback_ready_for_automatic_publication' : 'ready_for_automatic_publication' : 'no_supported_pick'
   audit.ownerMessage = candidates.length
-    ? `${candidates.length} candidat(s) VIP en attente d’approbation du propriétaire.`
-    : 'Aucun pick VIP éligible aujourd’hui; aucun message n’a été envoyé.'
+    ? fallbackOnly
+      ? 'Aucun pick n’a atteint le seuil VIP renforcé; le meilleur taux empirique étayé est proposé comme sélection de repli, avec niveau de risque explicite.'
+      : `${candidates.length} candidat(s) au seuil VIP renforcé, prêts pour les vérifications de publication.`
+    : 'Aucun pick ne possède les éléments nécessaires à une probabilité et à un niveau de risque fiables; rien n’est publié.'
   return { candidates, audit }
 }
 
 const MATERIAL_CANDIDATE_FIELDS = Object.freeze([
-  'matchId', 'home', 'away', 'league', 'date', 'time', 'matchState', 'kickoffAt',
-  'market', 'freeMarket', 'freeSelection', 'selection', 'probability', 'confidence', 'aiConfidence',
+  'matchId', 'home', 'away', 'league', 'date', 'time', 'matchState', 'sourceMatchStatus', 'sourceStatus', 'kickoffAt',
+  'fixtureId', 'leagueSlug', 'homeTeamId', 'awayTeamId', 'sourceKickoffAt',
+  'market', 'freeMarket', 'freeSelection', 'selection', 'probability', 'confidence', 'aiConfidence', 'qualityTier', 'probabilitySource',
   'dataQuality', 'dataSource', 'matchCountHome', 'matchCountAway', 'formCountHome',
   'formCountAway', 'sourceModel', 'homeSelectionRate', 'awaySelectionRate',
-  'reasons', 'risks', 'empiricalSelectionRate',
+  'reasons', 'risks', 'empiricalSelectionRate', 'riskLevel', 'riskReasons', 'riskPolicy',
 ])
 
 function sameMaterialCandidate(previous, current) {
@@ -422,8 +662,11 @@ export function selectApprovedCandidatesForWindow(store, now = new Date()) {
       const key = candidate?.candidateKey
       if (typeof key !== 'string' || !/^[a-f0-9]{64}$/.test(key) || seen.has(key)) return false
       if (candidate?.status !== 'approved' || candidate.publishedAt) return false
-      if (!ACCEPTED_MATCH_STATUSES.has(String(candidate.matchState ?? '').trim().toUpperCase())) return false
+      const rawStates = [candidate.matchState, candidate.sourceMatchStatus, candidate.sourceStatus]
+        .map(value => String(value ?? '').trim().toUpperCase()).filter(Boolean)
+      if (rawStates.some(value => !ACCEPTED_MATCH_STATUSES.has(value))) return false
       const kickoff = Date.parse(candidate.kickoffAt)
+      if (!rawStates.length && (!Number.isFinite(kickoff) || kickoff <= now.getTime())) return false
       const analyzedAt = Date.parse(candidate.analyzedAt)
       const approvedAt = Date.parse(candidate.approvedAt)
       const analysisAge = now.getTime() - analyzedAt

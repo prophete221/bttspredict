@@ -1971,7 +1971,7 @@
 }
 
 
-/* Parcours VIP visible en sept étapes, avec quatre guides partenaires. */
+/* Parcours VIP visible en quatre étapes, avec quatre guides partenaires. */
 .vipx-flow__steps--full { align-items: stretch; }
 .vipx-flow__steps--full > .vipx-flow__step { min-width: 0; height: 100%; }
 @media (min-width: 680px) and (max-width: 999px) {

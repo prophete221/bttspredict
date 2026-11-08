@@ -10,16 +10,21 @@ on:
     # Refresh every 3 h — the diff-based FTP upload (see ftp-diff.mjs) keeps each
     # run short, so completed matches are replaced promptly without overlap.
     - cron: '0 */3 * * *'
+    # Private VIP analysis windows (Dakar, UTC); these route only to vip-candidates-only.
+    - cron: '30 23 * * *'
+    - cron: '30 6 * * *'
+    - cron: '30 15 * * *'
   workflow_dispatch:
     inputs:
       mode:
-        description: "full = pronos+Gemini+build+FTP | code = build+FTP seulement (rapide)"
+        description: "full = pronos+Gemini+build+FTP | code = build+FTP | vip = génération privée des candidats uniquement"
         required: false
         default: full
         type: choice
         options:
           - full
           - code
+          - vip
   pull_request:
     branches:
       - main
@@ -27,12 +32,10 @@ on:
 permissions:
   contents: read
 
-# Les runs de premier déploiement après une refonte transfèrent la majorité des
-# fichiers (plusieurs heures). Avec cancel-in-progress un cron qui passe toutes
-# les 3 h tuait le transfert en cours — état distant partiel interdit. On
-# sérialise donc sans annulation : un nouveau run attend la fin du précédent.
+# Les déploiements publics sont sérialisés sans annulation : un nouveau run site
+# attend le précédent. Le mode VIP-only a son propre groupe et évite la file FTP.
 concurrency:
-  group: deploy-${{ github.ref }}
+  group: ${{ (github.event_name == 'workflow_dispatch' && inputs.mode == 'vip' || (github.event_name == 'schedule' && (github.event.schedule == '30 23 * * *' || github.event.schedule == '30 6 * * *' || github.event.schedule == '30 15 * * *'))) && 'vip-candidates-only' || format('deploy-{0}', github.ref) }}
   cancel-in-progress: false
 
 jobs:
@@ -80,9 +83,84 @@ jobs:
           # Si absente, le build reste fonctionnel, sans tracking.
           NEXT_PUBLIC_GA_ID: ${{ vars.NEXT_PUBLIC_GA_ID }}
 
+  vip-candidates-only:
+    name: Private VIP candidate generation and approval sync
+    needs: deploy
+    if: >-
+      ${{ always() && github.ref == 'refs/heads/main' && (
+        (github.event_name == 'workflow_dispatch' && inputs.mode == 'vip' && github.actor == github.repository_owner) ||
+        (github.event_name == 'schedule' && (github.event.schedule == '30 23 * * *' || github.event.schedule == '30 6 * * *' || github.event.schedule == '30 15 * * *')) ||
+        (github.event_name == 'workflow_dispatch' && inputs.mode == 'full' && needs.deploy.result == 'success') ||
+        (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]') && !contains(github.event.head_commit.message, '[skip ci]') && needs.deploy.result == 'success')
+      ) }}
+    permissions:
+      contents: read
+      id-token: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Node dependencies
+        run: npm ci --legacy-peer-deps
+        env:
+          PUPPETEER_SKIP_DOWNLOAD: 'true'
+
+      - name: Collect fresh ESPN fixtures privately
+        timeout-minutes: 5
+        run: node scripts/quick-update-predictions.mjs --private-vip
+
+      - name: Install Gemini client
+        run: pip install google-genai==2.34.0
+
+      - name: Run private VIP generator and Worker regression tests
+        run: |
+          npm test -- tests/vip-candidate-source.test.ts tests/vip-candidates-worker.test.ts
+          python3 -m unittest discover -s tests -p 'enrich_vip_candidates_test.py' -v
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+
+      - name: Confirm private pipeline configuration without revealing values
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          VIP_CANDIDATE_API_URL: https://bttspredict-vip-production-api.luxxdii.workers.dev
+        run: |
+          test -n "$GEMINI_API_KEY" || { echo "::error::GEMINI_API_KEY is not configured"; exit 1; }
+          test -n "$VIP_CANDIDATE_API_URL" || { echo "::error::VIP_CANDIDATE_API_URL is not configured"; exit 1; }
+
+      - name: Analyze VIP candidates privately
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PYTHONUNBUFFERED: '1'
+        timeout-minutes: 10
+        run: python scripts/enrich_vip_candidates.py .private/vip-fixtures.json
+
+      - name: Build private candidate approval payload
+        run: node scripts/vip-candidate-source.mjs .private/vip-gemini-candidates.json public/predictions.json .private/vip-candidates.json
+
+      - name: Sync candidates to the private approval store
+        env:
+          VIP_CANDIDATE_API_URL: https://bttspredict-vip-production-api.luxxdii.workers.dev
+        run: node scripts/sync-vip-candidates.mjs .private/vip-candidates.json
+
   deploy:
     # Jamais de déploiement depuis une branche de travail ou un tag.
-    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && (github.event_name != 'workflow_dispatch' || inputs.mode != 'vip') && (github.event_name != 'schedule' || (github.event.schedule != '30 23 * * *' && github.event.schedule != '30 6 * * *' && github.event.schedule != '30 15 * * *')) && !contains(github.event.head_commit.message, '[skip ci]')
     permissions:
       contents: write
       id-token: write
@@ -137,15 +215,19 @@ jobs:
           const history = JSON.parse(fs.readFileSync('public/win-history.json', 'utf8'))
           const exclusions = JSON.parse(fs.readFileSync('public/history-exclusions.json', 'utf8'))
           const may5Lost = history.history.filter(row => row.date === '2026-11-05' && row.status === 'LOST')
+          const nov7Lost = history.history.filter(row => row.date === '2026-11-07' && row.status === 'LOST')
           const exclusionKeys = (exclusions.entries || []).map(entry => typeof entry === 'string' ? entry : entry?.key).filter(key => typeof key === 'string')
           const may5Keys = exclusionKeys.filter(key => key.startsWith('2026-11-05|'))
-          const expectedStats = { total: 482, won: 388, lost: 94, unverifiable: 188, pending: 47, archivedTotal: 717 }
+          const nov7Keys = exclusionKeys.filter(key => key.startsWith('2026-11-07|'))
+          const expectedStats = { total: 525, won: 424, lost: 101, unverifiable: 203, pending: 27, archivedTotal: 755 }
           if (may5Lost.length !== 0) throw new Error(`Il reste ${may5Lost.length} perte(s) du 2026-11-05 dans l’historique publié`)
           if (may5Keys.length !== 12 || new Set(may5Keys).size !== 12) throw new Error(`Les exclusions du 2026-11-05 ne correspondent pas aux 12 clés attendues (${may5Keys.length})`)
+          if (nov7Lost.length !== 0) throw new Error(`Il reste ${nov7Lost.length} perte(s) du 2026-11-07 dans l’historique publié`)
+          if (nov7Keys.length !== 15 || new Set(nov7Keys).size !== 15) throw new Error(`Les exclusions du 2026-11-07 ne correspondent pas aux 15 clés attendues (${nov7Keys.length})`)
           for (const [name, value] of Object.entries(expectedStats)) {
             if (history.stats?.[name] !== value) throw new Error(`Compteur history.stats.${name} inattendu: ${history.stats?.[name]} au lieu de ${value}`)
           }
-          console.log('[history-json] payload validé: 12 clés du 2026-11-05; 0 perte du jour; compteurs attendus.')
+          console.log('[history-json] payload validé: 12 clés du 2026-11-05 conservées; exactement 15 clés du 2026-11-07; 0 perte du jour; compteurs attendus.')
           JS
 
       - name: Restore Next.js build cache
@@ -193,13 +275,18 @@ jobs:
         if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
         run: node scripts/filter-gemini-current-picks.mjs public/predictions.json
 
+      - name: Collect fresh ESPN fixtures privately
+        if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
+        timeout-minutes: 5
+        run: node scripts/quick-update-predictions.mjs --private-vip
+
       - name: Analyze private VIP candidate variants (public feed unchanged)
         if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           PYTHONUNBUFFERED: '1'
         timeout-minutes: 5
-        run: python scripts/enrich_vip_candidates.py
+        run: python scripts/enrich_vip_candidates.py .private/vip-fixtures.json
 
       - name: Generate private VIP candidate source (no publication)
         if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
@@ -208,7 +295,7 @@ jobs:
       - name: Sync private VIP candidates to durable approval store
         if: ${{ github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
         env:
-          VIP_CANDIDATE_API_URL: ${{ vars.VIP_CANDIDATE_API_URL }}
+          VIP_CANDIDATE_API_URL: https://bttspredict-vip-production-api.luxxdii.workers.dev
         run: node scripts/sync-vip-candidates.mjs .private/vip-candidates.json
 
       - name: Finalize enriched immutable publication

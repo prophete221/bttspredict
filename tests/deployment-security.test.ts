@@ -49,7 +49,7 @@ describe('deployment safety gates', () => {
     }
     expect(deploy).toContain("github.ref == 'refs/heads/main'")
     expect(deploy).toContain("github.event_name != 'pull_request'")
-    expect(deploy.split("github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')").length - 1).toBe(16)
+    expect(deploy.split("github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')").length - 1).toBe(17)
     expect(deploy).not.toContain("github.event_name == 'schedule' || github.event_name == 'push' ||")
     expect(workflow).toContain("paths-ignore:\n      - 'public/**'")
     expect(workflow).toContain('cancel-in-progress: false')
@@ -215,6 +215,10 @@ describe('deployment safety gates', () => {
     expect(deploy).toContain('Validate targeted history payload')
     expect(deploy).toContain('history.stats?.[name] !== value')
     expect(deploy).toContain('may5Keys.length !== 12')
+    expect(deploy).toContain("key.startsWith('2026-11-07|')")
+    expect(deploy).toContain('nov7Lost.length !== 0')
+    expect(deploy).toContain('nov7Keys.length !== 15')
+    expect(deploy).toContain('total: 525, won: 424, lost: 101, unverifiable: 203, pending: 27, archivedTotal: 755')
     expect(deploy).toContain('Verify targeted history files in static export')
     expect(deploy).toContain('cmp public/win-history.json out/win-history.json')
     expect(deploy).toContain('cmp public/history-exclusions.json out/history-exclusions.json')
@@ -231,6 +235,39 @@ describe('deployment safety gates', () => {
     expect(markerGate).toBeLessThan(prune)
     expect(allowlist).toBeGreaterThan(0)
     expect(allowlist).toBeLessThan(ftp)
+  })
+
+  it('keeps manual VIP generation private and separate from public deployment', () => {
+    const vipJob = workflow.split('\n  vip-candidates-only:')[1]?.split('\n  deploy:')[0] ?? ''
+    expect(workflow).toContain('          - vip')
+    expect(workflow).toContain("group: ${{ (github.event_name == 'workflow_dispatch' && inputs.mode == 'vip' || (github.event_name == 'schedule' && (github.event.schedule == '30 23 * * *' || github.event.schedule == '30 6 * * *' || github.event.schedule == '30 15 * * *'))) && 'vip-candidates-only' || format('deploy-{0}', github.ref) }}")
+    expect(workflow).toContain("cron: '30 23 * * *'")
+    expect(workflow).toContain("cron: '30 6 * * *'")
+    expect(workflow).toContain("cron: '30 15 * * *'")
+    expect(workflow).toContain("inputs.mode != 'vip'")
+    expect(workflow).toContain("!contains(github.event.head_commit.message, '[skip ci]')")
+    expect(vipJob).toContain("github.event_name == 'workflow_dispatch' && inputs.mode == 'vip'")
+    expect(vipJob).toContain('needs: deploy')
+    expect(vipJob).toContain("github.event_name == 'workflow_dispatch' && inputs.mode == 'full' && needs.deploy.result == 'success'")
+    expect(vipJob).toContain("github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')")
+    expect(vipJob).toContain('github.actor == github.repository_owner')
+    expect(vipJob).toContain('id-token: write')
+    expect(vipJob).toContain('GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}')
+    expect(vipJob.match(/VIP_CANDIDATE_API_URL: https:\/\/bttspredict-vip-production-api\.luxxdii\.workers\.dev/g)).toHaveLength(2)
+    expect(vipJob).not.toContain('vars.VIP_CANDIDATE_API_URL')
+    expect(workflow.match(/VIP_CANDIDATE_API_URL: https:\/\/bttspredict-vip-production-api\.luxxdii\.workers\.dev/g)).toHaveLength(3)
+    expect(workflow).not.toContain('vars.VIP_CANDIDATE_API_URL')
+    for (const step of [
+      'node scripts/quick-update-predictions.mjs --private-vip',
+      'python scripts/enrich_vip_candidates.py',
+      'node scripts/vip-candidate-source.mjs .private/vip-gemini-candidates.json public/predictions.json .private/vip-candidates.json',
+      'node scripts/sync-vip-candidates.mjs .private/vip-candidates.json',
+      "python3 -m unittest discover -s tests -p 'enrich_vip_candidates_test.py' -v",
+    ]) expect(vipJob).toContain(step)
+    for (const forbidden of [
+      'lftp', 'FTP_SERVER', 'run: node scripts/quick-update-predictions.mjs\n', 'finalize-predictions.mjs',
+      'update-win-history.mjs', 'submit-indexnow.mjs', 'telegram', 'git push', 'npm run build',
+    ]) expect(vipJob).not.toContain(forbidden)
   })
 
   it('keeps the FTP diagnostic workflow read-only and the inventory utility write-free', () => {

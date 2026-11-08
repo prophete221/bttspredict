@@ -2,6 +2,7 @@ import importlib.util
 import json
 import unittest
 from pathlib import Path
+from datetime import date, datetime, timezone
 from types import SimpleNamespace
 from unittest.mock import patch
 
@@ -118,6 +119,92 @@ class VipEligibilityTests(unittest.TestCase):
         candidates, completed, expected = VIP.evaluate_matches([row], NeverCall())
         self.assertEqual(candidates, [])
         self.assertEqual((completed, expected), (1, 1))
+
+
+    def test_missing_status_is_allowed_only_for_strictly_future_valid_kickoff(self):
+        row = eligible_row()
+        row["status"] = None
+        self.assertTrue(VIP._timestamp_is_future(row))
+        self.assertIsNotNone(VIP._normalized_match_status(row))
+        row["date"] = "2000-01-01"
+        self.assertIsNone(VIP._normalized_match_status(row))
+        row["date"], row["time"] = "2099-02-30", "19:00"
+        self.assertIsNone(VIP._normalized_match_status(row))
+
+    def test_exact_source_kickoff_is_used_when_seconds_differ_from_display_time(self):
+        class FrozenDateTime(datetime):
+            @classmethod
+            def now(cls, tz=None):
+                return datetime(2099, 1, 1, 19, 0, 0, tzinfo=timezone.utc)
+        row = eligible_row()
+        row["status"] = None
+        row["sourceKickoffAt"] = "2099-01-01T19:00:00.001Z"
+        with patch.object(VIP, "datetime", FrozenDateTime):
+            self.assertTrue(VIP._timestamp_is_future(row))
+            row["sourceKickoffAt"] = "2099-01-01T19:00:00.000Z"
+            self.assertFalse(VIP._timestamp_is_future(row))
+            row["sourceKickoffAt"] = "2099-01-01T19:01:00.000Z"
+            self.assertFalse(VIP._timestamp_is_future(row))
+            row["sourceKickoffAt"] = "not-a-timestamp"
+            self.assertFalse(VIP._timestamp_is_future(row))
+
+    def test_clean_candidate_propagates_authoritative_espn_identity(self):
+        row = eligible_row()
+        row.update({"fixtureId": "401234567", "leagueSlug": "ita.1", "homeTeamId": "123",
+                    "awayTeamId": "456", "sourceKickoffAt": "2099-01-01T19:00:00.000Z",
+                    "sourceStatus": "STATUS_SCHEDULED", "matchState": "STATUS_SCHEDULED"})
+        result = VIP._candidate_row(row, {"market": "BTTS", "selection": "Yes", "probability": 0.74,
+                                         "confidence": "high", "primary_reasons": ["a", "b"], "risks": ["c"]})
+        self.assertEqual({key: result[key] for key in ("fixtureId", "leagueSlug", "homeTeamId", "awayTeamId", "sourceKickoffAt")}, {
+            "fixtureId": "401234567", "leagueSlug": "ita.1", "homeTeamId": "123", "awayTeamId": "456",
+            "sourceKickoffAt": "2099-01-01T19:00:00.000Z"})
+        self.assertEqual(result["matchState"], "STATUS_SCHEDULED")
+
+    def test_equal_and_past_kickoffs_are_not_future(self):
+        class FrozenDateTime(datetime):
+            @classmethod
+            def now(cls, tz=None):
+                return datetime(2099, 1, 1, 19, 0, tzinfo=timezone.utc)
+        row = eligible_row()
+        row["status"] = None
+        with patch.object(VIP, "datetime", FrozenDateTime):
+            self.assertFalse(VIP._timestamp_is_future(row))
+            row["time"] = "18:59"
+            self.assertFalse(VIP._timestamp_is_future(row))
+            row["time"] = "19:01"
+            self.assertTrue(VIP._timestamp_is_future(row))
+
+    def test_explicit_source_statuses_are_conjunctive_and_exclude_started_or_cancelled(self):
+        for field, value in (("matchState", "STATUS_IN_PROGRESS"), ("sourceStatus", "STATUS_CANCELED"),
+                             ("matchState", "POSTPONED"), ("sourceStatus", "FINISHED")):
+            with self.subTest(field=field, value=value):
+                row = eligible_row()
+                row[field] = value
+                self.assertEqual(VIP.eligible_markets(row), [])
+        row = eligible_row()
+        row["status"] = "SCHEDULED"
+        row["sourceStatus"] = "STATUS_IN_PROGRESS"
+        self.assertIsNone(VIP._normalized_match_status(row))
+
+    def test_multi_day_rows_are_distinct_and_duplicate_array_rows_keep_contradictions(self):
+        first = eligible_row()
+        second = dict(first, id="next-day", date="2099-01-02")
+        merged = VIP.collect_public_matches({"free": [first, second], "freeUpcoming": [dict(first, status=None)]})
+        self.assertEqual(len(merged), 2)
+        moved = dict(first, time="20:00", status="STATUS_IN_PROGRESS", matchState="STATUS_IN_PROGRESS")
+        conflict = VIP.collect_public_matches({"free": [first], "predictions": [dict(first, status=None)], "upcoming": [moved]})
+        self.assertEqual(len(conflict), 1)
+        self.assertEqual(conflict[0]["status"], "CONFLICT")
+        self.assertTrue(conflict[0]["kickoffConflict"])
+        self.assertEqual(VIP.eligible_markets(conflict[0]), [])
+
+    def test_private_input_rows_are_separate_from_public_rows_and_exact_score_is_always_null(self):
+        private = {"fixtures": [eligible_row()]}
+        self.assertEqual(len(VIP.collect_private_matches(private)), 1)
+        self.assertEqual(VIP.collect_private_matches({"fixtures": [], "free": [eligible_row()]}), [])
+        prompt = VIP.build_prompt([])
+        self.assertIn("Always return exact_score as null", prompt)
+        self.assertNotIn("unless the input explicitly", prompt)
 
 
 if __name__ == "__main__":

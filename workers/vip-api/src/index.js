@@ -1,4 +1,6 @@
 import { adminCandidateDecision, adminListCandidates, handleCandidateSync } from './vip-candidates.js'
+import { adminPublicationStatus, publishCandidatesAfterSync, publishVipWindow, reconcileUnconfirmedClaims } from './vip-publisher.js'
+import { publicationConfigured, VIP_PUBLICATION_TIMES } from './vip-publication-config.js'
 
 const encoder = new TextEncoder()
 const MAX_PROOF_BYTES = 1_400_000
@@ -239,6 +241,9 @@ async function health(env) {
     telegramInviteMode: 'manual-approval-private-status',
     telegramEnabled: false,
     inviteSent: false,
+    vipPublicationConfigured: publicationConfigured(env),
+    vipPublicationTimezone: 'Africa/Dakar',
+    vipPublicationTimes: VIP_PUBLICATION_TIMES,
   }
 }
 
@@ -599,7 +604,7 @@ async function adminLogout(session, env, headers) {
   return jsonResponse({ ok: true, loggedOut: Number(result.meta?.changes || 0) === 1 }, 200, headers)
 }
 
-async function route(request, env) {
+async function route(request, env, executionContext) {
   const headers = corsHeaders(request, env)
   const origin = request.headers.get('Origin')
   if (origin && origin !== env.UI_ORIGIN) return jsonResponse({ ok: false, error: 'origin_not_allowed' }, 403, headers)
@@ -614,7 +619,16 @@ async function route(request, env) {
     return jsonResponse(await health(env), 200, headers)
   }
   if (path === '/internal/vip-candidates/sync') {
-    return handleCandidateSync(request, env, headers)
+    const response = await handleCandidateSync(request, env, headers)
+    let result = null
+    try { result = await response.clone().json() } catch { /* malformed sync replies never trigger publication */ }
+    if (response.ok && result?.synced === true && result?.publicationMode === 'immediate' && result?.duplicate !== true
+      && Number(result.acceptedCount) > 0 && typeof result.syncId === 'string') {
+      const publication = publishCandidatesAfterSync(env, result.syncId, { publishMode: result.publicationMode }).catch(() => {})
+      if (executionContext && typeof executionContext.waitUntil === 'function') executionContext.waitUntil(publication)
+      else await publication
+    }
+    return response
   }
   if (origin !== env.UI_ORIGIN) return jsonResponse({ ok: false, error: 'origin_required' }, 403, headers)
 
@@ -630,6 +644,10 @@ async function route(request, env) {
   if (path === '/admin/candidates' && request.method === 'GET') {
     await requireAdmin(request, env)
     return adminListCandidates(env, headers)
+  }
+  if (path === '/admin/publication-status' && request.method === 'GET') {
+    await requireAdmin(request, env)
+    return jsonResponse(await adminPublicationStatus(env), 200, headers)
   }
   const candidateDecisionMatch = path.match(/^\/admin\/candidates\/([a-f0-9]{64})\/decision$/i)
   if (candidateDecisionMatch && request.method === 'POST') {
@@ -659,9 +677,9 @@ async function route(request, env) {
 }
 
 const worker = {
-  async fetch(request, env) {
+  async fetch(request, env, executionContext) {
     try {
-      return await route(request, env)
+      return await route(request, env, executionContext)
     } catch (error) {
       if (error instanceof ApiError) {
         return jsonResponse({ ok: false, error: error.code }, error.status, corsHeaders(request, env))
@@ -675,6 +693,8 @@ const worker = {
       ? Math.floor(scheduledAt / 1000)
       : nowSeconds()
     await pruneExpired(env, cleanupTime)
+    await reconcileUnconfirmedClaims(env)
+    await publishVipWindow(env, { scheduledTime: scheduledAt })
   },
 }
 

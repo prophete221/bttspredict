@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useState, type MouseEvent } from 'react'
 import dynamic from 'next/dynamic'
 import { useLanguage } from '@/components/bttsbet/LanguageSwitcher'
 import { localizedPath, type Locale } from '@/lib/i18n'
@@ -8,7 +8,7 @@ import { trackAffiliateAction } from '@/lib/affiliateTracking'
 import AnimatedTitle from '@/components/bttsbet/HeroWordmark'
 import VipWinHistory from './VipWinHistory'
 import VipLockedPicks from './VipLockedPicks'
-import VipApplication from './VipApplication'
+import VipJourneyModal from './VipJourneyModal'
 import './vip.css'
 
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
@@ -170,7 +170,7 @@ const VIP_PAGE_COPY: Record<Locale, VipPageText> = {
   },
 }
 
-/* ────────────── Parcours VIP — sept étapes ordonnées ────────────── */
+/* ────────────── Parcours VIP — quatre étapes ordonnées ────────────── */
 type VipFlowCopy = {
   eyebrow: string; title: string; sub: string
   guidePanelTitle: string; guidePanelText: string
@@ -186,20 +186,17 @@ const VIP_FLOW: Record<Locale, VipFlowCopy> = {
     guidePanelTitle: 'Guides promo — codes et conditions',
     guidePanelText: 'Les codes exacts et les liens existants se trouvent sur les guides dédiés. Vérifie les conditions actuelles auprès de l’opérateur avant toute action.',
     accessPanelTitle: 'Accès à vie après approbation',
-    accessPanelText: 'Fais ta demande avec le formulaire ci-dessous et choisis Telegram ou WhatsApp pour le suivi. Le propriétaire examine chaque demande manuellement; aucun document d’identité ni identifiant secret n’est requis.',
+    accessPanelText: 'Suis le parcours en quatre étapes et utilise Telegram pour le suivi. Le propriétaire examine chaque demande manuellement; aucun document d’identité ni identifiant secret n’est requis.',
     deliveryText: 'Après approbation manuelle : accès à vie aux pronostics VIP, statistiques complètes, notifications et alertes de signaux. Aucun résultat n’est garanti.',
     heroCta: 'Débloquer le VIP', finalCta: 'Demander mon accès VIP',
     statusTitle: 'Accès verrouillé',
     statusText: 'Aucun clic, formulaire ou dépôt ne débloque le VIP automatiquement. Le propriétaire confirme chaque accès personnellement.',
-    wizardStart: 'Ouvrir la procédure en 7 étapes',
+    wizardStart: 'Ouvrir la procédure en 4 étapes',
     wizardSteps: [
       { title: '1. Choisir un bookmaker', body: 'Sélectionne l’un des quatre bookmakers ci-dessous.' },
-      { title: '2. Copier le code promo correspondant', body: 'Ouvre le guide du partenaire choisi et copie son code exact. Les codes restent sur les pages promo dédiées.' },
-      { title: '3. Confirmer l’inscription', body: 'Confirme avoir terminé l’inscription avec le code exact du guide. BTTSPredict ne vérifie pas automatiquement les comptes.' },
-      { title: '4. Confirmer le dépôt', body: 'Confirme un dépôt d’au moins 3 $ sur le compte bookmaker, selon les conditions actuelles de l’opérateur. Aucun fonds n’est collecté ici.' },
-      { title: '5. Saisir l’identifiant du compte bookmaker', body: 'Saisis uniquement l’identifiant du compte bookmaker — pas une pièce d’identité, un mot de passe, un PIN ou un code OTP.' },
-      { title: '6. Choisir un canal de suivi', body: 'Choisis Telegram ou WhatsApp, puis indique ton identifiant ou numéro et accepte d’être recontacté au sujet de ta demande.' },
-      { title: '7. Attendre la validation manuelle du propriétaire', body: 'Le propriétaire examine la demande et doit confirmer personnellement l’accès à vie. Le VIP reste verrouillé jusque-là.' },
+      { title: '2. Utiliser le code du guide', body: 'Ouvre le guide du partenaire choisi et inscris-toi avec son code exact. Vérifie les conditions actuelles auprès de l’opérateur.' },
+      { title: '3. Confirmer l’inscription et le dépôt', body: 'Confirme ton inscription et un dépôt d’au moins 3 $ sur ton compte bookmaker. BTTSPredict ne collecte aucun fonds et ne vérifie pas automatiquement le compte.' },
+      { title: '4. Envoyer la preuve et les identifiants', body: 'Dans le parcours, ajoute la capture du dépôt, l’identifiant du compte bookmaker et ton identifiant Telegram. N’envoie jamais de pièce d’identité, mot de passe, PIN ou code OTP; le propriétaire vérifie ensuite la demande manuellement.' },
     ],
   },
   en: {
@@ -208,20 +205,17 @@ const VIP_FLOW: Record<Locale, VipFlowCopy> = {
     guidePanelTitle: 'Promo guides — codes and terms',
     guidePanelText: 'Exact codes and existing links are on the dedicated guides. Check the operator’s current terms before taking action.',
     accessPanelTitle: 'Lifetime access after approval',
-    accessPanelText: 'Submit your request using the form below and choose Telegram or WhatsApp for follow-up. The owner reviews each request manually; no identity document or secret credential is required.',
+    accessPanelText: 'Follow the four-step process and use Telegram for follow-up. The owner reviews each request manually; no identity document or secret credential is required.',
     deliveryText: 'After manual approval: lifetime access to VIP picks, full stats, notifications and signal alerts. No result is guaranteed.',
     heroCta: 'Unlock VIP', finalCta: 'Request VIP access',
     statusTitle: 'Access locked',
     statusText: 'No click, form or deposit automatically unlocks VIP. The owner personally confirms every access request.',
-    wizardStart: 'Open the 7-step process',
+    wizardStart: 'Open the 4-step process',
     wizardSteps: [
       { title: '1. Choose a bookmaker', body: 'Select one of the four bookmakers below.' },
-      { title: '2. Copy the matching promo code', body: 'Open the selected partner’s guide and copy its exact code. Codes remain on the dedicated promo pages.' },
-      { title: '3. Confirm registration', body: 'Confirm that you completed registration using the exact code from the guide. BTTSPredict does not automatically verify accounts.' },
-      { title: '4. Confirm deposit', body: 'Confirm a deposit of at least $3 on your bookmaker account, under the operator’s current terms. No funds are collected here.' },
-      { title: '5. Enter bookmaker account ID', body: 'Enter only the bookmaker account identifier — not an identity document, password, PIN or OTP.' },
-      { title: '6. Choose a follow-up channel', body: 'Choose Telegram or WhatsApp, then provide your username or phone number and consent to being contacted about your request.' },
-      { title: '7. Wait for the owner’s manual approval', body: 'The owner reviews the request and must personally approve lifetime access. VIP stays locked until then.' },
+      { title: '2. Use the guide’s code', body: 'Open the selected partner’s guide and register with its exact code. Check the operator’s current terms.' },
+      { title: '3. Confirm registration and deposit', body: 'Confirm your registration and a deposit of at least $3 on your bookmaker account. BTTSPredict does not collect funds or automatically verify the account.' },
+      { title: '4. Send your proof and identifiers', body: 'In the process, add a deposit screenshot, your bookmaker account ID, and your Telegram username. Never send an identity document, password, PIN or OTP; the owner then reviews the request manually.' },
     ],
   },
   ar: {
@@ -230,20 +224,17 @@ const VIP_FLOW: Record<Locale, VipFlowCopy> = {
     guidePanelTitle: 'أدلة العروض — الرموز والشروط',
     guidePanelText: 'توجد الرموز الدقيقة والروابط الحالية في الأدلة المخصصة. تحقق من الشروط الحالية لدى المشغل قبل أي إجراء.',
     accessPanelTitle: 'وصول مدى الحياة بعد الموافقة',
-    accessPanelText: 'قدّم طلبك عبر النموذج أدناه واختر تيليجرام أو واتساب للمتابعة. يراجع المالك كل طلب يدوياً؛ ولا تُطلب وثيقة هوية أو بيانات اعتماد سرية.',
+    accessPanelText: 'اتبع الخطوات الأربع واستخدم تيليجرام للمتابعة. يراجع المالك كل طلب يدوياً؛ ولا تُطلب وثيقة هوية أو بيانات اعتماد سرية.',
     deliveryText: 'بعد الموافقة اليدوية: وصول مدى الحياة إلى توقعات VIP والإحصاءات الكاملة والإشعارات وتنبيهات الإشارات. لا توجد نتيجة مضمونة.',
     heroCta: 'افتح VIP', finalCta: 'اطلب الوصول إلى VIP',
     statusTitle: 'الوصول مقفل',
     statusText: 'لا يؤدي أي نقر أو نموذج أو إيداع إلى فتح VIP تلقائياً. يؤكد المالك كل طلب شخصياً.',
-    wizardStart: 'افتح الإجراءات في 7 خطوات',
+    wizardStart: 'افتح الإجراءات في 4 خطوات',
     wizardSteps: [
       { title: '1. اختر شركة مراهنات', body: 'اختر إحدى شركات المراهنات الأربع أدناه.' },
-      { title: '2. انسخ الرمز الترويجي المطابق', body: 'افتح دليل الشريك المختار وانسخ رمزه الدقيق. تبقى الرموز في صفحات العروض المخصصة.' },
-      { title: '3. أكّد التسجيل', body: 'أكّد إكمال التسجيل باستخدام الرمز الدقيق في الدليل. لا تتحقق BTTSPredict من الحسابات تلقائياً.' },
-      { title: '4. أكّد الإيداع', body: 'أكّد إيداعاً لا يقل عن 3 دولارات في حساب شركة المراهنات، وفق الشروط الحالية للمشغل. لا تُجمع أي أموال هنا.' },
-      { title: '5. أدخل معرّف حساب شركة المراهنات', body: 'أدخل معرّف الحساب فقط — وليس وثيقة هوية أو كلمة مرور أو PIN أو رمز OTP.' },
-      { title: '6. اختر قناة للمتابعة', body: 'اختر تيليجرام أو واتساب، ثم أدخل اسم المستخدم أو رقم الهاتف ووافق على التواصل بشأن طلبك.' },
-      { title: '7. انتظر موافقة المالك يدوياً', body: 'يراجع المالك الطلب ويجب أن يوافق شخصياً على الوصول مدى الحياة. يظل VIP مقفلاً حتى ذلك الحين.' },
+      { title: '2. استخدم رمز الدليل', body: 'افتح دليل الشريك المختار وسجّل باستخدام رمزه الدقيق. تحقق من الشروط الحالية لدى المشغل.' },
+      { title: '3. أكّد التسجيل والإيداع', body: 'أكّد التسجيل وإيداعاً لا يقل عن 3 دولارات في حساب شركة المراهنات. لا تجمع BTTSPredict الأموال ولا تتحقق تلقائياً من الحساب.' },
+      { title: '4. أرسل الإثبات والمعرّفات', body: 'أرفق صورة الإيداع ومعرّف حساب شركة المراهنات واسم المستخدم على تيليجرام. لا ترسل وثيقة هوية أو كلمة مرور أو PIN أو رمز OTP؛ ثم يراجع المالك الطلب يدوياً.' },
     ],
   },
 }
@@ -257,6 +248,7 @@ const FLOW_HEADING: Record<Locale, string> = {
 export default function VipPage() {
   const { lang: detectedLang } = useLanguage()
   const lang: Locale = detectedLang
+  const [vipFlowOpen, setVipFlowOpen] = useState(false)
 
   const text = VIP_PAGE_COPY[lang]
   const flow = VIP_FLOW[lang]
@@ -266,8 +258,9 @@ export default function VipPage() {
     trackAffiliateAction('platform', 'vip_page_view', 'vip-page-visit')
   }, [])
 
-  const scrollToApplication = () => {
-    document.getElementById('vip-application')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  const openVipFlow = (event?: MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => {
+    event?.preventDefault()
+    setVipFlowOpen(true)
   }
 
   return (
@@ -289,7 +282,7 @@ export default function VipPage() {
               <AnimatedTitle as="h1" text={flow.title} accentColor="#EB4648" />
               <p className="vipx-hero__sub">{flow.sub}</p>
               <div className="vipx-hero__cta">
-                <a className="vipx-btn vipx-btn--gold" href="#vip-application" onClick={scrollToApplication}>{flow.heroCta}<span aria-hidden="true">→</span></a>
+                <a className="vipx-btn vipx-btn--gold" href="#vip-application" onClick={openVipFlow}>{flow.heroCta}<span aria-hidden="true">→</span></a>
                 <a className="vipx-btn vipx-btn--ghost" href="#historique-vip">{text.trustLink}<span aria-hidden="true">↘</span></a>
               </div>
               <a className="vipx-hero__free-link" href={localizedPath('/btts/predictions/today', lang)}>{text.freeLink}<span aria-hidden="true">↗</span></a>
@@ -320,10 +313,10 @@ export default function VipPage() {
 
         <div className="vipx-content-grid vipx-shell">
           <div className="vipx-content-grid__main">
-            <VipLockedPicks onRequestReview={scrollToApplication} />
+            <VipLockedPicks onRequestReview={openVipFlow} />
           </div>
           <aside className="vipx-content-grid__aside" aria-label={flow.eyebrow}>
-        {/* ═══════════ PARCOURS VIP — 7 ÉTAPES DANS L'ORDRE ═══════════ */}
+        {/* ═══════════ PARCOURS VIP — 4 ÉTAPES DANS L'ORDRE ═══════════ */}
         <section id="parcours" className="vipx-flow vipx-flow--card" aria-labelledby="vip-flow-heading" style={{ scrollMarginTop: '96px' }}>
           <header className="vipx-section-head">
             <span className="vipx-eyebrow"><i aria-hidden="true" />{flow.eyebrow}</span>
@@ -339,7 +332,7 @@ export default function VipPage() {
             </div>
           </div>
 
-          <a href="#vip-application" onClick={scrollToApplication} className="vipx-btn vipx-btn--gold vipx-flow__start">
+          <a href="#vip-application" onClick={openVipFlow} className="vipx-btn vipx-btn--gold vipx-flow__start">
             {flow.wizardStart}<span aria-hidden="true">→</span>
           </a>
 
@@ -392,7 +385,7 @@ export default function VipPage() {
               <h3><Icon.crown />{flow.accessPanelTitle}</h3>
               <p>{flow.accessPanelText}</p>
               <p className="vipx-flow__delivery"><Icon.spark />{flow.deliveryText}</p>
-              <a href="#vip-application" className="vipx-btn vipx-btn--gold vipx-btn--sm" onClick={scrollToApplication} data-cta="vip-panel-procedure">
+              <a href="#vip-application" className="vipx-btn vipx-btn--gold vipx-btn--sm" onClick={openVipFlow} data-cta="vip-panel-procedure">
                 {flow.wizardStart}<span aria-hidden="true">→</span>
               </a>
             </article>
@@ -402,9 +395,7 @@ export default function VipPage() {
         </div>
 
         {/* Historique passé uniquement; l’accès aux pronostics à venir reste verrouillé. */}
-        <VipApplication lang={lang} />
-
-        <VipWinHistory onUnlock={scrollToApplication} />
+        <VipWinHistory onUnlock={openVipFlow} />
 
         {/* ═══════════ BÉNÉFICES ═══════════ */}
         <section className="vipx-benefits vipx-shell">
@@ -466,7 +457,7 @@ export default function VipPage() {
           <div className="vipx-final__card vipx-shell">
             <h2>{text.finalTitle}</h2>
             <p>{text.finalDesc}</p>
-            <a href="#vip-application" className="vipx-btn vipx-btn--gold" onClick={scrollToApplication}>{flow.finalCta}<span aria-hidden="true">→</span></a>
+            <a href="#vip-application" className="vipx-btn vipx-btn--gold" onClick={openVipFlow}>{flow.finalCta}<span aria-hidden="true">→</span></a>
             <p className="vipx-final__responsible">{text.responsible}</p>
             <p className="vipx-final__note">{text.footerNote}</p>
           </div>
@@ -474,6 +465,7 @@ export default function VipPage() {
       </main>
 
       <ErrorBoundary><Footer /></ErrorBoundary>
+      <VipJourneyModal isOpen={vipFlowOpen} onClose={() => setVipFlowOpen(false)} />
     </div>
   )
 }

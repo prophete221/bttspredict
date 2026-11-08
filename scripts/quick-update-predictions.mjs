@@ -14,6 +14,9 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const PUBLIC_DIR = path.join(__dirname, '..', 'public')
 const PREDICTIONS_FILE = path.join(PUBLIC_DIR, 'predictions.json')
+const PRIVATE_FIXTURES_FILE = path.join(__dirname, '..', '.private', 'vip-fixtures.json')
+const PRIVATE_VIP_MODE = process.argv.includes('--private-vip')
+let PRIVATE_VIP_COLLECTION_COMPLETE = true
 
 function writeJsonAtomically(file, payload) {
   const tempFile = `${file}.${process.pid}.tmp`
@@ -383,13 +386,16 @@ function assignTier(reliability) {
 }
 
 // ─── Fetch ESPN scoreboard ───
-async function fetchESPNMatches(slug, dateParam) {
+async function fetchESPNMatches(slug, dateParam, { privateMode = false } = {}) {
   try {
     const res = await fetch(
       `https://site.api.espn.com/apis/site/v2/sports/soccer/${slug}/scoreboard?dates=${dateParam}`,
       { headers: { 'User-Agent': 'Mozilla/5.0 (compatible; BTTSPredict/1.0)' }, signal: AbortSignal.timeout(10000) }
     )
-    if (!res.ok) return []
+    if (!res.ok) {
+      if (privateMode) PRIVATE_VIP_COLLECTION_COMPLETE = false
+      return []
+    }
     const data = await res.json()
     // Classement de la ligue (gratuit ESPN, mis en cache) — enrichit l'analyse AI
     const standings = await fetchStandings(slug)
@@ -398,7 +404,10 @@ async function fetchESPNMatches(slug, dateParam) {
       const comp = event.competitions?.[0]
       if (!comp) continue
       const statusType = comp.status?.type?.name
-      if (['STATUS_FINAL', 'STATUS_POSTPONED', 'STATUS_CANCELED'].includes(statusType)) continue
+      if (privateMode) {
+        const excludedPrivateStatuses = new Set(['IN', 'POST', 'FINISHED', 'CANCELED', 'CANCELLED', 'POSTPONED', 'STATUS_IN', 'STATUS_IN_PROGRESS', 'STATUS_POST', 'STATUS_POST_GAME', 'STATUS_FULL_TIME', 'STATUS_FINAL', 'STATUS_CANCELED', 'STATUS_CANCELLED', 'STATUS_POSTPONED', 'STATUS_SUSPENDED', 'STATUS_END_PERIOD', 'STATUS_HALFTIME', 'STATUS_EXTRA_TIME', 'STATUS_PENALTY_SHOOTOUT'])
+        if (excludedPrivateStatuses.has(String(statusType || '').trim().toUpperCase())) continue
+      } else if (['STATUS_FINAL', 'STATUS_POSTPONED', 'STATUS_CANCELED'].includes(statusType)) continue
 
       // Use the event's real calendar date in Africa/Dakar. The ESPN query date
       // is not reliable for late UTC kickoffs that belong to the next Dakar day.
@@ -422,6 +431,11 @@ async function fetchESPNMatches(slug, dateParam) {
       const odds = extractEventOdds(comp)
       const homeStanding = standings.get(String(homeComp.team?.id || '')) || null
       const awayStanding = standings.get(String(awayComp.team?.id || '')) || null
+      const sourceKickoffAt = comp.date && Number.isFinite(Date.parse(comp.date)) ? new Date(comp.date).toISOString() : null
+      const fixtureIdRaw = event.id ?? comp.id
+      const homeTeamIdRaw = homeComp.team?.id
+      const awayTeamIdRaw = awayComp.team?.id
+      if (privateMode && (!/^\d+$/.test(String(fixtureIdRaw ?? '')) || !/^\d+$/.test(String(homeTeamIdRaw ?? '')) || !/^\d+$/.test(String(awayTeamIdRaw ?? '')) || !sourceKickoffAt)) continue
       matches.push({
         match: `${homeTeam} vs ${awayTeam}`,
         home: homeTeam,
@@ -429,8 +443,16 @@ async function fetchESPNMatches(slug, dateParam) {
         league: ESPN_SLUGS[slug] || slug,
         date: matchDate,
         time,
-        homeLogo: homeComp.team?.logo || `https://a.espncdn.com/i/teamlogos/soccer/500/${homeComp.team?.id}.png`,
-        awayLogo: awayComp.team?.logo || `https://a.espncdn.com/i/teamlogos/soccer/500/${awayComp.team?.id}.png`,
+        homeLogo: privateMode ? (homeComp.team?.logo || undefined) : (homeComp.team?.logo || `https://a.espncdn.com/i/teamlogos/soccer/500/${homeComp.team?.id}.png`),
+        awayLogo: privateMode ? (awayComp.team?.logo || undefined) : (awayComp.team?.logo || `https://a.espncdn.com/i/teamlogos/soccer/500/${awayComp.team?.id}.png`),
+        ...(privateMode ? {
+          fixtureId: String(fixtureIdRaw),
+          leagueSlug: slug,
+          homeTeamId: String(homeTeamIdRaw),
+          awayTeamId: String(awayTeamIdRaw),
+          sourceKickoffAt,
+          ...(statusType ? { status: String(statusType), matchState: String(statusType), sourceStatus: String(statusType) } : {}),
+        } : {}),
         slug,
         homeTeamId: homeComp.team?.id,
         awayTeamId: awayComp.team?.id,
@@ -441,6 +463,7 @@ async function fetchESPNMatches(slug, dateParam) {
     }
     return matches
   } catch (err) {
+    if (privateMode) PRIVATE_VIP_COLLECTION_COMPLETE = false
     return []
   }
 }
@@ -465,8 +488,51 @@ function genAnalysis(home, away, xgHome, xgAway, bttsProb, over25Prob, formHome,
   return `${home} (${homeForm}, xG ${xgHome.toFixed(2)}) vs ${away} (${awayForm}, xG ${xgAway.toFixed(2)}). xG cumule ${xgTotal}, BTTS ${probPct}%, Over 2.5 ${overPct}%, ${h2hText}. Fiabilite ${relPct}%.`
 }
 
+// Private-only collection reuses the existing ESPN multi-day collection/statistics path,
+// but never writes public predictions and never prints individual fixture details.
+function writePrivateFixtures(rows) {
+  fs.mkdirSync(path.dirname(PRIVATE_FIXTURES_FILE), { recursive: true, mode: 0o700 })
+  fs.chmodSync(path.dirname(PRIVATE_FIXTURES_FILE), 0o700)
+  const tempFile = `${PRIVATE_FIXTURES_FILE}.${process.pid}.tmp`
+  fs.writeFileSync(tempFile, `${JSON.stringify({
+    date: getTodayISO(),
+    lastUpdated: new Date().toISOString(),
+    sourceLastUpdated: new Date().toISOString(),
+    collectionComplete: PRIVATE_VIP_COLLECTION_COMPLETE,
+    fixtures: rows,
+  }, null, 2)}\n`, { mode: 0o600 })
+  fs.chmodSync(tempFile, 0o600)
+  fs.renameSync(tempFile, PRIVATE_FIXTURES_FILE)
+  fs.chmodSync(PRIVATE_FIXTURES_FILE, 0o600)
+}
+
+async function quickUpdatePrivate() {
+  PRIVATE_VIP_COLLECTION_COMPLETE = true
+  const originalLog = console.log
+  const originalWarn = console.warn
+  const originalError = console.error
+  let counts = { collected: 0, scored: 0, written: 0 }
+  try {
+    // All existing verbose diagnostics may include team names; discard them in private mode.
+    console.log = () => {}
+    console.warn = () => {}
+    console.error = () => {}
+    await quickUpdateCore(true, value => { counts = value })
+  } finally {
+    console.log = originalLog
+    console.warn = originalWarn
+    console.error = originalError
+  }
+  originalLog(`[private-vip] collection complete; fixtures=${counts.collected}; evidence_rows=${counts.scored}; written=${counts.written}`)
+}
+
 // ─── Main ───
 async function quickUpdate() {
+  if (PRIVATE_VIP_MODE) return quickUpdatePrivate()
+  return quickUpdateCore(false)
+}
+
+async function quickUpdateCore(privateMode = false, reportCounts = null) {
   const today = getTodayISO()
   console.log(`[v92 Empirical-stats + Gemini] Generating predictions for ${today}`)
   console.log('[v91] Strategy: display top matches per day. Eliminate only truly unusable.')
@@ -482,7 +548,7 @@ async function quickUpdate() {
   const allMatches = []
   for (const [slug, leagueName] of Object.entries(ESPN_SLUGS)) {
     for (const dateParam of dateParams) {
-      const matches = await fetchESPNMatches(slug, dateParam)
+      const matches = await fetchESPNMatches(slug, dateParam, { privateMode })
       for (const m of matches) {
         allMatches.push({ ...m, slug })
       }
@@ -502,6 +568,7 @@ async function quickUpdate() {
 
     console.log(`[v91] Total unique matches: ${uniqueMatches.length}`)
   if (uniqueMatches.length === 0) {
+    if (privateMode) { writePrivateFixtures([]); if (reportCounts) reportCounts({ collected: 0, scored: 0, written: 0 }); return }
     throw new Error(`[v91] ESPN returned no scheduled matches for ${today}; existing predictions.json was preserved`)
   }
   // ─── RELIABILITY SCORING — only eliminate truly unusable ───
@@ -633,6 +700,11 @@ async function quickUpdate() {
       // Stable fixture identity for archive/result joins; not a market pick.
       type: 'BTTS',
       time: m.time || '',
+      ...(privateMode ? {
+        fixtureId: m.fixtureId, leagueSlug: m.leagueSlug, homeTeamId: m.homeTeamId, awayTeamId: m.awayTeamId,
+        sourceKickoffAt: m.sourceKickoffAt,
+        ...(m.status !== undefined ? { status: m.status, matchState: m.matchState, sourceStatus: m.sourceStatus } : {}),
+      } : {}),
       matchSemantic: matchId,
       source: 'empirical-form-data',
       homeLogo: m.homeLogo,
@@ -692,6 +764,17 @@ async function quickUpdate() {
     }
 
     scored.push(prediction)
+  }
+
+  if (privateMode) {
+    const authoritative = scored.filter(row =>
+      /^\d+$/.test(String(row.fixtureId ?? '')) && /^\d+$/.test(String(row.homeTeamId ?? '')) &&
+      /^\d+$/.test(String(row.awayTeamId ?? '')) && typeof row.leagueSlug === 'string' &&
+      typeof row.sourceKickoffAt === 'string' && Number.isFinite(Date.parse(row.sourceKickoffAt))
+    )
+    writePrivateFixtures(authoritative)
+    if (reportCounts) reportCounts({ collected: uniqueMatches.length, scored: scored.length, written: authoritative.length })
+    return
   }
 
   // ─── SORT BY DATE ASC FIRST, THEN RELIABILITY DESC ───

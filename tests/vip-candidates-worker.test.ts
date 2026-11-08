@@ -1,6 +1,6 @@
 import { createHash, generateKeyPairSync, sign } from 'node:crypto'
 import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest'
-import { adminCandidateDecision, adminListCandidates, handleCandidateSync } from '../workers/vip-api/src/vip-candidates.js'
+import { adminCandidateDecision, adminListCandidates, handleCandidateSync, validateCandidate } from '../workers/vip-api/src/vip-candidates.js'
 
 const OIDC_AUDIENCE = 'https://bttspredict.com/vip-candidates'
 const WORKFLOW_REF = 'prophete221/bttspredict/.github/workflows/deploy.yml@refs/heads/main'
@@ -151,6 +151,22 @@ function candidateFixture() {
   }
 }
 
+function fallbackCandidateFixture() {
+  const base = candidateFixture()
+  return {
+    ...base,
+    matchState: 'STATUS_SCHEDULED', sourceMatchStatus: 'STATUS_SCHEDULED', sourceStatus: 'STATUS_SCHEDULED',
+    fixtureId: '12345', leagueSlug: 'eng.1', homeTeamId: '100', awayTeamId: '200', sourceKickoffAt: base.kickoffAt,
+    freeMarket: null, freeSelection: null,
+    probability: 0.62, confidence: null, aiConfidence: 'not_applicable',
+    qualityTier: 'fallback', probabilitySource: 'recent-form-empirical',
+    sourceModel: 'empirical-team-form', homeSelectionRate: 0.60, awaySelectionRate: 0.64,
+    empiricalSelectionRate: 0.62,
+    reasons: ['Taux empirique récent vérifié', 'Forme récente observée'],
+    risks: ['Sélection de repli sous le seuil VIP renforcé'],
+  }
+}
+
 function awaitDigest(identity: string) {
   return createHash('sha256').update(identity).digest('hex')
 }
@@ -178,10 +194,22 @@ describe('private VIP candidate Worker service', () => {
     const result = await response.json()
 
     expect(response.status).toBe(200)
-    expect(result).toMatchObject({ ok: true, synced: true, acceptedCount: 1, duplicate: false })
+    expect(result).toMatchObject({ ok: true, synced: true, acceptedCount: 1, duplicate: false, publicationMode: 'scheduled' })
     expect(batches).toHaveLength(1)
     expect(batches[0].some(statement => statement.sql.includes('INSERT INTO vip_candidates'))).toBe(true)
     expect(vi.mocked(fetch).mock.calls.every(([input]) => String(input).includes('token.actions.githubusercontent.com'))).toBe(true)
+  })
+
+  it('accepts only evidence-backed fallback probabilities and computes an explicit non-low risk', async () => {
+    const clean = await validateCandidate(fallbackCandidateFixture(), Date.now())
+    expect(clean.candidate).toMatchObject({
+      qualityTier: 'fallback', probabilitySource: 'recent-form-empirical',
+      probability: 0.62, confidence: null, aiConfidence: 'not_applicable',
+      matchState: 'PENDING', riskLevel: 'ÉLEVÉ', riskPolicy: 'risk-v1',
+    })
+    expect(clean.candidate.riskReasons.join(' ')).toContain('Sélection de repli')
+    await expect(validateCandidate({ ...fallbackCandidateFixture(), homeSelectionRate: null }, Date.now()))
+      .rejects.toThrow('candidate_failed_validation')
   })
 
   it('accepts the opposite selection in the same market but rejects an exact free-feed duplicate', async () => {
@@ -211,16 +239,28 @@ describe('private VIP candidate Worker service', () => {
     expect(batches).toHaveLength(0)
   })
 
-  it('rejects a push-triggered OIDC token before any database write', async () => {
+  it('accepts a main-branch push OIDC token for the full publish workflow', async () => {
     const { DB, batches } = mockDb()
     const response = await handleCandidateSync(
       signedRequest(syncPayload([]), token({ event_name: 'push' })),
       { DB },
       new Headers(),
     )
-    expect(response.status).toBe(403)
-    expect(await response.json()).toMatchObject({ ok: false, error: 'machine_identity_not_allowed' })
-    expect(batches).toHaveLength(0)
+    expect(response.status).toBe(200)
+    expect(await response.json()).toMatchObject({ ok: true, synced: true, syncId: 'github:1234567890:1', publicationMode: 'immediate' })
+    expect(batches).toHaveLength(1)
+  })
+
+  it('marks a verified manual VIP run for immediate publication after sync', async () => {
+    const { DB, batches } = mockDb()
+    const response = await handleCandidateSync(
+      signedRequest(syncPayload([]), token({ event_name: 'workflow_dispatch' })),
+      { DB },
+      new Headers(),
+    )
+    expect(response.status).toBe(200)
+    expect(await response.json()).toMatchObject({ ok: true, synced: true, publicationMode: 'immediate' })
+    expect(batches).toHaveLength(1)
   })
 
   it('does not change D1 for incomplete or stale analysis snapshots', async () => {
