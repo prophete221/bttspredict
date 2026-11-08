@@ -38,6 +38,27 @@ describe('VIP model-specific risk policy', () => {
     expect(assessment?.reasons[0]).toContain('inférieure à 70 %')
   })
 
+  it.each([0.79, 0.85])('labels Gemini probability %s above the reference band as elevated, not strong', probability => {
+    const assessment = assessPickRisk(vip({ probability, confidence: Math.round(probability * 100),
+      empiricalSelectionRate: 0.84, homeSelectionRate: 0.84, awaySelectionRate: 0.84 }), NOW)
+    expect(assessment?.level).toBe('ÉLEVÉ')
+    expect(assessment?.reasons[0]).toContain('au-dessus de 78 %')
+    expect(assessment?.reasons[0]).toContain('hors plage 70–78 %')
+  })
+
+  it('keeps Gemini estimate, empirical frequencies, confidence and freshness as separate evidence', () => {
+    const assessment = assessPickRisk(vip({ probability: 0.85, confidence: 85, aiConfidence: 'low',
+      empiricalSelectionRate: 0.64, homeSelectionRate: 0.58, awaySelectionRate: 0.70,
+      analyzedAt: new Date(NOW - 9 * 60 * 60 * 1000).toISOString() }), NOW)
+    const explanation = assessment?.reasons.join(' ') || ''
+    expect(assessment?.level).toBe('ÉLEVÉ')
+    expect(explanation).toContain('Probabilité Gemini au-dessus de 78 %')
+    expect(explanation).toContain('Probabilité modèle : 85 %')
+    expect(explanation).toContain('équipe A 58 %, équipe B 70 %')
+    expect(explanation).toContain('confiance faible')
+    expect(explanation).toContain('Fraîcheur : analyse effectuée il y a environ 9 h.')
+  })
+
   it('never aliases an empirical 80% rate as the Gemini 75% probability of BTTS No', () => {
     const assessment = assessPickRisk(vip({ probability: 0.75, confidence: 75,
       empiricalSelectionRate: 0.8, homeSelectionRate: 0.8, awaySelectionRate: 0.8,
