@@ -210,6 +210,8 @@ export function formatVipMessage(candidate) {
   if (!riskLabel || !Array.isArray(candidate.riskReasons) || candidate.riskReasons.length < 2) {
     throw new TypeError('risk_assessment_missing')
   }
+  const freshnessReason = candidate.riskReasons.find(value => typeof value === 'string' && value.startsWith('Fraîcheur :'))
+  if (!freshnessReason) throw new TypeError('freshness_assessment_missing')
   const reason = candidate.riskReasons.find(value => value.includes('ÉLEVÉ'))
     || candidate.riskReasons.find(value => !value.startsWith('Estimation Gemini'))
     || candidate.riskReasons[1]
@@ -220,36 +222,34 @@ export function formatVipMessage(candidate) {
     `Gemini ${modelPercent(candidate.probability)} · confiance ${candidate.aiConfidence}.`,
     `Taux empiriques propres à ${candidate.market} ${candidate.selection} : global ${observed(candidate.empiricalSelectionRate)}, domicile ${observed(candidate.homeSelectionRate)}, extérieur ${observed(candidate.awaySelectionRate)} (fréquences, non calibrées).`,
     `Historique ${candidate.matchCountHome}/${candidate.matchCountAway} · forme ${candidate.formCountHome}/${candidate.formCountAway}.`,
+    `Fraîcheur : ${short(freshnessReason.slice('Fraîcheur :'.length).trim())}`,
     `Risque ${riskLabel} — ${short(reason)}${candidate.risks?.[0] ? ` · ${short(candidate.risks[0])}` : ''}`,
     candidate.reasons?.[0] ? `Éléments : ${short(candidate.reasons[0])}` : '',
   ].filter(Boolean).join('\n')
 }
 
 export function formatVipBatchMessage(candidates) {
-  if (!Array.isArray(candidates) || candidates.length < 1 || candidates.length > 5) return null
+  if (!Array.isArray(candidates) || candidates.length < 2 || candidates.length > 5) return null
   const included = []
   for (const candidate of candidates) {
     let section
     try { section = formatVipMessage(candidate) } catch { continue }
     const tentative = [...included, { candidate, section }]
-    const prefix = `BTTSPredict — Sélections VIP (${tentative.length}/5)${tentative.length === 1
-      ? '\nUn seul match a passé les contrôles du lot.' : '\nLot partiel ou complet, selon les matchs revalidés.'}`
+    const prefix = `BTTSPredict — Sélections VIP (${tentative.length}/5)\nLot partiel ou complet, selon les matchs revalidés.`
     const message = `${prefix}\n\n${tentative.map(item => item.section).join('\n\n──────────\n\n')}`
     if (message.length <= 4096) included.push({ candidate, section })
   }
-  if (!included.length) return null
-  const prefix = `BTTSPredict — Sélections VIP (${included.length}/5)${included.length === 1
-    ? '\nUn seul match a passé les contrôles du lot.' : '\nLot partiel ou complet, selon les matchs revalidés.'}`
+  if (included.length < 2) return null
+  const prefix = `BTTSPredict — Sélections VIP (${included.length}/5)\nLot partiel ou complet, selon les matchs revalidés.`
   const footer = '\n\nEstimation, pas une garantie. 18+ · Jeu responsable.'
   let message = `${prefix}\n\n${included.map(item => item.section).join('\n\n──────────\n\n')}${footer}`
   while (included.length && message.length > 4096) {
     included.pop()
-    const revisedPrefix = `BTTSPredict — Sélections VIP (${included.length}/5)${included.length === 1
-      ? '\nUn seul match a passé les contrôles du lot.' : '\nLot partiel ou complet, selon les matchs revalidés.'}`
+    const revisedPrefix = `BTTSPredict — Sélections VIP (${included.length}/5)\nLot partiel ou complet, selon les matchs revalidés.`
     message = included.length
       ? `${revisedPrefix}\n\n${included.map(item => item.section).join('\n\n──────────\n\n')}${footer}` : ''
   }
-  return included.length ? { message, count: included.length, candidates: included.map(item => item.candidate) } : null
+  return included.length >= 2 ? { message, count: included.length, candidates: included.map(item => item.candidate) } : null
 }
 
 // Each candidate gets a durable atomic claim; fixture-level exclusion spans all
@@ -373,7 +373,7 @@ export async function publishVipWindow(env, { scheduledTime, syncId, expectedSyn
     const espnDeadlineAt = Date.now() + Math.max(0, Math.min(ESPN_BUDGET_MS, Number(espnBudgetMs) || 0))
     const initialChecks = await verifyFixturesConcurrently(checkCandidates, fetcher, espnDeadlineAt, clock)
     const selected = checkCandidates.filter((_, index) => initialChecks[index]).slice(0, 5)
-    if (!selected.length) return await finishRun(env, window, 'no_candidates', clock())
+    if (selected.length < 2) return await finishRun(env, window, 'no_candidates', clock())
     const ready = await telegramReadiness(env, fetcher)
     if (!ready.canPublish) return await finishRun(env, window, 'destination_unavailable', clock())
     const formatted = formatVipBatchMessage(selected.map(item => item.candidate))

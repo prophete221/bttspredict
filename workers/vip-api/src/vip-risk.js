@@ -1,6 +1,8 @@
 const FORMULA_WINDOW_MS = 12 * 60 * 60 * 1000
 const MODEL_CONFIDENCE = new Set(['low', 'medium', 'high'])
 const EPSILON = 1e-9
+const REFERENCE_PROBABILITY_MIN = 0.70
+const REFERENCE_PROBABILITY_MAX = 0.78
 
 const finiteRate = value => typeof value === 'number' && Number.isFinite(value) && value >= 0 && value <= 1
 const percent = value => {
@@ -38,15 +40,17 @@ export function assessPickRisk(candidate, nowMs = Date.now()) {
   const hasExplicitSourceStatus = [candidate.sourceMatchStatus, candidate.sourceStatus]
     .some(value => typeof value === 'string' && value.trim())
 
-  const lowRisk = candidate.aiConfidence === 'high' && probability >= 0.75 && weakestTeamRate >= 0.75
+  const outsideReferenceBand = probability < REFERENCE_PROBABILITY_MIN || probability > REFERENCE_PROBABILITY_MAX
+  const lowRisk = !outsideReferenceBand && candidate.aiConfidence === 'high' && probability >= 0.75 && weakestTeamRate >= 0.75
     && minSample >= 5 && minMatchSample >= 10 && teamRateGap <= 0.10 + EPSILON
     && modelGap <= 0.05 + EPSILON && ageMs <= 3 * 60 * 60 * 1000 && hasExplicitSourceStatus
-  const highRisk = probability < 0.70 || candidate.aiConfidence === 'low'
+  const highRisk = outsideReferenceBand || candidate.aiConfidence === 'low'
     || weakestTeamRate < 0.55 || teamRateGap >= 0.25 - EPSILON
     || ageMs > 8 * 60 * 60 * 1000 || modelGap >= 0.12 - EPSILON
   const level = lowRisk ? 'FAIBLE' : highRisk ? 'ÉLEVÉ' : 'MODÉRÉ'
   const reasons = []
-  if (probability < 0.70) reasons.push('Probabilité modèle inférieure à 70 % : risque ÉLEVÉ, même si le modèle déclare une confiance élevée.')
+  if (probability < REFERENCE_PROBABILITY_MIN) reasons.push('Probabilité modèle inférieure à 70 % : risque ÉLEVÉ, même si le modèle déclare une confiance élevée.')
+  if (probability > REFERENCE_PROBABILITY_MAX) reasons.push('Probabilité Gemini au-dessus de 78 % : hors plage 70–78 %, risque ÉLEVÉ.')
   if (candidate.aiConfidence === 'low') reasons.push('Le modèle déclare une confiance faible : risque ÉLEVÉ.')
   reasons.push(`Probabilité modèle : ${percent(probability)}; fréquences récentes de cette sélection, équipe A ${percent(homeRate)}, équipe B ${percent(awayRate)}.`)
   reasons.push(`Forme ${counts[0]}/${counts[1]} matchs; historique ${matchCounts[0]}/${matchCounts[1]}; confiance déclarée du modèle : ${candidate.aiConfidence}.`)
@@ -55,5 +59,8 @@ export function assessPickRisk(candidate, nowMs = Date.now()) {
   if (minMatchSample === 8) reasons.push('Historique au plancher admissible de 8 matchs pour une équipe.')
   if (!hasExplicitSourceStatus) reasons.push('Statut source explicite absent; ESPN doit confirmer le match avant envoi.')
   reasons.push(`Fraîcheur : analyse effectuée il y a environ ${ageHours} h.`)
-  return { level, reasons: reasons.slice(0, 6), policy: 'risk-v2-model-specific', tier, ageHours, empiricalGap: modelGap }
+  const visibleReasons = reasons.slice(0, 5)
+  const freshnessReason = reasons[reasons.length - 1]
+  if (!visibleReasons.includes(freshnessReason)) visibleReasons.push(freshnessReason)
+  return { level, reasons: visibleReasons, policy: 'risk-v2-model-specific', tier, ageHours, empiricalGap: modelGap }
 }

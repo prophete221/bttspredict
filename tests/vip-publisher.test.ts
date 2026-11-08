@@ -197,29 +197,45 @@ describe('VIP publication policy', () => {
     expect(publicationConfigured({ ...CONFIG, VIP_PUBLICATION_POLICY: 'disabled' })).toBe(false)
   })
 
-  it('revalidates live ESPN identity and kickoff, then reserves and publishes exactly one pick atomically', async () => {
+  it('revalidates live ESPN identity and kickoff, then reserves and publishes two picks atomically', async () => {
     const db = freshDb()
     const candidate = await seedEligible(db, kickoffSameDay)
+    const second = await seedEligible(db, kickoffSameDay, { fixtureNumber: 1 })
     const { fetcher, calls } = fakeFetch()
     const clock = vi.fn().mockReturnValue(runAt)
     const result = await publishVipWindow({ ...CONFIG, DB: db }, { scheduledTime: Date.parse(scheduledAt), clock, fetcher })
-    expect(result).toMatchObject({ outcome: 'sent', claimed: 1, sent: 1 })
+    expect(result).toMatchObject({ outcome: 'sent', claimed: 2, sent: 2 })
     expect(calls.some(call => call.includes('summary?event=12345'))).toBe(true)
     expect(calls.filter(call => call.includes('/sendMessage'))).toHaveLength(1)
     const publication = await db.prepare('SELECT state, policy_version, snapshot_json, message_text, telegram_message_id FROM vip_publications').first()
     expect(publication).toMatchObject({ state: 'sent', policy_version: POLICY, telegram_message_id: '987' })
     expect(JSON.parse(String(publication?.snapshot_json))).toMatchObject({ candidateKey: candidate.candidateKey, fixtureId: '12345' })
-    expect(publication?.message_text).toContain('BTTSPredict — Sélections VIP (1/5)')
+    expect(publication?.message_text).toContain('BTTSPredict — Sélections VIP (2/5)')
     expect(publication?.message_text).toContain('Gemini 72 %')
     expect(publication?.message_text).toContain('Risque MODÉRÉ')
     expect(await db.prepare("SELECT status FROM vip_candidates WHERE candidate_key = ?").bind(candidate.candidateKey).first())
+      .toMatchObject({ status: 'published' })
+    expect(await db.prepare("SELECT status FROM vip_candidates WHERE candidate_key = ?").bind(second.candidateKey).first())
       .toMatchObject({ status: 'published' })
     const duplicate = await publishVipWindow({ ...CONFIG, DB: db }, { scheduledTime: Date.parse(scheduledAt), clock, fetcher })
     expect(duplicate.outcome).toBe('duplicate_window')
     expect(calls.filter(call => call.includes('/sendMessage'))).toHaveLength(1)
   })
 
-  it.each([1, 2, 5, 7])('sends one Telegram batch for %i eligible fixtures, capped at five with one durable row per pick', async requestedCount => {
+  it('does not publish or claim a batch when only one fixture is admissible', async () => {
+    const db = freshDb()
+    await seedEligible(db, kickoffSameDay)
+    const { fetcher, calls, sentMessages } = fakeFetch()
+    const result = await publishVipWindow({ ...CONFIG, DB: db }, {
+      scheduledTime: Date.parse(scheduledAt), clock: () => runAt, fetcher,
+    })
+    expect(result.outcome).toBe('no_candidates')
+    expect(sentMessages).toHaveLength(0)
+    expect(calls.some(call => call.includes('/getMe'))).toBe(false)
+    expect(await db.prepare('SELECT COUNT(*) AS count FROM vip_publications').first()).toMatchObject({ count: 0 })
+  })
+
+  it.each([2, 5, 7])('sends one Telegram batch for %i eligible fixtures, capped at five with one durable row per pick', async requestedCount => {
     const db = freshDb()
     for (let index = 0; index < requestedCount; index += 1) {
       const probability = 0.30 + index * 0.09
@@ -270,6 +286,7 @@ describe('VIP publication policy', () => {
   it('rejects a fixture that becomes live after the durable claims and records those claims as not sent', async () => {
     const db = freshDb()
     await seedEligible(db, kickoffSameDay)
+    await seedEligible(db, kickoffSameDay, { fixtureNumber: 1 })
     const { fetcher, sentMessages } = fakeFetch({ startedOnSummaryNumber: 2 })
     const result = await publishVipWindow({ ...CONFIG, DB: db }, {
       scheduledTime: Date.parse(scheduledAt), clock: () => runAt, fetcher,
@@ -285,6 +302,7 @@ describe('VIP publication policy', () => {
     const db = freshDb()
     const kickoff = '2026-11-08T16:02:00.000Z'
     await seedEligible(db, kickoff)
+    await seedEligible(db, kickoff, { fixtureNumber: 1 })
     let late = false
     const { fetcher, sentMessages } = fakeFetch({ fixtureKickoff: kickoff, onSummary: count => { if (count >= 2) late = true } })
     const clock = () => late ? Date.parse('2026-11-08T16:01:30.000Z') : runAt
@@ -301,6 +319,7 @@ describe('VIP publication policy', () => {
   it('times out ESPN work within the shortened test budget and never sends or retries unknown work', async () => {
     const db = freshDb()
     await seedEligible(db, kickoffSameDay)
+    await seedEligible(db, kickoffSameDay, { fixtureNumber: 1 })
     const { fetcher, sentMessages } = fakeFetch({ summaryDelayMs: count => count === 1 ? 0 : 100 })
     const result = await publishVipWindow({ ...CONFIG, DB: db }, {
       scheduledTime: Date.parse(scheduledAt), clock: () => runAt, fetcher, espnBudgetMs: 25,
@@ -310,7 +329,7 @@ describe('VIP publication policy', () => {
     expect(await db.prepare('SELECT state FROM vip_publications').first()).toMatchObject({ state: 'not_sent' })
   })
 
-  it('keeps only one market when multiple candidate keys refer to the same ESPN fixture', async () => {
+  it('does not publish a one-match batch when multiple candidate keys refer to the same ESPN fixture', async () => {
     const db = freshDb()
     await seedEligible(db, kickoffSameDay, { fixtureNumber: 0, market: 'BTTS' })
     await seedEligible(db, kickoffSameDay, { fixtureNumber: 0, market: 'OVER_25' })
@@ -318,11 +337,10 @@ describe('VIP publication policy', () => {
     const result = await publishVipWindow({ ...CONFIG, DB: db }, {
       scheduledTime: Date.parse(scheduledAt), clock: () => runAt, fetcher,
     })
-    expect(result).toMatchObject({ outcome: 'sent', claimed: 1, sent: 1 })
-    expect(sentMessages).toHaveLength(1)
-    expect(sentMessages[0].match(/Home FC 0 — Away FC 0/g)).toHaveLength(1)
-    expect(await db.prepare('SELECT COUNT(*) AS count FROM vip_publications').first()).toMatchObject({ count: 1 })
-    expect(calls.filter(call => call.includes('/sendMessage'))).toHaveLength(1)
+    expect(result.outcome).toBe('no_candidates')
+    expect(sentMessages).toHaveLength(0)
+    expect(calls.some(call => call.includes('summary?event=12345'))).toBe(true)
+    expect(await db.prepare('SELECT COUNT(*) AS count FROM vip_publications').first()).toMatchObject({ count: 0 })
   })
 
   it('queues scheduled syncs but sends a verified manual sync immediately and only once', async () => {
@@ -338,12 +356,13 @@ describe('VIP publication policy', () => {
 
     const manualDb = freshDb()
     await seedEligible(manualDb, kickoffSameDay)
+    await seedEligible(manualDb, kickoffSameDay, { fixtureNumber: 1 })
     const manual = fakeFetch()
     const manualAt = Date.parse('2026-11-08T17:30:00.000Z')
     const result = await publishCandidatesAfterSync({ ...CONFIG, DB: manualDb }, 'github:123456:1', {
       publishMode: 'immediate', clock: () => manualAt, fetcher: manual.fetcher,
     })
-    expect(result).toMatchObject({ outcome: 'sent', claimed: 1, sent: 1 })
+    expect(result).toMatchObject({ outcome: 'sent', claimed: 2, sent: 2 })
     expect(manual.calls.filter(call => call.includes('/sendMessage'))).toHaveLength(1)
     const duplicate = await publishCandidatesAfterSync({ ...CONFIG, DB: manualDb }, 'github:123456:1', {
       publishMode: 'immediate', clock: () => manualAt, fetcher: manual.fetcher,
@@ -355,7 +374,7 @@ describe('VIP publication policy', () => {
   it('does not retry a Telegram send with an ambiguous result, even at a later window', async () => {
     const db = freshDb()
     await seedEligible(db, '2026-11-09T09:00:00.000Z')
-    await seedEligible(db, '2026-11-09T09:00:00.000Z', { market: 'OVER_25' })
+    await seedEligible(db, '2026-11-09T09:00:00.000Z', { fixtureNumber: 1, market: 'OVER_25' })
     const first = fakeFetch({ send: 'timeout', fixtureKickoff: '2026-11-09T09:00:00.000Z' })
     const result = await publishVipWindow({ ...CONFIG, DB: db }, {
       scheduledTime: Date.parse(scheduledAt), clock: () => runAt, fetcher: first.fetcher,
@@ -371,7 +390,7 @@ describe('VIP publication policy', () => {
     })
     expect(next.outcome).toBe('no_candidates')
     expect(later.calls.some(call => call.includes('/sendMessage'))).toBe(false)
-    expect(await db.prepare('SELECT COUNT(*) AS count FROM vip_publications').first()).toMatchObject({ count: 1 })
+    expect(await db.prepare('SELECT COUNT(*) AS count FROM vip_publications').first()).toMatchObject({ count: 2 })
     expect(await db.prepare('SELECT COUNT(*) AS count FROM vip_candidates WHERE status = \'pending_owner_approval\'').first())
       .toMatchObject({ count: 2 })
   })
@@ -392,6 +411,7 @@ describe('VIP publication policy', () => {
   it('does not send when the live fixture has started or the bot lacks destination permission', async () => {
     const startedDb = freshDb()
     await seedEligible(startedDb, kickoffSameDay)
+    await seedEligible(startedDb, kickoffSameDay, { fixtureNumber: 1 })
     const started = fakeFetch({ fixtureStatus: 'started' })
     const startedResult = await publishVipWindow({ ...CONFIG, DB: startedDb }, {
       scheduledTime: Date.parse(scheduledAt), clock: () => runAt, fetcher: started.fetcher,
@@ -401,6 +421,7 @@ describe('VIP publication policy', () => {
 
     const deniedDb = freshDb()
     await seedEligible(deniedDb, kickoffSameDay)
+    await seedEligible(deniedDb, kickoffSameDay, { fixtureNumber: 1 })
     const denied = fakeFetch({ membership: 'denied' })
     const deniedResult = await publishVipWindow({ ...CONFIG, DB: deniedDb }, {
       scheduledTime: Date.parse(scheduledAt), clock: () => runAt, fetcher: denied.fetcher,
@@ -413,6 +434,7 @@ describe('VIP publication policy', () => {
   it('quarantines a definitive Telegram rejection and does not try the candidate again', async () => {
     const db = freshDb()
     await seedEligible(db, '2026-11-09T09:00:00.000Z')
+    await seedEligible(db, '2026-11-09T09:00:00.000Z', { fixtureNumber: 1, market: 'OVER_25' })
     const first = fakeFetch({ send: 'reject', fixtureKickoff: '2026-11-09T09:00:00.000Z' })
     const result = await publishVipWindow({ ...CONFIG, DB: db }, {
       scheduledTime: Date.parse(scheduledAt), clock: () => runAt, fetcher: first.fetcher,
@@ -445,7 +467,7 @@ describe('VIP publication policy', () => {
       qualityTier: 'vip', probabilitySource: 'gemini-estimate', probability: 0.74,
       aiConfidence: 'high', sourceModel: 'gemini-3.5-flash-lite', dataQuality: 'HIGH',
       dataSource: 'ESPN_TEAM_SCHEDULE', analyzedAt: new Date(runAt - 5 * 60_000).toISOString(),
-      riskLevel: 'MODÉRÉ', riskReasons: ['Probabilité modèle et échantillon contrôlés.', 'Analyse fraîche.'], riskPolicy: 'risk-v2-model-specific',
+      riskLevel: 'MODÉRÉ', riskReasons: ['Probabilité modèle et échantillon contrôlés.', 'Fraîcheur : analyse effectuée il y a environ 0 h.'], riskPolicy: 'risk-v2-model-specific',
       empiricalSelectionRate: 0.74, homeSelectionRate: 0.72, awaySelectionRate: 0.76,
       matchCountHome: 8, matchCountAway: 9, formCountHome: 5, formCountAway: 5,
       reasons: ['Taux empiriques vérifiés', 'Forme récente cohérente'], risks: ['Échantillon limité'],
@@ -453,6 +475,18 @@ describe('VIP publication policy', () => {
     expect(message).toContain('Under 2,5')
     expect(message).toContain('Risque MODÉRÉ')
     expect(message).not.toMatch(/score exact/i)
+    const upperBandMessage = formatVipMessage({
+      ...candidate, market: 'BTTS', selection: 'YES', confidence: 85,
+      qualityTier: 'vip', probabilitySource: 'gemini-estimate', probability: 0.85,
+      aiConfidence: 'high', sourceModel: 'gemini-3.5-flash-lite',
+      riskLevel: 'ÉLEVÉ', riskReasons: ['Probabilité Gemini au-dessus de 78 % : hors plage 70–78 %, risque ÉLEVÉ.', 'Fraîcheur : analyse effectuée il y a environ 0 h.'],
+      empiricalSelectionRate: 0.84, homeSelectionRate: 0.84, awaySelectionRate: 0.84,
+      matchCountHome: 12, matchCountAway: 11, formCountHome: 5, formCountAway: 5,
+      reasons: ['Forme récente cohérente'], risks: ['La dynamique peut évoluer'],
+    } as never)
+    expect(upperBandMessage).toContain('Gemini 85 % · confiance high.')
+    expect(upperBandMessage).toContain('Fraîcheur : analyse effectuée il y a environ 0 h.')
+    expect(upperBandMessage).toContain('Risque ÉLEVÉ — Probabilité Gemini au-dessus de 78 % : hors plage 70–78 %, risque ÉLEVÉ.')
     expect(() => formatVipMessage({
       ...candidate, market: 'BTTS', selection: 'YES', qualityTier: 'fallback',
       probabilitySource: 'recent-form-empirical', probability: 0.62, confidence: null,
@@ -464,11 +498,25 @@ describe('VIP publication policy', () => {
     } as never)).toThrow('model_estimate_contract_missing')
   })
 
+  it('formats publication batches only when at least two valid picks remain', () => {
+    const pick = {
+      candidateKey: '1'.repeat(64), home: 'A', away: 'B', league: 'League', date: '2026-11-08', time: '20:00',
+      market: 'BTTS', selection: 'YES', qualityTier: 'vip', probabilitySource: 'gemini-estimate', probability: 0.72,
+      aiConfidence: 'medium', riskLevel: 'MODÉRÉ', riskReasons: ['Probabilité mesurée.', 'Fraîcheur : analyse effectuée il y a environ 1 h.'],
+      empiricalSelectionRate: 0.72, homeSelectionRate: 0.72, awaySelectionRate: 0.72,
+      matchCountHome: 8, matchCountAway: 8, formCountHome: 5, formCountAway: 5,
+      reasons: ['Forme récente cohérente'], risks: ['Variance possible'],
+    }
+    expect(formatVipBatchMessage([pick] as never)).toBeNull()
+    expect(formatVipBatchMessage([pick, { ...pick, candidateKey: '2'.repeat(64), home: 'C', away: 'D' }] as never))
+      .toMatchObject({ count: 2 })
+  })
+
   it('formats small and large model probabilities without rounding them to zero or one hundred', () => {
     const base = {
       home: 'A', away: 'B', league: 'League', date: '2026-11-08', time: '20:00', market: 'BTTS', selection: 'YES',
       qualityTier: 'vip', probabilitySource: 'gemini-estimate', aiConfidence: 'medium', riskLevel: 'MODÉRÉ',
-      riskReasons: ['Exemple de risque modèle.', 'Échantillon vérifié.'], empiricalSelectionRate: 0.5,
+      riskReasons: ['Exemple de risque modèle.', 'Fraîcheur : analyse effectuée il y a environ 1 h.'], empiricalSelectionRate: 0.5,
       homeSelectionRate: 0.5, awaySelectionRate: 0.5, matchCountHome: 8, matchCountAway: 8,
       formCountHome: 5, formCountAway: 5, reasons: ['Forme récente cohérente'], risks: ['Variance possible'],
     }
