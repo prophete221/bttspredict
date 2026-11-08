@@ -24,6 +24,13 @@ afterEach(() => {
 function geminiRow(overrides: Record<string, unknown> = {}) {
   return {
     id: 'monza-vs-atalanta-2026-11-08',
+    fixtureId: '401234567',
+    leagueSlug: 'ita.1',
+    homeTeamId: '123',
+    awayTeamId: '456',
+    sourceKickoffAt: '2026-11-08T23:00:00.000Z',
+    sourceStatus: 'STATUS_SCHEDULED',
+    matchState: 'STATUS_SCHEDULED',
     home: 'Monza',
     away: 'Atalanta',
     league: 'Serie A',
@@ -78,6 +85,30 @@ function payload(rows = [geminiRow()], overrides: Record<string, unknown> = {}) 
   }
 }
 
+function fallbackRow(overrides: Record<string, unknown> = {}) {
+  return {
+    id: 'fixture-fallback-2026-11-08', fixtureId: '401234568', leagueSlug: 'ita.1',
+    homeTeamId: '123', awayTeamId: '456', sourceKickoffAt: '2026-11-08T23:00:00.000Z',
+    status: 'STATUS_SCHEDULED', matchState: 'STATUS_SCHEDULED', sourceStatus: 'STATUS_SCHEDULED',
+    home: 'Monza', away: 'Atalanta', league: 'Serie A', date: '2026-11-08', time: '23:00',
+    dataQuality: 'HIGH', dataSource: 'ESPN_TEAM_SCHEDULE', matchCountHome: 8, matchCountAway: 8,
+    formHome: { count: 5, bttsRate: 0.7, over25Rate: 0.6 },
+    formAway: { count: 5, bttsRate: 0.7, over25Rate: 0.6 },
+    empiricalBttsRate: 0.7, empiricalOver25Rate: 0.6,
+    ...overrides,
+  }
+}
+
+function fallbackPayload(fixtures = [fallbackRow()], overrides: Record<string, unknown> = {}) {
+  return {
+    date: '2026-11-08', lastUpdated: '2026-11-08T11:00:00.000Z',
+    sourceLastUpdated: '2026-11-08T11:00:00.000Z', analysisComplete: false,
+    analysisResponseCount: 0, analysisExpectedCount: 1, vipCandidates: [],
+    privateFixtures: fixtures, privateFixturesComplete: true,
+    ...overrides,
+  }
+}
+
 describe('VIP private candidate source', () => {
   it('accepts only complete, high-quality, fresh, future Gemini decisions in supported markets', () => {
     const row = geminiRow({
@@ -109,6 +140,8 @@ describe('VIP private candidate source', () => {
       freeMarket: 'BTTS',
       freeSelection: 'YES',
       dataSource: 'ESPN_TEAM_SCHEDULE',
+      fixtureId: '401234567', leagueSlug: 'ita.1', homeTeamId: '123', awayTeamId: '456',
+      sourceKickoffAt: '2026-11-08T23:00:00.000Z',
     })
     expect(result.candidates[0].candidateKey).toMatch(/^[a-f0-9]{64}$/)
   })
@@ -122,8 +155,8 @@ describe('VIP private candidate source', () => {
     })
     expect(result.candidates).toEqual([])
     expect(result.audit.excludedAlreadyFree).toBe(1)
-    expect(result.audit.ownerOutcome).toBe('no_eligible_picks_today')
-    expect(result.audit.ownerMessage).toContain('Aucun pick VIP éligible aujourd’hui')
+    expect(result.audit.ownerOutcome).toBe('no_supported_pick')
+    expect(result.audit.ownerMessage).toContain('niveau de risque fiables')
   })
 
   it('does not fall back to free rows when the private VIP candidate array is empty', () => {
@@ -134,6 +167,48 @@ describe('VIP private candidate source', () => {
     })
     expect(result.candidates).toEqual([])
     expect(result.audit.inputRows).toBe(0)
+  })
+
+  it('publishes only the strongest supported empirical fallback when no strict VIP pick exists', () => {
+    const result = buildVipCandidates({ analysisPayload: fallbackPayload(), freePayload: payload([]), now: NOW })
+    expect(result.candidates).toHaveLength(1)
+    expect(result.candidates[0]).toMatchObject({
+      qualityTier: 'fallback', probabilitySource: 'recent-form-empirical',
+      market: 'BTTS', selection: 'YES', probability: 0.7, confidence: null,
+      aiConfidence: 'not_applicable', riskLevel: 'MODÉRÉ', matchState: 'PENDING',
+    })
+    expect((result.candidates[0] as any).riskReasons.join(' ')).toContain('Sélection de repli')
+    expect(result.audit.ownerOutcome).toBe('fallback_ready_for_automatic_publication')
+    expect(result.audit.fallbackRowsEvaluated).toBe(1)
+  })
+
+  it('excludes missing empirical rates and exact free-feed duplicates from fallback choices', () => {
+    const noRates = buildVipCandidates({
+      analysisPayload: fallbackPayload([fallbackRow({
+        empiricalBttsRate: null, empiricalOver25Rate: null,
+        formHome: { count: 5 }, formAway: { count: 5 },
+      })]),
+      freePayload: payload([]), now: NOW,
+    })
+    expect(noRates.candidates).toEqual([])
+
+    const freeDuplicate = buildVipCandidates({
+      analysisPayload: fallbackPayload(),
+      freePayload: { ...payload([]), free: [{ date: '2026-11-08', league: 'Serie A', home: 'Monza', away: 'Atalanta', type: 'BTTS', prediction: 'Oui' }] } as never,
+      now: NOW,
+    })
+    expect(freeDuplicate.candidates).toHaveLength(1)
+    expect(freeDuplicate.candidates[0]).toMatchObject({ market: 'OVER_25', selection: 'YES', qualityTier: 'fallback' })
+    expect(freeDuplicate.audit.excludedAlreadyFree).toBe(1)
+  })
+
+  it('never replaces a qualifying strict VIP candidate with a fallback', () => {
+    const analysis = {
+      ...payload([]), vipCandidates: [geminiRow()], privateFixtures: [fallbackRow()], privateFixturesComplete: true,
+    }
+    const result = buildVipCandidates({ analysisPayload: analysis, freePayload: payload([]), now: NOW })
+    expect(result.candidates).toHaveLength(1)
+    expect(result.candidates[0].qualityTier).toBe('vip')
   })
 
   it('rejects an exact free pick, non-high confidence, or a probability unsupported by its market rate', () => {
@@ -177,7 +252,7 @@ describe('VIP private candidate source', () => {
     expect(result.candidates.map(candidate => candidate.market)).toEqual(['OVER_25', 'BTTS'])
     expect(result.candidates[1]).toMatchObject({ market: 'BTTS', selection: 'NO', freeMarket: 'BTTS', freeSelection: 'YES' })
     expect(result.audit.rejected.confidence_below_vip_threshold).toBe(1)
-    expect(result.audit.ownerOutcome).toBe('awaiting_owner_approval')
+    expect(result.audit.ownerOutcome).toBe('ready_for_automatic_publication')
   })
 
   it('requires 70% estimated and empirical support from the aggregate and each team', () => {
@@ -194,6 +269,79 @@ describe('VIP private candidate source', () => {
     expect(result.audit.rejected.empirical_rate_below_vip_threshold).toBe(1)
     expect(result.audit.rejected.team_empirical_rate_below_vip_threshold).toBe(1)
     expect(result.audit.rejected.missing_team_empirical_rate).toBe(1)
+  })
+
+  it('propagates verified ESPN fixture identity and the exact source kickoff to clean candidates', () => {
+    const result = buildVipCandidates({ analysisPayload: { ...payload([]), vipCandidates: [geminiRow()] }, freePayload: payload([]), now: NOW })
+    expect(result.candidates[0]).toMatchObject({
+      fixtureId: '401234567', leagueSlug: 'ita.1', homeTeamId: '123', awayTeamId: '456',
+      sourceKickoffAt: '2026-11-08T23:00:00.000Z', matchState: 'PENDING',
+      sourceMatchStatus: 'PENDING',
+    })
+  })
+
+  it('separates private vipCandidates from public free rows when deduplicating', () => {
+    const privateRow = geminiRow({ ai_market: 'OVER_25', type: 'Over 2.5', prediction: 'Oui', freeMarket: 'BTTS', freeSelection: 'Oui', predictions: [{ type: 'Over 2.5', prediction: 'Oui', confidence: 70, proba: 0.7, modelEngine: 'gemini-3.5-flash-lite' }] })
+    const accidentalVipOnly = buildVipCandidates({
+      analysisPayload: { ...payload([]), vipCandidates: [privateRow] },
+      freePayload: { ...payload([]), vipCandidates: [privateRow] }, now: NOW,
+    })
+    expect(accidentalVipOnly.candidates).toHaveLength(1)
+    const actualFree = buildVipCandidates({
+      analysisPayload: { ...payload([]), vipCandidates: [privateRow] },
+      freePayload: payload([privateRow]), now: NOW,
+    })
+    expect(actualFree.candidates).toEqual([])
+    expect(actualFree.audit.excludedAlreadyFree).toBe(1)
+  })
+
+  it('keeps contradictory explicit match-state evidence and shifted kickoff for the same ESPN identity', () => {
+    const scheduled = geminiRow()
+    const startedWithoutStatus = geminiRow({ status: undefined, matchState: 'STATUS_IN_PROGRESS' })
+    const contradictory = buildVipCandidates({
+      analysisPayload: { ...payload([scheduled]), freeUpcoming: [startedWithoutStatus] },
+      freePayload: payload([]), now: NOW,
+    })
+    expect(contradictory.candidates).toEqual([])
+    expect(contradictory.audit.rejected.match_state_unknown_or_started).toBe(1)
+
+    const rescheduled = geminiRow({ date: '2026-11-09', time: '20:00', sourceKickoffAt: '2026-11-09T20:00:00.000Z' })
+    const moved = buildVipCandidates({
+      analysisPayload: { ...payload([scheduled]), upcoming: [rescheduled] },
+      freePayload: payload([]), now: NOW,
+    })
+    expect(moved.candidates).toEqual([])
+    expect(moved.audit.rejected.kickoff_conflict).toBe(1)
+  })
+
+  it('accepts no status only for a strict future kickoff and rejects equal, past, invalid, or mismatched source time', () => {
+    const noStatus = geminiRow({ status: undefined, matchState: undefined, sourceStatus: undefined })
+    const withoutSourceStatus = buildVipCandidates({ analysisPayload: { ...payload([]), vipCandidates: [noStatus] }, freePayload: payload([]), now: NOW })
+    expect(withoutSourceStatus.candidates).toHaveLength(1)
+    expect(withoutSourceStatus.candidates[0]).toMatchObject({ matchState: 'PENDING' })
+    expect(withoutSourceStatus.candidates[0]).not.toHaveProperty('sourceStatus')
+    expect((withoutSourceStatus.candidates[0] as any).riskReasons.join(' ')).toContain('Statut source explicite absent')
+    const approvedWithoutSourceState = { ...withoutSourceStatus.candidates[0], status: 'approved', approvedAt: '2026-11-08T15:30:00.000Z' }
+    expect(selectApprovedCandidatesForWindow({ candidates: [approvedWithoutSourceState] }, new Date('2026-11-08T16:00:00.000Z'))).toHaveLength(1)
+    for (const overrides of [
+      { time: '12:00', sourceKickoffAt: '2026-11-08T12:00:00.000Z' },
+      { time: '11:59', sourceKickoffAt: '2026-11-08T11:59:00.000Z' },
+      { time: '25:99' },
+      { sourceKickoffAt: 'not-an-iso-date' },
+    ]) {
+      const row = geminiRow({ ...noStatus, ...overrides })
+      expect(buildVipCandidates({ analysisPayload: { ...payload([]), vipCandidates: [row] }, freePayload: payload([]), now: NOW }).candidates).toEqual([])
+    }
+  })
+
+  it('uses the exact ESPN kickoff seconds for strict future checks', () => {
+    const secondsAfter = geminiRow({ status: undefined, matchState: undefined, sourceStatus: undefined,
+      time: '12:00', sourceKickoffAt: '2026-11-08T12:00:30.000Z' })
+    const result = buildVipCandidates({ analysisPayload: { ...payload([]), vipCandidates: [secondsAfter] }, freePayload: payload([]), now: NOW })
+    expect(result.candidates[0].kickoffAt).toBe('2026-11-08T12:00:30.000Z')
+    const exactNow = geminiRow({ status: undefined, matchState: undefined, sourceStatus: undefined,
+      time: '12:00', sourceKickoffAt: '2026-11-08T12:00:00.000Z' })
+    expect(buildVipCandidates({ analysisPayload: { ...payload([]), vipCandidates: [exactNow] }, freePayload: payload([]), now: NOW }).candidates).toEqual([])
   })
 
   it('rejects missing/stale packet timestamps and a payload dated for a previous Dakar day', () => {
@@ -229,7 +377,7 @@ describe('VIP private candidate source', () => {
       geminiRow({ id: '' }),
       geminiRow({ matchCountAway: 3 }),
       geminiRow({ formHome: { count: 4, bttsRate: 0.7, over25Rate: 0.7 } }),
-      geminiRow({ status: undefined }),
+      geminiRow({ status: undefined, matchState: 'STATUS_IN_PROGRESS' }),
     ]
     const result = buildVipCandidates({ analysisPayload: payload(rows), freePayload: payload([]), now: NOW })
     expect(result.candidates).toEqual([])
@@ -242,7 +390,7 @@ describe('VIP private candidate source', () => {
   it('rejects postponed, started, malformed, or unsupported-market picks', () => {
     const rows = [
       geminiRow({ status: 'POSTPONED', id: 'postponed' }),
-      geminiRow({ time: '11:59', id: 'started' }),
+      geminiRow({ time: '11:59', sourceKickoffAt: '2026-11-08T11:59:00.000Z', id: 'started' }),
       geminiRow({ ai_market: 'EXACT_SCORE', type: 'Exact score', id: 'unsupported' }),
       geminiRow({ time: '25:99', id: 'bad-time' }),
     ]

@@ -10,6 +10,10 @@ on:
     # Refresh every 3 h — the diff-based FTP upload (see ftp-diff.mjs) keeps each
     # run short, so completed matches are replaced promptly without overlap.
     - cron: '0 */3 * * *'
+    # Private VIP analysis windows (Dakar, UTC); these route only to vip-candidates-only.
+    - cron: '30 23 * * *'
+    - cron: '30 6 * * *'
+    - cron: '30 15 * * *'
   workflow_dispatch:
     inputs:
       mode:
@@ -31,7 +35,7 @@ permissions:
 # Les déploiements publics sont sérialisés sans annulation : un nouveau run site
 # attend le précédent. Le mode VIP-only a son propre groupe et évite la file FTP.
 concurrency:
-  group: ${{ github.event_name == 'workflow_dispatch' && inputs.mode == 'vip' && 'vip-candidates-only' || format('deploy-{0}', github.ref) }}
+  group: ${{ (github.event_name == 'workflow_dispatch' && inputs.mode == 'vip' || (github.event_name == 'schedule' && (github.event.schedule == '30 23 * * *' || github.event.schedule == '30 6 * * *' || github.event.schedule == '30 15 * * *'))) && 'vip-candidates-only' || format('deploy-{0}', github.ref) }}
   cancel-in-progress: false
 
 jobs:
@@ -81,7 +85,14 @@ jobs:
 
   vip-candidates-only:
     name: Private VIP candidate generation and approval sync
-    if: github.ref == 'refs/heads/main' && github.event_name == 'workflow_dispatch' && inputs.mode == 'vip' && github.actor == github.repository_owner
+    needs: deploy
+    if: >-
+      ${{ always() && github.ref == 'refs/heads/main' && (
+        (github.event_name == 'workflow_dispatch' && inputs.mode == 'vip' && github.actor == github.repository_owner) ||
+        (github.event_name == 'schedule' && (github.event.schedule == '30 23 * * *' || github.event.schedule == '30 6 * * *' || github.event.schedule == '30 15 * * *')) ||
+        (github.event_name == 'workflow_dispatch' && inputs.mode == 'full' && needs.deploy.result == 'success') ||
+        (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]') && !contains(github.event.head_commit.message, '[skip ci]') && needs.deploy.result == 'success')
+      ) }}
     permissions:
       contents: read
       id-token: write
@@ -110,6 +121,10 @@ jobs:
         env:
           PUPPETEER_SKIP_DOWNLOAD: 'true'
 
+      - name: Collect fresh ESPN fixtures privately
+        timeout-minutes: 5
+        run: node scripts/quick-update-predictions.mjs --private-vip
+
       - name: Install Gemini client
         run: pip install google-genai==2.34.0
 
@@ -133,7 +148,7 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           PYTHONUNBUFFERED: '1'
         timeout-minutes: 10
-        run: python scripts/enrich_vip_candidates.py
+        run: python scripts/enrich_vip_candidates.py .private/vip-fixtures.json
 
       - name: Build private candidate approval payload
         run: node scripts/vip-candidate-source.mjs .private/vip-gemini-candidates.json public/predictions.json .private/vip-candidates.json
@@ -145,7 +160,7 @@ jobs:
 
   deploy:
     # Jamais de déploiement depuis une branche de travail ou un tag.
-    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && (github.event_name != 'workflow_dispatch' || inputs.mode != 'vip') && !contains(github.event.head_commit.message, '[skip ci]')
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && (github.event_name != 'workflow_dispatch' || inputs.mode != 'vip') && (github.event_name != 'schedule' || (github.event.schedule != '30 23 * * *' && github.event.schedule != '30 6 * * *' && github.event.schedule != '30 15 * * *')) && !contains(github.event.head_commit.message, '[skip ci]')
     permissions:
       contents: write
       id-token: write
@@ -260,13 +275,18 @@ jobs:
         if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
         run: node scripts/filter-gemini-current-picks.mjs public/predictions.json
 
+      - name: Collect fresh ESPN fixtures privately
+        if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
+        timeout-minutes: 5
+        run: node scripts/quick-update-predictions.mjs --private-vip
+
       - name: Analyze private VIP candidate variants (public feed unchanged)
         if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           PYTHONUNBUFFERED: '1'
         timeout-minutes: 5
-        run: python scripts/enrich_vip_candidates.py
+        run: python scripts/enrich_vip_candidates.py .private/vip-fixtures.json
 
       - name: Generate private VIP candidate source (no publication)
         if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}

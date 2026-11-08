@@ -1,3 +1,6 @@
+import { publicationConfigured, VIP_PUBLICATION_POLICY } from './vip-publication-config.js'
+import { assessPickRisk } from './vip-risk.js'
+
 const encoder = new TextEncoder()
 const decoder = new TextDecoder('utf-8', { fatal: true })
 const MAX_SYNC_BYTES = 512_000
@@ -10,14 +13,20 @@ const OIDC_JWKS_URL = `${OIDC_ISSUER}/.well-known/jwks`
 const OIDC_AUDIENCE = 'https://bttspredict.com/vip-candidates'
 const EXPECTED_REPOSITORY = 'prophete221/bttspredict'
 const EXPECTED_WORKFLOW_REF = 'prophete221/bttspredict/.github/workflows/deploy.yml@refs/heads/main'
-const ACCEPTED_MATCH_STATES = new Set(['PENDING', 'SCHEDULED', 'NOT_STARTED', 'UPCOMING'])
+const MATCH_STATE_ALIASES = new Map([
+  ['PENDING', 'PENDING'], ['SCHEDULED', 'PENDING'], ['NOT_STARTED', 'PENDING'], ['UPCOMING', 'PENDING'],
+  ['STATUS_SCHEDULED', 'PENDING'], ['STATUS_PRE_GAME', 'PENDING'], ['STATUS_DELAYED', 'PENDING'],
+  ['STATUS_NOT_STARTED', 'PENDING'],
+])
 const ACCEPTED_MARKETS = new Set(['BTTS', 'OVER_25'])
 const MATERIAL_FIELDS = Object.freeze([
   'matchId', 'home', 'away', 'league', 'date', 'time', 'matchState', 'kickoffAt',
-  'market', 'freeMarket', 'freeSelection', 'selection', 'probability', 'confidence', 'aiConfidence',
+  'sourceMatchStatus', 'sourceStatus', 'market', 'freeMarket', 'freeSelection', 'selection', 'probability', 'confidence', 'aiConfidence',
+  'qualityTier', 'probabilitySource',
   'dataQuality', 'dataSource', 'matchCountHome', 'matchCountAway', 'formCountHome',
   'formCountAway', 'sourceModel', 'homeSelectionRate', 'awaySelectionRate',
   'empiricalSelectionRate', 'reasons', 'risks',
+  'fixtureId', 'leagueSlug', 'homeTeamId', 'awayTeamId', 'sourceKickoffAt',
 ])
 
 class CandidateApiError extends Error {
@@ -118,11 +127,11 @@ async function verifyGithubOidc(request) {
     && claims.repository_owner === 'prophete221'
     && claims.ref === 'refs/heads/main'
     && claims.workflow_ref === EXPECTED_WORKFLOW_REF
-    && ['schedule', 'workflow_dispatch'].includes(claims.event_name)
+    && ['push', 'schedule', 'workflow_dispatch'].includes(claims.event_name)
     && /^\d{1,24}$/.test(String(claims.run_id || ''))
     && /^[1-9]\d{0,3}$/.test(String(claims.run_attempt || ''))
   if (!timeOk || !identityOk) fail(403, 'machine_identity_not_allowed')
-  return { syncId: `${claims.run_id}:${claims.run_attempt}` }
+  return { syncId: `${claims.run_id}:${claims.run_attempt}`, eventName: claims.event_name }
 }
 
 async function readJsonBounded(request, maxBytes) {
@@ -194,6 +203,10 @@ function normalizedSelection(value) {
   return null
 }
 
+function normalizedMatchState(value) {
+  return MATCH_STATE_ALIASES.get(String(value ?? '').trim().toUpperCase()) ?? null
+}
+
 async function expectedCandidateKey(candidate) {
   const market = normalizedMarket(candidate.market)
   const selection = normalizedSelection(candidate.selection)
@@ -213,9 +226,11 @@ function cleanRationale(value, minimum, maximum) {
   return value.map(item => item.trim())
 }
 
-async function validateCandidate(candidate, nowMs) {
+export async function validateCandidate(candidate, nowMs) {
   if (!candidate || typeof candidate !== 'object' || Array.isArray(candidate)) fail(422, 'invalid_candidate')
   const candidateKey = candidate.candidateKey
+  const qualityTier = candidate.qualityTier ?? 'vip'
+  const probabilitySource = candidate.probabilitySource ?? (qualityTier === 'vip' ? 'gemini-estimate' : null)
   const market = normalizedMarket(candidate.market)
   const selection = normalizedSelection(candidate.selection)
   const freeMarket = candidate.freeMarket == null ? null : normalizedMarket(candidate.freeMarket)
@@ -229,6 +244,9 @@ async function validateCandidate(candidate, nowMs) {
   const expectedConfidence = Math.round(Number(probability) * 100)
   const reasons = cleanRationale(candidate.reasons, 2, 4)
   const risks = cleanRationale(candidate.risks, 1, 2)
+  const matchState = normalizedMatchState(candidate.matchState)
+  const sourceStates = ['sourceMatchStatus', 'sourceStatus'].map(field => candidate[field]).filter(value => value != null)
+  const stateEvidenceValid = matchState === 'PENDING' && sourceStates.every(value => normalizedMatchState(value) === 'PENDING')
   const date = String(candidate.date ?? '')
   const time = String(candidate.time ?? '')
   const empiricalSelectionRate = candidate.empiricalSelectionRate
@@ -237,30 +255,59 @@ async function validateCandidate(candidate, nowMs) {
   const expectedKickoffMs = /^\d{4}-\d{2}-\d{2}$/.test(date) && /^([01]\d|2[0-3]):[0-5]\d$/.test(time)
     ? Date.parse(`${date}T${time}:00.000Z`)
     : NaN
+  const ratesValid = [empiricalSelectionRate, homeSelectionRate, awaySelectionRate]
+    .every(rate => typeof rate === 'number' && Number.isFinite(rate) && rate >= 0 && rate <= 1)
+  const averageRateConsistent = ratesValid
+    && Math.abs(empiricalSelectionRate - (homeSelectionRate + awaySelectionRate) / 2) <= 0.01 + 1e-9
+  const vipProbabilitySupported = qualityTier === 'vip' && probabilitySource === 'gemini-estimate'
+    && typeof probability === 'number' && Number.isFinite(probability) && probability >= 0.70 && probability <= 0.78
+    && candidate.confidence === expectedConfidence && candidate.aiConfidence === 'high'
+    && candidate.sourceModel === 'gemini-3.5-flash-lite'
+    && [empiricalSelectionRate, homeSelectionRate, awaySelectionRate].every(rate => rate >= 0.70)
+    && [empiricalSelectionRate, homeSelectionRate, awaySelectionRate].every(rate => Math.abs(probability - rate) <= 0.15 + 1e-9)
+  const fallbackProbabilitySupported = qualityTier === 'fallback' && probabilitySource === 'recent-form-empirical'
+    && typeof probability === 'number' && Number.isFinite(probability) && probability > 0.5 && probability <= 1
+    && candidate.confidence === null && candidate.aiConfidence === 'not_applicable'
+    && candidate.sourceModel === 'empirical-team-form'
+    && Math.abs(probability - empiricalSelectionRate) <= 1e-9
   const supported = typeof candidateKey === 'string' && /^[a-f0-9]{64}$/.test(candidateKey)
     && market && ACCEPTED_MARKETS.has(market) && selection
     && boundedString(candidate.matchId, 160) && boundedString(candidate.home, 120)
     && boundedString(candidate.away, 120) && boundedString(candidate.league, 160)
     && /^\d{4}-\d{2}-\d{2}$/.test(date) && /^([01]\d|2[0-3]):[0-5]\d$/.test(time)
-    && ACCEPTED_MATCH_STATES.has(String(candidate.matchState || '').trim().toUpperCase())
+    && stateEvidenceValid
     && Number.isFinite(kickoffMs) && kickoffMs === expectedKickoffMs && kickoffMs > nowMs
     && Number.isFinite(analyzedMs) && analyzedMs <= nowMs + MAX_FUTURE_SKEW_MS
     && nowMs - analyzedMs <= MAX_ANALYSIS_AGE_MS
-    && typeof probability === 'number' && Number.isFinite(probability) && probability >= 0.70 && probability <= 0.78
-    && candidate.confidence === expectedConfidence && candidate.aiConfidence === 'high'
+    && (vipProbabilitySupported || fallbackProbabilitySupported)
     && candidate.dataQuality === 'HIGH' && candidate.dataSource === 'ESPN_TEAM_SCHEDULE'
-    && candidate.sourceModel === 'gemini-3.5-flash-lite'
     && Number.isInteger(candidate.matchCountHome) && candidate.matchCountHome >= 6
     && Number.isInteger(candidate.matchCountAway) && candidate.matchCountAway >= 6
     && Number.isInteger(candidate.formCountHome) && candidate.formCountHome >= 5
     && Number.isInteger(candidate.formCountAway) && candidate.formCountAway >= 5
-    && [empiricalSelectionRate, homeSelectionRate, awaySelectionRate].every(rate => typeof rate === 'number' && Number.isFinite(rate) && rate >= 0.70 && rate <= 1)
-    && [empiricalSelectionRate, homeSelectionRate, awaySelectionRate].every(rate => Math.abs(probability - rate) <= 0.15 + 1e-9)
+    && ratesValid && averageRateConsistent
     && reasons && risks && freeReferenceValid
   if (!supported) fail(422, 'candidate_failed_validation')
   const computedKey = await expectedCandidateKey(candidate)
   if (computedKey !== candidateKey) fail(422, 'candidate_key_mismatch')
 
+  const fixture = {}
+  const fixtureFields = ['fixtureId', 'leagueSlug', 'homeTeamId', 'awayTeamId', 'sourceKickoffAt']
+  if (fixtureFields.some(field => candidate[field] != null)) {
+    if (!/^\d{1,20}$/.test(candidate.fixtureId || '')
+      || !/^[a-z0-9]+(?:\.[a-z0-9]+){1,3}$/.test(candidate.leagueSlug || '')
+      || !/^\d{1,20}$/.test(candidate.homeTeamId || '') || !/^\d{1,20}$/.test(candidate.awayTeamId || '')
+      || candidate.homeTeamId === candidate.awayTeamId || parseTime(candidate.sourceKickoffAt) !== kickoffMs) {
+      fail(422, 'invalid_fixture_provenance')
+    }
+    Object.assign(fixture, {
+      fixtureId: String(candidate.fixtureId), leagueSlug: candidate.leagueSlug,
+      homeTeamId: String(candidate.homeTeamId), awayTeamId: String(candidate.awayTeamId),
+      sourceKickoffAt: new Date(kickoffMs).toISOString(),
+    })
+  }
+  const risk = assessPickRisk({ ...candidate, qualityTier, probabilitySource, matchState }, nowMs)
+  if (!risk) fail(422, 'risk_evidence_missing_or_inconsistent')
   const clean = {
     candidateKey,
     matchId: candidate.matchId.trim(),
@@ -269,7 +316,9 @@ async function validateCandidate(candidate, nowMs) {
     league: candidate.league.trim(),
     date,
     time,
-    matchState: String(candidate.matchState).trim().toUpperCase(),
+    matchState,
+    ...(typeof candidate.sourceMatchStatus === 'string' ? { sourceMatchStatus: candidate.sourceMatchStatus.trim().toUpperCase() } : {}),
+    ...(typeof candidate.sourceStatus === 'string' ? { sourceStatus: candidate.sourceStatus.trim().toUpperCase() } : {}),
     kickoffAt: new Date(kickoffMs).toISOString(),
     market,
     freeMarket,
@@ -278,6 +327,11 @@ async function validateCandidate(candidate, nowMs) {
     probability,
     confidence: candidate.confidence,
     aiConfidence: candidate.aiConfidence,
+    qualityTier,
+    probabilitySource,
+    riskLevel: risk.level,
+    riskReasons: risk.reasons,
+    riskPolicy: risk.policy,
     dataQuality: candidate.dataQuality,
     dataSource: candidate.dataSource,
     matchCountHome: candidate.matchCountHome,
@@ -292,6 +346,7 @@ async function validateCandidate(candidate, nowMs) {
     risks,
     analyzedAt: new Date(analyzedMs).toISOString(),
     status: 'pending_owner_approval',
+    ...fixture,
   }
   const materialJson = JSON.stringify(Object.fromEntries(MATERIAL_FIELDS.map(field => [field, clean[field]])))
   const digest = await crypto.subtle.digest('SHA-256', encoder.encode(materialJson))
@@ -299,18 +354,23 @@ async function validateCandidate(candidate, nowMs) {
   return { candidate: clean, materialJson, materialHash }
 }
 
-function auditForStorage(audit, acceptedCount) {
+function auditForStorage(audit, acceptedCount, policy) {
+  const automatic = policy === VIP_PUBLICATION_POLICY
   return {
+    payloadFresh: audit?.payloadFresh === true,
+    evaluationComplete: audit?.evaluationComplete === true,
+    publicationPolicy: automatic ? VIP_PUBLICATION_POLICY : null,
     inputRows: Number.isSafeInteger(audit?.inputRows) ? audit.inputRows : 0,
     verifiedGeminiRows: Number.isSafeInteger(audit?.verifiedGeminiRows) ? audit.verifiedGeminiRows : 0,
     eligibleBeforeFreeExclusion: Number.isSafeInteger(audit?.eligibleBeforeFreeExclusion) ? audit.eligibleBeforeFreeExclusion : 0,
     excludedAlreadyFree: Number.isSafeInteger(audit?.excludedAlreadyFree) ? audit.excludedAlreadyFree : 0,
     excludedDuplicateKey: Number.isSafeInteger(audit?.excludedDuplicateKey) ? audit.excludedDuplicateKey : 0,
     rejected: audit?.rejected && typeof audit.rejected === 'object' && !Array.isArray(audit.rejected) ? audit.rejected : {},
-    ownerOutcome: acceptedCount === 0 ? 'no_eligible_picks_today' : 'awaiting_owner_approval',
+    ownerOutcome: acceptedCount === 0 ? 'no_eligible_picks_today' : automatic ? 'awaiting_verified_publication_window' : 'awaiting_owner_approval',
     ownerMessage: acceptedCount === 0
       ? 'Aucun pick VIP éligible aujourd’hui; aucun message n’a été envoyé.'
-      : `${acceptedCount} candidat(s) VIP en attente d’approbation du propriétaire.`,
+      : automatic ? `${acceptedCount} candidat(s) VIP en attente de revalidation au prochain créneau Dakar.`
+        : `${acceptedCount} candidat(s) VIP en attente d’approbation du propriétaire.`,
   }
 }
 
@@ -318,6 +378,7 @@ async function handleCandidateSync(request, env, headers) {
   try {
     if (request.method !== 'POST') fail(405, 'method_not_allowed')
     const identity = await verifyGithubOidc(request)
+    const publicationMode = identity.eventName === 'schedule' ? 'scheduled' : 'immediate'
     const data = await readJsonBounded(request, MAX_SYNC_BYTES)
     if (data.version !== 1 || !Array.isArray(data.candidates) || data.candidates.length > MAX_CANDIDATES_PER_SYNC) {
       fail(422, 'invalid_sync_payload')
@@ -353,7 +414,7 @@ async function handleCandidateSync(request, env, headers) {
     const existingRun = await env.DB.prepare('SELECT run_id, accepted_count FROM vip_candidate_sync_runs WHERE run_id = ?')
       .bind(syncId).first()
     if (existingRun) {
-      return jsonResponse({ ok: true, synced: true, duplicate: true, acceptedCount: Number(existingRun.accepted_count || 0) }, 200, headers)
+      return jsonResponse({ ok: true, synced: true, duplicate: true, syncId, acceptedCount: Number(existingRun.accepted_count || 0), publicationMode }, 200, headers)
     }
     const state = await env.DB.prepare('SELECT last_generated_at FROM vip_candidate_sync_state WHERE id = ?')
       .bind('vip').first()
@@ -417,6 +478,7 @@ async function handleCandidateSync(request, env, headers) {
           published_at = vip_candidates.published_at,
           publication_window = vip_candidates.publication_window,
           telegram_message_id = vip_candidates.telegram_message_id
+        WHERE NOT EXISTS (SELECT 1 FROM vip_publications p WHERE p.candidate_key = vip_candidates.candidate_key)
       `).bind(
         candidate.candidateKey, item.materialHash, JSON.stringify(candidate), candidate.matchId,
         candidate.kickoffAt, candidate.analyzedAt, candidate.matchState,
@@ -430,8 +492,9 @@ async function handleCandidateSync(request, env, headers) {
       WHERE status IN ('pending_owner_approval', 'approved')
         AND published_at IS NULL AND last_seen_sync_id <> ?
         AND EXISTS (SELECT 1 FROM vip_candidate_sync_state WHERE id = 'vip' AND last_sync_id = ?)
+        AND NOT EXISTS (SELECT 1 FROM vip_publications p WHERE p.candidate_key = vip_candidates.candidate_key)
     `).bind(receivedAt, syncId, syncId))
-    const auditJson = JSON.stringify(auditForStorage(audit, validated.length))
+    const auditJson = JSON.stringify(auditForStorage(audit, validated.length, env.VIP_PUBLICATION_POLICY))
     statements.push(env.DB.prepare(`
       INSERT OR IGNORE INTO vip_candidate_sync_runs
         (run_id, source_updated_at, generated_at, received_at, candidate_count, accepted_count, audit_json)
@@ -440,7 +503,7 @@ async function handleCandidateSync(request, env, headers) {
     `).bind(syncId, sourceUpdatedAt, generatedAt, receivedAt, data.candidates.length, validated.length, auditJson, syncId))
 
     await env.DB.batch(statements)
-    return jsonResponse({ ok: true, synced: true, duplicate: false, acceptedCount: validated.length }, 200, headers)
+    return jsonResponse({ ok: true, synced: true, duplicate: false, syncId, acceptedCount: validated.length, publicationMode }, 200, headers)
   } catch (error) {
     if (error instanceof CandidateApiError) return jsonResponse({ ok: false, error: error.code }, error.status, headers)
     return jsonResponse({ ok: false, error: 'storage_unavailable' }, 503, headers)
@@ -497,7 +560,7 @@ async function adminListCandidates(env, headers) {
           : `${acceptedCount} candidat(s) VIP en attente d’approbation du propriétaire.`),
       }
     }
-    return jsonResponse({ ok: true, candidates, latestSync, publicationEnabled: false }, 200, headers)
+    return jsonResponse({ ok: true, candidates, latestSync, publicationEnabled: publicationConfigured(env) }, 200, headers)
   } catch (error) {
     if (error instanceof CandidateApiError) return jsonResponse({ ok: false, error: error.code }, error.status, headers)
     return jsonResponse({ ok: false, error: 'storage_unavailable' }, 503, headers)
@@ -526,10 +589,11 @@ async function adminCandidateDecision(candidateKey, request, env, headers) {
     if (data.decision === 'approve' && (!Number.isFinite(kickoffMs) || kickoffMs <= nowMs
       || !Number.isFinite(analyzedMs) || analyzedMs > nowMs + MAX_FUTURE_SKEW_MS
       || nowMs - analyzedMs > MAX_ANALYSIS_AGE_MS
-      || !ACCEPTED_MATCH_STATES.has(String(row.match_state || '').toUpperCase()))) {
+      || normalizedMatchState(row.match_state) !== 'PENDING')) {
       await env.DB.prepare(`
         UPDATE vip_candidates SET status = 'ineligible', ineligible_at = ?, ineligible_reason = 'candidate_stale_or_started'
         WHERE candidate_key = ? AND status = 'pending_owner_approval' AND material_hash = ?
+          AND NOT EXISTS (SELECT 1 FROM vip_publications p WHERE p.candidate_key = vip_candidates.candidate_key)
       `).bind(new Date(nowMs).toISOString(), candidateKey, data.materialHash).run()
       fail(409, 'candidate_no_longer_eligible')
     }
@@ -541,6 +605,7 @@ async function adminCandidateDecision(candidateKey, request, env, headers) {
       SET status = ?, approved_at = ?, rejected_at = ?, ineligible_at = NULL, ineligible_reason = NULL
       WHERE candidate_key = ? AND status = 'pending_owner_approval' AND material_hash = ?
         AND last_seen_sync_id = ?
+        AND NOT EXISTS (SELECT 1 FROM vip_publications p WHERE p.candidate_key = vip_candidates.candidate_key)
     `).bind(
       status,
       data.decision === 'approve' ? timestamp : null,

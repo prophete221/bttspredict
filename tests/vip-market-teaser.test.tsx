@@ -93,13 +93,14 @@ describe('teaser VIP verrouillé dans les cartes gratuites', () => {
     expect(teaserSource).not.toContain('ai_exact_score')
   })
 
-  it('intègre la vraie demande VIP dans la page localisée, sans modal séparé', () => {
+  it('relie les CTA de la page VIP au parcours VipJourneyModal intégré au même écran', () => {
     const vipPageSource = readFileSync(resolve(__dirname, '..', 'src/app/vip/page.tsx'), 'utf8')
-    expect(vipPageSource).toContain("import VipApplication from './VipApplication'")
-    expect(vipPageSource).toContain('<VipApplication lang={lang} />')
-    expect(vipPageSource).toContain('href="#vip-application"')
-    expect(vipPageSource).toContain('onClick={scrollToApplication}')
-    expect(vipPageSource).not.toContain('VipUnlockModal')
+    expect(vipPageSource).toContain("import VipJourneyModal from './VipJourneyModal'")
+    expect(vipPageSource).toContain('const [vipFlowOpen, setVipFlowOpen] = useState(false)')
+    expect(vipPageSource).toContain('const openVipFlow = (event?: MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => {')
+    expect(vipPageSource).toContain('setVipFlowOpen(true)')
+    expect(vipPageSource).toContain('<VipJourneyModal isOpen={vipFlowOpen} onClose={() => setVipFlowOpen(false)} />')
+    expect(vipPageSource).toMatch(/href="#vip-application"[^>]*onClick=\{openVipFlow\}/)
     expect(vipPageSource).toContain("heroCta: 'Débloquer le VIP'")
     expect(vipPageSource).toContain("heroCta: 'Unlock VIP'")
     expect(vipPageSource).toContain("heroCta: 'افتح VIP'")
@@ -121,14 +122,6 @@ describe('teaser VIP verrouillé dans les cartes gratuites', () => {
     const arabicFlowStart = flowSource.indexOf('  ar: {')
     const arabicFlow = flowSource.slice(arabicFlowStart, flowSource.lastIndexOf('\n}'))
     expect([...arabicFlow.matchAll(/\{ title: '[1-4]\./g)], 'ar').toHaveLength(4)
-
-    const formSource = readFileSync(resolve(__dirname, '..', 'src/app/vip/VipApplication.tsx'), 'utf8')
-    expect(formSource).toContain("body.set('registrationConfirmed', 'on')")
-    expect(formSource).toContain("body.set('depositConfirmed', 'on')")
-    expect(formSource).toContain("body.set('consent', 'yes')")
-    expect(formSource).toContain("setInviteUrl(validTelegramInvite(status))")
-    expect(formSource).toContain("status.status !== 'approved_pending_telegram'")
-    expect(formSource).toContain("sessionStorage.setItem(RECEIPT_SESSION_KEY")
   })
 
   it('place la vidéo à la place du panneau hero, avant l’aperçu VIP, sans copie dans le parcours', () => {

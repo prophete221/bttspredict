@@ -66,7 +66,105 @@ def _timestamp_is_future(row: dict) -> bool:
         kickoff = datetime.fromisoformat(f"{date}T{clock}:00+00:00")
     except ValueError:
         return False
+    source_kickoff = row.get("sourceKickoffAt")
+    if source_kickoff is not None:
+        if not isinstance(source_kickoff, str) or not re.fullmatch(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,9})?Z", source_kickoff):
+            return False
+        try:
+            exact_kickoff = datetime.fromisoformat(source_kickoff[:-1] + "+00:00")
+        except ValueError:
+            return False
+        if exact_kickoff.strftime("%Y-%m-%dT%H:%M") != f"{date}T{clock}":
+            return False
+        kickoff = exact_kickoff
     return kickoff > datetime.now(timezone.utc)
+
+
+def _normalized_match_status(row: dict) -> str | None:
+    explicit = []
+    for field in ("status", "matchState", "sourceStatus"):
+        raw = row.get(field)
+        if raw is None or not str(raw).strip():
+            continue
+        value = str(raw).strip().upper()
+        if value == "CONFLICT":
+            return None
+        aliases = {
+            "STATUS_SCHEDULED": "PENDING", "STATUS_PRE_GAME": "PENDING",
+            "STATUS_DELAYED": "PENDING", "STATUS_NOT_STARTED": "PENDING",
+            "PENDING": "PENDING", "SCHEDULED": "PENDING",
+            "NOT_STARTED": "PENDING", "UPCOMING": "PENDING",
+        }
+        normalized = aliases.get(value)
+        if normalized is None:
+            return None
+        explicit.append(normalized)
+    if explicit:
+        return explicit[0] if all(value == explicit[0] for value in explicit) else None
+    return "PENDING" if _timestamp_is_future(row) else None
+
+
+def _merge_feed_rows(fields: tuple[str, ...], payload: dict) -> list[dict]:
+    rows: list[dict] = []
+    state_fields = ("status", "matchState", "sourceStatus")
+    for field in fields:
+        value = payload.get(field)
+        if not isinstance(value, list):
+            continue
+        for row in value:
+            if not isinstance(row, dict):
+                continue
+            fixture = tuple(str(row.get(key) or "").strip().casefold() for key in ("date", "time", "league", "home", "away"))
+            row_id = str(row.get("fixtureId") or row.get("id") or "").strip()
+            index = next((i for i, old in enumerate(rows) if
+                          (row_id and str(old.get("fixtureId") or old.get("id") or "").strip() == row_id) or
+                          (all(fixture) and tuple(str(old.get(key) or "").strip().casefold() for key in ("date", "time", "league", "home", "away")) == fixture)), None)
+            if index is None:
+                rows.append(dict(row))
+                continue
+            previous = rows[index]
+            merged = {**previous, **row}
+            old_kickoff = (previous.get("date"), previous.get("time"))
+            new_kickoff = (row.get("date"), row.get("time"))
+            if all(old_kickoff) and all(new_kickoff) and old_kickoff != new_kickoff:
+                merged["kickoffConflict"] = True
+            elif previous.get("kickoffConflict") or row.get("kickoffConflict"):
+                merged["kickoffConflict"] = True
+            for state_field in state_fields:
+                old_state = str(previous.get(state_field) or "").strip()
+                new_state = str(row.get(state_field) or "").strip()
+                if old_state and new_state and old_state.casefold() != new_state.casefold():
+                    merged[state_field] = "CONFLICT"
+                elif old_state and not new_state:
+                    merged[state_field] = previous[state_field]
+                elif not old_state and new_state:
+                    merged[state_field] = row[state_field]
+                elif old_state and new_state:
+                    merged[state_field] = previous[state_field]
+                else:
+                    merged.pop(state_field, None)
+            rows[index] = merged
+    return rows
+
+
+def collect_public_matches(payload: dict) -> list[dict]:
+    """Read only public arrays; a private vipCandidates key can never mask free rows."""
+    if not isinstance(payload, dict):
+        return []
+    return _merge_feed_rows(("free", "freeUpcoming", "upcoming", "predictions"), payload)
+
+
+def collect_private_matches(payload) -> list[dict]:
+    """Read private fixtures only, independent of public rows and without synthesizing fixtures."""
+    if isinstance(payload, list):
+        raw = payload
+    elif isinstance(payload, dict):
+        raw = payload.get("fixtures")
+        if not isinstance(raw, list):
+            raw = payload.get("vipCandidates", [])
+    else:
+        raw = []
+    return _merge_feed_rows(("fixtures",), {"fixtures": raw})
 
 
 def eligible_markets(row: dict) -> list[dict]:
@@ -86,9 +184,9 @@ def eligible_markets(row: dict) -> list[dict]:
         return []
     if (_positive_int(away.get("count")) or 0) < MIN_FORM_MATCHES:
         return []
-    if str(row.get("status", "")).strip().upper() not in {"PENDING", "SCHEDULED", "NOT_STARTED", "UPCOMING"}:
+    if _normalized_match_status(row) is None:
         return []
-    if not _timestamp_is_future(row):
+    if row.get("kickoffConflict") or not _timestamp_is_future(row):
         return []
 
     choices = []
@@ -120,8 +218,9 @@ def eligible_markets(row: dict) -> list[dict]:
 
 def build_prompt(records: list[dict]) -> str:
     return f"""You are independently evaluating private VIP football candidates for BTTSPredict.
-Return only a JSON array with one object per input id: {{"id": integer, "vip_candidates": array}}.
-Never choose a market/selection not listed in eligible_choices. Return zero to two candidates per match, at most one per market. Use only the observed statistics included below. Do not invent injuries, lineups, H2H, or historical market performance. A probability is only a model estimate, not a historical success rate or guarantee.
+Return only a JSON array with one object per input id: {{"id": integer, "vip_candidates": array, "exact_score": null}}.
+Evaluate BTTS and Over 2.5 separately and independently, only among the market/selection choices listed in eligible_choices and using only evidence actually available for each market. Return zero to two candidates per match, at most one per market. Use the recent form, goals scored/conceded, last-five results, standings, odds, and head-to-head data only when those fields are actually present. Do not invent injuries, lineups, H2H, or historical market performance. A probability is only a model estimate, not a historical success rate or guarantee.
+Exact score is not empirically validated in this pipeline: abstention is mandatory with no exceptions. Always return exact_score as null; never generate, include, or publish an exact-score pick.
 For each candidate use exactly: market, selection, probability, confidence, primary_reasons, risks. Confidence must be high; probability must be from {MIN_VIP_PROBABILITY:.2f} to {MAX_VIP_PROBABILITY:.2f} and within 0.15 of aggregate_rate, home_rate, and away_rate for the selected outcome. Use 2–4 concise reasons and 1–2 concise risks. If nothing is well-supported, return an empty array. Never copy the free pick; if the same market is considered, choose only the opposite outcome and evaluate it independently.
 
 INPUT:
@@ -210,6 +309,9 @@ def _candidate_row(source: dict, result: dict) -> dict | None:
         return None
 
     free_market, free_selection = _current_free_pick(source)
+    match_status = _normalized_match_status(source)
+    if match_status is None:
+        return None
     model_market = "BTTS" if market == "BTTS" else "Over 2.5"
     confidence = int(round(probability * 100))
     nested = {
@@ -228,8 +330,9 @@ def _candidate_row(source: dict, result: dict) -> dict | None:
         "league": source.get("league"),
         "date": source.get("date"),
         "time": source.get("time"),
-        "status": source.get("status"),
-        "matchState": source.get("status"),
+        "status": source.get("status") if source.get("status") is not None else match_status,
+        "matchState": source.get("matchState") if source.get("matchState") is not None else match_status,
+        **{key: source[key] for key in ("fixtureId", "leagueSlug", "homeTeamId", "awayTeamId", "sourceKickoffAt", "sourceStatus") if isinstance(source.get(key), str)},
         "dataQuality": source.get("dataQuality"),
         "dataSource": source.get("dataSource"),
         "matchCountHome": source.get("matchCountHome"),
@@ -284,6 +387,13 @@ def evaluate_matches(matches: list[dict], client=None) -> tuple[list[dict], int,
                 "match_count_away": row.get("matchCountAway"),
                 "form_home": row.get("formHome"),
                 "form_away": row.get("formAway"),
+                "recent_results_home": row.get("last5Home"),
+                "recent_results_away": row.get("last5Away"),
+                "head_to_head_available": row.get("h2hAvailable", False),
+                "head_to_head": row.get("h2h", row.get("headToHead")),
+                "standings_home": row.get("standingsHome"),
+                "standings_away": row.get("standingsAway"),
+                "market_odds": row.get("odds"),
                 "aggregate_btts_rate": row.get("empiricalBttsRate"),
                 "aggregate_over25_rate": row.get("empiricalOver25Rate"),
             }
@@ -364,17 +474,18 @@ def get_client():
 
 
 def main() -> None:
-    if not PREDICTIONS_FILE.exists():
+    input_file = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else PREDICTIONS_FILE
+    if not input_file.exists():
         write_sidecar({"version": 1, "date": None, "lastUpdated": datetime.now(timezone.utc).isoformat(),
                        "sourceLastUpdated": None, "analysisComplete": False, "analysisResponseCount": 0,
-                       "analysisExpectedCount": 0, "vipCandidates": []})
-        print("[vip-analysis] predictions input missing; no candidates")
+                       "analysisExpectedCount": 0, "vipCandidates": [], "privateFixtures": [],
+                       "privateFixturesComplete": False})
+        print("[vip-analysis] input missing; no candidates")
         return
-    with PREDICTIONS_FILE.open(encoding="utf-8") as file:
+    with input_file.open(encoding="utf-8") as file:
         payload = json.load(file)
-    matches = payload.get("free") or payload.get("predictions") or []
-    if not isinstance(matches, list):
-        matches = []
+    private_input = len(sys.argv) > 1
+    matches = collect_private_matches(payload) if private_input else collect_public_matches(payload)
     choices_exist = any(eligible_markets(row) for row in matches if isinstance(row, dict))
     client = get_client() if choices_exist else None
     if choices_exist and client is None:
@@ -382,15 +493,20 @@ def main() -> None:
     candidates, response_count, expected_count = evaluate_matches(matches, client)
     complete = response_count == expected_count
     analyzed_at = datetime.now(timezone.utc).isoformat(timespec="milliseconds").replace("+00:00", "Z")
+    source_updated = payload.get("lastUpdated") if isinstance(payload, dict) else None
+    source_date = payload.get("date") if isinstance(payload, dict) else None
     sidecar = {
         "version": 1,
-        "date": payload.get("date"),
+        "date": source_date,
         "lastUpdated": analyzed_at,
-        "sourceLastUpdated": payload.get("lastUpdated"),
+        "sourceLastUpdated": source_updated,
         "analysisComplete": complete,
         "analysisResponseCount": response_count,
         "analysisExpectedCount": expected_count,
         "vipCandidates": candidates if complete else [],
+        "privateFixtures": matches if private_input else [],
+        "privateFixturesComplete": bool(private_input and isinstance(payload, dict)
+                                         and payload.get("collectionComplete") is True),
     }
     write_sidecar(sidecar)
     print(f"[vip-analysis] evaluated={response_count}/{expected_count}; private variants={len(sidecar['vipCandidates'])}; public feed unchanged")
