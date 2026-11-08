@@ -6,8 +6,8 @@
     <meta name="robots" content="noindex,nofollow">
     <meta name="theme-color" content="#08111f">
     <title>Administration VIP — BTTSPredict</title>
-    <link rel="stylesheet" href="/vip-admin/admin.css">
-    <script src="/vip-admin/admin.js?v=production-admin-v1" defer></script>
+    <link rel="stylesheet" href="/vip-admin/admin.css?v=selection-metrics-v2">
+    <script src="/vip-admin/admin.js?v=selection-metrics-v2" defer></script>
   </head>
   <body>
     <main class="admin-shell">
@@ -55,10 +55,10 @@
 
       <section id="candidates-panel" class="admin-card" aria-labelledby="candidates-title" hidden>
         <div class="admin-toolbar">
-          <h2 id="candidates-title">Pronostics VIP à examiner</h2>
+          <h2 id="candidates-title">Suivi des analyses VIP</h2>
           <button id="admin-candidates-refresh" class="action-button" type="button">Actualiser</button>
         </div>
-        <p class="admin-copy">Les candidats proviennent uniquement de l’analyse vérifiée et restent privés. Les approuver ou les refuser n’envoie aucun message Telegram et ne publie rien.</p>
+        <p class="admin-copy">Les cartes de la dernière analyse sont séparées de l’historique. Une décision manuelle ne publie rien : le sender automatique contrôle séparément les données, les doublons et le statut réel des rencontres avant tout envoi.</p>
         <p id="admin-candidate-outcome" class="admin-empty" aria-live="polite" hidden></p>
         <div id="admin-candidate-records" class="admin-records" aria-live="polite"></div>
       </section>

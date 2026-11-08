@@ -25,7 +25,7 @@ def eligible_row():
         "dataQuality": "HIGH",
         "dataSource": "ESPN_TEAM_SCHEDULE",
         "matchCountHome": 8,
-        "matchCountAway": 7,
+        "matchCountAway": 8,
         "formHome": {"count": 5, "bttsRate": 0.72, "over25Rate": 0.60},
         "formAway": {"count": 5, "bttsRate": 0.76, "over25Rate": 0.60},
         "empiricalBttsRate": 0.74,
@@ -40,15 +40,16 @@ def eligible_row():
 
 
 class VipEligibilityTests(unittest.TestCase):
-    def test_only_empirically_supported_markets_are_sent_to_gemini(self):
+    def test_all_markets_and_outcomes_with_real_empirical_data_are_sent_to_gemini(self):
         choices = VIP.eligible_markets(eligible_row())
-        self.assertEqual([(choice["market"], choice["selection"]) for choice in choices], [("BTTS", "Yes")])
-        self.assertTrue(all(rate >= VIP.MIN_VIP_PROBABILITY for choice in choices for rate in choice["selection_rates"]))
+        self.assertEqual([(choice["market"], choice["selection"]) for choice in choices], [
+            ("BTTS", "Yes"), ("BTTS", "No"), ("OVER_25", "Yes"), ("OVER_25", "No"),
+        ])
+        self.assertEqual(choices[1]["selection_rates"], [0.26, 0.28, 0.24])
 
-    def test_below_threshold_or_inconsistent_team_rates_are_rejected(self):
+    def test_inconsistent_aggregate_and_team_rates_are_rejected(self):
         row = eligible_row()
-        row["formAway"]["bttsRate"] = 0.69
-        row["empiricalBttsRate"] = 0.705
+        row["empiricalBttsRate"] = 0.9
         self.assertNotIn("BTTS", {choice["market"] for choice in VIP.eligible_markets(row)})
 
     def test_sample_quality_status_and_future_kickoff_are_mandatory(self):
@@ -56,6 +57,7 @@ class VipEligibilityTests(unittest.TestCase):
             ("dataQuality", "MEDIUM"),
             ("dataSource", "OTHER_SOURCE"),
             ("matchCountHome", 5),
+            ("matchCountAway", 7),
             ("status", "POSTPONED"),
             ("date", "2000-01-01"),
         ]
@@ -65,7 +67,7 @@ class VipEligibilityTests(unittest.TestCase):
                 row[key] = value
                 self.assertEqual(VIP.eligible_markets(row), [])
 
-    def test_probability_confidence_and_explanation_are_revalidated(self):
+    def test_model_estimate_confidence_and_explanation_are_revalidated(self):
         row = eligible_row()
         good = {"market": "BTTS", "selection": "Yes", "probability": 0.74, "confidence": "high",
                 "primary_reasons": ["Taux observé", "Forme récente"], "risks": ["Échantillon limité"]}
@@ -74,11 +76,68 @@ class VipEligibilityTests(unittest.TestCase):
         self.assertEqual(output["ai_market"], "BTTS")
         self.assertEqual(output["freeMarket"], "OVER_25")
         self.assertEqual(output["prediction"], "Oui")
-        for field, value in (("probability", 0.69), ("confidence", "medium"), ("risks", [])):
+        for field, value in (("probability", 0), ("confidence", "unrated"), ("risks", [])):
             with self.subTest(field=field):
                 candidate = dict(good)
                 candidate[field] = value
                 self.assertIsNone(VIP._candidate_row(row, candidate))
+
+    def test_any_open_gemini_probability_keeps_its_original_confidence_label(self):
+        row = eligible_row()
+        reasons = {"primary_reasons": ["Analyse du modèle", "Forme observée"], "risks": ["Incertitude"]}
+        for probability, confidence in ((0.12, "low"), (0.5, "medium"), (0.99, "high")):
+            with self.subTest(probability=probability, confidence=confidence):
+                candidate = VIP._candidate_row(row, {
+                    "market": "BTTS", "selection": "Yes", "probability": probability,
+                    "confidence": confidence, **reasons,
+                })
+                self.assertIsNotNone(candidate)
+                self.assertEqual(candidate["proba"], probability)
+                self.assertEqual(candidate["ai_confidence"], confidence)
+
+    def test_twenty_percent_btts_yes_supports_eighty_percent_no_and_gemini_75_is_no(self):
+        row = eligible_row()
+        row["empiricalBttsRate"] = 0.2
+        row["formHome"]["bttsRate"] = 0.2
+        row["formAway"]["bttsRate"] = 0.2
+
+        choices = VIP.eligible_markets(row)
+        yes_choice = next(choice for choice in choices if choice["market"] == "BTTS" and choice["selection"] == "Yes")
+        no_choice = next(choice for choice in choices if choice["market"] == "BTTS" and choice["selection"] == "No")
+        self.assertEqual(yes_choice["selection_rates"], [0.2, 0.2, 0.2])
+        self.assertEqual(no_choice["selection_rates"], [0.8, 0.8, 0.8])
+
+        gemini_no = {
+            "market": "BTTS", "selection": "No", "probability": 0.75, "confidence": "high",
+            "primary_reasons": ["BTTS rate 0.2 observé chez les deux équipes", "Forme récente cohérente"],
+            "risks": ["Échantillon limité"],
+        }
+        candidate = VIP._candidate_row(row, gemini_no)
+        self.assertIsNotNone(candidate)
+        self.assertEqual(candidate["prediction"], "Non")
+        self.assertEqual(candidate["proba"], 0.75)
+        self.assertEqual(candidate["ai_confidence"], "high")
+        self.assertEqual(candidate["predictions"][0]["prediction"], "Non")
+        self.assertEqual(candidate["predictions"][0]["proba"], 0.75)
+
+    def test_gemini_probability_is_open_unit_interval_and_confidence_is_not_upgraded(self):
+        row = eligible_row()
+        reasons = {"primary_reasons": ["Taux observé", "Forme récente"], "risks": ["Échantillon limité"]}
+        for probability in (0, 1):
+            with self.subTest(probability=probability):
+                candidate = VIP._candidate_row(row, {
+                    "market": "BTTS", "selection": "Yes", "probability": probability,
+                    "confidence": "high", **reasons,
+                })
+                self.assertIsNone(candidate)
+        for confidence in ("low", "medium", "high"):
+            with self.subTest(confidence=confidence):
+                candidate = VIP._candidate_row(row, {
+                    "market": "BTTS", "selection": "Yes", "probability": 0.37,
+                    "confidence": confidence, **reasons,
+                })
+                self.assertIsNotNone(candidate)
+                self.assertEqual(candidate["ai_confidence"], confidence)
 
     def test_mocked_candidate_analysis_never_mutates_public_rows(self):
         row = eligible_row()
@@ -107,8 +166,8 @@ class VipEligibilityTests(unittest.TestCase):
 
     def test_no_eligible_market_makes_no_provider_call_and_returns_no_fake_pick(self):
         row = eligible_row()
-        row["formHome"]["bttsRate"] = 0.65
-        row["empiricalBttsRate"] = 0.655
+        row["empiricalBttsRate"] = None
+        row["empiricalOver25Rate"] = None
 
         class NeverCall:
             class Models:
@@ -204,6 +263,9 @@ class VipEligibilityTests(unittest.TestCase):
         self.assertEqual(VIP.collect_private_matches({"fixtures": [], "free": [eligible_row()]}), [])
         prompt = VIP.build_prompt([])
         self.assertIn("Always return exact_score as null", prompt)
+        self.assertIn("strictly between 0 and 1", prompt)
+        self.assertIn("never upgraded", prompt)
+        self.assertIn("selection_rates", prompt)
         self.assertNotIn("unless the input explicitly", prompt)
 
 

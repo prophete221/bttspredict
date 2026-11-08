@@ -42,9 +42,10 @@ function mockDb(options: {
   state?: Record<string, unknown> | null
   decisionRow?: Record<string, unknown> | null
   latestSync?: Record<string, unknown> | null
+  candidateRows?: Record<string, unknown>[]
   runChanges?: number
 } = {}) {
-  const { runRow = null, state = null, decisionRow = null, latestSync = null, runChanges = 1 } = options
+  const { runRow = null, state = null, decisionRow = null, latestSync = null, candidateRows = [], runChanges = 1 } = options
   const batches: Array<Array<{ sql: string; values: unknown[] }>> = []
   const runs: Array<{ sql: string; values: unknown[] }> = []
   const db = {
@@ -63,7 +64,7 @@ function mockDb(options: {
           if (sql.includes('SELECT material_hash, candidate_json')) return decisionRow
           return null
         },
-        all: async () => ({ results: [] }),
+        all: async () => ({ results: sql.includes('FROM vip_candidates') ? candidateRows : [] }),
         run: async () => {
           runs.push(statement)
           return { meta: { changes: runChanges } }
@@ -129,6 +130,13 @@ function candidateFixture() {
     time,
     matchState: 'SCHEDULED',
     kickoffAt: new Date(`${date}T${time}:00.000Z`).toISOString(),
+    sourceMatchStatus: 'STATUS_SCHEDULED',
+    sourceStatus: 'STATUS_SCHEDULED',
+    fixtureId: '12345',
+    leagueSlug: 'eng.1',
+    homeTeamId: '100',
+    awayTeamId: '200',
+    sourceKickoffAt: new Date(`${date}T${time}:00.000Z`).toISOString(),
     market: 'BTTS',
     freeMarket: 'OVER_25',
     freeSelection: 'YES',
@@ -209,6 +217,34 @@ describe('private VIP candidate Worker service', () => {
     const response = await handleCandidateSync(signedRequest(syncPayload([fallbackCandidateFixture()])), { DB }, new Headers())
     expect(response.status).toBe(422)
     expect(batches).toHaveLength(0)
+  })
+
+  it.each([
+    ['low', 0.23], ['medium', 0.51], ['high', 0.91],
+  ])('accepts genuine Gemini probabilities across confidence tiers (%s, %s)', async (confidence, probability) => {
+    const candidate = {
+      ...candidateFixture(), probability, confidence: Math.round(probability * 100), aiConfidence: confidence,
+      empiricalSelectionRate: 0.44, homeSelectionRate: 0.42, awaySelectionRate: 0.46,
+    }
+    const validated = await validateCandidate(candidate, Date.now())
+    expect(validated.candidate.probability).toBe(probability)
+    expect(validated.candidate.aiConfidence).toBe(confidence)
+    if (probability < 0.65) expect(validated.candidate.riskLevel).toBe('ÉLEVÉ')
+  })
+
+  it.each([0, 1, -0.01, 1.01])('rejects a non-probability model value %s', async probability => {
+    const candidate = { ...candidateFixture(), probability, confidence: Math.round(probability * 100) }
+    await expect(validateCandidate(candidate, Date.now())).rejects.toThrow('candidate_failed_validation')
+  })
+
+  it('rejects missing ESPN fixture or source-status provenance without weakening quality requirements', async () => {
+    const candidate = candidateFixture()
+    await expect(validateCandidate({ ...candidate, fixtureId: undefined }, Date.now()))
+      .rejects.toThrow('invalid_fixture_provenance')
+    await expect(validateCandidate({ ...candidate, sourceMatchStatus: undefined, sourceStatus: undefined }, Date.now()))
+      .rejects.toThrow('candidate_failed_validation')
+    await expect(validateCandidate({ ...candidate, dataQuality: 'MEDIUM' }, Date.now()))
+      .rejects.toThrow('candidate_failed_validation')
   })
 
   it('accepts the opposite selection in the same market but rejects an exact free-feed duplicate', async () => {
@@ -301,6 +337,40 @@ describe('private VIP candidate Worker service', () => {
     expect(batches).toHaveLength(0)
   })
 
+  it('reconciles the private historical risk without changing eligibility, database rows or model probability', async () => {
+    const old = { ...candidateFixture(), probability: 0.75, confidence: 75,
+      qualityTier: 'vip', probabilitySource: 'gemini-estimate', selection: 'NO',
+      empiricalSelectionRate: 0.8, homeSelectionRate: 0.8, awaySelectionRate: 0.8,
+      riskPolicy: 'risk-v1', riskLevel: 'MODÉRÉ', riskReasons: ['Probabilité modèle : 80 %'] }
+    const { DB, batches, runs } = mockDb({ candidateRows: [{
+      candidate_key: old.candidateKey, material_hash: 'a'.repeat(64), candidate_json: JSON.stringify(old),
+      status: 'ineligible', last_seen_sync_id: 'github:old:1', ineligible_reason: 'not_in_current_eligible_source',
+    }], latestSync: { run_id: 'github:new:1', candidate_count: 0, accepted_count: 0,
+      source_updated_at: new Date().toISOString(), generated_at: new Date().toISOString(),
+      audit_json: JSON.stringify({ inputRows: 30, eligibleBeforeFreeExclusion: 1, excludedAlreadyFree: 1,
+        minimumTargetFixtures: 2, maximumSelectedFixtures: 5, selectedDistinctFixtures: 0, shortfall: 2 }) } })
+    const response = await adminListCandidates({ DB }, new Headers())
+    const result = await response.json()
+    expect(result.latestSync).toMatchObject({ acceptedCount: 0, inputRows: 30, eligibleBeforeFreeExclusion: 1,
+      excludedAlreadyFree: 1, minimumTargetFixtures: 2, maximumSelectedFixtures: 5,
+      selectedDistinctFixtures: 0, shortfall: 2 })
+    expect(result.candidates[0]).toMatchObject({ probability: 0.75, status: 'ineligible', isCurrent: false,
+      canReview: false, reviewBlockedReason: 'historical_snapshot',
+      displayRisk: { level: 'MODÉRÉ', policy: 'risk-v2-model-specific', evidenceStatus: 'reconciled_snapshot_only' } })
+    expect(result.candidates[0].displayRisk.reasons.join(' ')).toContain('Probabilité modèle : 75 %')
+    expect(result.candidates[0].displayRisk.reasons.join(' ')).not.toContain('Probabilité modèle : 80 %')
+    expect(batches).toHaveLength(0)
+    expect(runs.every(row => !/\b(INSERT|UPDATE|DELETE)\b/.test(row.sql))).toBe(true)
+  })
+
+  it('does not invent ranking, target or distinct-fixture counts for a legacy audit without these fields', async () => {
+    const { DB } = mockDb({ latestSync: { candidate_count: 0, accepted_count: 0, audit_json: '{}' } })
+    const result = await (await adminListCandidates({ DB }, new Headers())).json()
+    expect(result.latestSync).toMatchObject({ inputRows: null, eligibleBeforeFreeExclusion: null,
+      minimumTargetFixtures: null, maximumSelectedFixtures: null, rankingPolicy: null,
+      selectedDistinctFixtures: null, shortfall: null })
+  })
+
   it('returns a no-eligible-picks notice only from the private admin candidate endpoint', async () => {
     const { DB } = mockDb({
       latestSync: {
@@ -325,7 +395,7 @@ describe('private VIP candidate Worker service', () => {
       latestSync: {
         acceptedCount: 0,
         ownerOutcome: 'no_eligible_picks_today',
-        ownerMessage: 'Aucun pick VIP éligible aujourd’hui; aucun message n’a été envoyé.',
+        ownerMessage: 'Cette analyse ne contient aucun candidat VIP admissible après exclusions.',
       },
     })
   })

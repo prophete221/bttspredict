@@ -13,9 +13,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 MODEL_NAME = "gemini-3.5-flash-lite"
-MIN_VIP_PROBABILITY = 0.70
-MAX_VIP_PROBABILITY = 0.78
-MIN_TEAM_MATCHES = 6
+MIN_TEAM_MATCHES = 8
 MIN_FORM_MATCHES = 5
 MAX_RETRIES = 3
 TIME_BUDGET_SECONDS = 180
@@ -168,7 +166,7 @@ def collect_private_matches(payload) -> list[dict]:
 
 
 def eligible_markets(row: dict) -> list[dict]:
-    """Return only markets whose aggregate and both team form rates support >=70%."""
+    """Return empirically described Yes/No choices; Gemini alone estimates pick probability."""
     if not isinstance(row, dict):
         return []
     if row.get("dataQuality") != "HIGH" or row.get("dataSource") != "ESPN_TEAM_SCHEDULE":
@@ -201,27 +199,25 @@ def eligible_markets(row: dict) -> list[dict]:
         if abs(aggregate - (home_rate + away_rate) / 2) > 0.01 + 1e-9:
             continue
         for selection in ("Yes", "No"):
-            sign = 1 if selection == "Yes" else -1
             rates = (aggregate, home_rate, away_rate)
-            selected_rates = rates if sign == 1 else tuple(1 - rate for rate in rates)
-            if all(rate >= MIN_VIP_PROBABILITY for rate in selected_rates):
-                choices.append({
-                    "market": market,
-                    "selection": selection,
-                    "aggregate_rate": aggregate,
-                    "home_rate": home_rate,
-                    "away_rate": away_rate,
-                    "selection_rates": list(selected_rates),
-                })
+            selected_rates = rates if selection == "Yes" else tuple(1 - rate for rate in rates)
+            choices.append({
+                "market": market,
+                "selection": selection,
+                "aggregate_rate": aggregate,
+                "home_rate": home_rate,
+                "away_rate": away_rate,
+                "selection_rates": list(selected_rates),
+            })
     return choices
 
 
 def build_prompt(records: list[dict]) -> str:
     return f"""You are independently evaluating private VIP football candidates for BTTSPredict.
 Return only a JSON array with one object per input id: {{"id": integer, "vip_candidates": array, "exact_score": null}}.
-Evaluate BTTS and Over 2.5 separately and independently, only among the market/selection choices listed in eligible_choices and using only evidence actually available for each market. Return zero to two candidates per match, at most one per market. Use the recent form, goals scored/conceded, last-five results, standings, odds, and head-to-head data only when those fields are actually present. Do not invent injuries, lineups, H2H, or historical market performance. A probability is only a model estimate, not a historical success rate or guarantee.
+Evaluate BTTS and Over 2.5 separately and independently, only among the market/selection choices listed in eligible_choices and using only evidence actually available for each market. In each choice, aggregate_rate, home_rate, and away_rate are observed Yes rates; selection_rates contains the rates for that choice's selected outcome, in aggregate/home/away order. For a No choice, assess support only against selection_rates (the complements of the Yes rates), never against the raw Yes rates. Return zero to two candidates per match, at most one per market. Use the recent form, goals scored/conceded, last-five results, standings, odds, and head-to-head data only when those fields are actually present. Do not invent injuries, lineups, H2H, or historical market performance. Return only a genuine Gemini model estimate strictly between 0 and 1; never substitute or derive the model probability from empirical rates. A probability is only a model estimate, not a historical success rate or guarantee.
 Exact score is not empirically validated in this pipeline: abstention is mandatory with no exceptions. Always return exact_score as null; never generate, include, or publish an exact-score pick.
-For each candidate use exactly: market, selection, probability, confidence, primary_reasons, risks. Confidence must be high; probability must be from {MIN_VIP_PROBABILITY:.2f} to {MAX_VIP_PROBABILITY:.2f} and within 0.15 of aggregate_rate, home_rate, and away_rate for the selected outcome. Use 2–4 concise reasons and 1–2 concise risks. If nothing is well-supported, return an empty array. Never copy the free pick; if the same market is considered, choose only the opposite outcome and evaluate it independently.
+For each candidate use exactly: market, selection, probability, confidence, primary_reasons, risks. Confidence must be the model's actual low, medium, or high label, never upgraded; probability must be strictly between 0 and 1 and must be a model estimate, not a transformation of empirical rates. The empirical selection_rates are evidence for the choice, not a substitute probability or a hard threshold. Use 2–4 concise reasons and 1–2 concise risks. If nothing is well-supported, return an empty array. Never copy the free pick; if the same market is considered, choose only the opposite outcome and evaluate it independently.
 
 INPUT:
 {json.dumps(records, ensure_ascii=False, separators=(',', ':'))}
@@ -293,9 +289,10 @@ def _candidate_row(source: dict, result: dict) -> dict | None:
     if selection is None:
         return None
     probability = _finite_rate(result.get("probability"))
-    if probability is None or not MIN_VIP_PROBABILITY <= probability <= MAX_VIP_PROBABILITY:
+    if probability is None or not 0 < probability < 1:
         return None
-    if str(result.get("confidence") or "").strip().lower() != "high":
+    model_confidence = str(result.get("confidence") or "").strip().lower()
+    if model_confidence not in {"low", "medium", "high"}:
         return None
     reasons = result.get("primary_reasons")
     risks = result.get("risks")
@@ -305,7 +302,7 @@ def _candidate_row(source: dict, result: dict) -> dict | None:
         return None
     choices = eligible_markets(source)
     choice = next((item for item in choices if item["market"] == market and item["selection"] == selection), None)
-    if choice is None or any(abs(probability - rate) > 0.15 + 1e-9 for rate in choice["selection_rates"]):
+    if choice is None:
         return None
 
     free_market, free_selection = _current_free_pick(source)
@@ -353,7 +350,7 @@ def _candidate_row(source: dict, result: dict) -> dict | None:
         "ai_response_status": "pick",
         "ai_market": market,
         "ai_abstain": False,
-        "ai_confidence": "high",
+        "ai_confidence": model_confidence,
         "ai_reasons": [value.strip() for value in reasons if isinstance(value, str) and value.strip()][:4],
         "ai_risks": [value.strip() for value in risks if isinstance(value, str) and value.strip()][:2],
         "modelEngine": "gemini-stats-v1",
