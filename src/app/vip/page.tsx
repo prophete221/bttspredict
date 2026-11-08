@@ -170,7 +170,7 @@ const VIP_PAGE_COPY: Record<Locale, VipPageText> = {
   },
 }
 
-/* ────────────── Parcours VIP — sept étapes ordonnées ────────────── */
+/* ────────────── Parcours VIP — quatre étapes ordonnées ────────────── */
 type VipFlowCopy = {
   eyebrow: string; title: string; sub: string
   guidePanelTitle: string; guidePanelText: string
@@ -191,15 +191,12 @@ const VIP_FLOW: Record<Locale, VipFlowCopy> = {
     heroCta: 'Débloquer le VIP', finalCta: 'Demander mon accès VIP',
     statusTitle: 'Accès verrouillé',
     statusText: 'Aucun clic, formulaire ou dépôt ne débloque le VIP automatiquement. Le propriétaire confirme chaque accès personnellement.',
-    wizardStart: 'Ouvrir la procédure en 7 étapes',
+    wizardStart: 'Ouvrir la procédure en 4 étapes',
     wizardSteps: [
       { title: '1. Choisir un bookmaker', body: 'Sélectionne l’un des quatre bookmakers ci-dessous.' },
-      { title: '2. Copier le code promo correspondant', body: 'Ouvre le guide du partenaire choisi et copie son code exact. Les codes restent sur les pages promo dédiées.' },
-      { title: '3. Confirmer l’inscription', body: 'Confirme avoir terminé l’inscription avec le code exact du guide. BTTSPredict ne vérifie pas automatiquement les comptes.' },
-      { title: '4. Confirmer le dépôt', body: 'Confirme un dépôt d’au moins 3 $ sur le compte bookmaker, selon les conditions actuelles de l’opérateur. Aucun fonds n’est collecté ici.' },
-      { title: '5. Saisir l’identifiant du compte bookmaker', body: 'Saisis uniquement l’identifiant du compte bookmaker — pas une pièce d’identité, un mot de passe, un PIN ou un code OTP.' },
-      { title: '6. Choisir un canal de suivi', body: 'Choisis Telegram ou WhatsApp, puis indique ton identifiant ou numéro et accepte d’être recontacté au sujet de ta demande.' },
-      { title: '7. Attendre la validation manuelle du propriétaire', body: 'Le propriétaire examine la demande et doit confirmer personnellement l’accès à vie. Le VIP reste verrouillé jusque-là.' },
+      { title: '2. Utiliser le code du guide', body: 'Ouvre le guide du partenaire choisi et inscris-toi avec son code exact. Vérifie les conditions actuelles auprès de l’opérateur.' },
+      { title: '3. Confirmer l’inscription et le dépôt', body: 'Confirme ton inscription et un dépôt d’au moins 3 $ sur ton compte bookmaker. BTTSPredict ne collecte aucun fonds et ne vérifie pas automatiquement le compte.' },
+      { title: '4. Envoyer la preuve et les identifiants', body: 'Dans le même formulaire, ajoute la capture du dépôt, l’identifiant du compte bookmaker et un contact Telegram ou WhatsApp. N’envoie jamais de pièce d’identité, mot de passe, PIN ou code OTP; le propriétaire vérifie ensuite la demande manuellement.' },
     ],
   },
   en: {
@@ -213,15 +210,12 @@ const VIP_FLOW: Record<Locale, VipFlowCopy> = {
     heroCta: 'Unlock VIP', finalCta: 'Request VIP access',
     statusTitle: 'Access locked',
     statusText: 'No click, form or deposit automatically unlocks VIP. The owner personally confirms every access request.',
-    wizardStart: 'Open the 7-step process',
+    wizardStart: 'Open the 4-step process',
     wizardSteps: [
       { title: '1. Choose a bookmaker', body: 'Select one of the four bookmakers below.' },
-      { title: '2. Copy the matching promo code', body: 'Open the selected partner’s guide and copy its exact code. Codes remain on the dedicated promo pages.' },
-      { title: '3. Confirm registration', body: 'Confirm that you completed registration using the exact code from the guide. BTTSPredict does not automatically verify accounts.' },
-      { title: '4. Confirm deposit', body: 'Confirm a deposit of at least $3 on your bookmaker account, under the operator’s current terms. No funds are collected here.' },
-      { title: '5. Enter bookmaker account ID', body: 'Enter only the bookmaker account identifier — not an identity document, password, PIN or OTP.' },
-      { title: '6. Choose a follow-up channel', body: 'Choose Telegram or WhatsApp, then provide your username or phone number and consent to being contacted about your request.' },
-      { title: '7. Wait for the owner’s manual approval', body: 'The owner reviews the request and must personally approve lifetime access. VIP stays locked until then.' },
+      { title: '2. Use the guide’s code', body: 'Open the selected partner’s guide and register with its exact code. Check the operator’s current terms.' },
+      { title: '3. Confirm registration and deposit', body: 'Confirm your registration and a deposit of at least $3 on your bookmaker account. BTTSPredict does not collect funds or automatically verify the account.' },
+      { title: '4. Send your proof and identifiers', body: 'In the same form, add a deposit screenshot, your bookmaker account ID, and a Telegram or WhatsApp contact. Never send an identity document, password, PIN or OTP; the owner then reviews the request manually.' },
     ],
   },
   ar: {
@@ -235,15 +229,12 @@ const VIP_FLOW: Record<Locale, VipFlowCopy> = {
     heroCta: 'افتح VIP', finalCta: 'اطلب الوصول إلى VIP',
     statusTitle: 'الوصول مقفل',
     statusText: 'لا يؤدي أي نقر أو نموذج أو إيداع إلى فتح VIP تلقائياً. يؤكد المالك كل طلب شخصياً.',
-    wizardStart: 'افتح الإجراءات في 7 خطوات',
+    wizardStart: 'افتح الإجراءات في 4 خطوات',
     wizardSteps: [
       { title: '1. اختر شركة مراهنات', body: 'اختر إحدى شركات المراهنات الأربع أدناه.' },
-      { title: '2. انسخ الرمز الترويجي المطابق', body: 'افتح دليل الشريك المختار وانسخ رمزه الدقيق. تبقى الرموز في صفحات العروض المخصصة.' },
-      { title: '3. أكّد التسجيل', body: 'أكّد إكمال التسجيل باستخدام الرمز الدقيق في الدليل. لا تتحقق BTTSPredict من الحسابات تلقائياً.' },
-      { title: '4. أكّد الإيداع', body: 'أكّد إيداعاً لا يقل عن 3 دولارات في حساب شركة المراهنات، وفق الشروط الحالية للمشغل. لا تُجمع أي أموال هنا.' },
-      { title: '5. أدخل معرّف حساب شركة المراهنات', body: 'أدخل معرّف الحساب فقط — وليس وثيقة هوية أو كلمة مرور أو PIN أو رمز OTP.' },
-      { title: '6. اختر قناة للمتابعة', body: 'اختر تيليجرام أو واتساب، ثم أدخل اسم المستخدم أو رقم الهاتف ووافق على التواصل بشأن طلبك.' },
-      { title: '7. انتظر موافقة المالك يدوياً', body: 'يراجع المالك الطلب ويجب أن يوافق شخصياً على الوصول مدى الحياة. يظل VIP مقفلاً حتى ذلك الحين.' },
+      { title: '2. استخدم رمز الدليل', body: 'افتح دليل الشريك المختار وسجّل باستخدام رمزه الدقيق. تحقق من الشروط الحالية لدى المشغل.' },
+      { title: '3. أكّد التسجيل والإيداع', body: 'أكّد التسجيل وإيداعاً لا يقل عن 3 دولارات في حساب شركة المراهنات. لا تجمع BTTSPredict الأموال ولا تتحقق تلقائياً من الحساب.' },
+      { title: '4. أرسل الإثبات والمعرّفات', body: 'في النموذج نفسه، أرفق صورة الإيداع ومعرّف حساب شركة المراهنات ووسيلة تواصل عبر تيليجرام أو واتساب. لا ترسل وثيقة هوية أو كلمة مرور أو PIN أو رمز OTP؛ ثم يراجع المالك الطلب يدوياً.' },
     ],
   },
 }
@@ -323,7 +314,7 @@ export default function VipPage() {
             <VipLockedPicks onRequestReview={scrollToApplication} />
           </div>
           <aside className="vipx-content-grid__aside" aria-label={flow.eyebrow}>
-        {/* ═══════════ PARCOURS VIP — 7 ÉTAPES DANS L'ORDRE ═══════════ */}
+        {/* ═══════════ PARCOURS VIP — 4 ÉTAPES DANS L'ORDRE ═══════════ */}
         <section id="parcours" className="vipx-flow vipx-flow--card" aria-labelledby="vip-flow-heading" style={{ scrollMarginTop: '96px' }}>
           <header className="vipx-section-head">
             <span className="vipx-eyebrow"><i aria-hidden="true" />{flow.eyebrow}</span>

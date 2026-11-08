@@ -106,6 +106,22 @@ describe('teaser VIP verrouillé dans les cartes gratuites', () => {
     expect(vipPageSource).not.toContain('Start the process')
     expect(vipPageSource).not.toContain('juste avant l’étape WhatsApp')
 
+    const flowStart = vipPageSource.indexOf('const VIP_FLOW')
+    const flowEnd = vipPageSource.indexOf('const FLOW_HEADING')
+    const flowSource = vipPageSource.slice(flowStart, flowEnd)
+    expect(flowSource).toContain("wizardStart: 'Ouvrir la procédure en 4 étapes'")
+    expect(flowSource).toContain("wizardStart: 'Open the 4-step process'")
+    expect(flowSource).toContain("wizardStart: 'افتح الإجراءات في 4 خطوات'")
+    for (const [locale, nextLocale] of [['fr', 'en'], ['en', 'ar']] as const) {
+      const localeStart = flowSource.indexOf(`  ${locale}: {`)
+      const localeEnd = flowSource.indexOf(`  ${nextLocale}: {`, localeStart + 1)
+      const localeFlow = flowSource.slice(localeStart, localeEnd)
+      expect([...localeFlow.matchAll(/\{ title: '[1-4]\./g)], locale).toHaveLength(4)
+    }
+    const arabicFlowStart = flowSource.indexOf('  ar: {')
+    const arabicFlow = flowSource.slice(arabicFlowStart, flowSource.lastIndexOf('\n}'))
+    expect([...arabicFlow.matchAll(/\{ title: '[1-4]\./g)], 'ar').toHaveLength(4)
+
     const formSource = readFileSync(resolve(__dirname, '..', 'src/app/vip/VipApplication.tsx'), 'utf8')
     expect(formSource).toContain("body.set('registrationConfirmed', 'on')")
     expect(formSource).toContain("body.set('depositConfirmed', 'on')")
