@@ -11,6 +11,27 @@ const ftpDiff = fs.readFileSync('scripts/ftp-diff.mjs', 'utf8')
 const ftpUploadPlan = fs.readFileSync('scripts/prepare-ftp-upload-allowlist.mjs', 'utf8')
 
 describe('deployment safety gates', () => {
+  it('allows the production API only on VIP documents and admin, preserving the other pages CSP', () => {
+    const htaccess = fs.readFileSync('public/.htaccess', 'utf8')
+    const match = htaccess.match(/^SetEnvIf Request_URI "([^"]+)" vip_api_csp$/m)
+    expect(match).not.toBeNull()
+    const scope = new RegExp(match?.[1] ?? '(?!)')
+    for (const route of ['/vip', '/vip/', '/vip.html', '/en/vip', '/en/vip/', '/en/vip.html', '/ar/vip', '/ar/vip/', '/ar/vip.html', '/vip-admin/admin.html']) {
+      expect(scope.test(route), route).toBe(true)
+    }
+    for (const route of ['/', '/pronostics', '/en', '/vip-offer', '/vip/extra', '/match/vip', '/vip-admin/admin.js', '/ar/vip-admin/admin.html']) {
+      expect(scope.test(route), route).toBe(false)
+    }
+    const headers = htaccess.split('\n').filter(line => line.startsWith('Header always set Content-Security-Policy '))
+    const base = headers.find(line => line.endsWith('env=!vip_api_csp'))
+    const vip = headers.find(line => line.endsWith('env=vip_api_csp'))
+    const origin = 'https://bttspredict-vip-production-api.luxxdii.workers.dev'
+    expect(headers).toHaveLength(2)
+    expect(base).not.toContain(origin)
+    expect(vip).toContain(origin)
+    expect(vip?.replace(` ${origin}`, '').replace(' env=vip_api_csp', '')).toBe(base?.replace(' env=!vip_api_csp', ''))
+  })
+
   it('runs hard-failing tests, Python, lint, typecheck and build before any FTP operation', () => {
     const firstTransfer = deploy.indexOf('lftp -u')
     const action = deploy.indexOf('name: Deploy to bttspredict.com via FTP (validated allowlist, no delete)')
@@ -28,10 +49,19 @@ describe('deployment safety gates', () => {
     }
     expect(deploy).toContain("github.ref == 'refs/heads/main'")
     expect(deploy).toContain("github.event_name != 'pull_request'")
-    expect(deploy.split("github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')").length - 1).toBe(14)
+    expect(deploy.split("github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')").length - 1).toBe(16)
     expect(deploy).not.toContain("github.event_name == 'schedule' || github.event_name == 'push' ||")
     expect(workflow).toContain("paths-ignore:\n      - 'public/**'")
     expect(workflow).toContain('cancel-in-progress: false')
+    const publicEnrichment = deploy.indexOf('run: python scripts/enrich_predictions.py')
+    const privateVipAnalysis = deploy.indexOf('run: python scripts/enrich_vip_candidates.py')
+    const privateVipFilter = deploy.indexOf('run: node scripts/vip-candidate-source.mjs')
+    expect(privateVipAnalysis).toBeGreaterThan(publicEnrichment)
+    expect(privateVipAnalysis).toBeLessThan(privateVipFilter)
+    const privateVipStep = deploy.split('      - name: Analyze private VIP candidate variants')[1]?.split('      - name: ')[0] ?? ''
+    expect(privateVipStep).toContain('GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}')
+    expect(privateVipStep).toContain('run: python scripts/enrich_vip_candidates.py')
+    expect(privateVipStep).not.toContain('run: python scripts/enrich_predictions.py')
     const commitDataStep = deploy.split('      - name: Commit data')[1]?.split('      - name: ')[0] ?? ''
     expect(commitDataStep).toContain("github.event_name != 'push'")
     expect(commitDataStep).toContain("inputs.mode != 'code'")

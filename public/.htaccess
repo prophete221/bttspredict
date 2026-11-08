@@ -68,7 +68,10 @@ Header always set Referrer-Policy "strict-origin-when-cross-origin"
 
 # CSP : domaines GA4 sans fonctions publicitaires, chargement soumis au consentement.
 # https://developers.google.com/tag-platform/security/guides/csp
-Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' https://a.espncdn.com data: https://www.googletagmanager.com https://*.google-analytics.com; font-src 'self'; connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.google.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+# La connexion à l’API privée est limitée aux documents VIP et admin.
+SetEnvIf Request_URI "^/(vip-admin/admin\.html|((en|ar)/)?vip(\.html|/)?)$" vip_api_csp
+Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' https://a.espncdn.com data: https://www.googletagmanager.com https://*.google-analytics.com; font-src 'self'; connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.google.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'" env=!vip_api_csp
+Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' https://a.espncdn.com data: https://www.googletagmanager.com https://*.google-analytics.com; font-src 'self'; connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.google.com https://bttspredict-vip-production-api.luxxdii.workers.dev; frame-ancestors 'none'; base-uri 'self'; form-action 'self'" env=vip_api_csp
 Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
 
 # CORRECTION 9: X-XSS-Protection retiré (déconseillé par OWASP)

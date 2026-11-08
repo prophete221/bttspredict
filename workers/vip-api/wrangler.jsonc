@@ -1,0 +1,22 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "bttspredict-vip-production-api",
+  "main": "src/index.js",
+  "compatibility_date": "2026-11-07",
+  "workers_dev": true,
+  "preview_urls": false,
+  "triggers": {
+    "crons": ["0 * * * *"]
+  },
+  "vars": {
+    "UI_ORIGIN": "https://bttspredict.com"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "bttspredict-vip-production-db",
+      "database_id": "2401349b-8c84-42c8-b6b2-9bc7d024f505",
+      "migrations_dir": "migrations"
+    }
+  ]
+}
