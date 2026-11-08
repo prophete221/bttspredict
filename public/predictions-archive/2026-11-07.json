@@ -12982,7 +12982,9 @@
       "prediction": "Oui",
       "proba": 0.72,
       "confidence": 72,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-08T17:46:42.148Z"
     },
     {
       "id": "austinfc-vs-portland-2026-11-08",
@@ -14169,7 +14171,9 @@
       "prediction": "Oui",
       "proba": 0.68,
       "confidence": 68,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-11-08T17:46:47.693Z"
     },
     {
       "id": "celtic-vs-kilmarno-2026-11-08",
