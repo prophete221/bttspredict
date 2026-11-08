@@ -13974,7 +13974,9 @@
       "prediction": "Oui",
       "proba": 0.65,
       "confidence": 65,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-11-08T19:17:18.940Z"
     },
     {
       "id": "fctwente-vs-ajaxamst-2026-11-08",
@@ -14370,7 +14372,9 @@
       "prediction": "Oui",
       "proba": 0.72,
       "confidence": 72,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-08T19:17:14.280Z"
     },
     {
       "id": "adodenha-vs-spartaro-2026-11-07",

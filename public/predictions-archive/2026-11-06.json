@@ -11704,7 +11704,9 @@
       "prediction": "Oui",
       "proba": 0.65,
       "confidence": 65,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-11-08T19:17:14.279Z"
     },
     {
       "id": "fctwente-vs-ajaxamst-2026-11-08",
@@ -12100,7 +12102,9 @@
       "prediction": "Oui",
       "proba": 0.72,
       "confidence": 72,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-08T19:17:14.280Z"
     },
     {
       "id": "tsveintr-vs-energiec-2026-11-06",
@@ -13077,7 +13081,9 @@
       "prediction": "Oui",
       "proba": 0.65,
       "confidence": 65,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-11-08T19:17:18.940Z"
     },
     {
       "id": "scfreibu-vs-fcunionb-2026-11-08",
@@ -13259,7 +13265,9 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-11-08T19:17:18.940Z"
     }
   ],
   "analysisEngine": "gemini-stats-v1"

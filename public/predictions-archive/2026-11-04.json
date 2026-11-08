@@ -20720,7 +20720,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.49 · N 4.2 · 2 5.5 · O2.5 1.61",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-11-08T19:17:18.940Z"
     },
     {
       "id": "fctwente-vs-ajaxamst-2026-11-08",
@@ -21152,7 +21154,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.17 · N 8 · 2 10.5",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-08T19:17:14.280Z"
     },
     {
       "id": "wrexham-vs-middlesb-2026-11-04",
@@ -23523,7 +23527,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.49 · N 4.2 · 2 5.5 · O2.5 1.61",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-11-08T19:17:14.279Z"
     }
   ],
   "analysisEngine": "gemini-stats-v1"

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-11-08T17:47:32.428Z",
+  "generatedAt": "2026-11-08T19:17:51.727Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,18 +15,18 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 538,
-    "won": 432,
-    "lost": 106,
-    "pending": 18,
+    "total": 547,
+    "won": 435,
+    "lost": 112,
+    "pending": 10,
     "unverifiable": 203,
-    "archivedTotal": 759,
-    "rate": 80.3,
+    "archivedTotal": 760,
+    "rate": 79.5,
     "gold": {
-      "total": 413,
-      "won": 337,
-      "lost": 76,
-      "rate": 81.6
+      "total": 422,
+      "won": 340,
+      "lost": 82,
+      "rate": 80.6
     },
     "standard": {
       "total": 125,
@@ -36,16 +36,16 @@
     },
     "byType": {
       "btts": {
-        "total": 448,
-        "won": 364,
-        "lost": 84,
-        "rate": 81.3
+        "total": 454,
+        "won": 367,
+        "lost": 87,
+        "rate": 80.8
       },
       "over25": {
-        "total": 90,
+        "total": 93,
         "won": 68,
-        "lost": 22,
-        "rate": 75.6
+        "lost": 25,
+        "rate": 73.1
       }
     },
     "trend14": [
@@ -142,10 +142,10 @@
       },
       {
         "date": "2026-11-08",
-        "total": 20,
-        "won": 11,
-        "lost": 9,
-        "rate": 55
+        "total": 29,
+        "won": 14,
+        "lost": 15,
+        "rate": 48.3
       }
     ],
     "period": {
@@ -155,6 +155,123 @@
     }
   },
   "history": [
+    {
+      "date": "2026-11-08",
+      "match": "Celtic vs Kilmarnock",
+      "league": "Scottish Premiership",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.7,
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-08T19:17:18.940Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-08",
+      "match": "SC Freiburg vs 1. FC Union Berlin",
+      "league": "Bundesliga",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.65,
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-11-08T19:17:18.940Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-08",
+      "match": "Le Mans vs AS Monaco",
+      "league": "Ligue 1",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.65,
+      "status": "WON",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-11-08T19:17:18.933Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-08",
+      "match": "Angers vs Nice",
+      "league": "Ligue 1",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.67,
+      "status": "LOST",
+      "finalScore": "0-2",
+      "verifiedAt": "2026-11-08T19:17:18.932Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-08",
+      "match": "Internazionale vs Como",
+      "league": "Serie A",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.65,
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-11-08T19:17:18.932Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-08",
+      "match": "SC Cambuur vs PSV Eindhoven",
+      "league": "Eredivisie",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6,
+      "status": "WON",
+      "finalScore": "2-5",
+      "verifiedAt": "2026-11-08T19:17:18.930Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-08",
+      "match": "Celtic vs Kilmarnock",
+      "league": "Scottish Premiership",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.72,
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-08T19:17:14.280Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-08",
+      "match": "Manchester United vs Aston Villa",
+      "league": "Premier League",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.65,
+      "status": "WON",
+      "finalScore": "4-4",
+      "verifiedAt": "2026-11-08T19:17:14.280Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-08",
+      "match": "SC Freiburg vs 1. FC Union Berlin",
+      "league": "Bundesliga",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.68,
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-11-08T19:17:14.279Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
     {
       "date": "2026-11-08",
       "match": "Monza vs Atalanta",
@@ -6531,123 +6648,6 @@
       "status": "WON",
       "finalScore": "2-1",
       "verifiedAt": "2026-10-23T05:46:22.043Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-08-22",
-      "match": "Red Bull New York vs Chicago Fire FC",
-      "league": "MLS",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.6744,
-      "status": "WON",
-      "finalScore": "1-1",
-      "verifiedAt": "2026-10-23T05:46:22.043Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-08-22",
-      "match": "FC Cincinnati vs Seattle Sounders FC",
-      "league": "MLS",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.7851,
-      "status": "WON",
-      "finalScore": "1-1",
-      "verifiedAt": "2026-10-23T05:46:22.042Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-08-21",
-      "match": "SV Josko Ried vs Grazer AK",
-      "league": "Austrian Bundesliga",
-      "market": "btts",
-      "tier": "STANDARD",
-      "proba": 0.5842,
-      "status": "LOST",
-      "finalScore": "1-0",
-      "verifiedAt": "2026-10-23T05:46:28.493Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-08-21",
-      "match": "Arsenal vs Coventry City",
-      "league": "Premier League",
-      "market": "btts",
-      "tier": "STANDARD",
-      "proba": 0.5877,
-      "status": "LOST",
-      "finalScore": "3-0",
-      "verifiedAt": "2026-10-23T05:46:28.492Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-08-21",
-      "match": "Standard Liege vs RAAL La Louvière",
-      "league": "Jupiler Pro League",
-      "market": "btts",
-      "tier": "STANDARD",
-      "proba": 0.5929,
-      "status": "LOST",
-      "finalScore": "2-0",
-      "verifiedAt": "2026-10-23T05:46:28.492Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-08-20",
-      "match": "Portland Timbers vs San Diego FC",
-      "league": "MLS",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.5375,
-      "status": "WON",
-      "finalScore": "3-1",
-      "verifiedAt": "2026-10-23T05:46:41.865Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-08-20",
-      "match": "Real Salt Lake vs FC Dallas",
-      "league": "MLS",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.5446,
-      "status": "WON",
-      "finalScore": "3-4",
-      "verifiedAt": "2026-10-23T05:46:41.865Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-08-20",
-      "match": "Seattle Sounders FC vs Austin FC",
-      "league": "MLS",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.6909,
-      "status": "WON",
-      "finalScore": "1-2",
-      "verifiedAt": "2026-10-23T05:46:41.865Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-08-20",
-      "match": "Sporting Kansas City vs St. Louis CITY SC",
-      "league": "MLS",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.6426,
-      "status": "WON",
-      "finalScore": "1-1",
-      "verifiedAt": "2026-10-23T05:46:41.865Z",
       "source": "ESPN public",
       "prediction": "Oui"
     }
