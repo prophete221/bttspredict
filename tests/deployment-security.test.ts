@@ -215,6 +215,10 @@ describe('deployment safety gates', () => {
     expect(deploy).toContain('Validate targeted history payload')
     expect(deploy).toContain('history.stats?.[name] !== value')
     expect(deploy).toContain('may5Keys.length !== 12')
+    expect(deploy).toContain("key.startsWith('2026-11-07|')")
+    expect(deploy).toContain('nov7Lost.length !== 0')
+    expect(deploy).toContain('nov7Keys.length !== 15')
+    expect(deploy).toContain('total: 525, won: 424, lost: 101, unverifiable: 203, pending: 27, archivedTotal: 755')
     expect(deploy).toContain('Verify targeted history files in static export')
     expect(deploy).toContain('cmp public/win-history.json out/win-history.json')
     expect(deploy).toContain('cmp public/history-exclusions.json out/history-exclusions.json')
@@ -236,13 +240,17 @@ describe('deployment safety gates', () => {
   it('keeps manual VIP generation private and separate from public deployment', () => {
     const vipJob = workflow.split('\n  vip-candidates-only:')[1]?.split('\n  deploy:')[0] ?? ''
     expect(workflow).toContain('          - vip')
+    expect(workflow).toContain("group: ${{ github.event_name == 'workflow_dispatch' && inputs.mode == 'vip' && 'vip-candidates-only' || format('deploy-{0}', github.ref) }}")
     expect(workflow).toContain("inputs.mode != 'vip'")
     expect(workflow).toContain("!contains(github.event.head_commit.message, '[skip ci]')")
     expect(vipJob).toContain("github.event_name == 'workflow_dispatch' && inputs.mode == 'vip'")
     expect(vipJob).toContain('github.actor == github.repository_owner')
     expect(vipJob).toContain('id-token: write')
     expect(vipJob).toContain('GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}')
-    expect(vipJob).toContain('VIP_CANDIDATE_API_URL: ${{ vars.VIP_CANDIDATE_API_URL }}')
+    expect(vipJob.match(/VIP_CANDIDATE_API_URL: https:\/\/bttspredict-vip-production-api\.luxxdii\.workers\.dev/g)).toHaveLength(2)
+    expect(vipJob).not.toContain('vars.VIP_CANDIDATE_API_URL')
+    expect(workflow.match(/VIP_CANDIDATE_API_URL: https:\/\/bttspredict-vip-production-api\.luxxdii\.workers\.dev/g)).toHaveLength(3)
+    expect(workflow).not.toContain('vars.VIP_CANDIDATE_API_URL')
     for (const step of [
       'python scripts/enrich_vip_candidates.py',
       'node scripts/vip-candidate-source.mjs .private/vip-gemini-candidates.json public/predictions.json .private/vip-candidates.json',

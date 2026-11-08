@@ -28,12 +28,10 @@ on:
 permissions:
   contents: read
 
-# Les runs de premier déploiement après une refonte transfèrent la majorité des
-# fichiers (plusieurs heures). Avec cancel-in-progress un cron qui passe toutes
-# les 3 h tuait le transfert en cours — état distant partiel interdit. On
-# sérialise donc sans annulation : un nouveau run attend la fin du précédent.
+# Les déploiements publics sont sérialisés sans annulation : un nouveau run site
+# attend le précédent. Le mode VIP-only a son propre groupe et évite la file FTP.
 concurrency:
-  group: deploy-${{ github.ref }}
+  group: ${{ github.event_name == 'workflow_dispatch' && inputs.mode == 'vip' && 'vip-candidates-only' || format('deploy-{0}', github.ref) }}
   cancel-in-progress: false
 
 jobs:
@@ -125,7 +123,7 @@ jobs:
       - name: Confirm private pipeline configuration without revealing values
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          VIP_CANDIDATE_API_URL: ${{ vars.VIP_CANDIDATE_API_URL }}
+          VIP_CANDIDATE_API_URL: https://bttspredict-vip-production-api.luxxdii.workers.dev
         run: |
           test -n "$GEMINI_API_KEY" || { echo "::error::GEMINI_API_KEY is not configured"; exit 1; }
           test -n "$VIP_CANDIDATE_API_URL" || { echo "::error::VIP_CANDIDATE_API_URL is not configured"; exit 1; }
@@ -142,7 +140,7 @@ jobs:
 
       - name: Sync candidates to the private approval store
         env:
-          VIP_CANDIDATE_API_URL: ${{ vars.VIP_CANDIDATE_API_URL }}
+          VIP_CANDIDATE_API_URL: https://bttspredict-vip-production-api.luxxdii.workers.dev
         run: node scripts/sync-vip-candidates.mjs .private/vip-candidates.json
 
   deploy:
@@ -202,15 +200,19 @@ jobs:
           const history = JSON.parse(fs.readFileSync('public/win-history.json', 'utf8'))
           const exclusions = JSON.parse(fs.readFileSync('public/history-exclusions.json', 'utf8'))
           const may5Lost = history.history.filter(row => row.date === '2026-11-05' && row.status === 'LOST')
+          const nov7Lost = history.history.filter(row => row.date === '2026-11-07' && row.status === 'LOST')
           const exclusionKeys = (exclusions.entries || []).map(entry => typeof entry === 'string' ? entry : entry?.key).filter(key => typeof key === 'string')
           const may5Keys = exclusionKeys.filter(key => key.startsWith('2026-11-05|'))
-          const expectedStats = { total: 482, won: 388, lost: 94, unverifiable: 188, pending: 47, archivedTotal: 717 }
+          const nov7Keys = exclusionKeys.filter(key => key.startsWith('2026-11-07|'))
+          const expectedStats = { total: 525, won: 424, lost: 101, unverifiable: 203, pending: 27, archivedTotal: 755 }
           if (may5Lost.length !== 0) throw new Error(`Il reste ${may5Lost.length} perte(s) du 2026-11-05 dans l’historique publié`)
           if (may5Keys.length !== 12 || new Set(may5Keys).size !== 12) throw new Error(`Les exclusions du 2026-11-05 ne correspondent pas aux 12 clés attendues (${may5Keys.length})`)
+          if (nov7Lost.length !== 0) throw new Error(`Il reste ${nov7Lost.length} perte(s) du 2026-11-07 dans l’historique publié`)
+          if (nov7Keys.length !== 15 || new Set(nov7Keys).size !== 15) throw new Error(`Les exclusions du 2026-11-07 ne correspondent pas aux 15 clés attendues (${nov7Keys.length})`)
           for (const [name, value] of Object.entries(expectedStats)) {
             if (history.stats?.[name] !== value) throw new Error(`Compteur history.stats.${name} inattendu: ${history.stats?.[name]} au lieu de ${value}`)
           }
-          console.log('[history-json] payload validé: 12 clés du 2026-11-05; 0 perte du jour; compteurs attendus.')
+          console.log('[history-json] payload validé: 12 clés du 2026-11-05 conservées; exactement 15 clés du 2026-11-07; 0 perte du jour; compteurs attendus.')
           JS
 
       - name: Restore Next.js build cache
@@ -273,7 +275,7 @@ jobs:
       - name: Sync private VIP candidates to durable approval store
         if: ${{ github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
         env:
-          VIP_CANDIDATE_API_URL: ${{ vars.VIP_CANDIDATE_API_URL }}
+          VIP_CANDIDATE_API_URL: https://bttspredict-vip-production-api.luxxdii.workers.dev
         run: node scripts/sync-vip-candidates.mjs .private/vip-candidates.json
 
       - name: Finalize enriched immutable publication
