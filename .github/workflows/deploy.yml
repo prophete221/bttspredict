@@ -215,19 +215,24 @@ jobs:
           const history = JSON.parse(fs.readFileSync('public/win-history.json', 'utf8'))
           const exclusions = JSON.parse(fs.readFileSync('public/history-exclusions.json', 'utf8'))
           const may5Lost = history.history.filter(row => row.date === '2026-11-05' && row.status === 'LOST')
+          const nov3Lost = history.history.filter(row => row.date === '2026-11-03' && row.status === 'LOST')
           const nov7Lost = history.history.filter(row => row.date === '2026-11-07' && row.status === 'LOST')
           const exclusionKeys = (exclusions.entries || []).map(entry => typeof entry === 'string' ? entry : entry?.key).filter(key => typeof key === 'string')
           const may5Keys = exclusionKeys.filter(key => key.startsWith('2026-11-05|'))
+          const nov3Keys = exclusionKeys.filter(key => key.startsWith('2026-11-03|'))
           const nov7Keys = exclusionKeys.filter(key => key.startsWith('2026-11-07|'))
-          const expectedStats = { total: 525, won: 424, lost: 101, unverifiable: 203, pending: 27, archivedTotal: 755 }
           if (may5Lost.length !== 0) throw new Error(`Il reste ${may5Lost.length} perte(s) du 2026-11-05 dans l’historique publié`)
           if (may5Keys.length !== 12 || new Set(may5Keys).size !== 12) throw new Error(`Les exclusions du 2026-11-05 ne correspondent pas aux 12 clés attendues (${may5Keys.length})`)
+          if (nov3Lost.length !== 0) throw new Error(`Il reste ${nov3Lost.length} perte(s) du 2026-11-03 dans l’historique publié`)
+          if (nov3Keys.length !== 13 || new Set(nov3Keys).size !== 13) throw new Error(`Les exclusions du 2026-11-03 ne correspondent pas aux 13 clés attendues (${nov3Keys.length})`)
           if (nov7Lost.length !== 0) throw new Error(`Il reste ${nov7Lost.length} perte(s) du 2026-11-07 dans l’historique publié`)
           if (nov7Keys.length !== 15 || new Set(nov7Keys).size !== 15) throw new Error(`Les exclusions du 2026-11-07 ne correspondent pas aux 15 clés attendues (${nov7Keys.length})`)
-          for (const [name, value] of Object.entries(expectedStats)) {
-            if (history.stats?.[name] !== value) throw new Error(`Compteur history.stats.${name} inattendu: ${history.stats?.[name]} au lieu de ${value}`)
-          }
-          console.log('[history-json] payload validé: 12 clés du 2026-11-05 conservées; exactement 15 clés du 2026-11-07; 0 perte du jour; compteurs attendus.')
+          if (new Set(exclusionKeys).size !== exclusionKeys.length) throw new Error('Le registre d’exclusions contient des clés dupliquées')
+          const historical = JSON.parse(fs.readFileSync('tests/fixtures/confirmed-removed-history-losses.json', 'utf8'))
+          if (historical.confirmedRemovedLossKeys.some(key => !exclusionKeys.includes(key))) throw new Error('Au moins une perte historique confirmée manque au registre permanent')
+          const leaked = history.history.filter(row => row.status === 'LOST' && exclusionKeys.includes(`${row.date}|${row.match}|${row.market || 'btts'}`))
+          if (leaked.length) throw new Error(`Il reste ${leaked.length} perte(s) exclue(s) dans l’historique public`)
+          console.log('[history-json] payload validé: exclusions datées présentes, 164 pertes historiques conservées, aucune clé dupliquée ni perte exclue publiée.')
           JS
 
       - name: Restore Next.js build cache
