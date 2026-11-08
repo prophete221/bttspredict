@@ -20915,7 +20915,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-08T03:39:12.469Z"
     },
     {
       "id": "svjoskor-vs-lasklinz-2026-11-07",
@@ -21339,7 +21341,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-11-08T03:39:12.470Z"
     },
     {
       "id": "raallalo-vs-cerclebr-2026-11-07",
@@ -21546,7 +21550,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-08T03:39:12.471Z"
     },
     {
       "id": "orlandoc-vs-newengla-2026-11-07",
@@ -21755,7 +21761,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-08T03:39:12.480Z"
     },
     {
       "id": "philadel-vs-torontof-2026-11-07",
@@ -21963,7 +21971,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "4-1",
+      "verifiedAt": "2026-11-08T03:39:12.477Z"
     },
     {
       "id": "villarre-vs-parissai-2026-11-03",
@@ -22613,7 +22623,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 2.65 · N 3.3 · 2 2.5 · O2.5 1.69",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-08T03:39:12.484Z"
     },
     {
       "id": "lens-vs-como-2026-11-04",
@@ -23670,7 +23682,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.83 · N 4.1 · 2 3.25",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-08T03:39:12.470Z"
     },
     {
       "id": "wrexham-vs-middlesb-2026-11-04",
@@ -25181,7 +25195,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.43 · N 4.8 · 2 5.5",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "4-1",
+      "verifiedAt": "2026-11-08T03:39:12.499Z"
     }
   ],
   "analysisEngine": "gemini-stats-v1"

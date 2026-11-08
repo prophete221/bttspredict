@@ -20460,7 +20460,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-08T03:39:12.469Z"
     },
     {
       "id": "svjoskor-vs-lasklinz-2026-11-07",
@@ -20886,7 +20888,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-08T03:39:12.480Z"
     },
     {
       "id": "cardiffc-vs-burnley-2026-11-07",
@@ -21304,7 +21308,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-11-08T03:39:12.470Z"
     },
     {
       "id": "raallalo-vs-cerclebr-2026-11-07",
@@ -21520,7 +21526,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 2.65 · N 3.3 · 2 2.5 · O2.5 1.69",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-08T03:39:12.484Z"
     },
     {
       "id": "monza-vs-atalanta-2026-11-08",
@@ -21950,7 +21958,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 4 · N 4.2 · 2 1.65",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-2",
+      "verifiedAt": "2026-11-08T03:39:12.474Z"
     },
     {
       "id": "realsalt-vs-lagalaxy-2026-11-08",
@@ -22166,7 +22176,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.61 · N 4.3 · 2 4.3",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-08T03:39:12.474Z"
     },
     {
       "id": "sandiego-vs-sporting-2026-11-08",
@@ -22381,7 +22393,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.43 · N 5 · 2 5.25",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-08T03:39:12.475Z"
     },
     {
       "id": "minnesot-vs-sanjosee-2026-11-08",
@@ -22596,7 +22610,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.74 · N 4 · 2 3.8",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-11-08T03:39:12.475Z"
     },
     {
       "id": "scfreibu-vs-fcunionb-2026-11-08",
@@ -24959,7 +24975,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.83 · N 4.1 · 2 3.25",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-08T03:39:12.470Z"
     },
     {
       "id": "cardiffc-vs-burnley-2026-11-07",
@@ -25374,7 +25392,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-08T03:39:12.471Z"
     },
     {
       "id": "austinfc-vs-portland-2026-11-08",
@@ -25587,7 +25607,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 4.1 · N 4.3 · 2 1.65",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-2",
+      "verifiedAt": "2026-11-08T03:39:12.486Z"
     },
     {
       "id": "realsalt-vs-lagalaxy-2026-11-08",
@@ -25800,7 +25822,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.61 · N 4.3 · 2 4.4",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-08T03:39:12.487Z"
     },
     {
       "id": "sandiego-vs-sporting-2026-11-08",
@@ -26013,7 +26037,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.44 · N 5 · 2 5.25",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-08T03:39:12.487Z"
     },
     {
       "id": "scfreibu-vs-fcunionb-2026-11-08",
@@ -29125,7 +29151,9 @@
       "prediction": "Oui",
       "proba": 0.74,
       "confidence": 74,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-08T03:39:12.480Z"
     },
     {
       "id": "monza-vs-atalanta-2026-11-08",
@@ -30306,7 +30334,9 @@
       "prediction": "Oui",
       "proba": 0.72,
       "confidence": 72,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-08T03:39:12.474Z"
     },
     {
       "id": "sandiego-vs-sporting-2026-11-08",
@@ -30502,7 +30532,9 @@
       "prediction": "Oui",
       "proba": 0.7,
       "confidence": 70,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-08T03:39:12.475Z"
     },
     {
       "id": "minnesot-vs-sanjosee-2026-11-08",
@@ -30698,7 +30730,9 @@
       "prediction": "Oui",
       "proba": 0.72,
       "confidence": 72,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-11-08T03:39:12.475Z"
     }
   ],
   "analysisEngine": "gemini-stats-v1"

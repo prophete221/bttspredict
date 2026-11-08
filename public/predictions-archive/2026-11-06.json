@@ -9520,7 +9520,9 @@
       "prediction": "Oui",
       "proba": 0.72,
       "confidence": 72,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-08T03:39:12.469Z"
     },
     {
       "id": "svjoskor-vs-lasklinz-2026-11-07",
@@ -9916,7 +9918,9 @@
       "prediction": "Oui",
       "proba": 0.74,
       "confidence": 74,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-08T03:39:12.480Z"
     },
     {
       "id": "cardiffc-vs-burnley-2026-11-07",
@@ -10312,7 +10316,9 @@
       "prediction": "Oui",
       "proba": 0.67,
       "confidence": 67,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-11-08T03:39:12.470Z"
     },
     {
       "id": "raallalo-vs-cerclebr-2026-11-07",
@@ -10509,7 +10515,9 @@
       "prediction": "Oui",
       "proba": 0.75,
       "confidence": 75,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-08T03:39:12.471Z"
     },
     {
       "id": "monza-vs-atalanta-2026-11-08",
@@ -10901,7 +10909,9 @@
       "prediction": "Oui",
       "proba": 0.7,
       "confidence": 70,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-2",
+      "verifiedAt": "2026-11-08T03:39:12.474Z"
     },
     {
       "id": "realsalt-vs-lagalaxy-2026-11-08",
@@ -11097,7 +11107,9 @@
       "prediction": "Oui",
       "proba": 0.72,
       "confidence": 72,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-08T03:39:12.474Z"
     },
     {
       "id": "sandiego-vs-sporting-2026-11-08",
@@ -11293,7 +11305,9 @@
       "prediction": "Oui",
       "proba": 0.7,
       "confidence": 70,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-08T03:39:12.475Z"
     },
     {
       "id": "minnesot-vs-sanjosee-2026-11-08",
@@ -11489,7 +11503,9 @@
       "prediction": "Oui",
       "proba": 0.72,
       "confidence": 72,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-11-08T03:39:12.475Z"
     },
     {
       "id": "scfreibu-vs-fcunionb-2026-11-08",
@@ -12661,7 +12677,9 @@
       "prediction": "Oui",
       "proba": 0.75,
       "confidence": 75,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-08T03:39:12.470Z"
     },
     {
       "id": "monza-vs-atalanta-2026-11-08",

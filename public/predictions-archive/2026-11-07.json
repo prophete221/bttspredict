@@ -9021,7 +9021,9 @@
       "prediction": "Oui",
       "proba": 0.72,
       "confidence": 72,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-08T03:39:12.469Z"
     },
     {
       "id": "svjoskor-vs-lasklinz-2026-11-07",
@@ -9417,7 +9419,9 @@
       "prediction": "Oui",
       "proba": 0.75,
       "confidence": 75,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-08T03:39:12.470Z"
     },
     {
       "id": "cardiffc-vs-burnley-2026-11-07",
@@ -9813,7 +9817,9 @@
       "prediction": "Oui",
       "proba": 0.65,
       "confidence": 65,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-11-08T03:39:12.470Z"
     },
     {
       "id": "raallalo-vs-cerclebr-2026-11-07",
@@ -10010,7 +10016,9 @@
       "prediction": "Oui",
       "proba": 0.72,
       "confidence": 72,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-08T03:39:12.471Z"
     },
     {
       "id": "stjohnst-vs-dundee-2026-11-07",
@@ -10404,7 +10412,9 @@
       "prediction": "Oui",
       "proba": 0.7,
       "confidence": 70,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-11-08T03:39:12.471Z"
     },
     {
       "id": "queenspa-vs-lincolnc-2026-11-07",
@@ -11395,7 +11405,9 @@
       "prediction": "Oui",
       "proba": 0.58,
       "confidence": 58,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-08T03:39:12.472Z"
     },
     {
       "id": "kvcweste-vs-royalcha-2026-11-07",
@@ -11791,7 +11803,9 @@
       "prediction": "Oui",
       "proba": 0.68,
       "confidence": 68,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-4",
+      "verifiedAt": "2026-11-08T03:39:12.472Z"
     },
     {
       "id": "intermia-vs-charlott-2026-11-07",
@@ -11988,7 +12002,9 @@
       "prediction": "Oui",
       "proba": 0.72,
       "confidence": 72,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-3",
+      "verifiedAt": "2026-11-08T03:39:12.473Z"
     },
     {
       "id": "fcnrnber-vs-svdarmst-2026-11-07",
@@ -13163,7 +13179,9 @@
       "prediction": "Oui",
       "proba": 0.7,
       "confidence": 70,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-2",
+      "verifiedAt": "2026-11-08T03:39:12.474Z"
     },
     {
       "id": "realsalt-vs-lagalaxy-2026-11-08",
@@ -13359,7 +13377,9 @@
       "prediction": "Oui",
       "proba": 0.72,
       "confidence": 72,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-08T03:39:12.474Z"
     },
     {
       "id": "sandiego-vs-sporting-2026-11-08",
@@ -13555,7 +13575,9 @@
       "prediction": "Oui",
       "proba": 0.7,
       "confidence": 70,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-08T03:39:12.475Z"
     },
     {
       "id": "minnesot-vs-sanjosee-2026-11-08",
@@ -13751,7 +13773,9 @@
       "prediction": "Oui",
       "proba": 0.72,
       "confidence": 72,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-11-08T03:39:12.475Z"
     },
     {
       "id": "scfreibu-vs-fcunionb-2026-11-08",
@@ -14738,7 +14762,9 @@
       "prediction": "Oui",
       "proba": 0.65,
       "confidence": 65,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "4-1",
+      "verifiedAt": "2026-11-08T03:39:12.477Z"
     },
     {
       "id": "ajauxerr-vs-parisfc-2026-11-07",
@@ -15517,7 +15543,9 @@
       "prediction": "Oui",
       "proba": 0.7,
       "confidence": 70,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-11-08T03:39:12.477Z"
     },
     {
       "id": "dcunited-vs-newyorkc-2026-11-07",
@@ -15714,7 +15742,9 @@
       "prediction": "Oui",
       "proba": 0.68,
       "confidence": 68,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-08T03:39:12.478Z"
     },
     {
       "id": "valencia-vs-realmadr-2026-11-07",
@@ -15911,7 +15941,9 @@
       "prediction": "Oui",
       "proba": 0.65,
       "confidence": 65,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "0-3",
+      "verifiedAt": "2026-11-08T03:39:12.478Z"
     },
     {
       "id": "stmirren-vs-rangers-2026-11-07",
@@ -16108,7 +16140,9 @@
       "prediction": "Oui",
       "proba": 0.64,
       "confidence": 64,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-2",
+      "verifiedAt": "2026-11-08T03:39:12.479Z"
     },
     {
       "id": "fccincin-vs-nashvill-2026-11-07",
@@ -16291,7 +16325,9 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-2",
+      "verifiedAt": "2026-11-08T03:39:12.479Z"
     },
     {
       "id": "parissai-vs-troyes-2026-11-07",
@@ -16488,7 +16524,9 @@
       "prediction": "Oui",
       "proba": 0.65,
       "confidence": 65,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-08T03:39:12.479Z"
     },
     {
       "id": "cfmontra-vs-vancouve-2026-11-07",
@@ -16671,7 +16709,9 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-2",
+      "verifiedAt": "2026-11-08T03:39:12.480Z"
     },
     {
       "id": "alverca-vs-casapia-2026-11-07",
