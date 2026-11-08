@@ -9,7 +9,8 @@
     "crons": ["0 * * * *"]
   },
   "vars": {
-    "UI_ORIGIN": "https://bttspredict.com"
+    "UI_ORIGIN": "https://bttspredict.com",
+    "VIP_PUBLICATION_POLICY": "verified-auto-v1"
   },
   "d1_databases": [
     {

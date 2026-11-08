@@ -64,6 +64,14 @@ h1 { margin-bottom: 11px; font-size: clamp(30px, 6vw, 45px); line-height: 1.1; l
 .admin-actions .admin-approve { border-color: #71e2c366; background: #71e2c318; color: #d8fff2; }
 .admin-actions .admin-reject, .admin-actions .admin-delete { border-color: #ff9c9c55; background: #ff9c9c0e; color: #ffdcdc; }
 .admin-empty { padding: 18px; border: 1px dashed var(--line); border-radius: 12px; color: var(--muted); font-size: 12px; text-align: center; }
+.admin-group-title { margin: 5px 0 0; color: #dceaff; font-size: 14px; }
+.admin-candidate dt { font-size: 10px; line-height: 1.5; }
+.admin-candidate dd { font-size: 12px; line-height: 1.65; }
+.admin-candidate[data-historical="true"] { border-style: dashed; }
+.admin-candidate-history { min-width: 0; padding: 12px; border: 1px solid var(--line); border-radius: 12px; }
+.admin-candidate-history > summary { min-height: 44px; color: #c5d7ed; font-size: 12px; line-height: 1.6; cursor: pointer; overflow-wrap: anywhere; }
+.admin-candidate-history > .admin-records { padding-top: 12px; }
+.admin-candidate-history > summary:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
 .footer-note { max-width: 620px; margin: 22px auto 0; color: #7789a0; text-align: center; font-size: 10px; line-height: 1.55; }
 button:focus-visible, input:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
 @media (max-width: 560px) {

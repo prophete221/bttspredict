@@ -11944,11 +11944,42 @@ body { background-color: #0a111a !important; color: #f1efe8; }
   border-radius: 12px;
   background: rgba(52, 211, 153, .08);
 }
-.vip-access-flow__invite a { color: #A7F3D0; font-size: .8rem; font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
+.vip-access-flow__invite-link { min-width: 0; max-width: 100%; }
+.vip-access-flow__telegram-cta {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 48px;
+  padding: 10px 14px;
+  border: 1px solid rgba(65, 178, 230, .58);
+  border-radius: 11px;
+  background: linear-gradient(135deg, #0875A7, #076593);
+  color: #FFFFFF;
+  font-size: .84rem;
+  font-weight: 800;
+  line-height: 1.35;
+  text-align: center;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  box-shadow: 0 4px 14px rgba(14, 134, 190, .22);
+  transition: background-color .16s ease, box-shadow .16s ease, transform .16s ease;
+}
+.vip-access-flow__telegram-cta:hover { background: linear-gradient(135deg, #0879AC, #086D9C); box-shadow: 0 6px 18px rgba(14, 134, 190, .32); }
+.vip-access-flow__telegram-cta:active { transform: translateY(1px); }
+.vip-access-flow__telegram-cta:focus-visible { outline: 3px solid #BCEBFF; outline-offset: 3px; }
+.vip-access-flow__telegram-cta span { min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
+.vip-access-flow__telegram-logo { display: block; flex: 0 0 24px; width: 24px; height: 24px; }
 .vip-access-flow__invite small { color: #B8C6D3; font-size: .68rem; line-height: 1.45; }
 .vip-access-flow__manual-label { align-self: center; color: #AAB7C5; font-size: .72rem; }
 @media (max-width: 480px) {
   .vip-access-flow__proof { grid-template-columns: 62px minmax(0, 1fr); gap: 8px; }
   .vip-access-flow__proof img { width: 62px; height: 62px; }
   .vip-access-flow__remove-proof { grid-column: 2; justify-self: start; }
+  .vip-access-flow__telegram-cta { width: 100%; padding-inline: 10px; font-size: .78rem; }
 }

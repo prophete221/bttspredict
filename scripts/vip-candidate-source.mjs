@@ -9,9 +9,10 @@ export const GEMINI_MODEL = 'gemini-3.5-flash-lite'
 export const DAKAR_TIMEZONE = 'Africa/Dakar'
 export const VIP_PUBLICATION_TIMES = Object.freeze(['00:00', '07:00', '16:00'])
 export const MAX_ANALYSIS_AGE_MS = 12 * 60 * 60 * 1000
-export const MIN_VIP_PROBABILITY = 0.70
-export const MIN_TEAM_MATCHES = 6
+export const MIN_TEAM_MATCHES = 8
 export const MIN_FORM_MATCHES = 5
+export const MIN_VIP_FIXTURES = 2
+export const MAX_VIP_FIXTURES = 5
 
 const ACCEPTED_MATCH_STATUSES = new Set(['PENDING', 'SCHEDULED', 'NOT_STARTED', 'UPCOMING', 'STATUS_SCHEDULED', 'STATUS_PRE_GAME', 'STATUS_DELAYED', 'STATUS_NOT_STARTED'])
 const CANDIDATE_STORE_VERSION = 1
@@ -191,10 +192,9 @@ function checkedCandidate(row, analyzedAt, now) {
   const probability = row.proba
   const nested = Array.isArray(row.predictions) ? row.predictions : []
   if (!market || market !== topLevelMarket || !selection || nested.length !== 1) return { reason: 'incomplete_pick' }
-  if (typeof probability !== 'number' || !Number.isFinite(probability) || probability > 0.78) {
+  if (typeof probability !== 'number' || !Number.isFinite(probability) || probability <= 0 || probability >= 1) {
     return { reason: 'invalid_probability' }
   }
-  if (probability < MIN_VIP_PROBABILITY) return { reason: 'below_high_probability_threshold' }
 
   const pick = nested[0]
   if (!pick || typeof pick !== 'object') return { reason: 'incomplete_nested_pick' }
@@ -210,7 +210,6 @@ function checkedCandidate(row, analyzedAt, now) {
     typeof pick.confidence !== 'number' || pick.confidence !== expectedConfidence ||
     !['low', 'medium', 'high'].includes(row.ai_confidence)
   ) return { reason: 'incomplete_confidence' }
-  if (row.ai_confidence !== 'high') return { reason: 'confidence_below_vip_threshold' }
   const reasons = Array.isArray(row.ai_reasons) ? row.ai_reasons.filter(value => typeof value === 'string' && value.trim()) : []
   const risks = Array.isArray(row.ai_risks) ? row.ai_risks.filter(value => typeof value === 'string' && value.trim()) : []
   if (reasons.length < 2 || reasons.length > 4 || risks.length < 1 || risks.length > 2) {
@@ -236,18 +235,8 @@ function checkedCandidate(row, analyzedAt, now) {
     return { reason: 'empirical_rate_inconsistent_with_team_forms' }
   }
   const empiricalSelectionRate = selection === 'YES' ? empiricalYesRate : 1 - empiricalYesRate
-  if (empiricalSelectionRate < MIN_VIP_PROBABILITY) return { reason: 'empirical_rate_below_vip_threshold' }
-  if (Math.abs(probability - empiricalSelectionRate) > 0.15 + 1e-9) {
-    return { reason: 'empirical_probability_mismatch' }
-  }
   const homeSelectionRate = selection === 'YES' ? homeEmpiricalRate : 1 - homeEmpiricalRate
   const awaySelectionRate = selection === 'YES' ? awayEmpiricalRate : 1 - awayEmpiricalRate
-  if (homeSelectionRate < MIN_VIP_PROBABILITY || awaySelectionRate < MIN_VIP_PROBABILITY) {
-    return { reason: 'team_empirical_rate_below_vip_threshold' }
-  }
-  if ([homeSelectionRate, awaySelectionRate].some(rate => Math.abs(probability - rate) > 0.15 + 1e-9)) {
-    return { reason: 'team_empirical_probability_mismatch' }
-  }
 
   if (
     typeof row.id !== 'string' || !row.id.trim() ||
@@ -514,15 +503,43 @@ export function buildVipCandidates({ analysisPayload, freePayload = analysisPayl
     candidates.push(result.candidate)
   }
 
-  // Empirical fallback generation is disabled: no strict Gemini pick means no candidate.
-  candidates.sort((a, b) => Math.min(b.probability, b.homeSelectionRate, b.awaySelectionRate) - Math.min(a.probability, a.homeSelectionRate, a.awaySelectionRate)
-    || b.probability - a.probability
+  // Empirical fallback generation is disabled: only an actual Gemini estimate can become a pick.
+  const fixtureIdentity = candidate => [candidate.date, normalizeText(candidate.league), normalizeText(candidate.home), normalizeText(candidate.away)].join('|')
+  const riskRank = { FAIBLE: 0, MODÉRÉ: 1, ÉLEVÉ: 2 }
+  const confidenceRank = { high: 0, medium: 1, low: 2 }
+  const ranked = [...candidates].sort((a, b) =>
+    b.probability - a.probability
+    || (riskRank[a.riskLevel] ?? 3) - (riskRank[b.riskLevel] ?? 3)
+    || (confidenceRank[a.aiConfidence] ?? 3) - (confidenceRank[b.aiConfidence] ?? 3)
+    || Math.min(b.matchCountHome, b.matchCountAway) - Math.min(a.matchCountHome, a.matchCountAway)
+    || Math.min(b.formCountHome, b.formCountAway) - Math.min(a.formCountHome, a.formCountAway)
     || a.candidateKey.localeCompare(b.candidateKey))
-  audit.ownerOutcome = candidates.length ? 'ready_for_automatic_publication' : 'no_supported_pick'
-  audit.ownerMessage = candidates.length
-    ? `${candidates.length} candidat(s) au seuil VIP renforcé, prêts pour les vérifications de publication.`
-    : 'Aucun pick ne possède les éléments nécessaires à une probabilité et à un niveau de risque fiables; rien n’est publié.'
-  return { candidates, audit }
+  const eligibleDistinctFixtures = new Set(ranked.map(fixtureIdentity)).size
+  const selectedFixtureKeys = new Set()
+  const selected = []
+  for (const candidate of ranked) {
+    const key = fixtureIdentity(candidate)
+    if (selectedFixtureKeys.has(key)) continue
+    selectedFixtureKeys.add(key)
+    selected.push(candidate)
+    if (selected.length >= MAX_VIP_FIXTURES) break
+  }
+  audit.minimumTargetFixtures = MIN_VIP_FIXTURES
+  audit.maximumSelectedFixtures = MAX_VIP_FIXTURES
+  audit.rankingPolicy = 'actual-model-probability-risk-confidence-sample-fixture-v1'
+  audit.eligibleDistinctFixturesAfterExclusions = eligibleDistinctFixtures
+  audit.selectedDistinctFixtures = selected.length
+  audit.shortfall = Math.max(0, MIN_VIP_FIXTURES - selected.length)
+  audit.shortfallReason = selected.length === 0 ? 'no_eligible_gemini_candidates'
+    : selected.length < MIN_VIP_FIXTURES ? 'insufficient_distinct_eligible_fixtures' : null
+  audit.ownerOutcome = selected.length === 0 ? 'no_supported_pick'
+    : selected.length < MIN_VIP_FIXTURES ? 'partial_target_shortfall' : 'ready_for_owner_approval'
+  audit.ownerMessage = selected.length === 0
+    ? 'Aucun candidat Gemini valide avec les éléments nécessaires; aucune probabilité empirique de remplacement ne sera créée.'
+    : selected.length < MIN_VIP_FIXTURES
+      ? `${selected.length} match distinct admissible; objectif ${MIN_VIP_FIXTURES}, shortfall ${audit.shortfall}. Aucun candidat empirique de remplacement.`
+      : `${selected.length} match(s) distinct(s) classé(s) selon le risque, la confiance Gemini et les échantillons réels.`
+  return { candidates: selected, audit }
 }
 
 const MATERIAL_CANDIDATE_FIELDS = Object.freeze([

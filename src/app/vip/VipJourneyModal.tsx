@@ -7,6 +7,7 @@ import { trackAffiliateCodeCopy } from '@/lib/affiliateTracking'
 import { copyTextToClipboard } from '@/lib/clipboard'
 import { localizedPath, type Locale } from '@/lib/i18n'
 import { useLanguage } from '@/components/bttsbet/LanguageSwitcher'
+import { isValidTelegramInvite, VipTelegramInviteCta } from './VipTelegramInviteCta'
 
 type PartnerId = typeof BOOKMAKERS[number]['id']
 type Step = 1 | 2 | 3 | 4
@@ -65,7 +66,7 @@ const LABELS: Record<Locale, {
     waitTitle: 'Suivi de ta demande', requestSummary: 'Résumé et statut de ta demande', pendingStatus: 'Ta demande est enregistrée et attend une vérification manuelle. L’accès VIP n’est pas encore activé.',
     approvedStatus: 'Ta demande a été validée. Ouvre ton lien privé individuel ci-dessous.', rejectedStatus: 'La demande n’a pas été validée. Garde ta référence si tu as une question.',
     refresh: 'Actualiser le statut de la demande', refreshing: 'Actualisation…', refreshed: 'Le statut a été actualisé.', refreshError: 'Le statut n’a pas pu être confirmé. Réessaie dans quelques instants.',
-    invite: 'Ouvrir Telegram et rejoindre le canal VIP', inviteExpiry: 'Lien personnel limité à une place et valable pendant une durée limitée.',
+    invite: 'Rejoindre le VIP sur Telegram', inviteExpiry: 'Lien personnel limité à une place et valable pendant une durée limitée.',
     submitError: 'Le service n’a pas confirmé l’enregistrement. Vérifie les champs et réessaie.', duplicateError: 'Une demande est déjà en cours pour ce bookmaker et cet identifiant.', rateError: 'Trop de demandes ont été envoyées récemment. Réessaie plus tard.',
     proofTypeError: 'La capture doit être une image PNG ou JPEG.', proofSizeError: 'Le fichier dépasse la taille maximale autorisée. Choisis une image plus petite.',
     proofDimensionsError: 'Les dimensions de cette image sont trop grandes.', proofDecodeError: 'Le navigateur ne peut pas lire cette capture. Enregistre-la en PNG ou JPEG puis réessaie.',
@@ -92,7 +93,7 @@ const LABELS: Record<Locale, {
     waitTitle: 'Request status', requestSummary: 'Application summary and status', pendingStatus: 'Your request is recorded and waiting for manual review. VIP access is not active yet.',
     approvedStatus: 'Your request was approved. Open your individual private link below.', rejectedStatus: 'The request was not approved. Keep your reference if you have a question.',
     refresh: 'Refresh request status', refreshing: 'Refreshing…', refreshed: 'The status was refreshed.', refreshError: 'The status could not be confirmed. Please try again shortly.',
-    invite: 'Open Telegram and join the VIP channel', inviteExpiry: 'Personal link limited to one person and valid for a limited time.',
+    invite: 'Join VIP on Telegram', inviteExpiry: 'Personal link limited to one person and valid for a limited time.',
     submitError: 'The service did not confirm the request. Check the fields and try again.', duplicateError: 'A request for this bookmaker and account ID is already in progress.', rateError: 'Too many requests were sent recently. Please try again later.',
     proofTypeError: 'The screenshot must be a PNG or JPEG image.', proofSizeError: 'The file exceeds the maximum allowed size. Choose a smaller image.',
     proofDimensionsError: 'This image’s dimensions are too large.', proofDecodeError: 'The browser cannot read this screenshot. Save it as PNG or JPEG and try again.',
@@ -119,7 +120,7 @@ const LABELS: Record<Locale, {
     waitTitle: 'حالة الطلب', requestSummary: 'ملخص الطلب وحالته', pendingStatus: 'تم تسجيل طلبك وهو بانتظار المراجعة اليدوية. لم يتم تفعيل وصول VIP بعد.',
     approvedStatus: 'تمت الموافقة على طلبك. افتح رابطك الخاص أدناه.', rejectedStatus: 'لم تتم الموافقة على الطلب. احتفظ بالمرجع إذا كان لديك سؤال.',
     refresh: 'حدّث حالة الطلب', refreshing: 'جارٍ التحديث…', refreshed: 'تم تحديث الحالة.', refreshError: 'تعذر تأكيد الحالة. حاول مجدداً بعد قليل.',
-    invite: 'افتح تيليغرام وانضم إلى قناة VIP', inviteExpiry: 'رابط شخصي يسمح بانضمام شخص واحد وصالح لمدة محدودة.',
+    invite: 'انضم إلى VIP عبر تيليغرام', inviteExpiry: 'رابط شخصي يسمح بانضمام شخص واحد وصالح لمدة محدودة.',
     submitError: 'لم تؤكد الخدمة تسجيل الطلب. تحقق من الحقول وحاول مجدداً.', duplicateError: 'يوجد طلب قيد المعالجة لهذا المشغل ومعرّف الحساب.', rateError: 'تم إرسال طلبات كثيرة مؤخراً. حاول مرة أخرى لاحقاً.',
     proofTypeError: 'يجب أن تكون لقطة الشاشة بصيغة PNG أو JPEG.', proofSizeError: 'يتجاوز الملف الحجم الأقصى المسموح. اختر صورة أصغر.',
     proofDimensionsError: 'أبعاد هذه الصورة كبيرة جداً.', proofDecodeError: 'تعذر على المتصفح قراءة هذه الصورة. احفظها بصيغة PNG أو JPEG ثم حاول مجدداً.',
@@ -230,10 +231,6 @@ function readReceipt(): Receipt | null {
   }
 }
 
-function inviteIsValid(value: unknown): value is string {
-  return typeof value === 'string' && /^https:\/\/t\.me\/(?:\+|joinchat\/)[A-Za-z0-9_-]+$/.test(value)
-}
-
 function parseDepositUsd(value: string): number {
   return Number(value.trim().replace(',', '.'))
 }
@@ -266,6 +263,7 @@ export default function VipUnlockModal({
   const [proofPreviewUrl, setProofPreviewUrl] = useState('')
   const [proofError, setProofError] = useState('')
   const [copied, setCopied] = useState(false)
+  const [copiedPartnerId, setCopiedPartnerId] = useState<PartnerId | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const isSubmittingRef = useRef(false)
   const [isRefreshing, setIsRefreshing] = useState(false)
@@ -296,7 +294,7 @@ export default function VipUnlockModal({
       if (!response.ok || result.ok !== true || result.requestId !== savedReceipt.requestId || typeof result.status !== 'string'
         || typeof result.inviteReady !== 'boolean' || result.telegramInviteMode !== 'manual-approval-private-status'
         || result.telegramEnabled !== false || result.inviteSent !== false
-        || (result.inviteReady && (result.status !== 'approved_pending_telegram' || !inviteIsValid(result.inviteLink)))
+        || (result.inviteReady && (result.status !== 'approved_pending_telegram' || !isValidTelegramInvite(result.inviteLink)))
         || (!result.inviteReady && result.inviteLink !== null)) throw new Error('status_unavailable')
       setRequestStatus({
         requestId: savedReceipt.requestId,
@@ -304,7 +302,7 @@ export default function VipUnlockModal({
         createdAt: typeof result.createdAt === 'string' ? result.createdAt : null,
         reviewedAt: typeof result.reviewedAt === 'string' ? result.reviewedAt : null,
         inviteReady: result.inviteReady,
-        inviteLink: result.inviteReady && inviteIsValid(result.inviteLink) ? result.inviteLink : null,
+        inviteLink: result.inviteReady && isValidTelegramInvite(result.inviteLink) ? result.inviteLink : null,
         inviteExpiresAt: Number.isFinite(Number(result.inviteExpiresAt)) ? Number(result.inviteExpiresAt) : null,
       })
       if (announce) setStatusMessage(copy.refreshed)
@@ -377,6 +375,7 @@ export default function VipUnlockModal({
     setProofPreviewUrl('')
     setProofError('')
     setCopied(false)
+    setCopiedPartnerId(null)
     setStatusMessage('')
   }
 
@@ -389,13 +388,14 @@ export default function VipUnlockModal({
       return
     }
     trackAffiliateCodeCopy(partner.id, 'vip-access-flow')
+    setCopiedPartnerId(partner.id)
     setCopied(true)
     window.setTimeout(() => setCopied(false), 1800)
   }
 
   const canContinue =
     (step === 1 && Boolean(partner)) ||
-    (step === 2 && Boolean(partner) && copied) ||
+    (step === 2 && Boolean(partner) && copiedPartnerId === partner?.id) ||
     (step === 3 && registrationConfirmed && depositConfirmed && parseDepositUsd(depositUsd) >= 3 && parseDepositUsd(depositUsd) <= 100_000)
 
   const goBack = () => {
@@ -700,9 +700,9 @@ export default function VipUnlockModal({
                     <button type="button" onClick={() => void refreshStatus(receipt)} disabled={isRefreshing} aria-busy={isRefreshing} className="vip-access-flow__refresh">
                       {isRefreshing ? copy.refreshing : copy.refresh}
                     </button>
-                    {requestStatus?.status === 'approved_pending_telegram' && requestStatus.inviteReady && requestStatus.inviteLink && (
+                    {requestStatus?.status === 'approved_pending_telegram' && requestStatus.inviteReady && isValidTelegramInvite(requestStatus.inviteLink) && (
                       <div className="vip-access-flow__invite">
-                        <a href={requestStatus.inviteLink} target="_blank" rel="noopener noreferrer">{copy.invite} →</a>
+                        <VipTelegramInviteCta status={requestStatus.status} inviteReady={requestStatus.inviteReady} inviteLink={requestStatus.inviteLink} lang={lang} label={copy.invite} />
                         <small>{Number.isFinite(Number(requestStatus.inviteExpiresAt)) && Number(requestStatus.inviteExpiresAt) > 0
                           ? `${copy.inviteExpiry} ${formatDate(new Date(Number(requestStatus.inviteExpiresAt) * 1000).toISOString())}`
                           : copy.inviteExpiry}</small>

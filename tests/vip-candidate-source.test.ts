@@ -4,7 +4,6 @@ import { join } from 'node:path'
 import { afterEach, describe, expect, it } from 'vitest'
 import {
   MAX_ANALYSIS_AGE_MS,
-  MIN_VIP_PROBABILITY,
   buildVipCandidates,
   markCandidatePublished,
   mergeCandidateStore,
@@ -156,7 +155,7 @@ describe('VIP private candidate source', () => {
     expect(result.candidates).toEqual([])
     expect(result.audit.excludedAlreadyFree).toBe(1)
     expect(result.audit.ownerOutcome).toBe('no_supported_pick')
-    expect(result.audit.ownerMessage).toContain('niveau de risque fiables')
+    expect(result.audit.ownerMessage).toContain('aucune probabilité empirique de remplacement')
   })
 
   it('does not fall back to free rows when the private VIP candidate array is empty', () => {
@@ -173,7 +172,7 @@ describe('VIP private candidate source', () => {
     const result = buildVipCandidates({ analysisPayload: fallbackPayload(), freePayload: payload([]), now: NOW })
     expect(result.candidates).toEqual([])
     expect(result.audit.ownerOutcome).toBe('no_supported_pick')
-    expect(result.audit.ownerMessage).toContain('rien n’est publié')
+    expect(result.audit.ownerMessage).toContain('aucune probabilité empirique de remplacement')
     expect(result.audit.fallbackRowsEvaluated).toBe(0)
     expect(result.audit.fallbackRejected).toEqual({})
   })
@@ -209,18 +208,18 @@ describe('VIP private candidate source', () => {
     expect(result.audit.fallbackRowsEvaluated).toBe(0)
   })
 
-  it('rejects an exact free pick, non-high confidence, or a probability unsupported by its market rate', () => {
+  it('rejects an exact free pick, invalid confidence labels, invalid probabilities, and inconsistent empirical inputs', () => {
     const rows = [
       geminiRow({ freeMarket: 'BTTS', freeSelection: 'Oui', id: 'same-pick' }),
-      geminiRow({ ai_confidence: 'medium', id: 'not-high' }),
-      geminiRow({ proba: 0.7, confidence: 70, predictions: [{ type: 'BTTS', prediction: 'Oui', proba: 0.7, confidence: 70, modelEngine: 'gemini-3.5-flash-lite' }], empiricalBttsRate: 0.95, formHome: { count: 5, bttsRate: 0.9, over25Rate: 0.7 }, formAway: { count: 5, bttsRate: 1, over25Rate: 0.7 }, id: 'mismatch' }),
+      geminiRow({ ai_confidence: 'certain', id: 'invalid-confidence' }),
+      geminiRow({ proba: 0, confidence: 0, predictions: [{ type: 'BTTS', prediction: 'Oui', proba: 0, confidence: 0, modelEngine: 'gemini-3.5-flash-lite' }], id: 'invalid-probability' }),
       geminiRow({ empiricalBttsRate: 0.8, id: 'inconsistent-aggregate' }),
     ]
     const result = buildVipCandidates({ analysisPayload: payload(rows), freePayload: payload([]), now: NOW })
     expect(result.candidates).toEqual([])
     expect(result.audit.rejected.same_as_free_pick).toBe(1)
-    expect(result.audit.rejected.confidence_below_vip_threshold).toBe(1)
-    expect(result.audit.rejected.empirical_probability_mismatch).toBe(1)
+    expect(result.audit.rejected.incomplete_confidence).toBe(1)
+    expect(result.audit.rejected.invalid_probability).toBe(1)
     expect(result.audit.rejected.empirical_rate_inconsistent_with_team_forms).toBe(1)
   })
 
@@ -233,13 +232,14 @@ describe('VIP private candidate source', () => {
       predictions: [{ type: 'BTTS', prediction: 'Non', proba: 0.72, confidence: 72, modelEngine: 'gemini-3.5-flash-lite' }],
     })
     const over25 = geminiRow({
+      id: 'distinct-over25-fixture', fixtureId: '401234568', home: 'Home Two', away: 'Away Two',
       ai_market: 'OVER_25', type: 'Over 2.5', prediction: 'Oui', proba: 0.72, confidence: 72,
       freeMarket: 'BTTS', freeSelection: 'Oui', empiricalOver25Rate: 0.72,
       formHome: { count: 5, bttsRate: 0.7, over25Rate: 0.72 },
       formAway: { count: 5, bttsRate: 0.7, over25Rate: 0.72 },
       predictions: [{ type: 'Over 2.5', prediction: 'Oui', proba: 0.72, confidence: 72, modelEngine: 'gemini-3.5-flash-lite' }],
     })
-    const invalid = geminiRow({ ai_confidence: 'medium', id: 'not-high' })
+    const invalid = geminiRow({ ai_confidence: 'certain', id: 'invalid-confidence' })
     const result = buildVipCandidates({
       analysisPayload: { ...payload([]), vipCandidates: [oppositeBtts, over25, invalid] },
       freePayload: payload([geminiRow()]),
@@ -247,26 +247,104 @@ describe('VIP private candidate source', () => {
     })
 
     expect(result.candidates).toHaveLength(2)
-    expect(result.candidates.map(candidate => candidate.market)).toEqual(['OVER_25', 'BTTS'])
-    expect(result.candidates[1]).toMatchObject({ market: 'BTTS', selection: 'NO', freeMarket: 'BTTS', freeSelection: 'YES' })
-    expect(result.audit.rejected.confidence_below_vip_threshold).toBe(1)
-    expect(result.audit.ownerOutcome).toBe('ready_for_automatic_publication')
+    expect(result.candidates.map(candidate => candidate.market).sort()).toEqual(['BTTS', 'OVER_25'])
+    expect(result.candidates.find(candidate => candidate.market === 'BTTS')).toMatchObject({ market: 'BTTS', selection: 'NO', freeMarket: 'BTTS', freeSelection: 'YES' })
+    expect(result.audit.rejected.incomplete_confidence).toBe(1)
+    expect(result.audit.ownerOutcome).toBe('ready_for_owner_approval')
   })
 
-  it('requires 70% estimated and empirical support from the aggregate and each team', () => {
-    expect(MIN_VIP_PROBABILITY).toBe(0.7)
+  it('accepts open-unit model estimates with genuine low, medium, or high confidence labels', () => {
     const rows = [
-      geminiRow({ proba: 0.69, confidence: 69, predictions: [{ type: 'BTTS', prediction: 'Oui', proba: 0.69, confidence: 69, modelEngine: 'gemini-3.5-flash-lite' }], id: 'estimate-below-70' }),
-      geminiRow({ proba: 0.72, confidence: 72, empiricalBttsRate: 0.65, formHome: { count: 5, bttsRate: 0.6, over25Rate: 0.8 }, formAway: { count: 5, bttsRate: 0.7, over25Rate: 0.8 }, predictions: [{ type: 'BTTS', prediction: 'Oui', proba: 0.72, confidence: 72, modelEngine: 'gemini-3.5-flash-lite' }], id: 'aggregate-below-70' }),
-      geminiRow({ proba: 0.78, confidence: 78, empiricalBttsRate: 0.8, formHome: { count: 5, bttsRate: 0.6, over25Rate: 0.8 }, formAway: { count: 5, bttsRate: 1, over25Rate: 0.8 }, predictions: [{ type: 'BTTS', prediction: 'Oui', proba: 0.78, confidence: 78, modelEngine: 'gemini-3.5-flash-lite' }], id: 'one-team-below-70' }),
-      geminiRow({ formHome: { count: 5, over25Rate: 0.8 }, id: 'missing-team-rate' }),
+      geminiRow({ id: 'model-low', home: 'Home Low', away: 'Away Low', fixtureId: 'low', proba: 0.12, confidence: 12, ai_confidence: 'low', predictions: [{ type: 'BTTS', prediction: 'Oui', proba: 0.12, confidence: 12, modelEngine: 'gemini-3.5-flash-lite' }] }),
+      geminiRow({ id: 'model-medium', home: 'Home Medium', away: 'Away Medium', fixtureId: 'medium', proba: 0.5, confidence: 50, ai_confidence: 'medium', predictions: [{ type: 'BTTS', prediction: 'Oui', proba: 0.5, confidence: 50, modelEngine: 'gemini-3.5-flash-lite' }] }),
+      geminiRow({ id: 'model-high', home: 'Home High', away: 'Away High', fixtureId: 'high', proba: 0.99, confidence: 99, ai_confidence: 'high', predictions: [{ type: 'BTTS', prediction: 'Oui', proba: 0.99, confidence: 99, modelEngine: 'gemini-3.5-flash-lite' }] }),
+      geminiRow({ id: 'model-zero', home: 'Home Zero', away: 'Away Zero', fixtureId: 'zero', proba: 0, confidence: 0, predictions: [{ type: 'BTTS', prediction: 'Oui', proba: 0, confidence: 0, modelEngine: 'gemini-3.5-flash-lite' }] }),
+      geminiRow({ id: 'model-one', home: 'Home One', away: 'Away One', fixtureId: 'one', proba: 1, confidence: 100, predictions: [{ type: 'BTTS', prediction: 'Oui', proba: 1, confidence: 100, modelEngine: 'gemini-3.5-flash-lite' }] }),
+      geminiRow({ id: 'model-bad-confidence', home: 'Home Invalid', away: 'Away Invalid', fixtureId: 'invalid', proba: 0.6, confidence: 60, ai_confidence: 'certain', predictions: [{ type: 'BTTS', prediction: 'Oui', proba: 0.6, confidence: 60, modelEngine: 'gemini-3.5-flash-lite' }] }),
     ]
     const result = buildVipCandidates({ analysisPayload: payload(rows), freePayload: payload([]), now: NOW })
-    expect(result.candidates).toEqual([])
-    expect(result.audit.rejected.below_high_probability_threshold).toBe(1)
-    expect(result.audit.rejected.empirical_rate_below_vip_threshold).toBe(1)
-    expect(result.audit.rejected.team_empirical_rate_below_vip_threshold).toBe(1)
-    expect(result.audit.rejected.missing_team_empirical_rate).toBe(1)
+    expect(result.candidates).toHaveLength(3)
+    expect(result.candidates.map(candidate => candidate.aiConfidence).sort()).toEqual(['high', 'low', 'medium'])
+    expect(result.candidates.every(candidate => candidate.probability > 0 && candidate.probability < 1)).toBe(true)
+    expect(result.audit.rejected.invalid_probability).toBe(2)
+    expect(result.audit.rejected.incomplete_confidence).toBe(1)
+  })
+
+  it('ranks by the actual model estimate before confidence labels without relabeling a lower estimate as strong', () => {
+    const rows = [
+      geminiRow({ id: 'lower-high-confidence', fixtureId: '401234568', home: 'Lower Home', away: 'Lower Away',
+        proba: 0.65, confidence: 65, ai_confidence: 'high',
+        predictions: [{ type: 'BTTS', prediction: 'Oui', proba: 0.65, confidence: 65, modelEngine: 'gemini-3.5-flash-lite' }] }),
+      geminiRow({ id: 'higher-low-confidence', fixtureId: '401234569', home: 'Higher Home', away: 'Higher Away',
+        proba: 0.84, confidence: 84, ai_confidence: 'low',
+        predictions: [{ type: 'BTTS', prediction: 'Oui', proba: 0.84, confidence: 84, modelEngine: 'gemini-3.5-flash-lite' }] }),
+    ]
+    const result = buildVipCandidates({ analysisPayload: payload(rows), freePayload: payload([]), now: NOW })
+    expect(result.candidates.map(candidate => candidate.probability)).toEqual([0.84, 0.65])
+    expect(result.candidates.map(candidate => candidate.aiConfidence)).toEqual(['low', 'high'])
+    expect(result.candidates[1]).toMatchObject({ riskLevel: 'ÉLEVÉ' })
+  })
+
+  it('maps 20% observed BTTS Yes to 80% BTTS No and keeps Gemini 75% on No', () => {
+    const noBtts = geminiRow({
+      ai_market: 'BTTS', type: 'BTTS', prediction: 'Non', proba: 0.75, confidence: 75,
+      ai_confidence: 'high', freeMarket: null, freeSelection: null,
+      ai_reasons: ['BTTS rate 0.2 observé chez domicile et extérieur', 'Forme récente cohérente'],
+      empiricalBttsRate: 0.2,
+      formHome: { count: 5, bttsRate: 0.2, over25Rate: 0.7 },
+      formAway: { count: 5, bttsRate: 0.2, over25Rate: 0.7 },
+      predictions: [{ type: 'BTTS', prediction: 'Non', proba: 0.75, confidence: 75, modelEngine: 'gemini-3.5-flash-lite' }],
+    })
+    const result = buildVipCandidates({
+      analysisPayload: { ...payload([]), vipCandidates: [noBtts] },
+      freePayload: payload([]), now: NOW,
+    })
+
+    expect(result.candidates).toHaveLength(1)
+    expect(result.candidates[0]).toMatchObject({
+      market: 'BTTS', selection: 'NO', probability: 0.75, confidence: 75,
+      empiricalSelectionRate: 0.8, homeSelectionRate: 0.8, awaySelectionRate: 0.8,
+      probabilitySource: 'gemini-estimate',
+    })
+    expect(result.candidates[0].reasons[0]).toContain('BTTS rate 0.2')
+  })
+
+  it('selects up to five distinct fixtures and reports a truthful target shortfall', () => {
+    const oneFixture = geminiRow()
+    const alternateMarket = geminiRow({
+      ai_market: 'OVER_25', type: 'Over 2.5', prediction: 'Oui', proba: 0.72, confidence: 72,
+      empiricalOver25Rate: 0.72,
+      formHome: { count: 5, bttsRate: 0.7, over25Rate: 0.72 },
+      formAway: { count: 5, bttsRate: 0.7, over25Rate: 0.72 },
+      predictions: [{ type: 'Over 2.5', prediction: 'Oui', proba: 0.72, confidence: 72, modelEngine: 'gemini-3.5-flash-lite' }],
+    })
+    const partial = buildVipCandidates({
+      analysisPayload: { ...payload([]), vipCandidates: [oneFixture, alternateMarket] },
+      freePayload: payload([]), now: NOW,
+    })
+    expect(partial.candidates).toHaveLength(1)
+    expect(partial.candidates[0]).toMatchObject({ market: 'OVER_25', probability: 0.72 })
+    expect(partial.audit).toMatchObject({
+      minimumTargetFixtures: 2, maximumSelectedFixtures: 5,
+      eligibleDistinctFixturesAfterExclusions: 1, selectedDistinctFixtures: 1,
+      shortfall: 1, shortfallReason: 'insufficient_distinct_eligible_fixtures',
+      rankingPolicy: 'actual-model-probability-risk-confidence-sample-fixture-v1', ownerOutcome: 'partial_target_shortfall',
+    })
+
+    const sixFixtures = Array.from({ length: 6 }, (_, index) => geminiRow({
+      id: `fixture-${index}`, fixtureId: `espn-${index}`, home: `Home ${index}`, away: `Away ${index}`,
+    }))
+    const capped = buildVipCandidates({
+      analysisPayload: { ...payload([]), vipCandidates: sixFixtures },
+      freePayload: payload([]), now: NOW,
+    })
+    expect(capped.candidates).toHaveLength(5)
+    expect(new Set(capped.candidates.map(candidate => `${candidate.date}|${candidate.home}|${candidate.away}`)).size).toBe(5)
+    expect(capped.audit).toMatchObject({ eligibleDistinctFixturesAfterExclusions: 6, selectedDistinctFixtures: 5, shortfall: 0 })
+
+    const empty = buildVipCandidates({ analysisPayload: { ...payload([]), vipCandidates: [] }, freePayload: payload([]), now: NOW })
+    expect(empty.candidates).toEqual([])
+    expect(empty.audit).toMatchObject({ selectedDistinctFixtures: 0, shortfall: 2, shortfallReason: 'no_eligible_gemini_candidates' })
   })
 
   it('propagates verified ESPN fixture identity and the exact source kickoff to clean candidates', () => {

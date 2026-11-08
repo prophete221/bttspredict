@@ -22,6 +22,7 @@ const MATCH_STATE_ALIASES = new Map([
   ['STATUS_NOT_STARTED', 'PENDING'],
 ])
 const ACCEPTED_MARKETS = new Set(['BTTS', 'OVER_25'])
+const MODEL_CONFIDENCE = new Set(['low', 'medium', 'high'])
 const MATERIAL_FIELDS = Object.freeze([
   'matchId', 'home', 'away', 'league', 'date', 'time', 'matchState', 'kickoffAt',
   'sourceMatchStatus', 'sourceStatus', 'market', 'freeMarket', 'freeSelection', 'selection', 'probability', 'confidence', 'aiConfidence',
@@ -251,7 +252,8 @@ export async function validateCandidate(candidate, nowMs) {
   const risks = cleanRationale(candidate.risks, 1, 2)
   const matchState = normalizedMatchState(candidate.matchState)
   const sourceStates = ['sourceMatchStatus', 'sourceStatus'].map(field => candidate[field]).filter(value => value != null)
-  const stateEvidenceValid = matchState === 'PENDING' && sourceStates.every(value => normalizedMatchState(value) === 'PENDING')
+  const stateEvidenceValid = matchState === 'PENDING' && sourceStates.length > 0
+    && sourceStates.every(value => normalizedMatchState(value) === 'PENDING')
   const date = String(candidate.date ?? '')
   const time = String(candidate.time ?? '')
   const empiricalSelectionRate = candidate.empiricalSelectionRate
@@ -265,11 +267,9 @@ export async function validateCandidate(candidate, nowMs) {
   const averageRateConsistent = ratesValid
     && Math.abs(empiricalSelectionRate - (homeSelectionRate + awaySelectionRate) / 2) <= 0.01 + 1e-9
   const vipProbabilitySupported = qualityTier === 'vip' && probabilitySource === 'gemini-estimate'
-    && typeof probability === 'number' && Number.isFinite(probability) && probability >= 0.70 && probability <= 0.78
-    && candidate.confidence === expectedConfidence && candidate.aiConfidence === 'high'
+    && typeof probability === 'number' && Number.isFinite(probability) && probability > 0 && probability < 1
+    && candidate.confidence === expectedConfidence && MODEL_CONFIDENCE.has(candidate.aiConfidence)
     && candidate.sourceModel === 'gemini-3.5-flash-lite'
-    && [empiricalSelectionRate, homeSelectionRate, awaySelectionRate].every(rate => rate >= 0.70)
-    && [empiricalSelectionRate, homeSelectionRate, awaySelectionRate].every(rate => Math.abs(probability - rate) <= 0.15 + 1e-9)
   const supported = typeof candidateKey === 'string' && /^[a-f0-9]{64}$/.test(candidateKey)
     && market && ACCEPTED_MARKETS.has(market) && selection
     && boundedString(candidate.matchId, 160) && boundedString(candidate.home, 120)
@@ -281,8 +281,8 @@ export async function validateCandidate(candidate, nowMs) {
     && nowMs - analyzedMs <= MAX_ANALYSIS_AGE_MS
     && vipProbabilitySupported
     && candidate.dataQuality === 'HIGH' && candidate.dataSource === 'ESPN_TEAM_SCHEDULE'
-    && Number.isInteger(candidate.matchCountHome) && candidate.matchCountHome >= 6
-    && Number.isInteger(candidate.matchCountAway) && candidate.matchCountAway >= 6
+    && Number.isInteger(candidate.matchCountHome) && candidate.matchCountHome >= 8
+    && Number.isInteger(candidate.matchCountAway) && candidate.matchCountAway >= 8
     && Number.isInteger(candidate.formCountHome) && candidate.formCountHome >= 5
     && Number.isInteger(candidate.formCountAway) && candidate.formCountAway >= 5
     && ratesValid && averageRateConsistent
@@ -292,20 +292,17 @@ export async function validateCandidate(candidate, nowMs) {
   if (computedKey !== candidateKey) fail(422, 'candidate_key_mismatch')
 
   const fixture = {}
-  const fixtureFields = ['fixtureId', 'leagueSlug', 'homeTeamId', 'awayTeamId', 'sourceKickoffAt']
-  if (fixtureFields.some(field => candidate[field] != null)) {
-    if (!/^\d{1,20}$/.test(candidate.fixtureId || '')
-      || !/^[a-z0-9]+(?:\.[a-z0-9]+){1,3}$/.test(candidate.leagueSlug || '')
-      || !/^\d{1,20}$/.test(candidate.homeTeamId || '') || !/^\d{1,20}$/.test(candidate.awayTeamId || '')
-      || candidate.homeTeamId === candidate.awayTeamId || parseTime(candidate.sourceKickoffAt) !== kickoffMs) {
-      fail(422, 'invalid_fixture_provenance')
-    }
-    Object.assign(fixture, {
-      fixtureId: String(candidate.fixtureId), leagueSlug: candidate.leagueSlug,
-      homeTeamId: String(candidate.homeTeamId), awayTeamId: String(candidate.awayTeamId),
-      sourceKickoffAt: new Date(kickoffMs).toISOString(),
-    })
+  if (!/^\d{1,20}$/.test(candidate.fixtureId || '')
+    || !/^[a-z0-9]+(?:\.[a-z0-9]+){1,3}$/.test(candidate.leagueSlug || '')
+    || !/^\d{1,20}$/.test(candidate.homeTeamId || '') || !/^\d{1,20}$/.test(candidate.awayTeamId || '')
+    || candidate.homeTeamId === candidate.awayTeamId || parseTime(candidate.sourceKickoffAt) !== kickoffMs) {
+    fail(422, 'invalid_fixture_provenance')
   }
+  Object.assign(fixture, {
+    fixtureId: String(candidate.fixtureId), leagueSlug: candidate.leagueSlug,
+    homeTeamId: String(candidate.homeTeamId), awayTeamId: String(candidate.awayTeamId),
+    sourceKickoffAt: new Date(kickoffMs).toISOString(),
+  })
   const risk = assessPickRisk({ ...candidate, qualityTier, probabilitySource, matchState }, nowMs)
   if (!risk) fail(422, 'risk_evidence_missing_or_inconsistent')
   const clean = {
@@ -354,23 +351,45 @@ export async function validateCandidate(candidate, nowMs) {
   return { candidate: clean, materialJson, materialHash }
 }
 
-function auditForStorage(audit, acceptedCount, policy) {
+function auditForStorage(audit, acceptedCount, policy, candidates = []) {
   const automatic = policy === VIP_PUBLICATION_POLICY
+  const minimumTargetFixtures = 2
+  const maximumSelectedFixtures = 5
+  const selectedDistinctFixtures = new Set(candidates.map(item => item.candidate.fixtureId)).size
+  const shortfall = Math.max(0, minimumTargetFixtures - selectedDistinctFixtures)
+  const sourceSelectedDistinct = audit?.selectedDistinctFixtures
+  const workerReducedSelection = Number.isInteger(sourceSelectedDistinct) && sourceSelectedDistinct !== selectedDistinctFixtures
+  const shortfallReason = shortfall === 0 ? null : workerReducedSelection
+    ? 'worker_validation_reduced_selected_fixtures_below_target'
+    : boundedString(audit?.shortfallReason, 160) ? audit.shortfallReason
+      : selectedDistinctFixtures === 0 ? 'no_valid_gemini_fixtures_after_exclusions'
+        : 'insufficient_distinct_eligible_fixtures'
   return {
     payloadFresh: audit?.payloadFresh === true,
     evaluationComplete: audit?.evaluationComplete === true,
     publicationPolicy: automatic ? VIP_PUBLICATION_POLICY : null,
-    inputRows: Number.isSafeInteger(audit?.inputRows) ? audit.inputRows : 0,
-    verifiedGeminiRows: Number.isSafeInteger(audit?.verifiedGeminiRows) ? audit.verifiedGeminiRows : 0,
-    eligibleBeforeFreeExclusion: Number.isSafeInteger(audit?.eligibleBeforeFreeExclusion) ? audit.eligibleBeforeFreeExclusion : 0,
-    excludedAlreadyFree: Number.isSafeInteger(audit?.excludedAlreadyFree) ? audit.excludedAlreadyFree : 0,
-    excludedDuplicateKey: Number.isSafeInteger(audit?.excludedDuplicateKey) ? audit.excludedDuplicateKey : 0,
+    inputRows: Number.isSafeInteger(audit?.inputRows) && audit.inputRows >= 0 ? audit.inputRows : null,
+    verifiedGeminiRows: Number.isSafeInteger(audit?.verifiedGeminiRows) && audit.verifiedGeminiRows >= 0 ? audit.verifiedGeminiRows : null,
+    eligibleBeforeFreeExclusion: Number.isSafeInteger(audit?.eligibleBeforeFreeExclusion) && audit.eligibleBeforeFreeExclusion >= 0 ? audit.eligibleBeforeFreeExclusion : null,
+    excludedAlreadyFree: Number.isSafeInteger(audit?.excludedAlreadyFree) && audit.excludedAlreadyFree >= 0 ? audit.excludedAlreadyFree : null,
+    excludedDuplicateKey: Number.isSafeInteger(audit?.excludedDuplicateKey) && audit.excludedDuplicateKey >= 0 ? audit.excludedDuplicateKey : null,
+    minimumTargetFixtures,
+    maximumSelectedFixtures,
+    rankingPolicy: boundedString(audit?.rankingPolicy, 120) ? audit.rankingPolicy : 'actual-model-probability-risk-confidence-sample-fixture-v1',
+    eligibleDistinctFixturesAfterExclusions: Number.isSafeInteger(audit?.eligibleDistinctFixturesAfterExclusions)
+      && audit.eligibleDistinctFixturesAfterExclusions >= 0 ? audit.eligibleDistinctFixturesAfterExclusions : null,
+    selectedDistinctFixtures,
+    shortfall,
+    shortfallReason,
     rejected: audit?.rejected && typeof audit.rejected === 'object' && !Array.isArray(audit.rejected) ? audit.rejected : {},
-    ownerOutcome: acceptedCount === 0 ? 'no_eligible_picks_today' : automatic ? 'awaiting_verified_publication_window' : 'awaiting_owner_approval',
-    ownerMessage: acceptedCount === 0
-      ? 'Aucun pick VIP éligible aujourd’hui; aucun message n’a été envoyé.'
-      : automatic ? `${acceptedCount} candidat(s) VIP en attente de revalidation au prochain créneau Dakar.`
-        : `${acceptedCount} candidat(s) VIP en attente d’approbation du propriétaire.`,
+    ownerOutcome: selectedDistinctFixtures === 0 ? 'no_eligible_picks_today'
+      : shortfall > 0 ? 'partial_target_shortfall' : 'ready_for_owner_approval',
+    ownerMessage: selectedDistinctFixtures === 0
+      ? 'Cette analyse ne contient aucun candidat VIP admissible après exclusions.'
+      : shortfall > 0
+        ? `${selectedDistinctFixtures} match(s) distinct(s) validé(s) sur un objectif de ${minimumTargetFixtures}; shortfall ${shortfall}. Aucun fallback empirique ne sera créé.`
+        : automatic ? `${selectedDistinctFixtures} match(s) distinct(s) VIP admis; publication soumise à une nouvelle vérification par le sender.`
+          : `${selectedDistinctFixtures} match(s) distinct(s) VIP prêt(s) pour approbation du propriétaire.`,
   }
 }
 
@@ -494,7 +513,7 @@ async function handleCandidateSync(request, env, headers) {
         AND EXISTS (SELECT 1 FROM vip_candidate_sync_state WHERE id = 'vip' AND last_sync_id = ?)
         AND NOT EXISTS (SELECT 1 FROM vip_publications p WHERE p.candidate_key = vip_candidates.candidate_key)
     `).bind(receivedAt, syncId, syncId))
-    const auditJson = JSON.stringify(auditForStorage(audit, validated.length, env.VIP_PUBLICATION_POLICY))
+    const auditJson = JSON.stringify(auditForStorage(audit, validated.length, env.VIP_PUBLICATION_POLICY, validated))
     statements.push(env.DB.prepare(`
       INSERT OR IGNORE INTO vip_candidate_sync_runs
         (run_id, source_updated_at, generated_at, received_at, candidate_count, accepted_count, audit_json)
@@ -514,7 +533,7 @@ async function adminListCandidates(env, headers) {
   try {
     const result = await env.DB.prepare(`
       SELECT candidate_key, material_hash, candidate_json, status, first_seen_at, last_seen_at,
-             approved_at, rejected_at, ineligible_at, ineligible_reason, published_at, telegram_message_id
+             approved_at, rejected_at, ineligible_at, ineligible_reason, published_at, telegram_message_id, last_seen_sync_id
       FROM vip_candidates
       ORDER BY CASE status
         WHEN 'pending_owner_approval' THEN 0 WHEN 'approved' THEN 1
@@ -532,6 +551,7 @@ async function adminListCandidates(env, headers) {
         status: row.status,
         firstSeenAt: row.first_seen_at,
         lastSeenAt: row.last_seen_at,
+        lastSeenSyncId: row.last_seen_sync_id,
         approvedAt: row.approved_at,
         rejectedAt: row.rejected_at,
         ineligibleAt: row.ineligible_at,
@@ -541,7 +561,7 @@ async function adminListCandidates(env, headers) {
       }
     })
     const syncRow = await env.DB.prepare(`
-      SELECT source_updated_at, generated_at, candidate_count, accepted_count, audit_json
+      SELECT source_updated_at, generated_at, candidate_count, accepted_count, audit_json, run_id
       FROM vip_candidate_sync_runs ORDER BY generated_at DESC, received_at DESC LIMIT 1
     `).first()
     let latestSync = null
@@ -550,17 +570,55 @@ async function adminListCandidates(env, headers) {
       try { audit = JSON.parse(syncRow.audit_json || '{}') } catch { fail(503, 'storage_unavailable') }
       const acceptedCount = Number(syncRow.accepted_count || 0)
       latestSync = {
+        syncId: typeof syncRow.run_id === 'string' ? syncRow.run_id : null,
         sourceUpdatedAt: syncRow.source_updated_at,
         generatedAt: syncRow.generated_at,
         candidateCount: Number(syncRow.candidate_count || 0),
         acceptedCount,
+        inputRows: Number.isSafeInteger(audit.inputRows) && audit.inputRows >= 0 ? audit.inputRows : null,
+        eligibleBeforeFreeExclusion: Number.isSafeInteger(audit.eligibleBeforeFreeExclusion) && audit.eligibleBeforeFreeExclusion >= 0 ? audit.eligibleBeforeFreeExclusion : null,
+        excludedAlreadyFree: Number.isSafeInteger(audit.excludedAlreadyFree) && audit.excludedAlreadyFree >= 0 ? audit.excludedAlreadyFree : null,
+        excludedDuplicateKey: Number.isSafeInteger(audit.excludedDuplicateKey) && audit.excludedDuplicateKey >= 0 ? audit.excludedDuplicateKey : null,
+        minimumTargetFixtures: Number.isSafeInteger(audit.minimumTargetFixtures) && audit.minimumTargetFixtures >= 1 ? audit.minimumTargetFixtures : null,
+        maximumSelectedFixtures: Number.isSafeInteger(audit.maximumSelectedFixtures) && audit.maximumSelectedFixtures >= 1 ? audit.maximumSelectedFixtures : null,
+        rankingPolicy: typeof audit.rankingPolicy === 'string' ? audit.rankingPolicy : null,
+        eligibleDistinctFixturesAfterExclusions: Number.isSafeInteger(audit.eligibleDistinctFixturesAfterExclusions)
+          && audit.eligibleDistinctFixturesAfterExclusions >= 0 ? audit.eligibleDistinctFixturesAfterExclusions : null,
+        selectedDistinctFixtures: Number.isSafeInteger(audit.selectedDistinctFixtures) && audit.selectedDistinctFixtures >= 0
+          ? audit.selectedDistinctFixtures : null,
+        shortfall: Number.isSafeInteger(audit.shortfall) && audit.shortfall >= 0 ? audit.shortfall : null,
+        shortfallReason: typeof audit.shortfallReason === 'string' ? audit.shortfallReason : null,
         ownerOutcome: audit.ownerOutcome || (acceptedCount === 0 ? 'no_eligible_picks_today' : 'awaiting_owner_approval'),
-        ownerMessage: audit.ownerMessage || (acceptedCount === 0
-          ? 'Aucun pick VIP éligible aujourd’hui; aucun message n’a été envoyé.'
-          : `${acceptedCount} candidat(s) VIP en attente d’approbation du propriétaire.`),
+        ownerMessage: acceptedCount === 0
+          ? 'Cette analyse ne contient aucun candidat VIP admissible après exclusions.'
+          : typeof audit.ownerMessage === 'string' && audit.ownerMessage.trim()
+            ? audit.ownerMessage : `${acceptedCount} candidat(s) VIP admis dans cet instantané; toute publication reste soumise aux contrôles du sender.`,
       }
     }
-    return jsonResponse({ ok: true, candidates, latestSync, publicationEnabled: publicationConfigured(env) }, 200, headers)
+    const nowMs = Date.now()
+    const presentedCandidates = await Promise.all(candidates.map(async candidate => {
+      const isCurrent = Boolean(latestSync?.syncId && candidate.lastSeenSyncId === latestSync.syncId)
+      let canReview = false
+      let reviewBlockedReason = !isCurrent ? 'historical_snapshot' : candidate.status !== 'pending_owner_approval'
+        ? candidate.ineligibleReason || candidate.status : 'candidate_failed_validation'
+      if (isCurrent && latestSync.acceptedCount > 0 && candidate.status === 'pending_owner_approval') {
+        try {
+          const validated = await validateCandidate(candidate, nowMs)
+          canReview = validated.materialHash === candidate.materialHash
+          if (canReview) reviewBlockedReason = null
+        } catch { /* Presentation never grants eligibility to an invalid or started fixture. */ }
+      }
+      const displayedRisk = assessPickRisk(candidate, nowMs)
+      const displayRisk = {
+        level: displayedRisk?.level ?? null,
+        reasons: displayedRisk?.reasons ?? [],
+        policy: displayedRisk?.policy ?? null,
+        assessedAt: new Date(nowMs).toISOString(),
+        evidenceStatus: displayedRisk ? 'reconciled_snapshot_only' : 'insufficient_or_stale_evidence',
+      }
+      return { ...candidate, isCurrent, canReview, reviewBlockedReason, displayRisk }
+    }))
+    return jsonResponse({ ok: true, candidates: presentedCandidates, latestSync, publicationEnabled: publicationConfigured(env) }, 200, headers)
   } catch (error) {
     if (error instanceof CandidateApiError) return jsonResponse({ ok: false, error: error.code }, error.status, headers)
     return jsonResponse({ ok: false, error: 'storage_unavailable' }, 503, headers)

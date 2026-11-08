@@ -166,59 +166,149 @@
     })
   }
 
-  function renderCandidates(candidates, latestSync = null) {
+  function percent(value) {
+    if (typeof value !== 'number' || !Number.isFinite(value) || value < 0 || value > 1) return 'Non documenté'
+    const percentage = value * 100
+    if (percentage > 0 && percentage < 0.01) return '<0,01 %'
+    if (percentage > 99.99 && percentage < 100) return '>99,99 %'
+    return `${String(Number(percentage.toFixed(2))).replace('.', ',')} %`
+  }
+
+  function selectionLabel(candidate) {
+    const market = candidate.market === 'BTTS' ? 'BTTS' : candidate.market === 'OVER_25' ? 'Over 2,5' : 'Marché non documenté'
+    const side = candidate.selection === 'NO' ? 'Non' : candidate.selection === 'YES' ? 'Oui' : 'sélection non documentée'
+    return `${market} ${side}`
+  }
+
+  function observedRate(rate, sample) {
+    const formatted = percent(rate)
+    if (formatted === 'Non documenté' || !Number.isSafeInteger(sample) || sample <= 0) return formatted
+    const hits = rate * sample
+    return Math.abs(hits - Math.round(hits)) < 0.000001
+      ? `${formatted} (${Math.round(hits)}/${sample} matchs)` : `${formatted} (échantillon : ${sample} matchs)`
+  }
+
+  function renderCandidates(candidates, latestSync = null, publicationEnabled = null) {
     candidateRecordsContainer.replaceChildren()
-    const hasOutcome = typeof latestSync?.ownerMessage === 'string' && latestSync.ownerMessage.trim()
-    candidateOutcome.hidden = !hasOutcome
-    candidateOutcome.textContent = hasOutcome
-      ? `${latestSync.ownerMessage}${latestSync.generatedAt ? ` Dernière analyse : ${latestSync.generatedAt}.` : ''}`
-      : ''
-    if (!Array.isArray(candidates) || candidates.length === 0) {
+    const rows = Array.isArray(candidates) ? candidates : []
+    const current = rows.filter(candidate => candidate.isCurrent === true)
+    const historical = rows.filter(candidate => candidate.isCurrent !== true)
+    const parts = []
+    if (latestSync) {
+      parts.push(Number.isSafeInteger(latestSync.acceptedCount)
+        ? `Dernière analyse : ${latestSync.acceptedCount} candidat(s) retenu(s) après exclusions.`
+        : 'Le nombre de candidats retenus par la dernière analyse n’est pas documenté.')
+      for (const [key, label] of [
+        ['inputRows', 'Matchs analysés'], ['eligibleBeforeFreeExclusion', 'Choix admissibles avant exclusions'],
+        ['excludedAlreadyFree', 'Déjà proposés gratuitement, donc exclus'], ['excludedDuplicateKey', 'Doublons internes exclus'],
+      ]) {
+        if (Number.isSafeInteger(latestSync[key]) && latestSync[key] >= 0) parts.push(`${label} : ${latestSync[key]}.`)
+      }
+      if (Number.isSafeInteger(latestSync.minimumTargetFixtures) && Number.isSafeInteger(latestSync.maximumSelectedFixtures)) {
+        parts.push(`Objectif par analyse : ${latestSync.minimumTargetFixtures} à ${latestSync.maximumSelectedFixtures} matchs distincts.`)
+      }
+      if (Number.isSafeInteger(latestSync.shortfall) && latestSync.shortfall > 0) {
+        parts.push(`Objectif minimal non atteint dans cet instantané : il manque ${latestSync.shortfall} match(s) étayé(s). Aucun match n’est ajouté artificiellement.`)
+      }
+      if (latestSync.generatedAt) parts.push(`Analyse terminée le ${latestSync.generatedAt}.`)
+    }
+    parts.push(`Cartes affichées : ${current.length} de la dernière analyse, ${historical.length} historique(s).`)
+    if (publicationEnabled === false) parts.push('Publication automatique inactive; aucune décision manuelle n’envoie de message.')
+    if (publicationEnabled === true) parts.push('Le sender automatique est distinct des décisions manuelles; toute publication est revérifiée.')
+    if (rows.length >= 200) parts.push('Liste limitée aux 200 premières cartes; les compteurs de la dernière analyse sont indépendants de cette limite.')
+    candidateOutcome.hidden = false
+    candidateOutcome.textContent = parts.join(' ')
+
+    const currentHeading = document.createElement('h3')
+    currentHeading.className = 'admin-group-title'
+    currentHeading.textContent = 'Candidats de la dernière analyse'
+    candidateRecordsContainer.append(currentHeading)
+    if (!current.length) {
       const empty = document.createElement('p')
       empty.className = 'admin-empty'
-      empty.textContent = latestSync?.ownerOutcome === 'no_eligible_picks_today'
-        ? 'Aucun pick à examiner pour cette analyse.'
-        : 'Aucun candidat VIP enregistré.'
+      empty.textContent = 'Aucun candidat courant à examiner. Les anciennes cartes ci-dessous ne sont pas des choix actuellement publiables.'
       candidateRecordsContainer.append(empty)
-      return
     }
 
-    candidates.forEach(candidate => {
+    function renderCard(candidate, container, isHistorical) {
       const card = document.createElement('article')
       card.className = 'admin-record admin-candidate'
+      card.dataset.historical = String(isHistorical)
       const heading = document.createElement('h3')
       heading.textContent = `${candidate.home || 'Équipe inconnue'} — ${candidate.away || 'Équipe inconnue'}`
       card.append(heading)
-
+      const selected = selectionLabel(candidate)
       const details = document.createElement('dl')
+      if (isHistorical) addField(details, 'Ancien instantané — non publiable depuis cette liste', 'Cette carte ne fait pas partie de la dernière analyse. Ses chiffres décrivent uniquement son ancien instantané.')
       addField(details, 'Compétition', candidate.league)
       addField(details, 'Coup d’envoi', `${candidate.date || '—'} · ${candidate.time || '—'} Dakar`)
-      addField(details, 'Marché et sélection', `${candidate.market || '—'} · ${candidate.selection || '—'}`)
-      addField(details, 'Pick gratuit associé', candidate.freeMarket && candidate.freeSelection
-        ? `${candidate.freeMarket} · ${candidate.freeSelection}`
-        : 'Aucun pick gratuit')
-      addField(details, 'Estimation du modèle (non garantie)', `${Math.round(Number(candidate.probability) * 100)}% · confiance ${candidate.aiConfidence || '—'}`)
-      addField(details, 'Taux empiriques (global / équipe A / équipe B)', [candidate.empiricalSelectionRate, candidate.homeSelectionRate, candidate.awaySelectionRate]
-        .map(value => Number.isFinite(Number(value)) ? `${Math.round(Number(value) * 100)}%` : '—').join(' / '))
-      addField(details, 'Échantillons récents (équipe A / équipe B)', `${candidate.formCountHome ?? '—'} / ${candidate.formCountAway ?? '—'}`)
-      addField(details, 'État du match', candidate.matchState)
+      addField(details, 'Marché et sélection exacts', selected)
+      addField(details, 'Pick gratuit associé dans cet instantané', candidate.freeMarket && candidate.freeSelection
+        ? selectionLabel({ market: candidate.freeMarket, selection: candidate.freeSelection })
+        : 'Non renseigné dans cet instantané; ce champ ne vérifie pas le flux gratuit actuel.')
+      const confidence = ({ high: 'élevée', medium: 'moyenne', low: 'faible' })[candidate.aiConfidence] || 'non documentée'
+      addField(details, `Estimation du modèle pour ${selected} — non garantie`, `${percent(candidate.probability)} · confiance déclarée : ${confidence}`)
+      if (typeof candidate.probability === 'number' && candidate.probability > 0 && candidate.probability < 0.7) {
+        addField(details, 'Avertissement pour cette estimation', 'Estimation inférieure à 70 % : risque ÉLEVÉ. Le label de confiance déclaré par le modèle ne transforme pas ce choix en sélection forte ni garantie.')
+      }
+      addField(details, 'Source de l’estimation', [candidate.sourceModel, candidate.probabilitySource].filter(Boolean).join(' · ') || 'Non documentée')
+      addField(details, `Fréquence récente de ${selected} — ${candidate.home || 'équipe à domicile'}`, observedRate(candidate.homeSelectionRate, candidate.formCountHome))
+      addField(details, `Fréquence récente de ${selected} — ${candidate.away || 'équipe à l’extérieur'}`, observedRate(candidate.awaySelectionRate, candidate.formCountAway))
+      addField(details, `Moyenne des deux fréquences pour ${selected}`, `${percent(candidate.empiricalSelectionRate)} — fréquence observée, pas une probabilité future garantie`)
+      if (candidate.market === 'BTTS' && candidate.selection === 'NO') {
+        addField(details, 'Lecture des taux BTTS Oui / Non', `Le taux source BTTS désigne Oui (les deux équipes ont marqué). Non = 1 − ce taux. BTTS Oui : ${typeof candidate.homeSelectionRate === 'number' ? percent(1 - candidate.homeSelectionRate) : 'Non documenté'} / ${typeof candidate.awaySelectionRate === 'number' ? percent(1 - candidate.awaySelectionRate) : 'Non documenté'}. Une raison citant ce taux Oui ne remplace pas l’estimation du modèle pour Non.`)
+      }
+      addField(details, 'Périmètre des données récentes', candidate.dataSource === 'ESPN_TEAM_SCHEDULE'
+        ? 'Calendriers ESPN de la compétition analysée, tous lieux confondus (domicile et extérieur). Les fréquences récentes utilisent les échantillons de forme ci-dessus, pas toutes compétitions confondues.'
+        : 'Périmètre non documenté dans cet instantané.')
+      addField(details, `Historique disponible (${candidate.home || 'équipe A'} / ${candidate.away || 'équipe B'})`, `${candidate.matchCountHome ?? 'Non documenté'} / ${candidate.matchCountAway ?? 'Non documenté'} matchs`)
+      addField(details, 'État du match lors de cet instantané — pas un statut live', candidate.matchState)
       addField(details, 'Analyse effectuée le', candidate.analyzedAt)
-      addField(details, 'Raisons fournies', Array.isArray(candidate.reasons) ? candidate.reasons.join(' · ') : null)
+      const displayedRisk = candidate.displayRisk && typeof candidate.displayRisk === 'object'
+        ? candidate.displayRisk : candidate.riskPolicy === 'risk-v2-model-specific'
+          ? { level: candidate.riskLevel, reasons: candidate.riskReasons, policy: candidate.riskPolicy } : null
+      const riskReconciled = displayedRisk?.policy === 'risk-v2-model-specific'
+      addField(details, 'Risque recalculé sur cet instantané', riskReconciled && displayedRisk.level
+        ? `${displayedRisk.level} — ne valide pas la publication`
+        : 'Non documenté ou non revalidé — ne pas publier sur cette base')
+      addField(details, 'Justification du niveau de risque', riskReconciled && Array.isArray(displayedRisk.reasons)
+        ? displayedRisk.reasons.join(' · ') : 'Ancien calcul non revalidé; ses explications ne sont pas reprises.')
+      addField(details, 'Raisons du modèle — texte d’origine', Array.isArray(candidate.reasons) ? candidate.reasons.join(' · ') : null)
       addField(details, 'Risques signalés', Array.isArray(candidate.risks) ? candidate.risks.join(' · ') : null)
-      addField(details, 'Statut admin', candidate.status)
+      const statuses = { pending_owner_approval: 'En attente de décision', approved: 'Approuvé, pas nécessairement publié', rejected: 'Refusé', ineligible: 'Inéligible', published: 'Publié' }
+      addField(details, 'Statut enregistré', statuses[candidate.status] || candidate.status)
+      const blocked = {
+        not_in_current_eligible_source: 'Absent de la dernière source admissible; ne pas réutiliser cet ancien choix.',
+        candidate_stale_or_started: 'Analyse périmée ou coup d’envoi dépassé.',
+        historical_snapshot: 'Ancien instantané, sans droit de publication.',
+        candidate_failed_validation: 'Les contrôles actuels ne permettent pas une nouvelle décision.',
+      }
+      const reason = candidate.ineligibleReason || candidate.reviewBlockedReason
+      if (reason) addField(details, 'Pourquoi cette carte ne peut pas être approuvée maintenant', blocked[reason] || reason)
       card.append(details)
-
       const actions = document.createElement('div')
       actions.className = 'admin-actions'
-      if (candidate.status === 'pending_owner_approval') {
+      if (!isHistorical && candidate.canReview === true && candidate.status === 'pending_owner_approval') {
         actions.append(
           makeButton('Approuver le candidat', 'admin-approve', () => decideCandidate(candidate, 'approve')),
           makeButton('Refuser', 'admin-reject', () => decideCandidate(candidate, 'reject')),
         )
       }
       card.append(actions)
-      candidateRecordsContainer.append(card)
-    })
+      container.append(card)
+    }
+    current.forEach(candidate => renderCard(candidate, candidateRecordsContainer, false))
+    if (historical.length) {
+      const history = document.createElement('details')
+      history.className = 'admin-candidate-history'
+      const summary = document.createElement('summary')
+      summary.textContent = `Historique — ${historical.length} ancienne(s) carte(s), non publiable(s) depuis cette liste`
+      const list = document.createElement('div')
+      list.className = 'admin-records'
+      historical.forEach(candidate => renderCard(candidate, list, true))
+      history.append(summary, list)
+      candidateRecordsContainer.append(history)
+    }
   }
 
   async function loadRequests() {
@@ -248,7 +338,7 @@
         return
       }
       if (!response.ok || result.ok !== true || !Array.isArray(result.candidates)) throw new Error('candidate_list_failed')
-      renderCandidates(result.candidates, result.latestSync || null)
+      renderCandidates(result.candidates, result.latestSync || null, result.publicationEnabled)
       showMessage('Candidats chargés dans l’espace privé. Une décision n’envoie aucun message et ne publie rien.')
     } catch {
       showMessage('Impossible de charger les candidats VIP depuis le Worker.', true)

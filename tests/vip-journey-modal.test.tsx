@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { readFileSync } from 'node:fs'
-import { cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react'
+import { act, cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { useState } from 'react'
 import VipJourneyModal from '@/app/vip/VipJourneyModal'
@@ -144,6 +144,34 @@ describe('parcours VIP à quatre étapes, interactions localisées', () => {
     expect(within(dialog).getByLabelText(locale === 'en' ? 'Bookmaker account ID' : locale === 'ar' ? 'معرّف حساب شركة المراهنات' : 'Identifiant du compte bookmaker')).toBeTruthy()
     expect(within(dialog).queryByRole('button', { name: copyLabel })).toBeNull()
     expect(fetch).not.toHaveBeenCalled()
+  })
+
+  it('garde la copie validée après disparition du toast et la réinitialise si le partenaire change', async () => {
+    vi.useFakeTimers()
+    try {
+      renderHarness('fr')
+      const dialog = screen.getByRole('dialog')
+      fireEvent.click(within(dialog).getByRole('button', { name: /Linebet/ }))
+      fireEvent.click(within(dialog).getByRole('button', { name: 'Continuer' }))
+      expect((within(dialog).getByRole('button', { name: 'Continuer' }) as HTMLButtonElement).disabled).toBe(true)
+      await act(async () => {
+        fireEvent.click(within(dialog).getByRole('button', { name: /Copie le code promo exact/ }))
+      })
+      expect(within(dialog).getByText('Copié')).toBeTruthy()
+      act(() => { vi.advanceTimersByTime(1800) })
+      expect(within(dialog).queryByText('Copié')).toBeNull()
+      expect((within(dialog).getByRole('button', { name: 'Continuer' }) as HTMLButtonElement).disabled).toBe(false)
+      fireEvent.click(within(dialog).getByRole('button', { name: 'Continuer' }))
+      expect(within(dialog).getByText('Étape 3 sur 4')).toBeTruthy()
+      fireEvent.click(within(dialog).getByRole('button', { name: 'Retour' }))
+      fireEvent.click(within(dialog).getByRole('button', { name: 'Retour' }))
+      fireEvent.click(within(dialog).getByRole('button', { name: /MelBet/ }))
+      fireEvent.click(within(dialog).getByRole('button', { name: 'Continuer' }))
+      expect((within(dialog).getByRole('button', { name: 'Continuer' }) as HTMLButtonElement).disabled).toBe(true)
+      expect(fetch).not.toHaveBeenCalled()
+    } finally {
+      vi.useRealTimers()
+    }
   })
 
   it('valide type et taille du fichier, garde l’aperçu local et bloque un formulaire incomplet', async () => {
@@ -294,7 +322,7 @@ describe('transport strictement simulé vers l’API de production', () => {
     ])
 
     fireEvent.click(within(screen.getByRole('dialog')).getByRole('button', { name: 'Actualiser le statut de la demande' }))
-    const invite = await screen.findByRole('link', { name: /Ouvrir Telegram et rejoindre le canal VIP/ })
+    const invite = await screen.findByRole('link', { name: 'Rejoindre le VIP sur Telegram' })
     expect(invite.getAttribute('href')).toBe('https://t.me/+MockInvite_42')
     expect(within(screen.getByRole('dialog')).getByText('Approuvée — accès Telegram en attente')).toBeTruthy()
     expect(fetchMock).toHaveBeenCalledTimes(4)
