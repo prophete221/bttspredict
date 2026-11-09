@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-11-08T19:17:51.727Z",
+  "generatedAt": "2026-11-09T11:34:08.111Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,37 +15,37 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 547,
-    "won": 435,
-    "lost": 112,
-    "pending": 10,
+    "total": 555,
+    "won": 442,
+    "lost": 113,
+    "pending": 37,
     "unverifiable": 203,
-    "archivedTotal": 760,
-    "rate": 79.5,
+    "archivedTotal": 795,
+    "rate": 79.6,
     "gold": {
-      "total": 422,
-      "won": 340,
+      "total": 429,
+      "won": 347,
       "lost": 82,
-      "rate": 80.6
+      "rate": 80.9
     },
     "standard": {
-      "total": 125,
+      "total": 126,
       "won": 95,
-      "lost": 30,
-      "rate": 76
+      "lost": 31,
+      "rate": 75.4
     },
     "byType": {
       "btts": {
-        "total": 454,
-        "won": 367,
-        "lost": 87,
-        "rate": 80.8
+        "total": 458,
+        "won": 372,
+        "lost": 86,
+        "rate": 81.2
       },
       "over25": {
-        "total": 93,
-        "won": 68,
-        "lost": 25,
-        "rate": 73.1
+        "total": 97,
+        "won": 70,
+        "lost": 27,
+        "rate": 72.2
       }
     },
     "trend14": [
@@ -142,19 +142,147 @@
       },
       {
         "date": "2026-11-08",
-        "total": 29,
-        "won": 14,
-        "lost": 15,
-        "rate": 48.3
+        "total": 39,
+        "won": 22,
+        "lost": 17,
+        "rate": 56.4
       }
     ],
     "period": {
-      "from": "2026-08-11",
-      "to": "2026-11-08",
+      "from": "2026-08-12",
+      "to": "2026-11-09",
       "days": 90
     }
   },
   "history": [
+    {
+      "date": "2026-11-08",
+      "match": "Atlético Madrid vs Barcelona",
+      "league": "LaLiga",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.58,
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-09T11:33:37.719Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-08",
+      "match": "Rio Ave vs Braga",
+      "league": "Liga Portugal",
+      "market": "over25",
+      "tier": "STANDARD",
+      "proba": 0.65,
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-09T11:33:37.719Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-08",
+      "match": "Estrela vs Benfica",
+      "league": "Liga Portugal",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.62,
+      "status": "WON",
+      "finalScore": "2-3",
+      "verifiedAt": "2026-11-09T11:33:37.718Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-11-08",
+      "match": "Fiorentina vs Juventus",
+      "league": "Serie A",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.58,
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-11-09T11:33:37.718Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-08",
+      "match": "TSG Hoffenheim vs Schalke 04",
+      "league": "Bundesliga",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.62,
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-09T11:33:37.718Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-11-08",
+      "match": "Vitória de Guimaraes vs FC Porto",
+      "league": "Liga Portugal",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.62,
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-09T11:33:37.718Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-08",
+      "match": "Atlético Madrid vs Barcelona",
+      "league": "LaLiga",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.65,
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-09T11:33:37.717Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-08",
+      "match": "FC Utrecht vs NEC Nijmegen",
+      "league": "Eredivisie",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.72,
+      "status": "WON",
+      "finalScore": "2-3",
+      "verifiedAt": "2026-11-09T11:33:37.717Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-08",
+      "match": "Union St.-Gilloise vs Racing Genk",
+      "league": "Jupiler Pro League",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.65,
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-09T11:33:37.717Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-08",
+      "match": "Lens vs Marseille",
+      "league": "Ligue 1",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.68,
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-09T11:33:37.716Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
     {
       "date": "2026-11-08",
       "match": "Celtic vs Kilmarnock",
@@ -6518,136 +6646,6 @@
       "status": "WON",
       "finalScore": "1-1",
       "verifiedAt": "2026-08-23T04:36:56.497Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-08-22",
-      "match": "Antwerp vs Racing Genk",
-      "league": "Jupiler Pro League",
-      "market": "btts",
-      "tier": "STANDARD",
-      "proba": 0.5929,
-      "status": "WON",
-      "finalScore": "4-4",
-      "verifiedAt": "2026-10-23T05:46:22.045Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-08-22",
-      "match": "Hull City vs Manchester United",
-      "league": "Premier League",
-      "market": "btts",
-      "tier": "STANDARD",
-      "proba": 0.5877,
-      "status": "LOST",
-      "finalScore": "2-0",
-      "verifiedAt": "2026-10-23T05:46:22.045Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-08-22",
-      "match": "Charlotte FC vs D.C. United",
-      "league": "MLS",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.498,
-      "status": "LOST",
-      "finalScore": "3-1",
-      "verifiedAt": "2026-10-23T05:46:22.044Z",
-      "source": "ESPN public",
-      "prediction": "Non"
-    },
-    {
-      "date": "2026-08-22",
-      "match": "Fortuna Sittard vs AZ Alkmaar",
-      "league": "Eredivisie",
-      "market": "btts",
-      "tier": "STANDARD",
-      "proba": 0.6424,
-      "status": "LOST",
-      "finalScore": "0-2",
-      "verifiedAt": "2026-10-23T05:46:22.044Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-08-22",
-      "match": "Heerenveen vs PEC Zwolle",
-      "league": "Eredivisie",
-      "market": "btts",
-      "tier": "STANDARD",
-      "proba": 0.6424,
-      "status": "LOST",
-      "finalScore": "0-2",
-      "verifiedAt": "2026-10-23T05:46:22.044Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-08-22",
-      "match": "Royal Charleroi SC vs KV Mechelen",
-      "league": "Jupiler Pro League",
-      "market": "btts",
-      "tier": "STANDARD",
-      "proba": 0.5929,
-      "status": "LOST",
-      "finalScore": "2-0",
-      "verifiedAt": "2026-10-23T05:46:22.044Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-08-22",
-      "match": "Sparta Rotterdam vs FC Utrecht",
-      "league": "Eredivisie",
-      "market": "btts",
-      "tier": "STANDARD",
-      "proba": 0.6424,
-      "status": "WON",
-      "finalScore": "3-3",
-      "verifiedAt": "2026-10-23T05:46:22.044Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-08-22",
-      "match": "Zulte-Waregem vs Waasland-Beveren",
-      "league": "Jupiler Pro League",
-      "market": "btts",
-      "tier": "STANDARD",
-      "proba": 0.5929,
-      "status": "LOST",
-      "finalScore": "4-0",
-      "verifiedAt": "2026-10-23T05:46:22.044Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-08-22",
-      "match": "Inter Miami CF vs Toronto FC",
-      "league": "MLS",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.6723,
-      "status": "WON",
-      "finalScore": "1-2",
-      "verifiedAt": "2026-10-23T05:46:22.043Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-08-22",
-      "match": "Orlando City SC vs Real Salt Lake",
-      "league": "MLS",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.5861,
-      "status": "WON",
-      "finalScore": "2-1",
-      "verifiedAt": "2026-10-23T05:46:22.043Z",
       "source": "ESPN public",
       "prediction": "Oui"
     }

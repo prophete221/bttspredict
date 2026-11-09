@@ -6803,6 +6803,195 @@
       "prediction": "Oui",
       "proba": 0.68,
       "confidence": 68
+    },
+    {
+      "id": "cerclebr-vs-kvcweste-2026-11-20",
+      "match": "Cercle Brugge KSV vs KVC Westerlo",
+      "home": "Cercle Brugge KSV",
+      "away": "KVC Westerlo",
+      "league": "Jupiler Pro League",
+      "date": "2026-11-20",
+      "type": "BTTS",
+      "time": "19:45",
+      "matchSemantic": "cerclebr-vs-kvcweste-2026-11-20",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3610.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/606.png",
+      "tier": "GOLD",
+      "reliabilityScore": 91.25,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 0.75,
+      "xgAway": 2.33,
+      "xgTotal": 3.08,
+      "formBTTS": 80,
+      "analysis": "Cercle Brugge KSV : forme V-V-D-D-D (2V 0N 3D, 8 buts marqués / 11 encaissés sur 5) · KVC Westerlo : forme D-D-N-V-V (2V 1N 2D, 13 buts marqués / 14 encaissés sur 5). Classement : Cercle Brugge KSV 16e (9 pts), KVC Westerlo 9e (14 pts). Stats empiriques (forme récente) : buts moy. 3.08, BTTS 80.0%, Over 2.5 80.0%. Affinage AI ensuite. Fiabilité 91.25%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.8,
+        "empiricalOver25Rate": 0.8,
+        "homeLambda": 0.75,
+        "awayLambda": 2.33,
+        "xgTotal": 3.08
+      },
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "V-V-D-D-D",
+        "wins": 2,
+        "draws": 0,
+        "losses": 3,
+        "goalsFor": 8,
+        "goalsAgainst": 11,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-D-N-V-V",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 13,
+        "goalsAgainst": 14,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-07",
+          "opponent": "RAAL La Louvière",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Antwerp",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Union St.-Gilloise",
+          "venue": "A",
+          "score": "2-5",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Anderlecht",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Royal Charleroi SC",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-07",
+          "opponent": "Royal Charleroi SC",
+          "venue": "H",
+          "score": "1-5",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Anderlecht",
+          "venue": "A",
+          "score": "1-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Waasland-Beveren",
+          "venue": "H",
+          "score": "4-4",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Antwerp",
+          "venue": "H",
+          "score": "5-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Sint-Truidense",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 16,
+        "points": 9,
+        "played": 11,
+        "gf": 14,
+        "ga": 22
+      },
+      "standingsAway": {
+        "rank": 9,
+        "points": 14,
+        "played": 11,
+        "gf": 26,
+        "ga": 30
+      },
+      "empiricalBttsRate": 0.8,
+      "empiricalOver25Rate": 0.8,
+      "homeLambda": 0.75,
+      "awayLambda": 2.33,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Les deux équipes affichent un taux BTTS de 0.8 lors de leurs 5 derniers matchs respectifs.",
+      "ai_analysis": "Cette confrontation de Jupiler Pro League réunit deux équipes aux profils très ouverts, illustrés par des taux BTTS de 0.8 lors de leurs 5 dernières sorties. KVC Westerlo se distingue par une attaque productive (13 buts récents) mais une défense très perméable (14 buts concédés). Cercle Brugge, malgré un classement difficile (16e), montre des statistiques cohérentes avec une forte propension aux matchs prolifiques. L'analyse empirique à 0.8 valide pleinement l'option du Both Teams To Score.",
+      "ai_analysis_en": "This Jupiler Pro League fixture brings together two open-profile teams, illustrated by 0.8 BTTS rates in their last 5 outings. KVC Westerlo stands out with a productive attack (13 recent goals) but a very porous defense (14 goals conceded). Cercle Brugge, despite a tough standing (16th), shows consistent stats with a strong tendency for high-scoring games. The 0.8 empirical analysis fully validates the Both Teams To Score option.",
+      "ai_form_summary": "Cercle Brugge KSV : 2 victoires, 3 défaites (8 buts pour, 11 contre). KVC Westerlo : 2 victoires, 1 nul, 2 défaites (13 buts pour, 14 contre).",
+      "ai_form_summary_en": "Cercle Brugge KSV: 2W, 3L (8 GF, 11 GA). KVC Westerlo: 2W, 1D, 2L (13 GF, 14 GA).",
+      "ai_reasons": [
+        "Cercle Brugge KSV affiche un taux BTTS et Over 2.5 de 0.8 sur ses 5 derniers matchs.",
+        "KVC Westerlo présente également un taux BTTS et Over 2.5 de 0.8 avec 13 buts marqués et 14 encaissés récemment.",
+        "L'indicateur empirique BTTS du match atteint 0.8, reflétant des rencontres très ouvertes."
+      ],
+      "ai_risks": [
+        "Cercle Brugge a une moyenne de buts marqués à domicile de seulement 0.75 malgré ses récents taux de forme.",
+        "La fragilité défensive des deux formations (22 buts encaissés pour Bruges, 30 pour Westerlo en saison) peut mener à un déséquilibre."
+      ],
+      "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 75,
+          "proba": 0.75,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.75
+        }
+      ],
+      "bttsProb": 0.75,
+      "prediction": "Oui",
+      "proba": 0.75,
+      "confidence": 75
     }
   ],
   "stats": {
@@ -6999,7 +7188,8 @@
       "bttsProb": 0.72,
       "prediction": "Oui",
       "proba": 0.72,
-      "confidence": 72
+      "confidence": 72,
+      "status": "PENDING"
     },
     {
       "id": "arminiab-vs-fcmagdeb-2026-11-20",
@@ -7187,7 +7377,8 @@
       "bttsProb": 0.6,
       "prediction": "Oui",
       "proba": 0.6,
-      "confidence": 60
+      "confidence": 60,
+      "status": "PENDING"
     },
     {
       "id": "athletic-vs-espanyol-2026-11-20",
@@ -7383,7 +7574,8 @@
       "bttsProb": 0.58,
       "prediction": "Oui",
       "proba": 0.58,
-      "confidence": 58
+      "confidence": 58,
+      "status": "PENDING"
     },
     {
       "id": "orlandoc-vs-fccincin-2026-11-20",
@@ -7572,7 +7764,8 @@
       "over25Prob": 0.6,
       "prediction": "Oui",
       "proba": 0.6,
-      "confidence": 60
+      "confidence": 60,
+      "status": "PENDING"
     },
     {
       "id": "svdarmst-vs-fcheiden-2026-11-20",
@@ -7761,7 +7954,8 @@
       "bttsProb": 0.58,
       "prediction": "Oui",
       "proba": 0.58,
-      "confidence": 58
+      "confidence": 58,
+      "status": "PENDING"
     },
     {
       "id": "troyes-vs-lehavrea-2026-11-20",
@@ -7935,7 +8129,8 @@
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "abstain",
+      "status": "PENDING"
     },
     {
       "id": "fcutrech-vs-sccambuu-2026-11-21",
@@ -8123,7 +8318,8 @@
       "bttsProb": 0.72,
       "prediction": "Oui",
       "proba": 0.72,
-      "confidence": 72
+      "confidence": 72,
+      "status": "PENDING"
     },
     {
       "id": "telstar-vs-peczwoll-2026-11-21",
@@ -8311,7 +8507,8 @@
       "bttsProb": 0.7,
       "prediction": "Oui",
       "proba": 0.7,
-      "confidence": 70
+      "confidence": 70,
+      "status": "PENDING"
     },
     {
       "id": "dundee-vs-heartofm-2026-11-21",
@@ -8500,7 +8697,8 @@
       "bttsProb": 0.75,
       "prediction": "Oui",
       "proba": 0.75,
-      "confidence": 75
+      "confidence": 75,
+      "status": "PENDING"
     },
     {
       "id": "asmonaco-vs-ajauxerr-2026-11-21",
@@ -8689,7 +8887,8 @@
       "bttsProb": 0.72,
       "prediction": "Oui",
       "proba": 0.72,
-      "confidence": 72
+      "confidence": 72,
+      "status": "PENDING"
     },
     {
       "id": "tottenha-vs-ipswicht-2026-11-21",
@@ -8885,7 +9084,8 @@
       "bttsProb": 0.65,
       "prediction": "Oui",
       "proba": 0.65,
-      "confidence": 65
+      "confidence": 65,
+      "status": "PENDING"
     },
     {
       "id": "lazio-vs-lecce-2026-11-21",
@@ -9081,7 +9281,8 @@
       "bttsProb": 0.65,
       "prediction": "Oui",
       "proba": 0.65,
-      "confidence": 65
+      "confidence": 65,
+      "status": "PENDING"
     },
     {
       "id": "nice-vs-parissai-2026-11-21",
@@ -9270,7 +9471,8 @@
       "bttsProb": 0.68,
       "prediction": "Oui",
       "proba": 0.68,
-      "confidence": 68
+      "confidence": 68,
+      "status": "PENDING"
     },
     {
       "id": "strasbou-vs-brest-2026-11-21",
@@ -9459,7 +9661,8 @@
       "bttsProb": 0.68,
       "prediction": "Oui",
       "proba": 0.68,
-      "confidence": 68
+      "confidence": 68,
+      "status": "PENDING"
     },
     {
       "id": "fcaugsbu-vs-mainz-2026-11-22",
@@ -9655,7 +9858,8 @@
       "bttsProb": 0.75,
       "prediction": "Oui",
       "proba": 0.75,
-      "confidence": 75
+      "confidence": 75,
+      "status": "PENDING"
     },
     {
       "id": "ajaxamst-vs-adodenha-2026-11-22",
@@ -9844,7 +10048,8 @@
       "bttsProb": 0.68,
       "prediction": "Oui",
       "proba": 0.68,
-      "confidence": 68
+      "confidence": 68,
+      "status": "PENDING"
     },
     {
       "id": "racingsa-vs-realsoci-2026-11-22",
@@ -10039,7 +10244,8 @@
       "over25Prob": 0.74,
       "prediction": "Oui",
       "proba": 0.74,
-      "confidence": 74
+      "confidence": 74,
+      "status": "PENDING"
     },
     {
       "id": "acmilan-vs-frosinon-2026-11-22",
@@ -10234,7 +10440,8 @@
       "bttsProb": 0.68,
       "prediction": "Oui",
       "proba": 0.68,
-      "confidence": 68
+      "confidence": 68,
+      "status": "PENDING"
     },
     {
       "id": "goaheade-vs-fortunas-2026-11-22",
@@ -10422,7 +10629,8 @@
       "bttsProb": 0.68,
       "prediction": "Oui",
       "proba": 0.68,
-      "confidence": 68
+      "confidence": 68,
+      "status": "PENDING"
     },
     {
       "id": "chicagof-vs-charlott-2026-11-22",
@@ -10610,7 +10818,8 @@
       "over25Prob": 0.75,
       "prediction": "Oui",
       "proba": 0.75,
-      "confidence": 75
+      "confidence": 75,
+      "status": "PENDING"
     },
     {
       "id": "fctwente-vs-willemii-2026-11-22",
@@ -10799,7 +11008,8 @@
       "bttsProb": 0.68,
       "prediction": "Oui",
       "proba": 0.68,
-      "confidence": 68
+      "confidence": 68,
+      "status": "PENDING"
     },
     {
       "id": "atalanta-vs-internaz-2026-11-22",
@@ -10995,7 +11205,8 @@
       "over25Prob": 0.65,
       "prediction": "Oui",
       "proba": 0.65,
-      "confidence": 65
+      "confidence": 65,
+      "status": "PENDING"
     },
     {
       "id": "monza-vs-fiorenti-2026-11-23",
@@ -11191,7 +11402,8 @@
       "bttsProb": 0.75,
       "prediction": "Oui",
       "proba": 0.75,
-      "confidence": 75
+      "confidence": 75,
+      "status": "PENDING"
     },
     {
       "id": "brentfor-vs-everton-2026-11-23",
@@ -11373,7 +11585,8 @@
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "abstain",
+      "status": "PENDING"
     },
     {
       "id": "portsmou-vs-westhamu-2026-11-24",
@@ -11561,7 +11774,8 @@
       "bttsProb": 0.75,
       "prediction": "Oui",
       "proba": 0.75,
-      "confidence": 75
+      "confidence": 75,
+      "status": "PENDING"
     },
     {
       "id": "stlouisc-vs-lafc-2026-11-24",
@@ -11749,7 +11963,8 @@
       "bttsProb": 0.68,
       "prediction": "Oui",
       "proba": 0.68,
-      "confidence": 68
+      "confidence": 68,
+      "status": "PENDING"
     },
     {
       "id": "cardiffc-vs-prestonn-2026-11-24",
@@ -11938,7 +12153,8 @@
       "bttsProb": 0.6,
       "prediction": "Oui",
       "proba": 0.6,
-      "confidence": 60
+      "confidence": 60,
+      "status": "PENDING"
     },
     {
       "id": "hibernia-vs-dundee-2026-11-24",
@@ -12127,7 +12343,8 @@
       "bttsProb": 0.75,
       "prediction": "Oui",
       "proba": 0.75,
-      "confidence": 75
+      "confidence": 75,
+      "status": "PENDING"
     },
     {
       "id": "como-vs-aekathen-2026-11-24",
@@ -12308,7 +12525,8 @@
       "bttsProb": 0.76,
       "prediction": "Oui",
       "proba": 0.76,
-      "confidence": 76
+      "confidence": 76,
+      "status": "PENDING"
     },
     {
       "id": "manchest-vs-napoli-2026-11-24",
@@ -12489,7 +12707,8 @@
       "bttsProb": 0.68,
       "prediction": "Oui",
       "proba": 0.68,
-      "confidence": 68
+      "confidence": 68,
+      "status": "PENDING"
     },
     {
       "id": "realmadr-vs-psveindh-2026-11-24",
@@ -12671,7 +12890,8 @@
       "bttsProb": 0.68,
       "prediction": "Oui",
       "proba": 0.68,
-      "confidence": 68
+      "confidence": 68,
+      "status": "PENDING"
     },
     {
       "id": "sheffiel-vs-southamp-2026-11-24",
@@ -12860,7 +13080,8 @@
       "bttsProb": 0.58,
       "prediction": "Oui",
       "proba": 0.58,
-      "confidence": 58
+      "confidence": 58,
+      "status": "PENDING"
     },
     {
       "id": "bayernmu-vs-fccologn-2026-11-20",
@@ -13048,7 +13269,8 @@
       "bttsProb": 0.72,
       "prediction": "Oui",
       "proba": 0.72,
-      "confidence": 72
+      "confidence": 72,
+      "status": "PENDING"
     },
     {
       "id": "cerclebr-vs-kvcweste-2026-11-20",
@@ -13236,7 +13458,8 @@
       "over25Prob": 0.75,
       "prediction": "Oui",
       "proba": 0.75,
-      "confidence": 75
+      "confidence": 75,
+      "status": "PENDING"
     },
     {
       "id": "strasbou-vs-brest-2026-11-21",
@@ -13424,7 +13647,8 @@
       "over25Prob": 0.65,
       "prediction": "Oui",
       "proba": 0.65,
-      "confidence": 65
+      "confidence": 65,
+      "status": "PENDING"
     },
     {
       "id": "stlouisc-vs-lafc-2026-11-24",
@@ -13612,7 +13836,198 @@
       "over25Prob": 0.68,
       "prediction": "Oui",
       "proba": 0.68,
-      "confidence": 68
+      "confidence": 68,
+      "status": "PENDING"
+    },
+    {
+      "id": "cerclebr-vs-kvcweste-2026-11-20",
+      "match": "Cercle Brugge KSV vs KVC Westerlo",
+      "home": "Cercle Brugge KSV",
+      "away": "KVC Westerlo",
+      "league": "Jupiler Pro League",
+      "date": "2026-11-20",
+      "type": "BTTS",
+      "time": "19:45",
+      "matchSemantic": "cerclebr-vs-kvcweste-2026-11-20",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3610.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/606.png",
+      "tier": "GOLD",
+      "reliabilityScore": 91.25,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 0.75,
+      "xgAway": 2.33,
+      "xgTotal": 3.08,
+      "formBTTS": 80,
+      "analysis": "Cercle Brugge KSV : forme V-V-D-D-D (2V 0N 3D, 8 buts marqués / 11 encaissés sur 5) · KVC Westerlo : forme D-D-N-V-V (2V 1N 2D, 13 buts marqués / 14 encaissés sur 5). Classement : Cercle Brugge KSV 16e (9 pts), KVC Westerlo 9e (14 pts). Stats empiriques (forme récente) : buts moy. 3.08, BTTS 80.0%, Over 2.5 80.0%. Affinage AI ensuite. Fiabilité 91.25%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.8,
+        "empiricalOver25Rate": 0.8,
+        "homeLambda": 0.75,
+        "awayLambda": 2.33,
+        "xgTotal": 3.08
+      },
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "V-V-D-D-D",
+        "wins": 2,
+        "draws": 0,
+        "losses": 3,
+        "goalsFor": 8,
+        "goalsAgainst": 11,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-D-N-V-V",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 13,
+        "goalsAgainst": 14,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-07",
+          "opponent": "RAAL La Louvière",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Antwerp",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Union St.-Gilloise",
+          "venue": "A",
+          "score": "2-5",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Anderlecht",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Royal Charleroi SC",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-07",
+          "opponent": "Royal Charleroi SC",
+          "venue": "H",
+          "score": "1-5",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Anderlecht",
+          "venue": "A",
+          "score": "1-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Waasland-Beveren",
+          "venue": "H",
+          "score": "4-4",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Antwerp",
+          "venue": "H",
+          "score": "5-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Sint-Truidense",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 16,
+        "points": 9,
+        "played": 11,
+        "gf": 14,
+        "ga": 22
+      },
+      "standingsAway": {
+        "rank": 9,
+        "points": 14,
+        "played": 11,
+        "gf": 26,
+        "ga": 30
+      },
+      "empiricalBttsRate": 0.8,
+      "empiricalOver25Rate": 0.8,
+      "homeLambda": 0.75,
+      "awayLambda": 2.33,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Les deux équipes affichent un taux BTTS de 0.8 lors de leurs 5 derniers matchs respectifs.",
+      "ai_analysis": "Cette confrontation de Jupiler Pro League réunit deux équipes aux profils très ouverts, illustrés par des taux BTTS de 0.8 lors de leurs 5 dernières sorties. KVC Westerlo se distingue par une attaque productive (13 buts récents) mais une défense très perméable (14 buts concédés). Cercle Brugge, malgré un classement difficile (16e), montre des statistiques cohérentes avec une forte propension aux matchs prolifiques. L'analyse empirique à 0.8 valide pleinement l'option du Both Teams To Score.",
+      "ai_analysis_en": "This Jupiler Pro League fixture brings together two open-profile teams, illustrated by 0.8 BTTS rates in their last 5 outings. KVC Westerlo stands out with a productive attack (13 recent goals) but a very porous defense (14 goals conceded). Cercle Brugge, despite a tough standing (16th), shows consistent stats with a strong tendency for high-scoring games. The 0.8 empirical analysis fully validates the Both Teams To Score option.",
+      "ai_form_summary": "Cercle Brugge KSV : 2 victoires, 3 défaites (8 buts pour, 11 contre). KVC Westerlo : 2 victoires, 1 nul, 2 défaites (13 buts pour, 14 contre).",
+      "ai_form_summary_en": "Cercle Brugge KSV: 2W, 3L (8 GF, 11 GA). KVC Westerlo: 2W, 1D, 2L (13 GF, 14 GA).",
+      "ai_reasons": [
+        "Cercle Brugge KSV affiche un taux BTTS et Over 2.5 de 0.8 sur ses 5 derniers matchs.",
+        "KVC Westerlo présente également un taux BTTS et Over 2.5 de 0.8 avec 13 buts marqués et 14 encaissés récemment.",
+        "L'indicateur empirique BTTS du match atteint 0.8, reflétant des rencontres très ouvertes."
+      ],
+      "ai_risks": [
+        "Cercle Brugge a une moyenne de buts marqués à domicile de seulement 0.75 malgré ses récents taux de forme.",
+        "La fragilité défensive des deux formations (22 buts encaissés pour Bruges, 30 pour Westerlo en saison) peut mener à un déséquilibre."
+      ],
+      "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 75,
+          "proba": 0.75,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.75
+        }
+      ],
+      "bttsProb": 0.75,
+      "prediction": "Oui",
+      "proba": 0.75,
+      "confidence": 75,
+      "status": "PENDING"
     }
   ],
   "analysisEngine": "gemini-stats-v1"

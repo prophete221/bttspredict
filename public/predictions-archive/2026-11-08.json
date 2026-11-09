@@ -7099,7 +7099,9 @@
       "prediction": "Oui",
       "proba": 0.68,
       "confidence": 68,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-09T11:33:37.716Z"
     },
     {
       "id": "atlticom-vs-barcelon-2026-11-08",
@@ -7296,7 +7298,9 @@
       "prediction": "Oui",
       "proba": 0.65,
       "confidence": 65,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-09T11:33:37.717Z"
     },
     {
       "id": "napoli-vs-lazio-2026-11-08",
@@ -8485,7 +8489,9 @@
       "prediction": "Oui",
       "proba": 0.72,
       "confidence": 72,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-3",
+      "verifiedAt": "2026-11-09T11:33:37.717Z"
     },
     {
       "id": "clubbrug-vs-anderlec-2026-11-08",
@@ -10273,7 +10279,9 @@
       "prediction": "Oui",
       "proba": 0.65,
       "confidence": 65,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-09T11:33:37.717Z"
     },
     {
       "id": "vitriade-vs-fcporto-2026-11-08",
@@ -10470,7 +10478,9 @@
       "prediction": "Oui",
       "proba": 0.62,
       "confidence": 62,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-09T11:33:37.718Z"
     },
     {
       "id": "estrela-vs-benfica-2026-11-08",
@@ -10651,7 +10661,9 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-3",
+      "verifiedAt": "2026-11-09T11:33:37.718Z"
     },
     {
       "id": "fiorenti-vs-juventus-2026-11-08",
@@ -10848,7 +10860,9 @@
       "prediction": "Oui",
       "proba": 0.58,
       "confidence": 58,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-11-09T11:33:37.718Z"
     },
     {
       "id": "tsghoffe-vs-schalke-2026-11-08",
@@ -11031,7 +11045,9 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-09T11:33:37.718Z"
     },
     {
       "id": "rioave-vs-braga-2026-11-08",
@@ -11228,7 +11244,9 @@
       "prediction": "Oui",
       "proba": 0.65,
       "confidence": 65,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-09T11:33:37.719Z"
     },
     {
       "id": "atlticom-vs-barcelon-2026-11-08",
@@ -11425,7 +11443,9 @@
       "prediction": "Oui",
       "proba": 0.58,
       "confidence": 58,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-09T11:33:37.719Z"
     }
   ],
   "analysisEngine": "gemini-stats-v1"

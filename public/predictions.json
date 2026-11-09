@@ -1,6 +1,6 @@
 {
   "date": "2026-11-09",
-  "lastUpdated": "2026-11-09T08:17:26.655Z",
+  "lastUpdated": "2026-11-09T11:29:56.573Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -198,7 +198,7 @@
       "away": "KVC Westerlo",
       "league": "Jupiler Pro League",
       "date": "2026-11-20",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "time": "19:45",
       "matchSemantic": "cerclebr-vs-kvcweste-2026-11-20",
       "source": "empirical-form-data",
@@ -345,19 +345,20 @@
       "awayLambda": 2.33,
       "statsOnly": true,
       "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_key_fact": "Les deux équipes affichent un taux Over 2.5 de 0.80 et des défenses très perméables.",
-      "ai_analysis": "Ce duel de Jupiler Pro League présente de solides indicateurs pour un match prolifique en buts. Les taux empiriques d'Over 2.5 atteignent 0.80 tant pour Cercle Brugge KSV que pour KVC Westerlo sur leurs 5 dernières rencontres. De plus, KVC Westerlo démontre une forte capacité offensive à l'extérieur avec une moyenne de 2.33 buts, compensant la moyenne plus basse des hôtes à domicile.",
-      "ai_analysis_en": "This Jupiler Pro League duel presents strong indicators for a high-scoring match. Empirical Over 2.5 rates reach 0.80 for both Cercle Brugge KSV and KVC Westerlo in their last 5 fixtures. Furthermore, KVC Westerlo demonstrates strong away attacking output with an average of 2.33 goals, offsetting the lower home average of the hosts.",
-      "ai_form_summary": "Cercle Brugge KSV : V-V-D-D-D (2W-0D-3L), 8 buts pour, 11 buts contre. KVC Westerlo : D-D-N-V-V (2W-1D-2L), 13 buts pour, 14 buts contre.",
-      "ai_form_summary_en": "Cercle Brugge KSV: V-V-D-D-D (2W-0D-3L), 8 goals for, 11 goals against. KVC Westerlo: D-D-N-V-V (2W-1D-2L), 13 goals for, 14 goals against.",
+      "ai_market": "BTTS",
+      "ai_key_fact": "Les deux équipes affichent un taux BTTS de 0.8 lors de leurs 5 derniers matchs respectifs.",
+      "ai_analysis": "Cette confrontation de Jupiler Pro League réunit deux équipes aux profils très ouverts, illustrés par des taux BTTS de 0.8 lors de leurs 5 dernières sorties. KVC Westerlo se distingue par une attaque productive (13 buts récents) mais une défense très perméable (14 buts concédés). Cercle Brugge, malgré un classement difficile (16e), montre des statistiques cohérentes avec une forte propension aux matchs prolifiques. L'analyse empirique à 0.8 valide pleinement l'option du Both Teams To Score.",
+      "ai_analysis_en": "This Jupiler Pro League fixture brings together two open-profile teams, illustrated by 0.8 BTTS rates in their last 5 outings. KVC Westerlo stands out with a productive attack (13 recent goals) but a very porous defense (14 goals conceded). Cercle Brugge, despite a tough standing (16th), shows consistent stats with a strong tendency for high-scoring games. The 0.8 empirical analysis fully validates the Both Teams To Score option.",
+      "ai_form_summary": "Cercle Brugge KSV : 2 victoires, 3 défaites (8 buts pour, 11 contre). KVC Westerlo : 2 victoires, 1 nul, 2 défaites (13 buts pour, 14 contre).",
+      "ai_form_summary_en": "Cercle Brugge KSV: 2W, 3L (8 GF, 11 GA). KVC Westerlo: 2W, 1D, 2L (13 GF, 14 GA).",
       "ai_reasons": [
-        "Le taux empirique de l'Over 2.5 est de 0.80 pour les deux équipes sur l'échantillon analysé.",
-        "KVC Westerlo présente une moyenne de buts à l'extérieur élevée de 2.33 par match.",
-        "Les deux équipes affichent un taux d'Over 2.5 de 0.8 dans leurs 5 derniers matchs respectifs."
+        "Cercle Brugge KSV affiche un taux BTTS et Over 2.5 de 0.8 sur ses 5 derniers matchs.",
+        "KVC Westerlo présente également un taux BTTS et Over 2.5 de 0.8 avec 13 buts marqués et 14 encaissés récemment.",
+        "L'indicateur empirique BTTS du match atteint 0.8, reflétant des rencontres très ouvertes."
       ],
       "ai_risks": [
-        "Cercle Brugge KSV a une moyenne de buts à domicile plus faible (0.75), ce qui pourrait freiner le compteur global."
+        "Cercle Brugge a une moyenne de buts marqués à domicile de seulement 0.75 malgré ses récents taux de forme.",
+        "La fragilité défensive des deux formations (22 buts encaissés pour Bruges, 30 pour Westerlo en saison) peut mener à un déséquilibre."
       ],
       "ai_confidence": "high",
       "modelEngine": "gemini-stats-v1",
@@ -366,15 +367,15 @@
       "ai_response_status": "pick",
       "predictions": [
         {
-          "type": "Over 2.5",
+          "type": "BTTS",
           "prediction": "Oui",
           "confidence": 75,
           "proba": 0.75,
           "modelEngine": "gemini-3.5-flash-lite",
-          "over25Prob": 0.75
+          "bttsProb": 0.75
         }
       ],
-      "over25Prob": 0.75,
+      "bttsProb": 0.75,
       "prediction": "Oui",
       "proba": 0.75,
       "confidence": 75
@@ -1484,17 +1485,18 @@
       "statsOnly": true,
       "ai_abstain": true,
       "ai_market": "ABSTAIN",
-      "ai_key_fact": "Troyes records a low 20% BTTS rate in their last 5 matches, reflecting low-scoring trends.",
-      "ai_analysis": "Les données observées indiquent des taux empiriques faibles avec 40% pour le BTTS et 40% pour l'Over 2.5. Troyes affiche notamment un taux de BTTS de seulement 20% sur ses 5 derniers matchs. Malgré la fragilité défensive importante de Le Havre (15 buts encaissés sur les 5 dernières rencontres), les indicateurs manquent de clarté pour dégager une tendance fiable, justifiant une abstention.",
-      "ai_analysis_en": "Observed data indicates low empirical rates with 40% for both BTTS and Over 2.5. Troyes records a low 20% BTTS rate in their last 5 matches. Despite Le Havre's significant defensive struggles (15 goals conceded in their last 5 games), the statistical signals remain too contradictory to recommend a reliable market selection, leading to an abstention.",
-      "ai_form_summary": "Troyes (1V-1N-3D, 3 BP / 6 BC) propose des matchs fermés, tandis que Le Havre (0V-0N-5L, 5 BP / 15 BC) cumule les défaites avec une défense très perméable.",
-      "ai_form_summary_en": "Troyes (1W-1D-3L, 3 GF / 6 GA) features low-scoring matches, while Le Havre (0W-0D-5L, 5 GF / 15 GA) struggles defensively with consecutive losses.",
+      "ai_key_fact": "Le Havre reste sur une série de 5 défaites consécutives avec 15 buts encaissés.",
+      "ai_analysis": "Bien que Le Havre traverse une série noire défensive avec 15 buts encaissés sur ses 5 derniers matchs, les taux empiriques globaux restent faibles (40% pour le BTTS et l'Over 2.5). L'attaque de Troyes reste très timide (3 buts sur les 5 derniers matchs). En vertu de nos règles strictes et des faibles indicateurs conjoints, l'abstention est recommandée.",
+      "ai_analysis_en": "Although Le Havre is going through a defensive slump with 15 goals conceded in their last 5 matches, the overall empirical rates remain low (40% for both BTTS and Over 2.5). Troyes' attack is very shy (3 goals in the last 5 matches). Under strict rules and weak joint indicators, abstention is recommended.",
+      "ai_form_summary": "Troyes : 1V-1N-3D, 3 buts pour, 6 buts contre, BTTS 20%. Le Havre : 0V-0N-5D, 5 buts pour, 15 buts contre, BTTS 60%.",
+      "ai_form_summary_en": "Troyes: 1W-1D-3L, 3 goals for, 6 goals against, BTTS 20%. Le Havre: 0W-0D-5L, 5 goals for, 15 goals against, BTTS 60%.",
       "ai_reasons": [
-        "Troyes shows low empirical rates with 20% BTTS and 20% Over 2.5 in their last 5 matches.",
-        "Empirical BTTS and Over 2.5 rates are both at 40%, failing to cross the standard threshold for reliable selection."
+        "Taux empirique BTTS de seulement 40% et taux Over 2.5 de 40% pour ce match.",
+        "Faible production offensive récente de Troyes (3 buts en 5 matchs) et de Le Havre (5 buts en 5 matchs)."
       ],
       "ai_risks": [
-        "Le Havre's severe defensive struggles (15 goals conceded in last 5 matches) could lead to unpredictable high-scoring variance."
+        "Le Havre encaisse beaucoup de buts (15 sur ses 5 derniers matchs), ce qui pourrait théoriquement libérer le match.",
+        "Statistiques globales très basses en termes d'efficacité offensive qui rendent toute sélection risquée."
       ],
       "ai_confidence": "low",
       "modelEngine": "gemini-stats-v1",
@@ -4405,7 +4407,7 @@
       "xgAway": 0.75,
       "xgTotal": 2.5,
       "formBTTS": 50,
-      "analysis": "Brentford : forme D-V-N-D-N (1V 2N 2D, 6 buts marqués / 7 encaissés sur 5) · Everton : forme V-V-D-D-N (2V 1N 2D, 6 buts marqués / 7 encaissés sur 5). Classement : Brentford 8e (14 pts), Everton 6e (16 pts). Stats empiriques (forme récente) : buts moy. 2.5, BTTS 50.0%, Over 2.5 40.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2 / N: 3.55 / 2: 3.45 · Over 2.5: 1.71. Fiabilité 75.63%.",
+      "analysis": "Brentford : forme D-V-N-D-N (1V 2N 2D, 6 buts marqués / 7 encaissés sur 5) · Everton : forme V-V-D-D-N (2V 1N 2D, 6 buts marqués / 7 encaissés sur 5). Classement : Brentford 8e (14 pts), Everton 6e (16 pts). Stats empiriques (forme récente) : buts moy. 2.5, BTTS 50.0%, Over 2.5 40.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2 / N: 3.6 / 2: 3.4 · Over 2.5: 1.69. Fiabilité 75.63%.",
       "analysisData": {
         "empiricalBttsRate": 0.5,
         "empiricalOver25Rate": 0.4,
@@ -4416,10 +4418,10 @@
       "odds": {
         "provider": "DraftKings",
         "home": 2,
-        "draw": 3.55,
-        "away": 3.45,
-        "over25": 1.71,
-        "under25": 2
+        "draw": 3.6,
+        "away": 3.4,
+        "over25": 1.69,
+        "under25": 2.05
       },
       "oddsSource": "DraftKings",
       "formHome": {
@@ -4543,19 +4545,19 @@
       "statsOnly": true,
       "ai_abstain": true,
       "ai_market": "ABSTAIN",
-      "ai_key_fact": "Le taux Over 2.5 est de 40% avec un taux BTTS limité à 50%.",
-      "ai_analysis": "Bien que les deux équipes soient proches au classement (8e et 6e), les statistiques offensives et défensives ne permettent pas de dégager un signal clair. Le taux Over 2.5 est de 40% et le BTTS s'établit à 50%. De plus, la moyenne de buts d'Everton à l'extérieur est faible (0.75), ce qui incite à s'abstenir.",
-      "ai_analysis_en": "Although both teams are close in the standings (8th and 6th), offensive and defensive statistics do not provide a clear signal. The Over 2.5 rate is 40% and BTTS sits at 50%. Furthermore, Everton's away goal average is low at 0.75, leading to an abstention.",
-      "ai_form_summary": "Brentford : 1V-2D-2L (6 buts pour, 7 contre, BTTS 60%). Everton : 2V-1D-2L (6 buts pour, 7 contre, BTTS 40%).",
-      "ai_form_summary_en": "Brentford: 1W-2D-2L (6 GF, 7 GA, BTTS 60%). Everton: 2W-1D-2L (6 GF, 7 GA, BTTS 40%).",
+      "ai_key_fact": "Everton affiche une moyenne de 0.75 buts marqués à l'extérieur avec un taux Over 2.5 de 40%.",
+      "ai_analysis": "Bien que les deux équipes soient bien classées (Brentford 8e et Everton 6e), les indicateurs statistiques restent partagés. Le taux BTTS empirique s'établit exactement à 50% et le taux Over 2.5 est bas à 40%. De plus, la moyenne de buts à l'extérieur d'Everton n'est que de 0.75, ce qui ne garantit pas une rencontre ouverte. Conformément aux règles strictes, en l'absence de signal tranché, l'abstention est recommandée.",
+      "ai_analysis_en": "Although both teams are well placed in the standings (Brentford 8th and Everton 6th), the statistical indicators remain mixed. The empirical BTTS rate stands at exactly 50% and the Over 2.5 rate is low at 40%. Additionally, Everton's away goal average is only 0.75, which does not guarantee an open match. In accordance with strict rules, in the absence of a clear signal, abstention is recommended.",
+      "ai_form_summary": "Brentford : 1V-2N-2D sur les 5 derniers, 6 buts marqués, 7 encaissés. Everton : 2V-1N-2D sur les 5 derniers, 6 buts marqués, 7 encaissés.",
+      "ai_form_summary_en": "Brentford: 1W-2D-2L in last 5, 6 goals scored, 7 conceded. Everton: 2W-1D-2L in last 5, 6 goals scored, 7 conceded.",
       "ai_reasons": [
         "Taux BTTS empirique modéré à 50%.",
-        "Taux Over 2.5 faible à 40% sur l'échantillon global.",
-        "Everton affiche une moyenne de buts à l'extérieur de seulement 0.75."
+        "Taux Over 2.5 faible à 40% pour les deux équipes.",
+        "Moyenne de buts à l'extérieur d'Everton limitée à 0.75."
       ],
       "ai_risks": [
-        "Faible production offensive d'Everton (0.75 but/match).",
-        "Taux Over 2.5 sous le seuil requis pour un pari sécurisé."
+        "Faible production offensive d'Everton loin de ses bases.",
+        "Tendances de matchs fermés selon les taux d'Over 2.5."
       ],
       "ai_confidence": "low",
       "modelEngine": "gemini-stats-v1",
@@ -6254,7 +6256,7 @@
       "away": "KVC Westerlo",
       "league": "Jupiler Pro League",
       "date": "2026-11-20",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "time": "19:45",
       "matchSemantic": "cerclebr-vs-kvcweste-2026-11-20",
       "source": "empirical-form-data",
@@ -6401,19 +6403,20 @@
       "awayLambda": 2.33,
       "statsOnly": true,
       "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_key_fact": "Les deux équipes affichent un taux Over 2.5 de 0.80 et des défenses très perméables.",
-      "ai_analysis": "Ce duel de Jupiler Pro League présente de solides indicateurs pour un match prolifique en buts. Les taux empiriques d'Over 2.5 atteignent 0.80 tant pour Cercle Brugge KSV que pour KVC Westerlo sur leurs 5 dernières rencontres. De plus, KVC Westerlo démontre une forte capacité offensive à l'extérieur avec une moyenne de 2.33 buts, compensant la moyenne plus basse des hôtes à domicile.",
-      "ai_analysis_en": "This Jupiler Pro League duel presents strong indicators for a high-scoring match. Empirical Over 2.5 rates reach 0.80 for both Cercle Brugge KSV and KVC Westerlo in their last 5 fixtures. Furthermore, KVC Westerlo demonstrates strong away attacking output with an average of 2.33 goals, offsetting the lower home average of the hosts.",
-      "ai_form_summary": "Cercle Brugge KSV : V-V-D-D-D (2W-0D-3L), 8 buts pour, 11 buts contre. KVC Westerlo : D-D-N-V-V (2W-1D-2L), 13 buts pour, 14 buts contre.",
-      "ai_form_summary_en": "Cercle Brugge KSV: V-V-D-D-D (2W-0D-3L), 8 goals for, 11 goals against. KVC Westerlo: D-D-N-V-V (2W-1D-2L), 13 goals for, 14 goals against.",
+      "ai_market": "BTTS",
+      "ai_key_fact": "Les deux équipes affichent un taux BTTS de 0.8 lors de leurs 5 derniers matchs respectifs.",
+      "ai_analysis": "Cette confrontation de Jupiler Pro League réunit deux équipes aux profils très ouverts, illustrés par des taux BTTS de 0.8 lors de leurs 5 dernières sorties. KVC Westerlo se distingue par une attaque productive (13 buts récents) mais une défense très perméable (14 buts concédés). Cercle Brugge, malgré un classement difficile (16e), montre des statistiques cohérentes avec une forte propension aux matchs prolifiques. L'analyse empirique à 0.8 valide pleinement l'option du Both Teams To Score.",
+      "ai_analysis_en": "This Jupiler Pro League fixture brings together two open-profile teams, illustrated by 0.8 BTTS rates in their last 5 outings. KVC Westerlo stands out with a productive attack (13 recent goals) but a very porous defense (14 goals conceded). Cercle Brugge, despite a tough standing (16th), shows consistent stats with a strong tendency for high-scoring games. The 0.8 empirical analysis fully validates the Both Teams To Score option.",
+      "ai_form_summary": "Cercle Brugge KSV : 2 victoires, 3 défaites (8 buts pour, 11 contre). KVC Westerlo : 2 victoires, 1 nul, 2 défaites (13 buts pour, 14 contre).",
+      "ai_form_summary_en": "Cercle Brugge KSV: 2W, 3L (8 GF, 11 GA). KVC Westerlo: 2W, 1D, 2L (13 GF, 14 GA).",
       "ai_reasons": [
-        "Le taux empirique de l'Over 2.5 est de 0.80 pour les deux équipes sur l'échantillon analysé.",
-        "KVC Westerlo présente une moyenne de buts à l'extérieur élevée de 2.33 par match.",
-        "Les deux équipes affichent un taux d'Over 2.5 de 0.8 dans leurs 5 derniers matchs respectifs."
+        "Cercle Brugge KSV affiche un taux BTTS et Over 2.5 de 0.8 sur ses 5 derniers matchs.",
+        "KVC Westerlo présente également un taux BTTS et Over 2.5 de 0.8 avec 13 buts marqués et 14 encaissés récemment.",
+        "L'indicateur empirique BTTS du match atteint 0.8, reflétant des rencontres très ouvertes."
       ],
       "ai_risks": [
-        "Cercle Brugge KSV a une moyenne de buts à domicile plus faible (0.75), ce qui pourrait freiner le compteur global."
+        "Cercle Brugge a une moyenne de buts marqués à domicile de seulement 0.75 malgré ses récents taux de forme.",
+        "La fragilité défensive des deux formations (22 buts encaissés pour Bruges, 30 pour Westerlo en saison) peut mener à un déséquilibre."
       ],
       "ai_confidence": "high",
       "modelEngine": "gemini-stats-v1",
@@ -6422,15 +6425,15 @@
       "ai_response_status": "pick",
       "predictions": [
         {
-          "type": "Over 2.5",
+          "type": "BTTS",
           "prediction": "Oui",
           "confidence": 75,
           "proba": 0.75,
           "modelEngine": "gemini-3.5-flash-lite",
-          "over25Prob": 0.75
+          "bttsProb": 0.75
         }
       ],
-      "over25Prob": 0.75,
+      "bttsProb": 0.75,
       "prediction": "Oui",
       "proba": 0.75,
       "confidence": 75
@@ -7540,17 +7543,18 @@
       "statsOnly": true,
       "ai_abstain": true,
       "ai_market": "ABSTAIN",
-      "ai_key_fact": "Troyes records a low 20% BTTS rate in their last 5 matches, reflecting low-scoring trends.",
-      "ai_analysis": "Les données observées indiquent des taux empiriques faibles avec 40% pour le BTTS et 40% pour l'Over 2.5. Troyes affiche notamment un taux de BTTS de seulement 20% sur ses 5 derniers matchs. Malgré la fragilité défensive importante de Le Havre (15 buts encaissés sur les 5 dernières rencontres), les indicateurs manquent de clarté pour dégager une tendance fiable, justifiant une abstention.",
-      "ai_analysis_en": "Observed data indicates low empirical rates with 40% for both BTTS and Over 2.5. Troyes records a low 20% BTTS rate in their last 5 matches. Despite Le Havre's significant defensive struggles (15 goals conceded in their last 5 games), the statistical signals remain too contradictory to recommend a reliable market selection, leading to an abstention.",
-      "ai_form_summary": "Troyes (1V-1N-3D, 3 BP / 6 BC) propose des matchs fermés, tandis que Le Havre (0V-0N-5L, 5 BP / 15 BC) cumule les défaites avec une défense très perméable.",
-      "ai_form_summary_en": "Troyes (1W-1D-3L, 3 GF / 6 GA) features low-scoring matches, while Le Havre (0W-0D-5L, 5 GF / 15 GA) struggles defensively with consecutive losses.",
+      "ai_key_fact": "Le Havre reste sur une série de 5 défaites consécutives avec 15 buts encaissés.",
+      "ai_analysis": "Bien que Le Havre traverse une série noire défensive avec 15 buts encaissés sur ses 5 derniers matchs, les taux empiriques globaux restent faibles (40% pour le BTTS et l'Over 2.5). L'attaque de Troyes reste très timide (3 buts sur les 5 derniers matchs). En vertu de nos règles strictes et des faibles indicateurs conjoints, l'abstention est recommandée.",
+      "ai_analysis_en": "Although Le Havre is going through a defensive slump with 15 goals conceded in their last 5 matches, the overall empirical rates remain low (40% for both BTTS and Over 2.5). Troyes' attack is very shy (3 goals in the last 5 matches). Under strict rules and weak joint indicators, abstention is recommended.",
+      "ai_form_summary": "Troyes : 1V-1N-3D, 3 buts pour, 6 buts contre, BTTS 20%. Le Havre : 0V-0N-5D, 5 buts pour, 15 buts contre, BTTS 60%.",
+      "ai_form_summary_en": "Troyes: 1W-1D-3L, 3 goals for, 6 goals against, BTTS 20%. Le Havre: 0W-0D-5L, 5 goals for, 15 goals against, BTTS 60%.",
       "ai_reasons": [
-        "Troyes shows low empirical rates with 20% BTTS and 20% Over 2.5 in their last 5 matches.",
-        "Empirical BTTS and Over 2.5 rates are both at 40%, failing to cross the standard threshold for reliable selection."
+        "Taux empirique BTTS de seulement 40% et taux Over 2.5 de 40% pour ce match.",
+        "Faible production offensive récente de Troyes (3 buts en 5 matchs) et de Le Havre (5 buts en 5 matchs)."
       ],
       "ai_risks": [
-        "Le Havre's severe defensive struggles (15 goals conceded in last 5 matches) could lead to unpredictable high-scoring variance."
+        "Le Havre encaisse beaucoup de buts (15 sur ses 5 derniers matchs), ce qui pourrait théoriquement libérer le match.",
+        "Statistiques globales très basses en termes d'efficacité offensive qui rendent toute sélection risquée."
       ],
       "ai_confidence": "low",
       "modelEngine": "gemini-stats-v1",
@@ -10461,7 +10465,7 @@
       "xgAway": 0.75,
       "xgTotal": 2.5,
       "formBTTS": 50,
-      "analysis": "Brentford : forme D-V-N-D-N (1V 2N 2D, 6 buts marqués / 7 encaissés sur 5) · Everton : forme V-V-D-D-N (2V 1N 2D, 6 buts marqués / 7 encaissés sur 5). Classement : Brentford 8e (14 pts), Everton 6e (16 pts). Stats empiriques (forme récente) : buts moy. 2.5, BTTS 50.0%, Over 2.5 40.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2 / N: 3.55 / 2: 3.45 · Over 2.5: 1.71. Fiabilité 75.63%.",
+      "analysis": "Brentford : forme D-V-N-D-N (1V 2N 2D, 6 buts marqués / 7 encaissés sur 5) · Everton : forme V-V-D-D-N (2V 1N 2D, 6 buts marqués / 7 encaissés sur 5). Classement : Brentford 8e (14 pts), Everton 6e (16 pts). Stats empiriques (forme récente) : buts moy. 2.5, BTTS 50.0%, Over 2.5 40.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2 / N: 3.6 / 2: 3.4 · Over 2.5: 1.69. Fiabilité 75.63%.",
       "analysisData": {
         "empiricalBttsRate": 0.5,
         "empiricalOver25Rate": 0.4,
@@ -10472,10 +10476,10 @@
       "odds": {
         "provider": "DraftKings",
         "home": 2,
-        "draw": 3.55,
-        "away": 3.45,
-        "over25": 1.71,
-        "under25": 2
+        "draw": 3.6,
+        "away": 3.4,
+        "over25": 1.69,
+        "under25": 2.05
       },
       "oddsSource": "DraftKings",
       "formHome": {
@@ -10599,19 +10603,19 @@
       "statsOnly": true,
       "ai_abstain": true,
       "ai_market": "ABSTAIN",
-      "ai_key_fact": "Le taux Over 2.5 est de 40% avec un taux BTTS limité à 50%.",
-      "ai_analysis": "Bien que les deux équipes soient proches au classement (8e et 6e), les statistiques offensives et défensives ne permettent pas de dégager un signal clair. Le taux Over 2.5 est de 40% et le BTTS s'établit à 50%. De plus, la moyenne de buts d'Everton à l'extérieur est faible (0.75), ce qui incite à s'abstenir.",
-      "ai_analysis_en": "Although both teams are close in the standings (8th and 6th), offensive and defensive statistics do not provide a clear signal. The Over 2.5 rate is 40% and BTTS sits at 50%. Furthermore, Everton's away goal average is low at 0.75, leading to an abstention.",
-      "ai_form_summary": "Brentford : 1V-2D-2L (6 buts pour, 7 contre, BTTS 60%). Everton : 2V-1D-2L (6 buts pour, 7 contre, BTTS 40%).",
-      "ai_form_summary_en": "Brentford: 1W-2D-2L (6 GF, 7 GA, BTTS 60%). Everton: 2W-1D-2L (6 GF, 7 GA, BTTS 40%).",
+      "ai_key_fact": "Everton affiche une moyenne de 0.75 buts marqués à l'extérieur avec un taux Over 2.5 de 40%.",
+      "ai_analysis": "Bien que les deux équipes soient bien classées (Brentford 8e et Everton 6e), les indicateurs statistiques restent partagés. Le taux BTTS empirique s'établit exactement à 50% et le taux Over 2.5 est bas à 40%. De plus, la moyenne de buts à l'extérieur d'Everton n'est que de 0.75, ce qui ne garantit pas une rencontre ouverte. Conformément aux règles strictes, en l'absence de signal tranché, l'abstention est recommandée.",
+      "ai_analysis_en": "Although both teams are well placed in the standings (Brentford 8th and Everton 6th), the statistical indicators remain mixed. The empirical BTTS rate stands at exactly 50% and the Over 2.5 rate is low at 40%. Additionally, Everton's away goal average is only 0.75, which does not guarantee an open match. In accordance with strict rules, in the absence of a clear signal, abstention is recommended.",
+      "ai_form_summary": "Brentford : 1V-2N-2D sur les 5 derniers, 6 buts marqués, 7 encaissés. Everton : 2V-1N-2D sur les 5 derniers, 6 buts marqués, 7 encaissés.",
+      "ai_form_summary_en": "Brentford: 1W-2D-2L in last 5, 6 goals scored, 7 conceded. Everton: 2W-1D-2L in last 5, 6 goals scored, 7 conceded.",
       "ai_reasons": [
         "Taux BTTS empirique modéré à 50%.",
-        "Taux Over 2.5 faible à 40% sur l'échantillon global.",
-        "Everton affiche une moyenne de buts à l'extérieur de seulement 0.75."
+        "Taux Over 2.5 faible à 40% pour les deux équipes.",
+        "Moyenne de buts à l'extérieur d'Everton limitée à 0.75."
       ],
       "ai_risks": [
-        "Faible production offensive d'Everton (0.75 but/match).",
-        "Taux Over 2.5 sous le seuil requis pour un pari sécurisé."
+        "Faible production offensive d'Everton loin de ses bases.",
+        "Tendances de matchs fermés selon les taux d'Over 2.5."
       ],
       "ai_confidence": "low",
       "modelEngine": "gemini-stats-v1",
