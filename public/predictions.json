@@ -1,8 +1,384 @@
 {
   "date": "2026-11-09",
-  "lastUpdated": "2026-11-09T07:17:37.291Z",
+  "lastUpdated": "2026-11-09T08:17:26.655Z",
   "source": "ESPN + TheSportsDB",
   "free": [
+    {
+      "id": "bayernmu-vs-fccologn-2026-11-20",
+      "match": "Bayern Munich vs FC Cologne",
+      "home": "Bayern Munich",
+      "away": "FC Cologne",
+      "league": "Bundesliga",
+      "date": "2026-11-20",
+      "type": "BTTS",
+      "time": "19:30",
+      "matchSemantic": "bayernmu-vs-fccologn-2026-11-20",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/132.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/122.png",
+      "tier": "GOLD",
+      "reliabilityScore": 93.75,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 5,
+      "xgAway": 0.75,
+      "xgTotal": 5.75,
+      "formBTTS": 80,
+      "analysis": "Bayern Munich : forme V-N-V-V-N (3V 2N 0D, 15 buts marqués / 7 encaissés sur 5) · FC Cologne : forme D-N-N-D-V (1V 2N 2D, 4 buts marqués / 5 encaissés sur 5). Classement : Bayern Munich 1e (21 pts), FC Cologne 15e (9 pts). Stats empiriques (forme récente) : buts moy. 5.75, BTTS 80.0%, Over 2.5 70.0%. Affinage AI ensuite. Fiabilité 93.75%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.8,
+        "empiricalOver25Rate": 0.7,
+        "homeLambda": 5,
+        "awayLambda": 0.75,
+        "xgTotal": 5.75
+      },
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "V-N-V-V-N",
+        "wins": 3,
+        "draws": 2,
+        "losses": 0,
+        "goalsFor": 15,
+        "goalsAgainst": 7,
+        "bttsRate": 1,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-N-N-D-V",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 4,
+        "goalsAgainst": 5,
+        "bttsRate": 0.6,
+        "over25Rate": 0.4,
+        "cleanSheets": 1,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-07",
+          "opponent": "Mainz",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Borussia Dortmund",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "SC Freiburg",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "RB Leipzig",
+          "venue": "H",
+          "score": "6-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "FC Augsburg",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-08",
+          "opponent": "Bayer Leverkusen",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "1. FC Union Berlin",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Schalke 04",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-16",
+          "opponent": "Eintracht Frankfurt",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Borussia Mönchengladbach",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 1,
+        "points": 21,
+        "played": 9,
+        "gf": 29,
+        "ga": 9
+      },
+      "standingsAway": {
+        "rank": 15,
+        "points": 9,
+        "played": 9,
+        "gf": 10,
+        "ga": 14
+      },
+      "empiricalBttsRate": 0.8,
+      "empiricalOver25Rate": 0.7,
+      "homeLambda": 5,
+      "awayLambda": 0.75,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Le Bayern Munich affiche un taux BTTS de 100% sur ses 5 derniers matchs.",
+      "ai_analysis": "Les statistiques observées montrent une nette domination offensive du Bayern Munich combinée à une défense perméable sur leurs 5 derniers matchs (7 buts encaissés). Bien que le FC Cologne ait des statistiques plus modestes à l'extérieur, le taux empirique global de BTTS s'établit à 0.80. La dynamique actuelle penche nettement vers un match ouvert où les deux formations devraient trouver le chemin des filets.",
+      "ai_analysis_en": "The observed statistics show a clear offensive dominance from Bayern Munich combined with a permeable defense in their last 5 matches (7 goals conceded). Although FC Cologne has more modest away statistics, the overall empirical BTTS rate stands at 0.80. The current dynamic clearly leans towards an open match where both teams should find the back of the net.",
+      "ai_form_summary": "Bayern Munich : V-N-V-V-N (3W-2D-0L), 15 buts pour, 7 buts contre. FC Cologne : D-N-N-D-V (1W-2D-2L), 4 buts pour, 5 buts contre.",
+      "ai_form_summary_en": "Bayern Munich: V-N-V-V-N (3W-2D-0L), 15 goals for, 7 goals against. FC Cologne: D-N-N-D-V (1W-2D-2L), 4 goals for, 5 goals against.",
+      "ai_reasons": [
+        "Le taux empirique du BTTS est élevé à 0.80 sur l'échantillon fourni.",
+        "Le Bayern affiche un taux BTTS de 1 sur ses 5 derniers matchs avec 15 buts marqués et 7 encaissés.",
+        "Le classement montre un Bayern prolifique (29 buts en 9 matchs) mais Cologne peut profiter de largesses défensives."
+      ],
+      "ai_risks": [
+        "La moyenne de buts à l'extérieur de Cologne est faible (0.75), ce qui pourrait limiter leur apport offensif."
+      ],
+      "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 72,
+          "proba": 0.72,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.72
+        }
+      ],
+      "bttsProb": 0.72,
+      "prediction": "Oui",
+      "proba": 0.72,
+      "confidence": 72
+    },
+    {
+      "id": "cerclebr-vs-kvcweste-2026-11-20",
+      "match": "Cercle Brugge KSV vs KVC Westerlo",
+      "home": "Cercle Brugge KSV",
+      "away": "KVC Westerlo",
+      "league": "Jupiler Pro League",
+      "date": "2026-11-20",
+      "type": "Over 2.5",
+      "time": "19:45",
+      "matchSemantic": "cerclebr-vs-kvcweste-2026-11-20",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3610.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/606.png",
+      "tier": "GOLD",
+      "reliabilityScore": 91.25,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 0.75,
+      "xgAway": 2.33,
+      "xgTotal": 3.08,
+      "formBTTS": 80,
+      "analysis": "Cercle Brugge KSV : forme V-V-D-D-D (2V 0N 3D, 8 buts marqués / 11 encaissés sur 5) · KVC Westerlo : forme D-D-N-V-V (2V 1N 2D, 13 buts marqués / 14 encaissés sur 5). Classement : Cercle Brugge KSV 16e (9 pts), KVC Westerlo 9e (14 pts). Stats empiriques (forme récente) : buts moy. 3.08, BTTS 80.0%, Over 2.5 80.0%. Affinage AI ensuite. Fiabilité 91.25%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.8,
+        "empiricalOver25Rate": 0.8,
+        "homeLambda": 0.75,
+        "awayLambda": 2.33,
+        "xgTotal": 3.08
+      },
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "V-V-D-D-D",
+        "wins": 2,
+        "draws": 0,
+        "losses": 3,
+        "goalsFor": 8,
+        "goalsAgainst": 11,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-D-N-V-V",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 13,
+        "goalsAgainst": 14,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-07",
+          "opponent": "RAAL La Louvière",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Antwerp",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Union St.-Gilloise",
+          "venue": "A",
+          "score": "2-5",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Anderlecht",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Royal Charleroi SC",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-07",
+          "opponent": "Royal Charleroi SC",
+          "venue": "H",
+          "score": "1-5",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Anderlecht",
+          "venue": "A",
+          "score": "1-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Waasland-Beveren",
+          "venue": "H",
+          "score": "4-4",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Antwerp",
+          "venue": "H",
+          "score": "5-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Sint-Truidense",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 16,
+        "points": 9,
+        "played": 11,
+        "gf": 14,
+        "ga": 22
+      },
+      "standingsAway": {
+        "rank": 9,
+        "points": 14,
+        "played": 11,
+        "gf": 26,
+        "ga": 30
+      },
+      "empiricalBttsRate": 0.8,
+      "empiricalOver25Rate": 0.8,
+      "homeLambda": 0.75,
+      "awayLambda": 2.33,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_key_fact": "Les deux équipes affichent un taux Over 2.5 de 0.80 et des défenses très perméables.",
+      "ai_analysis": "Ce duel de Jupiler Pro League présente de solides indicateurs pour un match prolifique en buts. Les taux empiriques d'Over 2.5 atteignent 0.80 tant pour Cercle Brugge KSV que pour KVC Westerlo sur leurs 5 dernières rencontres. De plus, KVC Westerlo démontre une forte capacité offensive à l'extérieur avec une moyenne de 2.33 buts, compensant la moyenne plus basse des hôtes à domicile.",
+      "ai_analysis_en": "This Jupiler Pro League duel presents strong indicators for a high-scoring match. Empirical Over 2.5 rates reach 0.80 for both Cercle Brugge KSV and KVC Westerlo in their last 5 fixtures. Furthermore, KVC Westerlo demonstrates strong away attacking output with an average of 2.33 goals, offsetting the lower home average of the hosts.",
+      "ai_form_summary": "Cercle Brugge KSV : V-V-D-D-D (2W-0D-3L), 8 buts pour, 11 buts contre. KVC Westerlo : D-D-N-V-V (2W-1D-2L), 13 buts pour, 14 buts contre.",
+      "ai_form_summary_en": "Cercle Brugge KSV: V-V-D-D-D (2W-0D-3L), 8 goals for, 11 goals against. KVC Westerlo: D-D-N-V-V (2W-1D-2L), 13 goals for, 14 goals against.",
+      "ai_reasons": [
+        "Le taux empirique de l'Over 2.5 est de 0.80 pour les deux équipes sur l'échantillon analysé.",
+        "KVC Westerlo présente une moyenne de buts à l'extérieur élevée de 2.33 par match.",
+        "Les deux équipes affichent un taux d'Over 2.5 de 0.8 dans leurs 5 derniers matchs respectifs."
+      ],
+      "ai_risks": [
+        "Cercle Brugge KSV a une moyenne de buts à domicile plus faible (0.75), ce qui pourrait freiner le compteur global."
+      ],
+      "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 75,
+          "proba": 0.75,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "over25Prob": 0.75
+        }
+      ],
+      "over25Prob": 0.75,
+      "prediction": "Oui",
+      "proba": 0.75,
+      "confidence": 75
+    },
     {
       "id": "seattles-vs-realsalt-2026-11-20",
       "match": "Seattle Sounders FC vs Real Salt Lake",
@@ -1108,18 +1484,17 @@
       "statsOnly": true,
       "ai_abstain": true,
       "ai_market": "ABSTAIN",
-      "ai_key_fact": "Troyes affiche un taux de BTTS de seulement 20% sur ses cinq derniers matchs.",
-      "ai_analysis": "Bien que Le Havre traverse une série noire très défensive (15 buts encaissés sur ses 5 derniers matchs), les statistiques de Troyes incitent à la prudence avec un taux de BTTS de seulement 20% et une moyenne de buts très faible. Les critères stricts d'analyse pour un pronostic fiable ne sont pas réunis, justifiant un choix d'abstention sur cette rencontre.",
-      "ai_analysis_en": "Although Le Havre is going through a very poor defensive run (15 goals conceded in their last 5 matches), Troyes' statistics advise caution with a BTTS rate of only 20% and a very low goal average. Strict analytical criteria for a reliable prediction are not met, justifying an abstention on this fixture.",
-      "ai_form_summary": "Troyes (1W-1D-3L) manque cruellement d'efficacité offensive (3 buts en 5 matchs), tandis que Le Havre (0W-0D-5L) subit une série catastrophique avec 15 buts encaissés.",
-      "ai_form_summary_en": "Troyes (1W-1D-3L) lacks offensive efficiency (3 goals in 5 matches), while Le Havre (0W-0D-5L) endures a disastrous run with 15 goals conceded.",
+      "ai_key_fact": "Troyes records a low 20% BTTS rate in their last 5 matches, reflecting low-scoring trends.",
+      "ai_analysis": "Les données observées indiquent des taux empiriques faibles avec 40% pour le BTTS et 40% pour l'Over 2.5. Troyes affiche notamment un taux de BTTS de seulement 20% sur ses 5 derniers matchs. Malgré la fragilité défensive importante de Le Havre (15 buts encaissés sur les 5 dernières rencontres), les indicateurs manquent de clarté pour dégager une tendance fiable, justifiant une abstention.",
+      "ai_analysis_en": "Observed data indicates low empirical rates with 40% for both BTTS and Over 2.5. Troyes records a low 20% BTTS rate in their last 5 matches. Despite Le Havre's significant defensive struggles (15 goals conceded in their last 5 games), the statistical signals remain too contradictory to recommend a reliable market selection, leading to an abstention.",
+      "ai_form_summary": "Troyes (1V-1N-3D, 3 BP / 6 BC) propose des matchs fermés, tandis que Le Havre (0V-0N-5L, 5 BP / 15 BC) cumule les défaites avec une défense très perméable.",
+      "ai_form_summary_en": "Troyes (1W-1D-3L, 3 GF / 6 GA) features low-scoring matches, while Le Havre (0W-0D-5L, 5 GF / 15 GA) struggles defensively with consecutive losses.",
       "ai_reasons": [
-        "Taux empiriques faibles pour le BTTS (40%) et l'Over 2.5 (40%).",
-        "Faiblesse offensive globale de Troyes (seulement 3 buts marqués lors de ses 5 derniers matchs) et taux de BTTS individuel très bas à 20%."
+        "Troyes shows low empirical rates with 20% BTTS and 20% Over 2.5 in their last 5 matches.",
+        "Empirical BTTS and Over 2.5 rates are both at 40%, failing to cross the standard threshold for reliable selection."
       ],
       "ai_risks": [
-        "Le Havre encaisse énormément (15 buts en 5 matchs) mais l'attaque de Troyes est trop inefficace pour garantir un marché ouvert.",
-        "Risque élevé de match cadenassé ou de victoire stérile d'une seule équipe."
+        "Le Havre's severe defensive struggles (15 goals conceded in last 5 matches) could lead to unpredictable high-scoring variance."
       ],
       "ai_confidence": "low",
       "modelEngine": "gemini-stats-v1",
@@ -2469,7 +2844,7 @@
       "away": "Brest",
       "league": "Ligue 1",
       "date": "2026-11-21",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "time": "19:45",
       "matchSemantic": "strasbou-vs-brest-2026-11-21",
       "source": "empirical-form-data",
@@ -2616,20 +2991,19 @@
       "awayLambda": 1.5,
       "statsOnly": true,
       "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_key_fact": "Strasbourg cumule 80% de BTTS et 100% d'Over 2.5 malgré des difficultés de résultats.",
-      "ai_analysis": "Strasbourg et Brest se rencontrent avec des indicateurs statistiques favorables aux buts de part et d'autre. Strasbourg se distingue par un taux de 80% de matchs avec buts des deux équipes et un taux Over 2.5 atteint à 100% sur ses 5 derniers matchs. Les lacunes défensives des locaux, qui ont encaissé 22 buts en 10 matchs, combinées à un taux empirique de BTTS de 70%, orientent l'analyse vers une confrontation ouverte.",
-      "ai_analysis_en": "Strasbourg and Brest meet with statistical indicators favoring goals from both sides. Strasbourg stands out with an 80% BTTS rate and a 100% Over 2.5 rate over their last 5 matches. The defensive weaknesses of the hosts, who conceded 22 goals in 10 matches, combined with an empirical BTTS rate of 70%, point the analysis toward an open encounter.",
-      "ai_form_summary": "Strasbourg : 1W-0D-4L (8 buts pour, 12 contre, BTTS 80%). Brest : 3W-1D-1L (11 buts pour, 4 contre, BTTS 60%).",
-      "ai_form_summary_en": "Strasbourg: 1W-0D-4L (8 goals for, 12 against, BTTS 80%). Brest: 3W-1D-1L (11 goals for, 4 against, BTTS 60%).",
+      "ai_market": "OVER_25",
+      "ai_key_fact": "Strasbourg enregistre un taux Over 2.5 de 100% sur ses 5 derniers matchs malgré des difficultés défensives.",
+      "ai_analysis": "L'analyse des matchs récents de Strasbourg met en évidence une totale réussite sur le marché des plus de 2,5 buts, combinée à une défense en difficulté (22 buts encaissés en 10 matchs). Bien que Brest ait des tendances plus prudentes, le taux empirique global de 70% et les moyennes de buts plaident pour un match animé.",
+      "ai_analysis_en": "Analysis of Strasbourg's recent matches highlights a 100% success rate on the over 2.5 goals market, combined with defensive struggles (22 goals conceded in 10 matches). Although Brest shows more cautious tendencies, the overall empirical rate of 70% and goal averages support an open match.",
+      "ai_form_summary": "Strasbourg: 1V-0D-4L (8 buts pour, 12 contre). Brest: 3V-1D-1L (11 buts pour, 4 contre).",
+      "ai_form_summary_en": "Strasbourg: 1W-0D-4L (8 goals for, 12 against). Brest: 3W-1D-1L (11 goals for, 4 against).",
       "ai_reasons": [
-        "Taux BTTS empirique global de 70% pour Strasbourg vs Brest",
-        "Strasbourg enregistre un taux BTTS de 80% et un taux Over 2.5 de 100% sur ses derniers matchs",
-        "Les deux équipes affichent des statistiques défensives perméables avec 22 buts encaissés par Strasbourg et 12 par Brest"
+        "Strasbourg présente un taux Over 2.5 de 100% sur ses 5 derniers matchs.",
+        "Le taux empirique Over 2.5 global est de 70% pour cette affiche.",
+        "Strasbourg affiche une défense perméable avec 22 buts encaissés en 10 matchs de championnat."
       ],
       "ai_risks": [
-        "Strasbourg traverse une mauvaise passe avec 4 défaites lors de ses 5 derniers matchs",
-        "Brest montre des matchs plus fermés récemment avec un taux Over de 40%"
+        "Brest montre des matchs plus fermés avec un taux Over 2.5 de seulement 40% sur ses 5 dernières sorties."
       ],
       "ai_confidence": "medium",
       "modelEngine": "gemini-stats-v1",
@@ -2638,18 +3012,18 @@
       "ai_response_status": "pick",
       "predictions": [
         {
-          "type": "BTTS",
+          "type": "Over 2.5",
           "prediction": "Oui",
-          "confidence": 68,
-          "proba": 0.68,
+          "confidence": 65,
+          "proba": 0.65,
           "modelEngine": "gemini-3.5-flash-lite",
-          "bttsProb": 0.68
+          "over25Prob": 0.65
         }
       ],
-      "bttsProb": 0.68,
+      "over25Prob": 0.65,
       "prediction": "Oui",
-      "proba": 0.68,
-      "confidence": 68
+      "proba": 0.65,
+      "confidence": 65
     },
     {
       "id": "fcaugsbu-vs-mainz-2026-11-22",
@@ -3427,382 +3801,6 @@
       "confidence": 68
     },
     {
-      "id": "goaheade-vs-fortunas-2026-11-22",
-      "match": "Go Ahead Eagles vs Fortuna Sittard",
-      "home": "Go Ahead Eagles",
-      "away": "Fortuna Sittard",
-      "league": "Eredivisie",
-      "date": "2026-11-22",
-      "type": "BTTS",
-      "time": "15:45",
-      "matchSemantic": "goaheade-vs-fortunas-2026-11-22",
-      "source": "empirical-form-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3706.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/143.png",
-      "tier": "GOLD",
-      "reliabilityScore": 89.38,
-      "dataQuality": "HIGH",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "xgHome": 2.33,
-      "xgAway": 1.75,
-      "xgTotal": 4.08,
-      "formBTTS": 70,
-      "analysis": "Go Ahead Eagles : forme V-D-V-D-N (2V 1N 2D, 8 buts marqués / 13 encaissés sur 5) · Fortuna Sittard : forme N-N-V-N-N (1V 4N 0D, 7 buts marqués / 6 encaissés sur 5). Classement : Go Ahead Eagles 8e (17 pts), Fortuna Sittard 7e (20 pts). Stats empiriques (forme récente) : buts moy. 4.08, BTTS 70.0%, Over 2.5 60.0%. Affinage AI ensuite. Fiabilité 89.38%.",
-      "analysisData": {
-        "empiricalBttsRate": 0.7,
-        "empiricalOver25Rate": 0.6,
-        "homeLambda": 2.33,
-        "awayLambda": 1.75,
-        "xgTotal": 4.08
-      },
-      "odds": null,
-      "oddsSource": null,
-      "formHome": {
-        "last5String": "V-D-V-D-N",
-        "wins": 2,
-        "draws": 1,
-        "losses": 2,
-        "goalsFor": 8,
-        "goalsAgainst": 13,
-        "bttsRate": 0.6,
-        "over25Rate": 0.8,
-        "cleanSheets": 1,
-        "failedToScore": 1,
-        "count": 5
-      },
-      "formAway": {
-        "last5String": "N-N-V-N-N",
-        "wins": 1,
-        "draws": 4,
-        "losses": 0,
-        "goalsFor": 7,
-        "goalsAgainst": 6,
-        "bttsRate": 0.8,
-        "over25Rate": 0.4,
-        "cleanSheets": 1,
-        "failedToScore": 0,
-        "count": 5
-      },
-      "last5Home": [
-        {
-          "date": "2026-11-07",
-          "opponent": "Excelsior",
-          "venue": "A",
-          "score": "1-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-31",
-          "opponent": "SC Cambuur",
-          "venue": "A",
-          "score": "0-4",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-23",
-          "opponent": "Telstar",
-          "venue": "H",
-          "score": "3-2",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-18",
-          "opponent": "PEC Zwolle",
-          "venue": "A",
-          "score": "1-4",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-10",
-          "opponent": "Sparta Rotterdam",
-          "venue": "H",
-          "score": "3-3",
-          "result": "D"
-        }
-      ],
-      "last5Away": [
-        {
-          "date": "2026-11-07",
-          "opponent": "Telstar",
-          "venue": "H",
-          "score": "2-2",
-          "result": "D"
-        },
-        {
-          "date": "2026-10-31",
-          "opponent": "Feyenoord Rotterdam",
-          "venue": "A",
-          "score": "1-1",
-          "result": "D"
-        },
-        {
-          "date": "2026-10-25",
-          "opponent": "Excelsior",
-          "venue": "H",
-          "score": "1-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-18",
-          "opponent": "NEC Nijmegen",
-          "venue": "A",
-          "score": "2-2",
-          "result": "D"
-        },
-        {
-          "date": "2026-10-10",
-          "opponent": "FC Twente",
-          "venue": "H",
-          "score": "1-1",
-          "result": "D"
-        }
-      ],
-      "standingsHome": {
-        "rank": 8,
-        "points": 17,
-        "played": 12,
-        "gf": 24,
-        "ga": 27
-      },
-      "standingsAway": {
-        "rank": 7,
-        "points": 20,
-        "played": 12,
-        "gf": 20,
-        "ga": 20
-      },
-      "empiricalBttsRate": 0.7,
-      "empiricalOver25Rate": 0.6,
-      "homeLambda": 2.33,
-      "awayLambda": 1.75,
-      "statsOnly": true,
-      "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_key_fact": "Le taux BTTS empirique atteint 70% avec des dynamiques défensives poreuses des deux côtés.",
-      "ai_analysis": "L'analyse des statistiques observe un taux BTTS empirique de 70%, appuyé par la solidité relative mais la perméabilité défensive de Go Ahead Eagles (13 buts encaissés sur 5 matchs) et le taux de 80% de matchs avec buts des deux côtés pour Fortuna Sittard. Bien que Fortuna possède des tendances plus prudentes sur les Over 2.5, la configuration penche favorablement vers un score des deux équipes.",
-      "ai_analysis_en": "Statistical analysis shows an empirical BTTS rate of 70%, supported by Go Ahead Eagles' defensive vulnerability (13 goals conceded in 5 matches) and Fortuna Sittard's 80% BTTS rate in recent form. Although Fortuna sometimes records lower totals, the overall profile leans favorably towards goals at both ends.",
-      "ai_form_summary": "Go Ahead Eagles irrégulier (2V-1D-2D) mais perméable, Fortuna Sittard très accrocheur (1V-4N-0D) avec un fort taux de BTTS.",
-      "ai_form_summary_en": "Go Ahead Eagles are inconsistent (2W-1D-2L) and leaky, while Fortuna Sittard are hard to beat (1W-4D-0L) with high BTTS rates.",
-      "ai_reasons": [
-        "Taux BTTS empirique élevé à 70% pour ce match.",
-        "Go Ahead Eagles affiche un taux BTTS de 60% et encaisse beaucoup (13 buts en 5 matchs).",
-        "Fortuna Sittard présente un taux BTTS de 80% sur ses 5 derniers matchs."
-      ],
-      "ai_risks": [
-        "Fortuna Sittard montre parfois des matchs avec moins de buts (taux Over 2.5 à 40%)."
-      ],
-      "ai_confidence": "medium",
-      "modelEngine": "gemini-stats-v1",
-      "ai_source": "gemini-stats-v1",
-      "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "pick",
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 68,
-          "proba": 0.68,
-          "modelEngine": "gemini-3.5-flash-lite",
-          "bttsProb": 0.68
-        }
-      ],
-      "bttsProb": 0.68,
-      "prediction": "Oui",
-      "proba": 0.68,
-      "confidence": 68
-    },
-    {
-      "id": "chicagof-vs-charlott-2026-11-22",
-      "match": "Chicago Fire FC vs Charlotte FC",
-      "home": "Chicago Fire FC",
-      "away": "Charlotte FC",
-      "league": "MLS",
-      "date": "2026-11-22",
-      "type": "Over 2.5",
-      "time": "23:30",
-      "matchSemantic": "chicagof-vs-charlott-2026-11-22",
-      "source": "empirical-form-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/182.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21300.png",
-      "tier": "GOLD",
-      "reliabilityScore": 89.38,
-      "dataQuality": "HIGH",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "xgHome": 2.2,
-      "xgAway": 2,
-      "xgTotal": 4.2,
-      "formBTTS": 70,
-      "analysis": "Chicago Fire FC : forme D-V-N-V-D (2V 1N 2D, 12 buts marqués / 11 encaissés sur 5) · Charlotte FC : forme N-V-V-D-N (2V 2N 1D, 15 buts marqués / 8 encaissés sur 5). Classement : Chicago Fire FC 4e (55 pts), Charlotte FC 5e (54 pts). Stats empiriques (forme récente) : buts moy. 4.2, BTTS 70.0%, Over 2.5 90.0%. Affinage AI ensuite. Fiabilité 89.38%.",
-      "analysisData": {
-        "empiricalBttsRate": 0.7,
-        "empiricalOver25Rate": 0.9,
-        "homeLambda": 2.2,
-        "awayLambda": 2,
-        "xgTotal": 4.2
-      },
-      "odds": null,
-      "oddsSource": null,
-      "formHome": {
-        "last5String": "D-V-N-V-D",
-        "wins": 2,
-        "draws": 1,
-        "losses": 2,
-        "goalsFor": 12,
-        "goalsAgainst": 11,
-        "bttsRate": 0.8,
-        "over25Rate": 0.8,
-        "cleanSheets": 0,
-        "failedToScore": 1,
-        "count": 5
-      },
-      "formAway": {
-        "last5String": "N-V-V-D-N",
-        "wins": 2,
-        "draws": 2,
-        "losses": 1,
-        "goalsFor": 15,
-        "goalsAgainst": 8,
-        "bttsRate": 0.6,
-        "over25Rate": 1,
-        "cleanSheets": 2,
-        "failedToScore": 0,
-        "count": 5
-      },
-      "last5Home": [
-        {
-          "date": "2026-11-07",
-          "opponent": "Columbus Crew",
-          "venue": "H",
-          "score": "3-4",
-          "result": "L"
-        },
-        {
-          "date": "2026-11-01",
-          "opponent": "Colorado Rapids",
-          "venue": "A",
-          "score": "4-2",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-29",
-          "opponent": "Orlando City SC",
-          "venue": "H",
-          "score": "2-2",
-          "result": "D"
-        },
-        {
-          "date": "2026-10-24",
-          "opponent": "Atlanta United FC",
-          "venue": "A",
-          "score": "3-2",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-17",
-          "opponent": "New England Revolution",
-          "venue": "A",
-          "score": "0-1",
-          "result": "L"
-        }
-      ],
-      "last5Away": [
-        {
-          "date": "2026-11-07",
-          "opponent": "Inter Miami CF",
-          "venue": "A",
-          "score": "3-3",
-          "result": "D"
-        },
-        {
-          "date": "2026-10-31",
-          "opponent": "Orlando City SC",
-          "venue": "H",
-          "score": "4-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-28",
-          "opponent": "CF Montréal",
-          "venue": "H",
-          "score": "4-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-25",
-          "opponent": "Portland Timbers",
-          "venue": "A",
-          "score": "2-3",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-17",
-          "opponent": "Philadelphia Union",
-          "venue": "A",
-          "score": "2-2",
-          "result": "D"
-        }
-      ],
-      "standingsHome": {
-        "rank": 4,
-        "points": 55,
-        "played": 34,
-        "gf": 64,
-        "ga": 54
-      },
-      "standingsAway": {
-        "rank": 5,
-        "points": 54,
-        "played": 34,
-        "gf": 66,
-        "ga": 51
-      },
-      "empiricalBttsRate": 0.7,
-      "empiricalOver25Rate": 0.9,
-      "homeLambda": 2.2,
-      "awayLambda": 2,
-      "statsOnly": true,
-      "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_key_fact": "Le taux Over 2.5 empirique culmine à 90% avec des moyennes de buts respectives de 2.2 et 2.0.",
-      "ai_analysis": "Ce match de MLS présente des indicateurs offensifs très forts avec un taux Over 2.5 empirique de 90%. Charlotte FC affiche un score parfait de 100% sur ses 5 derniers matchs dans ce marché, tandis que Chicago Fire présente des moyennes de buts élevées par match (2.2). Malgré la proximité au classement, les statistiques de buts encaissés sur la saison (plus de 50 pour chaque équipe) renforcent l'option Over 2.5.",
-      "ai_analysis_en": "This MLS fixture features very strong offensive indicators with a 90% empirical Over 2.5 rate. Charlotte FC holds a 100% Over rate in their last 5 matches, while Chicago Fire maintains high per-game averages (2.2). Despite their close standings, both teams conceding over 50 goals this season strongly supports the Over 2.5 selection.",
-      "ai_form_summary": "Chicago Fire montre un profil offensif (2V-1D-2N) avec des matchs ouverts, Charlotte FC est très prolifique (2V-2N-1D).",
-      "ai_form_summary_en": "Chicago Fire shows an open profile (2W-1D-2L) with high-scoring games, and Charlotte FC is very prolific (2W-2D-1L).",
-      "ai_reasons": [
-        "Taux Over 2.5 empirique exceptionnel de 90%.",
-        "Charlotte FC affiche un taux Over 2.5 de 100% sur ses 5 derniers matchs.",
-        "Goalkeeping et défenses sous pression : Chicago Fire et Charlotte ont encaissé respectivement 54 et 51 buts sur la saison."
-      ],
-      "ai_risks": [
-        "Les deux équipes affichent des classements très proches (4e et 5e), ce qui pourrait engendrer une première mi-temps plus fermée."
-      ],
-      "ai_confidence": "high",
-      "modelEngine": "gemini-stats-v1",
-      "ai_source": "gemini-stats-v1",
-      "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "pick",
-      "predictions": [
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 75,
-          "proba": 0.75,
-          "modelEngine": "gemini-3.5-flash-lite",
-          "over25Prob": 0.75
-        }
-      ],
-      "over25Prob": 0.75,
-      "prediction": "Oui",
-      "proba": 0.75,
-      "confidence": 75
-    },
-    {
       "id": "fctwente-vs-willemii-2026-11-22",
       "match": "FC Twente vs Willem II",
       "home": "FC Twente",
@@ -4545,19 +4543,19 @@
       "statsOnly": true,
       "ai_abstain": true,
       "ai_market": "ABSTAIN",
-      "ai_key_fact": "Le taux Over 2.5 sous les 45% et l'absence de signaux tranchants incitent à l'abstention.",
-      "ai_analysis": "Bien que les deux équipes affichent des classements honorables en Premier League, les données statistiques ne permettent pas de dégager un pari à forte valeur. Le taux Over 2.5 est de seulement 40% sur l'échantillon, et la moyenne de buts d'Everton à l'extérieur plafonne à 0.75. Le taux BTTS empirique s'établit à 50%, ce qui reste insuffisant pour garantir une option claire. Par conséquent, il est préférable de s'abstenir conformément aux règles prudentes du modèle.",
-      "ai_analysis_en": "Although both teams hold respectable positions in the Premier League, the statistical data does not provide a high-value betting opportunity. The Over 2.5 rate sits at only 40% on the sample, and Everton's away goal average is capped at 0.75. The empirical BTTS rate is 50%, which remains insufficient to guarantee a clear option. Therefore, it is wiser to abstain in accordance with conservative model rules.",
-      "ai_form_summary": "Brentford : 1V-2N-2D (6 buts pour, 7 contre). Everton : 2V-1N-2D (6 buts pour, 7 contre).",
-      "ai_form_summary_en": "Brentford: 1W-2D-2L (6 goals for, 7 against). Everton: 2W-1D-2L (6 goals for, 7 against).",
+      "ai_key_fact": "Le taux Over 2.5 est de 40% avec un taux BTTS limité à 50%.",
+      "ai_analysis": "Bien que les deux équipes soient proches au classement (8e et 6e), les statistiques offensives et défensives ne permettent pas de dégager un signal clair. Le taux Over 2.5 est de 40% et le BTTS s'établit à 50%. De plus, la moyenne de buts d'Everton à l'extérieur est faible (0.75), ce qui incite à s'abstenir.",
+      "ai_analysis_en": "Although both teams are close in the standings (8th and 6th), offensive and defensive statistics do not provide a clear signal. The Over 2.5 rate is 40% and BTTS sits at 50%. Furthermore, Everton's away goal average is low at 0.75, leading to an abstention.",
+      "ai_form_summary": "Brentford : 1V-2D-2L (6 buts pour, 7 contre, BTTS 60%). Everton : 2V-1D-2L (6 buts pour, 7 contre, BTTS 40%).",
+      "ai_form_summary_en": "Brentford: 1W-2D-2L (6 GF, 7 GA, BTTS 60%). Everton: 2W-1D-2L (6 GF, 7 GA, BTTS 40%).",
       "ai_reasons": [
-        "Taux BTTS empirique modéré à 50% et taux Over 2.5 faible à 40%",
-        "Everton affiche une moyenne de buts à l'extérieur limitée à 0.75",
-        "Les deux formations montrent des profils récents orientés vers des scores serrés"
+        "Taux BTTS empirique modéré à 50%.",
+        "Taux Over 2.5 faible à 40% sur l'échantillon global.",
+        "Everton affiche une moyenne de buts à l'extérieur de seulement 0.75."
       ],
       "ai_risks": [
-        "Brentford et Everton possèdent des classements proches (8e et 6e) pouvant induire un match prudent",
-        "Faible proportion de matchs spectaculaires récents"
+        "Faible production offensive d'Everton (0.75 but/match).",
+        "Taux Over 2.5 sous le seuil requis pour un pari sécurisé."
       ],
       "ai_confidence": "low",
       "modelEngine": "gemini-stats-v1",
@@ -4760,7 +4758,7 @@
       "away": "LAFC",
       "league": "MLS",
       "date": "2026-11-24",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "time": "01:00",
       "matchSemantic": "stlouisc-vs-lafc-2026-11-24",
       "source": "empirical-form-data",
@@ -4907,19 +4905,19 @@
       "awayLambda": 1,
       "statsOnly": true,
       "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_key_fact": "LAFC enregistre un taux de BTTS de 100% sur ses 5 derniers matchs.",
-      "ai_analysis": "Les matchs récents de LAFC intègrent systématiquement des buts des deux côtés, soutenus par un taux BTTS de 100 % sur ses 5 dernières sorties. Bien que St. Louis affiche des chiffres BTTS récents plus bas, le taux empirique global de 70 % et les fortes tendances sur l'Over 2.5 justifient une sélection sur les deux équipes marquent.",
-      "ai_analysis_en": "LAFC's recent matches consistently feature goals at both ends, backed by a 100% BTTS rate in their last 5 outings. Although St. Louis has lower recent BTTS numbers, the global empirical rate of 70% and strong Over 2.5 trends support a selection on both teams scoring.",
-      "ai_form_summary": "St. Louis (1V-0N-4D) est en difficulté défensive, et LAFC (1V-2N-2L) présente des matchs ouverts avec 8 buts marqués et 9 encaissés.",
-      "ai_form_summary_en": "St. Louis (1W-0D-4L) struggles defensively, and LAFC (1W-2D-2L) features open matches with 8 goals scored and 9 conceded.",
+      "ai_market": "OVER_25",
+      "ai_key_fact": "Le taux empirique d'Over 2.5 s'élève à 70% pour ce match de MLS.",
+      "ai_analysis": "L'analyse des matchs récents met en évidence un taux d'Over 2.5 de 70% au global, poussé par les performances de LAFC. Malgré les difficultés de St. Louis, les statistiques de buts encaissés laissent présager une rencontre avec au moins trois réalisations.",
+      "ai_analysis_en": "Recent match analysis highlights an overall Over 2.5 rate of 70%, driven by LAFC's performances. Despite St. Louis's struggles, conceded goals statistics suggest a match with at least three goals.",
+      "ai_form_summary": "St. Louis (1W-0D-4L) est en difficulté avec 10 buts encaissés, et LAFC (1W-2D-2L) présente un profil offensif intéressant.",
+      "ai_form_summary_en": "St. Louis (1W-0D-4L) is struggling with 10 goals conceded, while LAFC (1W-2D-2L) shows an interesting offensive profile.",
       "ai_reasons": [
-        "Taux BTTS empirique solide à 70% pour ce match.",
-        "LAFC affiche un taux BTTS de 100% sur ses 5 derniers matchs.",
-        "Taux Over 2.5 de 70% et 80% pour les deux équipes sur les 5 derniers matchs."
+        "Taux Over 2.5 empirique solide établi à 70% pour les deux équipes.",
+        "LAFC affiche un taux de 80% d'Over 2.5 sur ses 5 derniers matchs.",
+        "St. Louis concède 10 buts sur ses 5 derniers matchs, favorisant les scénarios ouverts."
       ],
       "ai_risks": [
-        "St. Louis CITY SC n'affiche qu'un taux BTTS de 40% sur ses 5 derniers matchs."
+        "St. Louis CITY SC traverse une mauvaise passe avec 4 défaites sur ses 5 derniers matchs et une attaque plus discrète."
       ],
       "ai_confidence": "medium",
       "modelEngine": "gemini-stats-v1",
@@ -4928,15 +4926,15 @@
       "ai_response_status": "pick",
       "predictions": [
         {
-          "type": "BTTS",
+          "type": "Over 2.5",
           "prediction": "Oui",
           "confidence": 68,
           "proba": 0.68,
           "modelEngine": "gemini-3.5-flash-lite",
-          "bttsProb": 0.68
+          "over25Prob": 0.68
         }
       ],
-      "bttsProb": 0.68,
+      "over25Prob": 0.68,
       "prediction": "Oui",
       "proba": 0.68,
       "confidence": 68
@@ -6062,6 +6060,382 @@
   },
   "predictions": [
     {
+      "id": "bayernmu-vs-fccologn-2026-11-20",
+      "match": "Bayern Munich vs FC Cologne",
+      "home": "Bayern Munich",
+      "away": "FC Cologne",
+      "league": "Bundesliga",
+      "date": "2026-11-20",
+      "type": "BTTS",
+      "time": "19:30",
+      "matchSemantic": "bayernmu-vs-fccologn-2026-11-20",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/132.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/122.png",
+      "tier": "GOLD",
+      "reliabilityScore": 93.75,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 5,
+      "xgAway": 0.75,
+      "xgTotal": 5.75,
+      "formBTTS": 80,
+      "analysis": "Bayern Munich : forme V-N-V-V-N (3V 2N 0D, 15 buts marqués / 7 encaissés sur 5) · FC Cologne : forme D-N-N-D-V (1V 2N 2D, 4 buts marqués / 5 encaissés sur 5). Classement : Bayern Munich 1e (21 pts), FC Cologne 15e (9 pts). Stats empiriques (forme récente) : buts moy. 5.75, BTTS 80.0%, Over 2.5 70.0%. Affinage AI ensuite. Fiabilité 93.75%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.8,
+        "empiricalOver25Rate": 0.7,
+        "homeLambda": 5,
+        "awayLambda": 0.75,
+        "xgTotal": 5.75
+      },
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "V-N-V-V-N",
+        "wins": 3,
+        "draws": 2,
+        "losses": 0,
+        "goalsFor": 15,
+        "goalsAgainst": 7,
+        "bttsRate": 1,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-N-N-D-V",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 4,
+        "goalsAgainst": 5,
+        "bttsRate": 0.6,
+        "over25Rate": 0.4,
+        "cleanSheets": 1,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-07",
+          "opponent": "Mainz",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Borussia Dortmund",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "SC Freiburg",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "RB Leipzig",
+          "venue": "H",
+          "score": "6-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "FC Augsburg",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-08",
+          "opponent": "Bayer Leverkusen",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "1. FC Union Berlin",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Schalke 04",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-16",
+          "opponent": "Eintracht Frankfurt",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Borussia Mönchengladbach",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 1,
+        "points": 21,
+        "played": 9,
+        "gf": 29,
+        "ga": 9
+      },
+      "standingsAway": {
+        "rank": 15,
+        "points": 9,
+        "played": 9,
+        "gf": 10,
+        "ga": 14
+      },
+      "empiricalBttsRate": 0.8,
+      "empiricalOver25Rate": 0.7,
+      "homeLambda": 5,
+      "awayLambda": 0.75,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Le Bayern Munich affiche un taux BTTS de 100% sur ses 5 derniers matchs.",
+      "ai_analysis": "Les statistiques observées montrent une nette domination offensive du Bayern Munich combinée à une défense perméable sur leurs 5 derniers matchs (7 buts encaissés). Bien que le FC Cologne ait des statistiques plus modestes à l'extérieur, le taux empirique global de BTTS s'établit à 0.80. La dynamique actuelle penche nettement vers un match ouvert où les deux formations devraient trouver le chemin des filets.",
+      "ai_analysis_en": "The observed statistics show a clear offensive dominance from Bayern Munich combined with a permeable defense in their last 5 matches (7 goals conceded). Although FC Cologne has more modest away statistics, the overall empirical BTTS rate stands at 0.80. The current dynamic clearly leans towards an open match where both teams should find the back of the net.",
+      "ai_form_summary": "Bayern Munich : V-N-V-V-N (3W-2D-0L), 15 buts pour, 7 buts contre. FC Cologne : D-N-N-D-V (1W-2D-2L), 4 buts pour, 5 buts contre.",
+      "ai_form_summary_en": "Bayern Munich: V-N-V-V-N (3W-2D-0L), 15 goals for, 7 goals against. FC Cologne: D-N-N-D-V (1W-2D-2L), 4 goals for, 5 goals against.",
+      "ai_reasons": [
+        "Le taux empirique du BTTS est élevé à 0.80 sur l'échantillon fourni.",
+        "Le Bayern affiche un taux BTTS de 1 sur ses 5 derniers matchs avec 15 buts marqués et 7 encaissés.",
+        "Le classement montre un Bayern prolifique (29 buts en 9 matchs) mais Cologne peut profiter de largesses défensives."
+      ],
+      "ai_risks": [
+        "La moyenne de buts à l'extérieur de Cologne est faible (0.75), ce qui pourrait limiter leur apport offensif."
+      ],
+      "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 72,
+          "proba": 0.72,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.72
+        }
+      ],
+      "bttsProb": 0.72,
+      "prediction": "Oui",
+      "proba": 0.72,
+      "confidence": 72
+    },
+    {
+      "id": "cerclebr-vs-kvcweste-2026-11-20",
+      "match": "Cercle Brugge KSV vs KVC Westerlo",
+      "home": "Cercle Brugge KSV",
+      "away": "KVC Westerlo",
+      "league": "Jupiler Pro League",
+      "date": "2026-11-20",
+      "type": "Over 2.5",
+      "time": "19:45",
+      "matchSemantic": "cerclebr-vs-kvcweste-2026-11-20",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3610.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/606.png",
+      "tier": "GOLD",
+      "reliabilityScore": 91.25,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 0.75,
+      "xgAway": 2.33,
+      "xgTotal": 3.08,
+      "formBTTS": 80,
+      "analysis": "Cercle Brugge KSV : forme V-V-D-D-D (2V 0N 3D, 8 buts marqués / 11 encaissés sur 5) · KVC Westerlo : forme D-D-N-V-V (2V 1N 2D, 13 buts marqués / 14 encaissés sur 5). Classement : Cercle Brugge KSV 16e (9 pts), KVC Westerlo 9e (14 pts). Stats empiriques (forme récente) : buts moy. 3.08, BTTS 80.0%, Over 2.5 80.0%. Affinage AI ensuite. Fiabilité 91.25%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.8,
+        "empiricalOver25Rate": 0.8,
+        "homeLambda": 0.75,
+        "awayLambda": 2.33,
+        "xgTotal": 3.08
+      },
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "V-V-D-D-D",
+        "wins": 2,
+        "draws": 0,
+        "losses": 3,
+        "goalsFor": 8,
+        "goalsAgainst": 11,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-D-N-V-V",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 13,
+        "goalsAgainst": 14,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-07",
+          "opponent": "RAAL La Louvière",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Antwerp",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Union St.-Gilloise",
+          "venue": "A",
+          "score": "2-5",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Anderlecht",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Royal Charleroi SC",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-07",
+          "opponent": "Royal Charleroi SC",
+          "venue": "H",
+          "score": "1-5",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Anderlecht",
+          "venue": "A",
+          "score": "1-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Waasland-Beveren",
+          "venue": "H",
+          "score": "4-4",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Antwerp",
+          "venue": "H",
+          "score": "5-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Sint-Truidense",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 16,
+        "points": 9,
+        "played": 11,
+        "gf": 14,
+        "ga": 22
+      },
+      "standingsAway": {
+        "rank": 9,
+        "points": 14,
+        "played": 11,
+        "gf": 26,
+        "ga": 30
+      },
+      "empiricalBttsRate": 0.8,
+      "empiricalOver25Rate": 0.8,
+      "homeLambda": 0.75,
+      "awayLambda": 2.33,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_key_fact": "Les deux équipes affichent un taux Over 2.5 de 0.80 et des défenses très perméables.",
+      "ai_analysis": "Ce duel de Jupiler Pro League présente de solides indicateurs pour un match prolifique en buts. Les taux empiriques d'Over 2.5 atteignent 0.80 tant pour Cercle Brugge KSV que pour KVC Westerlo sur leurs 5 dernières rencontres. De plus, KVC Westerlo démontre une forte capacité offensive à l'extérieur avec une moyenne de 2.33 buts, compensant la moyenne plus basse des hôtes à domicile.",
+      "ai_analysis_en": "This Jupiler Pro League duel presents strong indicators for a high-scoring match. Empirical Over 2.5 rates reach 0.80 for both Cercle Brugge KSV and KVC Westerlo in their last 5 fixtures. Furthermore, KVC Westerlo demonstrates strong away attacking output with an average of 2.33 goals, offsetting the lower home average of the hosts.",
+      "ai_form_summary": "Cercle Brugge KSV : V-V-D-D-D (2W-0D-3L), 8 buts pour, 11 buts contre. KVC Westerlo : D-D-N-V-V (2W-1D-2L), 13 buts pour, 14 buts contre.",
+      "ai_form_summary_en": "Cercle Brugge KSV: V-V-D-D-D (2W-0D-3L), 8 goals for, 11 goals against. KVC Westerlo: D-D-N-V-V (2W-1D-2L), 13 goals for, 14 goals against.",
+      "ai_reasons": [
+        "Le taux empirique de l'Over 2.5 est de 0.80 pour les deux équipes sur l'échantillon analysé.",
+        "KVC Westerlo présente une moyenne de buts à l'extérieur élevée de 2.33 par match.",
+        "Les deux équipes affichent un taux d'Over 2.5 de 0.8 dans leurs 5 derniers matchs respectifs."
+      ],
+      "ai_risks": [
+        "Cercle Brugge KSV a une moyenne de buts à domicile plus faible (0.75), ce qui pourrait freiner le compteur global."
+      ],
+      "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 75,
+          "proba": 0.75,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "over25Prob": 0.75
+        }
+      ],
+      "over25Prob": 0.75,
+      "prediction": "Oui",
+      "proba": 0.75,
+      "confidence": 75
+    },
+    {
       "id": "seattles-vs-realsalt-2026-11-20",
       "match": "Seattle Sounders FC vs Real Salt Lake",
       "home": "Seattle Sounders FC",
@@ -7166,18 +7540,17 @@
       "statsOnly": true,
       "ai_abstain": true,
       "ai_market": "ABSTAIN",
-      "ai_key_fact": "Troyes affiche un taux de BTTS de seulement 20% sur ses cinq derniers matchs.",
-      "ai_analysis": "Bien que Le Havre traverse une série noire très défensive (15 buts encaissés sur ses 5 derniers matchs), les statistiques de Troyes incitent à la prudence avec un taux de BTTS de seulement 20% et une moyenne de buts très faible. Les critères stricts d'analyse pour un pronostic fiable ne sont pas réunis, justifiant un choix d'abstention sur cette rencontre.",
-      "ai_analysis_en": "Although Le Havre is going through a very poor defensive run (15 goals conceded in their last 5 matches), Troyes' statistics advise caution with a BTTS rate of only 20% and a very low goal average. Strict analytical criteria for a reliable prediction are not met, justifying an abstention on this fixture.",
-      "ai_form_summary": "Troyes (1W-1D-3L) manque cruellement d'efficacité offensive (3 buts en 5 matchs), tandis que Le Havre (0W-0D-5L) subit une série catastrophique avec 15 buts encaissés.",
-      "ai_form_summary_en": "Troyes (1W-1D-3L) lacks offensive efficiency (3 goals in 5 matches), while Le Havre (0W-0D-5L) endures a disastrous run with 15 goals conceded.",
+      "ai_key_fact": "Troyes records a low 20% BTTS rate in their last 5 matches, reflecting low-scoring trends.",
+      "ai_analysis": "Les données observées indiquent des taux empiriques faibles avec 40% pour le BTTS et 40% pour l'Over 2.5. Troyes affiche notamment un taux de BTTS de seulement 20% sur ses 5 derniers matchs. Malgré la fragilité défensive importante de Le Havre (15 buts encaissés sur les 5 dernières rencontres), les indicateurs manquent de clarté pour dégager une tendance fiable, justifiant une abstention.",
+      "ai_analysis_en": "Observed data indicates low empirical rates with 40% for both BTTS and Over 2.5. Troyes records a low 20% BTTS rate in their last 5 matches. Despite Le Havre's significant defensive struggles (15 goals conceded in their last 5 games), the statistical signals remain too contradictory to recommend a reliable market selection, leading to an abstention.",
+      "ai_form_summary": "Troyes (1V-1N-3D, 3 BP / 6 BC) propose des matchs fermés, tandis que Le Havre (0V-0N-5L, 5 BP / 15 BC) cumule les défaites avec une défense très perméable.",
+      "ai_form_summary_en": "Troyes (1W-1D-3L, 3 GF / 6 GA) features low-scoring matches, while Le Havre (0W-0D-5L, 5 GF / 15 GA) struggles defensively with consecutive losses.",
       "ai_reasons": [
-        "Taux empiriques faibles pour le BTTS (40%) et l'Over 2.5 (40%).",
-        "Faiblesse offensive globale de Troyes (seulement 3 buts marqués lors de ses 5 derniers matchs) et taux de BTTS individuel très bas à 20%."
+        "Troyes shows low empirical rates with 20% BTTS and 20% Over 2.5 in their last 5 matches.",
+        "Empirical BTTS and Over 2.5 rates are both at 40%, failing to cross the standard threshold for reliable selection."
       ],
       "ai_risks": [
-        "Le Havre encaisse énormément (15 buts en 5 matchs) mais l'attaque de Troyes est trop inefficace pour garantir un marché ouvert.",
-        "Risque élevé de match cadenassé ou de victoire stérile d'une seule équipe."
+        "Le Havre's severe defensive struggles (15 goals conceded in last 5 matches) could lead to unpredictable high-scoring variance."
       ],
       "ai_confidence": "low",
       "modelEngine": "gemini-stats-v1",
@@ -8527,7 +8900,7 @@
       "away": "Brest",
       "league": "Ligue 1",
       "date": "2026-11-21",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "time": "19:45",
       "matchSemantic": "strasbou-vs-brest-2026-11-21",
       "source": "empirical-form-data",
@@ -8674,20 +9047,19 @@
       "awayLambda": 1.5,
       "statsOnly": true,
       "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_key_fact": "Strasbourg cumule 80% de BTTS et 100% d'Over 2.5 malgré des difficultés de résultats.",
-      "ai_analysis": "Strasbourg et Brest se rencontrent avec des indicateurs statistiques favorables aux buts de part et d'autre. Strasbourg se distingue par un taux de 80% de matchs avec buts des deux équipes et un taux Over 2.5 atteint à 100% sur ses 5 derniers matchs. Les lacunes défensives des locaux, qui ont encaissé 22 buts en 10 matchs, combinées à un taux empirique de BTTS de 70%, orientent l'analyse vers une confrontation ouverte.",
-      "ai_analysis_en": "Strasbourg and Brest meet with statistical indicators favoring goals from both sides. Strasbourg stands out with an 80% BTTS rate and a 100% Over 2.5 rate over their last 5 matches. The defensive weaknesses of the hosts, who conceded 22 goals in 10 matches, combined with an empirical BTTS rate of 70%, point the analysis toward an open encounter.",
-      "ai_form_summary": "Strasbourg : 1W-0D-4L (8 buts pour, 12 contre, BTTS 80%). Brest : 3W-1D-1L (11 buts pour, 4 contre, BTTS 60%).",
-      "ai_form_summary_en": "Strasbourg: 1W-0D-4L (8 goals for, 12 against, BTTS 80%). Brest: 3W-1D-1L (11 goals for, 4 against, BTTS 60%).",
+      "ai_market": "OVER_25",
+      "ai_key_fact": "Strasbourg enregistre un taux Over 2.5 de 100% sur ses 5 derniers matchs malgré des difficultés défensives.",
+      "ai_analysis": "L'analyse des matchs récents de Strasbourg met en évidence une totale réussite sur le marché des plus de 2,5 buts, combinée à une défense en difficulté (22 buts encaissés en 10 matchs). Bien que Brest ait des tendances plus prudentes, le taux empirique global de 70% et les moyennes de buts plaident pour un match animé.",
+      "ai_analysis_en": "Analysis of Strasbourg's recent matches highlights a 100% success rate on the over 2.5 goals market, combined with defensive struggles (22 goals conceded in 10 matches). Although Brest shows more cautious tendencies, the overall empirical rate of 70% and goal averages support an open match.",
+      "ai_form_summary": "Strasbourg: 1V-0D-4L (8 buts pour, 12 contre). Brest: 3V-1D-1L (11 buts pour, 4 contre).",
+      "ai_form_summary_en": "Strasbourg: 1W-0D-4L (8 goals for, 12 against). Brest: 3W-1D-1L (11 goals for, 4 against).",
       "ai_reasons": [
-        "Taux BTTS empirique global de 70% pour Strasbourg vs Brest",
-        "Strasbourg enregistre un taux BTTS de 80% et un taux Over 2.5 de 100% sur ses derniers matchs",
-        "Les deux équipes affichent des statistiques défensives perméables avec 22 buts encaissés par Strasbourg et 12 par Brest"
+        "Strasbourg présente un taux Over 2.5 de 100% sur ses 5 derniers matchs.",
+        "Le taux empirique Over 2.5 global est de 70% pour cette affiche.",
+        "Strasbourg affiche une défense perméable avec 22 buts encaissés en 10 matchs de championnat."
       ],
       "ai_risks": [
-        "Strasbourg traverse une mauvaise passe avec 4 défaites lors de ses 5 derniers matchs",
-        "Brest montre des matchs plus fermés récemment avec un taux Over de 40%"
+        "Brest montre des matchs plus fermés avec un taux Over 2.5 de seulement 40% sur ses 5 dernières sorties."
       ],
       "ai_confidence": "medium",
       "modelEngine": "gemini-stats-v1",
@@ -8696,18 +9068,18 @@
       "ai_response_status": "pick",
       "predictions": [
         {
-          "type": "BTTS",
+          "type": "Over 2.5",
           "prediction": "Oui",
-          "confidence": 68,
-          "proba": 0.68,
+          "confidence": 65,
+          "proba": 0.65,
           "modelEngine": "gemini-3.5-flash-lite",
-          "bttsProb": 0.68
+          "over25Prob": 0.65
         }
       ],
-      "bttsProb": 0.68,
+      "over25Prob": 0.65,
       "prediction": "Oui",
-      "proba": 0.68,
-      "confidence": 68
+      "proba": 0.65,
+      "confidence": 65
     },
     {
       "id": "fcaugsbu-vs-mainz-2026-11-22",
@@ -9485,382 +9857,6 @@
       "confidence": 68
     },
     {
-      "id": "goaheade-vs-fortunas-2026-11-22",
-      "match": "Go Ahead Eagles vs Fortuna Sittard",
-      "home": "Go Ahead Eagles",
-      "away": "Fortuna Sittard",
-      "league": "Eredivisie",
-      "date": "2026-11-22",
-      "type": "BTTS",
-      "time": "15:45",
-      "matchSemantic": "goaheade-vs-fortunas-2026-11-22",
-      "source": "empirical-form-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3706.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/143.png",
-      "tier": "GOLD",
-      "reliabilityScore": 89.38,
-      "dataQuality": "HIGH",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "xgHome": 2.33,
-      "xgAway": 1.75,
-      "xgTotal": 4.08,
-      "formBTTS": 70,
-      "analysis": "Go Ahead Eagles : forme V-D-V-D-N (2V 1N 2D, 8 buts marqués / 13 encaissés sur 5) · Fortuna Sittard : forme N-N-V-N-N (1V 4N 0D, 7 buts marqués / 6 encaissés sur 5). Classement : Go Ahead Eagles 8e (17 pts), Fortuna Sittard 7e (20 pts). Stats empiriques (forme récente) : buts moy. 4.08, BTTS 70.0%, Over 2.5 60.0%. Affinage AI ensuite. Fiabilité 89.38%.",
-      "analysisData": {
-        "empiricalBttsRate": 0.7,
-        "empiricalOver25Rate": 0.6,
-        "homeLambda": 2.33,
-        "awayLambda": 1.75,
-        "xgTotal": 4.08
-      },
-      "odds": null,
-      "oddsSource": null,
-      "formHome": {
-        "last5String": "V-D-V-D-N",
-        "wins": 2,
-        "draws": 1,
-        "losses": 2,
-        "goalsFor": 8,
-        "goalsAgainst": 13,
-        "bttsRate": 0.6,
-        "over25Rate": 0.8,
-        "cleanSheets": 1,
-        "failedToScore": 1,
-        "count": 5
-      },
-      "formAway": {
-        "last5String": "N-N-V-N-N",
-        "wins": 1,
-        "draws": 4,
-        "losses": 0,
-        "goalsFor": 7,
-        "goalsAgainst": 6,
-        "bttsRate": 0.8,
-        "over25Rate": 0.4,
-        "cleanSheets": 1,
-        "failedToScore": 0,
-        "count": 5
-      },
-      "last5Home": [
-        {
-          "date": "2026-11-07",
-          "opponent": "Excelsior",
-          "venue": "A",
-          "score": "1-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-31",
-          "opponent": "SC Cambuur",
-          "venue": "A",
-          "score": "0-4",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-23",
-          "opponent": "Telstar",
-          "venue": "H",
-          "score": "3-2",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-18",
-          "opponent": "PEC Zwolle",
-          "venue": "A",
-          "score": "1-4",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-10",
-          "opponent": "Sparta Rotterdam",
-          "venue": "H",
-          "score": "3-3",
-          "result": "D"
-        }
-      ],
-      "last5Away": [
-        {
-          "date": "2026-11-07",
-          "opponent": "Telstar",
-          "venue": "H",
-          "score": "2-2",
-          "result": "D"
-        },
-        {
-          "date": "2026-10-31",
-          "opponent": "Feyenoord Rotterdam",
-          "venue": "A",
-          "score": "1-1",
-          "result": "D"
-        },
-        {
-          "date": "2026-10-25",
-          "opponent": "Excelsior",
-          "venue": "H",
-          "score": "1-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-18",
-          "opponent": "NEC Nijmegen",
-          "venue": "A",
-          "score": "2-2",
-          "result": "D"
-        },
-        {
-          "date": "2026-10-10",
-          "opponent": "FC Twente",
-          "venue": "H",
-          "score": "1-1",
-          "result": "D"
-        }
-      ],
-      "standingsHome": {
-        "rank": 8,
-        "points": 17,
-        "played": 12,
-        "gf": 24,
-        "ga": 27
-      },
-      "standingsAway": {
-        "rank": 7,
-        "points": 20,
-        "played": 12,
-        "gf": 20,
-        "ga": 20
-      },
-      "empiricalBttsRate": 0.7,
-      "empiricalOver25Rate": 0.6,
-      "homeLambda": 2.33,
-      "awayLambda": 1.75,
-      "statsOnly": true,
-      "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_key_fact": "Le taux BTTS empirique atteint 70% avec des dynamiques défensives poreuses des deux côtés.",
-      "ai_analysis": "L'analyse des statistiques observe un taux BTTS empirique de 70%, appuyé par la solidité relative mais la perméabilité défensive de Go Ahead Eagles (13 buts encaissés sur 5 matchs) et le taux de 80% de matchs avec buts des deux côtés pour Fortuna Sittard. Bien que Fortuna possède des tendances plus prudentes sur les Over 2.5, la configuration penche favorablement vers un score des deux équipes.",
-      "ai_analysis_en": "Statistical analysis shows an empirical BTTS rate of 70%, supported by Go Ahead Eagles' defensive vulnerability (13 goals conceded in 5 matches) and Fortuna Sittard's 80% BTTS rate in recent form. Although Fortuna sometimes records lower totals, the overall profile leans favorably towards goals at both ends.",
-      "ai_form_summary": "Go Ahead Eagles irrégulier (2V-1D-2D) mais perméable, Fortuna Sittard très accrocheur (1V-4N-0D) avec un fort taux de BTTS.",
-      "ai_form_summary_en": "Go Ahead Eagles are inconsistent (2W-1D-2L) and leaky, while Fortuna Sittard are hard to beat (1W-4D-0L) with high BTTS rates.",
-      "ai_reasons": [
-        "Taux BTTS empirique élevé à 70% pour ce match.",
-        "Go Ahead Eagles affiche un taux BTTS de 60% et encaisse beaucoup (13 buts en 5 matchs).",
-        "Fortuna Sittard présente un taux BTTS de 80% sur ses 5 derniers matchs."
-      ],
-      "ai_risks": [
-        "Fortuna Sittard montre parfois des matchs avec moins de buts (taux Over 2.5 à 40%)."
-      ],
-      "ai_confidence": "medium",
-      "modelEngine": "gemini-stats-v1",
-      "ai_source": "gemini-stats-v1",
-      "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "pick",
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 68,
-          "proba": 0.68,
-          "modelEngine": "gemini-3.5-flash-lite",
-          "bttsProb": 0.68
-        }
-      ],
-      "bttsProb": 0.68,
-      "prediction": "Oui",
-      "proba": 0.68,
-      "confidence": 68
-    },
-    {
-      "id": "chicagof-vs-charlott-2026-11-22",
-      "match": "Chicago Fire FC vs Charlotte FC",
-      "home": "Chicago Fire FC",
-      "away": "Charlotte FC",
-      "league": "MLS",
-      "date": "2026-11-22",
-      "type": "Over 2.5",
-      "time": "23:30",
-      "matchSemantic": "chicagof-vs-charlott-2026-11-22",
-      "source": "empirical-form-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/182.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21300.png",
-      "tier": "GOLD",
-      "reliabilityScore": 89.38,
-      "dataQuality": "HIGH",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "xgHome": 2.2,
-      "xgAway": 2,
-      "xgTotal": 4.2,
-      "formBTTS": 70,
-      "analysis": "Chicago Fire FC : forme D-V-N-V-D (2V 1N 2D, 12 buts marqués / 11 encaissés sur 5) · Charlotte FC : forme N-V-V-D-N (2V 2N 1D, 15 buts marqués / 8 encaissés sur 5). Classement : Chicago Fire FC 4e (55 pts), Charlotte FC 5e (54 pts). Stats empiriques (forme récente) : buts moy. 4.2, BTTS 70.0%, Over 2.5 90.0%. Affinage AI ensuite. Fiabilité 89.38%.",
-      "analysisData": {
-        "empiricalBttsRate": 0.7,
-        "empiricalOver25Rate": 0.9,
-        "homeLambda": 2.2,
-        "awayLambda": 2,
-        "xgTotal": 4.2
-      },
-      "odds": null,
-      "oddsSource": null,
-      "formHome": {
-        "last5String": "D-V-N-V-D",
-        "wins": 2,
-        "draws": 1,
-        "losses": 2,
-        "goalsFor": 12,
-        "goalsAgainst": 11,
-        "bttsRate": 0.8,
-        "over25Rate": 0.8,
-        "cleanSheets": 0,
-        "failedToScore": 1,
-        "count": 5
-      },
-      "formAway": {
-        "last5String": "N-V-V-D-N",
-        "wins": 2,
-        "draws": 2,
-        "losses": 1,
-        "goalsFor": 15,
-        "goalsAgainst": 8,
-        "bttsRate": 0.6,
-        "over25Rate": 1,
-        "cleanSheets": 2,
-        "failedToScore": 0,
-        "count": 5
-      },
-      "last5Home": [
-        {
-          "date": "2026-11-07",
-          "opponent": "Columbus Crew",
-          "venue": "H",
-          "score": "3-4",
-          "result": "L"
-        },
-        {
-          "date": "2026-11-01",
-          "opponent": "Colorado Rapids",
-          "venue": "A",
-          "score": "4-2",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-29",
-          "opponent": "Orlando City SC",
-          "venue": "H",
-          "score": "2-2",
-          "result": "D"
-        },
-        {
-          "date": "2026-10-24",
-          "opponent": "Atlanta United FC",
-          "venue": "A",
-          "score": "3-2",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-17",
-          "opponent": "New England Revolution",
-          "venue": "A",
-          "score": "0-1",
-          "result": "L"
-        }
-      ],
-      "last5Away": [
-        {
-          "date": "2026-11-07",
-          "opponent": "Inter Miami CF",
-          "venue": "A",
-          "score": "3-3",
-          "result": "D"
-        },
-        {
-          "date": "2026-10-31",
-          "opponent": "Orlando City SC",
-          "venue": "H",
-          "score": "4-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-28",
-          "opponent": "CF Montréal",
-          "venue": "H",
-          "score": "4-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-25",
-          "opponent": "Portland Timbers",
-          "venue": "A",
-          "score": "2-3",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-17",
-          "opponent": "Philadelphia Union",
-          "venue": "A",
-          "score": "2-2",
-          "result": "D"
-        }
-      ],
-      "standingsHome": {
-        "rank": 4,
-        "points": 55,
-        "played": 34,
-        "gf": 64,
-        "ga": 54
-      },
-      "standingsAway": {
-        "rank": 5,
-        "points": 54,
-        "played": 34,
-        "gf": 66,
-        "ga": 51
-      },
-      "empiricalBttsRate": 0.7,
-      "empiricalOver25Rate": 0.9,
-      "homeLambda": 2.2,
-      "awayLambda": 2,
-      "statsOnly": true,
-      "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_key_fact": "Le taux Over 2.5 empirique culmine à 90% avec des moyennes de buts respectives de 2.2 et 2.0.",
-      "ai_analysis": "Ce match de MLS présente des indicateurs offensifs très forts avec un taux Over 2.5 empirique de 90%. Charlotte FC affiche un score parfait de 100% sur ses 5 derniers matchs dans ce marché, tandis que Chicago Fire présente des moyennes de buts élevées par match (2.2). Malgré la proximité au classement, les statistiques de buts encaissés sur la saison (plus de 50 pour chaque équipe) renforcent l'option Over 2.5.",
-      "ai_analysis_en": "This MLS fixture features very strong offensive indicators with a 90% empirical Over 2.5 rate. Charlotte FC holds a 100% Over rate in their last 5 matches, while Chicago Fire maintains high per-game averages (2.2). Despite their close standings, both teams conceding over 50 goals this season strongly supports the Over 2.5 selection.",
-      "ai_form_summary": "Chicago Fire montre un profil offensif (2V-1D-2N) avec des matchs ouverts, Charlotte FC est très prolifique (2V-2N-1D).",
-      "ai_form_summary_en": "Chicago Fire shows an open profile (2W-1D-2L) with high-scoring games, and Charlotte FC is very prolific (2W-2D-1L).",
-      "ai_reasons": [
-        "Taux Over 2.5 empirique exceptionnel de 90%.",
-        "Charlotte FC affiche un taux Over 2.5 de 100% sur ses 5 derniers matchs.",
-        "Goalkeeping et défenses sous pression : Chicago Fire et Charlotte ont encaissé respectivement 54 et 51 buts sur la saison."
-      ],
-      "ai_risks": [
-        "Les deux équipes affichent des classements très proches (4e et 5e), ce qui pourrait engendrer une première mi-temps plus fermée."
-      ],
-      "ai_confidence": "high",
-      "modelEngine": "gemini-stats-v1",
-      "ai_source": "gemini-stats-v1",
-      "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "pick",
-      "predictions": [
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 75,
-          "proba": 0.75,
-          "modelEngine": "gemini-3.5-flash-lite",
-          "over25Prob": 0.75
-        }
-      ],
-      "over25Prob": 0.75,
-      "prediction": "Oui",
-      "proba": 0.75,
-      "confidence": 75
-    },
-    {
       "id": "fctwente-vs-willemii-2026-11-22",
       "match": "FC Twente vs Willem II",
       "home": "FC Twente",
@@ -10603,19 +10599,19 @@
       "statsOnly": true,
       "ai_abstain": true,
       "ai_market": "ABSTAIN",
-      "ai_key_fact": "Le taux Over 2.5 sous les 45% et l'absence de signaux tranchants incitent à l'abstention.",
-      "ai_analysis": "Bien que les deux équipes affichent des classements honorables en Premier League, les données statistiques ne permettent pas de dégager un pari à forte valeur. Le taux Over 2.5 est de seulement 40% sur l'échantillon, et la moyenne de buts d'Everton à l'extérieur plafonne à 0.75. Le taux BTTS empirique s'établit à 50%, ce qui reste insuffisant pour garantir une option claire. Par conséquent, il est préférable de s'abstenir conformément aux règles prudentes du modèle.",
-      "ai_analysis_en": "Although both teams hold respectable positions in the Premier League, the statistical data does not provide a high-value betting opportunity. The Over 2.5 rate sits at only 40% on the sample, and Everton's away goal average is capped at 0.75. The empirical BTTS rate is 50%, which remains insufficient to guarantee a clear option. Therefore, it is wiser to abstain in accordance with conservative model rules.",
-      "ai_form_summary": "Brentford : 1V-2N-2D (6 buts pour, 7 contre). Everton : 2V-1N-2D (6 buts pour, 7 contre).",
-      "ai_form_summary_en": "Brentford: 1W-2D-2L (6 goals for, 7 against). Everton: 2W-1D-2L (6 goals for, 7 against).",
+      "ai_key_fact": "Le taux Over 2.5 est de 40% avec un taux BTTS limité à 50%.",
+      "ai_analysis": "Bien que les deux équipes soient proches au classement (8e et 6e), les statistiques offensives et défensives ne permettent pas de dégager un signal clair. Le taux Over 2.5 est de 40% et le BTTS s'établit à 50%. De plus, la moyenne de buts d'Everton à l'extérieur est faible (0.75), ce qui incite à s'abstenir.",
+      "ai_analysis_en": "Although both teams are close in the standings (8th and 6th), offensive and defensive statistics do not provide a clear signal. The Over 2.5 rate is 40% and BTTS sits at 50%. Furthermore, Everton's away goal average is low at 0.75, leading to an abstention.",
+      "ai_form_summary": "Brentford : 1V-2D-2L (6 buts pour, 7 contre, BTTS 60%). Everton : 2V-1D-2L (6 buts pour, 7 contre, BTTS 40%).",
+      "ai_form_summary_en": "Brentford: 1W-2D-2L (6 GF, 7 GA, BTTS 60%). Everton: 2W-1D-2L (6 GF, 7 GA, BTTS 40%).",
       "ai_reasons": [
-        "Taux BTTS empirique modéré à 50% et taux Over 2.5 faible à 40%",
-        "Everton affiche une moyenne de buts à l'extérieur limitée à 0.75",
-        "Les deux formations montrent des profils récents orientés vers des scores serrés"
+        "Taux BTTS empirique modéré à 50%.",
+        "Taux Over 2.5 faible à 40% sur l'échantillon global.",
+        "Everton affiche une moyenne de buts à l'extérieur de seulement 0.75."
       ],
       "ai_risks": [
-        "Brentford et Everton possèdent des classements proches (8e et 6e) pouvant induire un match prudent",
-        "Faible proportion de matchs spectaculaires récents"
+        "Faible production offensive d'Everton (0.75 but/match).",
+        "Taux Over 2.5 sous le seuil requis pour un pari sécurisé."
       ],
       "ai_confidence": "low",
       "modelEngine": "gemini-stats-v1",
@@ -10818,7 +10814,7 @@
       "away": "LAFC",
       "league": "MLS",
       "date": "2026-11-24",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "time": "01:00",
       "matchSemantic": "stlouisc-vs-lafc-2026-11-24",
       "source": "empirical-form-data",
@@ -10965,19 +10961,19 @@
       "awayLambda": 1,
       "statsOnly": true,
       "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_key_fact": "LAFC enregistre un taux de BTTS de 100% sur ses 5 derniers matchs.",
-      "ai_analysis": "Les matchs récents de LAFC intègrent systématiquement des buts des deux côtés, soutenus par un taux BTTS de 100 % sur ses 5 dernières sorties. Bien que St. Louis affiche des chiffres BTTS récents plus bas, le taux empirique global de 70 % et les fortes tendances sur l'Over 2.5 justifient une sélection sur les deux équipes marquent.",
-      "ai_analysis_en": "LAFC's recent matches consistently feature goals at both ends, backed by a 100% BTTS rate in their last 5 outings. Although St. Louis has lower recent BTTS numbers, the global empirical rate of 70% and strong Over 2.5 trends support a selection on both teams scoring.",
-      "ai_form_summary": "St. Louis (1V-0N-4D) est en difficulté défensive, et LAFC (1V-2N-2L) présente des matchs ouverts avec 8 buts marqués et 9 encaissés.",
-      "ai_form_summary_en": "St. Louis (1W-0D-4L) struggles defensively, and LAFC (1W-2D-2L) features open matches with 8 goals scored and 9 conceded.",
+      "ai_market": "OVER_25",
+      "ai_key_fact": "Le taux empirique d'Over 2.5 s'élève à 70% pour ce match de MLS.",
+      "ai_analysis": "L'analyse des matchs récents met en évidence un taux d'Over 2.5 de 70% au global, poussé par les performances de LAFC. Malgré les difficultés de St. Louis, les statistiques de buts encaissés laissent présager une rencontre avec au moins trois réalisations.",
+      "ai_analysis_en": "Recent match analysis highlights an overall Over 2.5 rate of 70%, driven by LAFC's performances. Despite St. Louis's struggles, conceded goals statistics suggest a match with at least three goals.",
+      "ai_form_summary": "St. Louis (1W-0D-4L) est en difficulté avec 10 buts encaissés, et LAFC (1W-2D-2L) présente un profil offensif intéressant.",
+      "ai_form_summary_en": "St. Louis (1W-0D-4L) is struggling with 10 goals conceded, while LAFC (1W-2D-2L) shows an interesting offensive profile.",
       "ai_reasons": [
-        "Taux BTTS empirique solide à 70% pour ce match.",
-        "LAFC affiche un taux BTTS de 100% sur ses 5 derniers matchs.",
-        "Taux Over 2.5 de 70% et 80% pour les deux équipes sur les 5 derniers matchs."
+        "Taux Over 2.5 empirique solide établi à 70% pour les deux équipes.",
+        "LAFC affiche un taux de 80% d'Over 2.5 sur ses 5 derniers matchs.",
+        "St. Louis concède 10 buts sur ses 5 derniers matchs, favorisant les scénarios ouverts."
       ],
       "ai_risks": [
-        "St. Louis CITY SC n'affiche qu'un taux BTTS de 40% sur ses 5 derniers matchs."
+        "St. Louis CITY SC traverse une mauvaise passe avec 4 défaites sur ses 5 derniers matchs et une attaque plus discrète."
       ],
       "ai_confidence": "medium",
       "modelEngine": "gemini-stats-v1",
@@ -10986,15 +10982,15 @@
       "ai_response_status": "pick",
       "predictions": [
         {
-          "type": "BTTS",
+          "type": "Over 2.5",
           "prediction": "Oui",
           "confidence": 68,
           "proba": 0.68,
           "modelEngine": "gemini-3.5-flash-lite",
-          "bttsProb": 0.68
+          "over25Prob": 0.68
         }
       ],
-      "bttsProb": 0.68,
+      "over25Prob": 0.68,
       "prediction": "Oui",
       "proba": 0.68,
       "confidence": 68
