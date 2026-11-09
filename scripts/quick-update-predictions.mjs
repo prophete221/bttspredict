@@ -24,15 +24,16 @@ function writeJsonAtomically(file, payload) {
   fs.renameSync(tempFile, file)
 }
 
-const FUTURE_DAYS = 7        // look ahead 7 days to ensure we always have matches
+export const FUTURE_DAYS = 7        // primary window J0–J+6
+export const FALLBACK_FUTURE_DAYS = 16 // public-only extension through J+15 when the primary window is empty
 // Régression du 22/10 : la limite unique MAX_FREE=12 remplissait tous les slots
 // free avec les seuls matchs du jour (163 acceptés les jeudis Europa/Conference
 // après l'ajout des ligues du 20-21/10) — les matchs de demain et des jours
 // suivants n'étaient JAMAIS publiés (section « À venir » vide, onglet « Demain »
-// de la homepage vide). Publication par quotas quotidiens :
+// de la homepage vide). Le plafond du jour ne doit pas priver Gemini des affiches futures.
 const MAX_FREE_TODAY = 24     // matchs du jour en accès libre (budget Gemini ≈ 6 chunks)
-const MAX_PER_DAY_UPCOMING = 8 // matchs publiés par jour à venir (J+1..J+N)
-const MAX_UPCOMING_DAYS = 5   // profondeur « À venir » affichée
+const MAX_PER_DAY_UPCOMING = 8 // limite publique existante par date
+const MAX_UPCOMING_DAYS = 5    // 40 futurs au plus = 20 lots Gemini de deux
 const DISPLAY_TZ = 'Africa/Dakar'  // Senegal timezone = UTC+0 (GMT)
 const MIN_KICKOFF_LEAD_MINUTES = 30 // safety buffer for long enrichment/verification steps
 
@@ -62,8 +63,8 @@ const ESPN_SLUGS = {
 }
 
 // ─── Helpers ───
-function getTodayISO() {
-  return new Date().toLocaleDateString('sv-SE', { timeZone: DISPLAY_TZ })
+export function getTodayISO(now = new Date()) {
+  return now.toLocaleDateString('sv-SE', { timeZone: DISPLAY_TZ })
 }
 
 function formatDateParam(d) {
@@ -73,6 +74,18 @@ function formatDateParam(d) {
   const m = String(tzDate.getMonth() + 1).padStart(2, '0')
   const day = String(tzDate.getDate()).padStart(2, '0')
   return `${y}${m}${day}`
+}
+
+export function buildDateParams(startOffset, dayCount, baseDate = new Date()) {
+  return Array.from({ length: dayCount }, (_, index) => {
+    const date = new Date(baseDate)
+    date.setUTCDate(date.getUTCDate() + startOffset + index)
+    return formatDateParam(date)
+  })
+}
+
+export function shouldExtendPublicHorizon(primaryFixtureCount, privateMode = false) {
+  return privateMode !== true && primaryFixtureCount === 0
 }
 
 // ─── Cotes réelles (bookmaker) SANS clé API — source ESPN scoreboard ───
@@ -532,28 +545,51 @@ async function quickUpdate() {
   return quickUpdateCore(false)
 }
 
+async function collectMatchesForDates(dateParams, privateMode) {
+  const leagueEntries = Object.entries(ESPN_SLUGS)
+  const collectLeague = async ([slug]) => {
+    const leagueMatches = []
+    for (const dateParam of dateParams) {
+      const matches = await fetchESPNMatches(slug, dateParam, { privateMode })
+      for (const match of matches) leagueMatches.push({ ...match, slug })
+      console.log(`[v91] ${slug}/${dateParam}: ${matches.length} matches`)
+    }
+    return leagueMatches
+  }
+
+  if (privateMode) {
+    const matches = []
+    for (const league of leagueEntries) matches.push(...await collectLeague(league))
+    return matches
+  }
+
+  // Each worker owns one league, avoiding duplicate standings requests while bounding ESPN concurrency.
+  const results = new Array(leagueEntries.length)
+  let nextLeague = 0
+  const workers = Array.from({ length: Math.min(4, leagueEntries.length) }, async () => {
+    while (true) {
+      const index = nextLeague++
+      if (index >= leagueEntries.length) return
+      results[index] = await collectLeague(leagueEntries[index])
+    }
+  })
+  await Promise.all(workers)
+  return results.flat()
+}
+
 async function quickUpdateCore(privateMode = false, reportCounts = null) {
-  const today = getTodayISO()
+  const forecastBaseDate = new Date()
+  const today = getTodayISO(forecastBaseDate)
   console.log(`[v92 Empirical-stats + Gemini] Generating predictions for ${today}`)
   console.log('[v91] Strategy: display top matches per day. Eliminate only truly unusable.')
 
-  const dateParams = []
-  for (let i = 0; i < FUTURE_DAYS; i++) {
-    const d = new Date()
-    d.setDate(d.getDate() + i)
-    dateParams.push(formatDateParam(d))
-  }
-
-  // Fetch all matches
-  const allMatches = []
-  for (const [slug, leagueName] of Object.entries(ESPN_SLUGS)) {
-    for (const dateParam of dateParams) {
-      const matches = await fetchESPNMatches(slug, dateParam, { privateMode })
-      for (const m of matches) {
-        allMatches.push({ ...m, slug })
-      }
-      console.log(`[v91] ${slug}/${dateParam}: ${matches.length} matches`)
-    }
+  const dateParams = buildDateParams(0, FUTURE_DAYS, forecastBaseDate)
+  const allMatches = await collectMatchesForDates(dateParams, privateMode)
+  if (shouldExtendPublicHorizon(allMatches.length, privateMode)) {
+    const extraDays = FALLBACK_FUTURE_DAYS - FUTURE_DAYS
+    const fallbackDateParams = buildDateParams(FUTURE_DAYS, extraDays, forecastBaseDate)
+    console.log(`[v92] No confirmed fixtures in J0–J+6; extending public ESPN collection through J+${FALLBACK_FUTURE_DAYS - 1}.`)
+    allMatches.push(...await collectMatchesForDates(fallbackDateParams, false))
   }
 
   // Deduplicate
@@ -569,7 +605,7 @@ async function quickUpdateCore(privateMode = false, reportCounts = null) {
     console.log(`[v91] Total unique matches: ${uniqueMatches.length}`)
   if (uniqueMatches.length === 0) {
     if (privateMode) { writePrivateFixtures([]); if (reportCounts) reportCounts({ collected: 0, scored: 0, written: 0 }); return }
-    throw new Error(`[v91] ESPN returned no scheduled matches for ${today}; existing predictions.json was preserved`)
+    throw new Error(`[v92] ESPN returned no scheduled matches through J+${FALLBACK_FUTURE_DAYS - 1} for ${today}; existing predictions.json was preserved`)
   }
   // ─── RELIABILITY SCORING — only eliminate truly unusable ───
 
@@ -787,10 +823,9 @@ async function quickUpdateCore(privateMode = false, reportCounts = null) {
     return b.reliabilityScore - a.reliabilityScore
   })
 
-  // ─── DISPLAY-FIRST PUBLICATION (quotas quotidiens) ───
-  // scored est trié date ASC puis fiabilité DESC → chaque journée est déjà
-  // triée par fiabilité. On publie : le jour J en grand volume, puis les
-  // meilleures affiches des jours à venir pour alimenter « À venir ».
+  // ─── PUBLIC CANDIDATES FOR GEMINI ───
+  // scored is sorted by date then data quality; future fixtures are all passed
+  // to the existing Gemini pipeline, while today's public cap stays unchanged.
   const todayMatches = scored.filter(p => p.date === today)
   const upcomingDays = new Map()
   for (const p of scored) {
@@ -811,7 +846,7 @@ async function quickUpdateCore(privateMode = false, reportCounts = null) {
   console.log(`Total analysed: ${uniqueMatches.length}`)
   console.log(`Rejected (very low proba): ${rejected}`)
   console.log(`Published: ${scored.length}`)
-  console.log(`Free published: ${free.length} (du jour: ${freeToday.length}/${MAX_FREE_TODAY}, à venir: ${freeUpcoming.length}, max ${MAX_PER_DAY_UPCOMING}/jour sur ${MAX_UPCOMING_DAYS} jours)`)
+  console.log(`Free candidates: ${free.length} (du jour: ${freeToday.length}/${MAX_FREE_TODAY}, à venir: ${freeUpcoming.length}, max ${MAX_PER_DAY_UPCOMING}/jour sur ${MAX_UPCOMING_DAYS} dates)`)
   console.log('VIP selections are not included in this public JSON export.')
 
   console.log(`\n--- REJECTED (first 10) ---`)
@@ -860,7 +895,9 @@ async function quickUpdateCore(privateMode = false, reportCounts = null) {
   console.log(`\n[v91] Done.`)
 }
 
-quickUpdate().catch(err => {
-  console.error('[v91] FATAL:', err)
-  process.exit(1)
-})
+if (import.meta.url === `file://${process.argv[1]}`) {
+  quickUpdate().catch(err => {
+    console.error('[v91] FATAL:', err)
+    process.exit(1)
+  })
+}

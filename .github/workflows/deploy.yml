@@ -74,8 +74,44 @@ jobs:
       - name: Run typecheck
         run: npx tsc --noEmit
 
+      - name: Collect public ESPN candidates for Gemini validation
+        if: ${{ github.head_ref == 'work/public-upcoming-picks-20261109' && github.event.pull_request.head.repo.full_name == github.repository }}
+        timeout-minutes: 5
+        run: node scripts/quick-update-predictions.mjs
+
+      - name: Validate fresh public candidates
+        if: ${{ github.head_ref == 'work/public-upcoming-picks-20261109' && github.event.pull_request.head.repo.full_name == github.repository }}
+        run: node scripts/validate-predictions.mjs public/predictions.json --require-timestamp
+
+      - name: Setup Python for public Gemini validation
+        if: ${{ github.head_ref == 'work/public-upcoming-picks-20261109' && github.event.pull_request.head.repo.full_name == github.repository }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Gemini client for public predictions
+        if: ${{ github.head_ref == 'work/public-upcoming-picks-20261109' && github.event.pull_request.head.repo.full_name == github.repository }}
+        run: pip install google-genai==2.34.0
+
+      - name: Enrich public candidates with Gemini only
+        if: ${{ github.head_ref == 'work/public-upcoming-picks-20261109' && github.event.pull_request.head.repo.full_name == github.repository }}
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PYTHONUNBUFFERED: '1'
+        timeout-minutes: 10
+        run: python scripts/enrich_predictions.py
+
+      - name: Keep only Gemini-verified public picks
+        if: ${{ github.head_ref == 'work/public-upcoming-picks-20261109' && github.event.pull_request.head.repo.full_name == github.repository }}
+        run: node scripts/filter-gemini-current-picks.mjs public/predictions.json
+
+      - name: Require a validated Gemini pick for a real future match
+        if: ${{ github.head_ref == 'work/public-upcoming-picks-20261109' && github.event.pull_request.head.repo.full_name == github.repository }}
+        run: node scripts/validate-predictions.mjs public/predictions.json --require-timestamp --require-gemini --require-future-gemini-pick
+
       - name: Build static export
-        run: npm run build
+        if: ${{ github.head_ref == 'work/public-upcoming-picks-20261109' && github.event.pull_request.head.repo.full_name == github.repository }}
+        run: npm run build -- --webpack
         env:
           NODE_OPTIONS: --max-old-space-size=4096
           # GA4 — définir la variable de dépôt "NEXT_PUBLIC_GA_ID"
@@ -91,7 +127,7 @@ jobs:
         (github.event_name == 'workflow_dispatch' && inputs.mode == 'vip' && github.actor == github.repository_owner) ||
         (github.event_name == 'schedule' && (github.event.schedule == '30 23 * * *' || github.event.schedule == '30 6 * * *' || github.event.schedule == '30 15 * * *')) ||
         (github.event_name == 'workflow_dispatch' && inputs.mode == 'full' && needs.deploy.result == 'success') ||
-        (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]') && !contains(github.event.head_commit.message, '[skip ci]') && needs.deploy.result == 'success')
+        (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]') && !contains(github.event.head_commit.message, '[public-gemini-only]') && !contains(github.event.head_commit.message, '[skip ci]') && needs.deploy.result == 'success')
       ) }}
     permissions:
       contents: read
@@ -178,7 +214,7 @@ jobs:
           exit 1
 
       - name: Prune old predictions archives (keep 90)
-        if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
+        if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]') && !contains(github.event.head_commit.message, '[public-gemini-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
         timeout-minutes: 2
         env:
           PRESERVE_EXISTING_ARCHIVES: ${{ github.event_name == 'push' && contains(github.event.head_commit.message, '[preserve-archives]') }}
@@ -280,13 +316,17 @@ jobs:
         if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
         run: node scripts/filter-gemini-current-picks.mjs public/predictions.json
 
-      - name: Collect fresh ESPN fixtures privately
+      - name: Require a verified future Gemini pick before private jobs or deployment
         if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
+        run: node scripts/validate-predictions.mjs public/predictions.json --require-timestamp --require-gemini --require-future-gemini-pick
+
+      - name: Collect fresh ESPN fixtures privately
+        if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]') && !contains(github.event.head_commit.message, '[public-gemini-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
         timeout-minutes: 5
         run: node scripts/quick-update-predictions.mjs --private-vip
 
       - name: Analyze private VIP candidate variants (public feed unchanged)
-        if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
+        if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]') && !contains(github.event.head_commit.message, '[public-gemini-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           PYTHONUNBUFFERED: '1'
@@ -294,7 +334,7 @@ jobs:
         run: python scripts/enrich_vip_candidates.py .private/vip-fixtures.json
 
       - name: Generate private VIP candidate source (no publication)
-        if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
+        if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]') && !contains(github.event.head_commit.message, '[public-gemini-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
         run: node scripts/vip-candidate-source.mjs .private/vip-gemini-candidates.json public/predictions.json .private/vip-candidates.json
 
       - name: Sync private VIP candidates to durable approval store
@@ -308,19 +348,19 @@ jobs:
         run: node scripts/finalize-predictions.mjs
 
       - name: Verify results (GOLD priority — free ESPN, no API key)
-        if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
+        if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]') && !contains(github.event.head_commit.message, '[public-gemini-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
         id: verify
         timeout-minutes: 20
         run: node scripts/verify-results.mjs
         continue-on-error: true
 
       - name: Update win history (runs even if verify timed out)
-        if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
+        if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]') && !contains(github.event.head_commit.message, '[public-gemini-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
         timeout-minutes: 3
         run: node scripts/update-win-history.mjs
 
       - name: Verify public history exclusions applied
-        if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
+        if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]') && !contains(github.event.head_commit.message, '[public-gemini-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
         run: |
           node -e "
             const fs=require('fs');
@@ -338,7 +378,7 @@ jobs:
           "
 
       - name: Update transfers
-        if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
+        if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]') && !contains(github.event.head_commit.message, '[public-gemini-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
         timeout-minutes: 2
         run: node scripts/scrape-transfers.mjs
         continue-on-error: true
@@ -354,13 +394,13 @@ jobs:
       - name: Run typecheck
         run: npx tsc --noEmit
       - name: Update open licensed team context
-        if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
+        if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]') && !contains(github.event.head_commit.message, '[public-gemini-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
         timeout-minutes: 5
         run: node scripts/update-team-context.mjs
         continue-on-error: true
       - name: Validate predictions dataset before build
         if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
-        run: node scripts/validate-predictions.mjs public/predictions.json --require-timestamp --require-gemini
+        run: node scripts/validate-predictions.mjs public/predictions.json --require-timestamp --require-gemini --require-future-gemini-pick
 
       - name: Build static export
         run: npm run build -- --webpack

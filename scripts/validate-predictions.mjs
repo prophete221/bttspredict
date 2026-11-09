@@ -40,6 +40,7 @@ export function validatePredictionPayload(payload, options = {}) {
   const requireTimestamp = options.requireTimestamp === true
   const checkKickoff = options.checkKickoff === true
   const requireGemini = options.requireGemini === true
+  const requireFutureGeminiPick = options.requireFutureGeminiPick === true
   const now = options.now instanceof Date ? options.now : new Date()
 
   if (!payload || typeof payload !== 'object') {
@@ -54,6 +55,12 @@ export function validatePredictionPayload(payload, options = {}) {
   const rows = rowsFromPayload(payload)
   // An empty set is valid: the feed may publish only fixtures with a proven Gemini decision.
   validatePreviewRows(payload, today, errors)
+  const futureGeminiPicks = rows.filter(row =>
+    ISO_DATE.test(row?.date || '') && row.date > today && isCurrentGeminiPick(row),
+  )
+  if (requireFutureGeminiPick && futureGeminiPicks.length === 0) {
+    errors.push('at least one verified Gemini pick after Africa/Dakar today is required')
+  }
 
   rows.forEach((prediction, index) => {
     const prefix = `prediction[${index}]`
@@ -110,6 +117,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   const errors = validatePredictionPayload(payload, {
     requireTimestamp: process.argv.includes('--require-timestamp'),
     requireGemini: process.argv.includes('--require-gemini'),
+    requireFutureGeminiPick: process.argv.includes('--require-future-gemini-pick'),
     checkKickoff: true,
   })
   if (errors.length > 0) {
@@ -117,5 +125,11 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     process.exitCode = 1
   } else {
     console.log(`Valid predictions payload: ${file}`)
+    if (process.argv.includes('--require-future-gemini-pick')) {
+      const today = new Date().toLocaleDateString('sv-SE', { timeZone: 'Africa/Dakar' })
+      const rows = rowsFromPayload(payload)
+      const pick = rows.find(row => ISO_DATE.test(row?.date || '') && row.date > today && isCurrentGeminiPick(row))
+      console.log(`[future-gemini-pick] verified future pick: ${pick.league} | ${pick.match} | ${pick.date} | ${pick.type} ${pick.prediction} (${pick.proba})`)
+    }
   }
 }

@@ -51,7 +51,7 @@ describe('deployment safety gates', () => {
     }
     expect(deploy).toContain("github.ref == 'refs/heads/main'")
     expect(deploy).toContain("github.event_name != 'pull_request'")
-    expect(deploy.split("github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')").length - 1).toBe(17)
+    expect(deploy.split("github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')").length - 1).toBe(18)
     expect(deploy).not.toContain("github.event_name == 'schedule' || github.event_name == 'push' ||")
     expect(workflow).toContain("paths-ignore:\n      - 'public/**'")
     expect(workflow).toContain('cancel-in-progress: false')
@@ -67,6 +67,32 @@ describe('deployment safety gates', () => {
     const commitDataStep = deploy.split('      - name: Commit data')[1]?.split('      - name: ')[0] ?? ''
     expect(commitDataStep).toContain("github.event_name != 'push'")
     expect(commitDataStep).toContain("inputs.mode != 'code'")
+  })
+
+  it('limits real Gemini validation to the trusted PR branch and skips VIP on public-only deploys', () => {
+    const pullRequest = workflow.split('\n  pull-request-checks:')[1]?.split('\n  vip-candidates-only:')[0] ?? ''
+    expect(pullRequest).toContain("if: github.event_name == 'pull_request'")
+    expect(pullRequest).toContain("github.head_ref == 'work/public-upcoming-picks-20261109'")
+    expect(pullRequest).toContain('github.event.pull_request.head.repo.full_name == github.repository')
+    expect(pullRequest).toContain('GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}')
+    expect(pullRequest).toContain('run: python scripts/enrich_predictions.py')
+
+    const staticBuild = pullRequest.split('name: Build static export')[1]?.split('      - name: ')[0] ?? ''
+    expect(staticBuild).toContain("github.head_ref == 'work/public-upcoming-picks-20261109'")
+    expect(staticBuild).toContain('run: npm run build -- --webpack')
+
+    const futurePickGate = deploy.indexOf('name: Require a verified future Gemini pick before private jobs or deployment')
+    const privateCollect = deploy.indexOf('name: Collect fresh ESPN fixtures privately')
+    expect(futurePickGate).toBeGreaterThan(deploy.indexOf('run: node scripts/filter-gemini-current-picks.mjs'))
+    expect(futurePickGate).toBeLessThan(privateCollect)
+    expect(deploy).toContain('--require-gemini --require-future-gemini-pick')
+
+    for (const stepName of ['Collect fresh ESPN fixtures privately', 'Analyze private VIP candidate variants', 'Generate private VIP candidate source']) {
+      const step = deploy.split(`- name: ${stepName}`)[1]?.split('- name: ')[0] ?? ''
+      expect(step).toContain("!contains(github.event.head_commit.message, '[public-gemini-only]')")
+    }
+    const vipJob = workflow.split('\n  vip-candidates-only:')[1] ?? ''
+    expect(vipJob).toContain("!contains(github.event.head_commit.message, '[public-gemini-only]')")
   })
 
   it('uses the historical plain FTP host for preflight and restoration', () => {
