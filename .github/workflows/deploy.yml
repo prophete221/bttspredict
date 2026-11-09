@@ -196,7 +196,7 @@ jobs:
 
   deploy:
     # Jamais de déploiement depuis une branche de travail ou un tag.
-    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && (github.event_name != 'workflow_dispatch' || inputs.mode != 'vip') && (github.event_name != 'schedule' || (github.event.schedule != '30 23 * * *' && github.event.schedule != '30 6 * * *' && github.event.schedule != '30 15 * * *')) && !contains(github.event.head_commit.message, '[skip ci]')
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && (github.event_name != 'workflow_dispatch' || inputs.mode != 'vip') && (github.event_name != 'schedule' || (github.event.schedule != '30 23 * * *' && github.event.schedule != '30 6 * * *' && github.event.schedule != '30 15 * * *')) && !contains(github.event.head_commit.message, '[skip ci]') && !contains(github.event.head_commit.message, '[seo-targeted-four-urls]')
     permissions:
       contents: write
       id-token: write

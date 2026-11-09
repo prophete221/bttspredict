@@ -77,21 +77,21 @@ export default function HistoriqueClient({ initialData }: { initialData: WinHist
     rateGlobal: 'Taux global', winShort: 'W', loseShort: 'L', verifiedWord: 'vérifiés', goldRateLabel: 'Taux Gold',
     wonBadge: 'Gagné', lostBadge: 'Perdu', pendingBadge: 'En attente', emptyTable: 'Aucun pronostic vérifié pour le moment.',
     emptyTableHint: (d: string) => `Les pronostics publiés à partir du ${d} seront vérifiés après le résultat officiel des matchs.`,
-    verifiedCountLabel: (n: number) => `${n} vérifiés`,
+    verifiedCountLabel: (n: number) => `${n} vérifiés`, todayLink: 'Voir les pronostics du jour →',
   } : lang === 'en' ? {
     trendTitle: '14-day trend', tableTitle: 'Verified predictions of the new tracking', methodLink: 'Model methodology →',
     thDate: 'Date', thMatch: 'Match', thMarket: 'Market', thPred: 'Prediction', thScore: 'Score', thResult: 'Result',
     rateGlobal: 'Overall rate', winShort: 'W', loseShort: 'L', verifiedWord: 'verified', goldRateLabel: 'Gold rate',
     wonBadge: 'Won', lostBadge: 'Lost', pendingBadge: 'Pending', emptyTable: 'No verified prediction yet.',
     emptyTableHint: (d: string) => `Predictions published from ${d} will be verified after the official match result.`,
-    verifiedCountLabel: (n: number) => `${n} verified`,
+    verifiedCountLabel: (n: number) => `${n} verified`, todayLink: 'View today’s predictions →',
   } : {
     trendTitle: 'اتجاه 14 يوماً', tableTitle: 'توقعات موثقة من التتبع الجديد', methodLink: 'منهجية النموذج ←',
     thDate: 'التاريخ', thMatch: 'المباراة', thMarket: 'السوق', thPred: 'التوقع', thScore: 'النتيجة', thResult: 'الحالة',
     rateGlobal: 'المعدل الإجمالي', winShort: 'ف', loseShort: 'خ', verifiedWord: 'موثق', goldRateLabel: 'معدل Gold',
     wonBadge: 'فاز', lostBadge: 'خسر', pendingBadge: 'قيد الانتظار', emptyTable: 'لا توجد توقعات موثقة بعد.',
     emptyTableHint: (d: string) => `ستتم موثقة التوقعات المنشورة من ${d} بعد النتيجة الرسمية للمباراة.`,
-    verifiedCountLabel: (n: number) => `${n} موثق`,
+    verifiedCountLabel: (n: number) => `${n} موثق`, todayLink: 'عرض توقعات اليوم ←',
   }
 
   useEffect(() => {
@@ -102,8 +102,12 @@ export default function HistoriqueClient({ initialData }: { initialData: WinHist
         return r.json()
       })
       .then(d => { setData(d); setLoading(false) })
-      .catch(e => { setError(e.message); setLoading(false) })
-  }, [initialData])
+      .catch((e) => {
+        const message = e instanceof Error ? e.message : String(e)
+        setError(lang === 'fr' ? message : lang === 'en' ? 'Unable to load the history data. Please try again.' : 'تعذر تحميل بيانات السجل. يرجى المحاولة مجدداً.')
+        setLoading(false)
+      })
+  }, [initialData, lang])
 
   if (loading) {
     return (
@@ -117,7 +121,7 @@ export default function HistoriqueClient({ initialData }: { initialData: WinHist
   if (error) {
     return (
       <div className="max-w-4xl mx-auto px-4 py-20 text-center">
-        <p className="text-sm text-[#F87171] mb-3">Erreur de récupération des données</p>
+        <p className="text-sm text-[#F87171] mb-3">{lang === 'fr' ? 'Erreur de récupération des données' : copy.error}</p>
         <p className="text-xs text-[#9DABBB]">{error}</p>
         <button onClick={() => window.location.reload()}
           className="mt-4 px-4 py-2 rounded-[10px] text-sm font-bold"
@@ -133,6 +137,18 @@ export default function HistoriqueClient({ initialData }: { initialData: WinHist
   const { trackingPeriod, stats, history } = data
   const bttsHistory = selectBttsHistory(history)
   const insufficient = trackingPeriod.insufficientVolume || stats.total < 30
+  const trackingNotice = lang === 'fr'
+    ? `Suivi public lancé le ${trackingPeriod.startDate}. Chaque pronostic est enregistré, horodaté et vérifié après le résultat officiel du match. Les performances sont publiées progressivement, sans modification rétroactive. Aucun résultat futur n'est garanti.`
+    : lang === 'en'
+      ? `Public tracking started on ${trackingPeriod.startDate}. Every prediction is recorded, time-stamped and checked against the official match result. Results are published progressively, without retroactive changes. No future result is guaranteed.`
+      : `بدأ التتبع العام في ${trackingPeriod.startDate}. يتم تسجيل كل توقع وتأريخه والتحقق منه بعد النتيجة الرسمية للمباراة. تُنشر النتائج تدريجياً دون تعديلات بأثر رجعي. لا توجد ضمانات لأي نتيجة مستقبلية.`
+  const responsibleNotice = lang === 'fr'
+    ? "18+ · Les paris sportifs comportent un risque de perte. Aucun gain n'est garanti. BTTSPredict ne prend pas de paris et ne collecte pas de fonds. Jouez de manière responsable."
+    : lang === 'en'
+      ? '18+ · Sports betting involves a risk of loss. No winnings are guaranteed. BTTSPredict does not accept bets or collect funds. Please play responsibly.'
+      : '18+ · تنطوي المراهنات الرياضية على مخاطر الخسارة. لا توجد أرباح مضمونة. لا تقبل BTTSPredict الرهانات ولا تجمع الأموال. يرجى اللعب بمسؤولية.'
+  const methodologyHref = lang === 'fr' ? '/methodologie' : `/${lang}/methodologie`
+  const predictionsHref = lang === 'fr' ? '/btts/predictions/today' : `/${lang}/btts/predictions/today`
 
   return (
     <>
@@ -161,7 +177,7 @@ export default function HistoriqueClient({ initialData }: { initialData: WinHist
               {copy.launch}
             </p>
             <p className="text-xs text-[#9DABBB] leading-relaxed">
-              Suivi public lancé le {trackingPeriod.startDate}. Chaque pronostic est enregistré, horodaté et vérifié après le résultat officiel du match. Les performances sont publiées progressivement, sans modification rétroactive. Aucun résultat futur n'est garanti.
+              {trackingNotice}
             </p>
           </div>
         )}
@@ -309,13 +325,13 @@ export default function HistoriqueClient({ initialData }: { initialData: WinHist
       {/* Liens utiles */}
       <section className="max-w-5xl mx-auto px-4 pb-16">
         <div className="flex flex-wrap items-center justify-center gap-3">
-          <Link href="/methodologie" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] text-sm font-bold transition-all"
+          <Link href={methodologyHref} className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] text-sm font-bold transition-all"
             style={{ backgroundColor: '#141C25', color: '#9DABBB', border: '1px solid #223041' }}>
             {t.methodLink}
           </Link>
-          <Link href="/btts/predictions/today" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] text-sm font-bold transition-all"
+          <Link href={predictionsHref} className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] text-sm font-bold transition-all"
             style={{ backgroundColor: '#2F7DFF', color: '#FFFFFF' }}>
-            Voir les pronostics du jour →
+            {t.todayLink}
           </Link>
         </div>
       </section>
@@ -324,7 +340,7 @@ export default function HistoriqueClient({ initialData }: { initialData: WinHist
       <section className="max-w-5xl mx-auto px-4 pb-12">
         <div className="p-4 rounded-xl text-center" style={{ backgroundColor: 'rgba(255, 122, 122, 0.06)', border: '1px solid rgba(255, 122, 122, 0.2)' }}>
           <p className="text-xs text-[#9DABBB] leading-relaxed">
-            18+ · Les paris sportifs comportent un risque de perte. Aucun gain n'est garanti. BTTSPredict ne prend pas de paris et ne collecte pas de fonds. Jouez de manière responsable.
+            {responsibleNotice}
           </p>
         </div>
       </section>

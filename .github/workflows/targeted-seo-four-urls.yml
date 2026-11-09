@@ -1,0 +1,131 @@
+name: Targeted SEO deploy — four authorized URLs
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/deploy.yml'
+      - '.github/workflows/targeted-seo-four-urls.yml'
+      - 'scripts/targeted-seo-four-urls.mjs'
+      - 'tests/targeted-seo-four-urls.test.ts'
+      - 'src/app/btts/statistics/page.tsx'
+      - 'src/app/historique/HistoriqueClient.tsx'
+      - 'src/app/politique-confidentialite/page.tsx'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: targeted-seo-four-urls-production
+  cancel-in-progress: false
+
+jobs:
+  targeted-deploy:
+    if: >-
+      github.ref == 'refs/heads/main' &&
+      contains(github.event.head_commit.message, '[seo-targeted-four-urls]') &&
+      contains(github.event.head_commit.message, '[code-only]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout exact main commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies without lifecycle hooks
+        run: npm ci --legacy-peer-deps --ignore-scripts
+        env:
+          PUPPETEER_SKIP_DOWNLOAD: 'true'
+
+      - name: Run full tests
+        run: npm test
+
+      - name: Run lint
+        run: npm run lint
+
+      - name: Run typecheck
+        run: npx tsc --noEmit
+
+      - name: Build static export without data-writing npm hooks
+        run: ./node_modules/.bin/next build --webpack
+        env:
+          NODE_OPTIONS: --max-old-space-size=4096
+          NEXT_PUBLIC_GA_ID: ${{ vars.NEXT_PUBLIC_GA_ID }}
+
+      - name: Create and validate the four-URL allowlist
+        run: node scripts/targeted-seo-four-urls.mjs plan --out-dir=out --base-url=https://bttspredict.com
+
+      - name: Install the FTP client
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y lftp
+
+      - name: Backup only the four target HTML files
+        id: backup
+        timeout-minutes: 10
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          set -euo pipefail
+          if [ -z "${FTP_SERVER:-}" ] || [ -z "${FTP_USERNAME:-}" ] || [ -z "${FTP_PASSWORD:-}" ]; then
+            echo "::error::Secrets FTP manquants — aucun transfert effectué."
+            exit 1
+          fi
+          lftp -u "$FTP_USERNAME,$FTP_PASSWORD" -e "source out/targeted-seo-backup.lftp" "ftp://${FTP_SERVER}"
+          for FILE in ar/historique.html en/historique.html btts/statistics.html politique-confidentialite.html; do
+            if [ ! -s "out/targeted-seo-backup/$FILE" ]; then
+              echo "::error::Sauvegarde absente ou vide pour $FILE — aucun transfert effectué."
+              exit 1
+            fi
+          done
+
+      - name: Upload only the four pages and missing referenced assets
+        id: upload
+        timeout-minutes: 20
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          set -euo pipefail
+          lftp -u "$FTP_USERNAME,$FTP_PASSWORD" -e "source out/targeted-seo-upload.lftp" "ftp://${FTP_SERVER}"
+
+      - name: Verify the four production URLs and every referenced asset
+        id: verify
+        timeout-minutes: 10
+        run: node scripts/targeted-seo-four-urls.mjs verify-live --out-dir=out --base-url=https://bttspredict.com
+
+      - name: Restore only the four saved HTML files if upload or verification fails
+        if: ${{ failure() && steps.backup.outcome == 'success' }}
+        timeout-minutes: 10
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          set -euo pipefail
+          lftp -u "$FTP_USERNAME,$FTP_PASSWORD" -e "source out/targeted-seo-rollback.lftp" "ftp://${FTP_SERVER}"
+
+      - name: Save the allowlist and transfer evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: targeted-seo-four-urls-${{ github.run_id }}
+          path: |
+            out/targeted-seo-transfer-plan.json
+            out/targeted-seo-upload.lftp
+            out/targeted-seo-backup.lftp
+            out/targeted-seo-rollback.lftp
+          if-no-files-found: ignore
+          retention-days: 15

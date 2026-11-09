@@ -3,70 +3,56 @@ import { Navbar, Footer, FreePredictions } from '@/components/bttsbet'
 import Link from 'next/link'
 import AnimatedTitle from '@/components/bttsbet/HeroWordmark'
 
+const PAGE_URL = 'https://bttspredict.com/btts/statistics'
+const DESCRIPTION = "Découvrez les ligues suivies par BTTSPredict pour le marché BTTS. Aucun taux par ligue n’est publié sans résultats historiques et méthode de calcul vérifiables."
+
 export const metadata: Metadata = {
-  title: 'Statistiques BTTS par ligue',
-  description: "Liste des ligues couvertes par BTTSPredict pour le marché BTTS. Taux et moyennes historiques à intégrer via source vérifiable. Aucune garantie future. 18+.",
-  alternates: { canonical: 'https://bttspredict.com/btts/statistics' },
+  title: 'Statistiques BTTS par ligue : compétitions suivies',
+  description: DESCRIPTION,
+  alternates: { canonical: PAGE_URL },
   robots: { index: true, follow: true },
   openGraph: {
-    title: 'BTTS Statistics',
-    description: 'Liste des ligues couvertes pour le marché BTTS. Données historiques à intégrer via source vérifiable.',
-    url: 'https://bttspredict.com/btts/statistics',
+    title: 'Statistiques BTTS par ligue : compétitions suivies',
+    description: DESCRIPTION,
+    url: PAGE_URL,
     type: 'article',
   },
 }
 
+const LEAGUES = [
+  'Eredivisie (Pays-Bas)',
+  'Bundesliga (Allemagne)',
+  '2. Bundesliga',
+  'Championship (Angleterre D2)',
+  'Premier League (Angleterre)',
+  'Jupiler Pro League (Belgique)',
+  'MLS (États-Unis)',
+  'Liga Portugal',
+  'Swiss Super League',
+  'Austrian Bundesliga',
+  'Scottish Premiership',
+]
+
+const FAQ_ITEMS = [
+  {
+    question: 'Pourquoi aucun taux BTTS par ligue n’est-il affiché ?',
+    answer: 'BTTSPredict ne publie pas de pourcentages par ligue tant que les résultats historiques et la méthode de calcul ne sont pas vérifiables. Cette page présente le périmètre des compétitions suivies, pas un classement de performance.',
+  },
+  {
+    question: 'Que signifie BTTS ?',
+    answer: 'BTTS signifie que les deux équipes marquent au moins un but pendant le match. C’est un marché de pari sportif, et non une garantie de résultat.',
+  },
+]
+
 const faqJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'What is BTTS in football betting?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: "BTTS stands for Both Teams To Score. It is a football betting market where both teams must score at least one goal each during the match. The final score does not matter — only whether both teams scored.",
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Which leagues have the highest BTTS rate?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: "BTTSPredict covers a curated set of leagues selected for their historically offensive profile. The exact BTTS rate per league is Données en préparation — to be integrated via a verifiable source at build time. No specific rate is published without a verifiable source.",
-      },
-    },
-  ],
+  mainEntity: FAQ_ITEMS.map(({ question, answer }) => ({
+    '@type': 'Question',
+    name: question,
+    acceptedAnswer: { '@type': 'Answer', text: answer },
+  })),
 }
-
-// ─── Tâche 004 : statistiques non sourcées ───────────────────────────────────
-// Les valeurs `bttsRate`, `avgGoals` et `note` étaient précédemment codées en
-// dur et présentées comme "Taux historique BTTS approximatif par ligue
-// (données publiques, ordre indicatif)". Aucun appel API n'est réellement
-// effectué dans ce fichier — les chiffres étaient donc non sourcés au sens
-// de la règle anti-hallucination (section 1 du Prompt Maître).
-//
-// Décision Tâche 004 : remplacer chaque valeur non sourcée par
-// "Données en préparation — donnée historique non disponible". Les noms de ligues
-// sont conservés (ce sont des labels, pas des données statistiques).
-//
-// Future tâche recommandée : intégrer un vrai appel API ESPN au build time
-// pour calculer bttsRate et avgGoals depuis les matchs archivés dans
-// public/predictions-archive/. À traiter séparément, ne pas créer de
-// dépendance dans cette tâche.
-const LEAGUE_STATS = [
-  { league: 'Eredivisie (Pays-Bas)' },
-  { league: 'Bundesliga (Allemagne)' },
-  { league: '2. Bundesliga' },
-  { league: 'Championship (Angleterre D2)' },
-  { league: 'Premier League (Angleterre)' },
-  { league: 'Jupiler Pro League (Belgique)' },
-  { league: 'MLS (États-Unis)' },
-  { league: 'Liga Portugal' },
-  { league: 'Swiss Super League' },
-  { league: 'Austrian Bundesliga' },
-  { league: 'Scottish Premiership' },
-]
 
 export default function BTTSStatisticsPage() {
   return (
@@ -74,15 +60,17 @@ export default function BTTSStatisticsPage() {
       <Navbar />
       <main id="main-content" className="flex-1">
         <article className="max-w-4xl mx-auto px-4 py-12 sm:py-16">
-          <nav aria-label="Fil d'Ariane" className="text-xs text-[#9DABBB] mb-4">
+          <nav aria-label="Fil d’Ariane" className="text-xs text-[#9DABBB] mb-4">
             <Link href="/" className="hover:text-[#2F7DFF]">Accueil</Link>
             <span className="mx-1">/</span>
-            <span className="text-[#9DABBB]">BTTS Statistics</span>
+            <span aria-current="page" className="text-[#9DABBB]">Statistiques BTTS</span>
           </nav>
 
-          <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-4"
-            style={{ backgroundColor: 'rgba(169, 196, 223, 0.12)', color: '#2F7DFF', border: '1px solid rgba(169, 196, 223, 0.25)' }}>
-            BTTS · Statistics
+          <span
+            className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-4"
+            style={{ backgroundColor: 'rgba(169, 196, 223, 0.12)', color: '#2F7DFF', border: '1px solid rgba(169, 196, 223, 0.25)' }}
+          >
+            BTTS · Compétitions suivies
           </span>
           <AnimatedTitle
             as="h1"
@@ -90,80 +78,88 @@ export default function BTTSStatisticsPage() {
             className="text-3xl sm:text-4xl font-bold mb-4"
             style={{ fontFamily: 'Poppins, sans-serif' }}
           />
-          <p className="text-base text-[#9DABBB] leading-relaxed mb-6">
-            Liste des ligues couvertes par BTTSPredict pour le marché BTTS (Both Teams To Score). Les taux historiques et moyennes de buts par ligue ne sont pas affichés tant qu&apos;aucune source vérifiable n&apos;est intégrée au build.
+          <p className="text-base text-[#9DABBB] leading-relaxed mb-8">
+            Cette page présente les ligues suivies par BTTSPredict pour le marché BTTS (Both Teams To Score). Elle décrit le périmètre couvert ; elle ne constitue pas un classement des ligues et ne publie pas de taux non vérifiés.
           </p>
 
-          <section className="mb-10">
-            <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-              Ligues couvertes
+          <section className="mb-10" aria-labelledby="leagues-heading">
+            <h2 id="leagues-heading" className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
+              Ligues suivies
             </h2>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm" style={{ borderCollapse: 'collapse' }}>
-                <thead>
-                  <tr style={{ borderBottom: '2px solid #6B7A8C' }}>
-                    <th className="text-left py-3 px-4 font-bold text-[#9DABBB]">Ligue</th>
-                    <th className="text-center py-3 px-4 font-bold text-[#9DABBB]">Taux BTTS</th>
-                    <th className="text-center py-3 px-4 font-bold text-[#9DABBB]">Buts/match</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {LEAGUE_STATS.map((row, i) => (
-                    <tr key={i} style={{ borderBottom: '1px solid #6B7A8C' }}>
-                      <td className="py-3 px-4 text-[#F2F6FA] font-medium">{row.league}</td>
-                      <td className="text-center py-3 px-4 text-[#9DABBB] font-mono text-xs">Données en préparation</td>
-                      <td className="text-center py-3 px-4 text-[#9DABBB] font-mono text-xs">Données en préparation</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <p className="text-xs text-[#9DABBB] mt-4 leading-relaxed">
-              Données historiques non disponibles — à intégrer via source vérifiable (ex. API ESPN au build time). Aucune garantie future.
+            <p className="text-sm text-[#9DABBB] leading-relaxed mb-5">
+              Les noms ci-dessous indiquent les compétitions présentes dans le périmètre BTTS de la plateforme. Leur présence ne signifie pas qu’un taux de réussite actuel ou historique est disponible pour chacune.
+            </p>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {LEAGUES.map((league) => (
+                <li key={league} className="p-4 rounded-xl text-sm font-medium text-[#F2F6FA]" style={{ backgroundColor: '#141C25', border: '1px solid #223041' }}>
+                  {league}
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section className="mb-10 p-5 rounded-xl" style={{ backgroundColor: 'rgba(47, 125, 255, 0.06)', border: '1px solid rgba(47, 125, 255, 0.2)' }}>
+            <h2 className="text-xl font-bold mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>
+              Taux par ligue : non publiés
+            </h2>
+            <p className="text-sm text-[#9DABBB] leading-relaxed">
+              BTTSPredict n’affiche pas de pourcentage BTTS ni de moyenne de buts par ligue tant qu’un jeu de résultats historiques et une méthode de calcul vérifiables ne sont pas disponibles. Cela évite de présenter une estimation ou une valeur provisoire comme une statistique mesurée. Les données pourront être ajoutées lorsqu’elles pourront être contrôlées.
             </p>
           </section>
 
           <section className="mb-10">
             <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-              Comment lire ces statistiques
+              Que mesure le marché BTTS ?
             </h2>
             <div className="space-y-3 text-sm text-[#9DABBB] leading-relaxed">
               <p>
-                <strong className="text-[#F2F6FA]">Taux BTTS</strong> : pourcentage de matchs où les deux équipes ont marqué au moins un but. Les valeurs exactes par ligue seront affichées une fois une source vérifiable intégrée au build.
+                BTTS (« Both Teams To Score ») désigne un marché où chaque équipe doit marquer au moins un but pendant le match. Le résultat final et le nombre total de buts au-delà de cette condition ne déterminent pas ce marché.
               </p>
               <p>
-                <strong className="text-[#F2F6FA]">Buts par match</strong> : moyenne de buts totaux par match. Plus ce chiffre est élevé, plus le marché Over 2,5 est probable. Les valeurs exactes seront affichées une fois une source vérifiable intégrée au build.
-              </p>
-              <p>
-                Ces statistiques ne garantissent aucun résultat futur. Elles servent uniquement à comprendre la logique de sélection des ligues par le moteur. Pour voir les pronostics actuels, consultez la page <Link href="/btts/predictions/today" className="text-[#2F7DFF] underline">BTTS Predictions Today</Link>.
+                Une fréquence observée dans le passé ne permet pas de garantir l’issue d’un match futur. Les pronostics restent incertains et ne doivent pas être considérés comme un conseil financier.
               </p>
             </div>
           </section>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
+          <section className="mb-8" aria-labelledby="questions-heading">
+            <h2 id="questions-heading" className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
+              Questions fréquentes
+            </h2>
+            <div className="space-y-5 text-sm text-[#9DABBB] leading-relaxed">
+              {FAQ_ITEMS.map(({ question, answer }) => (
+                <div key={question}>
+                  <h3 className="font-bold text-[#F2F6FA] mb-1">{question}</h3>
+                  <p>{answer}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section aria-labelledby="related-heading">
+            <h2 id="related-heading" className="text-xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
               Voir aussi
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <Link href="/btts/predictions/today" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2F7DFF]"
-                style={{ backgroundColor: '#141C25', border: '1px solid #6B7A8C' }}>
-                <div className="text-sm font-bold text-[#F2F6FA]">BTTS Today →</div>
+              <Link href="/btts/predictions/today" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2F7DFF]" style={{ backgroundColor: '#141C25', border: '1px solid #223041' }}>
+                <div className="text-sm font-bold text-[#F2F6FA]">Pronostics BTTS du jour →</div>
                 <div className="text-xs text-[#9DABBB] mt-1">Pronostics du jour</div>
               </Link>
-              <Link href="/historique" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2F7DFF]"
-                style={{ backgroundColor: '#141C25', border: '1px solid #6B7A8C' }}>
+              <Link href="/historique" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2F7DFF]" style={{ backgroundColor: '#141C25', border: '1px solid #223041' }}>
                 <div className="text-sm font-bold text-[#F2F6FA]">Résultats vérifiés →</div>
                 <div className="text-xs text-[#9DABBB] mt-1">Historique complet</div>
               </Link>
-              <Link href="/resultats-verifies" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2F7DFF]"
-                style={{ backgroundColor: '#141C25', border: '1px solid #6B7A8C' }}>
+              <Link href="/resultats-verifies" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2F7DFF]" style={{ backgroundColor: '#141C25', border: '1px solid #223041' }}>
                 <div className="text-sm font-bold text-[#F2F6FA]">Vérifications →</div>
                 <div className="text-xs text-[#9DABBB] mt-1">Suivi public</div>
               </Link>
             </div>
           </section>
+
+          <p className="text-xs text-[#9DABBB] text-center mt-8 leading-relaxed">
+            18+ · BTTSPredict fournit des informations et ne prend pas de paris. Les paris sportifs comportent un risque de perte ; aucun gain ni résultat futur n’est garanti. Jouez de manière responsable.
+          </p>
         </article>
-              <section className="max-w-5xl mx-auto px-4 py-8">
+        <section className="max-w-5xl mx-auto px-4 py-8">
           <FreePredictions />
         </section>
       </main>

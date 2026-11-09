@@ -1,17 +1,14 @@
 import type { Metadata } from 'next'
-import {Navbar, Footer,
-  FreePredictionsWidget,
-  VipCardWidget,
-  LinebetApkButton} from '@/components/bttsbet'
+import { Navbar, Footer } from '@/components/bttsbet'
 
 /* ──────────────────────────────────────────────────────────────
    Metadata
    ────────────────────────────────────────────────────────────── */
 const SITE_URL = 'https://bttspredict.com'
 const PAGE_URL = `${SITE_URL}/politique-confidentialite`
-const TITLE = 'Politique de Confidentialité '
+const TITLE = 'Politique de confidentialité et données personnelles'
 const DESCRIPTION =
-  'Politique de confidentialité de BTTSPredict — collecte de données, utilisation, services tiers, droits des utilisateurs, politique de cookies et contact.'
+  'Politique de confidentialité de BTTSPredict : données personnelles, cookies, services tiers, liens d’affiliation et moyens de contact pour exercer vos droits.'
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -19,6 +16,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: PAGE_URL,
   },
+  robots: { index: true, follow: true },
   openGraph: {
     title: TITLE,
     description: DESCRIPTION,
@@ -411,12 +409,6 @@ export default function PolitiqueConfidentialitePage() {
           </div>
         </section>
       
-        {/* Pronostics gratuits + VIP + APK sur toutes les pages */}
-        <FreePredictionsWidget />
-        <VipCardWidget />
-        <div className="text-center pb-6">
-          <LinebetApkButton />
-        </div>
       </main>
 
       <Footer />
