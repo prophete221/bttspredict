@@ -5,23 +5,24 @@ import { useLanguage } from './LanguageSwitcher'
 import { translationsFor, type Locale, localizedPath } from '@/lib/i18n'
 import { generateMatchSlug } from '@/lib/match-slug'
 import { matchMetricLabels } from '@/lib/matchMetricLabels'
-import { getDakarDayDiff, getDakarMatchStatus, parseDakarDateTime } from '@/lib/dakar-date'
+import { getDakarDateString, getDakarDayDiff, getDakarMatchStatus, parseDakarDateTime } from '@/lib/dakar-date'
 import { KICKOFF_I18N } from '@/lib/i18n-extras'
 import ComboBuilder from './ComboBuilder'
 import BookmakerCardLinks from './BookmakerCardLinks'
 import { getGeminiPicks } from '@/lib/gemini-predictions'
+import { groupGeminiItemsByDakarDay, selectUpcomingGeminiItems } from '@/lib/match-center-window'
 // useLayoutEffect isomorphe (évite le warning SSR React)
 const useIsoLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect
 
 /**
- * MatchCenter — section « Matchs analysés aujourd’hui » (accueil).
+ * MatchCenter — picks Gemini publics à venir (accueil).
  *
  * 100% données réelles :
- *  - predictions.json  → matchs du jour/demain/semaine (free uniquement)
+ *  - predictions.json  → tous les picks futurs validés par Gemini (free uniquement)
  *  - win-history.json   → jointure sur matchs terminés (score final, gagné/perdu)
  *
- * Filtre jour uniquement : Aujourd'hui / Demain / Cette semaine (défaut : Cette semaine,
- * pour que les matchs à venir restent visibles). Aucun badge « sûr »/« immanquable » ;
+ * Affichage chronologique sans plafond de date. Les dates passées, les doublons
+ * et les lignes non validées sont exclus. Aucun badge « sûr »/« immanquable » ;
  * les pronostics perdants ne sont jamais cachés.
  * Squelettes de chargement, état vide professionnel, colonnes empilées <768px.
  */
@@ -73,8 +74,6 @@ interface HistoryRecord {
 const hasFinalResult = (record?: HistoryRecord) =>
   Boolean(record?.finalScore || record?.status === 'WON' || record?.status === 'LOST')
 
-type DayFilter = 'today' | 'tomorrow' | 'week'
-
 function dayDiff(dateStr: string): number {
   return getDakarDayDiff(dateStr)
 }
@@ -115,10 +114,7 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
   const [results, setResults] = useState<Map<string, HistoryRecord>>(new Map())
   const [loading, setLoading] = useState(true)
   const [dataDate, setDataDate] = useState('')
-  // Onglet jour — seul filtre conservé. Défaut « Cette semaine » pour que les
-  // matchs à venir restent visibles dès l'arrivée sur la page.
-  const [day, setDay] = useState<DayFilter>('week')
-  // Horloge partagée du compte à rebours — une seule mise à jour toutes les 30 s
+  // Horloge partagée du compte à rebours — cadence 30 s, synchronisée sur l'horloge du navigateur.
   // pour l'ensemble des cartes (évite 44 intervalles individuels).
   const [nowTs, setNowTs] = useState<number>(() => Date.now())
   const gridRef = useRef<HTMLDivElement | null>(null)
@@ -151,23 +147,17 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
     return () => window.clearInterval(id)
   }, [])
 
-  // Filtre jour : Aujourd'hui (diff 0) / Demain (diff 1) / Cette semaine (diff 0..7).
-  // Tri : matchs sans résultat d'abord, puis par jour, puis par heure.
-  const filtered = useMemo(() => {
-    return items.filter(m => {
-      const diff = dayDiff(m.date)
-      if (day === 'today' && diff !== 0) return false
-      if (day === 'tomorrow' && diff !== 1) return false
-      if (day === 'week' && (diff < 0 || diff > 7)) return false
-      return true
-    }).sort((a, b) => {
-      const da = dayDiff(a.date), db = dayDiff(b.date)
-      const fa = hasFinalResult(results.get(`${a.match}|${a.date}`)), fb = hasFinalResult(results.get(`${b.match}|${b.date}`))
-      if (fa !== fb) return fa ? 1 : -1 // matchs sans résultat d'abord
-      if (da !== db) return da - db
-      return (a.time || '').localeCompare(b.time || '')
-    })
-  }, [items, results, day])
+  // Tous les picks Gemini à venir restent visibles; la date Dakar retire les
+  // matches expirés au passage du jour local, sans limite de dates futures.
+  const dakarToday = getDakarDateString()
+  const filtered = useMemo(
+    () => selectUpcomingGeminiItems(items, dayDiff),
+    [items, dakarToday],
+  )
+  const { today: todayItems, upcoming: upcomingItems } = useMemo(
+    () => groupGeminiItemsByDakarDay(filtered, dakarToday),
+    [filtered, dakarToday],
+  )
 
   // ═══ Révélation 3D au scroll ═══
   // Gate JS (.mc3d) : sans JS les cartes restent visibles (progressive enhancement).
@@ -217,12 +207,6 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
     return () => io.disconnect()
   }, [loading, filtered])
 
-  const dayTabs: { id: DayFilter; label: string }[] = [
-    { id: 'today', label: t.home2.mcToday },
-    { id: 'tomorrow', label: t.home2.mcTomorrow },
-    { id: 'week', label: t.home2.mcWeek },
-  ]
-
   return (
     <section id="matchs" className="hp-section" style={{ scrollMarginTop: '72px' }}>
       <div className="mx-auto max-w-[1280px] px-4 sm:px-6">
@@ -230,8 +214,16 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
         <div className="hp-sect-head">
           <div>
             <p className="hp-eyebrow">{t.home2.mcEyebrow}</p>
-            <h2 className="hp-sect-title">{t.home2.mcTitle}</h2>
-            <p className="hp-sect-sub">{t.home2.mcSubtitle}</p>
+            <h2 className="hp-sect-title">
+              {lang === 'en' ? 'Today’s picks and upcoming matches' : lang === 'ar' ? 'توقعات اليوم والمباريات القادمة' : 'Pronostics du jour et matchs à venir'}
+            </h2>
+            <p className="hp-sect-sub">
+              {lang === 'en'
+                ? 'Today follows Dakar time; later fixtures are grouped under Upcoming.'
+                : lang === 'ar'
+                  ? 'يُحتسب اليوم وفق توقيت داكار؛ وتُعرض المباريات اللاحقة ضمن القادمة.'
+                  : '« Aujourd’hui » suit le jour de Dakar ; les rencontres ultérieures sont classées dans « À venir ». '}
+            </p>
           </div>
           <div className="hp-sect-meta">
             <span className="hp-counter" role="status">
@@ -248,22 +240,15 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
           <ComboBuilder items={items} lang={lang} />
         )}
 
-        {/* Onglet jour — seul filtre conservé (Aujourd'hui / Demain / Cette semaine) */}
-        <div className="hp-filters" role="group" aria-label={t.home2.mcTitle}>
-          <div className="hp-chips" role="tablist" aria-label={t.home2.mcToday}>
-            {dayTabs.map(f => (
-              <button
-                key={f.id}
-                type="button"
-                onClick={() => setDay(f.id)}
-                aria-pressed={day === f.id}
-                className={`hp-chip hp-chip--ghost${day === f.id ? ' is-active' : ''}`}
-              >
-                {f.label}
-              </button>
-            ))}
-          </div>
-        </div>
+        {!loading && filtered.length > 0 && (
+          <p className="mb-3 text-sm leading-relaxed text-[#9DABBB]" role="status">
+            {lang === 'en'
+              ? 'Only validated Gemini picks are shown; today and later dates are separated below.'
+              : lang === 'ar'
+                ? 'تُعرض توقعات Gemini المعتمدة فقط؛ ويُفصل اليوم عن التواريخ اللاحقة أدناه.'
+                : 'Seuls les pronostics Gemini validés sont affichés ; aujourd’hui et les dates à venir sont séparés ci-dessous.'}
+          </p>
+        )}
 
         {/* Contenu */}
         {loading ? (
@@ -284,8 +269,21 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
           </div>
         ) : (
           <div className="hp-mc-grid" ref={filtered.length > 0 ? gridRef : undefined}>
-            {filtered.map((m, i) => (
+            {todayItems.length > 0 && (
+              <h3 data-match-group="today" className="col-span-full text-sm font-semibold text-[#E7EEF7]" style={{ gridColumn: '1 / -1' }}>
+                {lang === 'en' ? 'Today · Dakar time' : lang === 'ar' ? 'اليوم · توقيت داكار' : 'Aujourd’hui · heure de Dakar'}
+              </h3>
+            )}
+            {todayItems.map((m, i) => (
               <MatchCard key={`${m.match}-${m.date}-${m.time}`} m={m} index={i} lang={lang} results={results} nowTs={nowTs} />
+            ))}
+            {upcomingItems.length > 0 && (
+              <h3 data-match-group="upcoming" className="col-span-full text-sm font-semibold text-[#E7EEF7]" style={{ gridColumn: '1 / -1' }}>
+                {lang === 'en' ? 'Upcoming' : lang === 'ar' ? 'قادمة' : 'À venir'}
+              </h3>
+            )}
+            {upcomingItems.map((m, i) => (
+              <MatchCard key={`${m.match}-${m.date}-${m.time}`} m={m} index={todayItems.length + i} lang={lang} results={results} nowTs={nowTs} />
             ))}
           </div>
         )}
@@ -329,7 +327,7 @@ function MatchCard({ m, index, lang, results, nowTs }: {
     ? formatCountdown(kickoffMs - nowTs, lang)
     : null
 
-  const picks: MarketPick[] = getGeminiPicks(m).slice(0, 3)
+  const picks: MarketPick[] = (Array.isArray(m.predictions) ? m.predictions : []).slice(0, 3)
 
   const matchHref = m.home && m.away && m.date
     ? localizedPath(`/match/${generateMatchSlug(m.home, m.away, m.date)}`, lang)
@@ -396,6 +394,9 @@ function MatchCard({ m, index, lang, results, nowTs }: {
   return (
     <article
       ref={cardRef}
+      data-match-date={m.date}
+      data-match={m.match}
+      data-match-league={m.league}
       className={`hp-mc-card hp-mc-card--refonte${won ? ' is-won' : ''}${lost ? ' is-lost' : ''}${!isFinished ? ' is-pending' : ''}`}
       onMouseMove={onCardMove}
       onMouseLeave={onCardLeave}
