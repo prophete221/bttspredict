@@ -28,7 +28,17 @@ const frozenI18nWithoutPartnerCta = '84373fa141fd59d06805058c0a0a6c4cf3f1fa1a213
 
 describe('owner-requested SEO preservation', () => {
   it.each(Object.entries(frozenFiles))('preserves %s byte for byte', (file, expected) => {
-    expect(hash(readFileSync(file, 'utf8'))).toBe(expected)
+    let source = readFileSync(file, 'utf8')
+    // Owner-approved 2026-11-09: only Aviator + eleven competitions + index
+    // (39 localized URLs). Everything outside those exact additions stays frozen.
+    if (file === 'src/app/sitemap.ts') {
+      source = source
+        .replace("import { COMPETITION_SLUGS } from '@/lib/competition-pages'\n", '')
+        .replace("  '/aviator',\n  '/competitions',\n", '')
+        .replace('for (const slug of COMPETITION_SLUGS) LOCALIZED_PATHS.add(`/competitions/${slug}`)\n\n', '')
+        .replace("  { path: '/aviator', priority: 0.75, changeFrequency: 'monthly' },\n  { path: '/competitions', priority: 0.8, changeFrequency: 'weekly' },\n  ...COMPETITION_SLUGS.map((slug) => ({ path: `/competitions/${slug}`, priority: 0.75, changeFrequency: 'weekly' as const })),\n", '')
+    }
+    expect(hash(source)).toBe(expected)
   })
   it('preserves i18n except approved promo copy and the full navigation label', () => {
     const source = readFileSync('src/lib/i18n.ts', 'utf8')

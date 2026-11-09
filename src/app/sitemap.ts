@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next'
 import { getDakarDateString } from '@/lib/dakar-date'
+import { COMPETITION_SLUGS } from '@/lib/competition-pages'
 
 /**
  * Sitemap complet FR + EN + AR
@@ -35,7 +36,11 @@ const LOCALIZED_PATHS = new Set([
   '/mentions-legales',
   '/jouer-responsable',
   '/historique',
+  '/aviator',
+  '/competitions',
 ])
+
+for (const slug of COMPETITION_SLUGS) LOCALIZED_PATHS.add(`/competitions/${slug}`)
 
 type PageDef = {
   path: string
@@ -67,6 +72,9 @@ const PAGES: PageDef[] = [
   { path: '/politique-confidentialite', priority: 0.3, changeFrequency: 'yearly' },
   { path: '/mentions-legales', priority: 0.3, changeFrequency: 'yearly' },
   { path: '/jouer-responsable', priority: 0.5, changeFrequency: 'yearly' },
+  { path: '/aviator', priority: 0.75, changeFrequency: 'monthly' },
+  { path: '/competitions', priority: 0.8, changeFrequency: 'weekly' },
+  ...COMPETITION_SLUGS.map((slug) => ({ path: `/competitions/${slug}`, priority: 0.75, changeFrequency: 'weekly' as const })),
 ]
 
 function absolute(path: string, locale: 'fr' | 'en' | 'ar'): string {
