@@ -94,6 +94,37 @@ describe('validatePredictionPayload', () => {
     }), { today: '2026-08-12', requireGemini: true })).toEqual([])
   })
 
+  test('exige un pick Gemini vérifié au-delà de la date locale pour la validation de déploiement', () => {
+    const empty = { date: '2026-08-12', lastUpdated: '2026-08-12T12:00:00.000Z', free: [] }
+    const errors = validatePredictionPayload(empty, {
+      today: '2026-08-12',
+      requireTimestamp: true,
+      requireGemini: true,
+      requireFutureGeminiPick: true,
+    })
+    expect(errors).toContain('at least one verified Gemini pick after Africa/Dakar today is required')
+  })
+
+  test('accepte la porte de déploiement uniquement avec un pick Gemini strict sur un match futur', () => {
+    const futureGeminiPick = {
+      ...validPrediction,
+      date: '2026-08-13',
+      ai_source: 'gemini-stats-v1',
+      ai_market: 'BTTS',
+      ai_abstain: false,
+      ai_model: 'gemini-3.5-flash-lite',
+      ai_response_status: 'pick',
+      modelEngine: 'gemini-stats-v1',
+      predictions: [{ type: 'BTTS', prediction: 'Oui', proba: 0.64, modelEngine: 'gemini-3.5-flash-lite' }],
+    }
+    expect(validatePredictionPayload({ ...payload(), free: [futureGeminiPick] }, {
+      today: '2026-08-12',
+      requireTimestamp: true,
+      requireGemini: true,
+      requireFutureGeminiPick: true,
+    })).toEqual([])
+  })
+
   test('refuse un pick local même si ses probabilités et sa forme paraissent valides', () => {
     const errors = validatePredictionPayload(payload({
       ai_source: 'local-empirical-v1',
