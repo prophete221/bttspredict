@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
-import { Navbar, Footer, FreePredictionsWidget } from '@/components/bttsbet'
+import { Navbar, Footer } from '@/components/bttsbet'
 import XbetClient from './XbetClient'
+import PromoVerificationGuide from '@/components/bttsbet/PromoVerificationGuide'
 import { buildPromoFaqJsonLd } from '@/lib/promo-faq'
 import { checkSeo } from '@/lib/seo'
 
@@ -8,9 +9,9 @@ const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'code-promo-1xbet'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
 const TITLE = 'Code promo 1xBet vipbtts : bonus mondial 300 %'
-const DESCRIPTION = 'Code promo 1xBet vipbtts valable dans le monde entier : bonus de dépôt de 300 %, cashback et bonus hebdomadaires. 18+.'
-const OPEN_GRAPH_TITLE = 'Code promo 1xBet vipbtts : bonus mondial 300 %'
-const OPEN_GRAPH_DESCRIPTION = 'Le code 1xBet vipbtts fonctionne dans le monde entier. L’offre comprend un bonus de dépôt de 300 %, du cashback et des bonus hebdomadaires. 18+.'
+const DESCRIPTION = 'Code promo 1xBet vipbtts : bonus de dépôt mondial de 300 %, cashback et bonus hebdomadaires. Guide du code et modalités à vérifier. 18+.'
+const OPEN_GRAPH_TITLE = TITLE
+const OPEN_GRAPH_DESCRIPTION = DESCRIPTION
 
 checkSeo(SLUG, TITLE, DESCRIPTION)
 
@@ -51,7 +52,7 @@ function breadcrumbJsonLd() {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Accueil', item: `${SITE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: 'Code promo 1xBet vipbtts', item: PAGE_URL },
+      { '@type': 'ListItem', position: 2, name: 'Code promo 1xBet vipbtts : offre mondiale 300 %', item: PAGE_URL },
     ],
   }
 }
@@ -67,7 +68,7 @@ export default function CodePromo1xbetPage() {
       <Navbar />
       <main id="main-content" className="flex-1 relative z-10" style={{ paddingBottom: 'calc(80px + env(safe-area-inset-bottom, 0px))' }}>
         <XbetClient />
-        <FreePredictionsWidget />
+        <PromoVerificationGuide bookmaker="1xbet" lang="fr" />
       </main>
       <Footer />
     </div>

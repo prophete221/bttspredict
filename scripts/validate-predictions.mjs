@@ -16,6 +16,73 @@ function pickRows(row) {
   return typeof row?.prediction === 'string' && row.prediction.trim() ? [row] : []
 }
 
+function validCalendarDate(value) {
+  if (!ISO_DATE.test(value || '')) return false
+  const date = new Date(`${value}T00:00:00.000Z`)
+  return Number.isFinite(date.getTime()) && date.toISOString().slice(0, 10) === value
+}
+
+function validClock(value) {
+  if (!/^\d{2}:\d{2}$/.test(value || '')) return false
+  const [hour, minute] = value.split(':').map(Number)
+  return hour <= 23 && minute <= 59
+}
+
+function hasPickFields(row) {
+  return (Array.isArray(row?.predictions) && row.predictions.length > 0) ||
+    ['prediction', 'proba', 'confidence', 'bttsProb', 'over25Prob'].some(field =>
+      Object.prototype.hasOwnProperty.call(row || {}, field),
+    )
+}
+
+function validateFixtureRows(payload, today, now, checkKickoff, errors) {
+  if (payload.fixtures === undefined) return []
+  if (!Array.isArray(payload.fixtures)) {
+    errors.push('fixtures must be an array')
+    return []
+  }
+  const valid = []
+  payload.fixtures.forEach((fixture, index) => {
+    const prefix = `fixtures[${index}]`
+    let rowValid = true
+    for (const field of ['home', 'away', 'league']) {
+      if (typeof fixture?.[field] !== 'string' || fixture[field].trim() === '') {
+        errors.push(`${prefix}.${field} is required`)
+        rowValid = false
+      }
+    }
+    if (!validCalendarDate(fixture?.date)) {
+      errors.push(`${prefix}.date must be a valid YYYY-MM-DD date`)
+      rowValid = false
+    } else if (fixture.date < today) {
+      errors.push(`${prefix}.date is older than Africa/Dakar today`)
+      rowValid = false
+    }
+    if (fixture?.time && !validClock(fixture.time)) {
+      errors.push(`${prefix}.time must be a valid HH:MM clock when present`)
+      rowValid = false
+    }
+    if (checkKickoff && fixture?.date === today && validClock(fixture?.time) &&
+      Date.parse(`${fixture.date}T${fixture.time}:00Z`) <= now.getTime()) {
+      errors.push(`${prefix}.time is already started in Africa/Dakar`)
+      rowValid = false
+    }
+    if (hasPickFields(fixture)) {
+      errors.push(`${prefix} must not contain prediction fields`)
+      rowValid = false
+    }
+    if (rowValid) valid.push(fixture)
+  })
+  return valid
+}
+
+function upcomingSchedule(date, time, today, now) {
+  if (!validCalendarDate(date) || date < today) return false
+  if (date > today) return true
+  if (!validClock(time)) return false
+  return Date.parse(`${date}T${time}:00Z`) > now.getTime()
+}
+
 function validatePreviewRows(payload, today, errors) {
   if (!Array.isArray(payload?.vipPreview)) return
   payload.vipPreview.forEach((fixture, index) => {
@@ -41,6 +108,7 @@ export function validatePredictionPayload(payload, options = {}) {
   const checkKickoff = options.checkKickoff === true
   const requireGemini = options.requireGemini === true
   const requireFutureGeminiPick = options.requireFutureGeminiPick === true
+  const requireScheduledContent = options.requireScheduledContent === true
   const now = options.now instanceof Date ? options.now : new Date()
 
   if (!payload || typeof payload !== 'object') {
@@ -53,13 +121,25 @@ export function validatePredictionPayload(payload, options = {}) {
   }
 
   const rows = rowsFromPayload(payload)
-  // An empty set is valid: the feed may publish only fixtures with a proven Gemini decision.
+  // An empty prediction set is valid when a separate scoreboard fixture list exists.
   validatePreviewRows(payload, today, errors)
+  const fixtures = validateFixtureRows(payload, today, now, checkKickoff, errors)
   const futureGeminiPicks = rows.filter(row =>
     ISO_DATE.test(row?.date || '') && row.date > today && isCurrentGeminiPick(row),
   )
   if (requireFutureGeminiPick && futureGeminiPicks.length === 0) {
     errors.push('at least one verified Gemini pick after Africa/Dakar today is required')
+  }
+  if (requireScheduledContent) {
+    const hasUpcomingPick = rows.some(row =>
+      isCurrentGeminiPick(row) && upcomingSchedule(row.date, row.time, today, now),
+    )
+    const hasUpcomingFixture = fixtures.some(fixture =>
+      upcomingSchedule(fixture.date, fixture.time, today, now),
+    )
+    if (!hasUpcomingPick && !hasUpcomingFixture) {
+      errors.push('at least one verified Gemini pick or valid scheduled fixture after the current time is required')
+    }
   }
 
   rows.forEach((prediction, index) => {
@@ -118,6 +198,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     requireTimestamp: process.argv.includes('--require-timestamp'),
     requireGemini: process.argv.includes('--require-gemini'),
     requireFutureGeminiPick: process.argv.includes('--require-future-gemini-pick'),
+    requireScheduledContent: process.argv.includes('--require-scheduled-content'),
     checkKickoff: true,
   })
   if (errors.length > 0) {

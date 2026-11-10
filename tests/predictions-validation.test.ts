@@ -125,6 +125,60 @@ describe('validatePredictionPayload', () => {
     })).toEqual([])
   })
 
+  test('permet une publication fixture-only si une rencontre future valide existe', () => {
+    const fixtureOnly = {
+      date: '2026-08-12',
+      lastUpdated: '2026-08-12T12:00:00.000Z',
+      free: [],
+      fixtures: [{ home: 'Team A', away: 'Team B', league: 'Test League', match: 'Team A vs Team B', date: '2026-08-13', time: '18:00' }],
+    }
+    expect(validatePredictionPayload(fixtureOnly, {
+      today: '2026-08-12',
+      requireTimestamp: true,
+      requireGemini: true,
+      requireScheduledContent: true,
+      now: new Date('2026-08-12T12:00:00.000Z'),
+    })).toEqual([])
+  })
+
+  test('n’accepte pas une fixture comme substitut à l’ancien contrôle strict de pick Gemini', () => {
+    const fixtureOnly = {
+      date: '2026-08-12',
+      lastUpdated: '2026-08-12T12:00:00.000Z',
+      free: [],
+      fixtures: [{ home: 'Team A', away: 'Team B', league: 'Test League', date: '2026-08-13', time: '18:00' }],
+    }
+    const errors = validatePredictionPayload(fixtureOnly, {
+      today: '2026-08-12',
+      requireTimestamp: true,
+      requireGemini: true,
+      requireFutureGeminiPick: true,
+    })
+    expect(errors).toContain('at least one verified Gemini pick after Africa/Dakar today is required')
+  })
+
+  test('refuse une fixture porteuse de prédiction ou dont le coup d’envoi est déjà passé', () => {
+    const invalidFixtures = {
+      date: '2026-08-12',
+      lastUpdated: '2026-08-12T12:00:00.000Z',
+      free: [],
+      fixtures: [
+        { home: 'Team A', away: 'Team B', league: 'Test League', date: '2026-08-13', time: '18:00', prediction: 'Oui', proba: 0.64 },
+        { home: 'Team C', away: 'Team D', league: 'Test League', date: '2026-08-12', time: '09:00' },
+      ],
+    }
+    const errors = validatePredictionPayload(invalidFixtures, {
+      today: '2026-08-12',
+      requireGemini: true,
+      requireScheduledContent: true,
+      checkKickoff: true,
+      now: new Date('2026-08-12T10:00:00.000Z'),
+    })
+    expect(errors).toContain('fixtures[0] must not contain prediction fields')
+    expect(errors).toContain('fixtures[1].time is already started in Africa/Dakar')
+    expect(errors).toContain('at least one verified Gemini pick or valid scheduled fixture after the current time is required')
+  })
+
   test('refuse un pick local même si ses probabilités et sa forme paraissent valides', () => {
     const errors = validatePredictionPayload(payload({
       ai_source: 'local-empirical-v1',

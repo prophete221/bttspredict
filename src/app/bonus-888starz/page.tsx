@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import { checkSeo } from '@/lib/seo'
 import { buildPromoFaqJsonLd } from '@/lib/promo-faq'
+import PromoVerificationGuide from '@/components/bttsbet/PromoVerificationGuide'
 
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
@@ -11,9 +12,9 @@ const Star888Client = dynamic(() => import('./Star888Client'), { loading: () => 
 const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'bonus-888starz'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
-const TITLE = 'Code promo 888Starz btts221 : bonus mondial 300 %'
+const TITLE = 'Code promo 888Starz btts221 : offre mondiale 300 %'
 const DESCRIPTION = 'Code promo 888Starz btts221 valable dans le monde entier : bonus de dépôt de 300 %, cashback et bonus hebdomadaires. 18+.'
-const OPEN_GRAPH_TITLE = 'Code promo 888Starz btts221 : bonus mondial 300 %'
+const OPEN_GRAPH_TITLE = TITLE
 const OPEN_GRAPH_DESCRIPTION = 'Le code 888Starz btts221 fonctionne dans le monde entier. L’offre comprend un bonus de dépôt de 300 %, du cashback et des bonus hebdomadaires. 18+.'
 
 if (process.env.NODE_ENV === 'production') checkSeo(SLUG, TITLE, DESCRIPTION)
@@ -71,6 +72,7 @@ export default function Bonus888StarzPage() {
       <ErrorBoundary><Navbar /></ErrorBoundary>
       <main id="main-content" className="flex-1 relative z-10" style={{ paddingBottom: 'calc(80px + env(safe-area-inset-bottom, 0px))' }}>
         <Star888Client />
+        <PromoVerificationGuide bookmaker="888starz" lang="fr" variant="offer" />
       </main>
       <ErrorBoundary><Footer /></ErrorBoundary>
     </div>

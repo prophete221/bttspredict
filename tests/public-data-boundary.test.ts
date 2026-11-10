@@ -36,9 +36,12 @@ describe('frontière publique des données VIP', () => {
   })
 
   it('retire entièrement les fixtures et choix VIP de tous les niveaux exportés', () => {
-    const safe = publicPredictionPayload({ free: [free, vip], predictions: [free, vip], vipPreview: [vip], vip: [vip], vipPredictions: [vip], stats: { freeCount: 1, vipCount: 1 }, combos: [{ legs: [vip] }] })
+    const fixture = { id: 'fixture', home: 'Club A', away: 'Club B', league: 'League 2', date: '2026-11-10', time: '19:00' }
+    const privateFixture = { ...fixture, id: 'private-fixture', home: 'Private club', vip: true }
+    const safe = publicPredictionPayload({ free: [free, vip], predictions: [free, vip], fixtures: [fixture, privateFixture], vipPreview: [vip], vip: [vip], vipPredictions: [vip], stats: { freeCount: 1, vipCount: 1 }, combos: [{ legs: [vip] }] })
     expect(safe.free).toEqual([free])
     expect(safe.predictions).toEqual([free])
+    expect(safe.fixtures).toEqual([fixture])
     expect(safe).not.toHaveProperty('vipPreview')
     expect(safe).not.toHaveProperty('vip')
     expect(safe).not.toHaveProperty('vipPredictions')

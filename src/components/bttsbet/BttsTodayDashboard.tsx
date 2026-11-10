@@ -40,6 +40,7 @@ import ShareAnalysisButton from './ShareAnalysisButton'
 import VipMarketTeaser from './VipMarketTeaser'
 import MissingMarketVipLink from './MissingMarketVipLink'
 import { getGeminiPicks, getGeminiProbability, type GeminiPrediction } from '@/lib/gemini-predictions'
+import { selectFixtureOnlyItems, type PublicCalendarItem } from '@/lib/public-calendar'
 
 // ─── Palette (V3 — bleu analyse, sémantique WIN/LOST/PENDING) ────────────────
 const C = {
@@ -163,6 +164,15 @@ type QuickFilter = 'all' | 'today' | 'btts60' | 'over60'
 
 type CardStatus = 'live' | 'scheduled' | 'finished'
 
+interface ScheduleFixture {
+  key: string
+  home: string
+  away: string
+  league: string
+  date: string
+  time: string
+}
+
 // ─── AI Combo of the Day — selection type ───────────────────────────────
 // A ComboPick is a deterministic selection derived ONLY from data already
 // present in predictions.json. The frontend never recalculates probabilities;
@@ -210,6 +220,16 @@ function fmtDate(dateStr?: string): string {
   } catch {
     return dateStr
   }
+}
+
+function fmtFixtureDate(dateStr: string, locale: Locale): string {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) return dateStr
+  const diff = getDakarDayDiff(dateStr)
+  if (diff === 0) return locale === 'en' ? 'Today' : locale === 'ar' ? 'اليوم' : 'Aujourd’hui'
+  if (diff === 1) return locale === 'en' ? 'Tomorrow' : locale === 'ar' ? 'غداً' : 'Demain'
+  return new Intl.DateTimeFormat(locale === 'en' ? 'en-GB' : locale === 'ar' ? 'ar' : 'fr-FR', {
+    timeZone: 'Africa/Dakar', day: '2-digit', month: 'short',
+  }).format(new Date(`${dateStr}T12:00:00Z`))
 }
 
 function passesFilter(match: MatchData, activeFilter: FilterType): boolean {
@@ -689,6 +709,7 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
   const [generationDate, setGenerationDate] = useState<string | null>(null)
   const [todayMatches, setTodayMatches] = useState<MatchData[]>([])
   const [upcomingMatches, setUpcomingMatches] = useState<MatchData[]>([])
+  const [scheduleFixtures, setScheduleFixtures] = useState<ScheduleFixture[]>([])
   const [now, setNow] = useState<number>(() => Date.now())
 
   useEffect(() => {
@@ -701,6 +722,16 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
       .then(r => r.json())
       .then(data => {
         const raw: RawPrediction[] = data?.free || data?.predictions || []
+        const rawFixtures = Array.isArray(data?.fixtures) ? data.fixtures as PublicCalendarItem[] : []
+        const fixtureRows = selectFixtureOnlyItems(rawFixtures, raw as PublicCalendarItem[], new Date())
+        setScheduleFixtures(fixtureRows.flatMap(fixture => {
+          const home = String(fixture.home || '').trim()
+          const away = String(fixture.away || '').trim()
+          const league = String(fixture.league || '').trim()
+          const date = String(fixture.date || '')
+          if (!home || !away || !league) return []
+          return [{ key: `${date}|${league}|${home}|${away}`, home, away, league, date, time: String(fixture.time || '') }]
+        }))
         // Today's date in Africa/Dakar (Senegal timezone = UTC+0 / GMT)
         // Important: do NOT use UTC blindly — use Intl with explicit timezone to ensure
         // the date matches the site's local day, even if the user's browser uses another TZ.
@@ -711,6 +742,7 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
         for (const p of raw) {
           const key = p.match || `${p.home || ''} vs ${p.away || ''} ${p.date || ''}`
           const aiPicks = getGeminiPicks(p)
+          if (aiPicks.length === 0) continue
           const isGeminiResponse = p.ai_source === 'gemini-stats-v1'
           if (!map.has(key)) {
             map.set(key, {
@@ -914,6 +946,11 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
   const visibleFinishedMatches = quickFilter === 'today' ? [] : finishedTodayMatches.filter(passesDashboardFilters)
   const visibleUpcomingMatches = quickFilter === 'today' ? [] : upcomingMatches.filter(passesDashboardFilters)
   const hasVisibleMatches = visibleTodayMatches.length + visibleFinishedMatches.length + visibleUpcomingMatches.length > 0
+  const todayDate = getDakarDateString(new Date(now))
+  const visibleFixtures = activeFilter === 'all' && (quickFilter === 'all' || quickFilter === 'today')
+    ? scheduleFixtures.filter(fixture => quickFilter !== 'today' || fixture.date === todayDate)
+    : []
+  const hasVisibleContent = hasVisibleMatches || visibleFixtures.length > 0
 
   const filteredMatches = useMemo(() => matches.filter(m => passesFilter(m, activeFilter)), [matches, activeFilter])
 
@@ -1126,10 +1163,14 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
                 {visibleTodayMatches.length}
               </span>
             </h3>
-            {visibleTodayMatches.length === 0 && quickFilter === 'all' && activeFilter === 'all' && liveTodayMatches.length + scheduledTodayMatches.length === 0 && visibleUpcomingMatches.length > 0 ? (
+            {visibleTodayMatches.length === 0 && quickFilter === 'all' && activeFilter === 'all' && liveTodayMatches.length + scheduledTodayMatches.length === 0 && (visibleUpcomingMatches.length > 0 || visibleFixtures.some(fixture => fixture.date === todayDate)) ? (
               <div className="btx-empty">
-                <p className="btx-empty__title">{lang === 'fr' ? 'Aucun match disponible aujourd’hui' : lang === 'en' ? 'No match available today' : 'لا توجد مباريات متاحة اليوم'}</p>
-                <p className="btx-empty__sub">{lang === 'fr' ? 'Revenez plus tard ou consultez les matchs à venir ci-dessous.' : lang === 'en' ? 'Come back later or check the upcoming matches below.' : 'عد لاحقاً أو راجع المباريات القادمة أدناه.'}</p>
+                <p className="btx-empty__title">{visibleFixtures.some(fixture => fixture.date === todayDate)
+                  ? lang === 'fr' ? 'Aucun pronostic Gemini validé aujourd’hui' : lang === 'en' ? 'No Gemini-validated pick today' : 'لا يوجد توقع معتمد من Gemini اليوم'
+                  : lang === 'fr' ? 'Aucun match disponible aujourd’hui' : lang === 'en' ? 'No match available today' : 'لا توجد مباريات متاحة اليوم'}</p>
+                <p className="btx-empty__sub">{visibleFixtures.some(fixture => fixture.date === todayDate)
+                  ? lang === 'fr' ? 'Les rencontres sans pronostic sont listées séparément plus bas.' : lang === 'en' ? 'Matches without a pick are listed separately below.' : 'تُعرض المباريات بلا توقع في قسم منفصل أدناه.'
+                  : lang === 'fr' ? 'Revenez plus tard ou consultez les matchs à venir ci-dessous.' : lang === 'en' ? 'Come back later or check the upcoming matches below.' : 'عد لاحقاً أو راجع المباريات القادمة أدناه.'}</p>
               </div>
             ) : visibleTodayMatches.length > 0 ? (
               <div className="btx-grid">
@@ -1194,8 +1235,31 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
             </div>
           )}
 
+          {visibleFixtures.length > 0 && (
+            <section className="mb-7" aria-labelledby="btx-fixtures-title">
+              <h3 id="btx-fixtures-title" className="btx-section-title">
+                {lang === 'fr' ? 'Fixtures sans pronostic' : lang === 'en' ? 'Fixtures without a pick' : 'مباريات بلا توقع'}
+                <span className="btx-count-pill btx-count-pill--muted">{visibleFixtures.length}</span>
+              </h3>
+              <p className="mb-3 text-xs" style={{ color: C.textSec }}>
+                {lang === 'fr' ? 'Rencontres programmées par ESPN, sans sélection Gemini validée ; aucun pronostic n’est affiché.' : lang === 'en' ? 'ESPN-scheduled matches with no validated Gemini selection; no prediction is shown.' : 'مباريات مجدولة من ESPN بلا اختيار معتمد من Gemini؛ لا يتم عرض أي توقع.'}
+              </p>
+              <div className="btx-grid">
+                {visibleFixtures.map(fixture => (
+                  <article key={fixture.key} style={{ background: C.surface, border: `1px solid ${C.border}`, borderRadius: 14, padding: 14 }}>
+                    <p style={{ color: C.text, fontWeight: 800 }}>{fixture.home} <span style={{ color: C.textSec }}>vs</span> {fixture.away}</p>
+                    <p className="mt-1 text-xs" style={{ color: C.textSec }}>{fixture.league}</p>
+                    <time className="mt-2 block text-xs" style={{ color: C.textMute }} dateTime={fixture.time ? `${fixture.date}T${fixture.time}` : fixture.date}>
+                      {fmtFixtureDate(fixture.date, lang)}{fixture.time ? ` · ${fixture.time}` : ''}
+                    </time>
+                  </article>
+                ))}
+              </div>
+            </section>
+          )}
+
           {/* Empty state when both sections are empty under current filter */}
-          {!hasVisibleMatches && (
+          {!hasVisibleContent && (
             <div className="btx-empty">
               <p className="btx-empty__title">{lang === 'fr' ? 'Aucun match sous ce filtre' : lang === 'en' ? 'No matches under this filter' : 'لا توجد مباريات ضمن هذا الفلتر'}</p>
               <p className="btx-empty__sub">{lang === 'fr' ? 'Essayez un autre filtre ou revenez plus tard.' : lang === 'en' ? 'Try another filter or come back later.' : 'جرّب فلترًا آخر أو عد لاحقاً.'}</p>

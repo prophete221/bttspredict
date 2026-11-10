@@ -66,7 +66,7 @@ export default function BTTSPredictionsTomorrowPage() {
           </p>
         </section>
               <section className="max-w-5xl mx-auto px-4 py-8">
-          <FreePredictions />
+          <FreePredictions dayOffset={1} />
         </section>
       </main>
       <Footer />

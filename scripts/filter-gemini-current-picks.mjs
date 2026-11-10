@@ -113,6 +113,22 @@ export function filterGeminiCurrentPicks(payload) {
     selected.push(group[0])
   }
 
+  const pickedFixtureKeys = new Set(
+    selected.filter(isCurrentGeminiPick).map(fixtureKey).filter(Boolean),
+  )
+  const fixtureOnly = new Map()
+  for (const row of Array.isArray(payload.fixtures) ? payload.fixtures : []) {
+    if (!row || typeof row !== 'object' || !hasNoPickValues(row)) continue
+    const key = fixtureKey(row)
+    if (!key || pickedFixtureKeys.has(key) || fixtureOnly.has(key)) continue
+    fixtureOnly.set(key, row)
+  }
+  const fixtures = [...fixtureOnly.values()].sort((a, b) =>
+    String(a.date).localeCompare(String(b.date)) ||
+    String(a.time || '').localeCompare(String(b.time || '')) ||
+    normalizeText(a.home).localeCompare(normalizeText(b.home)),
+  )
+
   const metrics = {
     candidates: candidates.length,
     verifiedDecisions: verified.length,
@@ -124,6 +140,7 @@ export function filterGeminiCurrentPicks(payload) {
     unidentifiable,
     excluded: candidates.length - selected.length,
     published: selected.length,
+    fixtureOnly: fixtures.length,
   }
 
   return {
@@ -131,8 +148,9 @@ export function filterGeminiCurrentPicks(payload) {
       ...payload,
       free: selected,
       predictions: selected,
+      fixtures,
       ...(payload.stats && typeof payload.stats === 'object'
-        ? { stats: { ...payload.stats, freeCount: selected.length } }
+        ? { stats: { ...payload.stats, freeCount: selected.length, fixtureCount: fixtures.length } }
         : {}),
     },
     metrics,

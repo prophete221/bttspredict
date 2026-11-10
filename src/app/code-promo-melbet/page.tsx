@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
-import { Navbar, Footer, FreePredictionsWidget } from '@/components/bttsbet'
+import { Navbar, Footer } from '@/components/bttsbet'
 import MelbetClient from './MelbetClient'
+import PromoVerificationGuide from '@/components/bttsbet/PromoVerificationGuide'
 import { buildPromoFaqJsonLd } from '@/lib/promo-faq'
 import { checkSeo } from '@/lib/seo'
 
@@ -67,7 +68,7 @@ export default function CodePromoMelbetPage() {
       <Navbar />
       <main id="main-content" className="flex-1 relative z-10" style={{ paddingBottom: 'calc(80px + env(safe-area-inset-bottom, 0px))' }}>
         <MelbetClient />
-        <FreePredictionsWidget />
+        <PromoVerificationGuide bookmaker="melbet" lang="fr" />
       </main>
       <Footer />
     </div>

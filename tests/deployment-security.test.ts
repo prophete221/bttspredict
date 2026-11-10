@@ -81,11 +81,11 @@ describe('deployment safety gates', () => {
     expect(staticBuild).toContain("github.head_ref == 'work/public-upcoming-picks-20261109'")
     expect(staticBuild).toContain('run: npm run build -- --webpack')
 
-    const futurePickGate = deploy.indexOf('name: Require a verified future Gemini pick before private jobs or deployment')
+    const scheduleGate = deploy.indexOf('name: Require fresh public schedule content before private jobs or deployment')
     const privateCollect = deploy.indexOf('name: Collect fresh ESPN fixtures privately')
-    expect(futurePickGate).toBeGreaterThan(deploy.indexOf('run: node scripts/filter-gemini-current-picks.mjs'))
-    expect(futurePickGate).toBeLessThan(privateCollect)
-    expect(deploy).toContain('--require-gemini --require-future-gemini-pick')
+    expect(scheduleGate).toBeGreaterThan(deploy.indexOf('run: node scripts/filter-gemini-current-picks.mjs'))
+    expect(scheduleGate).toBeLessThan(privateCollect)
+    expect(deploy).toContain('--require-gemini --require-scheduled-content')
 
     for (const stepName of ['Collect fresh ESPN fixtures privately', 'Analyze private VIP candidate variants', 'Generate private VIP candidate source']) {
       const step = deploy.split(`- name: ${stepName}`)[1]?.split('- name: ')[0] ?? ''

@@ -39,7 +39,7 @@ const MIN_KICKOFF_LEAD_MINUTES = 30 // safety buffer for long enrichment/verific
 
 // Ligues ESPN suivies. Aucune moyenne de ligue n'est utilisée pour fabriquer
 // une prédiction lorsque les données d'équipe sont insuffisantes.
-const ESPN_SLUGS = {
+export const ESPN_SLUGS = {
   'uefa.champions': 'UEFA Champions League',
   // Jeudi = soirée Europa League + Conference League — sans elles, les jeudis
   // affichaient 0 match (régression du 22/10 : 36 matchs ESPN ignorés).
@@ -47,9 +47,14 @@ const ESPN_SLUGS = {
   'uefa.europa.conf': 'UEFA Conference League',
   'eng.1': 'Premier League',
   'eng.2': 'Championship',
+  'eng.3': 'English League One',
+  'eng.4': 'English League Two',
   'esp.1': 'LaLiga',
+  'esp.2': 'LaLiga 2',
   'ita.1': 'Serie A',
+  'ita.2': 'Serie B',
   'fra.1': 'Ligue 1',
+  'fra.2': 'Ligue 2',
   'ger.1': 'Bundesliga',
   'ger.2': '2. Bundesliga',
   'ned.1': 'Eredivisie',
@@ -60,6 +65,12 @@ const ESPN_SLUGS = {
   'aut.1': 'Austrian Bundesliga',
   'sco.1': 'Scottish Premiership',
   'usa.1': 'MLS',
+  // Divisions and regions beyond the usual top-five European leagues.
+  'arg.2': 'Argentine Nacional B',
+  'bra.2': 'Brazilian Serie B',
+  'ksa.1': 'Saudi Pro League',
+  'jpn.1': 'Japanese J.League',
+  'ind.2': 'Indian Football League',
 }
 
 // ─── Helpers ───
@@ -860,18 +871,35 @@ async function quickUpdateCore(privateMode = false, reportCounts = null) {
     ? +(scored.reduce((sum, p) => sum + p.reliabilityScore, 0) / scored.length).toFixed(2)
     : 0
 
+  // Fixtures are scoreboard facts, not selections. Publish them separately so
+  // the UI can list scheduled matches even when evidence/Gemini yields no pick.
+  const fixtures = uniqueMatches.map(m => ({
+    match: m.match,
+    home: m.home,
+    away: m.away,
+    league: m.league,
+    date: m.date,
+    time: m.time || '',
+    ...(m.homeLogo ? { homeLogo: m.homeLogo } : {}),
+    ...(m.awayLogo ? { awayLogo: m.awayLogo } : {}),
+  })).sort((a, b) =>
+    a.date.localeCompare(b.date) || a.time.localeCompare(b.time) || a.match.localeCompare(b.match),
+  )
+
   // ─── Save predictions.json (new structure with predictions nested) ───
   const predictionsData = {
     date: today,
     lastUpdated: new Date().toISOString(),
     source: 'ESPN + TheSportsDB',
     free: free,
+    fixtures,
     stats: {
       avgReliability: avgReliability,
       totalAnalyzed: uniqueMatches.length,
       totalRejected: rejected,
       totalAccepted: scored.length,
       freeCount: free.length,
+      fixtureCount: fixtures.length,
     },
     // Backward compat: predictions = free
     predictions: free,

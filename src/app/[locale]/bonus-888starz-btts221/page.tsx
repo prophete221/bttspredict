@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Btts221PromoClient from '@/components/bttsbet/Btts221PromoClient'
+import PromoVerificationGuide from '@/components/bttsbet/PromoVerificationGuide'
 import { SUPPORTED_LOCALES, type Locale } from '@/lib/i18n'
 import { buildPromoFaqJsonLd } from '@/lib/promo-faq'
 
@@ -75,6 +76,7 @@ export default async function LocalizedBtts221Page({ params }: { params: Promise
     <>
       {localizedStructuredData(lang).map((schema, index) => <script key={index} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />)}
       <Btts221PromoClient lang={lang} />
+      {lang === 'en' && <PromoVerificationGuide bookmaker="888starz" lang="en" variant="code" />}
     </>
   )
 }

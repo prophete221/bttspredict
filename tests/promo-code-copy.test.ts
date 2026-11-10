@@ -24,6 +24,7 @@ const SOURCES = [
   'src/components/bttsbet/LocalizedPromoClient.tsx',
   'src/app/bonus-888starz/Star888Client.tsx',
   'src/components/bttsbet/Star888PromoClient.tsx',
+  'src/components/bttsbet/PromoVerificationGuide.tsx',
   'src/components/bttsbet/Btts221PromoClient.tsx',
   'src/app/page.tsx',
   'src/app/cgu/page.tsx',

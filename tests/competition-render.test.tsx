@@ -3,11 +3,17 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { cleanup, render, waitFor } from '@testing-library/react'
 import CompetitionPageContent from '@/components/bttsbet/CompetitionPageContent'
 import CompetitionIndexContent from '@/components/bttsbet/CompetitionIndexContent'
-import { getCompetitionPage, readCurrentCompetitionFeed } from '@/lib/competition-pages'
+import { formatCompetitionDate, getCompetitionPage, readCurrentCompetitionFeed } from '@/lib/competition-pages'
 
 vi.mock('next/dynamic', () => ({ default: () => () => null }))
 const feed = JSON.parse(readFileSync('public/predictions.json', 'utf8'))
-const now = new Date('2026-11-09T12:00:00Z')
+const feedDate = String(feed.date || String(feed.lastUpdated || '').slice(0, 10))
+function shiftDate(date: string, days: number) {
+  const shifted = new Date(`${date}T12:00:00.000Z`)
+  shifted.setUTCDate(shifted.getUTCDate() + days)
+  return shifted.toISOString().slice(0, 10)
+}
+const now = new Date(`${feedDate}T12:00:00Z`)
 const originalWidth = window.innerWidth
 beforeEach(() => {
   vi.useFakeTimers({ toFake: ['Date'] })
@@ -27,7 +33,7 @@ describe('rendu des nouvelles pages depuis le flux courant', () => {
     expect(cards.every(card => Date.parse(card.dataset.kickoff!) > now.getTime())).toBe(true)
     expect(container.textContent).toContain('Bayern Munich')
     expect(container.textContent).toContain('FC Cologne')
-    expect(container.textContent).not.toContain('8 novembre 2026')
+    expect(container.textContent).not.toContain(formatCompetitionDate(shiftDate(feedDate, -1), 'fr'))
     expect(vi.mocked(fetch)).toHaveBeenCalledTimes(1)
     expect(vi.mocked(fetch).mock.calls[0][0]).toBe('/predictions.json')
     expect(container.firstElementChild?.getAttribute('dir')).toBe(locale === 'ar' ? 'rtl' : 'ltr')
@@ -37,7 +43,7 @@ describe('rendu des nouvelles pages depuis le flux courant', () => {
     await waitFor(() => expect(container.textContent).toContain('0 rencontre à venir'))
     const links = [...container.querySelectorAll('a')].filter(link => link.getAttribute('href')?.startsWith('/competitions/'))
     expect(links).toHaveLength(11)
-    expect(container.textContent).toContain('9 novembre 2026')
+    expect(container.textContent).toContain(formatCompetitionDate(feedDate, 'fr'))
   })
   it('indique honnêtement une compétition sans pick courant', async () => {
     const { container } = render(<CompetitionPageContent competition={getCompetitionPage('liga-portugal')!} locale="fr" />)

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
-import { Navbar, Footer, FreePredictionsWidget } from '@/components/bttsbet'
+import { Navbar, Footer } from '@/components/bttsbet'
 import LinebetClient from './LinebetClient'
+import PromoVerificationGuide from '@/components/bttsbet/PromoVerificationGuide'
 import { buildPromoFaqJsonLd } from '@/lib/promo-faq'
 import { checkSeo } from '@/lib/seo'
 
@@ -8,9 +9,9 @@ const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'code-promo-linebet-senegal'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
 const TITLE = 'Code promo Linebet VISION221 : offre mondiale 300 %'
-const DESCRIPTION = 'Code promo Linebet VISION221 valable dans le monde entier : bonus de dépôt de 300 %, cashback et bonus hebdomadaires. 18+.'
-const OPEN_GRAPH_TITLE = 'Code promo Linebet VISION221 : offre mondiale 300 %'
-const OPEN_GRAPH_DESCRIPTION = 'Le code Linebet VISION221 fonctionne dans le monde entier. L’offre comprend un bonus de dépôt de 300 %, du cashback et des bonus hebdomadaires. 18+.'
+const DESCRIPTION = 'Code promo Linebet VISION221 : bonus de dépôt mondial 300 %, cashback et bonus hebdomadaires. Éligibilité selon Linebet dans votre pays. 18+.'
+const OPEN_GRAPH_TITLE = TITLE
+const OPEN_GRAPH_DESCRIPTION = DESCRIPTION
 
 if (process.env.NODE_ENV === 'production') checkSeo(SLUG, TITLE, DESCRIPTION)
 
@@ -67,7 +68,7 @@ export default function CodePromoLinebetSenegalPage() {
       <Navbar />
       <main id="main-content" className="flex-1 relative z-10" style={{ paddingBottom: 'calc(80px + env(safe-area-inset-bottom, 0px))' }}>
         <LinebetClient />
-        <FreePredictionsWidget />
+        <PromoVerificationGuide bookmaker="linebet" lang="fr" />
       </main>
       <Footer />
     </div>

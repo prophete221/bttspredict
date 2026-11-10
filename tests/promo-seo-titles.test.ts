@@ -10,8 +10,8 @@ const PROMO_PAGES: Array<{ file: string; code: string; title: string }> = [
   { file: 'src/app/code-promo-1xbet/page.tsx', code: 'vipbtts', title: 'Code promo 1xBet vipbtts : bonus mondial 300 %' },
   { file: 'src/app/code-promo-linebet-senegal/page.tsx', code: 'VISION221', title: 'Code promo Linebet VISION221 : offre mondiale 300 %' },
   { file: 'src/app/code-promo-melbet/page.tsx', code: 'Bttswin', title: 'Code promo Melbet Bttswin : 300 % + cashback' },
-  { file: 'src/app/bonus-888starz/page.tsx', code: 'btts221', title: 'Code promo 888Starz btts221 : bonus mondial 300 %' },
-  { file: 'src/app/bonus-888starz-btts221/page.tsx', code: 'btts221', title: '888Starz btts221 : code promo et offre mondiale à 300 %' },
+  { file: 'src/app/bonus-888starz/page.tsx', code: 'btts221', title: 'Code promo 888Starz btts221 : offre mondiale 300 %' },
+  { file: 'src/app/bonus-888starz-btts221/page.tsx', code: 'btts221', title: 'Guide du code 888Starz btts221 : utilisation' },
   { file: 'src/app/[locale]/code-promo-1xbet/page.tsx', code: 'vipbtts', title: '1xBet Promo Code vipbtts: 300% Worldwide Bonus' },
   { file: 'src/app/[locale]/code-promo-linebet-senegal/page.tsx', code: 'VISION221', title: 'Linebet Promo Code VISION221: Worldwide 300% Offer' },
   { file: 'src/app/[locale]/code-promo-melbet/page.tsx', code: 'Bttswin', title: 'Melbet Promo Code Bttswin: 300% + Cashback' },
@@ -45,7 +45,7 @@ const PROMO_H1S: Array<{ file: string; code: string; text: string }> = [
 
 const PROMO_BODY_COPY: Array<{ file: string; code?: string; text: string }> = [
   { file: 'src/app/code-promo-1xbet/XbetClient.tsx', code: 'vipbtts', text: 'Le code promo 1xBet vipbtts fonctionne dans le monde entier.' },
-  { file: 'src/app/code-promo-linebet-senegal/LinebetClient.tsx', code: 'VISION221', text: 'Le code promo Linebet VISION221 fonctionne dans le monde entier.' },
+  { file: 'src/app/code-promo-linebet-senegal/LinebetClient.tsx', code: 'VISION221', text: 'Le code promo Linebet VISION221 est international, pour les pays où Linebet l’accepte.' },
   { file: 'src/app/code-promo-melbet/MelbetClient.tsx', code: 'Bttswin', text: 'Le code promo Melbet Bttswin fonctionne dans le monde entier.' },
   { file: 'src/components/bttsbet/LocalizedPromoClient.tsx', code: 'vipbtts', text: '1xBet promo code vipbtts works worldwide.' },
   { file: 'src/components/bttsbet/LocalizedPromoClient.tsx', code: 'VISION221', text: 'Linebet promo code VISION221 works worldwide.' },
@@ -80,6 +80,7 @@ const PROMO_COPY_FILES = [
   'src/components/bttsbet/LocalizedPromoClient.tsx',
   'src/components/bttsbet/Star888PromoClient.tsx',
   'src/components/bttsbet/PromoLandingShell.tsx',
+  'src/components/bttsbet/PromoVerificationGuide.tsx',
   'src/lib/promo-faq.ts',
 ] as const
 
@@ -88,6 +89,7 @@ const PROMO_SEO_LIMITS = [
   'src/app/code-promo-linebet-senegal/page.tsx',
   'src/app/code-promo-melbet/page.tsx',
   'src/app/bonus-888starz/page.tsx',
+  'src/app/bonus-888starz-btts221/page.tsx',
 ] as const
 
 /** Titres réellement rendus, vérifiés après build dans out/. */
@@ -139,12 +141,15 @@ describe('Titres SEO des pages promo', () => {
     expect(source).not.toMatch(/advertised offer|announced offer|offre annoncée|العرض المعلن|extra cashback|more cashback|plus de cashback|davantage de cashback|cashback supérieur|استرداد نقدي إضافي|استرداد نقدي أكبر/i)
   })
 
-  it('présente Linebet comme mondial sans le limiter au Sénégal et garde son URL historique', () => {
+  it('vise une audience internationale sans limiter le code au Sénégal et garde son URL historique', () => {
     const page = readFileSync(resolve(ROOT, 'src/app/code-promo-linebet-senegal/page.tsx'), 'utf8')
     const client = readFileSync(resolve(ROOT, 'src/app/code-promo-linebet-senegal/LinebetClient.tsx'), 'utf8')
     expect(page).toContain("const TITLE = 'Code promo Linebet VISION221 : offre mondiale 300 %'")
-    expect(client).toContain('fonctionne dans le monde entier')
-    expect(client).not.toMatch(/(?:title|badge|intro)="[^"]*(?:Sénégal|Senegal)/i)
+    expect(client).toContain('est international, pour les pays où Linebet l’accepte')
+    expect(client).toContain('bonus de dépôt mondial de 300 %')
+    expect(client).toContain('joueurs d’Afrique, d’Europe et d’autres régions')
+    expect(client).toContain('Vérifiez la disponibilité, l’éligibilité et les modalités auprès de Linebet pour votre pays')
+    expect(client).not.toMatch(/réservé(?:e)? au Sénégal|uniquement au Sénégal/i)
     expect(page).toContain("'code promo Linebet Sénégal'")
     expect(page).toContain("const SLUG = 'code-promo-linebet-senegal'")
   })

@@ -109,4 +109,23 @@ describe('Gemini-only current feed filter', () => {
     expect(result.payload.free).toEqual([])
     expect(result.metrics.published).toBe(0)
   })
+
+  it('keeps no-pick scoreboard fixtures separate from Gemini selections', () => {
+    const verifiedPick = pick('BTTS', 'Oui', 0.62, FIXTURE_A)
+    const fixtureWithNoDecision = { ...FIXTURE_B }
+    const malformedPredictionFixture = { ...FIXTURE_C, prediction: 'Oui', proba: 0.62 }
+    const result = filterGeminiCurrentPicks({
+      date: '2026-11-07',
+      free: [verifiedPick],
+      fixtures: [FIXTURE_A, fixtureWithNoDecision, malformedPredictionFixture],
+      stats: { fixtureCount: 3 },
+    })
+
+    expect(result.payload.free).toEqual([verifiedPick])
+    expect(result.payload.fixtures).toEqual([fixtureWithNoDecision])
+    expect(result.payload.fixtures[0]).not.toHaveProperty('prediction')
+    expect(result.payload.fixtures[0]).not.toHaveProperty('predictions')
+    expect(result.metrics.fixtureOnly).toBe(1)
+    expect(result.payload.stats.fixtureCount).toBe(1)
+  })
 })

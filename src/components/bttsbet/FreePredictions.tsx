@@ -12,6 +12,7 @@ import { trackAffiliateAction } from '@/lib/affiliateTracking'
 import { humanMethodLabel, predictionQuality, type PredictionQuality as DataQuality } from '@/lib/predictionQuality'
 import { analysisHeading } from '@/lib/predictionPresentation'
 import { getDakarDayDiff, getDakarMatchStatus, parseDakarDateTime } from '@/lib/dakar-date'
+import { getDakarDateOffset, selectCalendarItemsForDakarDay, selectFixtureOnlyItems, type PublicCalendarItem } from '@/lib/public-calendar'
 import VipMarketTeaser from './VipMarketTeaser'
 import MissingMarketVipLink from './MissingMarketVipLink'
 import { getGeminiPicks } from '@/lib/gemini-predictions'
@@ -92,16 +93,27 @@ interface MatchData {
   quality?: DataQuality
 }
 
+interface FixtureData {
+  match: string
+  home: string
+  away: string
+  league: string
+  date: string
+  time: string
+}
+
 import buildTimePredictions from '../../../public/predictions.json'
 
 /** Parse payload → MatchData[] (shared by SSR seed + client refresh). */
-function parseMatchesPayload(data: { free?: unknown[]; predictions?: unknown[]; date?: string } | null | undefined): MatchData[] {
+function parseMatchesPayload(data: { free?: unknown[]; predictions?: unknown[]; date?: string; fixtures?: unknown[] } | null | undefined, now = new Date(), dayOffset = 0): MatchData[] {
   const rawPredictions = (data?.free || data?.predictions || []) as Array<Record<string, unknown>>
+  const hasSeparatedFixtures = Array.isArray(data?.fixtures) && data.fixtures.length > 0
   if (!rawPredictions.length) return []
   const matchMap = new Map<string, MatchData>()
   for (const p of rawPredictions) {
     const rowQuality: DataQuality = predictionQuality(p as never)
     const preds = getGeminiPicks(p)
+    if (hasSeparatedFixtures && preds.length === 0) continue
     const isGeminiResponse = p.ai_source === 'gemini-stats-v1'
     const key = String(p.match || '')
     if (!key || matchMap.has(key)) continue
@@ -142,14 +154,45 @@ function parseMatchesPayload(data: { free?: unknown[]; predictions?: unknown[]; 
     if (sb === 'live' && sa !== 'live') return 1
     return `${a.date}T${a.time || '23:59'}`.localeCompare(`${b.date}T${b.time || '23:59'}`)
   })
-  const todayAll = all.filter(m => getDakarDayDiff(m.date) === 0)
-  const upcomingFill = todayAll.length < 6 ? all.filter(m => getDakarDayDiff(m.date) > 0).slice(0, 12) : []
-  return [...todayAll, ...upcomingFill]
+  if (dayOffset !== 0) return selectCalendarItemsForDakarDay(all, dayOffset, now)
+  const todayMatches = selectCalendarItemsForDakarDay(all, 0, now)
+  const today = getDakarDateOffset(0, now)
+  // Keep the established upcoming-pick fallback so protected today pages retain
+  // their static ItemList and visible selections; the tomorrow route is isolated above.
+  const upcomingFill = todayMatches.length < 6 && today
+    ? all.filter(match => match.date > today).slice(0, 12)
+    : []
+  return [...todayMatches, ...upcomingFill]
 }
 
-function seedMatchesFromBuild(): MatchData[] {
+type PublicFeedPayload = { free?: unknown[]; predictions?: unknown[]; fixtures?: unknown[] }
+
+function parseFixturesPayload(data: PublicFeedPayload | null | undefined, now = new Date(), dayOffset = 0): FixtureData[] {
+  const rawFixtures = Array.isArray(data?.fixtures) ? data.fixtures as PublicCalendarItem[] : []
+  const rawPicks = Array.isArray(data?.free) ? data.free as PublicCalendarItem[]
+    : Array.isArray(data?.predictions) ? data.predictions as PublicCalendarItem[] : []
+  const startDate = getDakarDateOffset(dayOffset, now) || undefined
+  return selectFixtureOnlyItems(rawFixtures, rawPicks, now, startDate).flatMap(row => {
+    const home = String(row.home || '').trim()
+    const away = String(row.away || '').trim()
+    const league = String(row.league || '').trim()
+    const date = String(row.date || '')
+    if (!home || !away || !league) return []
+    return [{ match: String(row.match || `${home} vs ${away}`), home, away, league, date, time: String(row.time || '') }]
+  })
+}
+
+function seedMatchesFromBuild(dayOffset = 0): MatchData[] {
   try {
-    return parseMatchesPayload(buildTimePredictions as { free?: unknown[]; predictions?: unknown[] })
+    return parseMatchesPayload(buildTimePredictions as { free?: unknown[]; predictions?: unknown[] }, new Date(), dayOffset)
+  } catch {
+    return []
+  }
+}
+
+function seedFixturesFromBuild(dayOffset = 0): FixtureData[] {
+  try {
+    return parseFixturesPayload(buildTimePredictions as PublicFeedPayload, new Date(), dayOffset)
   } catch {
     return []
   }
@@ -511,7 +554,7 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
 }
 
 // ─── Main Component ─────────────────────────────────────────────────────
-export default function FreePredictions({ initialLocale }: { initialLocale?: Locale } = {}) {
+export default function FreePredictions({ initialLocale, dayOffset = 0 }: { initialLocale?: Locale; dayOffset?: number } = {}) {
   const [ref, isVisible] = useScrollAnimation()
   const { lang: detectedLang } = useLanguage()
   const lang = initialLocale ?? detectedLang
@@ -522,23 +565,29 @@ export default function FreePredictions({ initialLocale }: { initialLocale?: Loc
     trackAffiliateAction('platform', 'prediction_view', `feed:${window.location.pathname}`, { lang })
   }, [lang])
   const t = translationsFor(lang)
-  const intelligenceTitle = lang === 'en' ? "Today's intelligence" : lang === 'ar' ? 'ذكاء اليوم' : 'Intelligence du jour'
+  const intelligenceTitle = dayOffset === 1
+    ? lang === 'en' ? "Tomorrow's intelligence" : lang === 'ar' ? 'ذكاء الغد' : 'Intelligence de demain'
+    : lang === 'en' ? "Today's intelligence" : lang === 'ar' ? 'ذكاء اليوم' : 'Intelligence du jour'
   const intelligenceSubtitle = lang === 'en' ? 'Live selections, market signals and match analysis' : lang === 'ar' ? 'اختيارات مباشرة وإشارات السوق وتحليل المباريات' : 'Sélections en direct, signaux de marché et analyse des matchs'
+  const fixturesTitle = lang === 'en' ? 'Schedule — fixtures without a pick' : lang === 'ar' ? 'الجدول — مباريات بلا توقع' : 'Calendrier — matchs sans pronostic'
+  const fixturesNote = lang === 'en' ? 'These are scheduled matches only; no Gemini selection has been validated for them.' : lang === 'ar' ? 'هذه مباريات مجدولة فقط؛ لم يتم اعتماد أي اختيار من Gemini لها.' : 'Ce sont des rencontres programmées : aucun pronostic Gemini n’a été validé pour elles.'
   // Seed build-time: le HTML statique contient déjà les matchs (crawlers / IA).
   // Le fetch client rafraîchit ensuite avec le predictions.json live.
-  const [matches, setMatches] = useState<MatchData[]>(() => seedMatchesFromBuild())
-  const [loading, setLoading] = useState(() => seedMatchesFromBuild().length === 0)
+  const [matches, setMatches] = useState<MatchData[]>(() => seedMatchesFromBuild(dayOffset))
+  const [fixtures, setFixtures] = useState<FixtureData[]>(() => seedFixturesFromBuild(dayOffset))
+  const [loading, setLoading] = useState(() => seedMatchesFromBuild(dayOffset).length === 0)
 
   useEffect(() => {
     fetch('/predictions.json')
       .then(r => r.json())
       .then(data => {
-        const next = parseMatchesPayload(data)
-        if (next.length > 0) setMatches(next)
+        const next = parseMatchesPayload(data as PublicFeedPayload, new Date(), dayOffset)
+        setMatches(next)
+        setFixtures(parseFixturesPayload(data as PublicFeedPayload, new Date(), dayOffset))
         setLoading(false)
       })
       .catch(() => setLoading(false))
-  }, [])
+  }, [dayOffset])
 
   const stats = useMemo(() => ({
     total: matches.length,
@@ -614,6 +663,28 @@ export default function FreePredictions({ initialLocale }: { initialLocale?: Loc
               <PredictionCard key={`${m.match}-${m.date}-${m.time}`} match={m} index={i} initialLocale={lang} />
             ))}
           </div>
+        )}
+
+        {fixtures.length > 0 && (
+          <section className="mt-8" aria-labelledby="calendar-fixtures-heading">
+            <div className="mb-3">
+              <h3 id="calendar-fixtures-heading" className="text-lg font-bold text-papier">{fixturesTitle}</h3>
+              <p className="mt-1 text-xs leading-relaxed text-cendre">{fixturesNote}</p>
+            </div>
+            <ul className="grid gap-2 sm:grid-cols-2">
+              {fixtures.map(fixture => (
+                <li key={`${fixture.date}|${fixture.league}|${fixture.home}|${fixture.away}`} className="flex items-center justify-between gap-3 rounded-xl border border-edge bg-dark-900 px-4 py-3">
+                  <div className="min-w-0">
+                    <p className="truncate text-sm font-semibold text-papier">{fixture.home} <span className="text-cendre">vs</span> {fixture.away}</p>
+                    <p className="mt-1 truncate text-[11px] uppercase tracking-wide text-cendre">{fixture.league}</p>
+                  </div>
+                  <time dateTime={fixture.time ? `${fixture.date}T${fixture.time}` : fixture.date} className="shrink-0 text-right text-xs text-cendre">
+                    {formatDateShort(fixture.date, lang)}{fixture.time ? ` · ${fixture.time}` : ''}
+                  </time>
+                </li>
+              ))}
+            </ul>
+          </section>
         )}
 
         <p className="text-center text-sm text-cendre mt-6">

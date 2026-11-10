@@ -105,9 +105,9 @@ jobs:
         if: ${{ github.head_ref == 'work/public-upcoming-picks-20261109' && github.event.pull_request.head.repo.full_name == github.repository }}
         run: node scripts/filter-gemini-current-picks.mjs public/predictions.json
 
-      - name: Require a validated Gemini pick for a real future match
+      - name: Require fresh public schedule content
         if: ${{ github.head_ref == 'work/public-upcoming-picks-20261109' && github.event.pull_request.head.repo.full_name == github.repository }}
-        run: node scripts/validate-predictions.mjs public/predictions.json --require-timestamp --require-gemini --require-future-gemini-pick
+        run: node scripts/validate-predictions.mjs public/predictions.json --require-timestamp --require-gemini --require-scheduled-content
 
       - name: Build static export
         if: ${{ github.head_ref == 'work/public-upcoming-picks-20261109' && github.event.pull_request.head.repo.full_name == github.repository }}
@@ -158,7 +158,7 @@ jobs:
           PUPPETEER_SKIP_DOWNLOAD: 'true'
 
       - name: Collect fresh ESPN fixtures privately
-        timeout-minutes: 5
+        timeout-minutes: 10
         run: node scripts/quick-update-predictions.mjs --private-vip
 
       - name: Install Gemini client
@@ -287,7 +287,7 @@ jobs:
 
       - name: Update predictions (ESPN API)
         if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
-        timeout-minutes: 5
+        timeout-minutes: 10
         run: node scripts/quick-update-predictions.mjs
 
       - name: Validate fresh predictions before enrichment
@@ -316,13 +316,13 @@ jobs:
         if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
         run: node scripts/filter-gemini-current-picks.mjs public/predictions.json
 
-      - name: Require a verified future Gemini pick before private jobs or deployment
+      - name: Require fresh public schedule content before private jobs or deployment
         if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
-        run: node scripts/validate-predictions.mjs public/predictions.json --require-timestamp --require-gemini --require-future-gemini-pick
+        run: node scripts/validate-predictions.mjs public/predictions.json --require-timestamp --require-gemini --require-scheduled-content
 
       - name: Collect fresh ESPN fixtures privately
         if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]') && !contains(github.event.head_commit.message, '[public-gemini-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
-        timeout-minutes: 5
+        timeout-minutes: 10
         run: node scripts/quick-update-predictions.mjs --private-vip
 
       - name: Analyze private VIP candidate variants (public feed unchanged)
@@ -400,7 +400,7 @@ jobs:
         continue-on-error: true
       - name: Validate predictions dataset before build
         if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
-        run: node scripts/validate-predictions.mjs public/predictions.json --require-timestamp --require-gemini --require-future-gemini-pick
+        run: node scripts/validate-predictions.mjs public/predictions.json --require-timestamp --require-gemini --require-scheduled-content
 
       - name: Build static export
         run: npm run build -- --webpack

@@ -31,13 +31,14 @@ export default function LinebetClient(_props: { reviewDate?: string } = {}) {
         lang="fr"
         title="Code promo Linebet VISION221 : offre mondiale 300 %"
         badge="CODE PROMO LINEBET · VISION221"
-        intro="Le code promo Linebet VISION221 fonctionne dans le monde entier. L’offre comprend un bonus de dépôt de 300 %, du cashback et des bonus hebdomadaires ; vérifiez auprès de Linebet les modalités applicables dans votre pays."
-        offerHeadline="Offre Linebet dans le monde"
-        offerSub="Code VISION221 · bonus de dépôt mondial de 300 % · cashback et bonus hebdomadaires."
-        benefits={['Code Linebet : VISION221', 'Fonctionne dans le monde entier', 'Bonus de dépôt mondial de 300 %', 'Cashback et bonus hebdomadaires']}
+        intro="Le code promo Linebet VISION221 est international, pour les pays où Linebet l’accepte. L’offre comprend un bonus de dépôt mondial de 300 %, du cashback et des bonus hebdomadaires. Ce guide s’adresse aux joueurs d’Afrique, d’Europe et d’autres régions. Vérifiez la disponibilité, l’éligibilité et les modalités auprès de Linebet pour votre pays."
+        offerHeadline="Repères sur l’offre Linebet"
+        offerSub="Bonus de dépôt mondial de 300 % · cashback · bonus hebdomadaires."
+        benefits={['Code exact : VISION221', 'Site et APK : deux parcours distincts', 'Modalités locales à vérifier avant dépôt']}
         steps={[
-          { n: '01', title: 'Copier VISION221', desc: 'Le code promo Linebet VISION221 fonctionne dans le monde entier.' },
-          { n: '02', title: 'Consulter Linebet', desc: 'Vérifiez auprès de l’opérateur les modalités applicables dans votre pays.' },
+          { n: '01', title: 'Garder le code à portée de main', desc: 'Copiez VISION221 et distinguez-le du lien d’accès au site ou au téléchargement APK.' },
+          { n: '02', title: 'Lire les détails de l’offre', desc: 'Sur Linebet, vérifiez les conditions, l’éligibilité et la façon d’utiliser le code avant toute action.' },
+          { n: '03', title: 'Choisir votre parcours', desc: 'Utilisez le lien du site ou celui de l’APK selon votre besoin, puis suivez les indications affichées par Linebet.' },
         ]}
         faq={getPromoFaq('linebet', 'fr')}
         crossLinks={ALL_LINKS.filter((l) => l.id !== SELF).map(({ label, href }) => ({ label, href }))}

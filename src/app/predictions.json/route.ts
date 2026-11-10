@@ -15,12 +15,13 @@ export function GET() {
       source: data.source || '',
       disclaimer: 'Prédictions informatives, pas de gain garanti, 18+',
       free,
+      fixtures: Array.isArray(data.fixtures) ? data.fixtures : [],
       stats: data.stats || {},
       predictions: free,
     }, { headers: { 'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=1800' } })
   } catch {
     return NextResponse.json({
-      date: null, lastUpdated: null, free: [], predictions: [],
+      date: null, lastUpdated: null, free: [], fixtures: [], predictions: [],
       stats: {}, status: 'no data yet',
     })
   }

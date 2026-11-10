@@ -3,11 +3,27 @@ import {
   buildDateParams,
   FALLBACK_FUTURE_DAYS,
   FUTURE_DAYS,
+  ESPN_SLUGS,
   getTodayISO,
   shouldExtendPublicHorizon,
 } from '../scripts/quick-update-predictions.mjs'
 
 describe('public ESPN fixture horizon', () => {
+  test('includes confirmed lower-division and international competitions in the collection map', () => {
+    expect(ESPN_SLUGS).toMatchObject({
+      'eng.3': 'English League One',
+      'eng.4': 'English League Two',
+      'esp.2': 'LaLiga 2',
+      'fra.2': 'Ligue 2',
+      'ita.2': 'Serie B',
+      'arg.2': 'Argentine Nacional B',
+      'bra.2': 'Brazilian Serie B',
+      'ksa.1': 'Saudi Pro League',
+      'jpn.1': 'Japanese J.League',
+      'ind.2': 'Indian Football League',
+    })
+  })
+
   test('scans J0–J+6 first and J+7–J+15 only as the extension', () => {
     const baseDate = new Date('2026-11-09T12:00:00.000Z')
     const primary = buildDateParams(0, FUTURE_DAYS, baseDate)
