@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { COMPETITION_PAGES, COMPETITION_SLUGS, competitionMeta, formatCompetitionDate, getCompetitionPage, readCurrentCompetitionFeed } from '@/lib/competition-pages'
 import { getGeminiPicks } from '@/lib/gemini-predictions'
 
-const source = JSON.parse(readFileSync('public/predictions.json', 'utf8'))
+const source = JSON.parse(readFileSync('tests/fixtures/competition-feed.json', 'utf8'))
 const feedDate = String(source.date || String(source.lastUpdated || '').slice(0, 10))
 function shiftDate(date: string, days: number) {
   const shifted = new Date(`${date}T12:00:00.000Z`)

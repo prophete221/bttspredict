@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-10",
+  "lastUpdated": "2026-11-10T08:00:00.000Z",
+  "free": [
+    {
+      "id": "test-bundesliga-bayern-cologne",
+      "date": "2026-11-10",
+      "time": "18:30",
+      "home": "Bayern Munich",
+      "away": "FC Cologne",
+      "league": "Bundesliga",
+      "match": "Bayern Munich vs FC Cologne",
+      "dataSource": "ESPN",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.7,
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "ai_market": "BTTS",
+      "ai_abstain": false,
+      "modelEngine": "gemini-stats-v1",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "proba": 0.7,
+          "modelEngine": "gemini-3.5-flash-lite"
+        }
+      ]
+    }
+  ]
+}

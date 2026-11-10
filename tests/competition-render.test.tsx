@@ -6,7 +6,7 @@ import CompetitionIndexContent from '@/components/bttsbet/CompetitionIndexConten
 import { formatCompetitionDate, getCompetitionPage, readCurrentCompetitionFeed } from '@/lib/competition-pages'
 
 vi.mock('next/dynamic', () => ({ default: () => () => null }))
-const feed = JSON.parse(readFileSync('public/predictions.json', 'utf8'))
+const feed = JSON.parse(readFileSync('tests/fixtures/competition-feed.json', 'utf8'))
 const feedDate = String(feed.date || String(feed.lastUpdated || '').slice(0, 10))
 function shiftDate(date: string, days: number) {
   const shifted = new Date(`${date}T12:00:00.000Z`)
@@ -40,7 +40,8 @@ describe('rendu des nouvelles pages depuis le flux courant', () => {
   })
   it('présente onze liens dans l’index sans prétendre que les compétitions vides ont des matchs', async () => {
     const { container } = render(<CompetitionIndexContent locale="fr" />)
-    await waitFor(() => expect(container.textContent).toContain('0 rencontre à venir'))
+    await waitFor(() => expect(container.textContent).toContain('1 rencontre à venir'))
+    expect(container.textContent).toContain('0 rencontre à venir')
     const links = [...container.querySelectorAll('a')].filter(link => link.getAttribute('href')?.startsWith('/competitions/'))
     expect(links).toHaveLength(11)
     expect(container.textContent).toContain(formatCompetitionDate(feedDate, 'fr'))
