@@ -197,7 +197,8 @@
       "over25Prob": 0.58,
       "prediction": "Oui",
       "proba": 0.58,
-      "confidence": 58
+      "confidence": 58,
+      "status": "PENDING"
     },
     {
       "id": "sobernar-vs-athletic-2026-11-12",
@@ -393,7 +394,8 @@
       "bttsProb": 0.65,
       "prediction": "Oui",
       "proba": 0.65,
-      "confidence": 65
+      "confidence": 65,
+      "status": "PENDING"
     },
     {
       "id": "pontepre-vs-operriop-2026-11-12",
@@ -575,7 +577,8 @@
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "abstain",
+      "status": "PENDING"
     },
     {
       "id": "legans-vs-burgos-2026-11-13",
@@ -771,7 +774,8 @@
       "bttsProb": 0.62,
       "prediction": "Oui",
       "proba": 0.62,
-      "confidence": 62
+      "confidence": 62,
+      "status": "PENDING"
     },
     {
       "id": "gimnasia-vs-almirant-2026-11-14",
@@ -960,7 +964,8 @@
       "bttsProb": 0.72,
       "prediction": "Oui",
       "proba": 0.72,
-      "confidence": 72
+      "confidence": 72,
+      "status": "PENDING"
     },
     {
       "id": "realovie-vs-girona-2026-11-14",
@@ -1156,7 +1161,8 @@
       "bttsProb": 0.65,
       "prediction": "Oui",
       "proba": 0.65,
-      "confidence": 65
+      "confidence": 65,
+      "status": "PENDING"
     },
     {
       "id": "realvall-vs-castelln-2026-11-14",
@@ -1352,7 +1358,8 @@
       "over25Prob": 0.68,
       "prediction": "Oui",
       "proba": 0.68,
-      "confidence": 68
+      "confidence": 68,
+      "status": "PENDING"
     },
     {
       "id": "colchest-vs-gillingh-2026-11-14",
@@ -1548,7 +1555,8 @@
       "bttsProb": 0.65,
       "prediction": "Oui",
       "proba": 0.65,
-      "confidence": 65
+      "confidence": 65,
+      "status": "PENDING"
     },
     {
       "id": "mallorca-vs-crdoba-2026-11-14",
@@ -1744,7 +1752,8 @@
       "bttsProb": 0.62,
       "prediction": "Oui",
       "proba": 0.62,
-      "confidence": 62
+      "confidence": 62,
+      "status": "PENDING"
     },
     {
       "id": "fortalez-vs-vilanova-2026-11-14",
@@ -1940,7 +1949,8 @@
       "bttsProb": 0.6,
       "prediction": "Oui",
       "proba": 0.6,
-      "confidence": 60
+      "confidence": 60,
+      "status": "PENDING"
     },
     {
       "id": "tenerife-vs-ceuta-2026-11-15",
@@ -2129,7 +2139,8 @@
       "bttsProb": 0.72,
       "prediction": "Oui",
       "proba": 0.72,
-      "confidence": 72
+      "confidence": 72,
+      "status": "PENDING"
     },
     {
       "id": "eibar-vs-cdiz-2026-11-15",
@@ -2325,7 +2336,8 @@
       "bttsProb": 0.65,
       "prediction": "Oui",
       "proba": 0.65,
-      "confidence": 65
+      "confidence": 65,
+      "status": "PENDING"
     },
     {
       "id": "granada-vs-laspalma-2026-11-15",
@@ -2507,7 +2519,8 @@
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "abstain",
+      "status": "PENDING"
     },
     {
       "id": "godoycru-vs-tristnsu-2026-11-15",
@@ -2689,7 +2702,8 @@
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "abstain",
+      "status": "PENDING"
     },
     {
       "id": "eldense-vs-cdsabade-2026-11-15",
@@ -2871,7 +2885,8 @@
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "abstain",
+      "status": "PENDING"
     },
     {
       "id": "ferrocar-vs-gimnasia-2026-11-15",
@@ -3053,7 +3068,8 @@
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "abstain",
+      "status": "PENDING"
     },
     {
       "id": "fleetwoo-vs-tranmere-2026-11-14",
@@ -3249,7 +3265,8 @@
       "bttsProb": 0.72,
       "prediction": "Oui",
       "proba": 0.72,
-      "confidence": 72
+      "confidence": 72,
+      "status": "PENDING"
     },
     {
       "id": "rochdale-vs-yorkcity-2026-11-14",
@@ -3445,7 +3462,582 @@
       "bttsProb": 0.7,
       "prediction": "Oui",
       "proba": 0.7,
-      "confidence": 70
+      "confidence": 70,
+      "status": "PENDING"
+    },
+    {
+      "id": "londrina-vs-nutico-2026-11-11",
+      "match": "Londrina vs Náutico",
+      "home": "Londrina",
+      "away": "Náutico",
+      "league": "Brazilian Serie B",
+      "date": "2026-11-11",
+      "type": "BTTS",
+      "time": "22:00",
+      "matchSemantic": "londrina-vs-nutico-2026-11-11",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/17333.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7633.png",
+      "tier": "STANDARD",
+      "reliabilityScore": 59.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 0.67,
+      "xgAway": 0.33,
+      "xgTotal": 1,
+      "formBTTS": 30,
+      "analysis": "Londrina : forme D-D-D-V-N (1V 1N 3D, 5 buts marqués / 11 encaissés sur 5) · Náutico : forme D-V-D-N-D (1V 1N 3D, 1 buts marqués / 9 encaissés sur 5). Classement : Londrina 18e (32 pts), Náutico 15e (46 pts). Stats empiriques (forme récente) : buts moy. 1, BTTS 30.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.59 / N: 4.2 / 2: 4.8 · Over 2.5: 1.57. Fiabilité 59.38%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.3,
+        "empiricalOver25Rate": 0.6,
+        "homeLambda": 0.67,
+        "awayLambda": 0.33,
+        "xgTotal": 1
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.59,
+        "draw": 4.2,
+        "away": 4.8,
+        "over25": 1.57,
+        "under25": 2.2
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-D-D-V-N",
+        "wins": 1,
+        "draws": 1,
+        "losses": 3,
+        "goalsFor": 5,
+        "goalsAgainst": 11,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-V-D-N-D",
+        "wins": 1,
+        "draws": 1,
+        "losses": 3,
+        "goalsFor": 1,
+        "goalsAgainst": 9,
+        "bttsRate": 0,
+        "over25Rate": 0.4,
+        "cleanSheets": 2,
+        "failedToScore": 4,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-05",
+          "opponent": "Botafogo-SP",
+          "venue": "A",
+          "score": "0-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "América Mineiro",
+          "venue": "H",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "CRB",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-20",
+          "opponent": "Cuiabá",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-13",
+          "opponent": "Athletic",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-08",
+          "opponent": "CRB",
+          "venue": "H",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Avaí",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-26",
+          "opponent": "Juventude",
+          "venue": "A",
+          "score": "0-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-19",
+          "opponent": "Goiás",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Vila Nova",
+          "venue": "H",
+          "score": "0-2",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 18,
+        "points": 32,
+        "played": 37,
+        "gf": 45,
+        "ga": 58
+      },
+      "standingsAway": {
+        "rank": 15,
+        "points": 46,
+        "played": 37,
+        "gf": 40,
+        "ga": 49
+      },
+      "empiricalBttsRate": 0.3,
+      "empiricalOver25Rate": 0.6,
+      "homeLambda": 0.67,
+      "awayLambda": 0.33,
+      "statsOnly": true,
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "Náutico présente un taux de BTTS de 0% sur ses cinq derniers matchs.",
+      "ai_analysis": "Malgré les difficultés défensives de Londrina, Náutico montre une incapacité chronique à marquer à l'extérieur avec une moyenne de 0.33 but par match. Le taux empirique de BTTS de 30% et le taux de 0% de Náutico sur ses 5 derniers matchs ne permettent pas de valider un pari sûr sur les buts.",
+      "ai_analysis_en": "Despite Londrina's defensive struggles, Náutico shows a chronic inability to score away with an average of 0.33 goals per match. The 30% empirical BTTS rate and Náutico's 0% rate in their last 5 games prevent any confident bet on goals.",
+      "ai_form_summary": "Londrina : 1V-1D-3L, 5 buts pour, 11 buts contre. Náutico : 1V-1D-3L, 1 but pour, 9 buts contre.",
+      "ai_form_summary_en": "Londrina: 1W-1D-3L, 5 goals for, 11 goals against. Náutico: 1W-1D-3L, 1 goal for, 9 goals against.",
+      "ai_reasons": [
+        "Le taux empirique BTTS est faible à 30%",
+        "Náutico affiche un taux de BTTS de 0 sur ses 5 derniers matchs",
+        "Les moyennes de buts de Náutico à l'extérieur sont très faibles (0.33)"
+      ],
+      "ai_risks": [
+        "Londrina encaisse beaucoup de buts (11 sur ses 5 derniers matchs)",
+        "Les deux équipes sont mal classées en fin de saison"
+      ],
+      "ai_confidence": "low",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "abstain"
+    },
+    {
+      "id": "sobernar-vs-athletic-2026-11-12",
+      "match": "São Bernardo vs Athletic",
+      "home": "São Bernardo",
+      "away": "Athletic",
+      "league": "Brazilian Serie B",
+      "date": "2026-11-12",
+      "type": "Over 2.5",
+      "time": "23:00",
+      "matchSemantic": "sobernar-vs-athletic-2026-11-12",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/11268.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20851.png",
+      "tier": "GOLD",
+      "reliabilityScore": 84.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2,
+      "xgAway": 0.75,
+      "xgTotal": 2.75,
+      "formBTTS": 70,
+      "analysis": "São Bernardo : forme D-V-V-D-N (2V 1N 2D, 8 buts marqués / 8 encaissés sur 5) · Athletic : forme D-V-D-N-N (1V 2N 2D, 6 buts marqués / 7 encaissés sur 5). Classement : São Bernardo 11e (52 pts), Athletic 14e (47 pts). Stats empiriques (forme récente) : buts moy. 2.75, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.91 / N: 3.45 / 2: 3.8 · Over 2.5: 1.91. Fiabilité 84.38%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.7,
+        "empiricalOver25Rate": 0.7,
+        "homeLambda": 2,
+        "awayLambda": 0.75,
+        "xgTotal": 2.75
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.91,
+        "draw": 3.45,
+        "away": 3.8,
+        "over25": 1.91,
+        "under25": 1.8
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-V-V-D-N",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 8,
+        "goalsAgainst": 8,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-V-D-N-N",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 6,
+        "goalsAgainst": 7,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-07",
+          "opponent": "Avaí",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Cuiabá",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Vila Nova",
+          "venue": "H",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Criciúma",
+          "venue": "H",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Juventude",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-08",
+          "opponent": "Atlético Goianiense",
+          "venue": "H",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-02",
+          "opponent": "Ceará",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Operário PR",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Avaí",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-13",
+          "opponent": "Londrina",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 11,
+        "points": 52,
+        "played": 37,
+        "gf": 52,
+        "ga": 42
+      },
+      "standingsAway": {
+        "rank": 14,
+        "points": 47,
+        "played": 37,
+        "gf": 44,
+        "ga": 44
+      },
+      "empiricalBttsRate": 0.7,
+      "empiricalOver25Rate": 0.7,
+      "homeLambda": 2,
+      "awayLambda": 0.75,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_key_fact": "São Bernardo enregistre un taux de 80% d'Over 2.5 sur ses 5 derniers matchs avec une moyenne de 2 buts marqués.",
+      "ai_analysis": "Les statistiques de São Bernardo appuient nettement une rencontre prolifique avec 80% d'Over 2.5 récents et une moyenne de 2 buts par match. Bien que l'attaque d'Athletic soit plus timide hors de ses bases, le taux empirique global de 70% justifie amplement la sélection sur l'Over 2.5.",
+      "ai_analysis_en": "São Bernardo's statistics strongly support a high-scoring match with a recent 80% Over 2.5 rate and an average of 2 goals per match. Although Athletic's away attack is more modest, the overall empirical rate of 70% fully justifies the Over 2.5 selection.",
+      "ai_form_summary": "São Bernardo : 2W-1D-2L, 8 buts pour, 8 buts contre. Athletic : 1W-2D-2L, 6 buts pour, 7 buts contre.",
+      "ai_form_summary_en": "São Bernardo: 2W-1D-2L, 8 goals for, 8 goals against. Athletic: 1W-2D-2L, 6 goals for, 7 goals against.",
+      "ai_reasons": [
+        "Le taux empirique d'Over 2.5 est élevé à 70%",
+        "São Bernardo a un taux d'Over 2.5 de 80% sur ses 5 derniers matchs",
+        "São Bernardo affiche une moyenne offensive de 2 buts par match"
+      ],
+      "ai_risks": [
+        "Athletic a une moyenne offensive extérieure plus faible (0.75)",
+        "Le taux de BTTS récent d'Athletic est modéré à 60%"
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 68,
+          "proba": 0.68,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "over25Prob": 0.68
+        }
+      ],
+      "over25Prob": 0.68,
+      "prediction": "Oui",
+      "proba": 0.68,
+      "confidence": 68
+    },
+    {
+      "id": "eldense-vs-cdsabade-2026-11-15",
+      "match": "Eldense vs CD Sabadell",
+      "home": "Eldense",
+      "away": "CD Sabadell",
+      "league": "LaLiga 2",
+      "date": "2026-11-15",
+      "type": "BTTS",
+      "time": "17:30",
+      "matchSemantic": "eldense-vs-cdsabade-2026-11-15",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7320.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/11487.png",
+      "tier": "GOLD",
+      "reliabilityScore": 75.63,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.75,
+      "xgAway": 1,
+      "xgTotal": 2.75,
+      "formBTTS": 50,
+      "analysis": "Eldense : forme D-D-D-V-V (2V 0N 3D, 5 buts marqués / 9 encaissés sur 5) · CD Sabadell : forme N-D-N-D-V (1V 2N 2D, 4 buts marqués / 5 encaissés sur 5). Classement : Eldense 15e (14 pts), CD Sabadell 13e (18 pts). Stats empiriques (forme récente) : buts moy. 2.75, BTTS 50.0%, Over 2.5 40.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.35 / N: 3.1 / 2: 2.95 · Over 2.5: 2.05. Fiabilité 75.63%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.5,
+        "empiricalOver25Rate": 0.4,
+        "homeLambda": 1.75,
+        "awayLambda": 1,
+        "xgTotal": 2.75
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.35,
+        "draw": 3.1,
+        "away": 2.95,
+        "over25": 2.05,
+        "under25": 1.65
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-D-D-V-V",
+        "wins": 2,
+        "draws": 0,
+        "losses": 3,
+        "goalsFor": 5,
+        "goalsAgainst": 9,
+        "bttsRate": 0.4,
+        "over25Rate": 0.4,
+        "cleanSheets": 0,
+        "failedToScore": 3,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-D-N-D-V",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 4,
+        "goalsAgainst": 5,
+        "bttsRate": 0.6,
+        "over25Rate": 0.4,
+        "cleanSheets": 1,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-09",
+          "opponent": "Las Palmas",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Granada",
+          "venue": "H",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Albacete",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Real Valladolid",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Córdoba",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-09",
+          "opponent": "Real Sociedad II",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Albacete",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Tenerife",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Burgos",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Ceuta",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 15,
+        "points": 14,
+        "played": 13,
+        "gf": 13,
+        "ga": 19
+      },
+      "standingsAway": {
+        "rank": 13,
+        "points": 18,
+        "played": 13,
+        "gf": 12,
+        "ga": 11
+      },
+      "empiricalBttsRate": 0.5,
+      "empiricalOver25Rate": 0.4,
+      "homeLambda": 1.75,
+      "awayLambda": 1,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Eldense et CD Sabadell affichent respectivement 40% et 60% de BTTS récents.",
+      "ai_analysis": "L'analyse des statistiques observées montre un profil partagé avec un taux BTTS empirique de 50%. Bien que CD Sabadell présente une tendance récente à 60% de matchs avec les deux équipes marquantes, la faible production offensive extérieure (1 but de moyenne) et le taux de 40% d'Eldense incitent à la prudence vers l'option Non.",
+      "ai_analysis_en": "Analysis of the observed statistics shows a balanced profile with a 50% empirical BTTS rate. Although CD Sabadell shows a recent 60% BTTS trend, their low away goalscoring average (1 goal per match) and Eldense's 40% rate suggest leaning towards No.",
+      "ai_form_summary": "Eldense (2V-0N-3D) et CD Sabadell (1V-2N-2D) sur leurs 5 derniers matchs.",
+      "ai_form_summary_en": "Eldense (2W-0D-3L) and CD Sabadell (1W-2D-2L) in their last 5 matches.",
+      "ai_reasons": [
+        "Taux BTTS empirique modéré à 50% sur l'échantillon global.",
+        "Faible moyenne de buts à l'extérieur pour CD Sabadell (1 but par match).",
+        "Forme récente d'Eldense montrant un taux de BTTS de 40% sur les 5 derniers matchs."
+      ],
+      "ai_risks": [
+        "Eldense encaisse pas mal de buts globalement (19 buts encaissés en 13 matchs).",
+        "CD Sabadell affiche un taux BTTS de 60% sur ses 5 derniers matchs."
+      ],
+      "ai_confidence": "low",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Non",
+          "confidence": 55,
+          "proba": 0.55,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.55
+        }
+      ],
+      "bttsProb": 0.55,
+      "prediction": "Non",
+      "proba": 0.55,
+      "confidence": 55
     }
   ],
   "fixtures": [
@@ -7300,6 +7892,580 @@
       "proba": 0.7,
       "confidence": 70,
       "status": "PENDING"
+    },
+    {
+      "id": "londrina-vs-nutico-2026-11-11",
+      "match": "Londrina vs Náutico",
+      "home": "Londrina",
+      "away": "Náutico",
+      "league": "Brazilian Serie B",
+      "date": "2026-11-11",
+      "type": "BTTS",
+      "time": "22:00",
+      "matchSemantic": "londrina-vs-nutico-2026-11-11",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/17333.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7633.png",
+      "tier": "STANDARD",
+      "reliabilityScore": 59.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 0.67,
+      "xgAway": 0.33,
+      "xgTotal": 1,
+      "formBTTS": 30,
+      "analysis": "Londrina : forme D-D-D-V-N (1V 1N 3D, 5 buts marqués / 11 encaissés sur 5) · Náutico : forme D-V-D-N-D (1V 1N 3D, 1 buts marqués / 9 encaissés sur 5). Classement : Londrina 18e (32 pts), Náutico 15e (46 pts). Stats empiriques (forme récente) : buts moy. 1, BTTS 30.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.59 / N: 4.2 / 2: 4.8 · Over 2.5: 1.57. Fiabilité 59.38%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.3,
+        "empiricalOver25Rate": 0.6,
+        "homeLambda": 0.67,
+        "awayLambda": 0.33,
+        "xgTotal": 1
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.59,
+        "draw": 4.2,
+        "away": 4.8,
+        "over25": 1.57,
+        "under25": 2.2
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-D-D-V-N",
+        "wins": 1,
+        "draws": 1,
+        "losses": 3,
+        "goalsFor": 5,
+        "goalsAgainst": 11,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-V-D-N-D",
+        "wins": 1,
+        "draws": 1,
+        "losses": 3,
+        "goalsFor": 1,
+        "goalsAgainst": 9,
+        "bttsRate": 0,
+        "over25Rate": 0.4,
+        "cleanSheets": 2,
+        "failedToScore": 4,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-05",
+          "opponent": "Botafogo-SP",
+          "venue": "A",
+          "score": "0-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "América Mineiro",
+          "venue": "H",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "CRB",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-20",
+          "opponent": "Cuiabá",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-13",
+          "opponent": "Athletic",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-08",
+          "opponent": "CRB",
+          "venue": "H",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Avaí",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-26",
+          "opponent": "Juventude",
+          "venue": "A",
+          "score": "0-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-19",
+          "opponent": "Goiás",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Vila Nova",
+          "venue": "H",
+          "score": "0-2",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 18,
+        "points": 32,
+        "played": 37,
+        "gf": 45,
+        "ga": 58
+      },
+      "standingsAway": {
+        "rank": 15,
+        "points": 46,
+        "played": 37,
+        "gf": 40,
+        "ga": 49
+      },
+      "empiricalBttsRate": 0.3,
+      "empiricalOver25Rate": 0.6,
+      "homeLambda": 0.67,
+      "awayLambda": 0.33,
+      "statsOnly": true,
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "Náutico présente un taux de BTTS de 0% sur ses cinq derniers matchs.",
+      "ai_analysis": "Malgré les difficultés défensives de Londrina, Náutico montre une incapacité chronique à marquer à l'extérieur avec une moyenne de 0.33 but par match. Le taux empirique de BTTS de 30% et le taux de 0% de Náutico sur ses 5 derniers matchs ne permettent pas de valider un pari sûr sur les buts.",
+      "ai_analysis_en": "Despite Londrina's defensive struggles, Náutico shows a chronic inability to score away with an average of 0.33 goals per match. The 30% empirical BTTS rate and Náutico's 0% rate in their last 5 games prevent any confident bet on goals.",
+      "ai_form_summary": "Londrina : 1V-1D-3L, 5 buts pour, 11 buts contre. Náutico : 1V-1D-3L, 1 but pour, 9 buts contre.",
+      "ai_form_summary_en": "Londrina: 1W-1D-3L, 5 goals for, 11 goals against. Náutico: 1W-1D-3L, 1 goal for, 9 goals against.",
+      "ai_reasons": [
+        "Le taux empirique BTTS est faible à 30%",
+        "Náutico affiche un taux de BTTS de 0 sur ses 5 derniers matchs",
+        "Les moyennes de buts de Náutico à l'extérieur sont très faibles (0.33)"
+      ],
+      "ai_risks": [
+        "Londrina encaisse beaucoup de buts (11 sur ses 5 derniers matchs)",
+        "Les deux équipes sont mal classées en fin de saison"
+      ],
+      "ai_confidence": "low",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "abstain"
+    },
+    {
+      "id": "sobernar-vs-athletic-2026-11-12",
+      "match": "São Bernardo vs Athletic",
+      "home": "São Bernardo",
+      "away": "Athletic",
+      "league": "Brazilian Serie B",
+      "date": "2026-11-12",
+      "type": "Over 2.5",
+      "time": "23:00",
+      "matchSemantic": "sobernar-vs-athletic-2026-11-12",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/11268.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20851.png",
+      "tier": "GOLD",
+      "reliabilityScore": 84.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2,
+      "xgAway": 0.75,
+      "xgTotal": 2.75,
+      "formBTTS": 70,
+      "analysis": "São Bernardo : forme D-V-V-D-N (2V 1N 2D, 8 buts marqués / 8 encaissés sur 5) · Athletic : forme D-V-D-N-N (1V 2N 2D, 6 buts marqués / 7 encaissés sur 5). Classement : São Bernardo 11e (52 pts), Athletic 14e (47 pts). Stats empiriques (forme récente) : buts moy. 2.75, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.91 / N: 3.45 / 2: 3.8 · Over 2.5: 1.91. Fiabilité 84.38%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.7,
+        "empiricalOver25Rate": 0.7,
+        "homeLambda": 2,
+        "awayLambda": 0.75,
+        "xgTotal": 2.75
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.91,
+        "draw": 3.45,
+        "away": 3.8,
+        "over25": 1.91,
+        "under25": 1.8
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-V-V-D-N",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 8,
+        "goalsAgainst": 8,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-V-D-N-N",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 6,
+        "goalsAgainst": 7,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-07",
+          "opponent": "Avaí",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Cuiabá",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Vila Nova",
+          "venue": "H",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Criciúma",
+          "venue": "H",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Juventude",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-08",
+          "opponent": "Atlético Goianiense",
+          "venue": "H",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-02",
+          "opponent": "Ceará",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Operário PR",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Avaí",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-13",
+          "opponent": "Londrina",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 11,
+        "points": 52,
+        "played": 37,
+        "gf": 52,
+        "ga": 42
+      },
+      "standingsAway": {
+        "rank": 14,
+        "points": 47,
+        "played": 37,
+        "gf": 44,
+        "ga": 44
+      },
+      "empiricalBttsRate": 0.7,
+      "empiricalOver25Rate": 0.7,
+      "homeLambda": 2,
+      "awayLambda": 0.75,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_key_fact": "São Bernardo enregistre un taux de 80% d'Over 2.5 sur ses 5 derniers matchs avec une moyenne de 2 buts marqués.",
+      "ai_analysis": "Les statistiques de São Bernardo appuient nettement une rencontre prolifique avec 80% d'Over 2.5 récents et une moyenne de 2 buts par match. Bien que l'attaque d'Athletic soit plus timide hors de ses bases, le taux empirique global de 70% justifie amplement la sélection sur l'Over 2.5.",
+      "ai_analysis_en": "São Bernardo's statistics strongly support a high-scoring match with a recent 80% Over 2.5 rate and an average of 2 goals per match. Although Athletic's away attack is more modest, the overall empirical rate of 70% fully justifies the Over 2.5 selection.",
+      "ai_form_summary": "São Bernardo : 2W-1D-2L, 8 buts pour, 8 buts contre. Athletic : 1W-2D-2L, 6 buts pour, 7 buts contre.",
+      "ai_form_summary_en": "São Bernardo: 2W-1D-2L, 8 goals for, 8 goals against. Athletic: 1W-2D-2L, 6 goals for, 7 goals against.",
+      "ai_reasons": [
+        "Le taux empirique d'Over 2.5 est élevé à 70%",
+        "São Bernardo a un taux d'Over 2.5 de 80% sur ses 5 derniers matchs",
+        "São Bernardo affiche une moyenne offensive de 2 buts par match"
+      ],
+      "ai_risks": [
+        "Athletic a une moyenne offensive extérieure plus faible (0.75)",
+        "Le taux de BTTS récent d'Athletic est modéré à 60%"
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 68,
+          "proba": 0.68,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "over25Prob": 0.68
+        }
+      ],
+      "over25Prob": 0.68,
+      "prediction": "Oui",
+      "proba": 0.68,
+      "confidence": 68
+    },
+    {
+      "id": "eldense-vs-cdsabade-2026-11-15",
+      "match": "Eldense vs CD Sabadell",
+      "home": "Eldense",
+      "away": "CD Sabadell",
+      "league": "LaLiga 2",
+      "date": "2026-11-15",
+      "type": "BTTS",
+      "time": "17:30",
+      "matchSemantic": "eldense-vs-cdsabade-2026-11-15",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7320.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/11487.png",
+      "tier": "GOLD",
+      "reliabilityScore": 75.63,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.75,
+      "xgAway": 1,
+      "xgTotal": 2.75,
+      "formBTTS": 50,
+      "analysis": "Eldense : forme D-D-D-V-V (2V 0N 3D, 5 buts marqués / 9 encaissés sur 5) · CD Sabadell : forme N-D-N-D-V (1V 2N 2D, 4 buts marqués / 5 encaissés sur 5). Classement : Eldense 15e (14 pts), CD Sabadell 13e (18 pts). Stats empiriques (forme récente) : buts moy. 2.75, BTTS 50.0%, Over 2.5 40.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.35 / N: 3.1 / 2: 2.95 · Over 2.5: 2.05. Fiabilité 75.63%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.5,
+        "empiricalOver25Rate": 0.4,
+        "homeLambda": 1.75,
+        "awayLambda": 1,
+        "xgTotal": 2.75
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.35,
+        "draw": 3.1,
+        "away": 2.95,
+        "over25": 2.05,
+        "under25": 1.65
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-D-D-V-V",
+        "wins": 2,
+        "draws": 0,
+        "losses": 3,
+        "goalsFor": 5,
+        "goalsAgainst": 9,
+        "bttsRate": 0.4,
+        "over25Rate": 0.4,
+        "cleanSheets": 0,
+        "failedToScore": 3,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-D-N-D-V",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 4,
+        "goalsAgainst": 5,
+        "bttsRate": 0.6,
+        "over25Rate": 0.4,
+        "cleanSheets": 1,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-09",
+          "opponent": "Las Palmas",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Granada",
+          "venue": "H",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Albacete",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Real Valladolid",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Córdoba",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-09",
+          "opponent": "Real Sociedad II",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Albacete",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Tenerife",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Burgos",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Ceuta",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 15,
+        "points": 14,
+        "played": 13,
+        "gf": 13,
+        "ga": 19
+      },
+      "standingsAway": {
+        "rank": 13,
+        "points": 18,
+        "played": 13,
+        "gf": 12,
+        "ga": 11
+      },
+      "empiricalBttsRate": 0.5,
+      "empiricalOver25Rate": 0.4,
+      "homeLambda": 1.75,
+      "awayLambda": 1,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Eldense et CD Sabadell affichent respectivement 40% et 60% de BTTS récents.",
+      "ai_analysis": "L'analyse des statistiques observées montre un profil partagé avec un taux BTTS empirique de 50%. Bien que CD Sabadell présente une tendance récente à 60% de matchs avec les deux équipes marquantes, la faible production offensive extérieure (1 but de moyenne) et le taux de 40% d'Eldense incitent à la prudence vers l'option Non.",
+      "ai_analysis_en": "Analysis of the observed statistics shows a balanced profile with a 50% empirical BTTS rate. Although CD Sabadell shows a recent 60% BTTS trend, their low away goalscoring average (1 goal per match) and Eldense's 40% rate suggest leaning towards No.",
+      "ai_form_summary": "Eldense (2V-0N-3D) et CD Sabadell (1V-2N-2D) sur leurs 5 derniers matchs.",
+      "ai_form_summary_en": "Eldense (2W-0D-3L) and CD Sabadell (1W-2D-2L) in their last 5 matches.",
+      "ai_reasons": [
+        "Taux BTTS empirique modéré à 50% sur l'échantillon global.",
+        "Faible moyenne de buts à l'extérieur pour CD Sabadell (1 but par match).",
+        "Forme récente d'Eldense montrant un taux de BTTS de 40% sur les 5 derniers matchs."
+      ],
+      "ai_risks": [
+        "Eldense encaisse pas mal de buts globalement (19 buts encaissés en 13 matchs).",
+        "CD Sabadell affiche un taux BTTS de 60% sur ses 5 derniers matchs."
+      ],
+      "ai_confidence": "low",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Non",
+          "confidence": 55,
+          "proba": 0.55,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.55
+        }
+      ],
+      "bttsProb": 0.55,
+      "prediction": "Non",
+      "proba": 0.55,
+      "confidence": 55
     }
   ],
   "analysisEngine": "gemini-stats-v1"
