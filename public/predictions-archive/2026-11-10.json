@@ -8073,7 +8073,8 @@
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "abstain",
+      "status": "PENDING"
     },
     {
       "id": "sobernar-vs-athletic-2026-11-12",
@@ -8269,7 +8270,8 @@
       "over25Prob": 0.68,
       "prediction": "Oui",
       "proba": 0.68,
-      "confidence": 68
+      "confidence": 68,
+      "status": "PENDING"
     },
     {
       "id": "eldense-vs-cdsabade-2026-11-15",
@@ -8465,7 +8467,8 @@
       "bttsProb": 0.55,
       "prediction": "Non",
       "proba": 0.55,
-      "confidence": 55
+      "confidence": 55,
+      "status": "PENDING"
     }
   ],
   "analysisEngine": "gemini-stats-v1"

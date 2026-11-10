@@ -1,6 +1,6 @@
 {
   "date": "2026-11-10",
-  "lastUpdated": "2026-11-10T16:47:39.859Z",
+  "lastUpdated": "2026-11-10T21:09:13.258Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -165,19 +165,18 @@
       "statsOnly": true,
       "ai_abstain": true,
       "ai_market": "ABSTAIN",
-      "ai_key_fact": "Náutico affiche un taux BTTS de 0 sur ses 5 derniers matchs.",
-      "ai_analysis": "Les statistiques offensives des deux équipes sont trop faibles pour envisager un pari serein. Le taux BTTS empirique de 0.30 et la stérilité offensive récente de Náutico (0 but marqué sur ses 5 derniers matchs de forme) incitent clairement à l'abstention sur le marché des buts.",
-      "ai_analysis_en": "The offensive statistics of both teams are too weak to consider a confident bet. The empirical BTTS rate of 0.30 and Náutico's recent offensive sterility (0 goals scored in their last 5 form matches) clearly suggest abstaining from the goals market.",
-      "ai_form_summary": "Londrina : 1V-1D-3L (5 buts pour, 11 contre). Náutico : 1V-1D-3L (1 but pour, 9 contre).",
-      "ai_form_summary_en": "Londrina: 1W-1D-3L (5 GF, 11 GA). Náutico: 1W-1D-3L (1 GF, 9 GA).",
+      "ai_key_fact": "Náutico affiche un taux BTTS de 0% sur ses derniers matchs malgré sa 15e place.",
+      "ai_analysis": "Bien que Londrina montre des matchs ouverts avec un taux d'Over 2.5 de 0.8, les statistiques offensives de Náutico sont trop faibles (0.33 but par match) et son taux BTTS récent est nul. L'empirique BTTS est de seulement 0.3, ce qui ne justifie pas de pari sur les deux équipes marquent.",
+      "ai_analysis_en": "Although Londrina shows open games with an Over 2.5 rate of 0.8, Náutico's offensive stats are too weak (0.33 goals per game) and their recent BTTS rate is zero. The empirical BTTS is only 0.3, which does not justify a bet on both teams to score.",
+      "ai_form_summary": "Londrina : 1V-1D-3L (5 BP, 11 BC) - Náutico : 1V-1D-3L (1 BP, 9 BC)",
+      "ai_form_summary_en": "Londrina: 1W-1D-3L (5 GF, 11 GA) - Náutico: 1W-1D-3L (1 GF, 9 GA)",
       "ai_reasons": [
-        "Faible taux BTTS empirique à 0.30 et formBTTS à 30.",
-        "L'équipe extérieure Náutico a un taux BTTS de 0 sur ses 5 derniers matchs.",
-        "Moyennes de buts faibles pour Londrina (0.67) et Náutico (0.33)."
+        "Faible taux BTTS empirique à 30%",
+        "L'équipe extérieure Náutico a un taux BTTS de 0 sur ses 5 derniers matchs",
+        "Moyennes de buts faibles pour l'équipe extérieure (0.33)"
       ],
       "ai_risks": [
-        "Londrina présente un taux d'Over 2.5 de 0.8 mais avec de très faibles moyennes de buts.",
-        "Classments bas de tableau avec des attaques peu prolifiques."
+        "Londrina concède beaucoup de buts (11 sur les 5 derniers), ce qui pourrait offrir des opportunités à Náutico"
       ],
       "ai_confidence": "low",
       "modelEngine": "gemini-stats-v1",
@@ -544,19 +543,19 @@
       "statsOnly": true,
       "ai_abstain": true,
       "ai_market": "ABSTAIN",
-      "ai_key_fact": "Ponte Preta est 20e avec 79 buts encaissés en 37 matchs.",
-      "ai_analysis": "Malgré la défense extrêmement fragile de Ponte Preta, la faible production offensive d'Operário PR (0.33 but moyen) et un taux BTTS empirique à 50% ne permettent pas de dégager un pari à haute valeur. La tendance penche vers une victoire de l'équipe visiteuse, mais le marché BTTS ou Over 2.5 reste trop risqué, justifiant une abstention.",
-      "ai_analysis_en": "Despite Ponte Preta's extremely fragile defense, Operário PR's low offensive production (0.33 goal average) and an empirical BTTS rate of 50% do not allow for a high-value bet. The trend leans towards an away win, but the BTTS or Over 2.5 market remains too risky, justifying an abstention.",
-      "ai_form_summary": "Ponte Preta : 0W-2D-3L, 4 BP, 11 BC, BTTS 60%. Operário PR : 2W-0D-3L, 5 BP, 7 BC, BTTS 40%.",
-      "ai_form_summary_en": "Ponte Preta: 0W-2D-3L, 4 GF, 11 GA, BTTS 60%. Operário PR: 2W-0D-3L, 5 GF, 7 GA, BTTS 40%.",
+      "ai_key_fact": "Ponte Preta sits 20th with 79 conceded goals, while Operário PR averages 0.33 away goals.",
+      "ai_analysis": "Bien que Ponte Preta présente une défense extrêmement perméable avec 79 buts encaissés en 37 matchs, la très faible moyenne de buts à l'extérieur d'Operário PR (0,33) et le taux BTTS empirique de 50 % n'offrent pas de signal suffisamment tranché pour valider un pari sûr. Par conséquent, l'abstention est recommandée.",
+      "ai_analysis_en": "Although Ponte Preta has an extremely leaky defense with 79 goals conceded in 37 matches, Operário PR's very low away goal average (0.33) and the 50% empirical BTTS rate do not provide a strong enough signal for a reliable bet. Therefore, abstention is recommended.",
+      "ai_form_summary": "Ponte Preta en grande difficulté (0V-2N-3D) ; Operário PR irrégulier à l'extérieur (2V-0N-3D).",
+      "ai_form_summary_en": "Ponte Preta struggling badly (0W-2D-3L); Operário PR inconsistent away (2W-0D-3L).",
       "ai_reasons": [
-        "Ponte Preta a une moyenne de buts marqués très faible de 1 et encaisse beaucoup (79 GA en 37 matchs).",
-        "Operário PR présente un taux BTTS empirique de 0.4 seulement sur ses 8 derniers matchs.",
-        "Les statistiques d'attaque d'Operário PR à l'extérieur sont limitées avec 0.33 but moyen."
+        "Ponte Preta has poor scoring form with only 4 goals in their last 5 games and an average of 1 goal per game.",
+        "Operário PR has an away goals average of 0.33 and an away BTTS rate of 0.4.",
+        "Empirical BTTS sits exactly at 50% with low goal averages overall from the away side."
       ],
       "ai_risks": [
-        "La défense poreuse de Ponte Preta pourrait concéder sans marquer.",
-        "L'écart important au classement (20e contre 10e) rend le scénario du match incertain pour le BTTS."
+        "Ponte Preta's dismal defensive record (79 goals conceded in 37 games) could lead to an away blowout rather than a balanced BTTS scenario.",
+        "Low empirical rates and poor overall offensive output make prediction unreliable."
       ],
       "ai_confidence": "low",
       "modelEngine": "gemini-stats-v1",
@@ -2718,6 +2717,368 @@
       "status": "PENDING"
     },
     {
+      "id": "granada-vs-laspalma-2026-11-15",
+      "match": "Granada vs Las Palmas",
+      "home": "Granada",
+      "away": "Las Palmas",
+      "league": "LaLiga 2",
+      "date": "2026-11-15",
+      "type": "BTTS",
+      "time": "15:15",
+      "matchSemantic": "granada-vs-laspalma-2026-11-15",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3747.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/98.png",
+      "tier": "GOLD",
+      "reliabilityScore": 76.25,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.75,
+      "xgAway": 2,
+      "xgTotal": 3.75,
+      "formBTTS": 40,
+      "analysis": "Granada : forme V-V-V-V-V (5V 0N 0D, 10 buts marqués / 3 encaissés sur 5) · Las Palmas : forme V-V-V-D-D (3V 0N 2D, 7 buts marqués / 8 encaissés sur 5). Classement : Granada 5e (23 pts), Las Palmas 10e (20 pts). Stats empiriques (forme récente) : buts moy. 3.75, BTTS 40.0%, Over 2.5 50.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.71 / N: 3.6 / 2: 4.6 · Over 2.5: 1.77. Fiabilité 76.25%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.4,
+        "empiricalOver25Rate": 0.5,
+        "homeLambda": 1.75,
+        "awayLambda": 2,
+        "xgTotal": 3.75
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.71,
+        "draw": 3.6,
+        "away": 4.6,
+        "over25": 1.77,
+        "under25": 1.91
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "V-V-V-V-V",
+        "wins": 5,
+        "draws": 0,
+        "losses": 0,
+        "goalsFor": 10,
+        "goalsAgainst": 3,
+        "bttsRate": 0.4,
+        "over25Rate": 0.4,
+        "cleanSheets": 3,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-V-D-D",
+        "wins": 3,
+        "draws": 0,
+        "losses": 2,
+        "goalsFor": 7,
+        "goalsAgainst": 8,
+        "bttsRate": 0.4,
+        "over25Rate": 0.6,
+        "cleanSheets": 2,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-01",
+          "opponent": "Eldense",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Real Valladolid",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Cádiz",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-12",
+          "opponent": "Burgos",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-04",
+          "opponent": "Real Sociedad II",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-09",
+          "opponent": "Eldense",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-02",
+          "opponent": "Real Oviedo",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Real Sociedad II",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Castellón",
+          "venue": "H",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Mallorca",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 5,
+        "points": 23,
+        "played": 12,
+        "gf": 20,
+        "ga": 14
+      },
+      "standingsAway": {
+        "rank": 10,
+        "points": 20,
+        "played": 13,
+        "gf": 19,
+        "ga": 21
+      },
+      "empiricalBttsRate": 0.4,
+      "empiricalOver25Rate": 0.5,
+      "homeLambda": 1.75,
+      "awayLambda": 2,
+      "statsOnly": true,
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "Granada and Las Palmas both register a 40% empirical BTTS rate.",
+      "ai_analysis": "Malgré la très bonne dynamique de Granada à domicile, les taux empiriques de BTTS s'établissent à 40% pour les deux formations. Les signaux contradictoires entre la solidité de Granada et les moyennes de buts de Las Palmas incitent à la prudence. Par conséquent, il est préférable de s'abstenir sur ce marché.",
+      "ai_analysis_en": "Despite Granada's strong home momentum, empirical BTTS rates sit at 40% for both teams. Conflicting signals between Granada's defensive control and Las Palmas' away goal averages suggest a cautious stance. Therefore, an abstention on this market is recommended.",
+      "ai_form_summary": "Granada sur une série de 5 victoires (10 BP, 3 BC). Las Palmas sur 3 victoires et 2 défaites (7 BP, 8 BC).",
+      "ai_form_summary_en": "Granada on a 5-match winning streak (10 GF, 3 GA). Las Palmas on 3 wins and 2 losses (7 GF, 8 GA).",
+      "ai_reasons": [
+        "Empirical BTTS rate is low at 40% for both teams.",
+        "Granada shows a strong home form with a 40% BTTS and 40% Over 2.5 rate, suggesting tight defensive control."
+      ],
+      "ai_risks": [
+        "Las Palmas away matches show a moderate 60% Over 2.5 rate which could push goals up.",
+        "Contradictory signals between low BTTS rates and moderate away goal averages."
+      ],
+      "ai_confidence": "low",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "abstain"
+    },
+    {
+      "id": "godoycru-vs-tristnsu-2026-11-15",
+      "match": "Godoy Cruz Antonio Tomba vs Tristán Suárez",
+      "home": "Godoy Cruz Antonio Tomba",
+      "away": "Tristán Suárez",
+      "league": "Argentine Nacional B",
+      "date": "2026-11-15",
+      "type": "BTTS",
+      "time": "20:00",
+      "matchSemantic": "godoycru-vs-tristnsu-2026-11-15",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6756.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10163.png",
+      "tier": "GOLD",
+      "reliabilityScore": 76.25,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 3,
+      "xgAway": 0.5,
+      "xgTotal": 3.5,
+      "formBTTS": 40,
+      "analysis": "Godoy Cruz Antonio Tomba : forme V-V-V-N-V (4V 1N 0D, 13 buts marqués / 5 encaissés sur 5) · Tristán Suárez : forme N-N-V-N-N (1V 4N 0D, 2 buts marqués / 1 encaissés sur 5). Classement : Godoy Cruz Antonio Tomba 1e (66 pts), Tristán Suárez 1e (64 pts). Stats empiriques (forme récente) : buts moy. 3.5, BTTS 40.0%, Over 2.5 40.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.05 / N: 2.75 / 2: 4. Fiabilité 76.25%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.4,
+        "empiricalOver25Rate": 0.4,
+        "homeLambda": 3,
+        "awayLambda": 0.5,
+        "xgTotal": 3.5
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.05,
+        "draw": 2.75,
+        "away": 4,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "V-V-V-N-V",
+        "wins": 4,
+        "draws": 1,
+        "losses": 0,
+        "goalsFor": 13,
+        "goalsAgainst": 5,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 2,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-N-V-N-N",
+        "wins": 1,
+        "draws": 4,
+        "losses": 0,
+        "goalsFor": 2,
+        "goalsAgainst": 1,
+        "bttsRate": 0.2,
+        "over25Rate": 0,
+        "cleanSheets": 4,
+        "failedToScore": 3,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-31",
+          "opponent": "Almirante Brown",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Mitre (Santiago del Estero)",
+          "venue": "A",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Estudiantes (Buenos Aires)",
+          "venue": "H",
+          "score": "6-3",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-12",
+          "opponent": "All Boys",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-04",
+          "opponent": "Los Andes",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-31",
+          "opponent": "Deportivo Maipú",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Almagro",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Patronato",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Colegiales",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-03",
+          "opponent": "Quilmes",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 1,
+        "points": 66,
+        "played": 36,
+        "gf": 53,
+        "ga": 33
+      },
+      "standingsAway": {
+        "rank": 1,
+        "points": 64,
+        "played": 36,
+        "gf": 34,
+        "ga": 16
+      },
+      "empiricalBttsRate": 0.4,
+      "empiricalOver25Rate": 0.4,
+      "homeLambda": 3,
+      "awayLambda": 0.5,
+      "statsOnly": true,
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "Tristán Suárez registers a 0% Over 2.5 rate in their recent form sample.",
+      "ai_analysis": "Bien que Godoy Cruz affiche de superbes statistiques offensives à domicile avec une moyenne de 3 buts, Tristán Suárez présente un profil ultra-défensif à l'extérieur avec 0% d'Over 2.5 et 20% de BTTS. Les taux empiriques globaux restent faibles sous la barre des 45%. Le marché est donc évité.",
+      "ai_analysis_en": "Although Godoy Cruz displays great home offensive stats with a 3-goal average, Tristán Suárez shows an ultra-defensive away profile with 0% Over 2.5 and 20% BTTS. Overall empirical rates remain low below the 45% threshold. The market is thus avoided.",
+      "ai_form_summary": "Godoy Cruz en excellente forme (4V, 1N, 13 BP, 5 BC). Tristán Suárez très fermé (1V, 4N, 2 BP, 1 BC).",
+      "ai_form_summary_en": "Godoy Cruz in excellent form (4W, 1D, 13 GF, 5 GA). Tristán Suárez very tight defensively (1W, 4D, 2 GF, 1 GA).",
+      "ai_reasons": [
+        "Tristán Suárez displays an away form with a 0% Over 2.5 rate and a 20% BTTS rate.",
+        "Empirical BTTS and Over 2.5 rates are both at 40%, failing to cross the threshold for a reliable selection."
+      ],
+      "ai_risks": [
+        "Godoy Cruz has strong home stats with 3 goals average and an 80% Over 2.5 rate in last 5.",
+        "Tristán Suárez is extremely defensive on the road, creating a low-scoring clash profile."
+      ],
+      "ai_confidence": "low",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "abstain"
+    },
+    {
       "id": "eldense-vs-cdsabade-2026-11-15",
       "match": "Eldense vs CD Sabadell",
       "home": "Eldense",
@@ -2879,19 +3240,19 @@
       "statsOnly": true,
       "ai_abstain": true,
       "ai_market": "ABSTAIN",
-      "ai_key_fact": "Eldense et CD Sabadell affichent un taux BTTS empirique exact de 50%.",
-      "ai_analysis": "L'analyse des données de ce match d'Eldense contre CD Sabadell montre des statistiques partagées. Avec un taux BTTS empirique de 50% et un Over 2.5 sous la barre des 45% (40%), les indicateurs ne permettent pas de dégager une valeur nette. Par conséquent, il est plus sage de s'abstenir sur cette rencontre.",
-      "ai_analysis_en": "The analysis of the data for this match between Eldense and CD Sabadell shows mixed statistics. With an empirical BTTS rate of 50% and an Over 2.5 below the 45% threshold (40%), the indicators do not provide clear value. Therefore, it is wiser to abstain from this fixture.",
-      "ai_form_summary": "Eldense : 2V-0N-3D sur les 5 derniers ; CD Sabadell : 1V-2N-2D sur les 5 derniers.",
-      "ai_form_summary_en": "Eldense: 2W-0D-3L in last 5; CD Sabadell: 1W-2D-2L in last 5.",
+      "ai_key_fact": "Eldense et CD Sabadell présentent un taux empirique BTTS de 50% avec des moyennes de buts de 1.75 et 1.0.",
+      "ai_analysis": "L'analyse des statistiques observées pour la rencontre entre Eldense et CD Sabadell ne montre pas de signal tranché. Le taux empirique BTTS est de 50% tandis que le taux d'Over 2.5 s'établit à 40%, reflétant des matchs relativement fermés. En l'absence d'une tendance forte et selon nos règles prudentes, il est préférable de s'abstenir sur ce match.",
+      "ai_analysis_en": "The analysis of observed statistics for the match between Eldense and CD Sabadell shows no clear signal. The empirical BTTS rate is 50% while the Over 2.5 rate stands at 40%, reflecting relatively low-scoring matches. In the absence of a strong trend and according to our conservative rules, it is best to abstain from this fixture.",
+      "ai_form_summary": "Eldense : 2V-0N-3D (5 buts marqués, 9 encaissés). CD Sabadell : 1V-2N-2D (4 buts marqués, 5 encaissés).",
+      "ai_form_summary_en": "Eldense: 2W-0D-3L (5 goals scored, 9 conceded). CD Sabadell: 1W-2D-2L (4 goals scored, 5 conceded).",
       "ai_reasons": [
-        "Taux BTTS empirique modéré à 50% tout juste à l'équilibre.",
-        "Taux Over 2.5 faible à 40%, inférieur au seuil optimal.",
-        "Forme de BTTS à 50% sans tendance claire pour un pari tranché."
+        "Taux empirique BTTS à exactement 50% sur l'échantillon observé.",
+        "Taux Over 2.5 faible à 40% pour Eldense et CD Sabadell.",
+        "Forme BTTS des deux équipes évaluée à 50% sans tendance nette."
       ],
       "ai_risks": [
-        "Faible moyenne de buts pour CD Sabadell (1.0).",
-        "Variabilité dans les derniers résultats des deux formations."
+        "Faible moyenne de buts combinée pour CD Sabadell (1.0).",
+        "Indécision statistique entre le marché BTTS et le manque de volume offensif."
       ],
       "ai_confidence": "low",
       "modelEngine": "gemini-stats-v1",
@@ -3061,19 +3422,19 @@
       "statsOnly": true,
       "ai_abstain": true,
       "ai_market": "ABSTAIN",
-      "ai_key_fact": "Ferro Carril Oeste et Gimnasia y Tiro affichent tous deux une moyenne de 0.5 buts marqués.",
-      "ai_analysis": "Cette confrontation entre Ferro Carril Oeste et Gimnasia y Tiro présente des métriques offensives très faibles, avec un taux BTTS empirique de seulement 30% et des moyennes de 0.5 buts par match pour chaque équipe. Ces chiffres reflètent un profil de match fermé qui ne correspond pas aux critères d'un pari BTTS ou Over. L'abstention s'impose.",
-      "ai_analysis_en": "This fixture between Ferro Carril Oeste and Gimnasia y Tiro presents very weak offensive metrics, with an empirical BTTS rate of only 30% and averages of 0.5 goals per match for each team. These figures reflect a low-scoring profile that does not meet the criteria for a BTTS or Over bet. Abstention is required.",
-      "ai_form_summary": "Ferro Carril Oeste : 1V-2N-2D sur les 5 derniers ; Gimnasia y Tiro : 1V-1N-3D sur les 5 derniers.",
-      "ai_form_summary_en": "Ferro Carril Oeste: 1W-2D-2L in last 5; Gimnasia y Tiro: 1W-1D-3L in last 5.",
+      "ai_key_fact": "Ferro Carril Oeste et Gimnasia y Tiro affichent tous deux de très faibles moyennes de buts (0.5) et un BTTS empirique de 30%.",
+      "ai_analysis": "Les statistiques de Ferro Carril Oeste contre Gimnasia y Tiro indiquent une rencontre à très faible tendance offensive. Le taux empirique BTTS de 30% et les moyennes de buts de 0.5 pour chaque formation violent les seuils minimaux requis pour valider une sélection. Par conséquent, la recommandation est de s'abstenir.",
+      "ai_analysis_en": "The statistics for Ferro Carril Oeste against Gimnasia y Tiro indicate a fixture with a very low offensive trend. The empirical BTTS rate of 30% and the goal averages of 0.5 for each team violate the minimum thresholds required to validate a selection. Consequently, the recommendation is to abstain.",
+      "ai_form_summary": "Ferro Carril Oeste : 1V-2N-2D (2 buts marqués, 6 encaissés). Gimnasia y Tiro : 1V-1N-3D (5 buts marqués, 8 encaissés).",
+      "ai_form_summary_en": "Ferro Carril Oeste: 1W-2D-2L (2 goals scored, 6 conceded). Gimnasia y Tiro: 1W-1D-3L (5 goals scored, 8 conceded).",
       "ai_reasons": [
-        "Taux BTTS empirique très bas à 30%.",
-        "Moyennes de buts très faibles pour les deux équipes (0.5 par match).",
-        "Taux Over 2.5 limité à 40%."
+        "Taux empirique BTTS très bas à 30% sur l'échantillon observé.",
+        "Moyennes de buts faibles pour les deux équipes (0.5 pour Ferro Carril Oeste et 0.5 pour Gimnasia y Tiro).",
+        "Indice formBTTS limité à 30%."
       ],
       "ai_risks": [
-        "Production offensive globale extrêmement faible.",
-        "Fortes chances d'un match fermé malgré les classements."
+        "Taux empiriques insuffisants pour soutenir un pari sur les buts.",
+        "Faible production offensive globale constatée dans les derniers matchs."
       ],
       "ai_confidence": "low",
       "modelEngine": "gemini-stats-v1",
@@ -3459,7 +3820,7 @@
     "totalAnalyzed": 49,
     "totalRejected": 8,
     "totalAccepted": 41,
-    "freeCount": 16,
+    "freeCount": 18,
     "fixtureCount": 37
   },
   "predictions": [
@@ -3625,19 +3986,18 @@
       "statsOnly": true,
       "ai_abstain": true,
       "ai_market": "ABSTAIN",
-      "ai_key_fact": "Náutico affiche un taux BTTS de 0 sur ses 5 derniers matchs.",
-      "ai_analysis": "Les statistiques offensives des deux équipes sont trop faibles pour envisager un pari serein. Le taux BTTS empirique de 0.30 et la stérilité offensive récente de Náutico (0 but marqué sur ses 5 derniers matchs de forme) incitent clairement à l'abstention sur le marché des buts.",
-      "ai_analysis_en": "The offensive statistics of both teams are too weak to consider a confident bet. The empirical BTTS rate of 0.30 and Náutico's recent offensive sterility (0 goals scored in their last 5 form matches) clearly suggest abstaining from the goals market.",
-      "ai_form_summary": "Londrina : 1V-1D-3L (5 buts pour, 11 contre). Náutico : 1V-1D-3L (1 but pour, 9 contre).",
-      "ai_form_summary_en": "Londrina: 1W-1D-3L (5 GF, 11 GA). Náutico: 1W-1D-3L (1 GF, 9 GA).",
+      "ai_key_fact": "Náutico affiche un taux BTTS de 0% sur ses derniers matchs malgré sa 15e place.",
+      "ai_analysis": "Bien que Londrina montre des matchs ouverts avec un taux d'Over 2.5 de 0.8, les statistiques offensives de Náutico sont trop faibles (0.33 but par match) et son taux BTTS récent est nul. L'empirique BTTS est de seulement 0.3, ce qui ne justifie pas de pari sur les deux équipes marquent.",
+      "ai_analysis_en": "Although Londrina shows open games with an Over 2.5 rate of 0.8, Náutico's offensive stats are too weak (0.33 goals per game) and their recent BTTS rate is zero. The empirical BTTS is only 0.3, which does not justify a bet on both teams to score.",
+      "ai_form_summary": "Londrina : 1V-1D-3L (5 BP, 11 BC) - Náutico : 1V-1D-3L (1 BP, 9 BC)",
+      "ai_form_summary_en": "Londrina: 1W-1D-3L (5 GF, 11 GA) - Náutico: 1W-1D-3L (1 GF, 9 GA)",
       "ai_reasons": [
-        "Faible taux BTTS empirique à 0.30 et formBTTS à 30.",
-        "L'équipe extérieure Náutico a un taux BTTS de 0 sur ses 5 derniers matchs.",
-        "Moyennes de buts faibles pour Londrina (0.67) et Náutico (0.33)."
+        "Faible taux BTTS empirique à 30%",
+        "L'équipe extérieure Náutico a un taux BTTS de 0 sur ses 5 derniers matchs",
+        "Moyennes de buts faibles pour l'équipe extérieure (0.33)"
       ],
       "ai_risks": [
-        "Londrina présente un taux d'Over 2.5 de 0.8 mais avec de très faibles moyennes de buts.",
-        "Classments bas de tableau avec des attaques peu prolifiques."
+        "Londrina concède beaucoup de buts (11 sur les 5 derniers), ce qui pourrait offrir des opportunités à Náutico"
       ],
       "ai_confidence": "low",
       "modelEngine": "gemini-stats-v1",
@@ -4004,19 +4364,19 @@
       "statsOnly": true,
       "ai_abstain": true,
       "ai_market": "ABSTAIN",
-      "ai_key_fact": "Ponte Preta est 20e avec 79 buts encaissés en 37 matchs.",
-      "ai_analysis": "Malgré la défense extrêmement fragile de Ponte Preta, la faible production offensive d'Operário PR (0.33 but moyen) et un taux BTTS empirique à 50% ne permettent pas de dégager un pari à haute valeur. La tendance penche vers une victoire de l'équipe visiteuse, mais le marché BTTS ou Over 2.5 reste trop risqué, justifiant une abstention.",
-      "ai_analysis_en": "Despite Ponte Preta's extremely fragile defense, Operário PR's low offensive production (0.33 goal average) and an empirical BTTS rate of 50% do not allow for a high-value bet. The trend leans towards an away win, but the BTTS or Over 2.5 market remains too risky, justifying an abstention.",
-      "ai_form_summary": "Ponte Preta : 0W-2D-3L, 4 BP, 11 BC, BTTS 60%. Operário PR : 2W-0D-3L, 5 BP, 7 BC, BTTS 40%.",
-      "ai_form_summary_en": "Ponte Preta: 0W-2D-3L, 4 GF, 11 GA, BTTS 60%. Operário PR: 2W-0D-3L, 5 GF, 7 GA, BTTS 40%.",
+      "ai_key_fact": "Ponte Preta sits 20th with 79 conceded goals, while Operário PR averages 0.33 away goals.",
+      "ai_analysis": "Bien que Ponte Preta présente une défense extrêmement perméable avec 79 buts encaissés en 37 matchs, la très faible moyenne de buts à l'extérieur d'Operário PR (0,33) et le taux BTTS empirique de 50 % n'offrent pas de signal suffisamment tranché pour valider un pari sûr. Par conséquent, l'abstention est recommandée.",
+      "ai_analysis_en": "Although Ponte Preta has an extremely leaky defense with 79 goals conceded in 37 matches, Operário PR's very low away goal average (0.33) and the 50% empirical BTTS rate do not provide a strong enough signal for a reliable bet. Therefore, abstention is recommended.",
+      "ai_form_summary": "Ponte Preta en grande difficulté (0V-2N-3D) ; Operário PR irrégulier à l'extérieur (2V-0N-3D).",
+      "ai_form_summary_en": "Ponte Preta struggling badly (0W-2D-3L); Operário PR inconsistent away (2W-0D-3L).",
       "ai_reasons": [
-        "Ponte Preta a une moyenne de buts marqués très faible de 1 et encaisse beaucoup (79 GA en 37 matchs).",
-        "Operário PR présente un taux BTTS empirique de 0.4 seulement sur ses 8 derniers matchs.",
-        "Les statistiques d'attaque d'Operário PR à l'extérieur sont limitées avec 0.33 but moyen."
+        "Ponte Preta has poor scoring form with only 4 goals in their last 5 games and an average of 1 goal per game.",
+        "Operário PR has an away goals average of 0.33 and an away BTTS rate of 0.4.",
+        "Empirical BTTS sits exactly at 50% with low goal averages overall from the away side."
       ],
       "ai_risks": [
-        "La défense poreuse de Ponte Preta pourrait concéder sans marquer.",
-        "L'écart important au classement (20e contre 10e) rend le scénario du match incertain pour le BTTS."
+        "Ponte Preta's dismal defensive record (79 goals conceded in 37 games) could lead to an away blowout rather than a balanced BTTS scenario.",
+        "Low empirical rates and poor overall offensive output make prediction unreliable."
       ],
       "ai_confidence": "low",
       "modelEngine": "gemini-stats-v1",
@@ -6178,6 +6538,368 @@
       "status": "PENDING"
     },
     {
+      "id": "granada-vs-laspalma-2026-11-15",
+      "match": "Granada vs Las Palmas",
+      "home": "Granada",
+      "away": "Las Palmas",
+      "league": "LaLiga 2",
+      "date": "2026-11-15",
+      "type": "BTTS",
+      "time": "15:15",
+      "matchSemantic": "granada-vs-laspalma-2026-11-15",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3747.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/98.png",
+      "tier": "GOLD",
+      "reliabilityScore": 76.25,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.75,
+      "xgAway": 2,
+      "xgTotal": 3.75,
+      "formBTTS": 40,
+      "analysis": "Granada : forme V-V-V-V-V (5V 0N 0D, 10 buts marqués / 3 encaissés sur 5) · Las Palmas : forme V-V-V-D-D (3V 0N 2D, 7 buts marqués / 8 encaissés sur 5). Classement : Granada 5e (23 pts), Las Palmas 10e (20 pts). Stats empiriques (forme récente) : buts moy. 3.75, BTTS 40.0%, Over 2.5 50.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.71 / N: 3.6 / 2: 4.6 · Over 2.5: 1.77. Fiabilité 76.25%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.4,
+        "empiricalOver25Rate": 0.5,
+        "homeLambda": 1.75,
+        "awayLambda": 2,
+        "xgTotal": 3.75
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.71,
+        "draw": 3.6,
+        "away": 4.6,
+        "over25": 1.77,
+        "under25": 1.91
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "V-V-V-V-V",
+        "wins": 5,
+        "draws": 0,
+        "losses": 0,
+        "goalsFor": 10,
+        "goalsAgainst": 3,
+        "bttsRate": 0.4,
+        "over25Rate": 0.4,
+        "cleanSheets": 3,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-V-D-D",
+        "wins": 3,
+        "draws": 0,
+        "losses": 2,
+        "goalsFor": 7,
+        "goalsAgainst": 8,
+        "bttsRate": 0.4,
+        "over25Rate": 0.6,
+        "cleanSheets": 2,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-01",
+          "opponent": "Eldense",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Real Valladolid",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Cádiz",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-12",
+          "opponent": "Burgos",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-04",
+          "opponent": "Real Sociedad II",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-09",
+          "opponent": "Eldense",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-02",
+          "opponent": "Real Oviedo",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Real Sociedad II",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Castellón",
+          "venue": "H",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Mallorca",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 5,
+        "points": 23,
+        "played": 12,
+        "gf": 20,
+        "ga": 14
+      },
+      "standingsAway": {
+        "rank": 10,
+        "points": 20,
+        "played": 13,
+        "gf": 19,
+        "ga": 21
+      },
+      "empiricalBttsRate": 0.4,
+      "empiricalOver25Rate": 0.5,
+      "homeLambda": 1.75,
+      "awayLambda": 2,
+      "statsOnly": true,
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "Granada and Las Palmas both register a 40% empirical BTTS rate.",
+      "ai_analysis": "Malgré la très bonne dynamique de Granada à domicile, les taux empiriques de BTTS s'établissent à 40% pour les deux formations. Les signaux contradictoires entre la solidité de Granada et les moyennes de buts de Las Palmas incitent à la prudence. Par conséquent, il est préférable de s'abstenir sur ce marché.",
+      "ai_analysis_en": "Despite Granada's strong home momentum, empirical BTTS rates sit at 40% for both teams. Conflicting signals between Granada's defensive control and Las Palmas' away goal averages suggest a cautious stance. Therefore, an abstention on this market is recommended.",
+      "ai_form_summary": "Granada sur une série de 5 victoires (10 BP, 3 BC). Las Palmas sur 3 victoires et 2 défaites (7 BP, 8 BC).",
+      "ai_form_summary_en": "Granada on a 5-match winning streak (10 GF, 3 GA). Las Palmas on 3 wins and 2 losses (7 GF, 8 GA).",
+      "ai_reasons": [
+        "Empirical BTTS rate is low at 40% for both teams.",
+        "Granada shows a strong home form with a 40% BTTS and 40% Over 2.5 rate, suggesting tight defensive control."
+      ],
+      "ai_risks": [
+        "Las Palmas away matches show a moderate 60% Over 2.5 rate which could push goals up.",
+        "Contradictory signals between low BTTS rates and moderate away goal averages."
+      ],
+      "ai_confidence": "low",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "abstain"
+    },
+    {
+      "id": "godoycru-vs-tristnsu-2026-11-15",
+      "match": "Godoy Cruz Antonio Tomba vs Tristán Suárez",
+      "home": "Godoy Cruz Antonio Tomba",
+      "away": "Tristán Suárez",
+      "league": "Argentine Nacional B",
+      "date": "2026-11-15",
+      "type": "BTTS",
+      "time": "20:00",
+      "matchSemantic": "godoycru-vs-tristnsu-2026-11-15",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6756.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10163.png",
+      "tier": "GOLD",
+      "reliabilityScore": 76.25,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 3,
+      "xgAway": 0.5,
+      "xgTotal": 3.5,
+      "formBTTS": 40,
+      "analysis": "Godoy Cruz Antonio Tomba : forme V-V-V-N-V (4V 1N 0D, 13 buts marqués / 5 encaissés sur 5) · Tristán Suárez : forme N-N-V-N-N (1V 4N 0D, 2 buts marqués / 1 encaissés sur 5). Classement : Godoy Cruz Antonio Tomba 1e (66 pts), Tristán Suárez 1e (64 pts). Stats empiriques (forme récente) : buts moy. 3.5, BTTS 40.0%, Over 2.5 40.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.05 / N: 2.75 / 2: 4. Fiabilité 76.25%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.4,
+        "empiricalOver25Rate": 0.4,
+        "homeLambda": 3,
+        "awayLambda": 0.5,
+        "xgTotal": 3.5
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.05,
+        "draw": 2.75,
+        "away": 4,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "V-V-V-N-V",
+        "wins": 4,
+        "draws": 1,
+        "losses": 0,
+        "goalsFor": 13,
+        "goalsAgainst": 5,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 2,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-N-V-N-N",
+        "wins": 1,
+        "draws": 4,
+        "losses": 0,
+        "goalsFor": 2,
+        "goalsAgainst": 1,
+        "bttsRate": 0.2,
+        "over25Rate": 0,
+        "cleanSheets": 4,
+        "failedToScore": 3,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-31",
+          "opponent": "Almirante Brown",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Mitre (Santiago del Estero)",
+          "venue": "A",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Estudiantes (Buenos Aires)",
+          "venue": "H",
+          "score": "6-3",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-12",
+          "opponent": "All Boys",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-04",
+          "opponent": "Los Andes",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-31",
+          "opponent": "Deportivo Maipú",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Almagro",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Patronato",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Colegiales",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-03",
+          "opponent": "Quilmes",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 1,
+        "points": 66,
+        "played": 36,
+        "gf": 53,
+        "ga": 33
+      },
+      "standingsAway": {
+        "rank": 1,
+        "points": 64,
+        "played": 36,
+        "gf": 34,
+        "ga": 16
+      },
+      "empiricalBttsRate": 0.4,
+      "empiricalOver25Rate": 0.4,
+      "homeLambda": 3,
+      "awayLambda": 0.5,
+      "statsOnly": true,
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "Tristán Suárez registers a 0% Over 2.5 rate in their recent form sample.",
+      "ai_analysis": "Bien que Godoy Cruz affiche de superbes statistiques offensives à domicile avec une moyenne de 3 buts, Tristán Suárez présente un profil ultra-défensif à l'extérieur avec 0% d'Over 2.5 et 20% de BTTS. Les taux empiriques globaux restent faibles sous la barre des 45%. Le marché est donc évité.",
+      "ai_analysis_en": "Although Godoy Cruz displays great home offensive stats with a 3-goal average, Tristán Suárez shows an ultra-defensive away profile with 0% Over 2.5 and 20% BTTS. Overall empirical rates remain low below the 45% threshold. The market is thus avoided.",
+      "ai_form_summary": "Godoy Cruz en excellente forme (4V, 1N, 13 BP, 5 BC). Tristán Suárez très fermé (1V, 4N, 2 BP, 1 BC).",
+      "ai_form_summary_en": "Godoy Cruz in excellent form (4W, 1D, 13 GF, 5 GA). Tristán Suárez very tight defensively (1W, 4D, 2 GF, 1 GA).",
+      "ai_reasons": [
+        "Tristán Suárez displays an away form with a 0% Over 2.5 rate and a 20% BTTS rate.",
+        "Empirical BTTS and Over 2.5 rates are both at 40%, failing to cross the threshold for a reliable selection."
+      ],
+      "ai_risks": [
+        "Godoy Cruz has strong home stats with 3 goals average and an 80% Over 2.5 rate in last 5.",
+        "Tristán Suárez is extremely defensive on the road, creating a low-scoring clash profile."
+      ],
+      "ai_confidence": "low",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "abstain"
+    },
+    {
       "id": "eldense-vs-cdsabade-2026-11-15",
       "match": "Eldense vs CD Sabadell",
       "home": "Eldense",
@@ -6339,19 +7061,19 @@
       "statsOnly": true,
       "ai_abstain": true,
       "ai_market": "ABSTAIN",
-      "ai_key_fact": "Eldense et CD Sabadell affichent un taux BTTS empirique exact de 50%.",
-      "ai_analysis": "L'analyse des données de ce match d'Eldense contre CD Sabadell montre des statistiques partagées. Avec un taux BTTS empirique de 50% et un Over 2.5 sous la barre des 45% (40%), les indicateurs ne permettent pas de dégager une valeur nette. Par conséquent, il est plus sage de s'abstenir sur cette rencontre.",
-      "ai_analysis_en": "The analysis of the data for this match between Eldense and CD Sabadell shows mixed statistics. With an empirical BTTS rate of 50% and an Over 2.5 below the 45% threshold (40%), the indicators do not provide clear value. Therefore, it is wiser to abstain from this fixture.",
-      "ai_form_summary": "Eldense : 2V-0N-3D sur les 5 derniers ; CD Sabadell : 1V-2N-2D sur les 5 derniers.",
-      "ai_form_summary_en": "Eldense: 2W-0D-3L in last 5; CD Sabadell: 1W-2D-2L in last 5.",
+      "ai_key_fact": "Eldense et CD Sabadell présentent un taux empirique BTTS de 50% avec des moyennes de buts de 1.75 et 1.0.",
+      "ai_analysis": "L'analyse des statistiques observées pour la rencontre entre Eldense et CD Sabadell ne montre pas de signal tranché. Le taux empirique BTTS est de 50% tandis que le taux d'Over 2.5 s'établit à 40%, reflétant des matchs relativement fermés. En l'absence d'une tendance forte et selon nos règles prudentes, il est préférable de s'abstenir sur ce match.",
+      "ai_analysis_en": "The analysis of observed statistics for the match between Eldense and CD Sabadell shows no clear signal. The empirical BTTS rate is 50% while the Over 2.5 rate stands at 40%, reflecting relatively low-scoring matches. In the absence of a strong trend and according to our conservative rules, it is best to abstain from this fixture.",
+      "ai_form_summary": "Eldense : 2V-0N-3D (5 buts marqués, 9 encaissés). CD Sabadell : 1V-2N-2D (4 buts marqués, 5 encaissés).",
+      "ai_form_summary_en": "Eldense: 2W-0D-3L (5 goals scored, 9 conceded). CD Sabadell: 1W-2D-2L (4 goals scored, 5 conceded).",
       "ai_reasons": [
-        "Taux BTTS empirique modéré à 50% tout juste à l'équilibre.",
-        "Taux Over 2.5 faible à 40%, inférieur au seuil optimal.",
-        "Forme de BTTS à 50% sans tendance claire pour un pari tranché."
+        "Taux empirique BTTS à exactement 50% sur l'échantillon observé.",
+        "Taux Over 2.5 faible à 40% pour Eldense et CD Sabadell.",
+        "Forme BTTS des deux équipes évaluée à 50% sans tendance nette."
       ],
       "ai_risks": [
-        "Faible moyenne de buts pour CD Sabadell (1.0).",
-        "Variabilité dans les derniers résultats des deux formations."
+        "Faible moyenne de buts combinée pour CD Sabadell (1.0).",
+        "Indécision statistique entre le marché BTTS et le manque de volume offensif."
       ],
       "ai_confidence": "low",
       "modelEngine": "gemini-stats-v1",
@@ -6521,19 +7243,19 @@
       "statsOnly": true,
       "ai_abstain": true,
       "ai_market": "ABSTAIN",
-      "ai_key_fact": "Ferro Carril Oeste et Gimnasia y Tiro affichent tous deux une moyenne de 0.5 buts marqués.",
-      "ai_analysis": "Cette confrontation entre Ferro Carril Oeste et Gimnasia y Tiro présente des métriques offensives très faibles, avec un taux BTTS empirique de seulement 30% et des moyennes de 0.5 buts par match pour chaque équipe. Ces chiffres reflètent un profil de match fermé qui ne correspond pas aux critères d'un pari BTTS ou Over. L'abstention s'impose.",
-      "ai_analysis_en": "This fixture between Ferro Carril Oeste and Gimnasia y Tiro presents very weak offensive metrics, with an empirical BTTS rate of only 30% and averages of 0.5 goals per match for each team. These figures reflect a low-scoring profile that does not meet the criteria for a BTTS or Over bet. Abstention is required.",
-      "ai_form_summary": "Ferro Carril Oeste : 1V-2N-2D sur les 5 derniers ; Gimnasia y Tiro : 1V-1N-3D sur les 5 derniers.",
-      "ai_form_summary_en": "Ferro Carril Oeste: 1W-2D-2L in last 5; Gimnasia y Tiro: 1W-1D-3L in last 5.",
+      "ai_key_fact": "Ferro Carril Oeste et Gimnasia y Tiro affichent tous deux de très faibles moyennes de buts (0.5) et un BTTS empirique de 30%.",
+      "ai_analysis": "Les statistiques de Ferro Carril Oeste contre Gimnasia y Tiro indiquent une rencontre à très faible tendance offensive. Le taux empirique BTTS de 30% et les moyennes de buts de 0.5 pour chaque formation violent les seuils minimaux requis pour valider une sélection. Par conséquent, la recommandation est de s'abstenir.",
+      "ai_analysis_en": "The statistics for Ferro Carril Oeste against Gimnasia y Tiro indicate a fixture with a very low offensive trend. The empirical BTTS rate of 30% and the goal averages of 0.5 for each team violate the minimum thresholds required to validate a selection. Consequently, the recommendation is to abstain.",
+      "ai_form_summary": "Ferro Carril Oeste : 1V-2N-2D (2 buts marqués, 6 encaissés). Gimnasia y Tiro : 1V-1N-3D (5 buts marqués, 8 encaissés).",
+      "ai_form_summary_en": "Ferro Carril Oeste: 1W-2D-2L (2 goals scored, 6 conceded). Gimnasia y Tiro: 1W-1D-3L (5 goals scored, 8 conceded).",
       "ai_reasons": [
-        "Taux BTTS empirique très bas à 30%.",
-        "Moyennes de buts très faibles pour les deux équipes (0.5 par match).",
-        "Taux Over 2.5 limité à 40%."
+        "Taux empirique BTTS très bas à 30% sur l'échantillon observé.",
+        "Moyennes de buts faibles pour les deux équipes (0.5 pour Ferro Carril Oeste et 0.5 pour Gimnasia y Tiro).",
+        "Indice formBTTS limité à 30%."
       ],
       "ai_risks": [
-        "Production offensive globale extrêmement faible.",
-        "Fortes chances d'un match fermé malgré les classements."
+        "Taux empiriques insuffisants pour soutenir un pari sur les buts.",
+        "Faible production offensive globale constatée dans les derniers matchs."
       ],
       "ai_confidence": "low",
       "modelEngine": "gemini-stats-v1",
