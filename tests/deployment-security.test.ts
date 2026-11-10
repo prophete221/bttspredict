@@ -34,6 +34,13 @@ describe('deployment safety gates', () => {
     expect(vip?.replace(` ${origin}`, '').replace("img-src 'self' blob:", "img-src 'self'").replace(' env=vip_api_csp', '')).toBe(base?.replace(' env=!vip_api_csp', ''))
   })
 
+  it('allows the FTP preflight to finish its listing and mandatory cooldown', () => {
+    const step = deploy.split('- name: Prepare safe FTP state and targeted Match cleanup')[1]?.split('- name: ')[0] ?? ''
+    const timeoutMinutes = Number(step.match(/timeout-minutes:\s*(\d+)/)?.[1] ?? 0)
+    expect(timeoutMinutes).toBeGreaterThanOrEqual(45)
+    expect(step).toContain('sleep 300')
+  })
+
   it('runs hard-failing tests, Python, lint, typecheck and build before any FTP operation', () => {
     const firstTransfer = deploy.indexOf('lftp -u')
     const action = deploy.indexOf('name: Deploy to bttspredict.com via FTP (validated allowlist, no delete)')
