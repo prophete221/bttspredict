@@ -37,6 +37,17 @@ describe('owner-requested SEO preservation', () => {
         .replace("  '/aviator',\n  '/competitions',\n", '')
         .replace('for (const slug of COMPETITION_SLUGS) LOCALIZED_PATHS.add(`/competitions/${slug}`)\n\n', '')
         .replace("  { path: '/aviator', priority: 0.75, changeFrequency: 'monthly' },\n  { path: '/competitions', priority: 0.8, changeFrequency: 'weekly' },\n  ...COMPETITION_SLUGS.map((slug) => ({ path: `/competitions/${slug}`, priority: 0.75, changeFrequency: 'weekly' as const })),\n", '')
+      const guideEntry = "  { path: '/guide-que-signifie-btts', priority: 0.75, changeFrequency: 'monthly' },\n"
+      expect(source.split(guideEntry).length - 1).toBe(1)
+      source = source.replace(guideEntry, '')
+    }
+    if (file === 'scripts/submit-indexnow.mjs') {
+      const guideUrl = "  'https://bttspredict.com/guide-que-signifie-btts',\n"
+      expect(source.split(guideUrl).length - 1).toBe(1)
+      source = source.replace(guideUrl, '')
+      const updatedComment = "// URLs prioritaires à signaler à l'indexation après publication.\n"
+      expect(source.split(updatedComment).length - 1).toBe(1)
+      source = source.replace(updatedComment, '// URLs à soumettre (25 URLs du sitemap)\n')
     }
     expect(hash(source)).toBe(expected)
   })

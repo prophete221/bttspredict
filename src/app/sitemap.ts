@@ -65,6 +65,7 @@ const PAGES: PageDef[] = [
   { path: '/statistiques', priority: 0.75, changeFrequency: 'monthly' },
   { path: '/methodologie', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/btts-c-est-quoi', priority: 0.75, changeFrequency: 'monthly' },
+  { path: '/guide-que-signifie-btts', priority: 0.75, changeFrequency: 'monthly' },
   { path: '/btts/predictions/tomorrow', priority: 0.8, changeFrequency: 'daily' },
   { path: '/btts/statistics', priority: 0.7, changeFrequency: 'weekly' },
   { path: '/over-2-5/statistics', priority: 0.7, changeFrequency: 'weekly' },

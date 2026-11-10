@@ -11,7 +11,7 @@ const INDEXNOW_KEY = 'ba48253f4d8544b3a93cc49a1498381a'
 const HOST = 'bttspredict.com'
 const KEY_LOCATION = `https://${HOST}/${INDEXNOW_KEY}.txt`
 
-// URLs à soumettre (25 URLs du sitemap)
+// URLs prioritaires à signaler à l'indexation après publication.
 const URLS = [
   'https://bttspredict.com/',
   'https://bttspredict.com/pronostics',
@@ -21,6 +21,7 @@ const URLS = [
   'https://bttspredict.com/methodologie',
   'https://bttspredict.com/historique',
   'https://bttspredict.com/btts-c-est-quoi',
+  'https://bttspredict.com/guide-que-signifie-btts',
   'https://bttspredict.com/code-promo-linebet-senegal',
   'https://bttspredict.com/bonus-888starz',
   'https://bttspredict.com/equipe',

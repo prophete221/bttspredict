@@ -20,7 +20,7 @@ describe('routes publiques demandées', () => {
 
   it('ajoute Aviator, l’index et les 11 pages de compétition dans les trois langues', () => {
     expect(COMPETITION_SLUGS).toHaveLength(11)
-    expect(entries).toHaveLength(100)
+    expect(entries).toHaveLength(101)
     const newEntries = entries.filter((entry) => localizedUrls.includes(entry.url))
     expect(newEntries).toHaveLength(39)
     expect(newEntries.map((entry) => entry.url).sort()).toEqual([...localizedUrls].sort())
@@ -32,6 +32,15 @@ describe('routes publiques demandées', () => {
         'x-default': expect.stringContaining('https://bttspredict.com/'),
       })
     }
+  })
+
+  it('publie le nouveau guide BTTS une seule fois, en français uniquement', () => {
+    const guideUrl = 'https://bttspredict.com/guide-que-signifie-btts'
+    const guideEntries = entries.filter((entry) => entry.url === guideUrl)
+    expect(guideEntries).toHaveLength(1)
+    expect(guideEntries[0].alternates?.languages).toEqual({ fr: guideUrl, 'x-default': guideUrl })
+    expect(entries.some((entry) => entry.url === 'https://bttspredict.com/en/guide-que-signifie-btts')).toBe(false)
+    expect(entries.some((entry) => entry.url === 'https://bttspredict.com/ar/guide-que-signifie-btts')).toBe(false)
   })
 
   it('conserve les principales routes historiques protégées', () => {
