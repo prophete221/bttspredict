@@ -35,7 +35,7 @@ describe('deployment safety gates', () => {
   })
 
   it('allows the FTP preflight to finish its listing and mandatory cooldown', () => {
-    const step = deploy.split('- name: Prepare safe FTP state and targeted Match cleanup')[1]?.split('- name: ')[0] ?? ''
+    const step = deploy.split('- name: Prepare safe FTP state and exact AR popup cleanup plan')[1]?.split('- name: ')[0] ?? ''
     const timeoutMinutes = Number(step.match(/timeout-minutes:\s*(\d+)/)?.[1] ?? 0)
     expect(timeoutMinutes).toBeGreaterThanOrEqual(45)
     expect(step).toContain('sleep 300')
@@ -111,15 +111,18 @@ describe('deployment safety gates', () => {
     expect(preflight).not.toContain('set ftp:ssl-protect-data true')
   })
 
-  it('bounds remote state reads and fails closed before Match listings if both states are absent', () => {
+  it('bounds remote state reads and fails closed before local AR candidate planning if both states are absent', () => {
     expect(preflight).toContain('set net:timeout 10')
     expect(preflight).toContain('set net:max-retries 1')
     expect(preflight).toContain('get deploy-manifest.json -o out/deploy-manifest.prev.json')
     expect(preflight).toContain('scripts/validate-ftp-deploy-state.mjs')
-    expect(preflight.indexOf('get deploy-manifest.json')).toBeLessThan(preflight.indexOf('find en/match'))
-    expect(preflight.indexOf('!node scripts/validate-ftp-deploy-state.mjs')).toBeLessThan(preflight.indexOf('find en/match'))
+    expect(preflight).not.toContain('find ar/match')
+    expect(preflight).not.toContain('find en/match')
+    expect(preflight).not.toContain('find ')
     expect(statePlanner).toContain('ni .ftp-deploy-sync-state-safe.json ni .ftp-deploy-sync-state.json')
     expect(statePlanner).toContain('avant tout transfert et toute suppression')
+    expect(statePlanner).toContain("'--slugs=src/data/legacy-ar-match-slugs.json'")
+    expect(statePlanner).not.toContain('match-ar=')
   })
 
   it('uses a full-manifest differential v2 allowlist and never deletes broadly', () => {
@@ -136,7 +139,8 @@ describe('deployment safety gates', () => {
     expect(diffPlan).toBeGreaterThan(0)
     expect(uploadPlan).toBeGreaterThan(diffPlan)
     expect(stateSeedWrite).toBeGreaterThan(uploadPlan)
-    expect(preflight.indexOf('source out/stale-match-delete.lftp')).toBeGreaterThan(preflight.indexOf('!node scripts/prepare-ftp-deploy-plan.mjs'))
+    expect(preflight).not.toContain('source out/stale-match-delete.lftp')
+    expect(preflight).not.toContain('rm -f')
     expect(ftpDiff).toContain("'predictions.json'")
     expect(ftpDiff).toContain("'predictions-archive/'")
     expect(ftpDiff).toContain("'match-only-inventory.tsv'")
@@ -170,24 +174,42 @@ describe('deployment safety gates', () => {
     expect(ftpUploadPlan).toContain("const REQUIRED_ROOT_FILES = ['.htaccess', ...EXPLICIT_ROOT_UPLOADS]")
   })
 
-  it('limits remote listing and deletes to verified EN/AR Match pages, never root /match or unrelated files', () => {
+  it('limits AR cleanup to local candidates and exact post-route SIZE checks, never EN/FR or unrelated files', () => {
     expect(deploy).toContain('scripts/ftp-safe-preflight.lftp')
     const liveFindCommands = preflight.split('\n').map(line => line.trim()).filter(line => line.startsWith('find '))
-    expect(liveFindCommands).toEqual([
-      'find en/match > /tmp/ftp-en-match-list.txt',
-      'find ar/match > /tmp/ftp-ar-match-list.txt',
-    ])
-    expect(preflight).toContain('source out/stale-match-delete.lftp')
-    expect(planner).toContain("matchPath.locale === 'fr'")
-    expect(planner).toContain("category: 'match-root-out-of-scope'")
-    expect(planner).toContain("status === 'finished'")
-    const currentManifestGuard = planner.indexOf('if (currentFiles.has(remotePath))')
-    const deletionCandidate = planner.indexOf('deletions.push({ path: remotePath')
-    expect(currentManifestGuard).toBeGreaterThan(0)
-    expect(currentManifestGuard).toBeLessThan(deletionCandidate)
+    expect(liveFindCommands).toEqual([])
+    expect(preflight).not.toContain('find en/match')
+    expect(preflight).not.toContain('source out/stale-match-delete.lftp')
+    expect(deploy).toContain('scripts/prepare-ar-match-popup-cleanup.mjs presence-commands')
+    expect(deploy).toContain('scripts/prepare-ar-match-popup-cleanup.mjs confirm-presence')
+    expect(deploy).toContain('scripts/prepare-ar-match-popup-cleanup.mjs post-cleanup-commands')
+    expect(deploy).toContain('scripts/prepare-ar-match-popup-cleanup.mjs verify-absent')
+    expect(deploy).toContain('source out/ar-match-popup-cleanup.lftp')
+    expect(deploy).toContain('steps.ar-presence.outcome == \'success\'')
+    const htaccessDeploy = deploy.indexOf('name: Deploy .htaccess with historical temporary rename')
+    const routeCheck = deploy.indexOf('name: Verify all legacy AR URLs before removing static pages')
+    const presenceCheck = deploy.indexOf('name: Confirm exact AR candidate presence after route check')
+    const cleanup = deploy.indexOf('name: Remove exact AR static Match files after the popup is live')
+    expect(htaccessDeploy).toBeGreaterThan(0)
+    expect(routeCheck).toBeGreaterThan(htaccessDeploy)
+    expect(presenceCheck).toBeGreaterThan(routeCheck)
+    expect(cleanup).toBeGreaterThan(presenceCheck)
+    const htaccessStep = deploy.split('name: Deploy .htaccess with historical temporary rename')[1]?.split('      - name: ')[0] ?? ''
+    expect(htaccessStep).not.toContain('continue-on-error: true')
+    expect(deploy).toContain('aucune ancienne page AR ne sera supprimée')
+    expect(planner).toContain("category: 'ar-match-popup-cleanup-after-route-verification'")
+    expect(planner).toContain("category: 'localized-match-preserved'")
     expect(planner).not.toContain('assertNoFinishedMatchFiles')
     expect(planner).toContain("category: 'non-match-unverified'")
     expect(planner).not.toContain('ftp.delete(')
+    const exactCleanup = fs.readFileSync('scripts/prepare-ar-match-popup-cleanup.mjs', 'utf8')
+    expect(exactCleanup).toContain('presenceVerified')
+    expect(exactCleanup).toContain('knownSlugs')
+    expect(exactCleanup).toContain('quote SIZE')
+    expect(exactCleanup).toContain('rm -f')
+    expect(exactCleanup).not.toContain('find ar/match')
+    expect(exactCleanup).not.toContain('rm -r')
+    expect(exactCleanup).toContain("/^__next\\..+\\.txt$/u")
     expect(sitemapFilter).toContain('/^(?:en|ar)\\/match\\/')
     expect(sitemapFilter).not.toContain('(?:(?:en|ar)\\/)?match')
     expect(preflight).not.toContain('get .htaccess')
@@ -210,13 +232,19 @@ describe('deployment safety gates', () => {
     expect(ftpDiff).toContain("'deploy-transfer-report.json'")
     expect(deploy).toContain('deploy-manifest.json')
     expect(ftpDiff).toContain('deploy-diff-stats.json')
+    for (const internalFile of ['ar-match-presence-check.lftp', 'ar-match-presence-check.log', 'ar-match-post-cleanup-check.lftp', 'ar-match-post-cleanup-check.log']) {
+      expect(ftpDiff).toContain(`'${internalFile}'`)
+    }
   })
 
-  it('filters sitemap entries only for exact EN/AR deletions and preserves root files around the upload', () => {
+  it('retains historical sitemap URLs and makes the new AR route a prerequisite for targeted cleanup', () => {
     expect(preflight).toContain('node scripts/prepare-ftp-deploy-plan.mjs')
     expect(statePlanner).toContain('scripts/prepare-stale-match-deletions.mjs')
+    expect(statePlanner).toContain('scripts/prepare-ar-match-popup-cleanup.mjs')
     expect(statePlanner).toContain('scripts/filter-sitemap-match-urls.mjs')
-    expect(statePlanner).toContain("/^(?:en|ar)\\/match\\//.test(item.path)")
+    expect(statePlanner).toContain("/^ar\\/match\\//.test(item.path)")
+    expect(statePlanner).toContain('staleReport.deletions.length !== 0')
+    expect(statePlanner).toContain('enMatchInventorySkipped = true')
     expect(statePlanner).toContain('`--previous=${previousSitemapPath}`')
     expect(statePlanner).toContain('`--output=${path.join(outDir, \'sitemap.xml\')}`')
     expect(statePlanner).toContain('`--report=${path.join(outDir, \'sitemap-match-filter.json\')}`')
@@ -228,6 +256,11 @@ describe('deployment safety gates', () => {
     expect(deploy).toContain('Deploy .htaccess with historical temporary rename')
     expect(deploy).toContain('rm -f ./.htaccess.deploy; put out/.htaccess -o ./.htaccess.deploy; rm -f ./.htaccess; mv ./.htaccess.deploy ./.htaccess')
     expect(deploy).toContain('⚠️ rm+rename refusé — tentative STOR direct')
+    expect(deploy).toContain('[ar-popup-deploy]')
+    expect(deploy).toContain('[lws-files=N]')
+    expect(deploy).toContain('[LWS quota]')
+    expect(deploy).toContain('currentFiles + additions')
+    expect(deploy).toContain('projectedPeak > fileLimit')
     expect(ftpUploadPlan).toContain("const REQUIRED_ROOT_FILES = ['.htaccess', ...EXPLICIT_ROOT_UPLOADS]")
     expect(deploy).toContain('out/stale-match-pages.json')
     expect(deploy).toContain('out/orphan-review.json')

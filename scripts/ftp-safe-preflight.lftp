@@ -26,14 +26,9 @@ set net:max-retries 2
 # Arrêt explicite avant les listings/suppressions si aucun état distant valide n'existe.
 !node scripts/validate-ftp-deploy-state.mjs --state-safe=/tmp/ftp-action-state-safe.remote.json --state-legacy=/tmp/ftp-action-state-legacy.remote.json
 
-# Listings limités aux deux répertoires explicitement autorisés. Pas de `find .`
-# et aucun scan ou nettoyage du dossier racine /match.
-find en/match > /tmp/ftp-en-match-list.txt
-find ar/match > /tmp/ftp-ar-match-list.txt
-
-# Calcul local du plan, validation de l'état sûr, filtre du sitemap, puis seuls
-# les rm -f exacts générés pour les pages terminées EN/AR.
-!node scripts/prepare-ftp-deploy-plan.mjs --state-safe=/tmp/ftp-action-state-safe.remote.json --state-legacy=/tmp/ftp-action-state-legacy.remote.json --match-en=/tmp/ftp-en-match-list.txt --match-ar=/tmp/ftp-ar-match-list.txt --out-dir=out --public-dir=public --state-seed=/tmp/ftp-action-state-seed.json
-source out/stale-match-delete.lftp
+# Aucun listing récursif distant n'est utilisé pour inventer des chemins de suppression.
+# Les candidats AR proviennent des 36 slugs connus et du manifeste de référence téléchargé;
+# leur présence exacte sera testée après l'activation et la vérification du popup.
+!node scripts/prepare-ftp-deploy-plan.mjs --state-safe=/tmp/ftp-action-state-safe.remote.json --state-legacy=/tmp/ftp-action-state-legacy.remote.json --out-dir=out --public-dir=public --state-seed=/tmp/ftp-action-state-seed.json
 put /tmp/ftp-action-state-seed.json -o .ftp-deploy-sync-state-safe.json
 bye

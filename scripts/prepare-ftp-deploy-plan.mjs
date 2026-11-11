@@ -5,10 +5,10 @@
  * encore présents localement; robots.txt et sitemap.xml sont volontairement
  * retirés de l'état pour forcer leur remplacement.
  *
- * Les seules suppressions sont calculées séparément à partir des listes live
- * des répertoires en/match et ar/match, puis appliquées par LFTP via le fichier
- * stale-match-delete.lftp. Aucun miroir ou nettoyage récursif n'est utilisé.
- */
+ * Aucun chemin EN ou FR n'est supprimé. Les candidats AR proviennent uniquement
+ * des 36 slugs locaux et du manifeste de référence; leur présence FTP est
+ * vérifiée individuellement après activation et contrôle de la route popup.
+*/
 import fs from 'node:fs'
 import path from 'node:path'
 import { execFileSync } from 'node:child_process'
@@ -22,7 +22,7 @@ function readArgs(argv = process.argv.slice(2)) {
     const index = arg.indexOf('=')
     return index < 0 ? [arg.replace(/^--/, ''), 'true'] : [arg.slice(2, index), arg.slice(index + 1)]
   }))
-  for (const name of ['state-safe', 'state-legacy', 'match-en', 'match-ar', 'out-dir', 'public-dir', 'state-seed']) {
+  for (const name of ['state-safe', 'state-legacy', 'out-dir', 'public-dir', 'state-seed']) {
     if (!args[name]) throw new Error(`Argument requis : --${name}=...`)
   }
   return args
@@ -198,22 +198,17 @@ function main() {
   const predeployDir = path.join(outDir, 'predeploy-backups')
   const stateSafePath = path.resolve(args['state-safe'])
   const stateLegacyPath = path.resolve(args['state-legacy'])
-  const matchEnPath = path.resolve(args['match-en'])
-  const matchArPath = path.resolve(args['match-ar'])
   const stateSeedPath = path.resolve(args['state-seed'])
   const currentManifestPath = path.join(outDir, 'deploy-manifest.json')
+  const previousManifestPath = path.join(outDir, 'deploy-manifest.prev.json')
   const previousSitemapPath = path.join(predeployDir, 'sitemap.xml')
   const now = args.now || new Date().toISOString()
   if (Number.isNaN(new Date(now).getTime())) throw new Error('--now invalide')
 
-  for (const file of [matchEnPath, matchArPath]) {
-    if (!fs.existsSync(file)) {
-      throw new Error(`Preuve locale de pré-déploiement absente ou vide : ${file}`)
-    }
-  }
   for (const file of [
     path.join(predeployDir, 'robots.txt'),
     previousSitemapPath,
+    previousManifestPath,
     currentManifestPath,
   ]) {
     if (!fs.existsSync(file) || fs.statSync(file).size === 0) {
@@ -221,19 +216,15 @@ function main() {
     }
   }
 
-  const enPaths = parseMatchListing(fs.readFileSync(matchEnPath, 'utf8'), 'en')
-  const arPaths = parseMatchListing(fs.readFileSync(matchArPath, 'utf8'), 'ar')
-  const combinedPaths = [...enPaths, ...arPaths]
-  if (new Set(combinedPaths).size !== combinedPaths.length) throw new Error('Doublon entre les listings Match EN/AR')
-
+  const previousManifest = JSON.parse(fs.readFileSync(previousManifestPath, 'utf8'))
+  if (!previousManifest.files || typeof previousManifest.files !== 'object') throw new Error('Manifeste de référence invalide')
   const { state: baseState, source: baseStateSource } = chooseBaseState(stateSafePath, stateLegacyPath)
-  const baseByPath = new Map()
-  for (const entry of baseState.data) {
-    const name = normalizeStatePath(entry.name)
-    if (name && entry.type === 'file') baseByPath.set(name, entry)
-  }
   const inventoryPath = path.join(outDir, 'match-only-inventory.tsv')
-  const inventoryLines = combinedPaths.map(remotePath => `${remotePath}\tF\t${Number(baseByPath.get(remotePath)?.size || 0)}`)
+  const matchPagePattern = /^(?:(?:en|ar)\/)?match\/[\p{L}\p{N}_-]+-\d{4}-\d{2}-\d{2}(?:\.html|\/index\.html)$/u
+  const inventoryLines = Object.entries(previousManifest.files)
+    .filter(([remotePath]) => matchPagePattern.test(remotePath))
+    .map(([remotePath, metadata]) => `${remotePath}\tF\t${Number(metadata?.size || 0)}`)
+  if (inventoryLines.length === 0) throw new Error('Le manifeste local précédent ne contient aucune page Match; arrêt fermé')
   fs.writeFileSync(inventoryPath, inventoryLines.length ? `${inventoryLines.join('\n')}\n` : '')
 
   runNode([
@@ -248,8 +239,23 @@ function main() {
   ])
 
   const staleReport = JSON.parse(fs.readFileSync(path.join(outDir, 'stale-match-pages.json'), 'utf8'))
-  if (!Array.isArray(staleReport.deletions) || staleReport.deletions.some(item => !/^(?:en|ar)\/match\//.test(item.path))) {
-    throw new Error('Le plan de suppression dépasse /en/match ou /ar/match')
+  if (!Array.isArray(staleReport.deletions) || staleReport.deletions.length !== 0) {
+    throw new Error('Le plan pré-déploiement doit préserver toutes les pages Match; aucune suppression anticipée n’est permise')
+  }
+
+  runNode([
+    'scripts/prepare-ar-match-popup-cleanup.mjs', 'plan',
+    `--manifest=${previousManifestPath}`,
+    `--current-manifest=${currentManifestPath}`,
+    '--slugs=src/data/legacy-ar-match-slugs.json',
+    `--plan=${path.join(outDir, 'ar-match-popup-cleanup-plan.json')}`,
+    `--commands=${path.join(outDir, 'ar-match-popup-cleanup.lftp')}`,
+  ])
+  const arCleanupPlan = JSON.parse(fs.readFileSync(path.join(outDir, 'ar-match-popup-cleanup-plan.json'), 'utf8'))
+  if (!Array.isArray(arCleanupPlan.candidates) || arCleanupPlan.candidateCount !== arCleanupPlan.candidates.length ||
+    !Array.isArray(arCleanupPlan.deletions) || arCleanupPlan.deletions.length !== 0 || arCleanupPlan.deletionCount !== 0 ||
+    arCleanupPlan.candidates.some(item => !/^ar\/match\//.test(item.path))) {
+    throw new Error('Le plan candidat AR est invalide ou contient une suppression pré-route')
   }
 
   runNode([
@@ -294,10 +300,16 @@ function main() {
   fs.mkdirSync(path.dirname(stateSeedPath), { recursive: true })
   fs.writeFileSync(stateSeedPath, `${JSON.stringify(seedState)}\n`)
   stateReport.baseStateSource = baseStateSource
-  stateReport.liveEnMatchHtmlCount = enPaths.length
-  stateReport.liveArMatchHtmlCount = arPaths.length
-  stateReport.targetedFinishedMatchDeleteCount = staleReport.deletionCount
-  stateReport.targetedFinishedMatchDeleteBytes = staleReport.deletionBytes
+  stateReport.liveEnMatchHtmlCount = null
+  stateReport.liveArMatchHtmlCount = null
+  stateReport.enMatchInventorySkipped = true
+  stateReport.targetedFinishedMatchDeleteCount = 0
+  stateReport.targetedFinishedMatchDeleteBytes = 0
+  stateReport.arMatchRemoteFileCount = null
+  stateReport.arMatchRemoteRouteCount = null
+  stateReport.arMatchKnownSlugCount = arCleanupPlan.routeCount
+  stateReport.arMatchManifestCandidateCount = arCleanupPlan.candidateCount
+  stateReport.arMatchPopupCleanupCount = 0
   stateReport.differentialTransfer = {
     codeOnlyMode,
     historyJsonMode,
@@ -311,12 +323,12 @@ function main() {
   }
   stateReport.htaccessSource = 'build/.htaccess; excluded from FTP-Deploy and published after success through the historical temporary-upload + rename method'
   stateReport.robotsSource = 'build/public/robots.txt; its state entry is omitted so the new content is uploaded'
-  stateReport.sitemapSource = 'build sitemap merged with the previous remote sitemap; only removed EN/AR Match targets are filtered; its state entry is omitted so the new content is uploaded'
+  stateReport.sitemapSource = 'build sitemap merged with the previous remote sitemap; all existing EN/AR Match targets are retained because their URLs remain live; its state entry is omitted so the new content is uploaded'
   fs.writeFileSync(path.join(outDir, 'ftp-action-state-report.json'), `${JSON.stringify(stateReport, null, 2)}\n`)
 
   console.log(`[ftp-plan] state=${baseStateSource}; local=${stateReport.currentExportFileCount} published paths; ${stateReport.retainedRecordCount}/${stateReport.baseRecordCount} state records retained; ${stateReport.droppedRemoteOnlyRecordCount} remote-only records excluded from action; force uploads=${[...FORCE_UPLOAD].join(', ')}`)
   console.log(`[ftp-plan] differential: ${diffStats.changedCount} paths, ${diffStats.bytesToAdd} bytes; codeOnly=${codeOnlyMode}; historyJsonMode=${historyJsonMode}; Match-only inventory is not used as a complete server inventory`)
-  console.log(`[ftp-plan] live Match listings: en=${enPaths.length}, ar=${arPaths.length}; finished HTML targeted for LFTP deletion=${staleReport.deletionCount}; root /match is not inventoried or deleted`)
+  console.log(`[ftp-plan] AR popup cleanup: ${arCleanupPlan.candidateCount} exact candidates from ${arCleanupPlan.routeCount} known slugs and the local reference manifest; zero deletions until the popup is live and each FTP SIZE is confirmed`)
 }
 
 const directPath = process.argv[1] ? path.resolve(process.argv[1]) : ''

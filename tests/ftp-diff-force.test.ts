@@ -7,6 +7,7 @@ import { afterEach, describe, expect, it } from 'vitest'
 
 const tempRoots: string[] = []
 const sourceScript = path.resolve(process.cwd(), 'scripts/ftp-diff.mjs')
+const sourceProtectedRoutes = path.resolve(process.cwd(), 'scripts/protected-promo-routes.mjs')
 
 function makeFixture() {
   const root = mkdtempSync(path.join(tmpdir(), 'btts-ftp-diff-'))
@@ -17,6 +18,7 @@ function makeFixture() {
   mkdirSync(outDir, { recursive: true })
   const script = path.join(scriptsDir, 'ftp-diff.mjs')
   copyFileSync(sourceScript, script)
+  copyFileSync(sourceProtectedRoutes, path.join(scriptsDir, 'protected-promo-routes.mjs'))
   return { root, outDir, script }
 }
 
@@ -207,4 +209,60 @@ describe('ftp-diff forced paths', () => {
     expect(stats.changedPaths).toEqual(['.htaccess', 'robots.txt', 'sitemap.xml'])
     expect(deployList).toBe('^\\.htaccess$\n^robots\\.txt$\n^sitemap\\.xml$\n')
   })
+
+  it('keeps non-approved promo routes at their published hashes and out of the diff', () => {
+    const { root, outDir, script } = makeFixture()
+    const current = {
+      '.htaccess': 'routing rules\n',
+      'robots.txt': 'User-agent: *\nAllow: /\n',
+      'sitemap.xml': '<urlset></urlset>\n',
+      'index.html': 'current home\n',
+      'code-promo-linebet-senegal.html': 'approved local correction\n',
+      'en/code-promo-linebet-senegal.html': 'local clicked page\n',
+      'en/code-promo-linebet-senegal.txt': 'local clicked sidecar\n',
+      'en/code-promo-linebet-senegal/__next._full.txt': 'local clicked RSC\n',
+      'ar/code-promo-1xbet.html': 'unapproved local variant\n',
+      '_next/static/chunks/app/[locale]/code-promo-linebet-senegal/page-abc.js': 'shared code chunk\n',
+    }
+    const previousFiles: Record<string, { hash: string; size: number }> = {}
+    let previousTotalBytes = 0
+    const writePrevious = (rel: string, value: string) => {
+      const bytes = Buffer.from(value)
+      previousFiles[rel] = { hash: createHash('sha256').update(bytes).digest('hex').slice(0, 16), size: bytes.length }
+      previousTotalBytes += bytes.length
+    }
+    for (const [rel, value] of Object.entries(current)) {
+      const fullPath = path.join(outDir, rel)
+      mkdirSync(path.dirname(fullPath), { recursive: true })
+      writeFileSync(fullPath, value)
+      const protectedPath = rel.startsWith('en/code-promo-linebet-senegal/') || rel === 'en/code-promo-linebet-senegal.html'
+      const absentOnLive = rel === 'ar/code-promo-1xbet.html'
+      if (!absentOnLive) writePrevious(rel, protectedPath ? `published ${value}` : (rel === 'code-promo-linebet-senegal.html' ? 'old approved page\n' : value))
+    }
+    writePrevious('en/code-promo-linebet-senegal/__next.live-only.txt', 'published sidecar not in local build\n')
+    writeFileSync(path.join(outDir, 'deploy-manifest.prev.json'), JSON.stringify({
+      version: 2,
+      fileCount: Object.keys(previousFiles).length,
+      totalBytes: previousTotalBytes,
+      files: previousFiles,
+    }))
+
+    execFileSync(process.execPath, [script, 'manifest'], { cwd: root, encoding: 'utf8' })
+    const manifest = JSON.parse(readFileSync(path.join(outDir, 'deploy-manifest.json'), 'utf8')) as { fileCount: number; totalBytes: number; files: Record<string, { hash: string; size: number }> }
+    expect(manifest.files['en/code-promo-linebet-senegal.html'].hash).toBe(previousFiles['en/code-promo-linebet-senegal.html'].hash)
+    expect(manifest.files['en/code-promo-linebet-senegal/__next.live-only.txt'].hash).toBe(previousFiles['en/code-promo-linebet-senegal/__next.live-only.txt'].hash)
+    expect(manifest.files['ar/code-promo-1xbet.html']).toBeUndefined()
+    expect(manifest.fileCount).toBe(Object.keys(manifest.files).length)
+    expect(manifest.totalBytes).toBe(Object.values(manifest.files).reduce((sum, file) => sum + file.size, 0))
+
+    execFileSync(process.execPath, [script, 'prepare', '--require-prev'], { cwd: root, encoding: 'utf8' })
+    const stats = JSON.parse(readFileSync(path.join(outDir, 'deploy-diff-stats.json'), 'utf8'))
+    const deployList = readFileSync(path.join(outDir, 'deploy-list.txt'), 'utf8')
+    expect(stats.newPaths).toEqual([])
+    expect(stats.changedPaths).toEqual(['code-promo-linebet-senegal.html'])
+    expect(deployList).toBe('^code-promo-linebet-senegal\\.html$\n')
+    expect(deployList).not.toContain('en/code-promo-linebet-senegal')
+    expect(deployList).not.toContain('ar/code-promo-1xbet')
+  })
+
 })

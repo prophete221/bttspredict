@@ -450,7 +450,7 @@ jobs:
       - name: Install lftp for targeted FTP preflight
         run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
 
-      - name: Prepare safe FTP state and targeted Match cleanup
+      - name: Prepare safe FTP state and exact AR popup cleanup plan
         id: ftp-preflight
         timeout-minutes: 45
         env:
@@ -474,13 +474,13 @@ jobs:
               exit 1
             fi
           done
-          for FILE in out/deploy-manifest.prev.json out/match-only-inventory.tsv out/stale-match-pages.json out/orphan-review.json out/sitemap-match-filter.json out/ftp-action-state-report.json out/deploy-manifest.json out/deploy-list.txt out/deploy-diff-stats.json out/deploy-upload-commands.lftp out/deploy-upload-plan.json; do
+          for FILE in out/deploy-manifest.prev.json out/match-only-inventory.tsv out/ar-match-popup-cleanup-plan.json out/ar-match-popup-cleanup.lftp out/stale-match-pages.json out/orphan-review.json out/sitemap-match-filter.json out/ftp-action-state-report.json out/deploy-manifest.json out/deploy-list.txt out/deploy-diff-stats.json out/deploy-upload-commands.lftp out/deploy-upload-plan.json; do
             if [ ! -f "$FILE" ]; then
               echo "::error::Preuve de plan absente : $FILE — arrêt avant FTP-Deploy."
               exit 1
             fi
           done
-          node -e "const p=require('./out/stale-match-pages.json'); if(!Array.isArray(p.deletions)||p.deletions.some(d=>! /^(en|ar)\\/match\\//.test(d.path))) process.exit(1); console.log('Suppression Match EN/AR validée:',p.deletionCount)"
+          node -e "const p=require('./out/stale-match-pages.json'); const a=require('./out/ar-match-popup-cleanup-plan.json'); if(!Array.isArray(p.deletions)||p.deletions.length!==0) process.exit(1); if(!Array.isArray(a.deletions)||a.deletions.some(d=>! /^ar\\/match\\//.test(d.path))) process.exit(1); console.log('Aucune suppression Match avant publication; nettoyage après vérification:',a.deletionCount,'fichiers sur',a.routeCount,'routes AR')"
           echo "Refroidissement 300 s pour la protection anti-flood LWS avant l’upload FTP différentiel…"
           sleep 300
           echo "Refroidissement LWS terminé; démarrage de l’action FTP différentielle."
@@ -490,6 +490,7 @@ jobs:
         env:
           CODE_ONLY_MODE: ${{ (github.event_name == 'push' && contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode == 'code') }}
           HISTORY_JSON_MODE: ${{ github.event_name == 'push' && contains(github.event.head_commit.message, '[history-json]') }}
+          DEPLOY_COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
         run: |
           set -euo pipefail
           if [ ! -s out/deploy-upload-commands.lftp ] || [ ! -s out/deploy-upload-plan.json ]; then
@@ -521,6 +522,24 @@ jobs:
           }
           if (expectedHistoryJson) console.log('[ftp-allowlist] JSON data autorisés exactement: history-exclusions.json, win-history.json; toutes les autres données restent exclues.')
           console.log(`[ftp-allowlist] diff=${plan.diffFileCount}; upload=${plan.uploadFileCount}; bytes=${plan.uploadBytes}; codeOnly=${plan.codeOnly}; historyJsonMode=${plan.historyJsonMode}`)
+          const commitMessage = process.env.DEPLOY_COMMIT_MESSAGE || ''
+          if (commitMessage.includes('[ar-popup-deploy]')) {
+            const count = commitMessage.match(/\[lws-files=(\d+)\]/)
+            if (!count) throw new Error('Le déploiement popup exige le compteur LWS récent [lws-files=N] dans le commit.')
+            const currentFiles = Number(count[1])
+            const fileLimit = 10000
+            const additions = Number(stats.newPathCount)
+            const cleanup = JSON.parse(fs.readFileSync('out/ar-match-popup-cleanup-plan.json', 'utf8'))
+            if (!Number.isInteger(currentFiles) || currentFiles < 0 || currentFiles > fileLimit || !Number.isInteger(additions) || additions < 0 || !Number.isInteger(cleanup.deletionCount) || cleanup.deletionCount < 0) {
+              throw new Error('Compteur/quota ou plan AR invalide; arrêt avant le transfert.')
+            }
+            const projectedPeak = currentFiles + additions
+            const projectedFinal = projectedPeak - cleanup.deletionCount
+            if (projectedFinal < 0 || projectedPeak > fileLimit) {
+              throw new Error(`Quota fichiers non sûr: ${currentFiles} actuels + ${additions} nouveaux = ${projectedPeak} avant nettoyage; limite ${fileLimit}.`)
+            }
+            console.log(`[LWS quota] ${currentFiles} actuels + ${additions} nouveaux = ${projectedPeak} au pic; ${cleanup.deletionCount} fichiers AR retirés après route live; projection finale ${projectedFinal}/${fileLimit}. Upload bytes=${stats.bytesToAdd}.`)
+          }
           JS
 
       - name: Deploy to bttspredict.com via FTP (validated allowlist, no delete)
@@ -564,7 +583,6 @@ jobs:
       - name: Deploy .htaccess with historical temporary rename
         id: ftp-htaccess
         if: ${{ success() && steps.ftp-upload.outcome == 'success' }}
-        continue-on-error: true
         timeout-minutes: 5
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
@@ -576,8 +594,95 @@ jobs:
             echo "✓ .htaccess déployé (upload temporaire + rm + rename)"
           else
             echo "⚠️ rm+rename refusé — tentative STOR direct"
-            lftp -u "$FTP_USERNAME,$FTP_PASSWORD" "ftp://$FTP_SERVER" -e "set ssl:verify no; set net:timeout 60; set net:max-retries 3; put out/.htaccess -o ./.htaccess; bye" || echo "::warning::.htaccess non déployable via FTP."
+            if lftp -u "$FTP_USERNAME,$FTP_PASSWORD" "ftp://$FTP_SERVER" -e "set ssl:verify no; set net:timeout 60; set net:max-retries 3; put out/.htaccess -o ./.htaccess; bye"; then
+              echo "✓ .htaccess déployé par STOR direct"
+            else
+              echo "::error::.htaccess non déployable; aucune ancienne page AR ne sera supprimée."
+              exit 1
+            fi
           fi
+
+      - name: Verify all legacy AR URLs before removing static pages
+        id: ar-route-check
+        if: ${{ success() && steps.ftp-upload.outcome == 'success' && steps.ftp-htaccess.outcome == 'success' }}
+        run: node scripts/verify-ar-match-popup-live.mjs --report=out/ar-match-live-check-before-cleanup.json
+
+      - name: Confirm exact AR candidate presence after route check
+        id: ar-presence
+        if: ${{ success() && steps.ar-route-check.outcome == 'success' }}
+        timeout-minutes: 15
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          DEPLOY_COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+        run: |
+          set -euo pipefail
+          node scripts/prepare-ar-match-popup-cleanup.mjs presence-commands --plan=out/ar-match-popup-cleanup-plan.json --commands=out/ar-match-presence-check.lftp
+          : > out/ar-match-presence-check.log
+          set +e
+          lftp -u "$FTP_USERNAME,$FTP_PASSWORD" -e "set ssl:verify no; set net:timeout 60; set net:max-retries 2; set cmd:fail-exit no; source out/ar-match-presence-check.lftp; bye" "ftp://${FTP_SERVER}" 2>&1 | tee out/ar-match-presence-check.log
+          FTP_EXIT_CODE=${PIPESTATUS[0]}
+          set -e
+          echo "FTP SIZE query exit=$FTP_EXIT_CODE; all candidate replies must be parsed exactly before any deletion."
+          node scripts/prepare-ar-match-popup-cleanup.mjs confirm-presence --plan=out/ar-match-popup-cleanup-plan.json --log=out/ar-match-presence-check.log --commands=out/ar-match-popup-cleanup.lftp
+          node --input-type=module - <<'JS'
+          import fs from 'node:fs'
+          const message = process.env.DEPLOY_COMMIT_MESSAGE || ''
+          const count = message.match(/\[lws-files=(\d+)\]/)
+          const stats = JSON.parse(fs.readFileSync('out/deploy-diff-stats.json', 'utf8'))
+          const plan = JSON.parse(fs.readFileSync('out/ar-match-popup-cleanup-plan.json', 'utf8'))
+          if (!count || !plan.presenceVerified || plan.deletionCount !== plan.deletions.length || plan.deletions.some(d => !plan.candidates.some(c => c.path === d.path))) throw new Error('Présence AR exacte non validée; aucune suppression autorisée.')
+          const currentFiles = Number(count[1])
+          const additions = Number(stats.newPathCount)
+          const fileLimit = 10000
+          const projectedPeak = currentFiles + additions
+          const projectedFinal = projectedPeak - plan.deletionCount
+          if (!Number.isInteger(currentFiles) || !Number.isInteger(additions) || projectedPeak > fileLimit || projectedFinal < 0) throw new Error('Projection nette LWS invalide après présence exacte.')
+          console.log(`[LWS quota exact] ${currentFiles} + ${additions} = ${projectedPeak} au pic; ${plan.deletionCount} chemins présents confirmés; projection nette ${projectedFinal}/${fileLimit}.`)
+          JS
+
+      - name: Remove exact AR static Match files after the popup is live
+        id: ftp-ar-cleanup
+        if: ${{ success() && steps.ar-route-check.outcome == 'success' && steps.ar-presence.outcome == 'success' }}
+        timeout-minutes: 15
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          set -euo pipefail
+          node --input-type=module - <<'JS'
+          import fs from 'node:fs'
+          const p = JSON.parse(fs.readFileSync('out/ar-match-popup-cleanup-plan.json', 'utf8'))
+          if (p.presenceVerified !== true || !Array.isArray(p.deletions) || p.deletions.length !== p.deletionCount || p.deletions.some(d => !/^ar\/match\//.test(d.path) || !p.candidates.some(c => c.path === d.path))) process.exit(1)
+          console.log('Removing exactly', p.deletionCount, 'AR files confirmed present across', p.routeCount, 'known slugs')
+          JS
+          if [ ! -s out/ar-match-popup-cleanup.lftp ]; then
+            echo "Aucun chemin candidat confirmé présent; aucune suppression exécutée."
+          else
+            lftp -u "$FTP_USERNAME,$FTP_PASSWORD" -e "set ssl:verify no; set net:timeout 60; set net:max-retries 2; set cmd:fail-exit yes; source out/ar-match-popup-cleanup.lftp; bye" "ftp://${FTP_SERVER}"
+          fi
+
+      - name: Verify exact AR static cleanup and recheck all legacy URLs
+        if: ${{ success() && steps.ftp-ar-cleanup.outcome == 'success' }}
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          set -euo pipefail
+          node scripts/prepare-ar-match-popup-cleanup.mjs post-cleanup-commands --plan=out/ar-match-popup-cleanup-plan.json --commands=out/ar-match-post-cleanup-check.lftp
+          : > out/ar-match-post-cleanup-check.log
+          if [ -s out/ar-match-post-cleanup-check.lftp ]; then
+            set +e
+            lftp -u "$FTP_USERNAME,$FTP_PASSWORD" -e "set ssl:verify no; set net:timeout 60; set net:max-retries 2; set cmd:fail-exit no; source out/ar-match-post-cleanup-check.lftp; bye" "ftp://${FTP_SERVER}" 2>&1 | tee out/ar-match-post-cleanup-check.log
+            FTP_EXIT_CODE=${PIPESTATUS[0]}
+            set -e
+            echo "Post-cleanup FTP SIZE query exit=$FTP_EXIT_CODE; verifying every deleted candidate."
+          fi
+          node scripts/prepare-ar-match-popup-cleanup.mjs verify-absent --plan=out/ar-match-popup-cleanup-plan.json --log=out/ar-match-post-cleanup-check.log
+          node scripts/verify-ar-match-popup-live.mjs --report=out/ar-match-live-check-after-cleanup.json
 
       - name: Upload deploy evidence (full manifest base + Match-only inventory + diff)
         if: always()
@@ -593,6 +698,14 @@ jobs:
             out/orphan-review.json
             out/sitemap-match-filter.json
             out/ftp-action-state-report.json
+            out/ar-match-popup-cleanup-plan.json
+            out/ar-match-popup-cleanup.lftp
+            out/ar-match-presence-check.lftp
+            out/ar-match-presence-check.log
+            out/ar-match-post-cleanup-check.lftp
+            out/ar-match-post-cleanup-check.log
+            out/ar-match-live-check-before-cleanup.json
+            out/ar-match-live-check-after-cleanup.json
             out/deploy-manifest.json
             out/deploy-upload-commands.lftp
             out/deploy-upload-plan.json

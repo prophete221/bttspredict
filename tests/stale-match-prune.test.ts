@@ -76,19 +76,17 @@ afterEach(() => {
   for (const root of tempRoots.splice(0)) rmSync(root, { recursive: true, force: true })
 })
 
-describe('safe stale-match deletion planning', () => {
-  it('targets only finished EN/AR Match HTML absent from the current export', () => {
+describe('read-only stale-match preflight', () => {
+  it('plans no Match deletion before the shared AR route is live', () => {
     const result = runFixture()
     const deletedPaths = result.output.deletions.map((item: { path: string }) => item.path)
-    expect(deletedPaths).toEqual([
-      'ar/match/old-match-vs-team-2026-10-01/index.html',
-      'en/match/old-match-vs-team-2026-10-01.html',
-    ])
+    expect(deletedPaths).toEqual([])
     expect(result.output.timezone).toBe('Africa/Dakar')
     expect(result.output.today).toBe('2026-11-04')
-    expect(result.output.deletionCount).toBe(2)
-    expect(result.commands).toContain('rm -f "ar/match/')
-    expect(result.commands).toContain('rm -f "en/match/')
+    expect(result.output.deletionCount).toBe(0)
+    expect(result.commands).toBe('')
+    expect(result.review.candidates).toContainEqual(expect.objectContaining({ path: 'ar/match/old-match-vs-team-2026-10-01/index.html', category: 'ar-match-popup-cleanup-after-route-verification' }))
+    expect(result.review.candidates).toContainEqual(expect.objectContaining({ path: 'en/match/old-match-vs-team-2026-10-01.html', category: 'localized-match-preserved' }))
     expect(result.commands).not.toContain('rm -f "match/')
     expect(result.commands).not.toContain('assets/')
     expect(result.commands).not.toContain('.htaccess')
@@ -105,13 +103,14 @@ describe('safe stale-match deletion planning', () => {
       'match/future-unlisted-vs-team-2026-11-05.html',
       '.htaccess', 'robots.txt', 'sitemap.xml', 'predictions-archive/2026-10-01.json',
     ]) expect(deletedPaths).not.toContain(protectedPath)
-    expect(result.review.candidates).toContainEqual(expect.objectContaining({ path: 'match/old-match-vs-team-2026-10-01.html', category: 'match-root-out-of-scope' }))
-    expect(result.review.candidates).toContainEqual(expect.objectContaining({ path: `match/${result.finishedTodaySlug}.html`, category: 'match-root-out-of-scope' }))
+    expect(result.review.candidates).toContainEqual(expect.objectContaining({ path: 'match/old-match-vs-team-2026-10-01.html', category: 'localized-match-preserved' }))
+    expect(result.review.candidates).toContainEqual(expect.objectContaining({ path: `match/${result.finishedTodaySlug}.html`, category: 'localized-match-preserved' }))
+    expect(result.review.candidates).toContainEqual(expect.objectContaining({ path: 'en/match/old-match-vs-team-2026-10-01.html', category: 'localized-match-preserved' }))
     expect(result.review.candidates).toContainEqual(expect.objectContaining({ path: 'assets/old-logo.svg', category: 'non-match-unverified' }))
     expect(result.review.candidates).toContainEqual(expect.objectContaining({ path: 'predictions-archive/2026-10-01.json', category: 'non-match-unverified' }))
   })
 
-  it('never deletes a finished EN/AR Match page present in both the current export and remote inventory', () => {
+  it('keeps even a finished AR Match page present in the current export until route verification', () => {
     const currentPath = 'ar/match/agf-vs-braga-2026-11-05.html'
     const now = '2026-11-06T10:00:00.000Z'
     expect(getDakarMatchStatus('2026-11-05', undefined, new Date(now))).toBe('finished')
@@ -120,11 +119,8 @@ describe('safe stale-match deletion planning', () => {
     const deletedPaths = result.output.deletions.map((item: { path: string }) => item.path)
 
     expect(deletedPaths).not.toContain(currentPath)
-    expect(result.commands).not.toContain(`rm -f "${currentPath}"`)
-    expect(deletedPaths).toEqual([
-      'ar/match/old-match-vs-team-2026-10-01/index.html',
-      'en/match/old-match-vs-team-2026-10-01.html',
-    ])
+    expect(result.commands).toBe('')
+    expect(deletedPaths).toEqual([])
   })
 
   it('does not produce deletions if the remote inventory is empty', () => {

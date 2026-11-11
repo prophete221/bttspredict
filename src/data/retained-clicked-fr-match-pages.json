@@ -1,0 +1,1386 @@
+{
+  "schemaVersion": 1,
+  "matches": [
+    {
+      "slug": "barcelona-vs-aston-villa-2026-11-03",
+      "sourceArchiveFiles": [
+        "2026-10-29.json",
+        "2026-10-30.json",
+        "2026-10-31.json",
+        "2026-11-01.json",
+        "2026-11-02.json",
+        "2026-11-03.json"
+      ],
+      "recordArchiveFile": "2026-11-03.json",
+      "snapshotDate": "2026-11-03",
+      "lastUpdated": "2026-11-03T04:48:02.677Z",
+      "record": {
+        "id": "barcelon-vs-astonvil-2026-11-03",
+        "match": "Barcelona vs Aston Villa",
+        "home": "Barcelona",
+        "away": "Aston Villa",
+        "league": "UEFA Champions League",
+        "date": "2026-11-03",
+        "type": "BTTS",
+        "prediction": "Oui",
+        "proba": 0.8,
+        "bttsProbDisplay": "80.00%",
+        "over25ProbDisplay": "90.00%",
+        "confidence": 80,
+        "time": "20:00",
+        "matchSemantic": "barcelon-vs-astonvil-2026-11-03",
+        "source": "poisson-v92-real-data",
+        "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/83.png",
+        "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/362.png",
+        "tier": "GOLD",
+        "reliabilityScore": 93.75,
+        "dataQuality": "HIGH",
+        "dataSource": "ESPN_TEAM_SCHEDULE",
+        "matchCountHome": 8,
+        "matchCountAway": 8,
+        "h2hAvailable": false,
+        "xgHome": 4,
+        "xgAway": 1,
+        "xgTotal": 5,
+        "formBTTS": 80,
+        "analysis": "Barcelona : forme D-V-V-V-V (4V 0N 1D, 19 buts marqués / 7 encaissés sur 5) · Aston Villa : forme V-V-N-V-D (3V 1N 1D, 9 buts marqués / 7 encaissés sur 5). Classement : Barcelona 8e (6 pts), Aston Villa 2e (9 pts). Stats empiriques (forme récente) : buts moy. 5, BTTS 80.0%, Over 2.5 90.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.24 / N: 7 / 2: 9.5. Fiabilité 93.75%.",
+        "analysisData": {
+          "bttsProb": 0.8,
+          "over25Prob": 0.9,
+          "homeLambda": 4,
+          "awayLambda": 1,
+          "xgTotal": 5
+        },
+        "estimatedCote": 1.25,
+        "estimatedCoteOver": 1.11,
+        "odds": {
+          "provider": "DraftKings",
+          "home": 1.24,
+          "draw": 7,
+          "away": 9.5,
+          "over25": null,
+          "under25": null
+        },
+        "oddsSource": "DraftKings",
+        "estimatedCoteBTTS": 1.25,
+        "formHome": {
+          "last5String": "D-V-V-V-V",
+          "wins": 4,
+          "draws": 0,
+          "losses": 1,
+          "goalsFor": 19,
+          "goalsAgainst": 7,
+          "bttsRate": 0.8,
+          "over25Rate": 1,
+          "cleanSheets": 1,
+          "failedToScore": 0,
+          "count": 5
+        },
+        "formAway": {
+          "last5String": "V-V-N-V-D",
+          "wins": 3,
+          "draws": 1,
+          "losses": 1,
+          "goalsFor": 9,
+          "goalsAgainst": 7,
+          "bttsRate": 0.8,
+          "over25Rate": 0.8,
+          "cleanSheets": 1,
+          "failedToScore": 0,
+          "count": 5
+        },
+        "last5Home": [
+          {
+            "date": "2026-10-31",
+            "opponent": "Alavés",
+            "venue": "H",
+            "score": "6-1",
+            "result": "W"
+          },
+          {
+            "date": "2026-10-25",
+            "opponent": "Real Madrid",
+            "venue": "H",
+            "score": "1-2",
+            "result": "L"
+          },
+          {
+            "date": "2026-10-17",
+            "opponent": "Real Betis",
+            "venue": "A",
+            "score": "5-2",
+            "result": "W"
+          },
+          {
+            "date": "2026-10-10",
+            "opponent": "Getafe",
+            "venue": "H",
+            "score": "3-0",
+            "result": "W"
+          },
+          {
+            "date": "2026-09-19",
+            "opponent": "Sevilla",
+            "venue": "A",
+            "score": "3-1",
+            "result": "W"
+          }
+        ],
+        "last5Away": [
+          {
+            "date": "2026-10-31",
+            "opponent": "Fulham",
+            "venue": "H",
+            "score": "1-1",
+            "result": "D"
+          },
+          {
+            "date": "2026-10-24",
+            "opponent": "Manchester City",
+            "venue": "H",
+            "score": "2-1",
+            "result": "W"
+          },
+          {
+            "date": "2026-10-17",
+            "opponent": "Newcastle United",
+            "venue": "A",
+            "score": "1-0",
+            "result": "W"
+          },
+          {
+            "date": "2026-10-10",
+            "opponent": "Brentford",
+            "venue": "H",
+            "score": "2-2",
+            "result": "D"
+          },
+          {
+            "date": "2026-09-19",
+            "opponent": "Tottenham Hotspur",
+            "venue": "A",
+            "score": "3-2",
+            "result": "W"
+          }
+        ],
+        "standingsHome": {
+          "rank": 8,
+          "points": 6,
+          "played": 3,
+          "gf": 11,
+          "ga": 6
+        },
+        "standingsAway": {
+          "rank": 2,
+          "points": 9,
+          "played": 3,
+          "gf": 12,
+          "ga": 3
+        },
+        "predictions": [
+          {
+            "type": "BTTS",
+            "prediction": "Oui",
+            "confidence": 78,
+            "bttsProb": 0.78,
+            "homeLambda": 4,
+            "awayLambda": 1,
+            "modelEngine": "empirical-form+gemini",
+            "statsOnly": true,
+            "proba": 0.78
+          },
+          {
+            "type": "Over 2.5",
+            "prediction": "Oui",
+            "confidence": 78,
+            "over25Prob": 0.78,
+            "homeLambda": 4,
+            "awayLambda": 1,
+            "modelEngine": "empirical-form+gemini",
+            "statsOnly": true,
+            "proba": 0.78
+          }
+        ],
+        "bttsProb": 0.78,
+        "over25Prob": 0.78,
+        "homeLambda": 4,
+        "awayLambda": 1,
+        "modelEngine": "gemini-stats-v1",
+        "statsOnly": true,
+        "ai_key_fact": "Barcelone et Aston Villa affichent tous deux un taux BTTS récent de 80%.",
+        "ai_analysis": "Ce match présente des indicateurs offensifs exceptionnels. Le taux BTTS empirique atteint 0.8 des deux côtés, appuyé par un taux Over 2.5 de 0.9. La puissance offensive de Barcelone conjuguée aux stats d'Aston Villa renforce la sélection.",
+        "ai_analysis_en": "This match features exceptional offensive indicators. The empirical BTTS rate reaches 0.8 on both sides, supported by an Over 2.5 rate of 0.9. Barcelona's offensive power combined with Aston Villa's stats strengthens the selection.",
+        "ai_form_summary": "Barcelona sur 4W-0D-1L (19 buts marqués, 7 encaissés) ; Aston Villa sur 3W-1D-1L (9 buts marqués, 7 encaissés).",
+        "ai_form_summary_en": "Barcelona on 4W-0D-1L (19 goals scored, 7 conceded); Aston Villa on 3W-1D-1L (9 goals scored, 7 conceded).",
+        "ai_reasons": [
+          "Taux BTTS empirique élevé de 0.8 pour les deux équipes",
+          "Taux Over 2.5 empirique très élevé à 0.9 avec une moyenne offensive barcelonaise de 4 buts",
+          "Taux de forme BTTS à 80% confirmant la tendance offensive récente"
+        ],
+        "ai_risks": [
+          "Barcelone possède une nette domination offensive qui pourrait limiter les incursions adverses",
+          "La cote de l'Over 2.5 n'est pas disponible, obligeant à cibler le marché BTTS"
+        ],
+        "ai_confidence": "high",
+        "ai_abstain": false,
+        "ai_market": "BOTH",
+        "ai_source": "gemini-stats-v1",
+        "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+        "ai_absences_en": "No squad data provided — absences not assessed.",
+        "ai_odds_insight": "Cotes marché (DraftKings): 1 1.24 · N 7 · 2 9.5",
+        "status": "PENDING"
+      }
+    },
+    {
+      "slug": "lorient-vs-brest-2026-11-02",
+      "sourceArchiveFiles": [
+        "2026-10-28.json",
+        "2026-10-29.json",
+        "2026-10-30.json",
+        "2026-10-31.json",
+        "2026-11-01.json",
+        "2026-11-02.json"
+      ],
+      "recordArchiveFile": "2026-11-02.json",
+      "snapshotDate": "2026-11-02",
+      "lastUpdated": "2026-11-02T00:08:09.319Z",
+      "record": {
+        "id": "lorient-vs-brest-2026-11-02",
+        "match": "Lorient vs Brest",
+        "home": "Lorient",
+        "away": "Brest",
+        "league": "Ligue 1",
+        "date": "2026-11-02",
+        "type": "BTTS",
+        "prediction": "Oui",
+        "proba": 0.58,
+        "bttsProbDisplay": "60.00%",
+        "over25ProbDisplay": "50.00%",
+        "confidence": 58,
+        "time": "19:45",
+        "matchSemantic": "lorient-vs-brest-2026-11-02",
+        "source": "poisson-v92-real-data",
+        "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/273.png",
+        "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6997.png",
+        "tier": "GOLD",
+        "reliabilityScore": 80,
+        "dataQuality": "HIGH",
+        "dataSource": "ESPN_TEAM_SCHEDULE",
+        "matchCountHome": 8,
+        "matchCountAway": 8,
+        "h2hAvailable": false,
+        "xgHome": 1.25,
+        "xgAway": 1.5,
+        "xgTotal": 2.75,
+        "formBTTS": 60,
+        "analysis": "Lorient : forme N-V-V-D-N (2V 2N 1D, 5 buts marqués / 4 encaissés sur 5) · Brest : forme D-N-V-D-D (1V 1N 3D, 8 buts marqués / 7 encaissés sur 5). Classement : Lorient 9e (12 pts), Brest 13e (9 pts). Stats empiriques (forme récente) : buts moy. 2.75, BTTS 60.0%, Over 2.5 50.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.4 / N: 3.3 / 2: 2.8 · Over 2.5: 1.95. Fiabilité 80%.",
+        "analysisData": {
+          "bttsProb": 0.6,
+          "over25Prob": 0.5,
+          "homeLambda": 1.25,
+          "awayLambda": 1.5,
+          "xgTotal": 2.75
+        },
+        "estimatedCote": 1.67,
+        "estimatedCoteOver": 2,
+        "odds": {
+          "provider": "DraftKings",
+          "home": 2.4,
+          "draw": 3.3,
+          "away": 2.8,
+          "over25": 1.95,
+          "under25": 1.74
+        },
+        "oddsSource": "DraftKings",
+        "estimatedCoteBTTS": 1.67,
+        "formHome": {
+          "last5String": "N-V-V-D-N",
+          "wins": 2,
+          "draws": 2,
+          "losses": 1,
+          "goalsFor": 5,
+          "goalsAgainst": 4,
+          "bttsRate": 0.4,
+          "over25Rate": 0.4,
+          "cleanSheets": 3,
+          "failedToScore": 1,
+          "count": 5
+        },
+        "formAway": {
+          "last5String": "D-N-V-D-D",
+          "wins": 1,
+          "draws": 1,
+          "losses": 3,
+          "goalsFor": 8,
+          "goalsAgainst": 7,
+          "bttsRate": 0.8,
+          "over25Rate": 0.6,
+          "cleanSheets": 0,
+          "failedToScore": 1,
+          "count": 5
+        },
+        "last5Home": [
+          {
+            "date": "2026-10-25",
+            "opponent": "Angers",
+            "venue": "A",
+            "score": "0-0",
+            "result": "D"
+          },
+          {
+            "date": "2026-10-18",
+            "opponent": "AS Monaco",
+            "venue": "H",
+            "score": "1-0",
+            "result": "W"
+          },
+          {
+            "date": "2026-10-10",
+            "opponent": "Paris FC",
+            "venue": "H",
+            "score": "1-0",
+            "result": "W"
+          },
+          {
+            "date": "2026-09-19",
+            "opponent": "Le Mans",
+            "venue": "A",
+            "score": "1-2",
+            "result": "L"
+          },
+          {
+            "date": "2026-09-12",
+            "opponent": "Toulouse",
+            "venue": "H",
+            "score": "2-2",
+            "result": "D"
+          }
+        ],
+        "last5Away": [
+          {
+            "date": "2026-10-23",
+            "opponent": "Nice",
+            "venue": "H",
+            "score": "1-2",
+            "result": "L"
+          },
+          {
+            "date": "2026-10-17",
+            "opponent": "Lille",
+            "venue": "A",
+            "score": "1-1",
+            "result": "D"
+          },
+          {
+            "date": "2026-10-10",
+            "opponent": "Angers",
+            "venue": "H",
+            "score": "5-1",
+            "result": "W"
+          },
+          {
+            "date": "2026-09-20",
+            "opponent": "AJ Auxerre",
+            "venue": "A",
+            "score": "1-2",
+            "result": "L"
+          },
+          {
+            "date": "2026-09-13",
+            "opponent": "Paris Saint-Germain",
+            "venue": "H",
+            "score": "0-1",
+            "result": "L"
+          }
+        ],
+        "standingsHome": {
+          "rank": 9,
+          "points": 12,
+          "played": 8,
+          "gf": 7,
+          "ga": 6
+        },
+        "standingsAway": {
+          "rank": 13,
+          "points": 9,
+          "played": 8,
+          "gf": 14,
+          "ga": 12
+        },
+        "predictions": [
+          {
+            "type": "BTTS",
+            "prediction": "Oui",
+            "confidence": 58,
+            "bttsProb": 0.58,
+            "homeLambda": 1.25,
+            "awayLambda": 1.5,
+            "modelEngine": "empirical-form+gemini",
+            "statsOnly": true,
+            "proba": 0.58
+          },
+          {
+            "type": "Over 2.5",
+            "prediction": "Oui",
+            "confidence": 50,
+            "over25Prob": 0.5,
+            "homeLambda": 1.25,
+            "awayLambda": 1.5,
+            "modelEngine": "empirical-form+gemini",
+            "statsOnly": true
+          }
+        ],
+        "bttsProb": 0.58,
+        "over25Prob": 0.5,
+        "homeLambda": 1.25,
+        "awayLambda": 1.5,
+        "modelEngine": "gemini-stats-v1",
+        "statsOnly": true,
+        "ai_key_fact": "Brest montre une forte propension au BTTS (80%) malgré un classement et une forme inconstants.",
+        "ai_analysis": "La confrontation entre Lorient et Brest présente des signaux mitigés, notamment en raison de la rigueur relative de Lorient à domicile. Cependant, la régularité de Brest sur le marché du BTTS (80%) offre un appui statistique suffisant pour envisager les deux équipes marquer avec une confiance modérée.",
+        "ai_analysis_en": "The clash between Lorient and Brest presents mixed signals, notably due to Lorient's relative defensive containment at home. However, Brest's consistency in the BTTS market (80%) provides enough statistical backing to consider both teams scoring with moderate confidence.",
+        "ai_form_summary": "Lorient (2W-2D-1L, 5-4 buts) est opposé à Brest (1W-1D-3L, 8-7 buts) plus ouvert.",
+        "ai_form_summary_en": "Lorient (2W-2D-1L, 5-4 goals) faces Brest (1W-1D-3L, 8-7 goals) which tends to be more open.",
+        "ai_reasons": [
+          "Brest affiche un taux BTTS récent de 80% sur ses 5 derniers matchs.",
+          "Taux empirique global du match établi à 60% pour le BTTS."
+        ],
+        "ai_risks": [
+          "Lorient présente un taux BTTS plus faible de 40% sur ses 5 derniers matchs.",
+          "Moyennes de buts inscrits et encaissés relativement serrées pour Lorient."
+        ],
+        "ai_confidence": "medium",
+        "ai_abstain": false,
+        "ai_market": "BTTS",
+        "ai_source": "gemini-stats-v1",
+        "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+        "ai_absences_en": "No squad data provided — absences not assessed.",
+        "ai_odds_insight": "Cotes marché (DraftKings): 1 2.4 · N 3.3 · 2 2.8 · O2.5 1.95",
+        "status": "PENDING"
+      }
+    },
+    {
+      "slug": "real-madrid-vs-rb-leipzig-2026-10-21",
+      "sourceArchiveFiles": [
+        "2026-10-20.json",
+        "2026-10-21.json"
+      ],
+      "recordArchiveFile": "2026-10-21.json",
+      "snapshotDate": "2026-10-21",
+      "lastUpdated": "2026-10-21T11:57:26.575Z",
+      "record": {
+        "id": "realmadr-vs-rbleipzi-2026-10-21",
+        "match": "Real Madrid vs RB Leipzig",
+        "home": "Real Madrid",
+        "away": "RB Leipzig",
+        "league": "UEFA Champions League",
+        "date": "2026-10-21",
+        "type": "BTTS",
+        "prediction": "Oui",
+        "proba": 0.6265,
+        "bttsProbDisplay": "62.65%",
+        "over25ProbDisplay": "62.01%",
+        "confidence": 63,
+        "time": "19:00",
+        "matchSemantic": "realmadr-vs-rbleipzi-2026-10-21",
+        "source": "poisson-v92-real-data",
+        "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/86.png",
+        "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/11420.png",
+        "tier": "SILVER",
+        "reliabilityScore": 68.16,
+        "dataQuality": "LOW",
+        "dataSource": "ESPN_TEAM_SCHEDULE",
+        "matchCountHome": 2,
+        "matchCountAway": 2,
+        "h2hAvailable": false,
+        "xgHome": 1.83,
+        "xgAway": 1.37,
+        "xgTotal": 3.2,
+        "formBTTS": 40,
+        "analysis": "Real Madrid : forme V-V (2V 0N 0D, 6 buts marqués / 4 encaissés sur 5) · RB Leipzig : forme V-D (1V 0N 1D, 2 buts marqués / 4 encaissés sur 5). Classement : Real Madrid 9e (6 pts), RB Leipzig 23e (3 pts). Modèle Poisson : xG cumulé 3.2, BTTS 62.6%, Over 2.5 62.0%. Cotes DraftKings — 1: 1.24 / N: 7 / 2: 10. Fiabilité 68.16%.",
+        "analysisData": {
+          "bttsProb": 0.6265,
+          "over25Prob": 0.6201,
+          "homeLambda": 1.83,
+          "awayLambda": 1.37,
+          "xgTotal": 3.2
+        },
+        "estimatedCote": 1.6,
+        "estimatedCoteOver": 1.61,
+        "odds": {
+          "provider": "DraftKings",
+          "home": 1.24,
+          "draw": 7,
+          "away": 10,
+          "over25": null,
+          "under25": null
+        },
+        "oddsSource": "DraftKings",
+        "estimatedCoteBTTS": 1.6,
+        "formHome": {
+          "last5String": "V-V",
+          "wins": 2,
+          "draws": 0,
+          "losses": 0,
+          "goalsFor": 6,
+          "goalsAgainst": 4,
+          "bttsRate": 1,
+          "over25Rate": 1,
+          "cleanSheets": 0,
+          "failedToScore": 0,
+          "count": 2
+        },
+        "formAway": {
+          "last5String": "V-D",
+          "wins": 1,
+          "draws": 0,
+          "losses": 1,
+          "goalsFor": 2,
+          "goalsAgainst": 4,
+          "bttsRate": 0.5,
+          "over25Rate": 0.5,
+          "cleanSheets": 1,
+          "failedToScore": 0,
+          "count": 2
+        },
+        "standingsHome": {
+          "rank": 9,
+          "points": 6,
+          "played": 2,
+          "gf": 6,
+          "ga": 4
+        },
+        "standingsAway": {
+          "rank": 23,
+          "points": 3,
+          "played": 2,
+          "gf": 2,
+          "ga": 4
+        },
+        "predictions": [
+          {
+            "type": "BTTS",
+            "prediction": "Oui",
+            "confidence": 63,
+            "bttsProb": 0.6265,
+            "homeLambda": 1.83,
+            "awayLambda": 1.37
+          },
+          {
+            "type": "Over 2.5",
+            "prediction": "Oui",
+            "confidence": 62,
+            "over25Prob": 0.6201,
+            "homeLambda": 1.83,
+            "awayLambda": 1.37
+          }
+        ],
+        "bttsProb": 0.6265,
+        "over25Prob": 0.6201,
+        "homeLambda": 1.83,
+        "awayLambda": 1.37,
+        "status": "PENDING"
+      }
+    },
+    {
+      "slug": "le-havre-ac-vs-paris-saint-germain-2026-10-30",
+      "sourceArchiveFiles": [
+        "2026-10-26.json",
+        "2026-10-27.json",
+        "2026-10-28.json",
+        "2026-10-29.json",
+        "2026-10-30.json"
+      ],
+      "recordArchiveFile": "2026-10-30.json",
+      "snapshotDate": "2026-10-30",
+      "lastUpdated": "2026-10-30T00:34:49.441Z",
+      "record": {
+        "id": "lehavrea-vs-parissai-2026-10-30",
+        "match": "Le Havre AC vs Paris Saint-Germain",
+        "home": "Le Havre AC",
+        "away": "Paris Saint-Germain",
+        "league": "Ligue 1",
+        "date": "2026-10-30",
+        "type": "Over 2.5",
+        "prediction": "Oui",
+        "proba": 0.7,
+        "bttsProbDisplay": "70.00%",
+        "over25ProbDisplay": "70.00%",
+        "confidence": 70,
+        "time": "18:00",
+        "matchSemantic": "lehavrea-vs-parissai-2026-10-30",
+        "source": "poisson-v92-real-data",
+        "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3236.png",
+        "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/160.png",
+        "tier": "GOLD",
+        "reliabilityScore": 75.38,
+        "dataQuality": "MEDIUM",
+        "dataSource": "ESPN_TEAM_SCHEDULE",
+        "matchCountHome": 8,
+        "matchCountAway": 7,
+        "h2hAvailable": false,
+        "xgHome": 0.5,
+        "xgAway": 2,
+        "xgTotal": 2.5,
+        "formBTTS": 70,
+        "analysis": "Le Havre AC : forme D-D-D-D-N (0V 1N 4D, 6 buts marqués / 11 encaissés sur 5) · Paris Saint-Germain : forme V-V-V-V-D (4V 0N 1D, 10 buts marqués / 5 encaissés sur 5). Classement : Le Havre AC 18e (2 pts), Paris Saint-Germain 5e (14 pts). Stats empiriques (forme récente) : buts moy. 2.5, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 9.5 / N: 7 / 2: 1.24. Fiabilité 75.38%.",
+        "analysisData": {
+          "bttsProb": 0.7,
+          "over25Prob": 0.7,
+          "homeLambda": 0.5,
+          "awayLambda": 2,
+          "xgTotal": 2.5
+        },
+        "estimatedCote": 1.43,
+        "estimatedCoteOver": 1.43,
+        "odds": {
+          "provider": "DraftKings",
+          "home": 9.5,
+          "draw": 7,
+          "away": 1.24,
+          "over25": null,
+          "under25": null
+        },
+        "oddsSource": "DraftKings",
+        "estimatedCoteBTTS": 1.43,
+        "formHome": {
+          "last5String": "D-D-D-D-N",
+          "wins": 0,
+          "draws": 1,
+          "losses": 4,
+          "goalsFor": 6,
+          "goalsAgainst": 11,
+          "bttsRate": 0.6,
+          "over25Rate": 0.6,
+          "cleanSheets": 1,
+          "failedToScore": 2,
+          "count": 5
+        },
+        "formAway": {
+          "last5String": "V-V-V-V-D",
+          "wins": 4,
+          "draws": 0,
+          "losses": 1,
+          "goalsFor": 10,
+          "goalsAgainst": 5,
+          "bttsRate": 0.8,
+          "over25Rate": 0.8,
+          "cleanSheets": 1,
+          "failedToScore": 0,
+          "count": 5
+        },
+        "last5Home": [
+          {
+            "date": "2026-10-25",
+            "opponent": "Marseille",
+            "venue": "A",
+            "score": "3-4",
+            "result": "L"
+          },
+          {
+            "date": "2026-10-18",
+            "opponent": "AJ Auxerre",
+            "venue": "H",
+            "score": "1-3",
+            "result": "L"
+          },
+          {
+            "date": "2026-10-10",
+            "opponent": "Lille",
+            "venue": "A",
+            "score": "0-1",
+            "result": "L"
+          },
+          {
+            "date": "2026-09-19",
+            "opponent": "Toulouse",
+            "venue": "A",
+            "score": "2-3",
+            "result": "L"
+          },
+          {
+            "date": "2026-09-12",
+            "opponent": "Angers",
+            "venue": "H",
+            "score": "0-0",
+            "result": "D"
+          }
+        ],
+        "last5Away": [
+          {
+            "date": "2026-10-26",
+            "opponent": "Lyon",
+            "venue": "H",
+            "score": "2-0",
+            "result": "W"
+          },
+          {
+            "date": "2026-10-17",
+            "opponent": "Strasbourg",
+            "venue": "A",
+            "score": "3-1",
+            "result": "W"
+          },
+          {
+            "date": "2026-10-10",
+            "opponent": "Le Mans",
+            "venue": "H",
+            "score": "3-1",
+            "result": "W"
+          },
+          {
+            "date": "2026-09-20",
+            "opponent": "Marseille",
+            "venue": "A",
+            "score": "2-1",
+            "result": "W"
+          },
+          {
+            "date": "2026-09-13",
+            "opponent": "Brest",
+            "venue": "A",
+            "score": "1-0",
+            "result": "W"
+          }
+        ],
+        "standingsHome": {
+          "rank": 18,
+          "points": 2,
+          "played": 8,
+          "gf": 8,
+          "ga": 15
+        },
+        "standingsAway": {
+          "rank": 5,
+          "points": 14,
+          "played": 7,
+          "gf": 14,
+          "ga": 9
+        },
+        "predictions": [
+          {
+            "type": "BTTS",
+            "prediction": "Oui",
+            "confidence": 70,
+            "bttsProb": 0.7,
+            "homeLambda": 0.5,
+            "awayLambda": 2,
+            "modelEngine": "empirical-form+gemini",
+            "statsOnly": true
+          },
+          {
+            "type": "Over 2.5",
+            "prediction": "Oui",
+            "confidence": 70,
+            "over25Prob": 0.7,
+            "homeLambda": 0.5,
+            "awayLambda": 2,
+            "modelEngine": "empirical-form+gemini",
+            "statsOnly": true,
+            "proba": 0.7
+          }
+        ],
+        "bttsProb": 0.7,
+        "over25Prob": 0.7,
+        "homeLambda": 0.5,
+        "awayLambda": 2,
+        "modelEngine": "gemini-stats-v1",
+        "statsOnly": true,
+        "ai_key_fact": "Form signals BTTS 70% / Over 70%",
+        "ai_analysis": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 70.0%, Over 2.5 empirique 70.0% pour Le Havre AC vs Paris Saint-Germain. Décision : OVER_25.",
+        "ai_analysis_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 70.0%, Over 2.5 70.0% for Le Havre AC vs Paris Saint-Germain. Decision: OVER_25.",
+        "ai_form_summary": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 70.0%, Over 2.5 empirique 70.0% pour Le Havre AC vs Paris Saint-Germain. Déc",
+        "ai_form_summary_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 70.0%, Over 2.5 70.0% for Le Havre AC vs Paris Saint-Germain. Decision: OVER_25.",
+        "ai_reasons": [
+          "Empirical BTTS rate ~70%",
+          "Empirical Over 2.5 rate ~70%"
+        ],
+        "ai_risks": [
+          "Sample limited to recent matches; form can shift quickly."
+        ],
+        "ai_confidence": "medium",
+        "ai_abstain": false,
+        "ai_market": "OVER_25",
+        "ai_source": "local-empirical-v1",
+        "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+        "ai_absences_en": "No squad data provided — absences not assessed.",
+        "ai_odds_insight": "Cotes marché (DraftKings): 1 9.5 · N 7 · 2 1.24",
+        "status": "WON",
+        "finalScore": "1-5",
+        "verifiedAt": "2026-10-30T21:28:48.740Z"
+      }
+    },
+    {
+      "slug": "vfb-stuttgart-vs-borussia-mönchengladbach-2026-10-23",
+      "sourceArchiveFiles": [
+        "2026-10-18.json",
+        "2026-10-19.json",
+        "2026-10-21.json",
+        "2026-10-23.json"
+      ],
+      "recordArchiveFile": "2026-10-23.json",
+      "snapshotDate": "2026-10-23",
+      "lastUpdated": "2026-10-23T02:43:46.586Z",
+      "record": {
+        "id": "vfbstutt-vs-borussia-2026-10-23",
+        "match": "VfB Stuttgart vs Borussia Mönchengladbach",
+        "home": "VfB Stuttgart",
+        "away": "Borussia Mönchengladbach",
+        "league": "Bundesliga",
+        "date": "2026-10-23",
+        "type": "BTTS",
+        "prediction": "Non",
+        "proba": 0.4575,
+        "bttsProbDisplay": "45.75%",
+        "over25ProbDisplay": "67.61%",
+        "confidence": 46,
+        "time": "18:30",
+        "matchSemantic": "vfbstutt-vs-borussia-2026-10-23",
+        "source": "poisson-v92-real-data",
+        "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/134.png",
+        "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/268.png",
+        "tier": "SILVER",
+        "reliabilityScore": 69.76,
+        "dataQuality": "MEDIUM",
+        "dataSource": "ESPN_TEAM_SCHEDULE",
+        "matchCountHome": 6,
+        "matchCountAway": 6,
+        "h2hAvailable": false,
+        "xgHome": 2.82,
+        "xgAway": 0.67,
+        "xgTotal": 3.48,
+        "formBTTS": 27,
+        "analysis": "VfB Stuttgart (6 matchs réels, xG 2.82) vs Borussia Mönchengladbach (6 matchs réels, xG 0.67). xG cumulé 3.48, BTTS 45.7%, Over 2.5 67.6%. Fiabilité 69.76%. Qualité données: MEDIUM.",
+        "analysisData": {
+          "bttsProb": 0.4575,
+          "over25Prob": 0.6761,
+          "homeLambda": 2.82,
+          "awayLambda": 0.67,
+          "xgTotal": 3.48
+        },
+        "estimatedCote": 2.19,
+        "estimatedCoteOver": 1.48,
+        "predictions": [
+          {
+            "type": "BTTS",
+            "prediction": "Non",
+            "confidence": 46,
+            "bttsProb": 0.4575,
+            "homeLambda": 2.82,
+            "awayLambda": 0.67
+          },
+          {
+            "type": "Over 2.5",
+            "prediction": "Oui",
+            "confidence": 68,
+            "over25Prob": 0.6761,
+            "homeLambda": 2.82,
+            "awayLambda": 0.67
+          }
+        ],
+        "bttsProb": 0.4575,
+        "over25Prob": 0.6761,
+        "homeLambda": 2.82,
+        "awayLambda": 0.67,
+        "status": "PENDING",
+        "last5Home": [
+          {
+            "date": "2026-10-17",
+            "opponent": "Hamburg SV",
+            "venue": "A",
+            "score": "0-1",
+            "result": "L"
+          },
+          {
+            "date": "2026-10-10",
+            "opponent": "SC Paderborn 07",
+            "venue": "A",
+            "score": "2-0",
+            "result": "W"
+          },
+          {
+            "date": "2026-09-19",
+            "opponent": "Borussia Dortmund",
+            "venue": "H",
+            "score": "0-1",
+            "result": "L"
+          },
+          {
+            "date": "2026-09-12",
+            "opponent": "TSG Hoffenheim",
+            "venue": "A",
+            "score": "1-2",
+            "result": "L"
+          },
+          {
+            "date": "2026-09-04",
+            "opponent": "FC Cologne",
+            "venue": "H",
+            "score": "4-1",
+            "result": "W"
+          }
+        ],
+        "last5Away": [
+          {
+            "date": "2026-10-18",
+            "opponent": "TSG Hoffenheim",
+            "venue": "H",
+            "score": "1-2",
+            "result": "L"
+          },
+          {
+            "date": "2026-10-11",
+            "opponent": "FC Cologne",
+            "venue": "A",
+            "score": "1-2",
+            "result": "L"
+          },
+          {
+            "date": "2026-09-19",
+            "opponent": "Mainz",
+            "venue": "H",
+            "score": "3-4",
+            "result": "L"
+          },
+          {
+            "date": "2026-09-12",
+            "opponent": "SC Freiburg",
+            "venue": "A",
+            "score": "0-5",
+            "result": "L"
+          },
+          {
+            "date": "2026-09-05",
+            "opponent": "SV Elversberg",
+            "venue": "H",
+            "score": "3-4",
+            "result": "L"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "paris-saint-germain-vs-lyon-2026-10-26",
+      "sourceArchiveFiles": [
+        "2026-10-23.json",
+        "2026-10-24.json",
+        "2026-10-25.json",
+        "2026-10-26.json"
+      ],
+      "recordArchiveFile": "2026-10-26.json",
+      "snapshotDate": "2026-10-26",
+      "lastUpdated": "2026-10-26T01:39:43.385Z",
+      "record": {
+        "id": "parissai-vs-lyon-2026-10-26",
+        "match": "Paris Saint-Germain vs Lyon",
+        "home": "Paris Saint-Germain",
+        "away": "Lyon",
+        "league": "Ligue 1",
+        "date": "2026-10-26",
+        "type": "BTTS",
+        "prediction": "Oui",
+        "proba": 0.5516,
+        "bttsProbDisplay": "55.16%",
+        "over25ProbDisplay": "51.45%",
+        "confidence": 55,
+        "time": "19:30",
+        "matchSemantic": "parissai-vs-lyon-2026-10-26",
+        "source": "poisson-v92-real-data",
+        "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/160.png",
+        "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/167.png",
+        "tier": "SILVER",
+        "reliabilityScore": 68.88,
+        "dataQuality": "MEDIUM",
+        "dataSource": "ESPN_TEAM_SCHEDULE",
+        "matchCountHome": 7,
+        "matchCountAway": 7,
+        "h2hAvailable": false,
+        "xgHome": 1.48,
+        "xgAway": 1.25,
+        "xgTotal": 2.73,
+        "formBTTS": 70,
+        "analysis": "Paris Saint-Germain : forme V-V-V-V-D (4V 0N 1D, 10 buts marqués / 5 encaissés sur 5) · Lyon : forme V-D-V-N-V (3V 1N 1D, 10 buts marqués / 4 encaissés sur 5). Classement : Paris Saint-Germain 2e (14 pts), Lyon 1e (14 pts). Modèle Poisson : xG cumulé 2.73, BTTS 55.2%, Over 2.5 51.5%. Cotes DraftKings — 1: 1.44 / N: 5 / 2: 6. Fiabilité 68.88%.",
+        "analysisData": {
+          "bttsProb": 0.5516,
+          "over25Prob": 0.5145,
+          "homeLambda": 1.48,
+          "awayLambda": 1.25,
+          "xgTotal": 2.73
+        },
+        "estimatedCote": 1.81,
+        "estimatedCoteOver": 1.94,
+        "odds": {
+          "provider": "DraftKings",
+          "home": 1.44,
+          "draw": 5,
+          "away": 6,
+          "over25": null,
+          "under25": null
+        },
+        "oddsSource": "DraftKings",
+        "estimatedCoteBTTS": 1.81,
+        "formHome": {
+          "last5String": "V-V-V-V-D",
+          "wins": 4,
+          "draws": 0,
+          "losses": 1,
+          "goalsFor": 10,
+          "goalsAgainst": 5,
+          "bttsRate": 0.8,
+          "over25Rate": 0.8,
+          "cleanSheets": 1,
+          "failedToScore": 0,
+          "count": 5
+        },
+        "formAway": {
+          "last5String": "V-D-V-N-V",
+          "wins": 3,
+          "draws": 1,
+          "losses": 1,
+          "goalsFor": 10,
+          "goalsAgainst": 4,
+          "bttsRate": 0.6,
+          "over25Rate": 0.8,
+          "cleanSheets": 2,
+          "failedToScore": 1,
+          "count": 5
+        },
+        "last5Home": [
+          {
+            "date": "2026-10-17",
+            "opponent": "Strasbourg",
+            "venue": "A",
+            "score": "3-1",
+            "result": "W"
+          },
+          {
+            "date": "2026-10-10",
+            "opponent": "Le Mans",
+            "venue": "H",
+            "score": "3-1",
+            "result": "W"
+          },
+          {
+            "date": "2026-09-20",
+            "opponent": "Marseille",
+            "venue": "A",
+            "score": "2-1",
+            "result": "W"
+          },
+          {
+            "date": "2026-09-13",
+            "opponent": "Brest",
+            "venue": "A",
+            "score": "1-0",
+            "result": "W"
+          },
+          {
+            "date": "2026-09-04",
+            "opponent": "AS Monaco",
+            "venue": "H",
+            "score": "1-2",
+            "result": "L"
+          }
+        ],
+        "last5Away": [
+          {
+            "date": "2026-10-18",
+            "opponent": "Nice",
+            "venue": "H",
+            "score": "2-1",
+            "result": "W"
+          },
+          {
+            "date": "2026-10-09",
+            "opponent": "Lens",
+            "venue": "A",
+            "score": "1-2",
+            "result": "L"
+          },
+          {
+            "date": "2026-09-19",
+            "opponent": "Stade Rennais",
+            "venue": "H",
+            "score": "4-0",
+            "result": "W"
+          },
+          {
+            "date": "2026-09-12",
+            "opponent": "Paris FC",
+            "venue": "A",
+            "score": "0-0",
+            "result": "D"
+          },
+          {
+            "date": "2026-09-04",
+            "opponent": "AJ Auxerre",
+            "venue": "H",
+            "score": "3-1",
+            "result": "W"
+          }
+        ],
+        "standingsHome": {
+          "rank": 2,
+          "points": 14,
+          "played": 7,
+          "gf": 14,
+          "ga": 9
+        },
+        "standingsAway": {
+          "rank": 1,
+          "points": 14,
+          "played": 7,
+          "gf": 13,
+          "ga": 5
+        },
+        "predictions": [
+          {
+            "type": "BTTS",
+            "prediction": "Oui",
+            "confidence": 55,
+            "bttsProb": 0.5516,
+            "homeLambda": 1.48,
+            "awayLambda": 1.25
+          },
+          {
+            "type": "Over 2.5",
+            "prediction": "Oui",
+            "confidence": 51,
+            "over25Prob": 0.5145,
+            "homeLambda": 1.48,
+            "awayLambda": 1.25
+          }
+        ],
+        "bttsProb": 0.5516,
+        "over25Prob": 0.5145,
+        "homeLambda": 1.48,
+        "awayLambda": 1.25,
+        "ai_key_fact": "Le PSG affiche un taux de BTTS de 0.8 à domicile.",
+        "ai_analysis": "Le Paris Saint-Germain se positionne au 2e rang du classement avec 14 points en 7 matchs, tandis que Lyon occupe la 1re place avec également 14 points en 7 rencontres. Le modèle Poisson assigne un xG de 1.48 pour l'équipe à domicile contre 1.25 pour l'équipe extérieure. Les probabilités calculées s'élèvent à 55.2% pour le BTTS et 51.4% pour l'Over 2.5, avec une fiabilité de modèle de 68.88%. Aucune information supplémentaire sur l'effectif ou les absences n'est disponible dans les données fournies.",
+        "ai_form_summary": "Le Paris Saint-Germain présente un bilan de 4 victoires et 1 défaite lors de ses 5 derniers matchs, avec 10 buts marqués et 5 encaissés. De son côté, Lyon totalise 3 victoires, 1 nul et 1 défaite sur la même période, pour 10 buts inscrits et 4 concédés.",
+        "ai_key_fact_en": "Paris Saint-Germain records a home BTTS rate of 0.8.",
+        "ai_analysis_en": "Paris Saint-Germain sits 2nd in the standings with 14 points from 7 matches, while Lyon occupies 1st place with 14 points from 7 games. The Poisson model assigns an xG of 1.48 for the home team versus 1.25 for the away team. The calculated probabilities reach 55.2% for BTTS and 51.4% for Over 2.5, with a model reliability of 68.88%. No additional information regarding squad or absences is available in the provided data.",
+        "ai_form_summary_en": "Paris Saint-Germain presents a record of 4 wins and 1 loss in their last 5 matches, with 10 goals scored and 5 conceded. Meanwhile, Lyon totals 3 wins, 1 draw, and 1 loss over the same period, with 10 goals scored and 4 conceded.",
+        "ai_source": "gemini-v2",
+        "ai_absences": "Absents : aucune indisponibilité officielle dans nos données — compos à confirmer avant le coup d'envoi.",
+        "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
+        "ai_odds_insight": "Le marché (DraftKings) cote 1: 1.44, nul: 5, 2: 6.",
+        "ai_odds_insight_en": "The market (DraftKings) prices 1: 1.44, draw: 5, 2: 6.",
+        "status": "PENDING"
+      }
+    },
+    {
+      "slug": "grazer-ak-vs-tsv-hartberg-2026-10-30",
+      "sourceArchiveFiles": [
+        "2026-10-25.json",
+        "2026-10-26.json",
+        "2026-10-27.json",
+        "2026-10-28.json",
+        "2026-10-29.json",
+        "2026-10-30.json"
+      ],
+      "recordArchiveFile": "2026-10-30.json",
+      "snapshotDate": "2026-10-30",
+      "lastUpdated": "2026-10-30T00:34:49.441Z",
+      "record": {
+        "id": "grazerak-vs-tsvhartb-2026-10-30",
+        "match": "Grazer AK vs TSV Hartberg",
+        "home": "Grazer AK",
+        "away": "TSV Hartberg",
+        "league": "Austrian Bundesliga",
+        "date": "2026-10-30",
+        "type": "BTTS",
+        "prediction": "Oui",
+        "proba": 0.5324,
+        "bttsProbDisplay": "53.24%",
+        "over25ProbDisplay": "49.40%",
+        "confidence": 53,
+        "time": "18:30",
+        "matchSemantic": "grazerak-vs-tsvhartb-2026-10-30",
+        "source": "poisson-v92-real-data",
+        "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21846.png",
+        "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6907.png",
+        "tier": "GOLD",
+        "reliabilityScore": 77.04,
+        "dataQuality": "HIGH",
+        "dataSource": "ESPN_TEAM_SCHEDULE",
+        "matchCountHome": 8,
+        "matchCountAway": 8,
+        "h2hAvailable": false,
+        "xgHome": 1.48,
+        "xgAway": 1.17,
+        "xgTotal": 2.65,
+        "formBTTS": 80,
+        "analysis": "Grazer AK : forme N-D-N-N-V (1V 3N 1D, 6 buts marqués / 10 encaissés sur 5) · TSV Hartberg : forme V-D-V-N-N (2V 2N 1D, 11 buts marqués / 11 encaissés sur 5). Classement : Grazer AK 8e (10 pts), TSV Hartberg 5e (14 pts). Modèle Poisson : xG cumulé 2.65, BTTS 53.2%, Over 2.5 49.4%. Cotes DraftKings — 1: 1.91 / N: 3.5 / 2: 3.6 · Over 2.5: 1.8. Fiabilité 77.04%.",
+        "analysisData": {
+          "bttsProb": 0.5324,
+          "over25Prob": 0.494,
+          "homeLambda": 1.48,
+          "awayLambda": 1.17,
+          "xgTotal": 2.65
+        },
+        "estimatedCote": 1.88,
+        "estimatedCoteOver": 2.02,
+        "odds": {
+          "provider": "DraftKings",
+          "home": 1.91,
+          "draw": 3.5,
+          "away": 3.6,
+          "over25": 1.8,
+          "under25": 1.87
+        },
+        "oddsSource": "DraftKings",
+        "estimatedCoteBTTS": 1.88,
+        "formHome": {
+          "last5String": "N-D-N-N-V",
+          "wins": 1,
+          "draws": 3,
+          "losses": 1,
+          "goalsFor": 6,
+          "goalsAgainst": 10,
+          "bttsRate": 0.8,
+          "over25Rate": 0.6,
+          "cleanSheets": 1,
+          "failedToScore": 1,
+          "count": 5
+        },
+        "formAway": {
+          "last5String": "V-D-V-N-N",
+          "wins": 2,
+          "draws": 2,
+          "losses": 1,
+          "goalsFor": 11,
+          "goalsAgainst": 11,
+          "bttsRate": 0.8,
+          "over25Rate": 0.8,
+          "cleanSheets": 1,
+          "failedToScore": 0,
+          "count": 5
+        },
+        "last5Home": [
+          {
+            "date": "2026-10-24",
+            "opponent": "WSG Swarovski Tirol",
+            "venue": "A",
+            "score": "1-1",
+            "result": "D"
+          },
+          {
+            "date": "2026-10-18",
+            "opponent": "SK Sturm Graz",
+            "venue": "A",
+            "score": "1-6",
+            "result": "L"
+          },
+          {
+            "date": "2026-10-10",
+            "opponent": "RB Salzburg",
+            "venue": "H",
+            "score": "0-0",
+            "result": "D"
+          },
+          {
+            "date": "2026-09-19",
+            "opponent": "Austria Vienna",
+            "venue": "H",
+            "score": "2-2",
+            "result": "D"
+          },
+          {
+            "date": "2026-09-12",
+            "opponent": "SC Rheindorf Altach",
+            "venue": "A",
+            "score": "2-1",
+            "result": "W"
+          }
+        ],
+        "last5Away": [
+          {
+            "date": "2026-10-24",
+            "opponent": "Wolfsberger",
+            "venue": "H",
+            "score": "1-0",
+            "result": "W"
+          },
+          {
+            "date": "2026-10-16",
+            "opponent": "Rapid Vienna",
+            "venue": "A",
+            "score": "1-3",
+            "result": "L"
+          },
+          {
+            "date": "2026-10-11",
+            "opponent": "Austria Lustenau",
+            "venue": "H",
+            "score": "4-3",
+            "result": "W"
+          },
+          {
+            "date": "2026-09-20",
+            "opponent": "LASK Linz",
+            "venue": "H",
+            "score": "3-3",
+            "result": "D"
+          },
+          {
+            "date": "2026-09-13",
+            "opponent": "WSG Swarovski Tirol",
+            "venue": "A",
+            "score": "2-2",
+            "result": "D"
+          }
+        ],
+        "standingsHome": {
+          "rank": 8,
+          "points": 10,
+          "played": 10,
+          "gf": 8,
+          "ga": 23
+        },
+        "standingsAway": {
+          "rank": 5,
+          "points": 14,
+          "played": 10,
+          "gf": 16,
+          "ga": 19
+        },
+        "predictions": [
+          {
+            "type": "BTTS",
+            "prediction": "Oui",
+            "confidence": 53,
+            "bttsProb": 0.5324,
+            "homeLambda": 1.48,
+            "awayLambda": 1.17
+          },
+          {
+            "type": "Over 2.5",
+            "prediction": "Non",
+            "confidence": 49,
+            "over25Prob": 0.494,
+            "homeLambda": 1.48,
+            "awayLambda": 1.17
+          }
+        ],
+        "bttsProb": 0.5324,
+        "over25Prob": 0.494,
+        "homeLambda": 1.48,
+        "awayLambda": 1.17,
+        "ai_key_fact": "Grazer AK et TSV Hartberg affichent tous deux un taux de BTTS de 80%.",
+        "ai_analysis": "Le modèle Poisson attribue un xG de 1.48 pour l'équipe à domicile et de 1.17 pour l'équipe extérieure, traduisant des opportunités offensives partagées. Les probabilités du modèle s'élèvent à 53.2% pour le BTTS et 49.4% pour l'Over 2.5, appuyées par une fiabilité de 77.04%. Le marché évalue la victoire à domicile à 1.91 (52.4% implicite) et l'Over 2.5 à 1.80 (55.6% implicite), encadrant ces tendances chiffrées.",
+        "ai_form_summary": "Grazer AK présente un bilan récent mitigé avec 1 victoire et 3 nuls, peinant à garder sa cage inviolée. TSV Hartberg montre une forme similaire avec 2 victoires et 2 nuls, encaissant et marquant régulièrement.",
+        "ai_analysis_en": "Grazer AK and TSV Hartberg both display an 80% BTTS rate.",
+        "ai_form_summary_en": "Grazer AK presents a mixed recent record with 1 win and 3 draws, struggling to keep a clean sheet. TSV Hartberg shows a similar form with 2 wins and 2 draws, regularly conceding and scoring.",
+        "ai_source": "gemini-v2",
+        "ai_absences": "Absents : aucune indisponibilité officielle dans nos données — compos à confirmer avant le coup d'envoi.",
+        "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
+        "ai_odds_insight": "Le marché (DraftKings) cote 1: 1.91, nul: 3.5, 2: 3.6, Over 2.5: 1.8.",
+        "ai_odds_insight_en": "The market (DraftKings) prices 1: 1.91, draw: 3.5, 2: 3.6, Over 2.5: 1.8.",
+        "status": "LOST",
+        "finalScore": "0-4",
+        "verifiedAt": "2026-10-30T21:28:48.739Z"
+      }
+    }
+  ]
+}

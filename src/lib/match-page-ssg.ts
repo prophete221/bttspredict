@@ -28,6 +28,16 @@ export function getDynamicMatchSlugs(
     .map(match => match.slug)
 }
 
+/** French root pages additionally retain only the explicitly protected historical URLs. */
+export function getFrenchMatchStaticParams(
+  matches: readonly MatchPageCandidate[],
+  retainedSlugs: readonly string[],
+  now = new Date(),
+): Array<{ slug: string }> {
+  const slugs = new Set([...getDynamicMatchSlugs(matches, now), ...retainedSlugs])
+  return [...slugs].map(slug => ({ slug }))
+}
+
 /** Localized routes mirror the same published-match set; French uses the root route. */
 export function getLocalizedMatchStaticParams(
   matches: readonly MatchPageCandidate[],

@@ -11,8 +11,9 @@
  *   - avec --require-prev : refuse si prev absent, version/schéma invalides
  *   - avec --allow-legacy-v1 : accepte un manifeste hérité v1 ({generatedAt,
  *     fileCount, files{path:{hash,size}}, sans version/totalBytes) comme base
- *     de DIFF DE CONTENU uniquement — le QUOTA reste mesuré par l'inventaire
- *     live (scripts/ftp-inventory.py), jamais par le manifeste ;
+ *     de DIFF DE CONTENU uniquement. Le garde-quota du workflow utilise le
+ *     compteur LWS explicite [lws-files=N] et les nouveaux chemins du diff,
+ *     jamais une estimation du nombre total à partir du manifeste ;
  *   - avec --live-inventory=<tsv> : croise le résultat avec l'inventaire FTP
  *     réel — tout fichier local dont le hash est inchangé mais qui N'EXISTE
  *     PAS sur le serveur (trou du diff par hash) est forcé au transfert ;
@@ -29,6 +30,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { createHash } from 'node:crypto'
 import { fileURLToPath } from 'node:url'
+import { isProtectedPromoPath } from './protected-promo-routes.mjs'
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const OUT = path.join(ROOT, 'out')
@@ -63,6 +65,17 @@ const EXCLUDED_FILES = new Set([
   'stale-match-delete.lftp',
   'sitemap-match-filter.json',
   'ftp-action-state-report.json',
+  'ar-match-remote-file-list.txt',
+  'ar-match-popup-cleanup-plan.json',
+  'ar-match-popup-cleanup.lftp',
+  'ar-match-presence-check.lftp',
+  'ar-match-presence-check.log',
+  'ar-match-post-cleanup-check.lftp',
+  'ar-match-post-cleanup-check.log',
+  'ar-match-after-cleanup.txt',
+  'ar-match-live-check.json',
+  'ar-match-live-check-before-cleanup.json',
+  'ar-match-live-check-after-cleanup.json',
 ])
 // Dossiers internes du déploiement exclus du manifeste et du transfert.
 const EXCLUDED_DIRS = new Set(['predeploy-backups', 'ftp-diag'])
@@ -119,12 +132,45 @@ function buildManifest() {
   return manifest
 }
 
+function readPreviousManifest() {
+  try {
+    const previous = JSON.parse(fs.readFileSync(PREV, 'utf8'))
+    return previous && typeof previous === 'object' && previous.files && typeof previous.files === 'object' ? previous : null
+  } catch {
+    return null
+  }
+}
+
+function preserveProtectedPromoRoutes(manifest, previous) {
+  const previousFiles = previous?.files && typeof previous.files === 'object' ? previous.files : null
+  if (!previousFiles) return { preservedPathCount: 0, withheldLocalPathCount: 0 }
+  let preservedPathCount = 0
+  let withheldLocalPathCount = 0
+  for (const [rel, meta] of Object.entries(previousFiles)) {
+    if (!isProtectedPromoPath(rel)) continue
+    if (!meta || typeof meta.hash !== 'string' || !meta.hash || typeof meta.size !== 'number' || !Number.isFinite(meta.size) || meta.size < 0) {
+      throw new Error(`Métadonnées du manifeste live invalides pour une page promo protégée : ${rel}`)
+    }
+    manifest.files[rel] = { hash: meta.hash, size: meta.size }
+    preservedPathCount += 1
+  }
+  for (const rel of Object.keys(manifest.files)) {
+    if (!isProtectedPromoPath(rel) || Object.prototype.hasOwnProperty.call(previousFiles, rel)) continue
+    delete manifest.files[rel]
+    withheldLocalPathCount += 1
+  }
+  manifest.fileCount = Object.keys(manifest.files).length
+  manifest.totalBytes = Object.values(manifest.files).reduce((total, meta) => total + meta.size, 0)
+  return { preservedPathCount, withheldLocalPathCount }
+}
+
 function cmdManifest() {
   if (!fs.existsSync(OUT)) {
     console.error('[ftp-diff] out/ introuvable — exécuter le build Next.js avant manifest.')
     process.exit(1)
   }
   const manifest = buildManifest()
+  const protectedRoutes = preserveProtectedPromoRoutes(manifest, readPreviousManifest())
   const localErr = validateManifest(manifest, 'local')
   if (localErr) {
     console.error(`[ftp-diff] ${localErr}`)
@@ -132,6 +178,9 @@ function cmdManifest() {
   }
   fs.writeFileSync(MANIFEST, JSON.stringify(manifest))
   console.log(`[ftp-diff] manifeste local prêt: ${manifest.fileCount} fichiers, ${manifest.totalBytes} octets → ${MANIFEST}`)
+  if (protectedRoutes.preservedPathCount || protectedRoutes.withheldLocalPathCount) {
+    console.log(`[ftp-diff] promos protégées: ${protectedRoutes.preservedPathCount} chemins conservés à l’empreinte live; ${protectedRoutes.withheldLocalPathCount} chemins locaux absents du live non publiés`)
+  }
 }
 
 function validateManifest(obj, label, { allowLegacyV1 = false } = {}) {
@@ -140,8 +189,8 @@ function validateManifest(obj, label, { allowLegacyV1 = false } = {}) {
   }
   if (obj.version === undefined && allowLegacyV1) {
     // Manifeste hérité v1 : {generatedAt, fileCount, files{path:{hash,size}}}.
-    // Acceptable comme base de diff de contenu uniquement (le workflow mesure
-    // le quota avec l'inventaire live).
+    // Acceptable comme base de diff de contenu uniquement; le garde-quota du
+    // workflow utilise le compteur explicite [lws-files=N] et les nouveaux chemins.
     if (typeof obj.fileCount !== 'number' || obj.fileCount < 0) {
       return `${label}: legacy v1 invalid fileCount`
     }
@@ -215,19 +264,17 @@ function cmdPrepare() {
     console.error('[ftp-diff] out/ introuvable — exécuter le build Next.js avant prepare.')
     process.exit(1)
   }
+  let prev = readPreviousManifest()
   const manifest = buildManifest()
+  const protectedRoutes = preserveProtectedPromoRoutes(manifest, prev)
   const localErr = validateManifest(manifest, 'local')
   if (localErr) {
     console.error(`[ftp-diff] ${localErr}`)
     process.exit(1)
   }
   fs.writeFileSync(MANIFEST, JSON.stringify(manifest))
-
-  let prev = null
-  try {
-    prev = JSON.parse(fs.readFileSync(PREV, 'utf8'))
-  } catch {
-    prev = null
+  if (protectedRoutes.preservedPathCount || protectedRoutes.withheldLocalPathCount) {
+    console.log(`[ftp-diff] promos protégées: ${protectedRoutes.preservedPathCount} chemins conservés à l’empreinte live; ${protectedRoutes.withheldLocalPathCount} chemins locaux absents du live non publiés`)
   }
 
   if (requirePrev) {
@@ -237,11 +284,11 @@ function cmdPrepare() {
     }
     const prevErr = validateManifest(prev, 'prev', { allowLegacyV1 })
     if (prevErr) {
-      console.error(`[ftp-diff] --require-prev: schéma invalide — ${prevErr}. Un manifeste historique non reconnu ne prouve pas le quota (mesuré par inventaire live).`)
+      console.error(`[ftp-diff] --require-prev: schéma invalide — ${prevErr}. Le garde-quota s’appuie sur [lws-files=N] et les nouveaux chemins du diff.`)
       process.exit(1)
     }
     if (prev.version === undefined) {
-      console.log('[ftp-diff] manifeste précédent hérité v1 accepté pour le diff de contenu (quota = inventaire live).')
+      console.log('[ftp-diff] manifeste précédent hérité v1 accepté pour le diff de contenu; le quota est gardé par [lws-files=N] et le diff.')
     }
   }
 

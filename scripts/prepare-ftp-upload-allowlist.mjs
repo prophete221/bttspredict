@@ -2,6 +2,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { isProtectedPromoPath } from './protected-promo-routes.mjs'
 
 const ALWAYS_EXCLUDED_FILES = new Set([
   '.htaccess',
@@ -27,6 +28,17 @@ const ALWAYS_EXCLUDED_FILES = new Set([
   'stale-match-delete.lftp',
   'sitemap-match-filter.json',
   'ftp-action-state-report.json',
+  'ar-match-remote-file-list.txt',
+  'ar-match-popup-cleanup-plan.json',
+  'ar-match-popup-cleanup.lftp',
+  'ar-match-presence-check.lftp',
+  'ar-match-presence-check.log',
+  'ar-match-post-cleanup-check.lftp',
+  'ar-match-post-cleanup-check.log',
+  'ar-match-after-cleanup.txt',
+  'ar-match-live-check.json',
+  'ar-match-live-check-before-cleanup.json',
+  'ar-match-live-check-after-cleanup.json',
 ])
 const ALWAYS_EXCLUDED_DIRS = new Set(['predeploy-backups', 'ftp-diag'])
 const CODE_ONLY_DATA_FILES = new Set([
@@ -161,7 +173,7 @@ export function buildUploadPlan(manifest, { codeOnly = false, historyJsonMode = 
   for (const rawPath of differentialPaths) {
     const rel = validateRelativePath(rawPath)
     if (!fileMeta.has(rel)) throw new Error(`Le diff référence un fichier absent du manifeste courant: ${rel}`)
-    if (rel === '.htaccess') {
+    if (rel === '.htaccess' || isProtectedPromoPath(rel)) {
       excludedProtectedPaths.push(rel)
       continue
     }

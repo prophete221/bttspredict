@@ -1,9 +1,8 @@
 #!/usr/bin/env node
 /**
- * Prépare un nettoyage FTPS très ciblé : uniquement les pages HTML Match
- * présentes sur le serveur, absentes de l’export actuel et terminées à Dakar.
- * Les autres fichiers absents de l’export sont consignés pour revue humaine,
- * jamais supprimés automatiquement.
+ * Rapport d’anciennes pages Match en lecture seule. Aucune page FR, EN ou AR
+ * n’est supprimée ici; l’allowlist AR est traitée séparément après la mise en
+ * ligne et le contrôle de la route popup partagée.
  *
  * Appeler avec Node 22+ : node --experimental-strip-types ...
  */
@@ -79,14 +78,9 @@ function main() {
     if (matchPath) {
       const matchData = known.get(matchPath.slug)
       const status = getDakarMatchStatus(matchData?.date || matchPath.date, matchData?.time, now)
-      if (matchPath.locale === 'fr') {
-        reviewCandidates.push({ path: remotePath, size, category: 'match-root-out-of-scope' })
-      } else if (status === 'finished') {
-        deletions.push({ path: remotePath, size, matchDate: matchPath.date, status })
-      } else {
-        preservedUpcomingOrLiveMatch += 1
-        reviewCandidates.push({ path: remotePath, size, category: status === 'live' ? 'match-live-or-unknown' : 'match-upcoming-or-unknown' })
-      }
+      if (matchPath.locale === 'ar') reviewCandidates.push({ path: remotePath, size, category: 'ar-match-popup-cleanup-after-route-verification', status })
+      else reviewCandidates.push({ path: remotePath, size, category: 'localized-match-preserved', status })
+      if (status !== 'finished') preservedUpcomingOrLiveMatch += 1
       continue
     }
     if (excludedReviewPrefixes.some(prefix => remotePath.startsWith(prefix))) continue
@@ -100,7 +94,7 @@ function main() {
     generatedAt: now.toISOString(),
     timezone: 'Africa/Dakar',
     today,
-    policy: 'Delete only remote HTML Match pages under en/match or ar/match that are absent from the current export and finished at Dakar. Never delete root match/, live/upcoming matches or unrelated files.',
+    policy: 'Read-only pre-deployment review. This plan never deletes any Match page; all FR/EN pages remain, and AR static bundles are handled by a separate exact allowlist only after the shared popup route is live.',
     deletionCount: deletions.length,
     deletionBytes: totalBytes,
     deletions,

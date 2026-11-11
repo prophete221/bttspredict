@@ -12,6 +12,7 @@
 
 import fs from 'fs'
 import path from 'path'
+import retainedClickedFrMatchPages from '../data/retained-clicked-fr-match-pages.json'
 import { generateMatchSlug } from './match-slug'
 import { isVipRow, observedFormBtts } from '../../scripts/public-predictions.mjs'
 import { getProba, getConfidence } from './predictions'
@@ -41,6 +42,37 @@ function marketKey(value: string | undefined): string {
   if (normalized.includes('btts')) return 'btts'
   if (normalized.includes('over25') || normalized.includes('o25')) return 'over25'
   return normalized
+}
+
+/** Preserve only the source markets already published for explicitly retained historical pages. */
+function getRetainedPublishedPicks(row: any): ReturnType<typeof getGeminiPicks> {
+  if (!Array.isArray(row.predictions)) return []
+  return row.predictions.flatMap((pick: any) => {
+    if (!pick || typeof pick !== 'object') return []
+    const market = marketKey(pick.type || pick.market)
+    if (market !== 'btts' && market !== 'over25') return []
+    if (pick.prediction !== 'Oui' && pick.prediction !== 'Non') return []
+    const probability = typeof pick.proba === 'number'
+      ? pick.proba
+      : market === 'btts' ? pick.bttsProb : pick.over25Prob
+    if (typeof probability !== 'number' || !Number.isFinite(probability) || probability < 0 || probability > 1) return []
+    const confidence = pick.confidence ?? row.confidence
+    if (typeof confidence !== 'number' || !Number.isFinite(confidence) || confidence < 0 || confidence > 100) return []
+    return [{
+      type: market === 'btts' ? 'BTTS' as const : 'Over 2.5' as const,
+      market: market === 'btts' ? 'BTTS' as const : 'O2.5' as const,
+      prediction: pick.prediction as 'Oui' | 'Non',
+      confidence,
+      proba: probability,
+      ...(market === 'btts' ? { bttsProb: probability } : { over25Prob: probability }),
+      ...(typeof (pick.tier ?? row.tier) === 'string' ? { tier: String(pick.tier ?? row.tier) } : {}),
+      ...(typeof (pick.status ?? row.status) === 'string' ? { status: String(pick.status ?? row.status) } : {}),
+      ...(typeof (pick.isWon ?? row.isWon) === 'boolean' ? { isWon: Boolean(pick.isWon ?? row.isWon) } : {}),
+      ...(typeof (pick.finalScore ?? row.finalScore) === 'string' ? { finalScore: String(pick.finalScore ?? row.finalScore) } : {}),
+      ...(typeof (pick.verifiedAt ?? row.verifiedAt) === 'string' ? { verifiedAt: String(pick.verifiedAt ?? row.verifiedAt) } : {}),
+      ...(typeof (pick.source ?? row.source) === 'string' ? { source: String(pick.source ?? row.source) } : {}),
+    }]
+  })
 }
 
 /** Read only the public verified history for a specific match. */
@@ -182,20 +214,21 @@ export function parseMatchSlug(slug: string): { home: string; away: string; date
  * Load all archived predictions and group by match.
  * Returns a Map of slug → MatchData.
  */
-export function loadAllMatches(): Map<string, MatchData> {
+export function loadAllMatches(archiveLimit = 14, includeRetainedClickedFrPages = false): Map<string, MatchData> {
   const archiveDir = path.join(process.cwd(), 'public', 'predictions-archive')
   const matches = new Map<string, MatchData>()
-  const ingest = (data: any, fallbackDate: string, current = false) => {
+  const ingest = (data: any, fallbackDate: string, current = false, retainedArchive = false) => {
     const rows = Array.isArray(data) ? data : (data.free || data.predictions || [])
     if (!Array.isArray(rows)) return
     const refreshed = new Set<string>()
     for (const p of rows) {
       if (isVipRow(p)) continue
-      const acceptedPicks = getGeminiPicks(p)
-      const isGeminiResponse = p.ai_source === 'gemini-stats-v1'
+      const currentPicks = getGeminiPicks(p)
       const home = p.home || '', away = p.away || '', date = (p.date || '').slice(0, 10)
       if (!home || !away || !date) continue
       const slug = generateMatchSlug(home, away, date)
+      const acceptedPicks = currentPicks.length ? currentPicks : retainedArchive ? getRetainedPublishedPicks(p) : []
+      const isGeminiResponse = currentPicks.length > 0 && p.ai_source === 'gemini-stats-v1'
       const snapshotPublishedAt = p.publishedAt || data.lastUpdated || data.date || fallbackDate
       // Le flux actuel est prioritaire pour TOUS les champs, pas seulement les champs vides.
       // Il est lui-même restauré depuis la première publication par le finaliseur d'archives.
@@ -257,7 +290,9 @@ export function loadAllMatches(): Map<string, MatchData> {
     }
   }
   if (fs.existsSync(archiveDir)) {
-    const files = fs.readdirSync(archiveDir).filter(f => f.endsWith('.json')).sort().slice(-14)
+    const archiveFiles = fs.readdirSync(archiveDir).filter(f => f.endsWith('.json')).sort()
+    const archiveCount = Math.max(0, Math.floor(archiveLimit))
+    const files = archiveCount === 0 ? [] : archiveFiles.slice(-archiveCount)
     for (const file of files) {
       try { ingest(JSON.parse(fs.readFileSync(path.join(archiveDir, file), 'utf8')), file.replace(/\.json$/, '')) }
       catch { /* Une archive illisible ne doit pas supprimer les autres pages. */ }
@@ -268,19 +303,32 @@ export function loadAllMatches(): Map<string, MatchData> {
     try { ingest(JSON.parse(fs.readFileSync(currentPath, 'utf8')), '', true) }
     catch { /* Conserver les archives si le flux courant est indisponible. */ }
   }
+  if (includeRetainedClickedFrPages) {
+    for (const entry of retainedClickedFrMatchPages.matches) {
+      const row = entry.record as Record<string, any>
+      const expectedSlug = generateMatchSlug(row.home || '', row.away || '', row.date || '')
+      if (expectedSlug !== entry.slug) {
+        throw new Error(`Retained FR match source slug mismatch: expected ${entry.slug}, got ${expectedSlug}`)
+      }
+      ingest({ date: entry.snapshotDate, lastUpdated: entry.lastUpdated, predictions: [row] }, entry.snapshotDate, true, true)
+    }
+  }
   return matches
 }
 /**
  * Get a single match by slug.
  */
 export function getMatchBySlug(slug: string): MatchData | null {
-  const matches = loadAllMatches()
   let decodedSlug = slug
   try {
     decodedSlug = decodeURIComponent(slug)
   } catch {
     // Keep the original slug when a malformed URL segment is supplied.
   }
+  if (retainedClickedFrMatchPages.matches.some(entry => entry.slug === decodedSlug)) {
+    return loadAllMatches(0, true).get(decodedSlug) || null
+  }
+  const matches = loadAllMatches()
   return matches.get(decodedSlug) || null
 }
 

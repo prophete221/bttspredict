@@ -3,13 +3,15 @@ import { resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
 import verificationData from '@/data/match-verification-registry.json'
 import retainedMatch from '@/data/retained-match-pages/west-ham-united-vs-queens-park-rangers-2026-10-09.json'
+import retainedClickedFrMatchPages from '@/data/retained-clicked-fr-match-pages.json'
 import {
   getDynamicMatchSlugs,
+  getFrenchMatchStaticParams,
   getLocalizedMatchStaticParams,
 } from '@/lib/match-page-ssg'
 import { getDakarDateString, getDakarMatchStatus } from '@/lib/dakar-date'
 import { MatchVerificationRegistrySchema } from '@/lib/match-verification-registry'
-import { loadAllMatches } from '@/lib/matches'
+import { generateMatchSlug, getMatchBySlug, loadAllMatches } from '@/lib/matches'
 import { translationsFor } from '@/lib/i18n'
 
 const PROTECTED_SEO_ROUTES = [
@@ -162,6 +164,34 @@ describe('Match static export cleanup', () => {
     expect(localized).toEqual(['en', 'ar'].flatMap(locale =>
       dynamicSlugs.map(slug => ({ locale, slug })),
     ))
+  })
+
+  it('exports all seven click-protected historical URLs in French only with archived source data', () => {
+    const retainedSlugs = retainedClickedFrMatchPages.matches.map(entry => entry.slug)
+    expect(retainedSlugs).toEqual([
+      'barcelona-vs-aston-villa-2026-11-03',
+      'lorient-vs-brest-2026-11-02',
+      'real-madrid-vs-rb-leipzig-2026-10-21',
+      'le-havre-ac-vs-paris-saint-germain-2026-10-30',
+      'vfb-stuttgart-vs-borussia-mönchengladbach-2026-10-23',
+      'paris-saint-germain-vs-lyon-2026-10-26',
+      'grazer-ak-vs-tsv-hartberg-2026-10-30',
+    ])
+    expect(new Set(retainedSlugs).size).toBe(7)
+
+    const retainedData = loadAllMatches(0, true)
+    const frenchParams = getFrenchMatchStaticParams(sourceMatches, retainedSlugs, TEST_NOW)
+    const localizedParams = getLocalizedMatchStaticParams(sourceMatches, ['en', 'ar'], TEST_NOW)
+    for (const entry of retainedClickedFrMatchPages.matches) {
+      const match = retainedData.get(entry.slug)
+      expect(entry.sourceArchiveFiles).toContain(entry.recordArchiveFile)
+      expect(match).toBeDefined()
+      expect(match?.predictions.length).toBeGreaterThan(0)
+      expect(generateMatchSlug(match!.home, match!.away, match!.date)).toBe(entry.slug)
+      expect(getMatchBySlug(entry.slug)?.slug).toBe(entry.slug)
+      expect(frenchParams).toContainEqual({ slug: entry.slug })
+      expect(localizedParams.some(param => param.slug === entry.slug)).toBe(false)
+    }
   })
 
   it('does not export the separately retained West Ham–QPR page but keeps its verified archive data', () => {

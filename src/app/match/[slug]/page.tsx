@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { Navbar, Footer } from '@/components/bttsbet'
 import { generateMatchSlug, loadAllMatches, getMatchBySlug, getVerifiedHistoryForMatch, verifiedMarketKey } from '@/lib/matches'
+import retainedClickedFrMatchPages from '@/data/retained-clicked-fr-match-pages.json'
 import type { TeamFormSummary } from '@/lib/matches'
 import Link from 'next/link'
 import MatchAnalyticsCharts from '@/components/bttsbet/MatchAnalyticsCharts'
@@ -9,7 +10,7 @@ import MatchDashboardTabs, { type DashboardTab } from '@/components/bttsbet/Matc
 import MatchViewTracker from '@/components/bttsbet/MatchViewTracker'
 import TeamContext from '@/components/bttsbet/TeamContext'
 import { localizedPath, type Locale } from '@/lib/i18n'
-import { getDynamicMatchSlugs } from '@/lib/match-page-ssg'
+import { getFrenchMatchStaticParams } from '@/lib/match-page-ssg'
 import { matchMetricLabels } from '@/lib/matchMetricLabels'
 
 interface PageProps {
@@ -28,12 +29,18 @@ export const dynamicParams = false
 export const dynamic = 'force-static'
 
 export async function generateStaticParams() {
-  const slugs = getDynamicMatchSlugs([...loadAllMatches().values()])
+  const retainedSlugs = retainedClickedFrMatchPages.matches.map(entry => entry.slug)
+  const retainedData = loadAllMatches(0, true)
+  const missingRetainedData = retainedSlugs.filter(slug => !retainedData.has(slug))
+  if (missingRetainedData.length > 0) {
+    throw new Error(`Missing source data for protected French Match routes: ${missingRetainedData.join(', ')}`)
+  }
+  const params = getFrenchMatchStaticParams([...loadAllMatches().values()], retainedSlugs)
   // Si aucune page match n'est disponible, on génère un fallback pour que le build SSG passe
-  if (slugs.length === 0) {
+  if (params.length === 0) {
     return [{ slug: '_placeholder' }]
   }
-  return slugs.map(slug => ({ slug }))
+  return params
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

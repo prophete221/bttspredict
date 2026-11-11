@@ -207,4 +207,31 @@ describe('validated FTP upload allowlist', () => {
     expect(failure.confirmedUploadedPaths).toEqual([])
     expect(failure.explicitRootFiles.map(file => file.result)).toEqual(['not-confirmed', 'not-confirmed'])
   })
+
+  it('never uploads the five non-approved promo routes, even if present in a differential', () => {
+    const protectedPaths = [
+      'en/code-promo-linebet-senegal.html',
+      'en/code-promo-linebet-senegal.txt',
+      'ar/code-promo-1xbet/__next._full.txt',
+      'en/bonus-888starz.html',
+      'ar/bonus-888starz-btts221.txt',
+      'linebet-promo-code.html',
+    ]
+    const allowedPaths = [
+      'code-promo-linebet-senegal.html',
+      '_next/static/chunks/app/[locale]/code-promo-linebet-senegal/page-abc.js',
+    ]
+    const paths = ['.htaccess', 'robots.txt', 'sitemap.xml', ...protectedPaths, ...allowedPaths]
+    const input = manifest(Object.fromEntries(paths.map((name, index) => [name, `hash-${index}`])))
+    const plan = buildUploadPlan(input, { codeOnly: false, diffStats: diffStats(paths, { codeOnly: false }) })
+
+    expect(plan.uploadPaths).toEqual(allowedPaths.slice().sort())
+    expect(plan.excludedProtectedPaths.slice().sort()).toEqual(['.htaccess', ...protectedPaths].sort())
+    expect(plan.commands.join('\n')).not.toContain('en/code-promo-linebet-senegal')
+    expect(plan.commands.join('\n')).not.toContain('ar/code-promo-1xbet')
+    expect(plan.commands.join('\n')).not.toContain('linebet-promo-code')
+    expect(plan.uploadPaths).toContain('code-promo-linebet-senegal.html')
+    expect(plan.uploadPaths).toContain('_next/static/chunks/app/[locale]/code-promo-linebet-senegal/page-abc.js')
+  })
+
 })
