@@ -12,6 +12,7 @@ import BookmakerCardLinks from './BookmakerCardLinks'
 import { getGeminiPicks } from '@/lib/gemini-predictions'
 import { groupGeminiItemsByDakarDay, selectUpcomingGeminiItems } from '@/lib/match-center-window'
 import { resolveMatchPageLogos } from '@/lib/matchPageLogos'
+import { resolveTeamLogoSrc } from '@/lib/teamLogoOverrides'
 // useLayoutEffect isomorphe (évite le warning SSR React)
 const useIsoLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect
 
@@ -326,8 +327,8 @@ function MatchCard({ m, index, lang, results, nowTs }: {
     : ''
   const matchSlug = m.home && m.away && m.date ? generateMatchSlug(m.home, m.away, m.date) : ''
   const resolvedLogos = resolveMatchPageLogos(matchSlug, m)
-  const homeLogo = resolvedLogos?.homeLogo ?? m.homeLogo
-  const awayLogo = resolvedLogos?.awayLogo ?? m.awayLogo
+  const homeLogo = resolveTeamLogoSrc(resolvedLogos?.homeLogo ?? m.homeLogo)
+  const awayLogo = resolveTeamLogoSrc(resolvedLogos?.awayLogo ?? m.awayLogo)
 
   const upcomingLabel = lang === 'en' ? 'UPCOMING' : lang === 'ar' ? 'قادمة' : 'À VENIR'
   const finishedLabel = lang === 'en' ? 'FINISHED' : lang === 'ar' ? 'منتهية' : 'TERMINÉ'

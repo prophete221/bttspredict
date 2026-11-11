@@ -21,6 +21,12 @@ describe('homepage Match Center card design', () => {
     expect(component).toContain('resolveMatchPageLogos(matchSlug, m)')
   })
 
+  it('applies the validated ESPN logo override to both card crests', () => {
+    expect(component).toContain("import { resolveTeamLogoSrc } from '@/lib/teamLogoOverrides'")
+    expect(component).toContain('const homeLogo = resolveTeamLogoSrc(resolvedLogos?.homeLogo ?? m.homeLogo)')
+    expect(component).toContain('const awayLogo = resolveTeamLogoSrc(resolvedLogos?.awayLogo ?? m.awayLogo)')
+  })
+
   it('scopes the redesign styles to the home Match Center', () => {
     expect(styles).toContain('#matchs .hp-mc-card--approved')
   })
