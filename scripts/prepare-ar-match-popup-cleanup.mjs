@@ -5,6 +5,9 @@ import { fileURLToPath } from 'node:url'
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const EXPECTED_KNOWN_SLUGS = 36
+const EXPECTED_ROUTE_BASE = 'https://bttspredict.com'
+const FTP_NOOP_START = '__AR_FTP_NOOP_START__'
+const FTP_NOOP_END = '__AR_FTP_NOOP_END__'
 const POLICY = 'Candidates come only from the 36 known legacy AR slugs intersected with the previous local manifest, excluding paths in the current export. No remote listing contributes paths. Exact FTP SIZE confirmation after the shared popup is live is required before any rm command is generated.'
 
 function argsFrom(argv) {
@@ -144,13 +147,86 @@ function readPlan(file) {
   return planValue
 }
 
-function sizeCommands(items, commandsPath) {
+function validateRouteReport(file, planValue) {
+  const report = readJson(file, 'Rapport de vérification des routes AR')
+  const slugs = readSlugs('src/data/legacy-ar-match-slugs.json')
+  const planSlugs = Array.isArray(planValue.knownSlugs) ? planValue.knownSlugs : []
+  const sameSlugs = planSlugs.length === slugs.length && new Set(planSlugs).size === slugs.length && slugs.every(slug => planSlugs.includes(slug))
+  if (!sameSlugs || planValue.routeCount !== EXPECTED_KNOWN_SLUGS) throw new Error('Plan AR sans preuve des 36 slugs connus')
+  if (!report || report.base !== EXPECTED_ROUTE_BASE || !Number.isFinite(Date.parse(report.checkedAt)) ||
+      report.routeCount !== EXPECTED_KNOWN_SLUGS || report.passedCount !== EXPECTED_KNOWN_SLUGS || report.failedCount !== 0 ||
+      !Array.isArray(report.results) || report.results.length !== EXPECTED_KNOWN_SLUGS) {
+    throw new Error('Rapport AR absent, incomplet ou ne validant pas les 36 routes communes')
+  }
+
+  const bySlug = new Map()
+  for (const result of report.results) {
+    if (!result || typeof result.slug !== 'string' || bySlug.has(result.slug)) throw new Error('Rapport AR avec slug absent ou dupliqué')
+    if (result.ok !== true || result.status !== 200 || result.servesSharedPopup !== true ||
+        typeof result.contentType !== 'string' || !result.contentType.toLowerCase().includes('text/html')) {
+      throw new Error(`Route AR non confirmée pour ${result.slug}`)
+    }
+    let finalUrl
+    let finalPath
+    try {
+      finalUrl = new URL(result.finalUrl)
+      finalPath = decodeURIComponent(finalUrl.pathname).replace(/\/$/u, '')
+    } catch {
+      throw new Error(`URL finale AR invalide pour ${result.slug}`)
+    }
+    if (finalUrl.origin !== EXPECTED_ROUTE_BASE || finalPath !== `/ar/match/${result.slug}`) {
+      throw new Error(`URL finale hors route commune pour ${result.slug}`)
+    }
+    bySlug.set(result.slug, result)
+  }
+  if (bySlug.size !== slugs.length || slugs.some(slug => !bySlug.has(slug))) throw new Error('Le rapport ne contient pas exactement les 36 slugs AR connus')
+
+  return {
+    verified: true,
+    checkedAt: report.checkedAt,
+    base: report.base,
+    routeCount: report.routeCount,
+    passedCount: report.passedCount,
+    failedCount: report.failedCount,
+    results: slugs.map(slug => {
+      const result = bySlug.get(slug)
+      return {
+        slug,
+        status: result.status,
+        finalUrl: result.finalUrl,
+        contentType: result.contentType,
+        servesSharedPopup: result.servesSharedPopup,
+        ok: result.ok,
+      }
+    }),
+  }
+}
+
+function validateFtpNoop(logPath) {
+  const lines = fs.readFileSync(resolveFromRoot(logPath), 'utf8').replace(/\x1b\[[0-9;]*m/gu, '').split(/\r?\n/u)
+  const start = []
+  const end = []
+  lines.forEach((line, index) => {
+    if (line.trim() === FTP_NOOP_START) start.push(index)
+    if (line.trim() === FTP_NOOP_END) end.push(index)
+  })
+  if (start.length !== 1 || end.length !== 1 || start[0] >= end[0]) throw new Error('Preuve FTP NOOP absente, dupliquée ou mal ordonnée')
+  const responses = lines.slice(start[0] + 1, end[0]).map(line => line.match(/^\s*(\d{3})\b/u)).filter(Boolean).map(match => Number(match[1]))
+  if (responses.length !== 1 || responses[0] !== 200) throw new Error(`Réponse FTP NOOP ambiguë ou en échec : ${responses.join(',') || 'aucune'}`)
+}
+
+function sizeCommandLines(items) {
   const commands = []
   items.forEach((item, index) => {
     commands.push(`echo __AR_SIZE_START_${index}__`)
     commands.push(`quote SIZE '${item.path}'`)
     commands.push(`echo __AR_SIZE_END_${index}__`)
   })
+  return commands
+}
+
+function sizeCommands(items, commandsPath) {
+  const commands = sizeCommandLines(items)
   writeText(commandsPath, commands.length ? `${commands.join('\n')}\n` : '')
 }
 
@@ -158,8 +234,9 @@ function presenceCommands(args) {
   requireArgs(args, ['plan', 'commands'])
   const planValue = readPlan(args.plan)
   if (planValue.presenceVerified) throw new Error('La présence des candidats a déjà été vérifiée')
-  sizeCommands(planValue.candidates, args.commands)
-  console.log(`[ar-match-presence] ${planValue.candidates.length} vérifications SIZE exactes prêtes; aucune suppression n’est générée.`)
+  const commands = [`echo ${FTP_NOOP_START}`, 'quote NOOP', `echo ${FTP_NOOP_END}`, ...sizeCommandLines(planValue.candidates)]
+  writeText(args.commands, `${commands.join('\n')}\n`)
+  console.log(`[ar-match-presence] contrôle FTP NOOP + ${planValue.candidates.length} vérifications SIZE exactes prêts; aucune suppression n’est générée.`)
 }
 
 function parseSizeLog(logPath, items) {
@@ -192,8 +269,11 @@ function parseSizeLog(logPath, items) {
       continue
     }
     if (activeIndex !== null) {
-      const code = line.match(/^\s*(\d{3})\b/)
+      const code = line.match(/^\s*(\d{3})\b/u)
       if (code) responseCodes.push(Number(code[1]))
+    } else {
+      const code = line.match(/^\s*(\d{3})\b/u)
+      if (code && [213, 550].includes(Number(code[1]))) throw new Error(`Réponse SIZE FTP hors marqueur : ${line.trim()}`)
     }
   }
 
@@ -203,15 +283,24 @@ function parseSizeLog(logPath, items) {
 }
 
 function confirmPresence(args) {
-  requireArgs(args, ['plan', 'log', 'commands'])
+  requireArgs(args, ['plan', 'log', 'commands', 'route-report', 'ftp-exit-code'])
   const planValue = readPlan(args.plan)
   if (planValue.presenceVerified) throw new Error('La présence des candidats a déjà été confirmée')
   writeText(args.commands, '')
+  if (args['ftp-exit-code'] !== '0') throw new Error(`Contrôle FTP non réussi : code ${args['ftp-exit-code']}`)
+  const routeVerification = validateRouteReport(args['route-report'], planValue)
+  validateFtpNoop(args.log)
   const results = parseSizeLog(args.log, planValue.candidates)
   const deletions = results.filter(result => result.present).map(result => result.item)
+  const noOpVerified = planValue.candidates.length === 0 && results.length === 0 && deletions.length === 0
   planValue.presenceCheckedAt = new Date().toISOString()
   planValue.presenceStatus = 'confirmed-after-live-route-check'
   planValue.presenceVerified = true
+  planValue.presenceFtpExitCode = 0
+  planValue.presenceFtpNoopVerified = true
+  planValue.presenceSizeCheckCount = results.length
+  planValue.presenceNoOpVerified = noOpVerified
+  planValue.routeVerification = routeVerification
   planValue.presentCandidateCount = deletions.length
   planValue.unconfirmedCandidateCount = planValue.candidates.length - deletions.length
   planValue.deletionCount = deletions.length
@@ -220,7 +309,7 @@ function confirmPresence(args) {
   writeJson(args.plan, planValue)
   const commands = deletions.map(item => `rm -f '${item.path}'`)
   writeText(args.commands, commands.length ? `${commands.join('\n')}\n` : '')
-  console.log(`[ar-match-presence] ${deletions.length}/${planValue.candidateCount} candidats confirmés présents après vérification de la route; ${planValue.unconfirmedCandidateCount} non confirmés laissés intacts.`)
+  console.log(`[ar-match-presence] ${deletions.length}/${planValue.candidateCount} candidats confirmés après validation FTP et des 36 routes; ${planValue.unconfirmedCandidateCount} non confirmés laissés intacts; no-op=${noOpVerified}.`)
 }
 
 function postCleanupCommands(args) {

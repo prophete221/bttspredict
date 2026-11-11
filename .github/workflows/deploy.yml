@@ -625,22 +625,8 @@ jobs:
           FTP_EXIT_CODE=${PIPESTATUS[0]}
           set -e
           echo "FTP SIZE query exit=$FTP_EXIT_CODE; all candidate replies must be parsed exactly before any deletion."
-          node scripts/prepare-ar-match-popup-cleanup.mjs confirm-presence --plan=out/ar-match-popup-cleanup-plan.json --log=out/ar-match-presence-check.log --commands=out/ar-match-popup-cleanup.lftp
-          node --input-type=module - <<'JS'
-          import fs from 'node:fs'
-          const message = process.env.DEPLOY_COMMIT_MESSAGE || ''
-          const count = message.match(/\[lws-files=(\d+)\]/)
-          const stats = JSON.parse(fs.readFileSync('out/deploy-diff-stats.json', 'utf8'))
-          const plan = JSON.parse(fs.readFileSync('out/ar-match-popup-cleanup-plan.json', 'utf8'))
-          if (!count || !plan.presenceVerified || plan.deletionCount !== plan.deletions.length || plan.deletions.some(d => !plan.candidates.some(c => c.path === d.path))) throw new Error('Présence AR exacte non validée; aucune suppression autorisée.')
-          const currentFiles = Number(count[1])
-          const additions = Number(stats.newPathCount)
-          const fileLimit = 10000
-          const projectedPeak = currentFiles + additions
-          const projectedFinal = projectedPeak - plan.deletionCount
-          if (!Number.isInteger(currentFiles) || !Number.isInteger(additions) || projectedPeak > fileLimit || projectedFinal < 0) throw new Error('Projection nette LWS invalide après présence exacte.')
-          console.log(`[LWS quota exact] ${currentFiles} + ${additions} = ${projectedPeak} au pic; ${plan.deletionCount} chemins présents confirmés; projection nette ${projectedFinal}/${fileLimit}.`)
-          JS
+          node scripts/prepare-ar-match-popup-cleanup.mjs confirm-presence --plan=out/ar-match-popup-cleanup-plan.json --log=out/ar-match-presence-check.log --commands=out/ar-match-popup-cleanup.lftp --route-report=out/ar-match-live-check-before-cleanup.json --ftp-exit-code="$FTP_EXIT_CODE"
+          node scripts/assert-ar-match-popup-deploy.mjs --plan=out/ar-match-popup-cleanup-plan.json --diff-stats=out/deploy-diff-stats.json
 
       - name: Remove exact AR static Match files after the popup is live
         id: ftp-ar-cleanup
@@ -655,7 +641,14 @@ jobs:
           node --input-type=module - <<'JS'
           import fs from 'node:fs'
           const p = JSON.parse(fs.readFileSync('out/ar-match-popup-cleanup-plan.json', 'utf8'))
-          if (p.presenceVerified !== true || !Array.isArray(p.deletions) || p.deletions.length !== p.deletionCount || p.deletions.some(d => !/^ar\/match\//.test(d.path) || !p.candidates.some(c => c.path === d.path))) process.exit(1)
+          const route = p.routeVerification
+          if (p.presenceVerified !== true || p.presenceFtpExitCode !== 0 || p.presenceFtpNoopVerified !== true ||
+              route?.verified !== true || route.base !== 'https://bttspredict.com' || route.routeCount !== 36 || route.passedCount !== 36 || route.failedCount !== 0 ||
+              !Array.isArray(route.results) || route.results.length !== 36 || !Array.isArray(p.candidates) || !Array.isArray(p.deletions) ||
+              p.candidateCount !== p.candidates.length || p.presenceSizeCheckCount !== p.candidateCount ||
+              p.deletions.length !== p.deletionCount || p.deletionCount !== p.presentCandidateCount ||
+              p.presenceNoOpVerified !== (p.candidateCount === 0 && p.deletionCount === 0) ||
+              p.deletions.some(d => !/^ar\/match\//.test(d.path) || !p.candidates.some(c => c.path === d.path))) process.exit(1)
           console.log('Removing exactly', p.deletionCount, 'AR files confirmed present across', p.routeCount, 'known slugs')
           JS
           if [ ! -s out/ar-match-popup-cleanup.lftp ]; then

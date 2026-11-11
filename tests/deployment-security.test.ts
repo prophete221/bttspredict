@@ -9,6 +9,7 @@ const sitemapFilter = fs.readFileSync('scripts/filter-sitemap-match-urls.mjs', '
 const statePlanner = fs.readFileSync('scripts/prepare-ftp-deploy-plan.mjs', 'utf8')
 const ftpDiff = fs.readFileSync('scripts/ftp-diff.mjs', 'utf8')
 const ftpUploadPlan = fs.readFileSync('scripts/prepare-ftp-upload-allowlist.mjs', 'utf8')
+const arDeployGuard = fs.readFileSync('scripts/assert-ar-match-popup-deploy.mjs', 'utf8')
 
 describe('deployment safety gates', () => {
   it('allows the production API only on VIP documents and admin, preserving the other pages CSP', () => {
@@ -206,10 +207,25 @@ describe('deployment safety gates', () => {
     expect(exactCleanup).toContain('presenceVerified')
     expect(exactCleanup).toContain('knownSlugs')
     expect(exactCleanup).toContain('quote SIZE')
+    expect(exactCleanup).toContain('quote NOOP')
+    expect(exactCleanup).toContain('validateRouteReport')
+    expect(exactCleanup).toContain('validateFtpNoop')
     expect(exactCleanup).toContain('rm -f')
     expect(exactCleanup).not.toContain('find ar/match')
     expect(exactCleanup).not.toContain('rm -r')
     expect(exactCleanup).toContain("/^__next\\..+\\.txt$/u")
+    const presenceStep = deploy.split('name: Confirm exact AR candidate presence after route check')[1]?.split('      - name: ')[0] ?? ''
+    expect(presenceStep).toContain('--route-report=out/ar-match-live-check-before-cleanup.json')
+    expect(presenceStep).toContain('--ftp-exit-code="$FTP_EXIT_CODE"')
+    expect(presenceStep).toContain('scripts/assert-ar-match-popup-deploy.mjs')
+    expect(presenceStep).not.toContain('if (!count ||')
+    const cleanupStep = deploy.split('name: Remove exact AR static Match files after the popup is live')[1]?.split('      - name: ')[0] ?? ''
+    expect(cleanupStep).toContain('presenceFtpNoopVerified')
+    expect(cleanupStep).toContain('route.routeCount !== 36')
+    expect(cleanupStep).toContain('presenceNoOpVerified')
+    expect(arDeployGuard).toContain('presenceFtpNoopVerified !== true')
+    expect(arDeployGuard).toContain('presenceNoOpVerified === true')
+    expect(arDeployGuard).toContain('zéro candidat')
     expect(sitemapFilter).toContain('/^(?:en|ar)\\/match\\/')
     expect(sitemapFilter).not.toContain('(?:(?:en|ar)\\/)?match')
     expect(preflight).not.toContain('get .htaccess')
