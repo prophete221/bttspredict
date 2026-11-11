@@ -40,6 +40,7 @@ import BookmakerCardLinks from './BookmakerCardLinks'
 import ShareAnalysisButton from './ShareAnalysisButton'
 import VipMarketTeaser from './VipMarketTeaser'
 import MissingMarketVipLink from './MissingMarketVipLink'
+import TeamLogo from './TeamLogo'
 
 // ─── Palette (V3 — bleu analyse, sémantique WIN/LOST/PENDING) ────────────────
 const C = {
@@ -197,36 +198,6 @@ function useCountUp(target: number, active: boolean, duration = 900): number {
     return () => cancelAnimationFrame(raf)
   }, [target, active, duration])
   return Number.isFinite(target) ? value : 0
-}
-
-// ─── Team Logo (compact, dashboard-grade) ───────────────────────────────
-function TeamLogo({ src, name }: { src?: string; name: string }) {
-  const [err, setErr] = useState(false)
-  const initial = (name || '?').slice(0, 3).toUpperCase()
-  return (
-    <div className="btx-team__logo" aria-label={name} title={name}>
-      {src && !err ? (
-        <img
-          src={src}
-          alt={`${name} logo`}
-          loading="lazy"
-          decoding="async"
-          onError={() => setErr(true)}
-        />
-      ) : (
-        <span
-          style={{
-            fontSize: '0.72rem',
-            fontWeight: 900,
-            color: C.success,
-            letterSpacing: '0.02em',
-          }}
-        >
-          {initial}
-        </span>
-      )}
-    </div>
-  )
 }
 
 // ─── ProbBar — barre de probabilité animée (marché BTTS / Over 2.5) ─────
