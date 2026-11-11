@@ -12,6 +12,7 @@ import TeamContext from '@/components/bttsbet/TeamContext'
 import { localizedPath, type Locale } from '@/lib/i18n'
 import { getFrenchMatchStaticParams } from '@/lib/match-page-ssg'
 import { matchMetricLabels } from '@/lib/matchMetricLabels'
+import { resolveMatchPageLogos } from '@/lib/matchPageLogos'
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -45,7 +46,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params
-  const match = getMatchBySlug(slug)
+  const match = resolveMatchPageLogos(slug, getMatchBySlug(slug))
   if (!match) {
     return {
       title: 'Match introuvable',
@@ -292,7 +293,8 @@ function StatusBadge({ kind, label }: { kind: 'won' | 'lost' | 'pending'; label:
 
 export default async function MatchPage({ params }: PageProps) {
   const { slug, locale = 'fr' } = await params as { slug: string; locale?: Locale }
-  const match = getMatchBySlug(slug)
+  const sourceMatch = getMatchBySlug(slug)
+  const match = locale === 'fr' ? resolveMatchPageLogos(slug, sourceMatch) : sourceMatch
 
   if (!match) notFound()
   const copy = MATCH_COPY[locale]

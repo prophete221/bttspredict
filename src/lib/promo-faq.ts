@@ -1,6 +1,6 @@
 /**
  * Source unique des FAQ visibles et JSON-LD des pages promotionnelles.
- * Les faits présentés : validité mondiale des codes, bonus de dépôt de 300 %, cashback et bonus hebdomadaires.
+ * Les faits affichés sont définis par bookmaker; la disponibilité locale n’est pas supposée.
  * Aucun montant, mécanisme ni condition commerciale n'est ajouté.
  */
 export type PromoBookmakerId = 'linebet' | '1xbet' | 'melbet' | '888starz'
@@ -17,7 +17,7 @@ const FAQ: Record<PromoBookmakerId, PromoFaqByLang> = {
     ],
     en: [
       { q: 'What is the Linebet promo code?', a: 'The Linebet promo code is VISION221' },
-      { q: 'Is VISION221 only for Senegal?', a: 'No. Code VISION221 works worldwide; check local terms directly with Linebet.' },
+      { q: 'Is VISION221 only for Senegal?', a: 'We have not verified which countries can use VISION221; check the current terms directly with Linebet.' },
     ],
     ar: [
       { q: 'ما هو رمز Linebet الترويجي؟', a: 'رمز Linebet الترويجي هو VISION221' },

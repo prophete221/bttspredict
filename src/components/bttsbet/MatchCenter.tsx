@@ -105,7 +105,7 @@ function formatCardDate(dateStr: string, lang: Locale): string {
   } catch { return dateStr }
 }
 
-export default function MatchCenter({ initialLocale }: { initialLocale?: Locale } = {}) {
+export default function MatchCenter({ initialLocale, showDayClassificationNote = true }: { initialLocale?: Locale; showDayClassificationNote?: boolean } = {}) {
   const { lang: detectedLang } = useLanguage()
   const lang = initialLocale ?? detectedLang
   const t = translationsFor(lang)
@@ -217,13 +217,15 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
             <h2 className="hp-sect-title">
               {lang === 'en' ? 'Today’s picks and upcoming matches' : lang === 'ar' ? 'توقعات اليوم والمباريات القادمة' : 'Pronostics du jour et matchs à venir'}
             </h2>
-            <p className="hp-sect-sub">
-              {lang === 'en'
-                ? 'Today follows Dakar time; later fixtures are grouped under Upcoming.'
-                : lang === 'ar'
-                  ? 'يُحتسب اليوم وفق توقيت داكار؛ وتُعرض المباريات اللاحقة ضمن القادمة.'
-                  : '« Aujourd’hui » suit le jour de Dakar ; les rencontres ultérieures sont classées dans « À venir ». '}
-            </p>
+            {showDayClassificationNote && (
+              <p className="hp-sect-sub">
+                {lang === 'en'
+                  ? 'Today follows Dakar time; later fixtures are grouped under Upcoming.'
+                  : lang === 'ar'
+                    ? 'يُحتسب اليوم وفق توقيت داكار؛ وتُعرض المباريات اللاحقة ضمن القادمة.'
+                    : '« Aujourd’hui » suit le jour de Dakar ; les rencontres ultérieures sont classées dans « À venir ». '}
+              </p>
+            )}
           </div>
           <div className="hp-sect-meta">
             <span className="hp-counter" role="status">

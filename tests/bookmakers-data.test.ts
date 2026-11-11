@@ -122,7 +122,6 @@ describe('bookmakers data guardrails', () => {
       'src/components/bttsbet/Star888PromoClient.tsx',
       'src/app/bonus-888starz-btts221/page.tsx',
       'src/app/[locale]/code-promo-1xbet/page.tsx',
-      'src/app/[locale]/code-promo-linebet-senegal/page.tsx',
       'src/app/[locale]/code-promo-melbet/page.tsx',
       'src/app/[locale]/bonus-888starz/page.tsx',
       'src/app/[locale]/bonus-888starz-btts221/page.tsx',
@@ -139,6 +138,30 @@ describe('bookmakers data guardrails', () => {
       expect(text, `${file} doit mentionner l’offre mondiale de 300%`).toMatch(worldwideOffer)
       expect(text, `${file} ne doit pas inventer spins, dépôt ou conditions`).not.toMatch(/100\s*free spins|100\s*لفة مجانية|no wagering requirements|sans condition de mise|بدون شروط مراهنة|first deposit|premier dépôt|dépôt de 1\s*€/i)
     }
+  })
+
+  it('does not claim worldwide Linebet availability in English before local terms are verified', () => {
+    const page = readFileSync('src/app/[locale]/code-promo-linebet-senegal/page.tsx', 'utf8')
+    const client = readFileSync('src/components/bttsbet/LocalizedPromoClient.tsx', 'utf8')
+    const clientEnglishStart = client.indexOf("    en: {\n      badge: 'INTERNATIONAL LINEBET GUIDE'")
+    const clientEnglishEnd = client.indexOf('    ar: {', clientEnglishStart)
+    const clientEnglish = client.slice(clientEnglishStart, clientEnglishEnd)
+    const faq = readFileSync('src/lib/promo-faq.ts', 'utf8')
+    const faqLinebet = faq.slice(faq.indexOf('  linebet: {'), faq.indexOf("  '1xbet': {"))
+    const faqEnglish = faqLinebet.slice(faqLinebet.indexOf('    en: ['), faqLinebet.indexOf('    ar: ['))
+    const shell = readFileSync('src/components/bttsbet/PromoLandingShell.tsx', 'utf8')
+
+    expect(page).toContain("const title = isEnglish ? 'Linebet Promo Code VISION221: Worldwide 300% Offer'")
+    expect(page).toContain("'Linebet 300% worldwide'")
+    const metadataDescription = page.match(/const description = isEnglish\s*\?\s*'([^']+)'/)?.[1] ?? ''
+    expect(metadataDescription).toContain('country availability is unverified')
+    expect(metadataDescription).not.toMatch(/worldwide/i)
+    expect(clientEnglish).toContain('country availability has not been verified')
+    expect(clientEnglish).not.toMatch(/worldwide/i)
+    expect(faqEnglish).toContain('We have not verified which countries can use VISION221')
+    expect(faqEnglish).not.toMatch(/worldwide/i)
+    expect(shell).toContain("p.bookmakerId === 'linebet' && p.lang === 'en'")
+    expect(shell).toContain('Country availability has not been verified')
   })
 
   it('never shows the superseded neutral Melbet wording', () => {

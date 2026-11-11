@@ -76,6 +76,21 @@ export function fixHtmlLang(outDir) {
     result.errors.push(`out/ introuvable: ${outDir} — exécuter next build d'abord`)
     return result
   }
+  const englishRoot = path.join(outDir, 'en.html')
+  if (!fs.existsSync(englishRoot)) {
+    result.errors.push('en.html absent — la page /en doit être générée par l’export statique')
+  } else {
+    const html = fs.readFileSync(englishRoot, 'utf8')
+    const next = rewriteHtmlTag(html, 'en')
+    if (next === null) {
+      const tag = html.match(/<html[^>]*>/)?.[0] ?? ''
+      if (tag.includes('lang="en"')) result.en.alreadyOk += 1
+      else result.errors.push(`en.html: balise <html> sans lang reconnu («${tag.slice(0, 80)}»)`)
+    } else {
+      fs.writeFileSync(englishRoot, next)
+      result.en.fixed += 1
+    }
+  }
   for (const locale of ['en', 'ar']) {
     const localeDir = path.join(outDir, locale)
     if (!fs.existsSync(localeDir)) continue
@@ -102,6 +117,13 @@ export function fixHtmlLang(outDir) {
 export function verifyHtmlLang(outDir) {
   const bad = []
   if (!fs.existsSync(outDir)) return ['out/ introuvable']
+  const englishRoot = path.join(outDir, 'en.html')
+  if (!fs.existsSync(englishRoot)) {
+    bad.push('en.html absent — la page /en doit être générée par l’export statique')
+  } else {
+    const tag = fs.readFileSync(englishRoot, 'utf8').match(/<html[^>]*>/)?.[0] ?? ''
+    if (!tag.includes('lang="en"')) bad.push(`en.html: «${tag.slice(0, 100)}»`)
+  }
   for (const locale of ['en', 'ar']) {
     const localeDir = path.join(outDir, locale)
     if (!fs.existsSync(localeDir)) continue

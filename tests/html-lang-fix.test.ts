@@ -23,6 +23,8 @@ function makeTmpOut() {
   fs.mkdirSync(path.join(out, 'en', 'match'), { recursive: true })
   fs.mkdirSync(path.join(out, 'ar'), { recursive: true })
   fs.writeFileSync(path.join(out, 'index.html'), FR_PAGE)
+  fs.writeFileSync(path.join(out, 'en.html'), FR_PAGE)
+  fs.writeFileSync(path.join(out, 'ar.html'), AR_PAGE)
   fs.writeFileSync(path.join(out, 'en', 'index.html'), FR_PAGE)
   fs.writeFileSync(path.join(out, 'en', 'match', 'x-1.html'), FR_PAGE)
   fs.writeFileSync(path.join(out, 'ar', 'index.html'), AR_PAGE)
@@ -44,12 +46,18 @@ describe('fix-html-lang', () => {
   it('fixes every html file under en/ and ar/ and nothing outside', () => {
     const out = makeTmpOut()
     const result = fixHtmlLang(out)
-    expect(result.en.fixed).toBe(2)
+    expect(result.en.fixed).toBe(3)
     expect(result.ar.fixed).toBe(1)
     expect(result.errors).toEqual([])
 
     // racine (fr) inchangée
     expect(fs.readFileSync(path.join(out, 'index.html'), 'utf8')).toBe(FR_PAGE)
+    // route plate /en uniquement : le reste du HTML est identique
+    const englishRoot = fs.readFileSync(path.join(out, 'en.html'), 'utf8')
+    expect(englishRoot).toContain('<html lang="en"')
+    expect(englishRoot.replace('<html lang="en"', '<html lang="fr"')).toBe(FR_PAGE)
+    // /ar plat n’appartient pas à cette correction ciblée
+    expect(fs.readFileSync(path.join(out, 'ar.html'), 'utf8')).toBe(AR_PAGE)
     // en corrigé
     const enTag = fs.readFileSync(path.join(out, 'en', 'index.html'), 'utf8').match(/<html[^>]*>/)?.[0] ?? ''
     expect(enTag).toContain('lang="en"')
@@ -71,7 +79,7 @@ describe('fix-html-lang', () => {
     const second = fixHtmlLang(out)
     expect(second.en.fixed).toBe(0)
     expect(second.ar.fixed).toBe(0)
-    expect(second.en.alreadyOk).toBe(2)
+    expect(second.en.alreadyOk).toBe(3)
     expect(second.ar.alreadyOk).toBe(1)
     expect(verifyHtmlLang(out)).toEqual([])
     fs.rmSync(out, { recursive: true, force: true })

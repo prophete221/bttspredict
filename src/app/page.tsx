@@ -241,7 +241,7 @@ export default function Home() {
       <main id="main-content" className="relative z-10" style={{ paddingBottom: 'calc(80px + env(safe-area-inset-bottom, 0px))' }}>
         <ErrorBoundary><Navbar /></ErrorBoundary>
         <ErrorBoundary><Hero /></ErrorBoundary>
-        <ErrorBoundary><MatchCenter /></ErrorBoundary>
+        <ErrorBoundary><MatchCenter showDayClassificationNote={false} /></ErrorBoundary>
         <ErrorBoundary><TrustPillars /></ErrorBoundary>
         <ErrorBoundary><PerformanceDashboard /></ErrorBoundary>
         <ErrorBoundary><MethodSection /></ErrorBoundary>
