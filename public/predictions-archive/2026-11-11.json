@@ -183,7 +183,8 @@
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "abstain",
+      "status": "PENDING"
     },
     {
       "id": "sobernar-vs-athletic-2026-11-12",
@@ -379,7 +380,8 @@
       "over25Prob": 0.68,
       "prediction": "Oui",
       "proba": 0.68,
-      "confidence": 68
+      "confidence": 68,
+      "status": "PENDING"
     },
     {
       "id": "gimnasia-vs-almirant-2026-11-14",
@@ -3256,7 +3258,8 @@
       "bttsProb": 0.75,
       "prediction": "Oui",
       "proba": 0.75,
-      "confidence": 75
+      "confidence": 75,
+      "status": "PENDING"
     },
     {
       "id": "independ-vs-alwaysre-2026-11-11",
@@ -3445,7 +3448,8 @@
       "over25Prob": 0.68,
       "prediction": "Oui",
       "proba": 0.68,
-      "confidence": 68
+      "confidence": 68,
+      "status": "PENDING"
     },
     {
       "id": "brondby-vs-rosenbor-2026-11-11",
@@ -3622,7 +3626,8 @@
       "bttsProb": 0.65,
       "prediction": "Oui",
       "proba": 0.65,
-      "confidence": 65
+      "confidence": 65,
+      "status": "PENDING"
     },
     {
       "id": "fuertesa-vs-alianzaf-2026-11-11",
@@ -3804,7 +3809,8 @@
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "abstain",
+      "status": "PENDING"
     },
     {
       "id": "fcfleury-vs-toulouse-2026-11-11",
@@ -4000,7 +4006,8 @@
       "bttsProb": 0.65,
       "prediction": "Oui",
       "proba": 0.65,
-      "confidence": 65
+      "confidence": 65,
+      "status": "PENDING"
     },
     {
       "id": "realpoto-vs-nacional-2026-11-12",
@@ -4188,7 +4195,8 @@
       "bttsProb": 0.75,
       "prediction": "Oui",
       "proba": 0.75,
-      "confidence": 75
+      "confidence": 75,
+      "status": "PENDING"
     },
     {
       "id": "guila-vs-cdmunici-2026-11-12",
@@ -4377,7 +4385,8 @@
       "bttsProb": 0.75,
       "prediction": "Oui",
       "proba": 0.75,
-      "confidence": 75
+      "confidence": 75,
+      "status": "PENDING"
     },
     {
       "id": "cdfas-vs-internac-2026-11-12",
@@ -4566,7 +4575,8 @@
       "bttsProb": 0.65,
       "prediction": "Oui",
       "proba": 0.65,
-      "confidence": 65
+      "confidence": 65,
+      "status": "PENDING"
     },
     {
       "id": "fczrich-vs-austrial-2026-11-12",
@@ -4742,7 +4752,8 @@
       "over25Prob": 0.75,
       "prediction": "Oui",
       "proba": 0.75,
-      "confidence": 75
+      "confidence": 75,
+      "status": "PENDING"
     },
     {
       "id": "sobernar-vs-athletic-2026-11-12",
@@ -5310,7 +5321,8 @@
       "bttsProb": 0.55,
       "prediction": "Oui",
       "proba": 0.55,
-      "confidence": 55
+      "confidence": 55,
+      "status": "PENDING"
     },
     {
       "id": "uzbekist-vs-russia-2026-11-12",
@@ -5473,7 +5485,8 @@
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "abstain",
+      "status": "PENDING"
     },
     {
       "id": "legans-vs-burgos-2026-11-13",
@@ -5859,7 +5872,8 @@
       "bttsProb": 0.65,
       "prediction": "Oui",
       "proba": 0.65,
-      "confidence": 65
+      "confidence": 65,
+      "status": "PENDING"
     },
     {
       "id": "argentin-vs-uruguay-2026-11-13",
@@ -6043,7 +6057,8 @@
       "over25Prob": 0.72,
       "prediction": "Oui",
       "proba": 0.72,
-      "confidence": 72
+      "confidence": 72,
+      "status": "PENDING"
     },
     {
       "id": "saudiara-vs-southkor-2026-11-13",
@@ -6206,7 +6221,8 @@
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "abstain",
+      "status": "PENDING"
     },
     {
       "id": "isidrome-vs-luisngel-2026-11-14",
@@ -6395,7 +6411,8 @@
       "bttsProb": 0.65,
       "prediction": "Oui",
       "proba": 0.65,
-      "confidence": 65
+      "confidence": 65,
+      "status": "PENDING"
     },
     {
       "id": "nacional-vs-realpoto-2026-11-15",
@@ -6584,7 +6601,8 @@
       "bttsProb": 0.75,
       "prediction": "Oui",
       "proba": 0.75,
-      "confidence": 75
+      "confidence": 75,
+      "status": "PENDING"
     },
     {
       "id": "cdplaten-vs-atletico-2026-11-15",
@@ -6758,7 +6776,8 @@
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "abstain",
+      "status": "PENDING"
     },
     {
       "id": "incaarub-vs-guila-2026-11-15",
@@ -6947,7 +6966,8 @@
       "bttsProb": 0.58,
       "prediction": "Oui",
       "proba": 0.58,
-      "confidence": 58
+      "confidence": 58,
+      "status": "PENDING"
     },
     {
       "id": "alwaysre-vs-independ-2026-11-15",
@@ -7136,7 +7156,8 @@
       "over25Prob": 0.68,
       "prediction": "Oui",
       "proba": 0.68,
-      "confidence": 68
+      "confidence": 68,
+      "status": "PENDING"
     },
     {
       "id": "alianzaf-vs-cdfas-2026-11-15",
@@ -7311,7 +7332,8 @@
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "abstain",
+      "status": "PENDING"
     },
     {
       "id": "andorra-vs-azerbaij-2026-11-16",
@@ -7467,7 +7489,767 @@
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "abstain",
+      "status": "PENDING"
+    },
+    {
+      "id": "fuertesa-vs-alianzaf-2026-11-11",
+      "match": "Fuerte San Francisco vs Alianza FC",
+      "home": "Fuerte San Francisco",
+      "away": "Alianza FC",
+      "league": "Salvadoran Primera Division",
+      "date": "2026-11-11",
+      "type": "BTTS",
+      "time": "21:30",
+      "matchSemantic": "fuertesa-vs-alianzaf-2026-11-11",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21987.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7225.png",
+      "tier": "SILVER",
+      "reliabilityScore": 72.5,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.5,
+      "xgAway": 0.25,
+      "xgTotal": 1.75,
+      "formBTTS": 60,
+      "analysis": "Fuerte San Francisco : forme N-N-D-D-D (0V 2N 3D, 9 buts marqués / 12 encaissés sur 5) · Alianza FC : forme V-D-D-V-N (2V 1N 2D, 4 buts marqués / 5 encaissés sur 5). Classement : Fuerte San Francisco 12e (14 pts), Alianza FC 7e (26 pts). Stats empiriques (forme récente) : buts moy. 1.75, BTTS 60.0%, Over 2.5 50.0%. Affinage AI ensuite. Cotes DraftKings — 1: 3.8 / N: 3.3 / 2: 1.87 · Over 2.5: 1.83. Fiabilité 72.5%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.6,
+        "empiricalOver25Rate": 0.5,
+        "homeLambda": 1.5,
+        "awayLambda": 0.25,
+        "xgTotal": 1.75
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 3.8,
+        "draw": 3.3,
+        "away": 1.87,
+        "over25": 1.83,
+        "under25": 1.8
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "N-N-D-D-D",
+        "wins": 0,
+        "draws": 2,
+        "losses": 3,
+        "goalsFor": 9,
+        "goalsAgainst": 12,
+        "bttsRate": 1,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-D-D-V-N",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 4,
+        "goalsAgainst": 5,
+        "bttsRate": 0.2,
+        "over25Rate": 0.2,
+        "cleanSheets": 2,
+        "failedToScore": 3,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-09",
+          "opponent": "CD FAS",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-05",
+          "opponent": "CD Municipal Limeño",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Águila",
+          "venue": "H",
+          "score": "3-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Atletico Balboa",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Isidro Metapán",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-08",
+          "opponent": "Águila",
+          "venue": "H",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-05",
+          "opponent": "Luis Ángel Firpo",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Atletico Balboa",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Isidro Metapán",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Cacahuatique",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 12,
+        "points": 14,
+        "played": 20,
+        "gf": 20,
+        "ga": 36
+      },
+      "standingsAway": {
+        "rank": 7,
+        "points": 26,
+        "played": 19,
+        "gf": 26,
+        "ga": 26
+      },
+      "empiricalBttsRate": 0.6,
+      "empiricalOver25Rate": 0.5,
+      "homeLambda": 1.5,
+      "awayLambda": 0.25,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Fuerte San Francisco a un taux BTTS de 100% sur ses 5 derniers matchs malgré sa 12e place.",
+      "ai_analysis": "L'analyse des statistiques montre que Fuerte San Francisco est extrêmement friable défensivement, avec 36 buts encaissés en 20 matchs et un taux BTTS de 100% sur ses 5 dernières rencontres. Bien qu'Alianza FC affiche des statistiques offensives plus timides à l'extérieur (0.25 but par match), le volume de buts encaissés par la défense locale justifie un choix sur le BTTS Oui avec une probabilité modérée de 0.58.",
+      "ai_analysis_en": "Statistical analysis shows that Fuerte San Francisco is extremely fragile defensively, conceding 36 goals in 20 matches with a 100% BTTS rate in their last 5 outings. Although Alianza FC displays modest away scoring stats (0.25 goals per game), the high volume of goals conceded by the home defense supports a BTTS Yes selection with a moderate probability of 0.58.",
+      "ai_form_summary": "Fuerte San Francisco : N-N-D-D-D (0W-2D-3L, 9 buts pour, 12 buts contre). Alianza FC : V-D-D-V-N (2W-1D-2L, 4 buts pour, 5 buts contre).",
+      "ai_form_summary_en": "Fuerte San Francisco: D-D-L-L-L (0W-2D-3L, 9 goals for, 12 goals against). Alianza FC: W-L-L-W-D (2W-1D-2L, 4 goals for, 5 goals against).",
+      "ai_reasons": [
+        "Fuerte San Francisco affichent un taux BTTS de 100% sur leurs 5 derniers matchs et encaisse beaucoup (12 buts concédés).",
+        "L'empirique global BTTS est de 60%, soutenu par la fragilité défensive de Fuerte San Francisco (36 buts encaissés en 20 matchs).",
+        "Malgré la faiblesse offensive d'Alianza à l'extérieur (0.25 but moyen), Fuerte San Francisco encaisse en moyenne plus d'un but et demi par match."
+      ],
+      "ai_risks": [
+        "Alianza FC montre un taux BTTS récent très faible (20%) et un total de seulement 4 buts marqués sur ses 5 derniers matchs.",
+        "La moyenne de buts à l'extérieur d'Alianza (0.25) pourrait bloquer le scénario des deux équipes marquent."
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 58,
+          "proba": 0.58,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.58
+        }
+      ],
+      "bttsProb": 0.58,
+      "prediction": "Oui",
+      "proba": 0.58,
+      "confidence": 58
+    },
+    {
+      "id": "londrina-vs-nutico-2026-11-11",
+      "match": "Londrina vs Náutico",
+      "home": "Londrina",
+      "away": "Náutico",
+      "league": "Brazilian Serie B",
+      "date": "2026-11-11",
+      "type": "Over 2.5",
+      "time": "22:00",
+      "matchSemantic": "londrina-vs-nutico-2026-11-11",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/17333.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7633.png",
+      "tier": "STANDARD",
+      "reliabilityScore": 59.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 0.67,
+      "xgAway": 0.33,
+      "xgTotal": 1,
+      "formBTTS": 30,
+      "analysis": "Londrina : forme D-D-D-V-N (1V 1N 3D, 5 buts marqués / 11 encaissés sur 5) · Náutico : forme D-V-D-N-D (1V 1N 3D, 1 buts marqués / 9 encaissés sur 5). Classement : Londrina 18e (32 pts), Náutico 15e (46 pts). Stats empiriques (forme récente) : buts moy. 1, BTTS 30.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.56 / N: 4.3 / 2: 5 · Over 2.5: 1.59. Fiabilité 59.38%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.3,
+        "empiricalOver25Rate": 0.6,
+        "homeLambda": 0.67,
+        "awayLambda": 0.33,
+        "xgTotal": 1
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.56,
+        "draw": 4.3,
+        "away": 5,
+        "over25": 1.59,
+        "under25": 2.2
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-D-D-V-N",
+        "wins": 1,
+        "draws": 1,
+        "losses": 3,
+        "goalsFor": 5,
+        "goalsAgainst": 11,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-V-D-N-D",
+        "wins": 1,
+        "draws": 1,
+        "losses": 3,
+        "goalsFor": 1,
+        "goalsAgainst": 9,
+        "bttsRate": 0,
+        "over25Rate": 0.4,
+        "cleanSheets": 2,
+        "failedToScore": 4,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-05",
+          "opponent": "Botafogo-SP",
+          "venue": "A",
+          "score": "0-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "América Mineiro",
+          "venue": "H",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "CRB",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-20",
+          "opponent": "Cuiabá",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-13",
+          "opponent": "Athletic",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-08",
+          "opponent": "CRB",
+          "venue": "H",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Avaí",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-26",
+          "opponent": "Juventude",
+          "venue": "A",
+          "score": "0-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-19",
+          "opponent": "Goiás",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Vila Nova",
+          "venue": "H",
+          "score": "0-2",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 18,
+        "points": 32,
+        "played": 37,
+        "gf": 45,
+        "ga": 58
+      },
+      "standingsAway": {
+        "rank": 15,
+        "points": 46,
+        "played": 37,
+        "gf": 40,
+        "ga": 49
+      },
+      "empiricalBttsRate": 0.3,
+      "empiricalOver25Rate": 0.6,
+      "homeLambda": 0.67,
+      "awayLambda": 0.33,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_key_fact": "Londrina affiche un taux d'Over 2.5 de 80% sur ses derniers matchs à domicile.",
+      "ai_analysis": "Bien que Náutico montre des difficultés offensives loin de ses bases, le taux d'Over 2.5 à domicile de Londrina atteint 80% et l'échantillon global présente 60% de matchs avec plus de 2.5 buts. La cote de 1.59 suggère une tendance favorable, mais la faiblesse offensive de Náutico impose la prudence.",
+      "ai_analysis_en": "Although Náutico shows offensive struggles away from home, Londrina's home Over 2.5 rate reaches 80% and the overall sample shows 60% over matches. The odds of 1.59 suggest a favorable trend, but Náutico's low scoring average calls for caution.",
+      "ai_form_summary": "Londrina : 1V-1D-3L (5 BP, 11 BC). Náutico : 1V-1D-3L (1 BP, 9 BC).",
+      "ai_form_summary_en": "Londrina: 1W-1D-3L (5 GF, 11 GA). Náutico: 1W-1D-3L (1 GF, 9 GA).",
+      "ai_reasons": [
+        "Le taux empirique d'Over 2.5 est de 60% sur les échantillons récents.",
+        "Londrina présente un taux d'Over 2.5 à domicile de 80% malgré des difficultés offensives.",
+        "La cote de 1.59 indique une attente de buts du marché."
+      ],
+      "ai_risks": [
+        "Faible moyenne de buts marqués par Náutico à l'extérieur (0.33).",
+        "Taux BTTS empirique faible à 30%."
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 58,
+          "proba": 0.58,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "over25Prob": 0.58
+        }
+      ],
+      "over25Prob": 0.58,
+      "prediction": "Oui",
+      "proba": 0.58,
+      "confidence": 58,
+      "status": "PENDING"
+    },
+    {
+      "id": "uzbekist-vs-russia-2026-11-12",
+      "match": "Uzbekistan vs Russia",
+      "home": "Uzbekistan",
+      "away": "Russia",
+      "league": "International Friendly",
+      "date": "2026-11-12",
+      "type": "Over 2.5",
+      "time": "15:00",
+      "matchSemantic": "uzbekist-vs-russia-2026-11-12",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/uzb.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/rus.png",
+      "tier": "SILVER",
+      "reliabilityScore": 64.75,
+      "dataQuality": "MEDIUM",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 7,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 3,
+      "xgAway": 0,
+      "xgTotal": 3,
+      "formBTTS": 40,
+      "analysis": "Uzbekistan : forme D-V-V-D-D (2V 0N 3D, 8 buts marqués / 8 encaissés sur 5) · Russia : forme N-V-V-V-V (4V 1N 0D, 17 buts marqués / 3 encaissés sur 5). Stats empiriques (forme récente) : buts moy. 3, BTTS 40.0%, Over 2.5 70.0%. Affinage AI ensuite. Fiabilité 64.75%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.4,
+        "empiricalOver25Rate": 0.7,
+        "homeLambda": 3,
+        "awayLambda": 0,
+        "xgTotal": 3
+      },
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "D-V-V-D-D",
+        "wins": 2,
+        "draws": 0,
+        "losses": 3,
+        "goalsFor": 8,
+        "goalsAgainst": 8,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 0,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-V-V-V-V",
+        "wins": 4,
+        "draws": 1,
+        "losses": 0,
+        "goalsFor": 17,
+        "goalsAgainst": 3,
+        "bttsRate": 0.2,
+        "over25Rate": 0.8,
+        "cleanSheets": 4,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-06",
+          "opponent": "South Korea",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-01",
+          "opponent": "Syria",
+          "venue": "H",
+          "score": "4-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-24",
+          "opponent": "Iran",
+          "venue": "H",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-06-08",
+          "opponent": "Netherlands",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-06-02",
+          "opponent": "Canada",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-06",
+          "opponent": "Nigeria",
+          "venue": "H",
+          "score": "3-3",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-03",
+          "opponent": "Namibia",
+          "venue": "H",
+          "score": "6-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-29",
+          "opponent": "Iran",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-06-09",
+          "opponent": "Trinidad and Tobago",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-06-05",
+          "opponent": "Burkina Faso",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        }
+      ],
+      "standingsHome": null,
+      "standingsAway": null,
+      "empiricalBttsRate": 0.4,
+      "empiricalOver25Rate": 0.7,
+      "homeLambda": 3,
+      "awayLambda": 0,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_key_fact": "La Russie totalise 17 buts marqués pour seulement 3 encaissés lors de ses cinq dernières rencontres.",
+      "ai_analysis": "L'analyse des statistiques observées met en avant un taux Over 2.5 solide fixé à 70%. Bien que la défense russe se montre hermétique, sa puissance offensive récente (17 buts) et l'historique des matchs de l'équipe visiteuse (80% d'Over 2.5) soutiennent une tendance favorable aux buts dans cette confrontation amicale.",
+      "ai_analysis_en": "Analysis of the observed statistics highlights a strong empirical Over 2.5 rate of 70%. Although the Russian defense has been solid, their recent offensive power (17 goals) and the away team's match history (80% Over 2.5) support a goal-friendly trend for this friendly fixture.",
+      "ai_form_summary": "Ouzbékistan : 2V-0D-3D, 8 buts pour, 8 buts contre. Russie : 4V-1D-0D, 17 buts pour, 3 buts contre.",
+      "ai_form_summary_en": "Uzbekistan: 2W-0D-3L, 8 goals for, 8 against. Russia: 4W-1D-0L, 17 goals for, 3 against.",
+      "ai_reasons": [
+        "Taux Over 2.5 empirique élevé à 70% sur ce match.",
+        "L'échantillon de l'équipe extérieure (Russia) affiche un taux Over 2.5 de 80%.",
+        "La Russie montre une attaque prolifique avec 17 buts inscrits sur ses 5 derniers matchs."
+      ],
+      "ai_risks": [
+        "Le taux empirique BTTS de l'Ouzbékistan est modéré à 40%.",
+        "La défense extérieure russe n'a concédé que 3 buts sur ses 5 derniers matchs."
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 65,
+          "proba": 0.65,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "over25Prob": 0.65
+        }
+      ],
+      "over25Prob": 0.65,
+      "prediction": "Oui",
+      "proba": 0.65,
+      "confidence": 65
+    },
+    {
+      "id": "cdplaten-vs-atletico-2026-11-15",
+      "match": "C.D. Platense vs Atletico Balboa",
+      "home": "C.D. Platense",
+      "away": "Atletico Balboa",
+      "league": "Salvadoran Primera Division",
+      "date": "2026-11-15",
+      "type": "BTTS",
+      "time": "21:00",
+      "matchSemantic": "cdplaten-vs-atletico-2026-11-15",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21092.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7369.png",
+      "tier": "GOLD",
+      "reliabilityScore": 85,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1,
+      "xgAway": 2.25,
+      "xgTotal": 3.25,
+      "formBTTS": 60,
+      "analysis": "C.D. Platense : forme D-D-N-N-V (1V 2N 2D, 5 buts marqués / 7 encaissés sur 5) · Atletico Balboa : forme V-V-V-N-D (3V 1N 1D, 9 buts marqués / 7 encaissés sur 5). Classement : C.D. Platense 6e (27 pts), Atletico Balboa 10e (20 pts). Stats empiriques (forme récente) : buts moy. 3.25, BTTS 60.0%, Over 2.5 50.0%. Affinage AI ensuite. Fiabilité 85%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.6,
+        "empiricalOver25Rate": 0.5,
+        "homeLambda": 1,
+        "awayLambda": 2.25,
+        "xgTotal": 3.25
+      },
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "D-D-N-N-V",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 5,
+        "goalsAgainst": 7,
+        "bttsRate": 0.6,
+        "over25Rate": 0.4,
+        "cleanSheets": 1,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-V-N-D",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 9,
+        "goalsAgainst": 7,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-11",
+          "opponent": "Isidro Metapán",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Cacahuatique",
+          "venue": "H",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Internacional Santa Tecla",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Luis Ángel Firpo",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "CD FAS",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-08",
+          "opponent": "CD Municipal Limeño",
+          "venue": "A",
+          "score": "4-3",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Alianza FC",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Fuerte San Francisco",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Águila",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "CD FAS",
+          "venue": "H",
+          "score": "0-1",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 6,
+        "points": 27,
+        "played": 20,
+        "gf": 26,
+        "ga": 24
+      },
+      "standingsAway": {
+        "rank": 10,
+        "points": 20,
+        "played": 19,
+        "gf": 21,
+        "ga": 31
+      },
+      "empiricalBttsRate": 0.6,
+      "empiricalOver25Rate": 0.5,
+      "homeLambda": 1,
+      "awayLambda": 2.25,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Atletico Balboa tourne à une moyenne de 2.25 buts par match, tandis que Platense encaisse régulièrement (24 buts en 20 matchs).",
+      "ai_analysis": "Les données indiquent un taux BTTS empirique de 60% partagé par les deux formations. Atletico Balboa propose un profil offensif intéressant hors de ses bases avec 2.25 buts de moyenne, compensant l'attaque plus mesurée de C.D. Platense. La défense de Platense (24 buts encaissés) offre des opportunités aux visiteurs, rendant l'option BTTS Yes cohérente.",
+      "ai_analysis_en": "Data indicates an empirical 60% BTTS rate shared by both teams. Atletico Balboa shows a strong away attacking profile with 2.25 goals per game, balancing C.D. Platense's more modest attack. Platense's defense (24 goals conceded) provides opportunities for visitors, making the BTTS Yes option consistent.",
+      "ai_form_summary": "C.D. Platense reste sur 1 victoire, 2 nuls et 2 défaites (5 buts pour, 7 buts contre). Atletico Balboa montre de meilleures dispositions avec 3 victoires, 1 nul et 1 défaite (9 buts pour, 7 buts contre).",
+      "ai_form_summary_en": "C.D. Platense recorded 1 win, 2 draws, and 2 losses (5 scored, 7 conceded). Atletico Balboa shows better form with 3 wins, 1 draw, and 1 loss (9 scored, 7 conceded).",
+      "ai_reasons": [
+        "Taux empirique BTTS à 60% pour les deux équipes",
+        "Atletico Balboa affiche une moyenne offensive solide de 2.25 buts à l'extérieur",
+        "C.D. Platense concède un volume défensif notable avec 24 buts encaissés en 20 matchs"
+      ],
+      "ai_risks": [
+        "L'over 2.5 n'est qu'à 50% empiriquement",
+        "C.D. Platense a une moyenne de buts à domicile limitée à 1.0"
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 58,
+          "proba": 0.58,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.58
+        }
+      ],
+      "bttsProb": 0.58,
+      "prediction": "Oui",
+      "proba": 0.58,
+      "confidence": 58
     }
   ],
   "fixtures": [
@@ -15338,6 +16120,768 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
+      "status": "PENDING"
+    },
+    {
+      "id": "fuertesa-vs-alianzaf-2026-11-11",
+      "match": "Fuerte San Francisco vs Alianza FC",
+      "home": "Fuerte San Francisco",
+      "away": "Alianza FC",
+      "league": "Salvadoran Primera Division",
+      "date": "2026-11-11",
+      "type": "BTTS",
+      "time": "21:30",
+      "matchSemantic": "fuertesa-vs-alianzaf-2026-11-11",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21987.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7225.png",
+      "tier": "SILVER",
+      "reliabilityScore": 72.5,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.5,
+      "xgAway": 0.25,
+      "xgTotal": 1.75,
+      "formBTTS": 60,
+      "analysis": "Fuerte San Francisco : forme N-N-D-D-D (0V 2N 3D, 9 buts marqués / 12 encaissés sur 5) · Alianza FC : forme V-D-D-V-N (2V 1N 2D, 4 buts marqués / 5 encaissés sur 5). Classement : Fuerte San Francisco 12e (14 pts), Alianza FC 7e (26 pts). Stats empiriques (forme récente) : buts moy. 1.75, BTTS 60.0%, Over 2.5 50.0%. Affinage AI ensuite. Cotes DraftKings — 1: 3.8 / N: 3.3 / 2: 1.87 · Over 2.5: 1.83. Fiabilité 72.5%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.6,
+        "empiricalOver25Rate": 0.5,
+        "homeLambda": 1.5,
+        "awayLambda": 0.25,
+        "xgTotal": 1.75
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 3.8,
+        "draw": 3.3,
+        "away": 1.87,
+        "over25": 1.83,
+        "under25": 1.8
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "N-N-D-D-D",
+        "wins": 0,
+        "draws": 2,
+        "losses": 3,
+        "goalsFor": 9,
+        "goalsAgainst": 12,
+        "bttsRate": 1,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-D-D-V-N",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 4,
+        "goalsAgainst": 5,
+        "bttsRate": 0.2,
+        "over25Rate": 0.2,
+        "cleanSheets": 2,
+        "failedToScore": 3,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-09",
+          "opponent": "CD FAS",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-05",
+          "opponent": "CD Municipal Limeño",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Águila",
+          "venue": "H",
+          "score": "3-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Atletico Balboa",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Isidro Metapán",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-08",
+          "opponent": "Águila",
+          "venue": "H",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-05",
+          "opponent": "Luis Ángel Firpo",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Atletico Balboa",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Isidro Metapán",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Cacahuatique",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 12,
+        "points": 14,
+        "played": 20,
+        "gf": 20,
+        "ga": 36
+      },
+      "standingsAway": {
+        "rank": 7,
+        "points": 26,
+        "played": 19,
+        "gf": 26,
+        "ga": 26
+      },
+      "empiricalBttsRate": 0.6,
+      "empiricalOver25Rate": 0.5,
+      "homeLambda": 1.5,
+      "awayLambda": 0.25,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Fuerte San Francisco a un taux BTTS de 100% sur ses 5 derniers matchs malgré sa 12e place.",
+      "ai_analysis": "L'analyse des statistiques montre que Fuerte San Francisco est extrêmement friable défensivement, avec 36 buts encaissés en 20 matchs et un taux BTTS de 100% sur ses 5 dernières rencontres. Bien qu'Alianza FC affiche des statistiques offensives plus timides à l'extérieur (0.25 but par match), le volume de buts encaissés par la défense locale justifie un choix sur le BTTS Oui avec une probabilité modérée de 0.58.",
+      "ai_analysis_en": "Statistical analysis shows that Fuerte San Francisco is extremely fragile defensively, conceding 36 goals in 20 matches with a 100% BTTS rate in their last 5 outings. Although Alianza FC displays modest away scoring stats (0.25 goals per game), the high volume of goals conceded by the home defense supports a BTTS Yes selection with a moderate probability of 0.58.",
+      "ai_form_summary": "Fuerte San Francisco : N-N-D-D-D (0W-2D-3L, 9 buts pour, 12 buts contre). Alianza FC : V-D-D-V-N (2W-1D-2L, 4 buts pour, 5 buts contre).",
+      "ai_form_summary_en": "Fuerte San Francisco: D-D-L-L-L (0W-2D-3L, 9 goals for, 12 goals against). Alianza FC: W-L-L-W-D (2W-1D-2L, 4 goals for, 5 goals against).",
+      "ai_reasons": [
+        "Fuerte San Francisco affichent un taux BTTS de 100% sur leurs 5 derniers matchs et encaisse beaucoup (12 buts concédés).",
+        "L'empirique global BTTS est de 60%, soutenu par la fragilité défensive de Fuerte San Francisco (36 buts encaissés en 20 matchs).",
+        "Malgré la faiblesse offensive d'Alianza à l'extérieur (0.25 but moyen), Fuerte San Francisco encaisse en moyenne plus d'un but et demi par match."
+      ],
+      "ai_risks": [
+        "Alianza FC montre un taux BTTS récent très faible (20%) et un total de seulement 4 buts marqués sur ses 5 derniers matchs.",
+        "La moyenne de buts à l'extérieur d'Alianza (0.25) pourrait bloquer le scénario des deux équipes marquent."
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 58,
+          "proba": 0.58,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.58
+        }
+      ],
+      "bttsProb": 0.58,
+      "prediction": "Oui",
+      "proba": 0.58,
+      "confidence": 58,
+      "status": "PENDING"
+    },
+    {
+      "id": "londrina-vs-nutico-2026-11-11",
+      "match": "Londrina vs Náutico",
+      "home": "Londrina",
+      "away": "Náutico",
+      "league": "Brazilian Serie B",
+      "date": "2026-11-11",
+      "type": "Over 2.5",
+      "time": "22:00",
+      "matchSemantic": "londrina-vs-nutico-2026-11-11",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/17333.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7633.png",
+      "tier": "STANDARD",
+      "reliabilityScore": 59.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 0.67,
+      "xgAway": 0.33,
+      "xgTotal": 1,
+      "formBTTS": 30,
+      "analysis": "Londrina : forme D-D-D-V-N (1V 1N 3D, 5 buts marqués / 11 encaissés sur 5) · Náutico : forme D-V-D-N-D (1V 1N 3D, 1 buts marqués / 9 encaissés sur 5). Classement : Londrina 18e (32 pts), Náutico 15e (46 pts). Stats empiriques (forme récente) : buts moy. 1, BTTS 30.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.56 / N: 4.3 / 2: 5 · Over 2.5: 1.59. Fiabilité 59.38%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.3,
+        "empiricalOver25Rate": 0.6,
+        "homeLambda": 0.67,
+        "awayLambda": 0.33,
+        "xgTotal": 1
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.56,
+        "draw": 4.3,
+        "away": 5,
+        "over25": 1.59,
+        "under25": 2.2
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-D-D-V-N",
+        "wins": 1,
+        "draws": 1,
+        "losses": 3,
+        "goalsFor": 5,
+        "goalsAgainst": 11,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-V-D-N-D",
+        "wins": 1,
+        "draws": 1,
+        "losses": 3,
+        "goalsFor": 1,
+        "goalsAgainst": 9,
+        "bttsRate": 0,
+        "over25Rate": 0.4,
+        "cleanSheets": 2,
+        "failedToScore": 4,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-05",
+          "opponent": "Botafogo-SP",
+          "venue": "A",
+          "score": "0-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "América Mineiro",
+          "venue": "H",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "CRB",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-20",
+          "opponent": "Cuiabá",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-13",
+          "opponent": "Athletic",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-08",
+          "opponent": "CRB",
+          "venue": "H",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Avaí",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-26",
+          "opponent": "Juventude",
+          "venue": "A",
+          "score": "0-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-19",
+          "opponent": "Goiás",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Vila Nova",
+          "venue": "H",
+          "score": "0-2",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 18,
+        "points": 32,
+        "played": 37,
+        "gf": 45,
+        "ga": 58
+      },
+      "standingsAway": {
+        "rank": 15,
+        "points": 46,
+        "played": 37,
+        "gf": 40,
+        "ga": 49
+      },
+      "empiricalBttsRate": 0.3,
+      "empiricalOver25Rate": 0.6,
+      "homeLambda": 0.67,
+      "awayLambda": 0.33,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_key_fact": "Londrina affiche un taux d'Over 2.5 de 80% sur ses derniers matchs à domicile.",
+      "ai_analysis": "Bien que Náutico montre des difficultés offensives loin de ses bases, le taux d'Over 2.5 à domicile de Londrina atteint 80% et l'échantillon global présente 60% de matchs avec plus de 2.5 buts. La cote de 1.59 suggère une tendance favorable, mais la faiblesse offensive de Náutico impose la prudence.",
+      "ai_analysis_en": "Although Náutico shows offensive struggles away from home, Londrina's home Over 2.5 rate reaches 80% and the overall sample shows 60% over matches. The odds of 1.59 suggest a favorable trend, but Náutico's low scoring average calls for caution.",
+      "ai_form_summary": "Londrina : 1V-1D-3L (5 BP, 11 BC). Náutico : 1V-1D-3L (1 BP, 9 BC).",
+      "ai_form_summary_en": "Londrina: 1W-1D-3L (5 GF, 11 GA). Náutico: 1W-1D-3L (1 GF, 9 GA).",
+      "ai_reasons": [
+        "Le taux empirique d'Over 2.5 est de 60% sur les échantillons récents.",
+        "Londrina présente un taux d'Over 2.5 à domicile de 80% malgré des difficultés offensives.",
+        "La cote de 1.59 indique une attente de buts du marché."
+      ],
+      "ai_risks": [
+        "Faible moyenne de buts marqués par Náutico à l'extérieur (0.33).",
+        "Taux BTTS empirique faible à 30%."
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 58,
+          "proba": 0.58,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "over25Prob": 0.58
+        }
+      ],
+      "over25Prob": 0.58,
+      "prediction": "Oui",
+      "proba": 0.58,
+      "confidence": 58,
+      "status": "PENDING"
+    },
+    {
+      "id": "uzbekist-vs-russia-2026-11-12",
+      "match": "Uzbekistan vs Russia",
+      "home": "Uzbekistan",
+      "away": "Russia",
+      "league": "International Friendly",
+      "date": "2026-11-12",
+      "type": "Over 2.5",
+      "time": "15:00",
+      "matchSemantic": "uzbekist-vs-russia-2026-11-12",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/uzb.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/rus.png",
+      "tier": "SILVER",
+      "reliabilityScore": 64.75,
+      "dataQuality": "MEDIUM",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 7,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 3,
+      "xgAway": 0,
+      "xgTotal": 3,
+      "formBTTS": 40,
+      "analysis": "Uzbekistan : forme D-V-V-D-D (2V 0N 3D, 8 buts marqués / 8 encaissés sur 5) · Russia : forme N-V-V-V-V (4V 1N 0D, 17 buts marqués / 3 encaissés sur 5). Stats empiriques (forme récente) : buts moy. 3, BTTS 40.0%, Over 2.5 70.0%. Affinage AI ensuite. Fiabilité 64.75%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.4,
+        "empiricalOver25Rate": 0.7,
+        "homeLambda": 3,
+        "awayLambda": 0,
+        "xgTotal": 3
+      },
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "D-V-V-D-D",
+        "wins": 2,
+        "draws": 0,
+        "losses": 3,
+        "goalsFor": 8,
+        "goalsAgainst": 8,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 0,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-V-V-V-V",
+        "wins": 4,
+        "draws": 1,
+        "losses": 0,
+        "goalsFor": 17,
+        "goalsAgainst": 3,
+        "bttsRate": 0.2,
+        "over25Rate": 0.8,
+        "cleanSheets": 4,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-06",
+          "opponent": "South Korea",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-01",
+          "opponent": "Syria",
+          "venue": "H",
+          "score": "4-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-24",
+          "opponent": "Iran",
+          "venue": "H",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-06-08",
+          "opponent": "Netherlands",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-06-02",
+          "opponent": "Canada",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-06",
+          "opponent": "Nigeria",
+          "venue": "H",
+          "score": "3-3",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-03",
+          "opponent": "Namibia",
+          "venue": "H",
+          "score": "6-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-29",
+          "opponent": "Iran",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-06-09",
+          "opponent": "Trinidad and Tobago",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-06-05",
+          "opponent": "Burkina Faso",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        }
+      ],
+      "standingsHome": null,
+      "standingsAway": null,
+      "empiricalBttsRate": 0.4,
+      "empiricalOver25Rate": 0.7,
+      "homeLambda": 3,
+      "awayLambda": 0,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_key_fact": "La Russie totalise 17 buts marqués pour seulement 3 encaissés lors de ses cinq dernières rencontres.",
+      "ai_analysis": "L'analyse des statistiques observées met en avant un taux Over 2.5 solide fixé à 70%. Bien que la défense russe se montre hermétique, sa puissance offensive récente (17 buts) et l'historique des matchs de l'équipe visiteuse (80% d'Over 2.5) soutiennent une tendance favorable aux buts dans cette confrontation amicale.",
+      "ai_analysis_en": "Analysis of the observed statistics highlights a strong empirical Over 2.5 rate of 70%. Although the Russian defense has been solid, their recent offensive power (17 goals) and the away team's match history (80% Over 2.5) support a goal-friendly trend for this friendly fixture.",
+      "ai_form_summary": "Ouzbékistan : 2V-0D-3D, 8 buts pour, 8 buts contre. Russie : 4V-1D-0D, 17 buts pour, 3 buts contre.",
+      "ai_form_summary_en": "Uzbekistan: 2W-0D-3L, 8 goals for, 8 against. Russia: 4W-1D-0L, 17 goals for, 3 against.",
+      "ai_reasons": [
+        "Taux Over 2.5 empirique élevé à 70% sur ce match.",
+        "L'échantillon de l'équipe extérieure (Russia) affiche un taux Over 2.5 de 80%.",
+        "La Russie montre une attaque prolifique avec 17 buts inscrits sur ses 5 derniers matchs."
+      ],
+      "ai_risks": [
+        "Le taux empirique BTTS de l'Ouzbékistan est modéré à 40%.",
+        "La défense extérieure russe n'a concédé que 3 buts sur ses 5 derniers matchs."
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 65,
+          "proba": 0.65,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "over25Prob": 0.65
+        }
+      ],
+      "over25Prob": 0.65,
+      "prediction": "Oui",
+      "proba": 0.65,
+      "confidence": 65,
+      "status": "PENDING"
+    },
+    {
+      "id": "cdplaten-vs-atletico-2026-11-15",
+      "match": "C.D. Platense vs Atletico Balboa",
+      "home": "C.D. Platense",
+      "away": "Atletico Balboa",
+      "league": "Salvadoran Primera Division",
+      "date": "2026-11-15",
+      "type": "BTTS",
+      "time": "21:00",
+      "matchSemantic": "cdplaten-vs-atletico-2026-11-15",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21092.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7369.png",
+      "tier": "GOLD",
+      "reliabilityScore": 85,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1,
+      "xgAway": 2.25,
+      "xgTotal": 3.25,
+      "formBTTS": 60,
+      "analysis": "C.D. Platense : forme D-D-N-N-V (1V 2N 2D, 5 buts marqués / 7 encaissés sur 5) · Atletico Balboa : forme V-V-V-N-D (3V 1N 1D, 9 buts marqués / 7 encaissés sur 5). Classement : C.D. Platense 6e (27 pts), Atletico Balboa 10e (20 pts). Stats empiriques (forme récente) : buts moy. 3.25, BTTS 60.0%, Over 2.5 50.0%. Affinage AI ensuite. Fiabilité 85%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.6,
+        "empiricalOver25Rate": 0.5,
+        "homeLambda": 1,
+        "awayLambda": 2.25,
+        "xgTotal": 3.25
+      },
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "D-D-N-N-V",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 5,
+        "goalsAgainst": 7,
+        "bttsRate": 0.6,
+        "over25Rate": 0.4,
+        "cleanSheets": 1,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-V-N-D",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 9,
+        "goalsAgainst": 7,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-11",
+          "opponent": "Isidro Metapán",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Cacahuatique",
+          "venue": "H",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Internacional Santa Tecla",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Luis Ángel Firpo",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "CD FAS",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-08",
+          "opponent": "CD Municipal Limeño",
+          "venue": "A",
+          "score": "4-3",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Alianza FC",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Fuerte San Francisco",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Águila",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "CD FAS",
+          "venue": "H",
+          "score": "0-1",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 6,
+        "points": 27,
+        "played": 20,
+        "gf": 26,
+        "ga": 24
+      },
+      "standingsAway": {
+        "rank": 10,
+        "points": 20,
+        "played": 19,
+        "gf": 21,
+        "ga": 31
+      },
+      "empiricalBttsRate": 0.6,
+      "empiricalOver25Rate": 0.5,
+      "homeLambda": 1,
+      "awayLambda": 2.25,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Atletico Balboa tourne à une moyenne de 2.25 buts par match, tandis que Platense encaisse régulièrement (24 buts en 20 matchs).",
+      "ai_analysis": "Les données indiquent un taux BTTS empirique de 60% partagé par les deux formations. Atletico Balboa propose un profil offensif intéressant hors de ses bases avec 2.25 buts de moyenne, compensant l'attaque plus mesurée de C.D. Platense. La défense de Platense (24 buts encaissés) offre des opportunités aux visiteurs, rendant l'option BTTS Yes cohérente.",
+      "ai_analysis_en": "Data indicates an empirical 60% BTTS rate shared by both teams. Atletico Balboa shows a strong away attacking profile with 2.25 goals per game, balancing C.D. Platense's more modest attack. Platense's defense (24 goals conceded) provides opportunities for visitors, making the BTTS Yes option consistent.",
+      "ai_form_summary": "C.D. Platense reste sur 1 victoire, 2 nuls et 2 défaites (5 buts pour, 7 buts contre). Atletico Balboa montre de meilleures dispositions avec 3 victoires, 1 nul et 1 défaite (9 buts pour, 7 buts contre).",
+      "ai_form_summary_en": "C.D. Platense recorded 1 win, 2 draws, and 2 losses (5 scored, 7 conceded). Atletico Balboa shows better form with 3 wins, 1 draw, and 1 loss (9 scored, 7 conceded).",
+      "ai_reasons": [
+        "Taux empirique BTTS à 60% pour les deux équipes",
+        "Atletico Balboa affiche une moyenne offensive solide de 2.25 buts à l'extérieur",
+        "C.D. Platense concède un volume défensif notable avec 24 buts encaissés en 20 matchs"
+      ],
+      "ai_risks": [
+        "L'over 2.5 n'est qu'à 50% empiriquement",
+        "C.D. Platense a une moyenne de buts à domicile limitée à 1.0"
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 58,
+          "proba": 0.58,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.58
+        }
+      ],
+      "bttsProb": 0.58,
+      "prediction": "Oui",
+      "proba": 0.58,
+      "confidence": 58,
       "status": "PENDING"
     }
   ],
