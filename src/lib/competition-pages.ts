@@ -112,12 +112,12 @@ export function competitionMeta(slug: string, locale: Locale) {
   const competition = getCompetitionPage(slug)
   if (!competition) return null
   const name = competition.displayName[locale]
-  const title = locale === 'fr' ? `${name} : prochains matchs et sélections Gemini` : locale === 'en' ? `${name}: upcoming matches and Gemini picks` : `${name}: المباريات المقبلة واختيارات Gemini`
-  const description = locale === 'fr' ? `Les prochaines rencontres de ${name} disponibles dans le flux public BTTSPredict, en heure de Dakar. Seules les analyses Gemini validées sont affichées; le calendrier n’est pas exhaustif.` : locale === 'en' ? `Upcoming ${name} matches available in BTTSPredict’s public feed, in Dakar time. Only validated Gemini picks are shown; this is not a complete league schedule.` : `مباريات ${name} المقبلة المتاحة في بيانات BTTSPredict العامة بتوقيت داكار. تُعرض اختيارات Gemini المعتمدة فقط؛ هذا ليس جدولاً كاملاً للبطولة.`
+  const title = locale === 'fr' ? `${name} : prochains matchs et sélections` : locale === 'en' ? `${name}: upcoming matches and picks` : `${name}: المباريات المقبلة والاختيارات`
+  const description = locale === 'fr' ? `Les prochaines rencontres de ${name} disponibles dans le flux public BTTSPredict. Le calendrier n’est pas exhaustif.` : locale === 'en' ? `Upcoming ${name} matches available in BTTSPredict’s public feed. This is not a complete league schedule.` : `مباريات ${name} المقبلة المتاحة في بيانات BTTSPredict العامة؛ هذا ليس جدولاً كاملاً للبطولة.`
   return metadata(`/competitions/${slug}`, locale, title, description)
 }
 export function competitionIndexMeta(locale: Locale) {
   const title = locale === 'fr' ? 'Prochains matchs par compétition' : locale === 'en' ? 'Upcoming football matches by competition' : 'مباريات كرة القدم المقبلة حسب البطولة'
-  const description = locale === 'fr' ? 'Parcours les prochains matchs disponibles dans le flux public BTTSPredict pour onze compétitions. Dates à Dakar, sélections Gemini validées et calendrier ESPN en lien.' : locale === 'en' ? 'Browse upcoming matches in BTTSPredict’s public feed across eleven competitions, with Dakar dates, validated Gemini picks and links to ESPN schedules.' : 'تصفح المباريات المقبلة في بيانات BTTSPredict العامة لإحدى عشرة بطولة، بتوقيت داكار واختيارات Gemini المعتمدة وروابط جداول ESPN.'
+  const description = locale === 'fr' ? 'Parcours les prochains matchs disponibles dans le flux public BTTSPredict pour onze compétitions, avec les dates et les liens vers les calendriers ESPN.' : locale === 'en' ? 'Browse upcoming matches in BTTSPredict’s public feed across eleven competitions, with match dates and links to ESPN schedules.' : 'تصفح المباريات المقبلة في بيانات BTTSPredict العامة لإحدى عشرة بطولة، مع التواريخ وروابط جداول ESPN.'
   return metadata('/competitions', locale, title, description)
 }

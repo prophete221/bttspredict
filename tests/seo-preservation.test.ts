@@ -76,6 +76,9 @@ describe('owner-requested SEO preservation', () => {
       .replace("convertLabel: 'Étape 1 — Consulter le guide Linebet',", "convertLabel: 'Étape 1 — Active ton bonus',")
       .replace("convertLabel: 'Step 1 — View the Linebet guide',", "convertLabel: 'Step 1 — Activate your bonus',")
       .replace("convertLabel: 'الخطوة 1 — عرض دليل Linebet',", "convertLabel: 'الخطوة 1 — فعّل مكافأتك',")
+      .replace("mcKickoff: 'Coup d’envoi', mcTz: 'GMT',", "mcKickoff: 'Coup d’envoi', mcTz: 'GMT · Dakar',")
+      .replace("mcKickoff: 'Kick-off', mcTz: 'GMT',", "mcKickoff: 'Kick-off', mcTz: 'GMT · Dakar',")
+      .replace("mcKickoff: 'انطلاق المباراة', mcTz: 'GMT',", "mcKickoff: 'انطلاق المباراة', mcTz: 'GMT · داكار',")
     const oldNavCopy = "home: 'Accueil', predictions: 'Pronostics', vip: 'VIP'"
     const approvedNavCopy = "home: 'Accueil', predictions: 'Pronos', vip: 'VIP'"
     expect(normalizedPartnerCopy.split(oldNavCopy).length - 1).toBe(1)

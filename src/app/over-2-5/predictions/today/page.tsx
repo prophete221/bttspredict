@@ -10,7 +10,7 @@ const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: (
 const FreePredictions = dynamic(() => import('@/components/bttsbet/FreePredictions'), { loading: () => null })
 
 const TITLE = 'Pronostics Over 2,5 du jour'
-const DESCRIPTION = 'Pronostics Over 2,5 du jour sur des matchs internationaux : sélection statistique, date Africa/Dakar et méthode documentée. 18+.'
+const DESCRIPTION = 'Pronostics Over 2,5 du jour sur des matchs internationaux : sélection statistique, dates de match et méthode documentée. 18+.'
 
 export const metadata: Metadata = {
   title: TITLE,

@@ -570,7 +570,7 @@ export default function FreePredictions({ initialLocale, dayOffset = 0 }: { init
     : lang === 'en' ? "Today's intelligence" : lang === 'ar' ? 'ذكاء اليوم' : 'Intelligence du jour'
   const intelligenceSubtitle = lang === 'en' ? 'Live selections, market signals and match analysis' : lang === 'ar' ? 'اختيارات مباشرة وإشارات السوق وتحليل المباريات' : 'Sélections en direct, signaux de marché et analyse des matchs'
   const fixturesTitle = lang === 'en' ? 'Schedule — fixtures without a pick' : lang === 'ar' ? 'الجدول — مباريات بلا توقع' : 'Calendrier — matchs sans pronostic'
-  const fixturesNote = lang === 'en' ? 'These are scheduled matches only; no Gemini selection has been validated for them.' : lang === 'ar' ? 'هذه مباريات مجدولة فقط؛ لم يتم اعتماد أي اختيار من Gemini لها.' : 'Ce sont des rencontres programmées : aucun pronostic Gemini n’a été validé pour elles.'
+  const fixturesNote = lang === 'en' ? 'These are scheduled matches only; no prediction is available.' : lang === 'ar' ? 'هذه مباريات مجدولة فقط؛ لا يوجد توقع متاح.' : 'Ce sont des rencontres programmées : aucun pronostic n’est disponible.'
   // Seed build-time: le HTML statique contient déjà les matchs (crawlers / IA).
   // Le fetch client rafraîchit ensuite avec le predictions.json live.
   const [matches, setMatches] = useState<MatchData[]>(() => seedMatchesFromBuild(dayOffset))

@@ -34,6 +34,7 @@ describe('rendu des nouvelles pages depuis le flux courant', () => {
     expect(container.textContent).toContain('Bayern Munich')
     expect(container.textContent).toContain('FC Cologne')
     expect(container.textContent).not.toContain(formatCompetitionDate(shiftDate(feedDate, -1), 'fr'))
+    expect(container.textContent).not.toMatch(/Gemini|Dakar|داكار/i)
     expect(vi.mocked(fetch)).toHaveBeenCalledTimes(1)
     expect(vi.mocked(fetch).mock.calls[0][0]).toBe('/predictions.json')
     expect(container.firstElementChild?.getAttribute('dir')).toBe(locale === 'ar' ? 'rtl' : 'ltr')
@@ -45,11 +46,13 @@ describe('rendu des nouvelles pages depuis le flux courant', () => {
     const links = [...container.querySelectorAll('a')].filter(link => link.getAttribute('href')?.startsWith('/competitions/'))
     expect(links).toHaveLength(11)
     expect(container.textContent).toContain(formatCompetitionDate(feedDate, 'fr'))
+    expect(container.textContent).not.toMatch(/Gemini|Dakar|داكار/i)
   })
   it('indique honnêtement une compétition sans pick courant', async () => {
     const { container } = render(<CompetitionPageContent competition={getCompetitionPage('liga-portugal')!} locale="fr" />)
-    await waitFor(() => expect(container.textContent).toContain('Aucune prochaine rencontre avec analyse Gemini validée'))
+    await waitFor(() => expect(container.textContent).toContain('Aucune prochaine rencontre avec pronostic disponible'))
     expect(container.querySelectorAll('.competition-match-card')).toHaveLength(0)
+    expect(container.textContent).not.toMatch(/Gemini|Dakar|داكار/i)
   })
   it('ne remplace pas un feed inaccessible par l’ancien snapshot', async () => {
     vi.stubGlobal('fetch', vi.fn(() => Promise.reject(new Error('network'))))

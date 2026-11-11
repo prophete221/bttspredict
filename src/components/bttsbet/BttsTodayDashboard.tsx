@@ -944,7 +944,7 @@ export default function BttsTodayDashboard({
             {visibleTodayMatches.length === 0 && quickFilter === 'all' && activeFilter === 'all' && liveTodayMatches.length + scheduledTodayMatches.length === 0 && (visibleUpcomingMatches.length > 0 || visibleFixtures.some(fixture => fixture.date === todayDate)) ? (
               <div className="btx-empty">
                 <p className="btx-empty__title">{visibleFixtures.some(fixture => fixture.date === todayDate)
-                  ? lang === 'fr' ? 'Aucun pronostic Gemini validé aujourd’hui' : lang === 'en' ? 'No Gemini-validated pick today' : 'لا يوجد توقع معتمد من Gemini اليوم'
+                  ? lang === 'fr' ? 'Aucun pronostic disponible aujourd’hui' : lang === 'en' ? 'No prediction available today' : 'لا يوجد توقع متاح اليوم'
                   : lang === 'fr' ? 'Aucun match disponible aujourd’hui' : lang === 'en' ? 'No match available today' : 'لا توجد مباريات متاحة اليوم'}</p>
                 <p className="btx-empty__sub">{visibleFixtures.some(fixture => fixture.date === todayDate)
                   ? lang === 'fr' ? 'Les rencontres sans pronostic sont listées séparément plus bas.' : lang === 'en' ? 'Matches without a pick are listed separately below.' : 'تُعرض المباريات بلا توقع في قسم منفصل أدناه.'
@@ -1020,7 +1020,7 @@ export default function BttsTodayDashboard({
                 <span className="btx-count-pill btx-count-pill--muted">{visibleFixtures.length}</span>
               </h3>
               <p className="mb-3 text-xs" style={{ color: C.textSec }}>
-                {lang === 'fr' ? 'Rencontres programmées par ESPN, sans sélection Gemini validée ; aucun pronostic n’est affiché.' : lang === 'en' ? 'ESPN-scheduled matches with no validated Gemini selection; no prediction is shown.' : 'مباريات مجدولة من ESPN بلا اختيار معتمد من Gemini؛ لا يتم عرض أي توقع.'}
+                {lang === 'fr' ? 'Rencontres programmées par ESPN ; aucun pronostic n’est affiché.' : lang === 'en' ? 'ESPN-scheduled matches with no prediction available.' : 'مباريات مجدولة من ESPN؛ لا يتم عرض أي توقع.'}
               </p>
               <div className="btx-grid">
                 {visibleFixtures.map(fixture => (

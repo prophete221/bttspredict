@@ -12,21 +12,21 @@ const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: (
 const COPY = {
   fr: {
     eyebrow: 'Matchs classés par compétition', title: 'Prochains matchs par compétition',
-    intro: 'Parcours les prochaines rencontres disponibles dans le flux public BTTSPredict. Seules les sélections Gemini validées sont reprises.',
+    intro: 'Parcours les prochaines rencontres disponibles dans le flux public BTTSPredict.',
     count: (n: number) => `${n} rencontre${n > 1 ? 's' : ''} à venir`, updated: 'Données publiées le', open: 'Voir les matchs',
     note: 'Ce n’est pas le calendrier exhaustif des ligues. Une compétition sans rencontre disponible est signalée comme telle. Les coups d’envoi passés sont retirés automatiquement.',
     loading: 'Chargement…', error: 'Flux public indisponible', unavailable: 'Date indisponible',
   },
   en: {
     eyebrow: 'Matches grouped by competition', title: 'Upcoming matches by competition',
-    intro: 'Browse upcoming matches available in BTTSPredict’s current public feed. Only validated Gemini picks are included.',
+    intro: 'Browse upcoming matches available in BTTSPredict’s current public feed.',
     count: (n: number) => `${n} upcoming ${n === 1 ? 'match' : 'matches'}`, updated: 'Data published on', open: 'View matches',
     note: 'This is not a complete league schedule. Competitions with no available match are identified honestly. Past kickoffs are removed automatically.',
     loading: 'Loading…', error: 'Public feed unavailable', unavailable: 'Date unavailable',
   },
   ar: {
     eyebrow: 'المباريات حسب البطولة', title: 'المباريات المقبلة حسب البطولة',
-    intro: 'تصفح المباريات المقبلة المتاحة في بيانات BTTSPredict العامة الحالية. تُعرض اختيارات Gemini المعتمدة فقط.',
+    intro: 'تصفح المباريات المقبلة المتاحة في بيانات BTTSPredict العامة الحالية.',
     count: (n: number) => `${n} مباريات مقبلة`, updated: 'نُشرت البيانات في', open: 'عرض المباريات',
     note: 'هذا ليس الجدول الكامل للبطولات. يُوضح عدم توفر مباراة عند غيابها، وتُحذف المباريات التي مر موعدها تلقائياً.',
     loading: 'جار التحميل…', error: 'البيانات العامة غير متاحة', unavailable: 'التاريخ غير متاح',

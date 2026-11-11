@@ -11,25 +11,25 @@ const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: (
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
 const COPY = {
   fr: {
-    eyebrow: 'Prochains matchs · Flux public', subtitle: 'Les prochaines rencontres disponibles sur BTTSPredict pour cette compétition. Les sélections proviennent exclusivement des analyses Gemini validées.',
-    updated: 'Données publiées le', count: (n: number) => `${n} rencontre${n > 1 ? 's' : ''} à venir`, time: 'Heure de Dakar · GMT', scheduled: 'À venir', source: 'Calendrier complet ESPN',
+    eyebrow: 'Prochains matchs · Flux public', subtitle: 'Les prochaines rencontres disponibles sur BTTSPredict pour cette compétition.',
+    updated: 'Données publiées le', count: (n: number) => `${n} rencontre${n > 1 ? 's' : ''} à venir`, time: 'GMT', scheduled: 'À venir', source: 'Calendrier complet ESPN',
     note: 'Cette liste reprend le flux public actuel, pas l’intégralité du calendrier de la ligue. Les coups d’envoi passés et les analyses non validées sont retirés. Aucun pronostic n’est calculé sur cette page.',
     index: 'Toutes les compétitions', center: 'Voir les pronostics', loading: 'Chargement du flux public…', error: 'Le flux public est temporairement indisponible. Aucun ancien calendrier n’est affiché à sa place.',
-    empty: 'Aucune prochaine rencontre avec analyse Gemini validée n’est disponible dans le flux public pour cette compétition. Consulte le calendrier ESPN pour les autres rencontres.', unavailable: 'Date indisponible', yes: 'Oui', no: 'Non',
+    empty: 'Aucune prochaine rencontre avec pronostic disponible dans le flux public pour cette compétition. Consulte le calendrier ESPN pour les autres rencontres.', unavailable: 'Date indisponible', yes: 'Oui', no: 'Non',
   },
   en: {
-    eyebrow: 'Upcoming matches · Public feed', subtitle: 'Upcoming matches available on BTTSPredict for this competition. Picks come exclusively from validated Gemini analyses.',
-    updated: 'Data published on', count: (n: number) => `${n} upcoming ${n === 1 ? 'match' : 'matches'}`, time: 'Dakar time · GMT', scheduled: 'Upcoming', source: 'Full ESPN schedule',
+    eyebrow: 'Upcoming matches · Public feed', subtitle: 'Upcoming matches available on BTTSPredict for this competition.',
+    updated: 'Data published on', count: (n: number) => `${n} upcoming ${n === 1 ? 'match' : 'matches'}`, time: 'GMT', scheduled: 'Upcoming', source: 'Full ESPN schedule',
     note: 'This list reads the current public feed, not the complete league schedule. Past kickoffs and unvalidated analyses are removed. No prediction is calculated on this page.',
     index: 'All competitions', center: 'View predictions', loading: 'Loading the public feed…', error: 'The public feed is temporarily unavailable. No old schedule is displayed in its place.',
-    empty: 'No upcoming match with a validated Gemini analysis is available in the public feed for this competition. See ESPN for other fixtures.', unavailable: 'Date unavailable', yes: 'Yes', no: 'No',
+    empty: 'No upcoming match with a prediction is available in the public feed for this competition. See ESPN for other fixtures.', unavailable: 'Date unavailable', yes: 'Yes', no: 'No',
   },
   ar: {
-    eyebrow: 'المباريات المقبلة · البيانات العامة', subtitle: 'المباريات المقبلة المتاحة على BTTSPredict لهذه البطولة. تأتي الاختيارات حصرياً من تحليلات Gemini المعتمدة.',
-    updated: 'نُشرت البيانات في', count: (n: number) => `${n} مباريات مقبلة`, time: 'توقيت داكار · GMT', scheduled: 'مقبلة', source: 'جدول ESPN الكامل',
+    eyebrow: 'المباريات المقبلة · البيانات العامة', subtitle: 'المباريات المقبلة المتاحة على BTTSPredict لهذه البطولة.',
+    updated: 'نُشرت البيانات في', count: (n: number) => `${n} مباريات مقبلة`, time: 'GMT', scheduled: 'مقبلة', source: 'جدول ESPN الكامل',
     note: 'تعرض القائمة البيانات العامة الحالية وليس الجدول الكامل للبطولة. تُحذف المباريات التي مر موعدها والتحليلات غير المعتمدة. لا تُحسب أي توقعات في هذه الصفحة.',
     index: 'جميع البطولات', center: 'عرض التوقعات', loading: 'جار تحميل البيانات العامة…', error: 'البيانات العامة غير متاحة مؤقتاً. لن يُعرض جدول قديم بدلاً منها.',
-    empty: 'لا توجد مباراة مقبلة بتحليل Gemini معتمد في البيانات العامة لهذه البطولة. راجع ESPN للمباريات الأخرى.', unavailable: 'التاريخ غير متاح', yes: 'نعم', no: 'لا',
+    empty: 'لا توجد مباراة مقبلة مع توقع متاح في البيانات العامة لهذه البطولة. راجع ESPN للمباريات الأخرى.', unavailable: 'التاريخ غير متاح', yes: 'نعم', no: 'لا',
   },
 }
 
@@ -82,7 +82,7 @@ function MatchCard({ match, locale }: { match: CompetitionMatch; locale: Locale 
     <article className="competition-match-card min-w-0 rounded-2xl border p-4 sm:p-5" data-match-date={match.date} data-kickoff={match.kickoffAt} style={{ borderColor: '#223041', background: 'linear-gradient(145deg,#141C25,#10161E)' }}>
       <p className="inline-flex flex-wrap items-center gap-2 text-xs text-[#93A6BA]"><Clock3 size={13} aria-hidden="true" /><time dateTime={match.kickoffAt}>{formatCompetitionDate(match.date, locale)} · {match.time} GMT</time></p>
       <div className="mt-5 grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-2 sm:gap-3"><p className="min-w-0 break-words text-sm sm:text-base font-semibold">{match.home}</p><span className="text-xs text-[#607489]">{locale === 'ar' ? 'ضد' : 'vs'}</span><p className="min-w-0 break-words text-end text-sm sm:text-base font-semibold">{match.away}</p></div>
-      <div className="mt-4 flex flex-wrap gap-2">{match.predictions.map(pick => <span key={pick.market} className="rounded-lg border border-[#304259] px-3 py-2 text-xs text-[#B7D6FF]">Gemini · {pick.type} · {pick.prediction === 'Oui' ? copy.yes : copy.no} · {new Intl.NumberFormat(locale, { style: 'percent', maximumFractionDigits: 0 }).format(pick.proba)}</span>)}</div>
+      <div className="mt-4 flex flex-wrap gap-2">{match.predictions.map(pick => <span key={pick.market} className="rounded-lg border border-[#304259] px-3 py-2 text-xs text-[#B7D6FF]">{pick.type} · {pick.prediction === 'Oui' ? copy.yes : copy.no} · {new Intl.NumberFormat(locale, { style: 'percent', maximumFractionDigits: 0 }).format(pick.proba)}</span>)}</div>
     </article>
   )
 }

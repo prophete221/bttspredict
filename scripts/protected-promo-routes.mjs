@@ -1,7 +1,7 @@
-// Pages promo à conserver strictement telles qu'elles sont déjà publiées.
-// Elles ne font pas partie des onze corrections locales approuvées.
+// Routes promo non autorisées : conserver exactement les hashes déjà publiés.
+// `en/code-promo-linebet-senegal` est l'exception approuvée pour corriger le
+// body copy; title, canonical et keywords restent gelés par les tests SEO.
 export const PRESERVED_PROMO_ROUTE_PREFIXES = Object.freeze([
-  'en/code-promo-linebet-senegal',
   'ar/code-promo-1xbet',
   'en/bonus-888starz',
   'ar/bonus-888starz-btts221',

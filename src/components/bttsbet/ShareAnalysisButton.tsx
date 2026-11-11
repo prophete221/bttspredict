@@ -43,7 +43,7 @@ export default function ShareAnalysisButton(props: ShareAnalysisButtonProps) {
         : 'Analyse statistique uniquement. Aucun résultat n’est garanti. 18+.'
     const text = [
       `${props.home} vs ${props.away} — BTTSPredict`,
-      `${props.league} · ${props.date} · ${props.time} GMT (Dakar)`,
+      `${props.league} · ${props.date} · ${props.time} GMT`,
       ...metrics,
       score,
       disclaimer,

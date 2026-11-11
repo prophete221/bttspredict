@@ -229,7 +229,7 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
               </li>
               <li>
                 <span className="hp-hero__trust-k">{lang === 'en' ? 'Timezone' : lang === 'ar' ? 'التوقيت' : 'Fuseau'}</span>
-                <span className="hp-hero__trust-v">GMT (Dakar)</span>
+                <span className="hp-hero__trust-v">GMT</span>
               </li>
             </ul>
 

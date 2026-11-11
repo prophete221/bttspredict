@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
-import { COMPETITION_PAGES, COMPETITION_SLUGS, competitionMeta, formatCompetitionDate, getCompetitionPage, readCurrentCompetitionFeed } from '@/lib/competition-pages'
+import { COMPETITION_PAGES, COMPETITION_SLUGS, competitionIndexMeta, competitionMeta, formatCompetitionDate, getCompetitionPage, readCurrentCompetitionFeed } from '@/lib/competition-pages'
 import { getGeminiPicks } from '@/lib/gemini-predictions'
 
 const source = JSON.parse(readFileSync('tests/fixtures/competition-feed.json', 'utf8'))
@@ -61,9 +61,30 @@ describe('compétitions alimentées par le flux public courant', () => {
     expect(getGeminiPicks(conflict)).toHaveLength(1)
     expect(readCurrentCompetitionFeed({ free: [realRow, conflict] }, now).matches.bundesliga).toEqual([])
   })
-  it('fournit des métadonnées localisées stables sans compte de matchs périmé', () => {
+  it('préserve canonical et hreflang tout en retirant les mentions techniques des métadonnées', () => {
     for (const locale of ['fr', 'en', 'ar'] as const) {
-      expect(competitionMeta('serie-a', locale)?.alternates.canonical).toBe(`https://bttspredict.com${locale === 'fr' ? '' : `/${locale}`}/competitions/serie-a`)
+      const competition = competitionMeta('serie-a', locale)!
+      const index = competitionIndexMeta(locale)
+      const expectedCompetition = {
+        fr: { title: 'Serie A : prochains matchs et sélections', description: 'Les prochaines rencontres de Serie A disponibles dans le flux public BTTSPredict. Le calendrier n’est pas exhaustif.' },
+        en: { title: 'Serie A: upcoming matches and picks', description: 'Upcoming Serie A matches available in BTTSPredict’s public feed. This is not a complete league schedule.' },
+        ar: { title: 'الدوري الإيطالي: المباريات المقبلة والاختيارات', description: 'مباريات الدوري الإيطالي المقبلة المتاحة في بيانات BTTSPredict العامة؛ هذا ليس جدولاً كاملاً للبطولة.' },
+      }[locale]
+      const expectedIndex = {
+        fr: { title: 'Prochains matchs par compétition', description: 'Parcours les prochains matchs disponibles dans le flux public BTTSPredict pour onze compétitions, avec les dates et les liens vers les calendriers ESPN.' },
+        en: { title: 'Upcoming football matches by competition', description: 'Browse upcoming matches in BTTSPredict’s public feed across eleven competitions, with match dates and links to ESPN schedules.' },
+        ar: { title: 'مباريات كرة القدم المقبلة حسب البطولة', description: 'تصفح المباريات المقبلة في بيانات BTTSPredict العامة لإحدى عشرة بطولة، مع التواريخ وروابط جداول ESPN.' },
+      }[locale]
+      expect(competition.title).toBe(expectedCompetition.title)
+      expect(competition.description).toBe(expectedCompetition.description)
+      expect(index.title).toBe(expectedIndex.title)
+      expect(index.description).toBe(expectedIndex.description)
+      expect(competition.alternates.canonical).toBe(`https://bttspredict.com${locale === 'fr' ? '' : `/${locale}`}/competitions/serie-a`)
+      expect(competition.alternates.languages.fr).toBe('https://bttspredict.com/competitions/serie-a')
+      expect(competition.alternates.languages.en).toBe('https://bttspredict.com/en/competitions/serie-a')
+      expect(competition.alternates.languages.ar).toBe('https://bttspredict.com/ar/competitions/serie-a')
+      expect(competition.alternates.languages['x-default']).toBe('https://bttspredict.com/competitions/serie-a')
+      expect(`${competition.title} ${competition.description} ${index.title} ${index.description}`).not.toMatch(/Gemini|Dakar|داكار/i)
     }
     expect(getCompetitionPage('unknown')).toBeUndefined()
     expect(competitionMeta('unknown', 'fr')).toBeNull()
