@@ -1,0 +1,27 @@
+import { readFileSync } from 'node:fs'
+import { describe, expect, it } from 'vitest'
+
+const component = readFileSync('src/components/bttsbet/MatchCenter.tsx', 'utf8')
+const styles = readFileSync('src/app/globals.css', 'utf8')
+
+describe('homepage Match Center card design', () => {
+  it('shows the Today and Upcoming groups with match status, kickoff, teams and picks', () => {
+    expect(component).toContain('data-match-group="today"')
+    expect(component).toContain('data-match-group="upcoming"')
+    expect(component).toContain('className={`hp-mc-status ${statusClass}`}')
+    expect(component).toContain('className="hp-mc-time-row"')
+    expect(component).toContain('className="hp-mc-team-name"')
+    expect(component).toContain('className="hp-pick__selection"')
+    expect(component).toContain('className="hp-pick__confidence"')
+  })
+
+  it('keeps public verified predictions and limits logo substitutions to approved match slugs', () => {
+    expect(component).toContain("fetch('/predictions.json')")
+    expect(component).toContain('predictions: getGeminiPicks(item)')
+    expect(component).toContain('resolveMatchPageLogos(matchSlug, m)')
+  })
+
+  it('scopes the redesign styles to the home Match Center', () => {
+    expect(styles).toContain('#matchs .hp-mc-card--approved')
+  })
+})

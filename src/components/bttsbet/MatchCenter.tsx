@@ -11,6 +11,7 @@ import ComboBuilder from './ComboBuilder'
 import BookmakerCardLinks from './BookmakerCardLinks'
 import { getGeminiPicks } from '@/lib/gemini-predictions'
 import { groupGeminiItemsByDakarDay, selectUpcomingGeminiItems } from '@/lib/match-center-window'
+import { resolveMatchPageLogos } from '@/lib/matchPageLogos'
 // useLayoutEffect isomorphe (évite le warning SSR React)
 const useIsoLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect
 
@@ -101,7 +102,7 @@ function formatCardDate(dateStr: string, lang: Locale): string {
   try {
     const loc = lang === 'en' ? 'en-GB' : lang === 'ar' ? 'ar' : 'fr-FR'
     const d = new Date(dateStr + 'T12:00:00Z')
-    return new Intl.DateTimeFormat(loc, { weekday: 'short', day: '2-digit', month: '2-digit', timeZone: 'Africa/Dakar' }).format(d)
+    return new Intl.DateTimeFormat(loc, { weekday: 'short', day: 'numeric', month: 'short', timeZone: 'Africa/Dakar' }).format(d)
   } catch { return dateStr }
 }
 
@@ -158,6 +159,7 @@ export default function MatchCenter({ initialLocale, showDayClassificationNote =
     () => groupGeminiItemsByDakarDay(filtered, dakarToday),
     [filtered, dakarToday],
   )
+  const matchWord = lang === 'en' ? 'matches' : lang === 'ar' ? 'مباريات' : 'matchs'
 
   // ═══ Révélation 3D au scroll ═══
   // Gate JS (.mc3d) : sans JS les cartes restent visibles (progressive enhancement).
@@ -272,16 +274,28 @@ export default function MatchCenter({ initialLocale, showDayClassificationNote =
         ) : (
           <div className="hp-mc-grid" ref={filtered.length > 0 ? gridRef : undefined}>
             {todayItems.length > 0 && (
-              <h3 data-match-group="today" className="col-span-full text-sm font-semibold text-[#E7EEF7]" style={{ gridColumn: '1 / -1' }}>
-                {lang === 'en' ? 'Today · Dakar time' : lang === 'ar' ? 'اليوم · توقيت داكار' : 'Aujourd’hui · heure de Dakar'}
+              <h3 data-match-group="today" className="hp-mc-group">
+                <span className="hp-mc-group__marker" aria-hidden="true" />
+                <span className="hp-mc-group__title">
+                  {lang === 'en' ? 'Today' : lang === 'ar' ? 'اليوم' : 'Aujourd’hui'}
+                </span>
+                <span className="hp-mc-group__count">
+                  {todayItems.length} {matchWord}
+                </span>
               </h3>
             )}
             {todayItems.map((m, i) => (
               <MatchCard key={`${m.match}-${m.date}-${m.time}`} m={m} index={i} lang={lang} results={results} nowTs={nowTs} />
             ))}
             {upcomingItems.length > 0 && (
-              <h3 data-match-group="upcoming" className="col-span-full text-sm font-semibold text-[#E7EEF7]" style={{ gridColumn: '1 / -1' }}>
-                {lang === 'en' ? 'Upcoming' : lang === 'ar' ? 'قادمة' : 'À venir'}
+              <h3 data-match-group="upcoming" className="hp-mc-group">
+                <span className="hp-mc-group__marker" aria-hidden="true" />
+                <span className="hp-mc-group__title">
+                  {lang === 'en' ? 'Upcoming' : lang === 'ar' ? 'قادمة' : 'À venir'}
+                </span>
+                <span className="hp-mc-group__count">
+                  {upcomingItems.length} {matchWord}
+                </span>
               </h3>
             )}
             {upcomingItems.map((m, i) => (
@@ -307,11 +321,6 @@ function MatchCard({ m, index, lang, results, nowTs }: {
 }) {
   const t = translationsFor(lang)
   const metricLabels = matchMetricLabels(lang)
-  const cardRef = useRef<HTMLElement | null>(null)
-  const tiltRaf = useRef(0)
-  const tiltPointer = useRef({ x: 0, y: 0 })
-  const tiltCapable = useRef<boolean | null>(null)
-  const diff = dayDiff(m.date)
   const record = results.get(`${m.match}|${m.date}`)
   const isFinished = hasFinalResult(record)
   const hasResult = Boolean(record?.finalScore)
@@ -334,126 +343,82 @@ function MatchCard({ m, index, lang, results, nowTs }: {
   const matchHref = m.home && m.away && m.date
     ? localizedPath(`/match/${generateMatchSlug(m.home, m.away, m.date)}`, lang)
     : ''
+  const matchSlug = m.home && m.away && m.date ? generateMatchSlug(m.home, m.away, m.date) : ''
+  const resolvedLogos = resolveMatchPageLogos(matchSlug, m)
+  const homeLogo = resolvedLogos?.homeLogo ?? m.homeLogo
+  const awayLogo = resolvedLogos?.awayLogo ?? m.awayLogo
+
+  const upcomingLabel = lang === 'en' ? 'UPCOMING' : lang === 'ar' ? 'قادمة' : 'À VENIR'
+  const finishedLabel = lang === 'en' ? 'FINISHED' : lang === 'ar' ? 'منتهية' : 'TERMINÉ'
+  const statusLabel = isFinished
+    ? won ? t.home2.mcWon : lost ? t.home2.mcLost : finishedLabel
+    : matchStatus === 'live'
+      ? KICKOFF_I18N[lang].live
+      : matchStatus === 'finished'
+        ? t.home2.mcVerifying
+        : upcomingLabel
+  const statusClass = isFinished
+    ? won ? 'is-won' : lost ? 'is-lost' : 'is-finished'
+    : matchStatus === 'live'
+      ? 'is-live'
+      : matchStatus === 'finished'
+        ? 'is-review'
+        : 'is-upcoming'
 
   const loc = lang === 'en' ? 'en-GB' : lang === 'ar' ? 'ar' : 'fr-FR'
   const num = (v?: number, digits = 2) =>
     v === undefined ? null : v.toLocaleString(loc, { maximumFractionDigits: digits })
 
-  // ═══ Tilt 3D « motion designer » — la carte pivote doucement sous le curseur ═══
-  // Desktop uniquement (hover:hover + pointer:fine), rAF-throttlé, aucune
-  // re-render React : écriture directe de variables CSS (--rx/--ry/--mx/--my).
-  const tiltEnabled = () => {
-    if (tiltCapable.current === null) {
-      try {
-        tiltCapable.current =
-          typeof window !== 'undefined' &&
-          window.matchMedia('(hover: hover) and (pointer: fine)').matches &&
-          !window.matchMedia('(prefers-reduced-motion: reduce)').matches
-      } catch {
-        tiltCapable.current = false
-      }
-    }
-    return tiltCapable.current
-  }
-
-  const applyTilt = () => {
-    const el = cardRef.current
-    if (!el) return
-    const rect = el.getBoundingClientRect()
-    const px = (tiltPointer.current.x - rect.left) / rect.width - 0.5
-    const py = (tiltPointer.current.y - rect.top) / rect.height - 0.5
-    el.style.setProperty('--ry', `${(px * 9).toFixed(2)}deg`)
-    el.style.setProperty('--rx', `${(-py * 7).toFixed(2)}deg`)
-    el.style.setProperty('--mx', `${((px + 0.5) * 100).toFixed(1)}%`)
-    el.style.setProperty('--my', `${((py + 0.5) * 100).toFixed(1)}%`)
-  }
-
-  const onCardMove = (e: React.MouseEvent) => {
-    if (!tiltEnabled()) return
-    tiltPointer.current = { x: e.clientX, y: e.clientY }
-    if (tiltRaf.current) return
-    tiltRaf.current = requestAnimationFrame(() => {
-      tiltRaf.current = 0
-      applyTilt()
-    })
-  }
-
-  const onCardLeave = () => {
-    if (tiltRaf.current) {
-      cancelAnimationFrame(tiltRaf.current)
-      tiltRaf.current = 0
-    }
-    const el = cardRef.current
-    if (!el) return
-    el.style.setProperty('--rx', '0deg')
-    el.style.setProperty('--ry', '0deg')
-  }
-
-  useEffect(() => () => {
-    if (tiltRaf.current) cancelAnimationFrame(tiltRaf.current)
-  }, [])
-
   return (
     <article
-      ref={cardRef}
       data-match-date={m.date}
       data-match={m.match}
       data-match-league={m.league}
-      className={`hp-mc-card hp-mc-card--refonte${won ? ' is-won' : ''}${lost ? ' is-lost' : ''}${!isFinished ? ' is-pending' : ''}`}
-      onMouseMove={onCardMove}
-      onMouseLeave={onCardLeave}
+      className={`hp-mc-card hp-mc-card--refonte hp-mc-card--approved${won ? ' is-won' : ''}${lost ? ' is-lost' : ''}${!isFinished ? ' is-pending' : ''}`}
       style={{ ['--d' as string]: `${Math.min(index, 6) * 40}ms` }}
     >
-      {/* Ligne 1 : compétition + indicateur temps réel du coup d'envoi */}
+      {/* Compétition et état du match */}
       <div className="hp-mc-top">
         <span className="hp-mc-league">{m.league}</span>
-        {isFinished ? (
-          <span className="hp-mc-when is-finished">{formatCardDate(m.date, lang)}</span>
-        ) : matchStatus === 'live' ? (
-          <span className="hp-mc-when is-live">
-            <span className="hp-live-dot" aria-hidden="true" />
-            {KICKOFF_I18N[lang].live}
-          </span>
-        ) : (
-          <span
-            className="hp-mc-when is-countdown"
-            title={`${t.home2.mcKickoff} : ${m.time || '--:--'} ${t.home2.mcTz}`}
-          >
-            {countdown && (
-              <span className="hp-mc-countdown">
-                {KICKOFF_I18N[lang].startsSoon} {countdown}
-              </span>
-            )}
-            {diff === 1 && <em>{t.home2.mcTomorrow}</em>}
-            {diff > 1 && <em>{formatCardDate(m.date, lang)}</em>}
-          </span>
+        <span
+          className={`hp-mc-status ${statusClass}`}
+          title={countdown && matchStatus !== 'live' && !isFinished ? `${KICKOFF_I18N[lang].startsSoon} ${countdown}` : undefined}
+        >
+          {matchStatus === 'live' && !isFinished && <span className="hp-mc-status__dot" aria-hidden="true" />}
+          {statusLabel}
+        </span>
+      </div>
+
+      {/* Date et heure restent visibles même sur les écrans étroits. */}
+      <div className="hp-mc-time-row">
+        <span className="hp-mc-time-value">{m.time || '--:--'}</span>
+        <span className="hp-mc-time-zone">{t.home2.mcTz}</span>
+        <span className="hp-mc-time-date">{formatCardDate(m.date, lang)}</span>
+        {countdown && matchStatus !== 'live' && !isFinished && (
+          <span className="hp-mc-countdown">{KICKOFF_I18N[lang].startsSoon} {countdown}</span>
         )}
       </div>
 
-      {/* Ligne 2 : équipes */}
+      {/* Écussons et équipes */}
       <div className="hp-mc-teams">
         <div className="hp-mc-team">
-          {m.homeLogo && <img src={m.homeLogo} alt="" width={22} height={22} loading="lazy" />}
-          <span>{m.home}</span>
+          <span className="hp-mc-crest">
+            <span className="hp-mc-crest__fallback" aria-hidden="true">{m.home.slice(0, 1).toUpperCase()}</span>
+            {homeLogo && <img src={homeLogo} alt="" width={44} height={44} loading="lazy" decoding="async" onLoad={event => { event.currentTarget.classList.add('is-loaded'); event.currentTarget.previousElementSibling?.classList.add('is-hidden') }} onError={event => { event.currentTarget.style.display = 'none' }} />}
+          </span>
+          <span className="hp-mc-team-name">{m.home}</span>
         </div>
-        <span className="hp-mc-vs" aria-hidden="true">—</span>
+        <span className="hp-mc-vs" aria-hidden="true">VS</span>
         <div className="hp-mc-team">
-          {m.awayLogo && <img src={m.awayLogo} alt="" width={22} height={22} loading="lazy" />}
-          <span>{m.away}</span>
+          <span className="hp-mc-crest">
+            <span className="hp-mc-crest__fallback" aria-hidden="true">{m.away.slice(0, 1).toUpperCase()}</span>
+            {awayLogo && <img src={awayLogo} alt="" width={44} height={44} loading="lazy" decoding="async" onLoad={event => { event.currentTarget.classList.add('is-loaded'); event.currentTarget.previousElementSibling?.classList.add('is-hidden') }} onError={event => { event.currentTarget.style.display = 'none' }} />}
+          </span>
+          <span className="hp-mc-team-name">{m.away}</span>
         </div>
       </div>
 
-      {/* Statut — terminé (WON/LOST) ou en attente */}
-      {!isFinished && (
-        <div className="hp-mc-result is-pending">
-          <span className="hp-mc-result__badge">
-            {lang === 'en' ? 'PENDING' : lang === 'ar' ? 'قيد الانتظار' : 'EN ATTENTE'}
-          </span>
-          <span className="hp-mc-result__label">
-            {m.time ? `${m.time} GMT` : (lang === 'en' ? 'Kick-off soon' : lang === 'ar' ? 'قريباً' : 'Coup d’envoi bientôt')}
-          </span>
-        </div>
-      )}
+      {/* Résultat final si le match est déjà vérifié */}
       {isFinished && (
         <div className={`hp-mc-result${won ? ' is-won' : ''}${lost ? ' is-lost' : ''}`}>
           {hasResult ? (
@@ -481,12 +446,33 @@ function MatchCard({ m, index, lang, results, nowTs }: {
                   : typeUp.includes('EXACT') || typeUp.includes('CS')
                     ? ' is-exact'
                     : ''
+            const marketShort =
+              typeUp.includes('BTTS') || typeUp.includes('BOTH')
+                ? 'BTTS'
+                : typeUp.includes('OVER') || typeUp.includes('2.5') || typeUp.includes('O2.5')
+                  ? 'O2.5'
+                  : p.type
+            const selectionLabel = p.prediction === 'Oui'
+              ? t.predictions.bttsYes
+              : p.prediction === 'Non'
+                ? t.predictions.bttsNo
+                : p.prediction
             return (
-              <span key={p.type} className={`hp-pick${marketClass}`}>
-                <b>{p.type}</b>
-                <span>{p.prediction === 'Oui' ? t.predictions.bttsYes : p.prediction === 'Non' ? t.predictions.bttsNo : p.prediction}</span>
-                {p.confidence !== undefined && p.confidence > 0 && p.confidence <= 100 && <i>{p.confidence}%</i>}
-              </span>
+              <div key={p.type} className={`hp-pick${marketClass}`}>
+                <span className="hp-pick__mark" aria-hidden="true">{marketShort}</span>
+                <span className="hp-pick__copy">
+                  <span className="hp-pick__label">
+                    {lang === 'en' ? 'PICK' : lang === 'ar' ? 'توقع' : 'PRONOSTIC'} · {p.type}
+                  </span>
+                  <span className="hp-pick__selection">{selectionLabel}</span>
+                </span>
+                {p.confidence !== undefined && p.confidence > 0 && p.confidence <= 100 && (
+                  <span className="hp-pick__confidence">
+                    <strong>{p.confidence}%</strong>
+                    <small>{lang === 'en' ? 'confidence' : lang === 'ar' ? 'الثقة' : 'confiance'}</small>
+                  </span>
+                )}
+              </div>
             )
           })}
         </div>
