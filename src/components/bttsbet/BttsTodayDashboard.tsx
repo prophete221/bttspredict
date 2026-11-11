@@ -35,12 +35,11 @@ import { generateMatchSlug } from '@/lib/match-slug'
 import { useLanguage } from './LanguageSwitcher'
 import { translationsFor, type Locale, localizedPath } from '@/lib/i18n'
 import { getDakarDateString, getDakarMatchStatus, getDakarDayDiff } from '@/lib/dakar-date'
+import { buildBttsTodayDashboardData, type BttsTodayDashboardData, type BttsTodayMatchData as MatchData, type BttsTodayScheduleFixture as ScheduleFixture } from '@/lib/btts-today-dashboard-data'
 import BookmakerCardLinks from './BookmakerCardLinks'
 import ShareAnalysisButton from './ShareAnalysisButton'
 import VipMarketTeaser from './VipMarketTeaser'
 import MissingMarketVipLink from './MissingMarketVipLink'
-import { getGeminiPicks, getGeminiProbability, type GeminiPrediction } from '@/lib/gemini-predictions'
-import { selectFixtureOnlyItems, type PublicCalendarItem } from '@/lib/public-calendar'
 
 // ─── Palette (V3 — bleu analyse, sémantique WIN/LOST/PENDING) ────────────────
 const C = {
@@ -59,51 +58,6 @@ const C = {
 }
 
 // ─── Types ──────────────────────────────────────────────────────────────
-interface RawPrediction {
-  match?: string
-  home?: string
-  away?: string
-  league?: string
-  date?: string
-  time?: string
-  homeLogo?: string
-  awayLogo?: string
-  type?: string
-  prediction?: string
-  confidence?: number
-  proba?: number
-  predictions?: unknown[]
-  ai_source?: string
-  ai_abstain?: boolean
-  bttsProb?: number
-  over25Prob?: number
-  homeLambda?: number
-  awayLambda?: number
-  xgHome?: number
-  xgAway?: number
-  xgTotal?: number
-  reliabilityScore?: number
-  dataSource?: string
-  dataQuality?: string
-  matchCountHome?: number
-  matchCountAway?: number
-  ai_exact_score?: string
-  exact_score_prob?: string
-  ai_btts_view?: string
-  ai_over25_view?: string
-  ai_key_fact?: string
-  ai_analysis?: string
-  ai_form_summary?: string
-  ai_absences?: string
-  ai_odds_insight?: string
-  ai_key_fact_en?: string
-  ai_analysis_en?: string
-  ai_form_summary_en?: string
-  ai_absences_en?: string
-  ai_odds_insight_en?: string
-  odds?: { provider?: string; home?: number | null; draw?: number | null; away?: number | null; over25?: number | null; under25?: number | null } | null
-}
-
 interface DashboardLabels {
   exactScore: string
   source: string
@@ -116,62 +70,11 @@ interface DashboardLabels {
   openMatch: string
 }
 
-interface MatchData {
-  key: string
-  home: string
-  away: string
-  league: string
-  date: string
-  time: string
-  homeLogo?: string
-  awayLogo?: string
-  bttsProb?: number
-  over25Prob?: number
-  aiPicks: GeminiPrediction[]
-  aiSource?: string
-  aiAbstain?: boolean
-  homeLambda?: number
-  awayLambda?: number
-  xgHome?: number
-  xgAway?: number
-  xgTotal?: number
-  reliabilityScore?: number
-  dataSource?: string
-  dataQuality?: string
-  matchCountHome?: number
-  matchCountAway?: number
-  aiExactScore?: string
-  exactScoreProb?: string
-  aiBttsView?: string
-  aiOver25View?: string
-  aiKeyFact?: string
-  aiAnalysis?: string
-  aiFormSummary?: string
-  aiAbsences?: string
-  aiOddsInsight?: string
-  // Traductions anglaises générées par le pipeline (fallback : champ français)
-  aiKeyFactEn?: string
-  aiAnalysisEn?: string
-  aiFormSummaryEn?: string
-  aiAbsencesEn?: string
-  aiOddsInsightEn?: string
-  odds?: { provider?: string; home?: number | null; draw?: number | null; away?: number | null; over25?: number | null; under25?: number | null } | null
-}
-
 type FilterType = 'all' | 'BTTS' | 'O2.5' | 'HIGH' | 'VIP'
 
 type QuickFilter = 'all' | 'today' | 'btts60' | 'over60'
 
 type CardStatus = 'live' | 'scheduled' | 'finished'
-
-interface ScheduleFixture {
-  key: string
-  home: string
-  away: string
-  league: string
-  date: string
-  time: string
-}
 
 // ─── AI Combo of the Day — selection type ───────────────────────────────
 // A ComboPick is a deterministic selection derived ONLY from data already
@@ -222,9 +125,9 @@ function fmtDate(dateStr?: string): string {
   }
 }
 
-function fmtFixtureDate(dateStr: string, locale: Locale): string {
+function fmtFixtureDate(dateStr: string, locale: Locale, now = new Date()): string {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) return dateStr
-  const diff = getDakarDayDiff(dateStr)
+  const diff = getDakarDayDiff(dateStr, now)
   if (diff === 0) return locale === 'en' ? 'Today' : locale === 'ar' ? 'اليوم' : 'Aujourd’hui'
   if (diff === 1) return locale === 'en' ? 'Tomorrow' : locale === 'ar' ? 'غداً' : 'Demain'
   return new Intl.DateTimeFormat(locale === 'en' ? 'en-GB' : locale === 'ar' ? 'ar' : 'fr-FR', {
@@ -261,9 +164,15 @@ function barWidth(p?: number): string {
 
 // ─── useCountUp — compteur animé (reduced-motion aware) ─────────────────
 function useCountUp(target: number, active: boolean, duration = 900): number {
-  const [value, setValue] = useState(0)
+  const [value, setValue] = useState(() => Number.isFinite(target) ? target : 0)
+  const skippedInitialAnimation = useRef(false)
   useEffect(() => {
     if (!active || !Number.isFinite(target)) return
+    if (!skippedInitialAnimation.current) {
+      skippedInitialAnimation.current = true
+      const id = requestAnimationFrame(() => setValue(target))
+      return () => cancelAnimationFrame(id)
+    }
     let reduce = false
     try {
       reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -340,7 +249,7 @@ function ProbBar({ label, value, color, dim, locale, missingMarket }: { label: s
 }
 
 // ─── StatusChip — LIVE pulsant / Terminé / Heure ────────────────────────
-function StatusChip({ status, time, lang, date }: { status: CardStatus; time: string; lang: Locale; date?: string }) {
+function StatusChip({ status, time, lang, date, now }: { status: CardStatus; time: string; lang: Locale; date?: string; now: number }) {
   if (status === 'live') {
     return (
       <span className="btx-status btx-status--live">
@@ -360,7 +269,7 @@ function StatusChip({ status, time, lang, date }: { status: CardStatus; time: st
   // afin qu'une affiche « 19:00 » de demain ne soit pas confondue avec celle du jour.
   let dayLabel = ''
   if (date && /^\d{4}-\d{2}-\d{2}$/.test(date)) {
-    const diff = getDakarDayDiff(date)
+    const diff = getDakarDayDiff(date, new Date(now))
     if (diff === 1) dayLabel = lang === 'fr' ? 'Demain' : lang === 'en' ? 'Tomorrow' : 'غداً'
     else if (diff > 1) {
       try {
@@ -424,7 +333,7 @@ function MatchCard({ match, index, status, lang, labels, now }: {
         {/* ─── TOP : ligue + statut ─── */}
         <div className="btx-card__top">
           <span className="btx-league">{match.league}</span>
-          <StatusChip status={fine} time={match.time} lang={lang} date={match.date} />
+          <StatusChip status={fine} time={match.time} lang={lang} date={match.date} now={now} />
         </div>
 
         {/* ─── TEAMS ─── */}
@@ -675,7 +584,11 @@ function ComboPickRow({ pick, index, lang }: { pick: ComboPick; index: number; l
 }
 
 // ─── Main Component ──────────────────────────────────────────────────────
-export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: Locale } = {}) {
+export default function BttsTodayDashboard({
+  initialLocale,
+  initialDashboard,
+  initialNow,
+}: { initialLocale?: Locale; initialDashboard?: BttsTodayDashboardData; initialNow?: number } = {}) {
   const { lang: detectedLang } = useLanguage()
   // Sur /en|/ar, la locale de l'URL gagne (immunise contre un ancien
   // localStorage 'bttsbet-lang' qui re-franciserait la page).
@@ -687,8 +600,11 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
   useEffect(() => {
     trackAffiliateAction('platform', 'prediction_view', `dashboard:${window.location.pathname}`, { lang })
   }, [lang])
-  const [matches, setMatches] = useState<MatchData[]>([])
-  const [loading, setLoading] = useState(true)
+  const [dashboardData, setDashboardData] = useState<BttsTodayDashboardData>(() => initialDashboard ?? {
+    matches: [], todayMatches: [], upcomingMatches: [], scheduleFixtures: [], generationDate: null,
+  })
+  const { matches, todayMatches, upcomingMatches, scheduleFixtures, generationDate } = dashboardData
+  const [loading, setLoading] = useState(!initialDashboard)
   const [activeFilter, setActiveFilter] = useState<FilterType>('all')
   const [quickFilter, setQuickFilter] = useState<QuickFilter>('all')
   const selectMetric = (metric: QuickFilter) => {
@@ -706,132 +622,23 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
     const frame = window.requestAnimationFrame(() => setActiveFilter('HIGH'))
     return () => window.cancelAnimationFrame(frame)
   }, [])
-  const [generationDate, setGenerationDate] = useState<string | null>(null)
-  const [todayMatches, setTodayMatches] = useState<MatchData[]>([])
-  const [upcomingMatches, setUpcomingMatches] = useState<MatchData[]>([])
-  const [scheduleFixtures, setScheduleFixtures] = useState<ScheduleFixture[]>([])
-  const [now, setNow] = useState<number>(() => Date.now())
+  const [now, setNow] = useState<number>(() => initialNow ?? Date.now())
 
   useEffect(() => {
+    const frame = window.requestAnimationFrame(() => setNow(Date.now()))
     const timer = window.setInterval(() => setNow(Date.now()), 60_000)
-    return () => window.clearInterval(timer)
+    return () => {
+      window.cancelAnimationFrame(frame)
+      window.clearInterval(timer)
+    }
   }, [])
 
   useEffect(() => {
     fetch('/predictions.json')
       .then(r => r.json())
       .then(data => {
-        const raw: RawPrediction[] = data?.free || data?.predictions || []
-        const rawFixtures = Array.isArray(data?.fixtures) ? data.fixtures as PublicCalendarItem[] : []
-        const fixtureRows = selectFixtureOnlyItems(rawFixtures, raw as PublicCalendarItem[], new Date())
-        setScheduleFixtures(fixtureRows.flatMap(fixture => {
-          const home = String(fixture.home || '').trim()
-          const away = String(fixture.away || '').trim()
-          const league = String(fixture.league || '').trim()
-          const date = String(fixture.date || '')
-          if (!home || !away || !league) return []
-          return [{ key: `${date}|${league}|${home}|${away}`, home, away, league, date, time: String(fixture.time || '') }]
-        }))
-        // Today's date in Africa/Dakar (Senegal timezone = UTC+0 / GMT)
-        // Important: do NOT use UTC blindly — use Intl with explicit timezone to ensure
-        // the date matches the site's local day, even if the user's browser uses another TZ.
-        const todayStr = getDakarDateString()
-
-        // Group by match; only authenticated Gemini market rows become picks.
-        const map = new Map<string, MatchData>()
-        for (const p of raw) {
-          const key = p.match || `${p.home || ''} vs ${p.away || ''} ${p.date || ''}`
-          const aiPicks = getGeminiPicks(p)
-          if (aiPicks.length === 0) continue
-          const isGeminiResponse = p.ai_source === 'gemini-stats-v1'
-          if (!map.has(key)) {
-            map.set(key, {
-              key,
-              home: p.home || '',
-              away: p.away || '',
-              league: p.league || '—',
-              date: p.date || '',
-              time: p.time || '--:--',
-              homeLogo: p.homeLogo,
-              awayLogo: p.awayLogo,
-              bttsProb: getGeminiProbability(aiPicks, 'BTTS'),
-              over25Prob: getGeminiProbability(aiPicks, 'O2.5'),
-              aiPicks,
-              aiSource: isGeminiResponse ? p.ai_source : undefined,
-              aiAbstain: p.ai_abstain,
-              homeLambda: p.homeLambda,
-              awayLambda: p.awayLambda,
-              xgHome: p.xgHome,
-              xgAway: p.xgAway,
-              xgTotal: p.xgTotal,
-              reliabilityScore: p.reliabilityScore,
-              dataSource: p.dataSource,
-              dataQuality: p.dataQuality,
-              matchCountHome: p.matchCountHome,
-              matchCountAway: p.matchCountAway,
-              aiExactScore: undefined,
-              exactScoreProb: undefined,
-              aiBttsView: undefined,
-              aiOver25View: undefined,
-              aiKeyFact: isGeminiResponse ? p.ai_key_fact : undefined,
-              aiAnalysis: isGeminiResponse ? p.ai_analysis : undefined,
-              aiFormSummary: isGeminiResponse ? p.ai_form_summary : undefined,
-              aiAbsences: isGeminiResponse ? p.ai_absences : undefined,
-              aiOddsInsight: isGeminiResponse ? p.ai_odds_insight : undefined,
-              aiKeyFactEn: isGeminiResponse ? p.ai_key_fact_en : undefined,
-              aiAnalysisEn: isGeminiResponse ? p.ai_analysis_en : undefined,
-              aiFormSummaryEn: isGeminiResponse ? p.ai_form_summary_en : undefined,
-              aiAbsencesEn: isGeminiResponse ? p.ai_absences_en : undefined,
-              aiOddsInsightEn: isGeminiResponse ? p.ai_odds_insight_en : undefined,
-              odds: p.odds || null,
-            })
-          } else {
-            // Merge only Gemini markets from sibling rows; local rate fields are ignored.
-            const existing = map.get(key)!
-            for (const pick of aiPicks) {
-              if (!existing.aiPicks.some(current => current.market === pick.market)) existing.aiPicks.push(pick)
-            }
-            existing.bttsProb = getGeminiProbability(existing.aiPicks, 'BTTS')
-            existing.over25Prob = getGeminiProbability(existing.aiPicks, 'O2.5')
-            if (!existing.aiSource && isGeminiResponse) existing.aiSource = p.ai_source
-            if (existing.aiAbstain !== false) existing.aiAbstain = p.ai_abstain
-            if (existing.homeLambda == null && p.homeLambda != null) existing.homeLambda = p.homeLambda
-            if (existing.awayLambda == null && p.awayLambda != null) existing.awayLambda = p.awayLambda
-            if (existing.reliabilityScore == null && p.reliabilityScore != null) existing.reliabilityScore = p.reliabilityScore
-            if (existing.dataSource == null && p.dataSource != null) existing.dataSource = p.dataSource
-            if (existing.dataQuality == null && p.dataQuality != null) existing.dataQuality = p.dataQuality
-            if (existing.matchCountHome == null && p.matchCountHome != null) existing.matchCountHome = p.matchCountHome
-            if (existing.matchCountAway == null && p.matchCountAway != null) existing.matchCountAway = p.matchCountAway
-            if (isGeminiResponse && existing.aiKeyFact == null && p.ai_key_fact != null) existing.aiKeyFact = p.ai_key_fact
-            if (isGeminiResponse && existing.aiAnalysis == null && p.ai_analysis != null) existing.aiAnalysis = p.ai_analysis
-            if (isGeminiResponse && existing.aiFormSummary == null && p.ai_form_summary != null) existing.aiFormSummary = p.ai_form_summary
-            if (isGeminiResponse && existing.aiAbsences == null && p.ai_absences != null) existing.aiAbsences = p.ai_absences
-            if (isGeminiResponse && existing.aiOddsInsight == null && p.ai_odds_insight != null) existing.aiOddsInsight = p.ai_odds_insight
-            if (isGeminiResponse && existing.aiKeyFactEn == null && p.ai_key_fact_en != null) existing.aiKeyFactEn = p.ai_key_fact_en
-            if (isGeminiResponse && existing.aiAnalysisEn == null && p.ai_analysis_en != null) existing.aiAnalysisEn = p.ai_analysis_en
-            if (isGeminiResponse && existing.aiFormSummaryEn == null && p.ai_form_summary_en != null) existing.aiFormSummaryEn = p.ai_form_summary_en
-            if (isGeminiResponse && existing.aiAbsencesEn == null && p.ai_absences_en != null) existing.aiAbsencesEn = p.ai_absences_en
-            if (isGeminiResponse && existing.aiOddsInsightEn == null && p.ai_odds_insight_en != null) existing.aiOddsInsightEn = p.ai_odds_insight_en
-            if (existing.odds == null && p.odds != null) existing.odds = p.odds
-          }
-        }
-
-        // Separate today's matches from upcoming matches.
-        // - todayMatches: date === todayStr (real today matches, Africa/Dakar)
-        // - upcomingMatches: date > todayStr (kept for the "À venir" section)
-        // We never show past matches (date < todayStr).
-        const all = [...map.values()]
-          .filter(m => m.date >= todayStr)
-          .sort((a, b) => {
-            const da = `${a.date}T${a.time || '23:59'}`
-            const db = `${b.date}T${b.time || '23:59'}`
-            return da.localeCompare(db)
-          })
-
-        setMatches(all)
-        setTodayMatches(all.filter(m => m.date === todayStr))
-        setUpcomingMatches(all.filter(m => m.date > todayStr))
-        if (typeof data?.date === 'string' && data.date.length > 0) setGenerationDate(data.date)
+        // Replace the complete snapshot; never append it to the server-rendered rows.
+        setDashboardData(buildBttsTodayDashboardData(data, new Date()))
         setLoading(false)
       })
       .catch(() => setLoading(false))
@@ -1250,7 +1057,7 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
                     <p style={{ color: C.text, fontWeight: 800 }}>{fixture.home} <span style={{ color: C.textSec }}>vs</span> {fixture.away}</p>
                     <p className="mt-1 text-xs" style={{ color: C.textSec }}>{fixture.league}</p>
                     <time className="mt-2 block text-xs" style={{ color: C.textMute }} dateTime={fixture.time ? `${fixture.date}T${fixture.time}` : fixture.date}>
-                      {fmtFixtureDate(fixture.date, lang)}{fixture.time ? ` · ${fixture.time}` : ''}
+                      {fmtFixtureDate(fixture.date, lang, new Date(now))}{fixture.time ? ` · ${fixture.time}` : ''}
                     </time>
                   </article>
                 ))}
