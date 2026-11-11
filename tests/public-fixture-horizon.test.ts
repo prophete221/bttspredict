@@ -9,7 +9,7 @@ import {
 } from '../scripts/quick-update-predictions.mjs'
 
 describe('public ESPN fixture horizon', () => {
-  test('includes confirmed lower-division and international competitions in the collection map', () => {
+  test('includes confirmed lower-division, international and women’s calendar competitions', () => {
     expect(ESPN_SLUGS).toMatchObject({
       'eng.3': 'English League One',
       'eng.4': 'English League Two',
@@ -21,6 +21,16 @@ describe('public ESPN fixture horizon', () => {
       'ksa.1': 'Saudi Pro League',
       'jpn.1': 'Japanese J.League',
       'ind.2': 'Indian Football League',
+      'fifa.friendly': 'International Friendly',
+      'uefa.wchampions': "UEFA Women's Champions League",
+      'eng.w.league_cup': 'English WSL Players Cup',
+      'fra.w.1': 'French Première Ligue',
+      'uefa.w.europa': "UEFA Women's Europa Cup",
+      'club.friendly': 'Club Friendly',
+      'eng.trophy': 'English EFL Trophy',
+      'bol.copa': 'Copa Bolivia',
+      'slv.1': 'Salvadoran Primera Division',
+      'afc.saff.championship': 'SAFF Championship',
     })
   })
 

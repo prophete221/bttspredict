@@ -71,6 +71,17 @@ export const ESPN_SLUGS = {
   'ksa.1': 'Saudi Pro League',
   'jpn.1': 'Japanese J.League',
   'ind.2': 'Indian Football League',
+  // Couverture calendrier : amicaux, compétitions féminines et clubs moins suivis.
+  'fifa.friendly': 'International Friendly',
+  'uefa.wchampions': "UEFA Women's Champions League",
+  'eng.w.league_cup': 'English WSL Players Cup',
+  'fra.w.1': 'French Première Ligue',
+  'uefa.w.europa': "UEFA Women's Europa Cup",
+  'club.friendly': 'Club Friendly',
+  'eng.trophy': 'English EFL Trophy',
+  'bol.copa': 'Copa Bolivia',
+  'slv.1': 'Salvadoran Primera Division',
+  'afc.saff.championship': 'SAFF Championship',
 }
 
 // ─── Helpers ───
