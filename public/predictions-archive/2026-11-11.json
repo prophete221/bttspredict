@@ -7686,7 +7686,8 @@
       "bttsProb": 0.58,
       "prediction": "Oui",
       "proba": 0.58,
-      "confidence": 58
+      "confidence": 58,
+      "status": "PENDING"
     },
     {
       "id": "londrina-vs-nutico-2026-11-11",
@@ -8060,7 +8061,8 @@
       "over25Prob": 0.65,
       "prediction": "Oui",
       "proba": 0.65,
-      "confidence": 65
+      "confidence": 65,
+      "status": "PENDING"
     },
     {
       "id": "cdplaten-vs-atletico-2026-11-15",
@@ -8249,7 +8251,731 @@
       "bttsProb": 0.58,
       "prediction": "Oui",
       "proba": 0.58,
-      "confidence": 58
+      "confidence": 58,
+      "status": "PENDING"
+    },
+    {
+      "id": "fcfleury-vs-toulouse-2026-11-11",
+      "match": "FC Fleury 91 vs Toulouse",
+      "home": "FC Fleury 91",
+      "away": "Toulouse",
+      "league": "French Première Ligue",
+      "date": "2026-11-11",
+      "type": "Over 2.5",
+      "time": "16:00",
+      "matchSemantic": "fcfleury-vs-toulouse-2026-11-11",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21637.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/131876.png",
+      "tier": "SILVER",
+      "reliabilityScore": 71.63,
+      "dataQuality": "MEDIUM",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 7,
+      "matchCountAway": 7,
+      "h2hAvailable": false,
+      "xgHome": 1.33,
+      "xgAway": 1,
+      "xgTotal": 2.33,
+      "formBTTS": 70,
+      "analysis": "FC Fleury 91 : forme V-N-N-D-V (2V 2N 1D, 8 buts marqués / 7 encaissés sur 5) · Toulouse : forme N-V-D-D-N (1V 2N 2D, 6 buts marqués / 13 encaissés sur 5). Classement : FC Fleury 91 6e (9 pts), Toulouse 10e (5 pts). Stats empiriques (forme récente) : buts moy. 2.33, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.56 / N: 4 / 2: 5.5 · Over 2.5: 1.71. Fiabilité 71.63%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.7,
+        "empiricalOver25Rate": 0.7,
+        "homeLambda": 1.33,
+        "awayLambda": 1,
+        "xgTotal": 2.33
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.56,
+        "draw": 4,
+        "away": 5.5,
+        "over25": 1.71,
+        "under25": 2
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "V-N-N-D-V",
+        "wins": 2,
+        "draws": 2,
+        "losses": 1,
+        "goalsFor": 8,
+        "goalsAgainst": 7,
+        "bttsRate": 0.8,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-V-D-D-N",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 6,
+        "goalsAgainst": 13,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-07",
+          "opponent": "Strasbourg",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Lens",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Marseille",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-04",
+          "opponent": "Paris Saint-Germain",
+          "venue": "H",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Saint-Malo",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-06",
+          "opponent": "Nantes",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Saint-Malo",
+          "venue": "H",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Paris FC",
+          "venue": "H",
+          "score": "0-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-03",
+          "opponent": "OL Lyonnes",
+          "venue": "A",
+          "score": "0-5",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Lens",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 6,
+        "points": 9,
+        "played": 7,
+        "gf": 10,
+        "ga": 15
+      },
+      "standingsAway": {
+        "rank": 10,
+        "points": 5,
+        "played": 7,
+        "gf": 8,
+        "ga": 20
+      },
+      "empiricalBttsRate": 0.7,
+      "empiricalOver25Rate": 0.7,
+      "homeLambda": 1.33,
+      "awayLambda": 1,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_key_fact": "Le taux empirique Over 2.5 atteint 70% avec des dynamiques récentes portées sur le score des deux côtés.",
+      "ai_analysis": "Les données statistiques montrent des tendances nettes vers le jeu offensif, avec un taux empirique Over 2.5 établi à 70%. Toulouse montre une propension marquée pour les matchs ouverts (80% d'Over 2.5 récents), bien que plombée par 13 buts encaissés sur ses 5 dernières rencontres. FC Fleury 91 complète ce profil avec 60% d'Over 2.5 récents et une moyenne de 1.33 buts marqués. Le pari Over 2.5 apparaît donc cohérent.",
+      "ai_analysis_en": "Statistical data show clear trends toward attacking play, with an empirical Over 2.5 rate set at 70%. Toulouse shows a marked propensity for open matches (80% recent Over 2.5), although hampered by 13 goals conceded in their last 5 fixtures. FC Fleury 91 completes this profile with 60% recent Over 2.5 and an average of 1.33 goals scored. The Over 2.5 bet therefore appears consistent.",
+      "ai_form_summary": "FC Fleury 91 (2W-2D-1L, 8 BP / 7 BC) contre Toulouse (1W-2D-2L, 6 BP / 13 BC)",
+      "ai_form_summary_en": "FC Fleury 91 (2W-2D-1L, 8 GF / 7 GA) vs Toulouse (1W-2D-2L, 6 GF / 13 GA)",
+      "ai_reasons": [
+        "Le taux empirique Over 2.5 est de 70% pour cette confrontation.",
+        "Toulouse présente un taux Over 2.5 de 80% sur ses 5 derniers matchs.",
+        "FC Fleury 91 affiche un taux Over 2.5 de 60% sur ses 5 derniers matchs."
+      ],
+      "ai_risks": [
+        "Toulouse possède une défense très perméable (13 buts encaissés sur 5 matchs) qui peut fausser l'équilibre.",
+        "Les moyennes de buts de la saison (1.33 pour Fleury, 1 pour Toulouse) sont légèrement modérées."
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 65,
+          "proba": 0.65,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "over25Prob": 0.65
+        }
+      ],
+      "over25Prob": 0.65,
+      "prediction": "Oui",
+      "proba": 0.65,
+      "confidence": 65
+    },
+    {
+      "id": "borussia-vs-standard-2026-11-12",
+      "match": "Borussia Mönchengladbach vs Standard Liege",
+      "home": "Borussia Mönchengladbach",
+      "away": "Standard Liege",
+      "league": "Club Friendly",
+      "date": "2026-11-12",
+      "type": "BTTS",
+      "time": "13:00",
+      "matchSemantic": "borussia-vs-standard-2026-11-12",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/268.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/559.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.75,
+      "xgAway": 1.5,
+      "xgTotal": 3.25,
+      "formBTTS": 70,
+      "analysis": "Borussia Mönchengladbach : forme D-N-V-D-D (1V 1N 3D, 6 buts marqués / 9 encaissés sur 5) · Standard Liege : forme V-N-D-D-D (1V 1N 3D, 6 buts marqués / 6 encaissés sur 5). Stats empiriques (forme récente) : buts moy. 3.25, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Fiabilité 89.38%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.7,
+        "empiricalOver25Rate": 0.7,
+        "homeLambda": 1.75,
+        "awayLambda": 1.5,
+        "xgTotal": 3.25
+      },
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "D-N-V-D-D",
+        "wins": 1,
+        "draws": 1,
+        "losses": 3,
+        "goalsFor": 6,
+        "goalsAgainst": 9,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-N-D-D-D",
+        "wins": 1,
+        "draws": 1,
+        "losses": 3,
+        "goalsFor": 6,
+        "goalsAgainst": 6,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-06",
+          "opponent": "Hamburg SV",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "SC Paderborn 07",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "VfB Stuttgart",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "TSG Hoffenheim",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "FC Cologne",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-06",
+          "opponent": "Waasland-Beveren",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "KV Kortrijk",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Racing Genk",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Royal Charleroi SC",
+          "venue": "H",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-18",
+          "opponent": "KAA Gent",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        }
+      ],
+      "standingsHome": null,
+      "standingsAway": null,
+      "empiricalBttsRate": 0.7,
+      "empiricalOver25Rate": 0.7,
+      "homeLambda": 1.75,
+      "awayLambda": 1.5,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Le match amical affiche un taux empirique de BTTS de 70% et un Over 2.5 à 70%.",
+      "ai_analysis": "Bien qu'il s'agisse d'un match amical, les statistiques observées démontrent des bases offensives et défensives propices aux buts de part et d'autre. Le Borussia Mönchengladbach présente un taux BTTS de 80% sur ses 5 derniers matchs, tandis que le taux empirique global s'établit à 70%. Les moyennes de buts par match de chaque équipe soutiennent également cette sélection.",
+      "ai_analysis_en": "Although this is a friendly match, observed statistics demonstrate offensive and defensive bases conducive to goals from both sides. Borussia Mönchengladbach shows an 80% BTTS rate over its last 5 matches, while the overall empirical rate stands at 70%. Each team's goals-per-game averages also support this selection.",
+      "ai_form_summary": "Borussia Mönchengladbach : 1V-1D-3L, 6 buts pour, 9 contre, 80% BTTS. Standard Liege : 1V-1D-3L, 6 buts pour, 6 contre, 60% BTTS.",
+      "ai_form_summary_en": "Borussia Mönchengladbach: 1W-1L-3D, 6 GF, 9 GA, 80% BTTS. Standard Liege: 1W-1L-3D, 6 GF, 6 GA, 60% BTTS.",
+      "ai_reasons": [
+        "Taux empirique BTTS de 70% basé sur les données récentes.",
+        "L'équipe à domicile enregistre un taux de BTTS de 80% sur ses 5 derniers matchs.",
+        "Moyennes de buts correctes avec 1.75 pour le Borussia Mönchengladbach et 1.5 pour Standard Liege."
+      ],
+      "ai_risks": [
+        "Il s'agit d'un match amical (Club Friendly), ce qui peut introduire de l'imprévisibilité dans les compositions et l'intensité.",
+        "L'équipe extérieure a un taux BTTS légèrement inférieur à 60% sur sa forme récente."
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 65,
+          "proba": 0.65,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.65
+        }
+      ],
+      "bttsProb": 0.65,
+      "prediction": "Oui",
+      "proba": 0.65,
+      "confidence": 65
+    },
+    {
+      "id": "atletico-vs-incaarub-2026-11-12",
+      "match": "Atletico Balboa vs Inca Aruba",
+      "home": "Atletico Balboa",
+      "away": "Inca Aruba",
+      "league": "Salvadoran Primera Division",
+      "date": "2026-11-12",
+      "type": "BTTS",
+      "time": "21:30",
+      "matchSemantic": "atletico-vs-incaarub-2026-11-12",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7369.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/132480.png",
+      "tier": "SILVER",
+      "reliabilityScore": 68.13,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 0.75,
+      "xgAway": 0.5,
+      "xgTotal": 1.25,
+      "formBTTS": 50,
+      "analysis": "Atletico Balboa : forme V-V-V-N-D (3V 1N 1D, 9 buts marqués / 7 encaissés sur 5) · Inca Aruba : forme N-D-D-D-D (0V 1N 4D, 2 buts marqués / 10 encaissés sur 5). Classement : Atletico Balboa 10e (20 pts), Inca Aruba 11e (17 pts). Stats empiriques (forme récente) : buts moy. 1.25, BTTS 50.0%, Over 2.5 40.0%. Affinage AI ensuite. Fiabilité 68.13%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.5,
+        "empiricalOver25Rate": 0.4,
+        "homeLambda": 0.75,
+        "awayLambda": 0.5,
+        "xgTotal": 1.25
+      },
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "V-V-V-N-D",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 9,
+        "goalsAgainst": 7,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-D-D-D-D",
+        "wins": 0,
+        "draws": 1,
+        "losses": 4,
+        "goalsFor": 2,
+        "goalsAgainst": 10,
+        "bttsRate": 0.4,
+        "over25Rate": 0.2,
+        "cleanSheets": 0,
+        "failedToScore": 3,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-08",
+          "opponent": "CD Municipal Limeño",
+          "venue": "A",
+          "score": "4-3",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Alianza FC",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Fuerte San Francisco",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Águila",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "CD FAS",
+          "venue": "H",
+          "score": "0-1",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-07",
+          "opponent": "Isidro Metapán",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Cacahuatique",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Internacional Santa Tecla",
+          "venue": "H",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-16",
+          "opponent": "Luis Ángel Firpo",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "C.D. Platense",
+          "venue": "H",
+          "score": "1-4",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 10,
+        "points": 20,
+        "played": 19,
+        "gf": 21,
+        "ga": 31
+      },
+      "standingsAway": {
+        "rank": 11,
+        "points": 17,
+        "played": 19,
+        "gf": 14,
+        "ga": 33
+      },
+      "empiricalBttsRate": 0.5,
+      "empiricalOver25Rate": 0.4,
+      "homeLambda": 0.75,
+      "awayLambda": 0.5,
+      "statsOnly": true,
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "Inca Aruba n'a inscrit que 2 buts lors de ses 5 derniers matchs.",
+      "ai_analysis": "L'analyse des statistiques montre une faiblesse offensive prononcée des deux côtés, notamment pour Inca Aruba qui tourne à une moyenne de 0.5 but. Les taux empiriques et les moyennes de buts par match ne permettent pas de dégager une tendance fiable pour un pari. Par conséquent, il est préférable de s'abstenir sur cette rencontre.",
+      "ai_analysis_en": "Statistical analysis shows pronounced offensive weakness on both sides, particularly for Inca Aruba with an average of 0.5 goals. Empirical rates and goals per match averages do not reveal a reliable betting trend. Therefore, it is best to abstain from this fixture.",
+      "ai_form_summary": "Atletico Balboa : 3V-1D-1L sur les 5 derniers, 9 buts marqués, 7 encaissés. Inca Aruba : 0V-1D-4L sur les 5 derniers, 2 buts marqués, 10 encaissés.",
+      "ai_form_summary_en": "Atletico Balboa: 3W-1D-1L in last 5, 9 goals scored, 7 conceded. Inca Aruba: 0W-1D-4L in last 5, 2 goals scored, 10 conceded.",
+      "ai_reasons": [
+        "Faible moyenne de buts pour les deux équipes (0.75 pour l'équipe à domicile et 0.5 pour l'extérieur)",
+        "Taux empiriques bas (BTTS à 50% et Over 2.5 à 40%)",
+        "Inca Aruba affiche une mauvaise forme offensive avec seulement 2 buts inscrits sur ses 5 derniers matchs"
+      ],
+      "ai_risks": [
+        "Faible productivité offensive globale pouvant mener à un match stérile",
+        "Difficultés chroniques de l'équipe visiteuse hors de ses bases"
+      ],
+      "ai_confidence": "low",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "abstain"
+    },
+    {
+      "id": "isidrome-vs-luisngel-2026-11-14",
+      "match": "Isidro Metapán vs Luis Ángel Firpo",
+      "home": "Isidro Metapán",
+      "away": "Luis Ángel Firpo",
+      "league": "Salvadoran Primera Division",
+      "date": "2026-11-14",
+      "type": "BTTS",
+      "time": "01:00",
+      "matchSemantic": "isidrome-vs-luisngel-2026-11-14",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7224.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7232.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.25,
+      "xgAway": 1.8,
+      "xgTotal": 4.05,
+      "formBTTS": 70,
+      "analysis": "Isidro Metapán : forme V-N-N-D-N (1V 3N 1D, 4 buts marqués / 4 encaissés sur 5) · Luis Ángel Firpo : forme N-V-V-N-N (2V 3N 0D, 7 buts marqués / 4 encaissés sur 5). Classement : Isidro Metapán 2e (35 pts), Luis Ángel Firpo 1e (40 pts). Stats empiriques (forme récente) : buts moy. 4.05, BTTS 70.0%, Over 2.5 20.0%. Affinage AI ensuite. Fiabilité 89.38%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.7,
+        "empiricalOver25Rate": 0.2,
+        "homeLambda": 2.25,
+        "awayLambda": 1.8,
+        "xgTotal": 4.05
+      },
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "V-N-N-D-N",
+        "wins": 1,
+        "draws": 3,
+        "losses": 1,
+        "goalsFor": 4,
+        "goalsAgainst": 4,
+        "bttsRate": 0.6,
+        "over25Rate": 0.2,
+        "cleanSheets": 1,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-V-V-N-N",
+        "wins": 2,
+        "draws": 3,
+        "losses": 0,
+        "goalsFor": 7,
+        "goalsAgainst": 4,
+        "bttsRate": 0.8,
+        "over25Rate": 0.2,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-11",
+          "opponent": "C.D. Platense",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Inca Aruba",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "CD Municipal Limeño",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Alianza FC",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-22",
+          "opponent": "CD FAS",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-10",
+          "opponent": "Cacahuatique",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-08",
+          "opponent": "Internacional Santa Tecla",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-05",
+          "opponent": "Alianza FC",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "CD FAS",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "C.D. Platense",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 2,
+        "points": 35,
+        "played": 20,
+        "gf": 27,
+        "ga": 21
+      },
+      "standingsAway": {
+        "rank": 1,
+        "points": 40,
+        "played": 20,
+        "gf": 35,
+        "ga": 15
+      },
+      "empiricalBttsRate": 0.7,
+      "empiricalOver25Rate": 0.2,
+      "homeLambda": 2.25,
+      "awayLambda": 1.8,
+      "statsOnly": true,
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "Isidro Metapán et Luis Ángel Firpo affichent tous deux un taux Over 2.5 de seulement 20% sur leurs 5 derniers matchs.",
+      "ai_analysis": "Malgré un taux BTTS empirique de 70%, les taux d'Over 2.5 sont extrêmement bas à 20% tant globalement que sur les 5 derniers matchs des deux formations. Isidro Metapán n'a inscrit que 4 buts lors de ses 5 dernières rencontres, illustrant un manque de tranchant offensif malgré sa solidité. En raison de ces signaux contradictoires entre les deux marchés, la règle d'abstention s'applique.",
+      "ai_analysis_en": "Despite a 70% empirical BTTS rate, Over 2.5 rates are extremely low at 20% both globally and in the teams' last 5 matches. Isidro Metapán scored only 4 goals in their last 5 outings, showing a lack of cutting edge despite solidity. Due to these conflicting signals between markets, abstention is recommended.",
+      "ai_form_summary": "Isidro Metapán : V-N-N-D-N (1W-3D-1L, 4 buts marqués, 4 encaissés). Luis Ángel Firpo : N-V-V-N-N (2W-3D-0L, 7 buts marqués, 4 encaissés).",
+      "ai_form_summary_en": "Isidro Metapán: W-D-D-L-D (1W-3D-1L, 4 goals scored, 4 conceded). Luis Ángel Firpo: D-W-W-D-D (2W-3D-0L, 7 goals scored, 4 conceded).",
+      "ai_reasons": [
+        "Taux empirique Over 2.5 très faible à 20% malgré un taux BTTS à 70%",
+        "Taux over 2.5 de 20% pour les deux équipes sur leurs 5 derniers matchs",
+        "Faibles volumes de buts récents avec 4 buts marqués par Isidro Metapán sur ses 5 derniers matchs"
+      ],
+      "ai_risks": [
+        "Taux BTTS élevé à 70% mais contredit par de faibles taux Over 2.5",
+        "Signaux contradictoires entre le marché des buts des deux équipes et le total global"
+      ],
+      "ai_confidence": "low",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "abstain"
     }
   ],
   "fixtures": [
@@ -16882,6 +17608,733 @@
       "prediction": "Oui",
       "proba": 0.58,
       "confidence": 58,
+      "status": "PENDING"
+    },
+    {
+      "id": "fcfleury-vs-toulouse-2026-11-11",
+      "match": "FC Fleury 91 vs Toulouse",
+      "home": "FC Fleury 91",
+      "away": "Toulouse",
+      "league": "French Première Ligue",
+      "date": "2026-11-11",
+      "type": "Over 2.5",
+      "time": "16:00",
+      "matchSemantic": "fcfleury-vs-toulouse-2026-11-11",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21637.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/131876.png",
+      "tier": "SILVER",
+      "reliabilityScore": 71.63,
+      "dataQuality": "MEDIUM",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 7,
+      "matchCountAway": 7,
+      "h2hAvailable": false,
+      "xgHome": 1.33,
+      "xgAway": 1,
+      "xgTotal": 2.33,
+      "formBTTS": 70,
+      "analysis": "FC Fleury 91 : forme V-N-N-D-V (2V 2N 1D, 8 buts marqués / 7 encaissés sur 5) · Toulouse : forme N-V-D-D-N (1V 2N 2D, 6 buts marqués / 13 encaissés sur 5). Classement : FC Fleury 91 6e (9 pts), Toulouse 10e (5 pts). Stats empiriques (forme récente) : buts moy. 2.33, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.56 / N: 4 / 2: 5.5 · Over 2.5: 1.71. Fiabilité 71.63%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.7,
+        "empiricalOver25Rate": 0.7,
+        "homeLambda": 1.33,
+        "awayLambda": 1,
+        "xgTotal": 2.33
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.56,
+        "draw": 4,
+        "away": 5.5,
+        "over25": 1.71,
+        "under25": 2
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "V-N-N-D-V",
+        "wins": 2,
+        "draws": 2,
+        "losses": 1,
+        "goalsFor": 8,
+        "goalsAgainst": 7,
+        "bttsRate": 0.8,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-V-D-D-N",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 6,
+        "goalsAgainst": 13,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-07",
+          "opponent": "Strasbourg",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Lens",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Marseille",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-04",
+          "opponent": "Paris Saint-Germain",
+          "venue": "H",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Saint-Malo",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-06",
+          "opponent": "Nantes",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Saint-Malo",
+          "venue": "H",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Paris FC",
+          "venue": "H",
+          "score": "0-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-03",
+          "opponent": "OL Lyonnes",
+          "venue": "A",
+          "score": "0-5",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Lens",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 6,
+        "points": 9,
+        "played": 7,
+        "gf": 10,
+        "ga": 15
+      },
+      "standingsAway": {
+        "rank": 10,
+        "points": 5,
+        "played": 7,
+        "gf": 8,
+        "ga": 20
+      },
+      "empiricalBttsRate": 0.7,
+      "empiricalOver25Rate": 0.7,
+      "homeLambda": 1.33,
+      "awayLambda": 1,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_key_fact": "Le taux empirique Over 2.5 atteint 70% avec des dynamiques récentes portées sur le score des deux côtés.",
+      "ai_analysis": "Les données statistiques montrent des tendances nettes vers le jeu offensif, avec un taux empirique Over 2.5 établi à 70%. Toulouse montre une propension marquée pour les matchs ouverts (80% d'Over 2.5 récents), bien que plombée par 13 buts encaissés sur ses 5 dernières rencontres. FC Fleury 91 complète ce profil avec 60% d'Over 2.5 récents et une moyenne de 1.33 buts marqués. Le pari Over 2.5 apparaît donc cohérent.",
+      "ai_analysis_en": "Statistical data show clear trends toward attacking play, with an empirical Over 2.5 rate set at 70%. Toulouse shows a marked propensity for open matches (80% recent Over 2.5), although hampered by 13 goals conceded in their last 5 fixtures. FC Fleury 91 completes this profile with 60% recent Over 2.5 and an average of 1.33 goals scored. The Over 2.5 bet therefore appears consistent.",
+      "ai_form_summary": "FC Fleury 91 (2W-2D-1L, 8 BP / 7 BC) contre Toulouse (1W-2D-2L, 6 BP / 13 BC)",
+      "ai_form_summary_en": "FC Fleury 91 (2W-2D-1L, 8 GF / 7 GA) vs Toulouse (1W-2D-2L, 6 GF / 13 GA)",
+      "ai_reasons": [
+        "Le taux empirique Over 2.5 est de 70% pour cette confrontation.",
+        "Toulouse présente un taux Over 2.5 de 80% sur ses 5 derniers matchs.",
+        "FC Fleury 91 affiche un taux Over 2.5 de 60% sur ses 5 derniers matchs."
+      ],
+      "ai_risks": [
+        "Toulouse possède une défense très perméable (13 buts encaissés sur 5 matchs) qui peut fausser l'équilibre.",
+        "Les moyennes de buts de la saison (1.33 pour Fleury, 1 pour Toulouse) sont légèrement modérées."
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 65,
+          "proba": 0.65,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "over25Prob": 0.65
+        }
+      ],
+      "over25Prob": 0.65,
+      "prediction": "Oui",
+      "proba": 0.65,
+      "confidence": 65,
+      "status": "PENDING"
+    },
+    {
+      "id": "borussia-vs-standard-2026-11-12",
+      "match": "Borussia Mönchengladbach vs Standard Liege",
+      "home": "Borussia Mönchengladbach",
+      "away": "Standard Liege",
+      "league": "Club Friendly",
+      "date": "2026-11-12",
+      "type": "BTTS",
+      "time": "13:00",
+      "matchSemantic": "borussia-vs-standard-2026-11-12",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/268.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/559.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.75,
+      "xgAway": 1.5,
+      "xgTotal": 3.25,
+      "formBTTS": 70,
+      "analysis": "Borussia Mönchengladbach : forme D-N-V-D-D (1V 1N 3D, 6 buts marqués / 9 encaissés sur 5) · Standard Liege : forme V-N-D-D-D (1V 1N 3D, 6 buts marqués / 6 encaissés sur 5). Stats empiriques (forme récente) : buts moy. 3.25, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Fiabilité 89.38%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.7,
+        "empiricalOver25Rate": 0.7,
+        "homeLambda": 1.75,
+        "awayLambda": 1.5,
+        "xgTotal": 3.25
+      },
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "D-N-V-D-D",
+        "wins": 1,
+        "draws": 1,
+        "losses": 3,
+        "goalsFor": 6,
+        "goalsAgainst": 9,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-N-D-D-D",
+        "wins": 1,
+        "draws": 1,
+        "losses": 3,
+        "goalsFor": 6,
+        "goalsAgainst": 6,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-06",
+          "opponent": "Hamburg SV",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "SC Paderborn 07",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "VfB Stuttgart",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "TSG Hoffenheim",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "FC Cologne",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-06",
+          "opponent": "Waasland-Beveren",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "KV Kortrijk",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Racing Genk",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Royal Charleroi SC",
+          "venue": "H",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-18",
+          "opponent": "KAA Gent",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        }
+      ],
+      "standingsHome": null,
+      "standingsAway": null,
+      "empiricalBttsRate": 0.7,
+      "empiricalOver25Rate": 0.7,
+      "homeLambda": 1.75,
+      "awayLambda": 1.5,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Le match amical affiche un taux empirique de BTTS de 70% et un Over 2.5 à 70%.",
+      "ai_analysis": "Bien qu'il s'agisse d'un match amical, les statistiques observées démontrent des bases offensives et défensives propices aux buts de part et d'autre. Le Borussia Mönchengladbach présente un taux BTTS de 80% sur ses 5 derniers matchs, tandis que le taux empirique global s'établit à 70%. Les moyennes de buts par match de chaque équipe soutiennent également cette sélection.",
+      "ai_analysis_en": "Although this is a friendly match, observed statistics demonstrate offensive and defensive bases conducive to goals from both sides. Borussia Mönchengladbach shows an 80% BTTS rate over its last 5 matches, while the overall empirical rate stands at 70%. Each team's goals-per-game averages also support this selection.",
+      "ai_form_summary": "Borussia Mönchengladbach : 1V-1D-3L, 6 buts pour, 9 contre, 80% BTTS. Standard Liege : 1V-1D-3L, 6 buts pour, 6 contre, 60% BTTS.",
+      "ai_form_summary_en": "Borussia Mönchengladbach: 1W-1L-3D, 6 GF, 9 GA, 80% BTTS. Standard Liege: 1W-1L-3D, 6 GF, 6 GA, 60% BTTS.",
+      "ai_reasons": [
+        "Taux empirique BTTS de 70% basé sur les données récentes.",
+        "L'équipe à domicile enregistre un taux de BTTS de 80% sur ses 5 derniers matchs.",
+        "Moyennes de buts correctes avec 1.75 pour le Borussia Mönchengladbach et 1.5 pour Standard Liege."
+      ],
+      "ai_risks": [
+        "Il s'agit d'un match amical (Club Friendly), ce qui peut introduire de l'imprévisibilité dans les compositions et l'intensité.",
+        "L'équipe extérieure a un taux BTTS légèrement inférieur à 60% sur sa forme récente."
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 65,
+          "proba": 0.65,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.65
+        }
+      ],
+      "bttsProb": 0.65,
+      "prediction": "Oui",
+      "proba": 0.65,
+      "confidence": 65,
+      "status": "PENDING"
+    },
+    {
+      "id": "atletico-vs-incaarub-2026-11-12",
+      "match": "Atletico Balboa vs Inca Aruba",
+      "home": "Atletico Balboa",
+      "away": "Inca Aruba",
+      "league": "Salvadoran Primera Division",
+      "date": "2026-11-12",
+      "type": "BTTS",
+      "time": "21:30",
+      "matchSemantic": "atletico-vs-incaarub-2026-11-12",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7369.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/132480.png",
+      "tier": "SILVER",
+      "reliabilityScore": 68.13,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 0.75,
+      "xgAway": 0.5,
+      "xgTotal": 1.25,
+      "formBTTS": 50,
+      "analysis": "Atletico Balboa : forme V-V-V-N-D (3V 1N 1D, 9 buts marqués / 7 encaissés sur 5) · Inca Aruba : forme N-D-D-D-D (0V 1N 4D, 2 buts marqués / 10 encaissés sur 5). Classement : Atletico Balboa 10e (20 pts), Inca Aruba 11e (17 pts). Stats empiriques (forme récente) : buts moy. 1.25, BTTS 50.0%, Over 2.5 40.0%. Affinage AI ensuite. Fiabilité 68.13%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.5,
+        "empiricalOver25Rate": 0.4,
+        "homeLambda": 0.75,
+        "awayLambda": 0.5,
+        "xgTotal": 1.25
+      },
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "V-V-V-N-D",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 9,
+        "goalsAgainst": 7,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-D-D-D-D",
+        "wins": 0,
+        "draws": 1,
+        "losses": 4,
+        "goalsFor": 2,
+        "goalsAgainst": 10,
+        "bttsRate": 0.4,
+        "over25Rate": 0.2,
+        "cleanSheets": 0,
+        "failedToScore": 3,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-08",
+          "opponent": "CD Municipal Limeño",
+          "venue": "A",
+          "score": "4-3",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Alianza FC",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Fuerte San Francisco",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Águila",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "CD FAS",
+          "venue": "H",
+          "score": "0-1",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-07",
+          "opponent": "Isidro Metapán",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Cacahuatique",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Internacional Santa Tecla",
+          "venue": "H",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-16",
+          "opponent": "Luis Ángel Firpo",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "C.D. Platense",
+          "venue": "H",
+          "score": "1-4",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 10,
+        "points": 20,
+        "played": 19,
+        "gf": 21,
+        "ga": 31
+      },
+      "standingsAway": {
+        "rank": 11,
+        "points": 17,
+        "played": 19,
+        "gf": 14,
+        "ga": 33
+      },
+      "empiricalBttsRate": 0.5,
+      "empiricalOver25Rate": 0.4,
+      "homeLambda": 0.75,
+      "awayLambda": 0.5,
+      "statsOnly": true,
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "Inca Aruba n'a inscrit que 2 buts lors de ses 5 derniers matchs.",
+      "ai_analysis": "L'analyse des statistiques montre une faiblesse offensive prononcée des deux côtés, notamment pour Inca Aruba qui tourne à une moyenne de 0.5 but. Les taux empiriques et les moyennes de buts par match ne permettent pas de dégager une tendance fiable pour un pari. Par conséquent, il est préférable de s'abstenir sur cette rencontre.",
+      "ai_analysis_en": "Statistical analysis shows pronounced offensive weakness on both sides, particularly for Inca Aruba with an average of 0.5 goals. Empirical rates and goals per match averages do not reveal a reliable betting trend. Therefore, it is best to abstain from this fixture.",
+      "ai_form_summary": "Atletico Balboa : 3V-1D-1L sur les 5 derniers, 9 buts marqués, 7 encaissés. Inca Aruba : 0V-1D-4L sur les 5 derniers, 2 buts marqués, 10 encaissés.",
+      "ai_form_summary_en": "Atletico Balboa: 3W-1D-1L in last 5, 9 goals scored, 7 conceded. Inca Aruba: 0W-1D-4L in last 5, 2 goals scored, 10 conceded.",
+      "ai_reasons": [
+        "Faible moyenne de buts pour les deux équipes (0.75 pour l'équipe à domicile et 0.5 pour l'extérieur)",
+        "Taux empiriques bas (BTTS à 50% et Over 2.5 à 40%)",
+        "Inca Aruba affiche une mauvaise forme offensive avec seulement 2 buts inscrits sur ses 5 derniers matchs"
+      ],
+      "ai_risks": [
+        "Faible productivité offensive globale pouvant mener à un match stérile",
+        "Difficultés chroniques de l'équipe visiteuse hors de ses bases"
+      ],
+      "ai_confidence": "low",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "abstain",
+      "status": "PENDING"
+    },
+    {
+      "id": "isidrome-vs-luisngel-2026-11-14",
+      "match": "Isidro Metapán vs Luis Ángel Firpo",
+      "home": "Isidro Metapán",
+      "away": "Luis Ángel Firpo",
+      "league": "Salvadoran Primera Division",
+      "date": "2026-11-14",
+      "type": "BTTS",
+      "time": "01:00",
+      "matchSemantic": "isidrome-vs-luisngel-2026-11-14",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7224.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7232.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.25,
+      "xgAway": 1.8,
+      "xgTotal": 4.05,
+      "formBTTS": 70,
+      "analysis": "Isidro Metapán : forme V-N-N-D-N (1V 3N 1D, 4 buts marqués / 4 encaissés sur 5) · Luis Ángel Firpo : forme N-V-V-N-N (2V 3N 0D, 7 buts marqués / 4 encaissés sur 5). Classement : Isidro Metapán 2e (35 pts), Luis Ángel Firpo 1e (40 pts). Stats empiriques (forme récente) : buts moy. 4.05, BTTS 70.0%, Over 2.5 20.0%. Affinage AI ensuite. Fiabilité 89.38%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.7,
+        "empiricalOver25Rate": 0.2,
+        "homeLambda": 2.25,
+        "awayLambda": 1.8,
+        "xgTotal": 4.05
+      },
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "V-N-N-D-N",
+        "wins": 1,
+        "draws": 3,
+        "losses": 1,
+        "goalsFor": 4,
+        "goalsAgainst": 4,
+        "bttsRate": 0.6,
+        "over25Rate": 0.2,
+        "cleanSheets": 1,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-V-V-N-N",
+        "wins": 2,
+        "draws": 3,
+        "losses": 0,
+        "goalsFor": 7,
+        "goalsAgainst": 4,
+        "bttsRate": 0.8,
+        "over25Rate": 0.2,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-11",
+          "opponent": "C.D. Platense",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Inca Aruba",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "CD Municipal Limeño",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Alianza FC",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-22",
+          "opponent": "CD FAS",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-10",
+          "opponent": "Cacahuatique",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-08",
+          "opponent": "Internacional Santa Tecla",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-05",
+          "opponent": "Alianza FC",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "CD FAS",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "C.D. Platense",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 2,
+        "points": 35,
+        "played": 20,
+        "gf": 27,
+        "ga": 21
+      },
+      "standingsAway": {
+        "rank": 1,
+        "points": 40,
+        "played": 20,
+        "gf": 35,
+        "ga": 15
+      },
+      "empiricalBttsRate": 0.7,
+      "empiricalOver25Rate": 0.2,
+      "homeLambda": 2.25,
+      "awayLambda": 1.8,
+      "statsOnly": true,
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "Isidro Metapán et Luis Ángel Firpo affichent tous deux un taux Over 2.5 de seulement 20% sur leurs 5 derniers matchs.",
+      "ai_analysis": "Malgré un taux BTTS empirique de 70%, les taux d'Over 2.5 sont extrêmement bas à 20% tant globalement que sur les 5 derniers matchs des deux formations. Isidro Metapán n'a inscrit que 4 buts lors de ses 5 dernières rencontres, illustrant un manque de tranchant offensif malgré sa solidité. En raison de ces signaux contradictoires entre les deux marchés, la règle d'abstention s'applique.",
+      "ai_analysis_en": "Despite a 70% empirical BTTS rate, Over 2.5 rates are extremely low at 20% both globally and in the teams' last 5 matches. Isidro Metapán scored only 4 goals in their last 5 outings, showing a lack of cutting edge despite solidity. Due to these conflicting signals between markets, abstention is recommended.",
+      "ai_form_summary": "Isidro Metapán : V-N-N-D-N (1W-3D-1L, 4 buts marqués, 4 encaissés). Luis Ángel Firpo : N-V-V-N-N (2W-3D-0L, 7 buts marqués, 4 encaissés).",
+      "ai_form_summary_en": "Isidro Metapán: W-D-D-L-D (1W-3D-1L, 4 goals scored, 4 conceded). Luis Ángel Firpo: D-W-W-D-D (2W-3D-0L, 7 goals scored, 4 conceded).",
+      "ai_reasons": [
+        "Taux empirique Over 2.5 très faible à 20% malgré un taux BTTS à 70%",
+        "Taux over 2.5 de 20% pour les deux équipes sur leurs 5 derniers matchs",
+        "Faibles volumes de buts récents avec 4 buts marqués par Isidro Metapán sur ses 5 derniers matchs"
+      ],
+      "ai_risks": [
+        "Taux BTTS élevé à 70% mais contredit par de faibles taux Over 2.5",
+        "Signaux contradictoires entre le marché des buts des deux équipes et le total global"
+      ],
+      "ai_confidence": "low",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "abstain",
       "status": "PENDING"
     }
   ],
