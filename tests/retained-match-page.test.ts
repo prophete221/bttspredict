@@ -19,9 +19,9 @@ const PROTECTED_SEO_ROUTES = [
     route: '/en/btts-and-over-2-5-predictions-today',
     files: [
       ['src/app/[locale]/btts-and-over-2-5-predictions-today/page.tsx', [
-        "const title = 'BTTS and Over 2.5 Predictions Today'",
-        "const description = 'Searches: “sure btts and over 2.5 today”, “gg over 2.5 prediction” and “prediction btts over 2.5 goals”. No forecast is guaranteed. 18+.'",
-        'alternates: { canonical: url }',
+        "title: 'BTTS and Over 2.5 Predictions Today'",
+        "description: 'Combined BTTS and Over 2.5 predictions for international matches.'",
+        "canonical: 'https://bttspredict.com/en/btts-and-over-2-5-predictions-today'",
         "if (locale === 'ar') return { title: 'توقعات BTTS وأكثر من 2.5 اليوم', description: 'توقعات مجمعة للمباريات الدولية.'",
       ]],
       ['src/components/bttsbet/LocalizedCombinedPredictionsClient.tsx', [
@@ -38,8 +38,7 @@ const PROTECTED_SEO_ROUTES = [
     files: [
       ['src/app/[locale]/page.tsx', [
         "const url = `https://bttspredict.com/${locale}`",
-        "const title = 'BTTS Predictions Today & Over 2.5 Tips'",
-        "const description = 'BTTS predictions today with Over 2.5 tips, goal stats and tracked results. Estimates only; no outcome is guaranteed. 18+.'",
+        "const title = locale === 'ar' ? 'توقعات BTTS اليوم وأكثر من 2.5' : 'BTTS Predictions Today & Over 2.5'",
         'const description = t.hero.subtitle',
         "languages: { fr: 'https://bttspredict.com/', en: 'https://bttspredict.com/en', ar: 'https://bttspredict.com/ar', 'x-default': 'https://bttspredict.com/' }",
         "openGraph: { title, description, url, siteName: 'BTTSPredict', type: 'website', locale: LOCALE_META[locale].htmlLang.replace('-', '_') }",
@@ -58,13 +57,13 @@ const PROTECTED_SEO_ROUTES = [
       ['src/app/[locale]/over-2-5/predictions/today/page.tsx', [
         "const url = `https://bttspredict.com/${locale}/over-2-5/predictions/today`",
         "const title = locale === 'ar' ? 'توقعات Over 2.5 اليوم' : 'Over 2.5 Predictions Today — Goal Analysis'",
-        "description = locale === 'ar' ? 'توقعات أكثر من 2.5 هدف للمباريات الدولية، مع تحليل إحصائي وتحديثات يومية. لا توجد ضمانات للنتائج. 18+.' : 'Over 2.5 predictions today, including the search “gg over 2.5 prediction”. Goal stats and tracked results; no forecast is guaranteed. 18+.'",
+        "description = locale === 'ar' ? 'توقعات أكثر من 2.5 هدف للمباريات الدولية، مع تحليل إحصائي وتحديثات يومية. لا توجد ضمانات للنتائج. 18+.' : 'Over 2.5 goals predictions for international football matches, with statistical analysis and daily updates. No future result is guaranteed. 18+.'",
         "fr: 'https://bttspredict.com/over-2-5/predictions/today'",
         "en: 'https://bttspredict.com/en/over-2-5/predictions/today'",
         "ar: 'https://bttspredict.com/ar/over-2-5/predictions/today'",
         "'x-default': 'https://bttspredict.com/over-2-5/predictions/today'",
         'alternates: { canonical: url, languages:',
-        "title, description, url, siteName: 'BTTSPredict', type: 'website', locale: LOCALE_META[locale].htmlLang,",
+        "openGraph: { title, description, url, siteName: 'BTTSPredict', type: 'website', locale: LOCALE_META[locale].htmlLang }",
         "<AnimatedTitle as=\"h1\" text={isAr ? 'توقعات Over 2.5 اليوم' : 'Over 2.5 Predictions Today'}",
         "Today's Over 2.5 predictions: matches where total goals are expected to exceed 2.5, meaning at least 3 goals. Updated and checked after the match.",
         'مباريات يُتوقع أن يتجاوز فيها إجمالي الأهداف 2.5، أي ثلاثة أهداف على الأقل. يتم التحديث والتحقق من النتائج بعد المباراة.',

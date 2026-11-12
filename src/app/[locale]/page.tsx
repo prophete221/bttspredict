@@ -18,21 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const locale = value as Locale
   const t = translationsFor(locale)
   const url = `https://bttspredict.com/${locale}`
-  if (locale === 'en') {
-    const title = 'BTTS Predictions Today & Over 2.5 Tips'
-    const description = 'BTTS predictions today with Over 2.5 tips, goal stats and tracked results. Estimates only; no outcome is guaranteed. 18+.'
-    return {
-      title,
-      description,
-      alternates: {
-        canonical: url,
-        languages: { fr: 'https://bttspredict.com/', en: 'https://bttspredict.com/en', ar: 'https://bttspredict.com/ar', 'x-default': 'https://bttspredict.com/' },
-      },
-      openGraph: { title, description, url, siteName: 'BTTSPredict', type: 'website', locale: LOCALE_META[locale].htmlLang.replace('-', '_'), images: ['/og-image.png'] },
-      twitter: { card: 'summary_large_image' as const, title, description, images: ['/og-image.png'] },
-    }
-  }
-  const title = 'توقعات BTTS اليوم وأكثر من 2.5'
+  const title = locale === 'ar' ? 'توقعات BTTS اليوم وأكثر من 2.5' : 'BTTS Predictions Today & Over 2.5'
   const description = t.hero.subtitle
   return {
     title,
