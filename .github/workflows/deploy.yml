@@ -605,11 +605,16 @@ jobs:
       - name: Verify all legacy AR URLs before removing static pages
         id: ar-route-check
         if: ${{ success() && steps.ftp-upload.outcome == 'success' && steps.ftp-htaccess.outcome == 'success' }}
+        timeout-minutes: 7
         run: node scripts/verify-ar-match-popup-live.mjs --report=out/ar-match-live-check-before-cleanup.json
+
+      - name: Keep Arabic static files after unresolved route-check transport errors
+        if: ${{ success() && steps.ar-route-check.outcome == 'success' && steps.ar-route-check.outputs.result == 'warning' }}
+        run: echo "::warning::AR live-route verification was inconclusive after bounded retries; Arabic static files remain in place and cleanup was skipped."
 
       - name: Confirm exact AR candidate presence after route check
         id: ar-presence
-        if: ${{ success() && steps.ar-route-check.outcome == 'success' }}
+        if: ${{ success() && steps.ar-route-check.outcome == 'success' && steps.ar-route-check.outputs.result == 'verified' }}
         timeout-minutes: 15
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
@@ -630,7 +635,7 @@ jobs:
 
       - name: Remove exact AR static Match files after the popup is live
         id: ftp-ar-cleanup
-        if: ${{ success() && steps.ar-route-check.outcome == 'success' && steps.ar-presence.outcome == 'success' }}
+        if: ${{ success() && steps.ar-route-check.outcome == 'success' && steps.ar-route-check.outputs.result == 'verified' && steps.ar-presence.outcome == 'success' }}
         timeout-minutes: 15
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
