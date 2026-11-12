@@ -31,6 +31,43 @@ function normalizeMarket(value: unknown): string {
   return market
 }
 
+/** Lower values are higher-priority competitions for the homepage's current-day cards. */
+export function getMatchCenterCompetitionRank(league?: string): number {
+  const normalized = normalizeIdentity(league)
+  if (/\b(?:champions league|world cup|world cup qualifiers?|european championship|nations league|africa cup of nations|afcon|copa america|asian cup|gold cup)\b/.test(normalized)) return 0
+  if (/\b(?:europa league|conference league|europa cup|copa libertadores|copa sudamericana|afc champions league|caf champions league)\b/.test(normalized)) return 1
+  if (/\b(?:international friendly|international match|national team friendly)\b/.test(normalized)) return 2
+  if (/\b(?:premier league|la liga|laliga|bundesliga|serie a|ligue 1|eredivisie|primeira liga|liga portugal|pro league|premiership|major league soccer|mls|brasileirao|saudi pro league|j1 league|k league)\b/.test(normalized)) return 3
+  if (/\b(?:serie b|championship|segunda|division 2|second division|league one|league two|2\. bundesliga)\b/.test(normalized)) return 5
+  if (/\b(?:cup|copa|coppa|knockout)\b/.test(normalized)) return 4
+  if (/\b(?:club friendly|friendly)\b/.test(normalized)) return 6
+  return 4
+}
+
+/** Prioritize today's major fixtures; keep other dates and same-tier games chronological. */
+export function prioritizeMatchCenterItems<T extends MatchCenterWindowItem>(
+  items: readonly T[],
+  today: string,
+): T[] {
+  const timeKey = (value: unknown) => {
+    const time = normalizeIdentity(value)
+    return /^\d{2}:\d{2}$/.test(time) ? time : '99:99'
+  }
+
+  return [...items].sort((a, b) => {
+    const dateOrder = a.date.localeCompare(b.date)
+    if (dateOrder !== 0) return dateOrder
+
+    if (a.date === today && b.date === today) {
+      const priorityOrder = getMatchCenterCompetitionRank(a.league) - getMatchCenterCompetitionRank(b.league)
+      if (priorityOrder !== 0) return priorityOrder
+    }
+
+    return timeKey(a.time).localeCompare(timeKey(b.time)) ||
+      normalizeIdentity(a.match).localeCompare(normalizeIdentity(b.match))
+  })
+}
+
 function isValidCalendarDate(value: string): boolean {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return false
   const parsed = new Date(`${value}T12:00:00.000Z`)

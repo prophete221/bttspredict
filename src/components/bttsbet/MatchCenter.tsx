@@ -10,21 +10,23 @@ import { KICKOFF_I18N } from '@/lib/i18n-extras'
 import ComboBuilder from './ComboBuilder'
 import BookmakerCardLinks from './BookmakerCardLinks'
 import { getGeminiPicks } from '@/lib/gemini-predictions'
-import { groupGeminiItemsByDakarDay, selectUpcomingGeminiItems } from '@/lib/match-center-window'
+import { groupGeminiItemsByDakarDay, prioritizeMatchCenterItems, selectUpcomingGeminiItems } from '@/lib/match-center-window'
 import { resolveMatchPageLogos } from '@/lib/matchPageLogos'
 import { resolveTeamLogoSrc } from '@/lib/teamLogoOverrides'
+import { selectFixtureOnlyItems, type PublicCalendarItem } from '@/lib/public-calendar'
 // useLayoutEffect isomorphe (évite le warning SSR React)
 const useIsoLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect
 
 /**
- * MatchCenter — picks Gemini publics à venir (accueil).
+ * MatchCenter — picks Gemini publics et calendrier du jour (accueil FR/EN).
  *
  * 100% données réelles :
- *  - predictions.json  → tous les picks futurs validés par Gemini (free uniquement)
+ *  - predictions.json  → picks futurs validés par Gemini et fixtures publiques du jour
  *  - win-history.json   → jointure sur matchs terminés (score final, gagné/perdu)
  *
- * Affichage chronologique sans plafond de date. Les dates passées, les doublons
- * et les lignes non validées sont exclus. Aucun badge « sûr »/« immanquable » ;
+ * Les picks sont chronologiques; les matchs du jour sont priorisés par compétition.
+ * Une fixture sans pick reste affichée sans prédiction ni probabilité. Les dates passées,
+ * doublons et lignes non validées sont exclus. Aucun badge « sûr »/« immanquable » ;
  * les pronostics perdants ne sont jamais cachés.
  * Squelettes de chargement, état vide professionnel, colonnes empilées <768px.
  */
@@ -63,6 +65,7 @@ interface FeedItem {
   estimatedCoteOver?: number
   ai_source?: string
   ai_abstain?: boolean
+  isFixtureOnly?: boolean
 }
 
 interface HistoryRecord {
@@ -113,9 +116,13 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
   const t = translationsFor(lang)
 
   const [items, setItems] = useState<FeedItem[]>([])
+  const [fixtureItems, setFixtureItems] = useState<FeedItem[]>([])
   const [results, setResults] = useState<Map<string, HistoryRecord>>(new Map())
   const [loading, setLoading] = useState(true)
   const [dataDate, setDataDate] = useState('')
+  const showPublicFixtures = lang === 'fr' || lang === 'en'
+  const dakarToday = getDakarDateString()
+  const fixtureDay = showPublicFixtures ? dakarToday : ''
   // Horloge partagée du compte à rebours — cadence 30 s, synchronisée sur l'horloge du navigateur.
   // pour l'ensemble des cartes (évite 44 intervalles individuels).
   const [nowTs, setNowTs] = useState<number>(() => Date.now())
@@ -128,11 +135,50 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
       fetch('/win-history.json').then(r => (r.ok ? r.json() : null)).catch(() => null),
     ]).then(([pred, hist]) => {
       if (cancelled) return
-      const raw: FeedItem[] = pred?.free || pred?.predictions || []
-      setItems(Array.isArray(raw) ? raw.map(item => ({
+      const raw: FeedItem[] = Array.isArray(pred?.free) ? pred.free
+        : Array.isArray(pred?.predictions) ? pred.predictions : []
+      const normalizedItems: FeedItem[] = raw.map(item => ({
         ...item,
         predictions: getGeminiPicks(item),
-      })) : [])
+      }))
+      setItems(normalizedItems)
+      if (showPublicFixtures) {
+        const verifiedPickRows: PublicCalendarItem[] = normalizedItems
+          .filter(item => Array.isArray(item.predictions) && item.predictions.length > 0)
+          .map(item => ({
+            date: item.date,
+            home: item.home,
+            away: item.away,
+            league: item.league,
+            match: item.match,
+            predictions: item.predictions,
+          }))
+        const publicFixtures: PublicCalendarItem[] = Array.isArray(pred?.fixtures) ? pred.fixtures : []
+        const todayFixtures = selectFixtureOnlyItems(publicFixtures, verifiedPickRows, new Date(), fixtureDay)
+          .filter(row => row.date === fixtureDay)
+          .flatMap(row => {
+            const fixture = row as PublicCalendarItem & { homeLogo?: unknown; awayLogo?: unknown }
+            const home = String(fixture.home || '').trim()
+            const away = String(fixture.away || '').trim()
+            const league = String(fixture.league || '').trim()
+            if (!home || !away || !league) return []
+            return [{
+              match: String(fixture.match || `${home} vs ${away}`),
+              home,
+              away,
+              league,
+              date: String(fixture.date || ''),
+              time: String(fixture.time || ''),
+              homeLogo: typeof fixture.homeLogo === 'string' ? fixture.homeLogo : undefined,
+              awayLogo: typeof fixture.awayLogo === 'string' ? fixture.awayLogo : undefined,
+              predictions: [],
+              isFixtureOnly: true,
+            }]
+          })
+        setFixtureItems(todayFixtures)
+      } else {
+        setFixtureItems([])
+      }
       if (pred?.lastUpdated) setDataDate(String(pred.lastUpdated).slice(0, 10))
       const map = new Map<string, HistoryRecord>()
       const recs: HistoryRecord[] = hist?.history || []
@@ -141,7 +187,7 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
       setLoading(false)
     })
     return () => { cancelled = true }
-  }, [])
+  }, [fixtureDay, showPublicFixtures])
 
   // Compte à rebours temps réel — cadence 30 s, synchronisée sur l'horloge du navigateur.
   useEffect(() => {
@@ -151,11 +197,14 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
 
   // Tous les picks Gemini à venir restent visibles; la date Dakar retire les
   // matches expirés au passage du jour local, sans limite de dates futures.
-  const dakarToday = getDakarDateString()
-  const filtered = useMemo(
+  const filteredPicks = useMemo(
     () => selectUpcomingGeminiItems(items, dayDiff),
     [items, dakarToday],
   )
+  const filtered = useMemo(() => {
+    if (!showPublicFixtures) return filteredPicks
+    return prioritizeMatchCenterItems([...filteredPicks, ...fixtureItems], dakarToday)
+  }, [filteredPicks, fixtureItems, dakarToday, showPublicFixtures])
   const { today: todayItems, upcoming: upcomingItems } = useMemo(
     () => groupGeminiItemsByDakarDay(filtered, dakarToday),
     [filtered, dakarToday],
@@ -356,6 +405,7 @@ function MatchCard({ m, index, lang, results, nowTs }: {
       data-match-date={m.date}
       data-match={m.match}
       data-match-league={m.league}
+      data-fixture-only={m.isFixtureOnly ? 'true' : undefined}
       className={`hp-mc-card hp-mc-card--refonte hp-mc-card--approved${won ? ' is-won' : ''}${lost ? ' is-lost' : ''}${!isFinished ? ' is-pending' : ''}`}
       style={{ ['--d' as string]: `${Math.min(index, 6) * 40}ms` }}
     >
@@ -459,6 +509,11 @@ function MatchCard({ m, index, lang, results, nowTs }: {
           })}
         </div>
       )}
+      {m.isFixtureOnly && (
+        <p role="note" className="mx-4 mb-3 rounded-lg border border-[#344255] bg-[#141C25] px-3 py-2 text-center text-xs text-[#9DABBB]">
+          {lang === 'en' ? 'Scheduled fixture only — no prediction available.' : 'Match programmé uniquement — aucun pronostic disponible.'}
+        </p>
+      )}
       {/* Ligne 3bis : cotes réelles du marché (gratuit — ESPN/bookmaker) */}
       {m.odds && (m.odds.home || m.odds.away) && (
         <div className="hp-mc-data" title={m.odds.provider ? (lang === 'en' ? `${m.odds.provider} odds` : lang === 'ar' ? `أودز ${m.odds.provider}` : `Cotes ${m.odds.provider}`) : (lang === 'en' ? 'Market odds' : lang === 'ar' ? 'أودز السوق' : 'Cotes marché')}>
@@ -485,7 +540,7 @@ function MatchCard({ m, index, lang, results, nowTs }: {
       <div className="hp-mc-foot">
         <span className="hp-mc-pub">
           <span className="hp-status-dot" aria-hidden="true" />
-          {t.home2.mcPublished}
+          {m.isFixtureOnly ? (lang === 'en' ? 'Scheduled fixture' : 'Match au calendrier') : t.home2.mcPublished}
         </span>
         {matchHref && (
           <a href={matchHref} className="hp-mc-open" data-cta={`mc-open-${index}`}>

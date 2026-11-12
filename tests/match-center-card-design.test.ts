@@ -21,6 +21,15 @@ describe('homepage Match Center card design', () => {
     expect(component).toContain('resolveMatchPageLogos(matchSlug, m)')
   })
 
+  it('adds fixture-only rows on French and English homepages without inventing picks', () => {
+    expect(component).toContain("const showPublicFixtures = lang === 'fr' || lang === 'en'")
+    expect(component).toContain('selectFixtureOnlyItems(publicFixtures, verifiedPickRows, new Date(), fixtureDay)')
+    expect(component).toContain('predictions: [],')
+    expect(component).toContain('isFixtureOnly: true')
+    expect(component).toContain('Scheduled fixture only — no prediction available.')
+    expect(component).toContain("data-fixture-only={m.isFixtureOnly ? 'true' : undefined}")
+  })
+
   it('applies the validated ESPN logo override to both card crests', () => {
     expect(component).toContain("import { resolveTeamLogoSrc } from '@/lib/teamLogoOverrides'")
     expect(component).toContain('const homeLogo = resolveTeamLogoSrc(resolvedLogos?.homeLogo ?? m.homeLogo)')

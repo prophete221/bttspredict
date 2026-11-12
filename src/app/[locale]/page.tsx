@@ -19,8 +19,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const t = translationsFor(locale)
   const url = `https://bttspredict.com/${locale}`
   if (locale === 'en') {
-    const title = 'BTTS & Over 2.5 Tips Today'
-    const description = 'BTTS and Over 2.5 predictions and tips for today’s matches, with goal stats and tracked results. Estimates only; no outcome is guaranteed. 18+.'
+    const title = 'BTTS Predictions Today & Over 2.5 Tips'
+    const description = 'BTTS predictions today with Over 2.5 tips, goal stats and tracked results. Estimates only; no outcome is guaranteed. 18+.'
     return {
       title,
       description,
