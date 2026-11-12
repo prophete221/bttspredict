@@ -9540,7 +9540,9 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-12T17:34:25.579Z"
     },
     {
       "id": "sobernar-vs-athletic-2026-11-12",
@@ -17240,7 +17242,9 @@
       "prediction": "Oui",
       "proba": 0.58,
       "confidence": 58,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-12T17:34:45.104Z"
     },
     {
       "id": "uzbekist-vs-russia-2026-11-12",

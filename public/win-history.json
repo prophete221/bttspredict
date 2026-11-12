@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-11-11T13:34:03.351Z",
+  "generatedAt": "2026-11-12T17:35:57.373Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,12 +15,12 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 555,
-    "won": 442,
-    "lost": 113,
-    "pending": 81,
+    "total": 550,
+    "won": 438,
+    "lost": 112,
+    "pending": 79,
     "unverifiable": 203,
-    "archivedTotal": 839,
+    "archivedTotal": 832,
     "rate": 79.6,
     "gold": {
       "total": 429,
@@ -29,33 +29,26 @@
       "rate": 80.9
     },
     "standard": {
-      "total": 126,
-      "won": 95,
-      "lost": 31,
-      "rate": 75.4
+      "total": 121,
+      "won": 91,
+      "lost": 30,
+      "rate": 75.2
     },
     "byType": {
       "btts": {
-        "total": 458,
-        "won": 372,
-        "lost": 86,
+        "total": 452,
+        "won": 367,
+        "lost": 85,
         "rate": 81.2
       },
       "over25": {
-        "total": 97,
-        "won": 70,
+        "total": 98,
+        "won": 71,
         "lost": 27,
-        "rate": 72.2
+        "rate": 72.4
       }
     },
     "trend14": [
-      {
-        "date": "2026-10-26",
-        "total": 5,
-        "won": 3,
-        "lost": 2,
-        "rate": 60
-      },
       {
         "date": "2026-10-27",
         "total": 5,
@@ -146,15 +139,47 @@
         "won": 22,
         "lost": 17,
         "rate": 56.4
+      },
+      {
+        "date": "2026-11-11",
+        "total": 2,
+        "won": 2,
+        "lost": 0,
+        "rate": 100
       }
     ],
     "period": {
-      "from": "2026-08-14",
-      "to": "2026-11-11",
+      "from": "2026-08-15",
+      "to": "2026-11-12",
       "days": 90
     }
   },
   "history": [
+    {
+      "date": "2026-11-11",
+      "match": "Londrina vs Náutico",
+      "league": "Brazilian Serie B",
+      "market": "over25",
+      "tier": "STANDARD",
+      "proba": 0.58,
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-12T17:34:45.104Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-11",
+      "match": "Londrina vs Náutico",
+      "league": "Brazilian Serie B",
+      "market": "btts",
+      "tier": "STANDARD",
+      "proba": 0.62,
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-12T17:34:25.579Z",
+      "source": "ESPN public"
+    },
     {
       "date": "2026-11-08",
       "match": "Atlético Madrid vs Barcelona",
@@ -6620,32 +6645,6 @@
       "status": "WON",
       "finalScore": "3-2",
       "verifiedAt": "2026-08-23T04:36:56.498Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-08-23",
-      "match": "San Jose Earthquakes vs Minnesota United FC",
-      "league": "MLS",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.6546,
-      "status": "WON",
-      "finalScore": "1-5",
-      "verifiedAt": "2026-08-23T04:36:56.498Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-08-23",
-      "match": "Austin FC vs Philadelphia Union",
-      "league": "MLS",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.8714,
-      "status": "WON",
-      "finalScore": "1-1",
-      "verifiedAt": "2026-08-23T04:36:56.497Z",
       "source": "ESPN public",
       "prediction": "Oui"
     }

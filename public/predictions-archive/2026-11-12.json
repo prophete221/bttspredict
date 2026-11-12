@@ -1,0 +1,2958 @@
+{
+  "date": "2026-11-12",
+  "lastUpdated": "2026-11-12T17:21:43.708Z",
+  "source": "ESPN + TheSportsDB",
+  "free": [
+    {
+      "id": "sobernar-vs-athletic-2026-11-12",
+      "match": "São Bernardo vs Athletic",
+      "home": "São Bernardo",
+      "away": "Athletic",
+      "league": "Brazilian Serie B",
+      "date": "2026-11-12",
+      "type": "BTTS",
+      "time": "23:00",
+      "matchSemantic": "sobernar-vs-athletic-2026-11-12",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/11268.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20851.png",
+      "tier": "GOLD",
+      "reliabilityScore": 84.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2,
+      "xgAway": 0.75,
+      "xgTotal": 2.75,
+      "formBTTS": 70,
+      "analysis": "São Bernardo : forme D-V-V-D-N (2V 1N 2D, 8 buts marqués / 8 encaissés sur 5) · Athletic : forme D-V-D-N-N (1V 2N 2D, 6 buts marqués / 7 encaissés sur 5). Classement : São Bernardo 11e (52 pts), Athletic 14e (47 pts). Stats empiriques (forme récente) : buts moy. 2.75, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.91 / N: 3.45 / 2: 3.8 · Over 2.5: 1.91. Fiabilité 84.38%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.7,
+        "empiricalOver25Rate": 0.7,
+        "homeLambda": 2,
+        "awayLambda": 0.75,
+        "xgTotal": 2.75
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.91,
+        "draw": 3.45,
+        "away": 3.8,
+        "over25": 1.91,
+        "under25": 1.8
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-V-V-D-N",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 8,
+        "goalsAgainst": 8,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-V-D-N-N",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 6,
+        "goalsAgainst": 7,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-07",
+          "opponent": "Avaí",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Cuiabá",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Vila Nova",
+          "venue": "H",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Criciúma",
+          "venue": "H",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Juventude",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-08",
+          "opponent": "Atlético Goianiense",
+          "venue": "H",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-02",
+          "opponent": "Ceará",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Operário PR",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Avaí",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-13",
+          "opponent": "Londrina",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 11,
+        "points": 52,
+        "played": 37,
+        "gf": 52,
+        "ga": 42
+      },
+      "standingsAway": {
+        "rank": 14,
+        "points": 47,
+        "played": 37,
+        "gf": 44,
+        "ga": 44
+      },
+      "empiricalBttsRate": 0.7,
+      "empiricalOver25Rate": 0.7,
+      "homeLambda": 2,
+      "awayLambda": 0.75,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "São Bernardo possède un taux de BTTS de 80% sur ses derniers matchs avec 8 buts marqués et 8 encaissés.",
+      "ai_analysis": "Les statistiques observées soutiennent clairement une option BTTS Yes avec un taux empirique de 70% et un taux de 80% pour São Bernardo. Malgré une moyenne extérieure modérée pour Athletic, la dynamique des deux équipes penche vers des matchs ouverts.",
+      "ai_analysis_en": "Observed statistics clearly support a BTTS Yes selection with a 70% empirical rate and an 80% rate for São Bernardo. Despite Athletic's moderate away scoring average, the overall dynamics point toward open matches.",
+      "ai_form_summary": "São Bernardo : 2V-1D-2L (8 BP, 8 BC). Athletic : 1V-2D-2L (6 BP, 7 BC).",
+      "ai_form_summary_en": "São Bernardo: 2W-1D-2L (8 GF, 8 GA). Athletic: 1W-2D-2L (6 GF, 7 GA).",
+      "ai_reasons": [
+        "Le taux empirique BTTS s'élève à 70% pour cette affiche.",
+        "São Bernardo enregistre un taux BTTS de 80% sur ses 5 derniers matchs.",
+        "Le formBTTS atteint 70% selon les données récentes."
+      ],
+      "ai_risks": [
+        "La moyenne de buts à l'extérieur d'Athletic reste limitée à 0.75.",
+        "L'historique récent montre une alternance de résultats mitigés (2W-1D-2L pour São Bernardo)."
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 65,
+          "proba": 0.65,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.65
+        }
+      ],
+      "bttsProb": 0.65,
+      "prediction": "Oui",
+      "proba": 0.65,
+      "confidence": 65,
+      "status": "PENDING"
+    },
+    {
+      "id": "pontepre-vs-operriop-2026-11-12",
+      "match": "Ponte Preta vs Operário PR",
+      "home": "Ponte Preta",
+      "away": "Operário PR",
+      "league": "Brazilian Serie B",
+      "date": "2026-11-12",
+      "type": "BTTS",
+      "time": "22:00",
+      "matchSemantic": "pontepre-vs-operriop-2026-11-12",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3459.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18187.png",
+      "tier": "SILVER",
+      "reliabilityScore": 68.13,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1,
+      "xgAway": 0.33,
+      "xgTotal": 1.33,
+      "formBTTS": 50,
+      "analysis": "Ponte Preta : forme D-D-N-N-D (0V 2N 3D, 4 buts marqués / 11 encaissés sur 5) · Operário PR : forme V-D-V-D-D (2V 0N 3D, 5 buts marqués / 7 encaissés sur 5). Classement : Ponte Preta 20e (15 pts), Operário PR 10e (54 pts). Stats empiriques (forme récente) : buts moy. 1.33, BTTS 50.0%, Over 2.5 40.0%. Affinage AI ensuite. Cotes DraftKings — 1: 4.6 / N: 4.1 / 2: 1.67 · Over 2.5: 1.71. Fiabilité 68.13%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.5,
+        "empiricalOver25Rate": 0.4,
+        "homeLambda": 1,
+        "awayLambda": 0.33,
+        "xgTotal": 1.33
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 4.6,
+        "draw": 4.1,
+        "away": 1.67,
+        "over25": 1.71,
+        "under25": 2.05
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-D-N-N-D",
+        "wins": 0,
+        "draws": 2,
+        "losses": 3,
+        "goalsFor": 4,
+        "goalsAgainst": 11,
+        "bttsRate": 0.6,
+        "over25Rate": 0.4,
+        "cleanSheets": 0,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-D-V-D-D",
+        "wins": 2,
+        "draws": 0,
+        "losses": 3,
+        "goalsFor": 5,
+        "goalsAgainst": 7,
+        "bttsRate": 0.4,
+        "over25Rate": 0.4,
+        "cleanSheets": 1,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-08",
+          "opponent": "Goiás",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-30",
+          "opponent": "Criciúma",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Fortaleza",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-16",
+          "opponent": "Atlético Goianiense",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-12",
+          "opponent": "Novorizontino",
+          "venue": "A",
+          "score": "1-5",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-06",
+          "opponent": "Sport",
+          "venue": "H",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Novorizontino",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Athletic",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "América Mineiro",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Goiás",
+          "venue": "H",
+          "score": "0-2",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 20,
+        "points": 15,
+        "played": 37,
+        "gf": 21,
+        "ga": 79
+      },
+      "standingsAway": {
+        "rank": 10,
+        "points": 54,
+        "played": 37,
+        "gf": 49,
+        "ga": 50
+      },
+      "empiricalBttsRate": 0.5,
+      "empiricalOver25Rate": 0.4,
+      "homeLambda": 1,
+      "awayLambda": 0.33,
+      "statsOnly": true,
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "Ponte Preta possède la pire défense avec 79 buts encaissés en 37 matchs.",
+      "ai_analysis": "Malgré la fragilité défensive chronique de Ponte Preta, les taux empiriques de buts restent modérés avec des pourcentages d'Over 2.5 et de BTTS sous les seuils de confiance optimale. La faible production offensive des locaux incite à la prudence et justifie une abstention sur ce marché.",
+      "ai_analysis_en": "Despite Ponte Preta's chronic defensive fragility, empirical goal rates remain moderate with Over 2.5 and BTTS percentages below optimal confidence thresholds. The low offensive output from the home side calls for caution and justifies abstaining on this market.",
+      "ai_form_summary": "Ponte Preta (0V-2N-3L) enchaîne les difficultés offensives, tandis qu'Operário PR (2V-0N-3L) affiche des stats de buts mitigées.",
+      "ai_form_summary_en": "Ponte Preta (0W-2D-3L) struggles offensively, while Operário PR (2W-0D-3L) shows mixed goal statistics.",
+      "ai_reasons": [
+        "Faible production offensive récente de Ponte Preta (4 buts en 5 matchs).",
+        "Taux Over 2.5 de Ponte Preta à 40% et Operário PR à 40%."
+      ],
+      "ai_risks": [
+        "Ponte Preta en grande difficulté (0V-2N-3L) avec une défense poreuse (11 buts encaissés récemment).",
+        "Ecart important au classement entre les deux équipes."
+      ],
+      "ai_confidence": "low",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "abstain",
+      "status": "PENDING"
+    },
+    {
+      "id": "nantes-vs-lens-2026-11-13",
+      "match": "Nantes vs Lens",
+      "home": "Nantes",
+      "away": "Lens",
+      "league": "French Première Ligue",
+      "date": "2026-11-13",
+      "type": "BTTS",
+      "time": "18:00",
+      "matchSemantic": "nantes-vs-lens-2026-11-13",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22328.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/131297.png",
+      "tier": "GOLD",
+      "reliabilityScore": 80.63,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.5,
+      "xgAway": 0.67,
+      "xgTotal": 2.17,
+      "formBTTS": 70,
+      "analysis": "Nantes : forme N-D-V-V-N (2V 2N 1D, 7 buts marqués / 5 encaissés sur 5) · Lens : forme D-N-N-D-D (0V 2N 3D, 4 buts marqués / 15 encaissés sur 5). Classement : Nantes 5e (9 pts), Lens 12e (3 pts). Stats empiriques (forme récente) : buts moy. 2.17, BTTS 70.0%, Over 2.5 40.0%. Affinage AI ensuite. Fiabilité 80.63%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.7,
+        "empiricalOver25Rate": 0.4,
+        "homeLambda": 1.5,
+        "awayLambda": 0.67,
+        "xgTotal": 2.17
+      },
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "N-D-V-V-N",
+        "wins": 2,
+        "draws": 2,
+        "losses": 1,
+        "goalsFor": 7,
+        "goalsAgainst": 5,
+        "bttsRate": 0.6,
+        "over25Rate": 0.2,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-N-N-D-D",
+        "wins": 0,
+        "draws": 2,
+        "losses": 3,
+        "goalsFor": 4,
+        "goalsAgainst": 15,
+        "bttsRate": 0.8,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-06",
+          "opponent": "Toulouse",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-30",
+          "opponent": "Marseille",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Strasbourg",
+          "venue": "H",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Saint-Malo",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-03",
+          "opponent": "Montpellier",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-07",
+          "opponent": "OL Lyonnes",
+          "venue": "H",
+          "score": "1-7",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "FC Fleury 91",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Le Havre AC",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Strasbourg",
+          "venue": "H",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-03",
+          "opponent": "Paris FC",
+          "venue": "A",
+          "score": "1-4",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 5,
+        "points": 9,
+        "played": 8,
+        "gf": 8,
+        "ga": 9
+      },
+      "standingsAway": {
+        "rank": 12,
+        "points": 3,
+        "played": 8,
+        "gf": 7,
+        "ga": 21
+      },
+      "empiricalBttsRate": 0.7,
+      "empiricalOver25Rate": 0.4,
+      "homeLambda": 1.5,
+      "awayLambda": 0.67,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Lens a encaissé 15 buts sur ses 5 derniers matchs, ce qui soutient fortement l'option BTTS Yes.",
+      "ai_analysis": "Malgré une moyenne de buts à l'extérieur de Lens assez faible, les statistiques récentes montrent une défense lensoise en grande difficulté avec 15 buts encaissés sur les 5 derniers matchs. Nantes présente un taux BTTS de 60% et un taux empirique global de 70%, ce qui rend l'option 'Yes' crédible au vu des failles défensives adverses.",
+      "ai_analysis_en": "Despite a relatively low away scoring average for Lens, recent stats show a struggling defense with 15 goals conceded in their last 5 matches. Nantes holds a 60% BTTS rate and an overall empirical rate of 70%, making the 'Yes' selection credible given the opponent's defensive vulnerabilities.",
+      "ai_form_summary": "Nantes : 2V-2D-1N, 7 buts pour, 5 contre. Lens : 0V-2D-3L, 4 buts pour, 15 contre.",
+      "ai_form_summary_en": "Nantes: 2W-2D-1L, 7 goals for, 5 against. Lens: 0W-2D-3L, 4 goals for, 15 against.",
+      "ai_reasons": [
+        "Le taux empirique global de BTTS est de 70% sur l'ensemble des échantillons.",
+        "Nantes affiche un taux BTTS de 60% sur ses 5 derniers matchs.",
+        "Lens présente une défense très perméable avec 15 buts encaissés sur ses 5 derniers matchs et 80% de taux BTTS."
+      ],
+      "ai_risks": [
+        "Nantes a un taux d'Over 2.5 faible (20%) malgré ses buts concédés récents.",
+        "La moyenne de buts à l'extérieur de Lens est limitée à 0.67."
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 65,
+          "proba": 0.65,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.65
+        }
+      ],
+      "bttsProb": 0.65,
+      "prediction": "Oui",
+      "proba": 0.65,
+      "confidence": 65,
+      "status": "PENDING"
+    },
+    {
+      "id": "argentin-vs-uruguay-2026-11-13",
+      "match": "Argentina vs Uruguay",
+      "home": "Argentina",
+      "away": "Uruguay",
+      "league": "International Friendly",
+      "date": "2026-11-13",
+      "type": "Over 2.5",
+      "time": "23:00",
+      "matchSemantic": "argentin-vs-uruguay-2026-11-13",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/arg.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/uru.png",
+      "tier": "SILVER",
+      "reliabilityScore": 67.25,
+      "dataQuality": "MEDIUM",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 7,
+      "matchCountAway": 5,
+      "h2hAvailable": false,
+      "xgHome": 3.71,
+      "xgAway": 2.4,
+      "xgTotal": 6.11,
+      "formBTTS": 40,
+      "analysis": "Argentina : forme V-V-V-V-V (5V 0N 0D, 19 buts marqués / 0 encaissés sur 5) · Uruguay : forme V-V-D-N-N (2V 2N 1D, 12 buts marqués / 6 encaissés sur 5). Stats empiriques (forme récente) : buts moy. 6.11, BTTS 40.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.59 / N: 3.85 / 2: 5.5 · Over 2.5: 2. Fiabilité 67.25%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.4,
+        "empiricalOver25Rate": 0.7,
+        "homeLambda": 3.71,
+        "awayLambda": 2.4,
+        "xgTotal": 6.11
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.59,
+        "draw": 3.85,
+        "away": 5.5,
+        "over25": 2,
+        "under25": 1.71
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "V-V-V-V-V",
+        "wins": 5,
+        "draws": 0,
+        "losses": 0,
+        "goalsFor": 19,
+        "goalsAgainst": 0,
+        "bttsRate": 0,
+        "over25Rate": 0.8,
+        "cleanSheets": 5,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-D-N-N",
+        "wins": 2,
+        "draws": 2,
+        "losses": 1,
+        "goalsFor": 12,
+        "goalsAgainst": 6,
+        "bttsRate": 0.8,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-06",
+          "opponent": "Benin",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-04",
+          "opponent": "Burkina Faso",
+          "venue": "H",
+          "score": "7-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-01",
+          "opponent": "Bolivia",
+          "venue": "H",
+          "score": "4-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-06-10",
+          "opponent": "Iceland",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-06-07",
+          "opponent": "Honduras",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-06",
+          "opponent": "India",
+          "venue": "A",
+          "score": "6-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-28",
+          "opponent": "South Korea",
+          "venue": "A",
+          "score": "4-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-24",
+          "opponent": "Japan",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-03-31",
+          "opponent": "Algeria",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-03-27",
+          "opponent": "England",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "standingsHome": null,
+      "standingsAway": null,
+      "empiricalBttsRate": 0.4,
+      "empiricalOver25Rate": 0.7,
+      "homeLambda": 3.71,
+      "awayLambda": 2.4,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_key_fact": "L'Argentine tourne à 3.71 buts par match avec un taux d'Over 2.5 de 80%.",
+      "ai_analysis": "L'analyse des matchs récents de l'Argentine et de l'Uruguay met en évidence une forte propension aux matchs prolifiques. L'Argentine affiche 3.71 buts par match et un taux d'Over 2.5 de 80%, tandis que l'Uruguay complète ce profil offensif avec 2.4 buts de moyenne. Le taux empirique global de 70% justifie pleinement la sélection de l'Over 2.5.",
+      "ai_analysis_en": "Recent matches for both Argentina and Uruguay highlight a strong tendency toward high-scoring encounters. Argentina averages 3.71 goals per game with an 80% Over 2.5 rate, while Uruguay complements this with an average of 2.4 goals. The overall empirical Over rate of 70% fully justifies the Over 2.5 selection.",
+      "ai_form_summary": "Argentine : 5V-0D-0L, 19 buts pour, 0 contre. Uruguay : 2V-2D-1L, 12 buts pour, 6 contre.",
+      "ai_form_summary_en": "Argentina: 5W-0D-0L, 19 goals for, 0 against. Uruguay: 2W-2D-1L, 12 goals for, 6 against.",
+      "ai_reasons": [
+        "Le taux empirique d'Over 2.5 est élevé à 70%.",
+        "L'Argentine affiche un taux d'Over 2.5 de 80% sur ses 5 derniers matchs avec une forte moyenne de 3.71 buts par match.",
+        "Uruguay montre également un taux d'Over 2.5 de 60% et une moyenne offensive de 2.4 buts par match."
+      ],
+      "ai_risks": [
+        "L'Argentine n'a encaissé aucun but lors de ses 5 derniers matchs, ce qui pourrait limiter le BTTS mais renforce la production offensive unilatérale.",
+        "La cote Over 2.5 est fixée à 2.00, traduisant un équilibre sur le marché."
+      ],
+      "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 72,
+          "proba": 0.72,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "over25Prob": 0.72
+        }
+      ],
+      "over25Prob": 0.72,
+      "prediction": "Oui",
+      "proba": 0.72,
+      "confidence": 72,
+      "status": "PENDING"
+    }
+  ],
+  "fixtures": [
+    {
+      "match": "Barcelona vs Arsenal",
+      "home": "Barcelona",
+      "away": "Arsenal",
+      "league": "UEFA Women's Champions League",
+      "date": "2026-11-12",
+      "time": "17:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20091.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/19973.png"
+    },
+    {
+      "match": "Benfica vs Austria Vienna",
+      "home": "Benfica",
+      "away": "Austria Vienna",
+      "league": "UEFA Women's Champions League",
+      "date": "2026-11-12",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20830.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/131643.png"
+    },
+    {
+      "match": "Águila vs CD Municipal Limeño",
+      "home": "Águila",
+      "away": "CD Municipal Limeño",
+      "league": "Salvadoran Primera Division",
+      "date": "2026-11-12",
+      "time": "21:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7226.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7231.png"
+    },
+    {
+      "match": "Atletico Balboa vs Inca Aruba",
+      "home": "Atletico Balboa",
+      "away": "Inca Aruba",
+      "league": "Salvadoran Primera Division",
+      "date": "2026-11-12",
+      "time": "21:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7369.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/132480.png"
+    },
+    {
+      "match": "Ponte Preta vs Operário PR",
+      "home": "Ponte Preta",
+      "away": "Operário PR",
+      "league": "Brazilian Serie B",
+      "date": "2026-11-12",
+      "time": "22:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3459.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18187.png"
+    },
+    {
+      "match": "Real Potosí vs Nacional Potosí",
+      "home": "Real Potosí",
+      "away": "Nacional Potosí",
+      "league": "Copa Bolivia",
+      "date": "2026-11-12",
+      "time": "23:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6051.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10311.png"
+    },
+    {
+      "match": "Schwarz-Weiß Bregenz vs SC Rheindorf Altach",
+      "home": "Schwarz-Weiß Bregenz",
+      "away": "SC Rheindorf Altach",
+      "league": "Club Friendly",
+      "date": "2026-11-13",
+      "time": "10:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/131869.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4405.png"
+    },
+    {
+      "match": "Västerås SK vs IF Brommapojkarna",
+      "home": "Västerås SK",
+      "away": "IF Brommapojkarna",
+      "league": "Club Friendly",
+      "date": "2026-11-13",
+      "time": "11:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22163.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/8221.png"
+    },
+    {
+      "match": "TPS vs FC Ilves",
+      "home": "TPS",
+      "away": "FC Ilves",
+      "league": "Club Friendly",
+      "date": "2026-11-13",
+      "time": "11:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/8219.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/19248.png"
+    },
+    {
+      "match": "TSV Hartberg vs Floridsdorfer AC",
+      "home": "TSV Hartberg",
+      "away": "Floridsdorfer AC",
+      "league": "Club Friendly",
+      "date": "2026-11-13",
+      "time": "11:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6907.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/131873.png"
+    },
+    {
+      "match": "Dynamo Dresden vs Dukla Prague",
+      "home": "Dynamo Dresden",
+      "away": "Dukla Prague",
+      "league": "Club Friendly",
+      "date": "2026-11-13",
+      "time": "12:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7017.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22172.png"
+    },
+    {
+      "match": "NK Istra 1961 Pula vs NK Radomlje",
+      "home": "NK Istra 1961 Pula",
+      "away": "NK Radomlje",
+      "league": "Club Friendly",
+      "date": "2026-11-13",
+      "time": "12:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/133773.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/133593.png"
+    },
+    {
+      "match": "Singapore vs Paraguay",
+      "home": "Singapore",
+      "away": "Paraguay",
+      "league": "International Friendly",
+      "date": "2026-11-13",
+      "time": "12:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/sin.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/par.png"
+    },
+    {
+      "match": "SV Kapfenberg vs NK Uljanik",
+      "home": "SV Kapfenberg",
+      "away": "NK Uljanik",
+      "league": "Club Friendly",
+      "date": "2026-11-13",
+      "time": "12:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/133512.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/134161.png"
+    },
+    {
+      "match": "NK Varazdin vs NK Maribor",
+      "home": "NK Varazdin",
+      "away": "NK Maribor",
+      "league": "Club Friendly",
+      "date": "2026-11-13",
+      "time": "13:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/133685.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/619.png"
+    },
+    {
+      "match": "Shillong Lajong FC vs Sreenidi Deccan FC",
+      "home": "Shillong Lajong FC",
+      "away": "Sreenidi Deccan FC",
+      "league": "Indian Football League",
+      "date": "2026-11-13",
+      "time": "13:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18898.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21311.png"
+    },
+    {
+      "match": "Raków Czestochowa vs Lechia Gdansk",
+      "home": "Raków Czestochowa",
+      "away": "Lechia Gdansk",
+      "league": "Club Friendly",
+      "date": "2026-11-13",
+      "time": "13:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21005.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9658.png"
+    },
+    {
+      "match": "United Arab Emirates vs Honduras",
+      "home": "United Arab Emirates",
+      "away": "Honduras",
+      "league": "International Friendly",
+      "date": "2026-11-13",
+      "time": "14:15",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/uae.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/hon.png"
+    },
+    {
+      "match": "Saudi Arabia vs South Korea",
+      "home": "Saudi Arabia",
+      "away": "South Korea",
+      "league": "International Friendly",
+      "date": "2026-11-13",
+      "time": "14:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/ksa.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/kors.png"
+    },
+    {
+      "match": "Qatar vs Australia",
+      "home": "Qatar",
+      "away": "Australia",
+      "league": "International Friendly",
+      "date": "2026-11-13",
+      "time": "14:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/qat.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/aus.png"
+    },
+    {
+      "match": "Iraq vs Lebanon",
+      "home": "Iraq",
+      "away": "Lebanon",
+      "league": "International Friendly",
+      "date": "2026-11-13",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/irq.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/lib.png"
+    },
+    {
+      "match": "Austria Vienna II vs SR Donaufeld",
+      "home": "Austria Vienna II",
+      "away": "SR Donaufeld",
+      "league": "Club Friendly",
+      "date": "2026-11-13",
+      "time": "16:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/133996.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/132597.png"
+    },
+    {
+      "match": "Kuwait vs Syria",
+      "home": "Kuwait",
+      "away": "Syria",
+      "league": "International Friendly",
+      "date": "2026-11-13",
+      "time": "16:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/kuw.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/syr.png"
+    },
+    {
+      "match": "Rapid Vienna II vs SV Donau",
+      "home": "Rapid Vienna II",
+      "away": "SV Donau",
+      "league": "Club Friendly",
+      "date": "2026-11-13",
+      "time": "17:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/132782.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/132739.png"
+    },
+    {
+      "match": "Leganés vs Burgos",
+      "home": "Leganés",
+      "away": "Burgos",
+      "league": "LaLiga 2",
+      "date": "2026-11-13",
+      "time": "19:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/17534.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/12597.png"
+    },
+    {
+      "match": "Colombia vs Chile",
+      "home": "Colombia",
+      "away": "Chile",
+      "league": "International Friendly",
+      "date": "2026-11-14",
+      "time": "00:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/col.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/chi.png"
+    },
+    {
+      "match": "Ecuador vs Costa Rica",
+      "home": "Ecuador",
+      "away": "Costa Rica",
+      "league": "International Friendly",
+      "date": "2026-11-14",
+      "time": "00:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/ecu.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/crc.png"
+    },
+    {
+      "match": "Peru vs Bolivia",
+      "home": "Peru",
+      "away": "Bolivia",
+      "league": "International Friendly",
+      "date": "2026-11-14",
+      "time": "01:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/per.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/bol.png"
+    },
+    {
+      "match": "Tahiti vs Cook Islands",
+      "home": "Tahiti",
+      "away": "Cook Islands",
+      "league": "International Friendly",
+      "date": "2026-11-14",
+      "time": "05:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/tah.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/cok.png"
+    },
+    {
+      "match": "Bahrain vs Yemen",
+      "home": "Bahrain",
+      "away": "Yemen",
+      "league": "International Friendly",
+      "date": "2026-11-14",
+      "time": "06:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/bhr.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/yem.png"
+    },
+    {
+      "match": "ACS STIINTA POLI TIMISOARA vs ACS DUMBRAVITA",
+      "home": "ACS STIINTA POLI TIMISOARA",
+      "away": "ACS DUMBRAVITA",
+      "league": "Club Friendly",
+      "date": "2026-11-14",
+      "time": "09:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/133347.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/132445.png"
+    },
+    {
+      "match": "India vs Bhutan",
+      "home": "India",
+      "away": "Bhutan",
+      "league": "SAFF Championship",
+      "date": "2026-11-14",
+      "time": "09:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/ind.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/5784.png"
+    },
+    {
+      "match": "Japan vs Brazil",
+      "home": "Japan",
+      "away": "Brazil",
+      "league": "International Friendly",
+      "date": "2026-11-14",
+      "time": "10:15",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/jpn.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png"
+    },
+    {
+      "match": "PK-35 vs FC Inter Turku II",
+      "home": "PK-35",
+      "away": "FC Inter Turku II",
+      "league": "Club Friendly",
+      "date": "2026-11-14",
+      "time": "10:15",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/133784.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/133582.png"
+    },
+    {
+      "match": "Bengaluru United FC vs Real Kashmir",
+      "home": "Bengaluru United FC",
+      "away": "Real Kashmir",
+      "league": "Indian Football League",
+      "date": "2026-11-14",
+      "time": "10:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/134033.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/19341.png"
+    },
+    {
+      "match": "Legia Warsaw vs Pogon Grodzisk Mazowiecki",
+      "home": "Legia Warsaw",
+      "away": "Pogon Grodzisk Mazowiecki",
+      "league": "Club Friendly",
+      "date": "2026-11-14",
+      "time": "10:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/555.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/132432.png"
+    },
+    {
+      "match": "Obolon Kyiv vs PFC Nyva Vinnytsia",
+      "home": "Obolon Kyiv",
+      "away": "PFC Nyva Vinnytsia",
+      "league": "Club Friendly",
+      "date": "2026-11-14",
+      "time": "11:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/131656.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/134165.png"
+    },
+    {
+      "match": "Widzew Lodz vs Unia Skierniwice",
+      "home": "Widzew Lodz",
+      "away": "Unia Skierniwice",
+      "league": "Club Friendly",
+      "date": "2026-11-14",
+      "time": "11:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/133374.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/132672.png"
+    },
+    {
+      "match": "BFC Dynamo Berlin vs SV Tasmania Berlin",
+      "home": "BFC Dynamo Berlin",
+      "away": "SV Tasmania Berlin",
+      "league": "Club Friendly",
+      "date": "2026-11-14",
+      "time": "12:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6396.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/132563.png"
+    },
+    {
+      "match": "China vs Malaysia",
+      "home": "China",
+      "away": "Malaysia",
+      "league": "International Friendly",
+      "date": "2026-11-14",
+      "time": "12:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/chn.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/mas.png"
+    },
+    {
+      "match": "Chinese Taipei vs Kyrgyz Republic",
+      "home": "Chinese Taipei",
+      "away": "Kyrgyz Republic",
+      "league": "International Friendly",
+      "date": "2026-11-14",
+      "time": "12:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/14561.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/kgz.png"
+    },
+    {
+      "match": "CSKA Moscow vs FC Arsenal Tula",
+      "home": "CSKA Moscow",
+      "away": "FC Arsenal Tula",
+      "league": "Club Friendly",
+      "date": "2026-11-14",
+      "time": "12:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1963.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/17495.png"
+    },
+    {
+      "match": "Novi Pazar vs Otrant Ulcinj",
+      "home": "Novi Pazar",
+      "away": "Otrant Ulcinj",
+      "league": "Club Friendly",
+      "date": "2026-11-14",
+      "time": "12:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/131230.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/133852.png"
+    },
+    {
+      "match": "Exeter City vs Cheltenham Town",
+      "home": "Exeter City",
+      "away": "Cheltenham Town",
+      "league": "English League Two",
+      "date": "2026-11-14",
+      "time": "12:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/324.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/320.png"
+    },
+    {
+      "match": "Vllaznia Shkoder vs Beselidhja",
+      "home": "Vllaznia Shkoder",
+      "away": "Beselidhja",
+      "league": "Club Friendly",
+      "date": "2026-11-14",
+      "time": "12:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2716.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/133394.png"
+    },
+    {
+      "match": "Nagaland United SC vs Gokulam Kerala FC",
+      "home": "Nagaland United SC",
+      "away": "Gokulam Kerala FC",
+      "league": "Indian Football League",
+      "date": "2026-11-14",
+      "time": "13:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/134034.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18896.png"
+    },
+    {
+      "match": "Real Valladolid vs Castellón",
+      "home": "Real Valladolid",
+      "away": "Castellón",
+      "league": "LaLiga 2",
+      "date": "2026-11-14",
+      "time": "13:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/95.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4438.png"
+    },
+    {
+      "match": "River Plate vs Gimnasia La Plata",
+      "home": "River Plate",
+      "away": "Gimnasia La Plata",
+      "league": "Club Friendly",
+      "date": "2026-11-14",
+      "time": "13:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/16.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9.png"
+    },
+    {
+      "match": "SV Josko Ried vs First Vienna FC 1894",
+      "home": "SV Josko Ried",
+      "away": "First Vienna FC 1894",
+      "league": "Club Friendly",
+      "date": "2026-11-14",
+      "time": "13:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3759.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21368.png"
+    },
+    {
+      "match": "Le Havre AC vs Paris FC",
+      "home": "Le Havre AC",
+      "away": "Paris FC",
+      "league": "French Première Ligue",
+      "date": "2026-11-14",
+      "time": "14:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21635.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21640.png"
+    },
+    {
+      "match": "Bangladesh vs Pakistan",
+      "home": "Bangladesh",
+      "away": "Pakistan",
+      "league": "SAFF Championship",
+      "date": "2026-11-14",
+      "time": "14:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/ban.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/pak.png"
+    },
+    {
+      "match": "AFC Wimbledon vs Blackpool",
+      "home": "AFC Wimbledon",
+      "away": "Blackpool",
+      "league": "English League One",
+      "date": "2026-11-14",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3802.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/346.png"
+    },
+    {
+      "match": "Bristol Rovers vs Chesterfield",
+      "home": "Bristol Rovers",
+      "away": "Chesterfield",
+      "league": "English League Two",
+      "date": "2026-11-14",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/308.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/343.png"
+    },
+    {
+      "match": "Colchester United vs Gillingham",
+      "home": "Colchester United",
+      "away": "Gillingham",
+      "league": "English League Two",
+      "date": "2026-11-14",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/339.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/389.png"
+    },
+    {
+      "match": "Crewe Alexandra vs Newport County",
+      "home": "Crewe Alexandra",
+      "away": "Newport County",
+      "league": "English League Two",
+      "date": "2026-11-14",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/396.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/635.png"
+    },
+    {
+      "match": "Milton Keynes Dons vs Burton Albion",
+      "home": "Milton Keynes Dons",
+      "away": "Burton Albion",
+      "league": "English League One",
+      "date": "2026-11-14",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/390.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2567.png"
+    },
+    {
+      "match": "Palestine vs Iran",
+      "home": "Palestine",
+      "away": "Iran",
+      "league": "International Friendly",
+      "date": "2026-11-14",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/pal.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/irn.png"
+    },
+    {
+      "match": "Port Vale vs Accrington Stanley",
+      "home": "Port Vale",
+      "away": "Accrington Stanley",
+      "league": "English League Two",
+      "date": "2026-11-14",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/348.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2731.png"
+    },
+    {
+      "match": "Rochdale vs York City",
+      "home": "Rochdale",
+      "away": "York City",
+      "league": "English League Two",
+      "date": "2026-11-14",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/303.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/315.png"
+    },
+    {
+      "match": "Salford City vs Northampton Town",
+      "home": "Salford City",
+      "away": "Northampton Town",
+      "league": "English League Two",
+      "date": "2026-11-14",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4703.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/353.png"
+    },
+    {
+      "match": "Sheffield Wednesday vs Plymouth Argyle",
+      "home": "Sheffield Wednesday",
+      "away": "Plymouth Argyle",
+      "league": "English League One",
+      "date": "2026-11-14",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/399.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/307.png"
+    },
+    {
+      "match": "Shrewsbury Town vs Oldham Athletic",
+      "home": "Shrewsbury Town",
+      "away": "Oldham Athletic",
+      "league": "English League Two",
+      "date": "2026-11-14",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/302.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/332.png"
+    },
+    {
+      "match": "Stockport County vs Reading",
+      "home": "Stockport County",
+      "away": "Reading",
+      "league": "English League One",
+      "date": "2026-11-14",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/400.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/338.png"
+    },
+    {
+      "match": "Swindon Town vs Grimsby Town",
+      "home": "Swindon Town",
+      "away": "Grimsby Town",
+      "league": "English League Two",
+      "date": "2026-11-14",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/341.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/386.png"
+    },
+    {
+      "match": "Wigan Athletic vs Barnsley",
+      "home": "Wigan Athletic",
+      "away": "Barnsley",
+      "league": "English League One",
+      "date": "2026-11-14",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/350.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/397.png"
+    },
+    {
+      "match": "Real Sociedad II vs Sporting Gijón",
+      "home": "Real Sociedad II",
+      "away": "Sporting Gijón",
+      "league": "LaLiga 2",
+      "date": "2026-11-14",
+      "time": "15:15",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20983.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3788.png"
+    },
+    {
+      "match": "PAOK vs Partizan Belgrade",
+      "home": "PAOK",
+      "away": "Partizan Belgrade",
+      "league": "Club Friendly",
+      "date": "2026-11-14",
+      "time": "15:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/605.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/541.png"
+    },
+    {
+      "match": "OL Lyonnes vs Saint-Malo",
+      "home": "OL Lyonnes",
+      "away": "Saint-Malo",
+      "league": "French Première Ligue",
+      "date": "2026-11-14",
+      "time": "17:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/19256.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/131875.png"
+    },
+    {
+      "match": "Strasbourg vs Toulouse",
+      "home": "Strasbourg",
+      "away": "Toulouse",
+      "league": "French Première Ligue",
+      "date": "2026-11-14",
+      "time": "17:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22329.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/131876.png"
+    },
+    {
+      "match": "Almería vs FC Andorra",
+      "home": "Almería",
+      "away": "FC Andorra",
+      "league": "LaLiga 2",
+      "date": "2026-11-14",
+      "time": "17:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6832.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20179.png"
+    },
+    {
+      "match": "Fleetwood Town vs Tranmere Rovers",
+      "home": "Fleetwood Town",
+      "away": "Tranmere Rovers",
+      "league": "English League Two",
+      "date": "2026-11-14",
+      "time": "17:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3891.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/345.png"
+    },
+    {
+      "match": "Mallorca vs Córdoba",
+      "home": "Mallorca",
+      "away": "Córdoba",
+      "league": "LaLiga 2",
+      "date": "2026-11-14",
+      "time": "17:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/84.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/8447.png"
+    },
+    {
+      "match": "Montpellier vs FC Fleury 91",
+      "home": "Montpellier",
+      "away": "FC Fleury 91",
+      "league": "French Première Ligue",
+      "date": "2026-11-14",
+      "time": "17:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21638.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21637.png"
+    },
+    {
+      "match": "Atlanta vs Estudiantes (Buenos Aires)",
+      "home": "Atlanta",
+      "away": "Estudiantes (Buenos Aires)",
+      "league": "Argentine Nacional B",
+      "date": "2026-11-14",
+      "time": "18:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10146.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/17352.png"
+    },
+    {
+      "match": "Temperley vs Ciudad de Bolívar",
+      "home": "Temperley",
+      "away": "Ciudad de Bolívar",
+      "league": "Argentine Nacional B",
+      "date": "2026-11-14",
+      "time": "19:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10162.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21799.png"
+    },
+    {
+      "match": "América Mineiro vs Avaí",
+      "home": "América Mineiro",
+      "away": "Avaí",
+      "league": "Brazilian Serie B",
+      "date": "2026-11-14",
+      "time": "19:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6154.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9966.png"
+    },
+    {
+      "match": "Atlético Goianiense vs Cuiabá",
+      "home": "Atlético Goianiense",
+      "away": "Cuiabá",
+      "league": "Brazilian Serie B",
+      "date": "2026-11-14",
+      "time": "19:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10357.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/17313.png"
+    },
+    {
+      "match": "CRB vs Ceará",
+      "home": "CRB",
+      "away": "Ceará",
+      "league": "Brazilian Serie B",
+      "date": "2026-11-14",
+      "time": "19:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9970.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9969.png"
+    },
+    {
+      "match": "Criciúma vs Novorizontino",
+      "home": "Criciúma",
+      "away": "Novorizontino",
+      "league": "Brazilian Serie B",
+      "date": "2026-11-14",
+      "time": "19:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9971.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18127.png"
+    },
+    {
+      "match": "Fortaleza vs Vila Nova",
+      "home": "Fortaleza",
+      "away": "Vila Nova",
+      "league": "Brazilian Serie B",
+      "date": "2026-11-14",
+      "time": "19:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6272.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9973.png"
+    },
+    {
+      "match": "Juventude vs Botafogo-SP",
+      "home": "Juventude",
+      "away": "Botafogo-SP",
+      "league": "Brazilian Serie B",
+      "date": "2026-11-14",
+      "time": "19:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6270.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10281.png"
+    },
+    {
+      "match": "Sport vs Goiás",
+      "home": "Sport",
+      "away": "Goiás",
+      "league": "Brazilian Serie B",
+      "date": "2026-11-14",
+      "time": "19:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7635.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3395.png"
+    },
+    {
+      "match": "FC Zorya Luhansk vs FC Kharkiv",
+      "home": "FC Zorya Luhansk",
+      "away": "FC Kharkiv",
+      "league": "Club Friendly",
+      "date": "2026-11-14",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/17520.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/132360.png"
+    },
+    {
+      "match": "Marseille vs Paris Saint-Germain",
+      "home": "Marseille",
+      "away": "Paris Saint-Germain",
+      "league": "French Première Ligue",
+      "date": "2026-11-14",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/131298.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/19258.png"
+    },
+    {
+      "match": "Real Oviedo vs Girona",
+      "home": "Real Oviedo",
+      "away": "Girona",
+      "league": "LaLiga 2",
+      "date": "2026-11-14",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/92.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9812.png"
+    },
+    {
+      "match": "Colón (Santa Fe) vs Midland",
+      "home": "Colón (Santa Fe)",
+      "away": "Midland",
+      "league": "Argentine Nacional B",
+      "date": "2026-11-14",
+      "time": "21:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10109.png"
+    },
+    {
+      "match": "Deportivo Madryn vs Deportivo Maipú",
+      "home": "Deportivo Madryn",
+      "away": "Deportivo Maipú",
+      "league": "Argentine Nacional B",
+      "date": "2026-11-14",
+      "time": "22:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18260.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/11978.png"
+    },
+    {
+      "match": "Gimnasia y Esgrima (Jujuy) vs Almirante Brown",
+      "home": "Gimnasia y Esgrima (Jujuy)",
+      "away": "Almirante Brown",
+      "league": "Argentine Nacional B",
+      "date": "2026-11-14",
+      "time": "23:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/5263.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9740.png"
+    },
+    {
+      "match": "Internacional Santa Tecla vs Cacahuatique",
+      "home": "Internacional Santa Tecla",
+      "away": "Cacahuatique",
+      "league": "Salvadoran Primera Division",
+      "date": "2026-11-15",
+      "time": "00:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/131295.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22330.png"
+    },
+    {
+      "match": "Alianza FC vs CD FAS",
+      "home": "Alianza FC",
+      "away": "CD FAS",
+      "league": "Salvadoran Primera Division",
+      "date": "2026-11-15",
+      "time": "02:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7225.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7229.png"
+    },
+    {
+      "match": "Isidro Metapán vs Luis Ángel Firpo",
+      "home": "Isidro Metapán",
+      "away": "Luis Ángel Firpo",
+      "league": "Salvadoran Primera Division",
+      "date": "2026-11-15",
+      "time": "02:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7224.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7232.png"
+    },
+    {
+      "match": "Oita Trinita vs J-Lease FC",
+      "home": "Oita Trinita",
+      "away": "J-Lease FC",
+      "league": "Club Friendly",
+      "date": "2026-11-15",
+      "time": "02:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7105.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/133640.png"
+    },
+    {
+      "match": "New Zealand vs India",
+      "home": "New Zealand",
+      "away": "India",
+      "league": "International Friendly",
+      "date": "2026-11-15",
+      "time": "03:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/nzl.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/ind.png"
+    },
+    {
+      "match": "Dempo Sports Club vs Chanmari FC",
+      "home": "Dempo Sports Club",
+      "away": "Chanmari FC",
+      "league": "Indian Football League",
+      "date": "2026-11-15",
+      "time": "10:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22473.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/131707.png"
+    },
+    {
+      "match": "FC Kolos Kovalivka vs Polissya Zhitomir",
+      "home": "FC Kolos Kovalivka",
+      "away": "Polissya Zhitomir",
+      "league": "Club Friendly",
+      "date": "2026-11-15",
+      "time": "12:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20742.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22294.png"
+    },
+    {
+      "match": "Krasnodar vs Druzhba Maikop",
+      "home": "Krasnodar",
+      "away": "Druzhba Maikop",
+      "league": "Club Friendly",
+      "date": "2026-11-15",
+      "time": "13:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/11336.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/134170.png"
+    },
+    {
+      "match": "Samaleswari SC vs Rajasthan United FC",
+      "home": "Samaleswari SC",
+      "away": "Rajasthan United FC",
+      "league": "Indian Football League",
+      "date": "2026-11-15",
+      "time": "13:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/134035.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21312.png"
+    },
+    {
+      "match": "Tenerife vs Ceuta",
+      "home": "Tenerife",
+      "away": "Ceuta",
+      "league": "LaLiga 2",
+      "date": "2026-11-15",
+      "time": "13:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/245.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/5404.png"
+    },
+    {
+      "match": "Hamburg SV vs Hajduk Split",
+      "home": "Hamburg SV",
+      "away": "Hajduk Split",
+      "league": "Club Friendly",
+      "date": "2026-11-15",
+      "time": "14:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/127.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/489.png"
+    },
+    {
+      "match": "Zenit St Petersburg vs Trabzonspor",
+      "home": "Zenit St Petersburg",
+      "away": "Trabzonspor",
+      "league": "Club Friendly",
+      "date": "2026-11-15",
+      "time": "14:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2533.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/997.png"
+    },
+    {
+      "match": "Granada vs Las Palmas",
+      "home": "Granada",
+      "away": "Las Palmas",
+      "league": "LaLiga 2",
+      "date": "2026-11-15",
+      "time": "15:15",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3747.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/98.png"
+    },
+    {
+      "match": "Suriname vs Eswatini",
+      "home": "Suriname",
+      "away": "Eswatini",
+      "league": "International Friendly",
+      "date": "2026-11-15",
+      "time": "17:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/sur.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/swz.png"
+    },
+    {
+      "match": "Eibar vs Cádiz",
+      "home": "Eibar",
+      "away": "Cádiz",
+      "league": "LaLiga 2",
+      "date": "2026-11-15",
+      "time": "17:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3752.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3842.png"
+    },
+    {
+      "match": "Eldense vs CD Sabadell",
+      "home": "Eldense",
+      "away": "CD Sabadell",
+      "league": "LaLiga 2",
+      "date": "2026-11-15",
+      "time": "17:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7320.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/11487.png"
+    },
+    {
+      "match": "Deportivo Morón vs Colegiales",
+      "home": "Deportivo Morón",
+      "away": "Colegiales",
+      "league": "Argentine Nacional B",
+      "date": "2026-11-15",
+      "time": "18:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10154.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10149.png"
+    },
+    {
+      "match": "Always Ready vs Independiente Petrolero",
+      "home": "Always Ready",
+      "away": "Independiente Petrolero",
+      "league": "Copa Bolivia",
+      "date": "2026-11-15",
+      "time": "19:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/19425.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20889.png"
+    },
+    {
+      "match": "Godoy Cruz Antonio Tomba vs Tristán Suárez",
+      "home": "Godoy Cruz Antonio Tomba",
+      "away": "Tristán Suárez",
+      "league": "Argentine Nacional B",
+      "date": "2026-11-15",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6756.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10163.png"
+    },
+    {
+      "match": "C.D. Platense vs Atletico Balboa",
+      "home": "C.D. Platense",
+      "away": "Atletico Balboa",
+      "league": "Salvadoran Primera Division",
+      "date": "2026-11-15",
+      "time": "21:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21092.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7369.png"
+    },
+    {
+      "match": "Nacional Potosí vs Real Potosí",
+      "home": "Nacional Potosí",
+      "away": "Real Potosí",
+      "league": "Copa Bolivia",
+      "date": "2026-11-15",
+      "time": "21:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10311.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6051.png"
+    },
+    {
+      "match": "Ferro Carril Oeste vs Gimnasia y Tiro (Salta)",
+      "home": "Ferro Carril Oeste",
+      "away": "Gimnasia y Tiro (Salta)",
+      "league": "Argentine Nacional B",
+      "date": "2026-11-15",
+      "time": "23:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9743.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10743.png"
+    },
+    {
+      "match": "Inca Aruba vs Águila",
+      "home": "Inca Aruba",
+      "away": "Águila",
+      "league": "Salvadoran Primera Division",
+      "date": "2026-11-16",
+      "time": "00:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/132480.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7226.png"
+    },
+    {
+      "match": "Andorra vs Azerbaijan",
+      "home": "Andorra",
+      "away": "Azerbaijan",
+      "league": "International Friendly",
+      "date": "2026-11-16",
+      "time": "18:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/and.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/aze.png"
+    },
+    {
+      "match": "Albacete vs RC Celta Fortuna",
+      "home": "Albacete",
+      "away": "RC Celta Fortuna",
+      "league": "LaLiga 2",
+      "date": "2026-11-16",
+      "time": "19:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2737.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/131858.png"
+    },
+    {
+      "match": "Tahiti vs Cook Islands",
+      "home": "Tahiti",
+      "away": "Cook Islands",
+      "league": "International Friendly",
+      "date": "2026-11-17",
+      "time": "05:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/tah.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/cok.png"
+    },
+    {
+      "match": "Malaysia vs Yemen",
+      "home": "Malaysia",
+      "away": "Yemen",
+      "league": "International Friendly",
+      "date": "2026-11-17",
+      "time": "06:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/mas.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/yem.png"
+    },
+    {
+      "match": "Singapore vs Brazil",
+      "home": "Singapore",
+      "away": "Brazil",
+      "league": "International Friendly",
+      "date": "2026-11-17",
+      "time": "10:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/sin.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png"
+    },
+    {
+      "match": "China vs Bahrain",
+      "home": "China",
+      "away": "Bahrain",
+      "league": "International Friendly",
+      "date": "2026-11-17",
+      "time": "12:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/chn.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/bhr.png"
+    },
+    {
+      "match": "Kyrgyz Republic vs Vietnam",
+      "home": "Kyrgyz Republic",
+      "away": "Vietnam",
+      "league": "International Friendly",
+      "date": "2026-11-17",
+      "time": "12:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/kgz.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/vie.png"
+    },
+    {
+      "match": "Lebanon vs Palestine",
+      "home": "Lebanon",
+      "away": "Palestine",
+      "league": "International Friendly",
+      "date": "2026-11-17",
+      "time": "13:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/lib.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/pal.png"
+    },
+    {
+      "match": "Japan vs Paraguay",
+      "home": "Japan",
+      "away": "Paraguay",
+      "league": "International Friendly",
+      "date": "2026-11-17",
+      "time": "13:10",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/jpn.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/par.png"
+    },
+    {
+      "match": "Qatar vs South Korea",
+      "home": "Qatar",
+      "away": "South Korea",
+      "league": "International Friendly",
+      "date": "2026-11-17",
+      "time": "14:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/qat.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/kors.png"
+    },
+    {
+      "match": "United Arab Emirates vs Syria",
+      "home": "United Arab Emirates",
+      "away": "Syria",
+      "league": "International Friendly",
+      "date": "2026-11-17",
+      "time": "14:10",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/uae.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/syr.png"
+    },
+    {
+      "match": "Saudi Arabia vs Uzbekistan",
+      "home": "Saudi Arabia",
+      "away": "Uzbekistan",
+      "league": "International Friendly",
+      "date": "2026-11-17",
+      "time": "15:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/ksa.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/uzb.png"
+    },
+    {
+      "match": "Jordan vs Australia",
+      "home": "Jordan",
+      "away": "Australia",
+      "league": "International Friendly",
+      "date": "2026-11-17",
+      "time": "16:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/jor.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/aus.png"
+    },
+    {
+      "match": "Russia vs Venezuela",
+      "home": "Russia",
+      "away": "Venezuela",
+      "league": "International Friendly",
+      "date": "2026-11-17",
+      "time": "16:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/rus.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/ven.png"
+    },
+    {
+      "match": "Iraq vs Iran",
+      "home": "Iraq",
+      "away": "Iran",
+      "league": "International Friendly",
+      "date": "2026-11-17",
+      "time": "16:15",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/irq.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/irn.png"
+    },
+    {
+      "match": "Luton Town vs Peterborough United",
+      "home": "Luton Town",
+      "away": "Peterborough United",
+      "league": "English EFL Trophy",
+      "date": "2026-11-17",
+      "time": "19:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/301.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/342.png"
+    },
+    {
+      "match": "Kuwait vs Honduras",
+      "home": "Kuwait",
+      "away": "Honduras",
+      "league": "International Friendly",
+      "date": "2026-11-17",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/kuw.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/hon.png"
+    },
+    {
+      "match": "Argentina vs Costa Rica",
+      "home": "Argentina",
+      "away": "Costa Rica",
+      "league": "International Friendly",
+      "date": "2026-11-17",
+      "time": "23:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/arg.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/crc.png"
+    },
+    {
+      "match": "Chile vs Colombia",
+      "home": "Chile",
+      "away": "Colombia",
+      "league": "International Friendly",
+      "date": "2026-11-17",
+      "time": "23:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/chi.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/col.png"
+    },
+    {
+      "match": "Ecuador vs Bolivia",
+      "home": "Ecuador",
+      "away": "Bolivia",
+      "league": "International Friendly",
+      "date": "2026-11-17",
+      "time": "23:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/ecu.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/bol.png"
+    },
+    {
+      "match": "Uruguay vs Dominican Republic",
+      "home": "Uruguay",
+      "away": "Dominican Republic",
+      "league": "International Friendly",
+      "date": "2026-11-17",
+      "time": "23:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/uru.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/dom.png"
+    },
+    {
+      "match": "Bengaluru United FC vs Sreenidi Deccan FC",
+      "home": "Bengaluru United FC",
+      "away": "Sreenidi Deccan FC",
+      "league": "Indian Football League",
+      "date": "2026-11-18",
+      "time": "13:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/134033.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21311.png"
+    },
+    {
+      "match": "BK Häcken vs Manchester City",
+      "home": "BK Häcken",
+      "away": "Manchester City",
+      "league": "UEFA Women's Champions League",
+      "date": "2026-11-18",
+      "time": "17:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21124.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/19257.png"
+    },
+    {
+      "match": "Real Madrid vs Internazionale",
+      "home": "Real Madrid",
+      "away": "Internazionale",
+      "league": "UEFA Women's Champions League",
+      "date": "2026-11-18",
+      "time": "17:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21128.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/131635.png"
+    },
+    {
+      "match": "London City Lionesses vs Brighton & Hove Albion",
+      "home": "London City Lionesses",
+      "away": "Brighton & Hove Albion",
+      "league": "English WSL Players Cup",
+      "date": "2026-11-18",
+      "time": "19:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21053.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/19976.png"
+    },
+    {
+      "match": "Manchester United vs Everton",
+      "home": "Manchester United",
+      "away": "Everton",
+      "league": "English WSL Players Cup",
+      "date": "2026-11-18",
+      "time": "19:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20061.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/19972.png"
+    },
+    {
+      "match": "Nottingham Forest vs Liverpool",
+      "home": "Nottingham Forest",
+      "away": "Liverpool",
+      "league": "English WSL Players Cup",
+      "date": "2026-11-18",
+      "time": "19:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21070.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/19971.png"
+    },
+    {
+      "match": "Tottenham Hotspur vs Leicester City",
+      "home": "Tottenham Hotspur",
+      "away": "Leicester City",
+      "league": "English WSL Players Cup",
+      "date": "2026-11-18",
+      "time": "19:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20062.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21036.png"
+    },
+    {
+      "match": "West Ham United vs Wolverhampton",
+      "home": "West Ham United",
+      "away": "Wolverhampton",
+      "league": "English WSL Players Cup",
+      "date": "2026-11-18",
+      "time": "19:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/19975.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21042.png"
+    },
+    {
+      "match": "Chelsea vs Paris Saint-Germain",
+      "home": "Chelsea",
+      "away": "Paris Saint-Germain",
+      "league": "UEFA Women's Champions League",
+      "date": "2026-11-18",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/19970.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/19258.png"
+    },
+    {
+      "match": "Juventus vs OH Leuven",
+      "home": "Juventus",
+      "away": "OH Leuven",
+      "league": "UEFA Women's Champions League",
+      "date": "2026-11-18",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20092.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/131423.png"
+    },
+    {
+      "match": "TBD Home vs TBD Away",
+      "home": "TBD Home",
+      "away": "TBD Away",
+      "league": "Copa Bolivia",
+      "date": "2026-11-18",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/131556.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/131554.png"
+    }
+  ],
+  "stats": {
+    "avgReliability": 74.96,
+    "totalAnalyzed": 146,
+    "totalRejected": 69,
+    "totalAccepted": 77,
+    "freeCount": 4,
+    "fixtureCount": 143
+  },
+  "predictions": [
+    {
+      "id": "sobernar-vs-athletic-2026-11-12",
+      "match": "São Bernardo vs Athletic",
+      "home": "São Bernardo",
+      "away": "Athletic",
+      "league": "Brazilian Serie B",
+      "date": "2026-11-12",
+      "type": "BTTS",
+      "time": "23:00",
+      "matchSemantic": "sobernar-vs-athletic-2026-11-12",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/11268.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20851.png",
+      "tier": "GOLD",
+      "reliabilityScore": 84.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2,
+      "xgAway": 0.75,
+      "xgTotal": 2.75,
+      "formBTTS": 70,
+      "analysis": "São Bernardo : forme D-V-V-D-N (2V 1N 2D, 8 buts marqués / 8 encaissés sur 5) · Athletic : forme D-V-D-N-N (1V 2N 2D, 6 buts marqués / 7 encaissés sur 5). Classement : São Bernardo 11e (52 pts), Athletic 14e (47 pts). Stats empiriques (forme récente) : buts moy. 2.75, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.91 / N: 3.45 / 2: 3.8 · Over 2.5: 1.91. Fiabilité 84.38%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.7,
+        "empiricalOver25Rate": 0.7,
+        "homeLambda": 2,
+        "awayLambda": 0.75,
+        "xgTotal": 2.75
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.91,
+        "draw": 3.45,
+        "away": 3.8,
+        "over25": 1.91,
+        "under25": 1.8
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-V-V-D-N",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 8,
+        "goalsAgainst": 8,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-V-D-N-N",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 6,
+        "goalsAgainst": 7,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-07",
+          "opponent": "Avaí",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Cuiabá",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Vila Nova",
+          "venue": "H",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Criciúma",
+          "venue": "H",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Juventude",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-08",
+          "opponent": "Atlético Goianiense",
+          "venue": "H",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-02",
+          "opponent": "Ceará",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Operário PR",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Avaí",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-13",
+          "opponent": "Londrina",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 11,
+        "points": 52,
+        "played": 37,
+        "gf": 52,
+        "ga": 42
+      },
+      "standingsAway": {
+        "rank": 14,
+        "points": 47,
+        "played": 37,
+        "gf": 44,
+        "ga": 44
+      },
+      "empiricalBttsRate": 0.7,
+      "empiricalOver25Rate": 0.7,
+      "homeLambda": 2,
+      "awayLambda": 0.75,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "São Bernardo possède un taux de BTTS de 80% sur ses derniers matchs avec 8 buts marqués et 8 encaissés.",
+      "ai_analysis": "Les statistiques observées soutiennent clairement une option BTTS Yes avec un taux empirique de 70% et un taux de 80% pour São Bernardo. Malgré une moyenne extérieure modérée pour Athletic, la dynamique des deux équipes penche vers des matchs ouverts.",
+      "ai_analysis_en": "Observed statistics clearly support a BTTS Yes selection with a 70% empirical rate and an 80% rate for São Bernardo. Despite Athletic's moderate away scoring average, the overall dynamics point toward open matches.",
+      "ai_form_summary": "São Bernardo : 2V-1D-2L (8 BP, 8 BC). Athletic : 1V-2D-2L (6 BP, 7 BC).",
+      "ai_form_summary_en": "São Bernardo: 2W-1D-2L (8 GF, 8 GA). Athletic: 1W-2D-2L (6 GF, 7 GA).",
+      "ai_reasons": [
+        "Le taux empirique BTTS s'élève à 70% pour cette affiche.",
+        "São Bernardo enregistre un taux BTTS de 80% sur ses 5 derniers matchs.",
+        "Le formBTTS atteint 70% selon les données récentes."
+      ],
+      "ai_risks": [
+        "La moyenne de buts à l'extérieur d'Athletic reste limitée à 0.75.",
+        "L'historique récent montre une alternance de résultats mitigés (2W-1D-2L pour São Bernardo)."
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 65,
+          "proba": 0.65,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.65
+        }
+      ],
+      "bttsProb": 0.65,
+      "prediction": "Oui",
+      "proba": 0.65,
+      "confidence": 65,
+      "status": "PENDING"
+    },
+    {
+      "id": "pontepre-vs-operriop-2026-11-12",
+      "match": "Ponte Preta vs Operário PR",
+      "home": "Ponte Preta",
+      "away": "Operário PR",
+      "league": "Brazilian Serie B",
+      "date": "2026-11-12",
+      "type": "BTTS",
+      "time": "22:00",
+      "matchSemantic": "pontepre-vs-operriop-2026-11-12",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3459.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18187.png",
+      "tier": "SILVER",
+      "reliabilityScore": 68.13,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1,
+      "xgAway": 0.33,
+      "xgTotal": 1.33,
+      "formBTTS": 50,
+      "analysis": "Ponte Preta : forme D-D-N-N-D (0V 2N 3D, 4 buts marqués / 11 encaissés sur 5) · Operário PR : forme V-D-V-D-D (2V 0N 3D, 5 buts marqués / 7 encaissés sur 5). Classement : Ponte Preta 20e (15 pts), Operário PR 10e (54 pts). Stats empiriques (forme récente) : buts moy. 1.33, BTTS 50.0%, Over 2.5 40.0%. Affinage AI ensuite. Cotes DraftKings — 1: 4.6 / N: 4.1 / 2: 1.67 · Over 2.5: 1.71. Fiabilité 68.13%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.5,
+        "empiricalOver25Rate": 0.4,
+        "homeLambda": 1,
+        "awayLambda": 0.33,
+        "xgTotal": 1.33
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 4.6,
+        "draw": 4.1,
+        "away": 1.67,
+        "over25": 1.71,
+        "under25": 2.05
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-D-N-N-D",
+        "wins": 0,
+        "draws": 2,
+        "losses": 3,
+        "goalsFor": 4,
+        "goalsAgainst": 11,
+        "bttsRate": 0.6,
+        "over25Rate": 0.4,
+        "cleanSheets": 0,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-D-V-D-D",
+        "wins": 2,
+        "draws": 0,
+        "losses": 3,
+        "goalsFor": 5,
+        "goalsAgainst": 7,
+        "bttsRate": 0.4,
+        "over25Rate": 0.4,
+        "cleanSheets": 1,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-08",
+          "opponent": "Goiás",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-30",
+          "opponent": "Criciúma",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Fortaleza",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-16",
+          "opponent": "Atlético Goianiense",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-12",
+          "opponent": "Novorizontino",
+          "venue": "A",
+          "score": "1-5",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-06",
+          "opponent": "Sport",
+          "venue": "H",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Novorizontino",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Athletic",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "América Mineiro",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Goiás",
+          "venue": "H",
+          "score": "0-2",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 20,
+        "points": 15,
+        "played": 37,
+        "gf": 21,
+        "ga": 79
+      },
+      "standingsAway": {
+        "rank": 10,
+        "points": 54,
+        "played": 37,
+        "gf": 49,
+        "ga": 50
+      },
+      "empiricalBttsRate": 0.5,
+      "empiricalOver25Rate": 0.4,
+      "homeLambda": 1,
+      "awayLambda": 0.33,
+      "statsOnly": true,
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "Ponte Preta possède la pire défense avec 79 buts encaissés en 37 matchs.",
+      "ai_analysis": "Malgré la fragilité défensive chronique de Ponte Preta, les taux empiriques de buts restent modérés avec des pourcentages d'Over 2.5 et de BTTS sous les seuils de confiance optimale. La faible production offensive des locaux incite à la prudence et justifie une abstention sur ce marché.",
+      "ai_analysis_en": "Despite Ponte Preta's chronic defensive fragility, empirical goal rates remain moderate with Over 2.5 and BTTS percentages below optimal confidence thresholds. The low offensive output from the home side calls for caution and justifies abstaining on this market.",
+      "ai_form_summary": "Ponte Preta (0V-2N-3L) enchaîne les difficultés offensives, tandis qu'Operário PR (2V-0N-3L) affiche des stats de buts mitigées.",
+      "ai_form_summary_en": "Ponte Preta (0W-2D-3L) struggles offensively, while Operário PR (2W-0D-3L) shows mixed goal statistics.",
+      "ai_reasons": [
+        "Faible production offensive récente de Ponte Preta (4 buts en 5 matchs).",
+        "Taux Over 2.5 de Ponte Preta à 40% et Operário PR à 40%."
+      ],
+      "ai_risks": [
+        "Ponte Preta en grande difficulté (0V-2N-3L) avec une défense poreuse (11 buts encaissés récemment).",
+        "Ecart important au classement entre les deux équipes."
+      ],
+      "ai_confidence": "low",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "abstain",
+      "status": "PENDING"
+    },
+    {
+      "id": "nantes-vs-lens-2026-11-13",
+      "match": "Nantes vs Lens",
+      "home": "Nantes",
+      "away": "Lens",
+      "league": "French Première Ligue",
+      "date": "2026-11-13",
+      "type": "BTTS",
+      "time": "18:00",
+      "matchSemantic": "nantes-vs-lens-2026-11-13",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22328.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/131297.png",
+      "tier": "GOLD",
+      "reliabilityScore": 80.63,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.5,
+      "xgAway": 0.67,
+      "xgTotal": 2.17,
+      "formBTTS": 70,
+      "analysis": "Nantes : forme N-D-V-V-N (2V 2N 1D, 7 buts marqués / 5 encaissés sur 5) · Lens : forme D-N-N-D-D (0V 2N 3D, 4 buts marqués / 15 encaissés sur 5). Classement : Nantes 5e (9 pts), Lens 12e (3 pts). Stats empiriques (forme récente) : buts moy. 2.17, BTTS 70.0%, Over 2.5 40.0%. Affinage AI ensuite. Fiabilité 80.63%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.7,
+        "empiricalOver25Rate": 0.4,
+        "homeLambda": 1.5,
+        "awayLambda": 0.67,
+        "xgTotal": 2.17
+      },
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "N-D-V-V-N",
+        "wins": 2,
+        "draws": 2,
+        "losses": 1,
+        "goalsFor": 7,
+        "goalsAgainst": 5,
+        "bttsRate": 0.6,
+        "over25Rate": 0.2,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-N-N-D-D",
+        "wins": 0,
+        "draws": 2,
+        "losses": 3,
+        "goalsFor": 4,
+        "goalsAgainst": 15,
+        "bttsRate": 0.8,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-06",
+          "opponent": "Toulouse",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-30",
+          "opponent": "Marseille",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Strasbourg",
+          "venue": "H",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Saint-Malo",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-03",
+          "opponent": "Montpellier",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-07",
+          "opponent": "OL Lyonnes",
+          "venue": "H",
+          "score": "1-7",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "FC Fleury 91",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Le Havre AC",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Strasbourg",
+          "venue": "H",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-03",
+          "opponent": "Paris FC",
+          "venue": "A",
+          "score": "1-4",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 5,
+        "points": 9,
+        "played": 8,
+        "gf": 8,
+        "ga": 9
+      },
+      "standingsAway": {
+        "rank": 12,
+        "points": 3,
+        "played": 8,
+        "gf": 7,
+        "ga": 21
+      },
+      "empiricalBttsRate": 0.7,
+      "empiricalOver25Rate": 0.4,
+      "homeLambda": 1.5,
+      "awayLambda": 0.67,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Lens a encaissé 15 buts sur ses 5 derniers matchs, ce qui soutient fortement l'option BTTS Yes.",
+      "ai_analysis": "Malgré une moyenne de buts à l'extérieur de Lens assez faible, les statistiques récentes montrent une défense lensoise en grande difficulté avec 15 buts encaissés sur les 5 derniers matchs. Nantes présente un taux BTTS de 60% et un taux empirique global de 70%, ce qui rend l'option 'Yes' crédible au vu des failles défensives adverses.",
+      "ai_analysis_en": "Despite a relatively low away scoring average for Lens, recent stats show a struggling defense with 15 goals conceded in their last 5 matches. Nantes holds a 60% BTTS rate and an overall empirical rate of 70%, making the 'Yes' selection credible given the opponent's defensive vulnerabilities.",
+      "ai_form_summary": "Nantes : 2V-2D-1N, 7 buts pour, 5 contre. Lens : 0V-2D-3L, 4 buts pour, 15 contre.",
+      "ai_form_summary_en": "Nantes: 2W-2D-1L, 7 goals for, 5 against. Lens: 0W-2D-3L, 4 goals for, 15 against.",
+      "ai_reasons": [
+        "Le taux empirique global de BTTS est de 70% sur l'ensemble des échantillons.",
+        "Nantes affiche un taux BTTS de 60% sur ses 5 derniers matchs.",
+        "Lens présente une défense très perméable avec 15 buts encaissés sur ses 5 derniers matchs et 80% de taux BTTS."
+      ],
+      "ai_risks": [
+        "Nantes a un taux d'Over 2.5 faible (20%) malgré ses buts concédés récents.",
+        "La moyenne de buts à l'extérieur de Lens est limitée à 0.67."
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 65,
+          "proba": 0.65,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.65
+        }
+      ],
+      "bttsProb": 0.65,
+      "prediction": "Oui",
+      "proba": 0.65,
+      "confidence": 65,
+      "status": "PENDING"
+    },
+    {
+      "id": "argentin-vs-uruguay-2026-11-13",
+      "match": "Argentina vs Uruguay",
+      "home": "Argentina",
+      "away": "Uruguay",
+      "league": "International Friendly",
+      "date": "2026-11-13",
+      "type": "Over 2.5",
+      "time": "23:00",
+      "matchSemantic": "argentin-vs-uruguay-2026-11-13",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/arg.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/uru.png",
+      "tier": "SILVER",
+      "reliabilityScore": 67.25,
+      "dataQuality": "MEDIUM",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 7,
+      "matchCountAway": 5,
+      "h2hAvailable": false,
+      "xgHome": 3.71,
+      "xgAway": 2.4,
+      "xgTotal": 6.11,
+      "formBTTS": 40,
+      "analysis": "Argentina : forme V-V-V-V-V (5V 0N 0D, 19 buts marqués / 0 encaissés sur 5) · Uruguay : forme V-V-D-N-N (2V 2N 1D, 12 buts marqués / 6 encaissés sur 5). Stats empiriques (forme récente) : buts moy. 6.11, BTTS 40.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.59 / N: 3.85 / 2: 5.5 · Over 2.5: 2. Fiabilité 67.25%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.4,
+        "empiricalOver25Rate": 0.7,
+        "homeLambda": 3.71,
+        "awayLambda": 2.4,
+        "xgTotal": 6.11
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.59,
+        "draw": 3.85,
+        "away": 5.5,
+        "over25": 2,
+        "under25": 1.71
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "V-V-V-V-V",
+        "wins": 5,
+        "draws": 0,
+        "losses": 0,
+        "goalsFor": 19,
+        "goalsAgainst": 0,
+        "bttsRate": 0,
+        "over25Rate": 0.8,
+        "cleanSheets": 5,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-D-N-N",
+        "wins": 2,
+        "draws": 2,
+        "losses": 1,
+        "goalsFor": 12,
+        "goalsAgainst": 6,
+        "bttsRate": 0.8,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-06",
+          "opponent": "Benin",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-04",
+          "opponent": "Burkina Faso",
+          "venue": "H",
+          "score": "7-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-01",
+          "opponent": "Bolivia",
+          "venue": "H",
+          "score": "4-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-06-10",
+          "opponent": "Iceland",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-06-07",
+          "opponent": "Honduras",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-06",
+          "opponent": "India",
+          "venue": "A",
+          "score": "6-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-28",
+          "opponent": "South Korea",
+          "venue": "A",
+          "score": "4-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-24",
+          "opponent": "Japan",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-03-31",
+          "opponent": "Algeria",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-03-27",
+          "opponent": "England",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "standingsHome": null,
+      "standingsAway": null,
+      "empiricalBttsRate": 0.4,
+      "empiricalOver25Rate": 0.7,
+      "homeLambda": 3.71,
+      "awayLambda": 2.4,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_key_fact": "L'Argentine tourne à 3.71 buts par match avec un taux d'Over 2.5 de 80%.",
+      "ai_analysis": "L'analyse des matchs récents de l'Argentine et de l'Uruguay met en évidence une forte propension aux matchs prolifiques. L'Argentine affiche 3.71 buts par match et un taux d'Over 2.5 de 80%, tandis que l'Uruguay complète ce profil offensif avec 2.4 buts de moyenne. Le taux empirique global de 70% justifie pleinement la sélection de l'Over 2.5.",
+      "ai_analysis_en": "Recent matches for both Argentina and Uruguay highlight a strong tendency toward high-scoring encounters. Argentina averages 3.71 goals per game with an 80% Over 2.5 rate, while Uruguay complements this with an average of 2.4 goals. The overall empirical Over rate of 70% fully justifies the Over 2.5 selection.",
+      "ai_form_summary": "Argentine : 5V-0D-0L, 19 buts pour, 0 contre. Uruguay : 2V-2D-1L, 12 buts pour, 6 contre.",
+      "ai_form_summary_en": "Argentina: 5W-0D-0L, 19 goals for, 0 against. Uruguay: 2W-2D-1L, 12 goals for, 6 against.",
+      "ai_reasons": [
+        "Le taux empirique d'Over 2.5 est élevé à 70%.",
+        "L'Argentine affiche un taux d'Over 2.5 de 80% sur ses 5 derniers matchs avec une forte moyenne de 3.71 buts par match.",
+        "Uruguay montre également un taux d'Over 2.5 de 60% et une moyenne offensive de 2.4 buts par match."
+      ],
+      "ai_risks": [
+        "L'Argentine n'a encaissé aucun but lors de ses 5 derniers matchs, ce qui pourrait limiter le BTTS mais renforce la production offensive unilatérale.",
+        "La cote Over 2.5 est fixée à 2.00, traduisant un équilibre sur le marché."
+      ],
+      "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 72,
+          "proba": 0.72,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "over25Prob": 0.72
+        }
+      ],
+      "over25Prob": 0.72,
+      "prediction": "Oui",
+      "proba": 0.72,
+      "confidence": 72,
+      "status": "PENDING"
+    }
+  ],
+  "analysisEngine": "gemini-stats-v1"
+}
