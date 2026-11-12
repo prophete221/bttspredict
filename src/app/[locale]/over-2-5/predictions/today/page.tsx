@@ -16,11 +16,17 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const locale = value as Locale
   const url = `https://bttspredict.com/${locale}/over-2-5/predictions/today`
   const title = locale === 'ar' ? 'توقعات Over 2.5 اليوم' : 'Over 2.5 Predictions Today — Goal Analysis'
-  const description = locale === 'ar' ? 'توقعات أكثر من 2.5 هدف للمباريات الدولية، مع تحليل إحصائي وتحديثات يومية. لا توجد ضمانات للنتائج. 18+.' : 'Over 2.5 goals predictions for international football matches, with statistical analysis and daily updates. No future result is guaranteed. 18+.'
+  const description = locale === 'ar' ? 'توقعات أكثر من 2.5 هدف للمباريات الدولية، مع تحليل إحصائي وتحديثات يومية. لا توجد ضمانات للنتائج. 18+.' : 'Over 2.5 goal predictions for today’s football matches, with scoring stats and daily updates. Statistical estimates, not guarantees. 18+.'
   return {
     title, description,
     alternates: { canonical: url, languages: { fr: 'https://bttspredict.com/over-2-5/predictions/today', en: 'https://bttspredict.com/en/over-2-5/predictions/today', ar: 'https://bttspredict.com/ar/over-2-5/predictions/today', 'x-default': 'https://bttspredict.com/over-2-5/predictions/today' } },
-    openGraph: { title, description, url, siteName: 'BTTSPredict', type: 'website', locale: LOCALE_META[locale].htmlLang },
+    openGraph: {
+      title, description, url, siteName: 'BTTSPredict', type: 'website', locale: LOCALE_META[locale].htmlLang,
+      ...(locale === 'en' ? { images: ['/og-image.png'] } : {}),
+    },
+    ...(locale === 'en' ? {
+      twitter: { card: 'summary_large_image' as const, title, description, images: ['/og-image.png'] },
+    } : {}),
   }
 }
 
