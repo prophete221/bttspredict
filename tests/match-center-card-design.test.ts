@@ -21,13 +21,16 @@ describe('homepage Match Center card design', () => {
     expect(component).toContain('resolveMatchPageLogos(matchSlug, m)')
   })
 
-  it('adds fixture-only rows on French and English homepages without inventing picks', () => {
-    expect(component).toContain("const showPublicFixtures = lang === 'fr' || lang === 'en'")
-    expect(component).toContain('selectFixtureOnlyItems(publicFixtures, verifiedPickRows, new Date(), fixtureDay)')
-    expect(component).toContain('predictions: [],')
-    expect(component).toContain('isFixtureOnly: true')
-    expect(component).toContain('Scheduled fixture only — no prediction available.')
-    expect(component).toContain("data-fixture-only={m.isFixtureOnly ? 'true' : undefined}")
+  it('publishes only Gemini picks and prioritizes those picks on French and English homepages', () => {
+    expect(component).toContain('predictions: getGeminiPicks(item)')
+    expect(component).toContain('selectUpcomingGeminiItems(items, dayDiff)')
+    expect(component).toContain("if (lang !== 'fr' && lang !== 'en') return filteredPicks")
+    expect(component).toContain('prioritizeMatchCenterItems(filteredPicks, dakarToday)')
+    expect(component).not.toContain('selectFixtureOnlyItems')
+    expect(component).not.toContain('pred?.fixtures')
+    expect(component).not.toContain('isFixtureOnly')
+    expect(component).not.toContain('no prediction available')
+    expect(component).not.toContain('aucun pronostic disponible')
   })
 
   it('applies the validated ESPN logo override to both card crests', () => {
