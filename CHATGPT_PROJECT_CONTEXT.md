@@ -290,3 +290,14 @@ Continue a read-only analytics/authentication funnel audit: verify whether `NEXT
 - Décision technique recommandée (pas encore appliquée): conserver GA4 direct pour le moment. C'est le chemin déjà implémenté et câblé dans les deux builds; migrer vers GTM imposerait de modifier le chargeur, la gestion du consentement et la configuration du conteneur, avec un risque de double comptage. GTM ne doit pas être injecté en parallèle de GA4 direct.
 - Prochaine étape sans modification de production: récupérer la Measurement ID GA4 au format `G-XXXXXXXXXX`; ensuite seulement, confirmer le paramétrage de la variable GitHub Actions (nom uniquement, valeur jamais copiée dans le chat). Déploiement soumis à autorisation explicite et vérification GA4 Realtime après consentement.
 - Aucun fichier source, workflow, variable Actions, secret, configuration Cloudflare, donnée de production, merge ou déploiement n'a été modifié pendant cet audit.
+
+
+## 18. Measurement ID GA4 fournie — 2026-11-13
+
+- Le propriétaire a fourni la Measurement ID GA4 du flux BTTSPredict Website: `G-F705Z3L2HT`.
+- Cette valeur correspond au format attendu par `AnalyticsLoader.tsx` et doit être utilisée pour la variable GitHub Actions `NEXT_PUBLIC_GA_ID`.
+- L'identifiant GTM `GTM-NGVK3V3V` reste distinct et ne doit pas être utilisé dans cette variable.
+- La connexion GitHub utilisée ici ne fournit aucune action de lecture/écriture des variables Actions (les actions disponibles couvrent les fichiers, branches et PR; les API sensibles de secrets/paramètres ne sont pas prises en charge). La variable n'a donc pas été créée ni modifiée par cet assistant.
+- Action requise côté propriétaire: GitHub → dépôt `prophete221/bttspredict` → Settings → Secrets and variables → Actions → Variables → New repository variable; Name: `NEXT_PUBLIC_GA_ID`; Value: `G-F705Z3L2HT`.
+- Après création, aucun déploiement automatique ne doit être lancé manuellement sans approbation explicite. La vérification de présence/absence de l'ancienne variable et les tests GA4 Realtime restent à faire après autorisation de déploiement.
+- Aucun code source, workflow, secret, variable Actions ou production modifié dans cette étape.
