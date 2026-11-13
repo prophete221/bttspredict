@@ -456,3 +456,12 @@ Continue a read-only analytics/authentication funnel audit: verify whether `NEXT
 - Extended the global design-system test to assert the outer page and footer shell rules.
 - Commits: `929e3914b9dd70153fb6757046b18b1c7ed541ef`, `aaa5a4f36e4e300a49b5a30e06db2693b9cce01a`.
 - Source inspection only; no screenshot or browser verification yet. The most recent known CI failure remains unresolved because job summaries/logs are unavailable through GitHub; a later PR run may be needed to validate this final patch.
+
+## 33. VIP Discovery / Pro migration architecture — 2026-11-13 (UTC)
+
+- Added `docs/project/vip/ARCHITECTURE_DISCOVERY_PRO.md` based on a fresh inspection of the existing Firebase Auth context, root Next layout, VIP Worker routes and D1 `0001_initial.sql`.
+- Confirmed the current VIP request model still requires a bookmaker deposit of at least USD 3 and proof image, with manual owner review; no paid entitlement or real crypto verification endpoints exist.
+- Confirmed a Firebase Auth implementation exists but uses Vite `import.meta.env.VITE_FIREBASE_*` variables and its provider is not mounted by the Next root layout. Existing Firestore `isVip` must not be trusted as server authorization.
+- The architecture proposes Firebase ID token verification in the Worker, D1-authoritative entitlements, one-time 7-day Discovery trial, idempotent payment intents/transaction hashes, expiry/renewal ledger and Telegram notifications only after confirmed entitlement.
+- No auth provider, D1 migration, Worker endpoint, Firebase config, Binance integration, secret or production resource was changed. The doc lists owner inputs required before the payment rail can be implemented.
+- Architecture doc commit: `64e86a3739ac76a857a0dc183559ad67d9be583f`.
