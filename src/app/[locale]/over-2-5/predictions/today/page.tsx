@@ -3,7 +3,6 @@ import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { isLocale, LOCALE_META, type Locale, translationsFor } from '@/lib/i18n'
-import AnimatedTitle from '@/components/bttsbet/HeroWordmark'
 import VipButtons from '@/components/bttsbet/VipButtons'
 
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
@@ -38,7 +37,7 @@ export default async function LocalizedOver25TodayPage({ params }: { params: Pro
         </nav>
         <section className="over25-intro-section page-design__hero-wrap max-w-5xl mx-auto px-4 pt-4 pb-6">
           <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-4" style={{ backgroundColor: 'rgba(91, 169, 255, 0.12)', color: '#2F7DFF', border: '1px solid rgba(91, 169, 255, 0.25)' }}>Over 2.5 · Total goals</span>
-          <AnimatedTitle as="h1" text={isAr ? 'توقعات Over 2.5 اليوم' : 'Over 2.5 Predictions Today'} className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }} />
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 tracking-tight">{isAr ? 'توقعات Over 2.5 اليوم' : 'Over 2.5 Predictions Today'}</h1>
           <p className="text-base sm:text-lg text-[#9DABBB] leading-relaxed mb-3 max-w-3xl mx-auto">{isAr ? 'مباريات يُتوقع أن يتجاوز فيها إجمالي الأهداف 2.5، أي ثلاثة أهداف على الأقل. يتم التحديث والتحقق من النتائج بعد المباراة.' : "Today's Over 2.5 predictions: matches where total goals are expected to exceed 2.5, meaning at least 3 goals. Updated and checked after the match."}</p>
           <p className="text-sm text-[#9DABBB] leading-relaxed max-w-3xl mx-auto">{t.legal.noGuarantee} {t.legal.eighteen}</p>
           <div className="mt-5 flex justify-center">
@@ -47,7 +46,7 @@ export default async function LocalizedOver25TodayPage({ params }: { params: Pro
         </section>
 
         <section className="over25-results-section page-design__feed max-w-5xl mx-auto px-4 pb-12">
-          <FreePredictions />
+          <FreePredictions marketFilter="over25" />
         </section>
       </main>
       <Footer />
