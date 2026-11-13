@@ -391,3 +391,14 @@ Continue a read-only analytics/authentication funnel audit: verify whether `NEXT
 - Re-fetched modified source from GitHub and confirmed expected palette tokens, dark viewport settings, canonical preservation and test-file presence. No local test runner was available through the GitHub connector; automated tests/lint/typecheck/build are not claimed as run.
 - VIP audit confirms the current API remains a manual bookmaker-deposit request system. The inspected Worker does not implement crypto transaction verification, paid subscription state, payment history, or automatic subscription expiry. Firebase AuthContext is not mounted by the root layout and relies on Vite-style `import.meta.env`, so it cannot be assumed to be ready for the Next.js VIP journey. No production Worker, D1, secrets, Firebase settings, Cloudflare resources or data were changed.
 - No merge, production deploy, or change to `main` was performed.
+
+## 26. Footer and RTL polish — 2026-11-13 (UTC)
+
+- Continued work without waiting on VIP payment parameters; payment configuration remains the only owner-dependent implementation blocker.
+- Updated `src/components/bttsbet/Footer.tsx` to use the approved navy surface `#0F1622` and border `#283548`, replaced FAQ button physical `text-left` with logical `text-start` for Arabic RTL, and localized the legal navigation aria-label in FR/EN/AR.
+- Extended `tests/global-design-system.test.ts` with footer palette, logical alignment and Arabic label assertions.
+- Commits for this continuation: `75ef9053b682614f779a8fd568118a822c6a35af` and `93677a7c6590b1f5f28fa534df68a583a88354db`.
+- Re-fetched Footer, test, global CSS and root layout from the PR branch and verified the expected source strings; this is source inspection, not execution of the tests.
+- Latest PR head at checkpoint: `93677a7c6590b1f5f28fa534df68a583a88354db`; PR #128 remains open/draft, 17 commits, 12 changed files. Compare against main: ahead 17, behind 0. No main changes.
+- Latest Vercel status was pending at the time of check. GitHub Actions run `43518343402` failed in the `pull-request-checks` job; GitHub did not expose job steps/logs (logs endpoint returned BlobNotFound). Failed-job rerun was successfully requested; result is not yet known. Deploy and private VIP jobs remain skipped for the PR event.
+- No merge, production deployment, FTP, Cloudflare resource, Worker, D1, secret, or production data modification was performed.
