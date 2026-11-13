@@ -197,3 +197,14 @@ As of 2026-11-13:
 ### Resumption decision
 
 Continue with a read-only source and workflow audit first. Prioritize understanding the reported traffic decline using current analytics evidence if the owner can provide it or connect the relevant source. Do not make SEO metadata, URL, sitemap, feed, or deployment changes based on guesswork.
+### Traffic diagnosis carried forward from the owner's 2026-11-13 report
+
+- Search Console comparison: 28 Oct–3 Nov 2026 = 580 clicks / 4,664 impressions; 4–10 Nov = 611 clicks / 5,029 impressions (+5.3% clicks, +7.8% impressions). Average position moved from 13.37 to 13.94 (slightly worse). This does not establish an overall Google-search traffic decline.
+- Daily signal: 113 clicks on 7 Nov versus 65 on 10 Nov; this is a short-window decline worth monitoring, not evidence by itself of a Google penalty.
+- Top pages over the reported 28-day period: /en/btts-and-over-2-5-predictions-today (748 clicks / 3,699 impressions), /en/over-2-5/predictions/today (425 clicks), English homepage (390 clicks). Kenya and Nigeria led by clicks; mobile accounted for approximately 90% (1,635 / 1,823 clicks).
+- Owner reports no new onsite registrations since launch. Search Console does not measure total website visits or onsite conversion; compare GA4 and/or hosting logs and instrument the visit → signup → VIP request → verified payment funnel before attributing the decline.
+- Current VIP page source still advertises lifetime access after manual approval and asks for bookmaker-related information. This creates a mismatch with the owner's desired lower-friction crypto subscription path, but do not implement payments until the product rules, verification source, refund/expiry behavior, and Telegram notification flow are audited.
+
+### Workflow observation from current main
+
+- .github/workflows/deploy.yml triggers on main pushes (with public/** ignored), a 3-hour schedule, three separate daily VIP candidate schedules, manual dispatch, and pull_request checks. Public deployment and private VIP candidate generation are distinct workflow paths. Do not run or dispatch workflows as part of this audit.
