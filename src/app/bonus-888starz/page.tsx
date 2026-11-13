@@ -69,9 +69,7 @@ export default function Bonus888StarzPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faq) }} />
       <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-emerald focus:text-dark-900 focus:font-bold focus:rounded-lg">Aller au contenu principal</a>
       <ErrorBoundary><Navbar /></ErrorBoundary>
-      <main id="main-content" className="flex-1 relative z-10" style={{ paddingBottom: 'calc(80px + env(safe-area-inset-bottom, 0px))' }}>
-        <Star888Client />
-      </main>
+      <Star888Client />
       <ErrorBoundary><Footer /></ErrorBoundary>
     </div>
   )
