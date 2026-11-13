@@ -53,6 +53,8 @@ export default function PromoLandingShell(p: PromoLandingProps) {
   const [copyFailed, setCopyFailed] = useState(false)
   const [openFaq, setOpenFaq] = useState<number | null>(0)
 
+  const guidesLabel = p.lang === 'en' ? 'Partner guides' : p.lang === 'ar' ? 'أدلة الشركاء' : 'Guides partenaires'
+
   const L = {
     copy: p.labels?.copy ?? (p.lang === 'en' ? 'Copy code' : p.lang === 'ar' ? 'نسخ الرمز' : 'Copier le code'),
     copied: p.labels?.copied ?? (p.lang === 'en' ? 'Copied' : p.lang === 'ar' ? 'تم النسخ' : 'Code copié'),
@@ -100,7 +102,7 @@ export default function PromoLandingShell(p: PromoLandingProps) {
     >
       <main className="promo-editorial">
         <header className="promo-editorial__header">
-          <a href={p.lang === 'fr' ? '/' : `/${p.lang}`} className="promo-editorial__brand">BTTSPredict <span>/</span> Guides partenaires</a>
+          <a href={p.lang === 'fr' ? '/' : `/${p.lang}`} className="promo-editorial__brand">BTTSPredict <span>/</span> {guidesLabel}</a>
           <span className="promo-editorial__age">18+</span>
         </header>
 
