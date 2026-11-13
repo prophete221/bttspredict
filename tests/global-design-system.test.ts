@@ -145,3 +145,28 @@ describe('Editorial redesign regression checks', () => {
     expect(shell).not.toContain('motion.')
   })
 })
+
+
+describe('Market-page accuracy and consistent prediction cards', () => {
+  it('filters Over 2.5 and combined pages to the markets named by each page', () => {
+    const feed = readFileSync(resolve(ROOT, 'src/components/bttsbet/FreePredictions.tsx'), 'utf8')
+    const over = readFileSync(resolve(ROOT, 'src/app/over-2-5/predictions/today/page.tsx'), 'utf8')
+    const combined = readFileSync(resolve(ROOT, 'src/app/btts-and-over-2-5-predictions-today/page.tsx'), 'utf8')
+
+    expect(feed).toContain("marketFilter?: 'all' | 'btts' | 'over25' | 'combined'")
+    expect(feed).toContain("if (marketFilter === 'over25') return hasOver")
+    expect(feed).toContain("if (marketFilter === 'combined') return hasBtts && hasOver")
+    expect(over).toContain('marketFilter="over25"')
+    expect(combined).toContain('marketFilter="combined"')
+    expect(feed).not.toContain('from \'framer-motion\'')
+  })
+
+  it('does not invent default goal averages on the correct-score estimate page', () => {
+    const page = readFileSync(resolve(ROOT, 'src/app/ai-correct-score-predictions/page.tsx'), 'utf8')
+    expect(page).not.toContain('|| 1.3')
+    expect(page).not.toContain('|| 1.1')
+    expect(page).not.toContain('AnimatedTitle')
+    expect(page).toContain('Estimations de score exact')
+    expect(page).toContain('typeof m.homeLambda === \'number\'')
+  })
+})
