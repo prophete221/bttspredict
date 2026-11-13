@@ -208,3 +208,20 @@ Continue with a read-only source and workflow audit first. Prioritize understand
 ### Workflow observation from current main
 
 - .github/workflows/deploy.yml triggers on main pushes (with public/** ignored), a 3-hour schedule, three separate daily VIP candidate schedules, manual dispatch, and pull_request checks. Public deployment and private VIP candidate generation are distinct workflow paths. Do not run or dispatch workflows as part of this audit.
+
+## 12. Resumption audit — 2026-11-13 (UTC, second pass)
+
+- Re-read the complete continuity file from `chatgpt/project-takeover-2026-11-13` before proceeding.
+- Latest main commit confirmed by repository commit search: `6ac049324bda675345554d405e77b21e4c4a191c` (`chore: auto-update data`, 2026-11-13 13:58:20 UTC).
+- GitHub compare `main@6ac049324bda675345554d405e77b21e4c4a191c...chatgpt/project-takeover-2026-11-13` reports the working branch ahead by 3 commits and behind by 0. The only changed path is `CHATGPT_PROJECT_CONTEXT.md` (210 additions); no application source changes are on the takeover branch.
+- The working branch exists and is discoverable. The repository branch search shows `main` and the takeover branch among the available branches.
+- PRs #126, #125, #124, #123, #122, #121, #120, #119, #118, and #117 were fetched individually and are closed/merged. Older PRs #86 and #56 remain open and have not been updated since August 2026; they should be treated as stale, not as current development activity.
+- Main source re-check: `package.json` blob remains `db50e41214caddf1a1067998694b9b8b842baa77`. Root `src/app/layout.tsx` still owns global metadata; no SEO metadata edits are authorized by this audit.
+- `.github/workflows/deploy.yml` on main still uses `NEXT_PUBLIC_GA_ID` from GitHub Actions repository variables for the production build. The workflow also runs PR checks; scheduled public deployment and VIP-only candidate paths remain separate. No workflow was dispatched.
+- `src/components/bttsbet/AnalyticsLoader.tsx` reads only `NEXT_PUBLIC_GA_ID`; it loads GA only in a production build and only after stored cookie consent has `preferences.analytics === true`. Therefore a GA4 property may exist while collection remains inactive if the variable is absent or consent has not been granted. No GA measurement ID or secret value was read.
+- The user's attempted GA4 connection in Windsor.ai failed because Google reported no GA4 properties accessible to `luxxdii@gmail.com`. This is an account/property access issue until proven otherwise; do not create a duplicate GA4 property or change site tracking yet.
+- Cloudflare was not re-inspected in this pass because the current task was repository resumption and no Cloudflare change is justified. No Cloudflare resources, production data, DNS, secrets, merges, or deployments were changed.
+
+### Current safe next step
+
+Continue a read-only analytics/authentication funnel audit: verify whether `NEXT_PUBLIC_GA_ID` is configured without exposing any secret values, inspect cookie-consent behavior and signup route/event instrumentation, then identify the correct Google account/property owner for GA4. Do not change code, tracking configuration, SEO metadata, or production until the evidence identifies a minimal fix and the owner approves it.
