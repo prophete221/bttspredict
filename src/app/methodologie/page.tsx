@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { Navbar, Footer, FreePredictions } from '@/components/bttsbet'
-import AnimatedTitle from '@/components/bttsbet/HeroWordmark'
 
 export const metadata: Metadata = {
   title: 'Méthodologie',
@@ -17,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function MethodologiePage() {
   return (
-    <div className="min-h-screen bg-[#0B0F14] flex flex-col text-[#F2F6FA]">
+    <div className="page-design page-design--methodology min-h-screen bg-[#080D14] flex flex-col text-[#EDF2F7]">
       <Navbar />
 
       <main id="main-content" className="flex-1">
@@ -27,14 +26,9 @@ export default function MethodologiePage() {
               style={{ backgroundColor: 'rgba(127, 162, 198, 0.16)', color: '#2F7DFF', border: '1px solid rgba(127, 162, 198, 0.30)' }}>
               Méthodologie
             </span>
-            <AnimatedTitle
-              as="h1"
-              text="Notre méthodologie d’analyse"
-              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4"
-              style={{ fontFamily: 'Poppins, sans-serif' }}
-            />
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 tracking-tight">Notre méthodologie d’analyse</h1>
             <p className="text-base text-[#9DABBB] leading-relaxed">
-              BTTSPredict publie des pronostics BTTS (Both Teams To Score) et Over 2.5 sur le football, générés par un modèle statistique. Cette page présente l&apos;approche, les marchés couverts, les sources de données et la gestion qualité — dans une approche transparente et crédible.
+              BTTSPredict publie des pronostics BTTS (Both Teams To Score) et Over 2.5 sur le football, générés par un modèle statistique. Cette page décrit les marchés couverts, les données utilisées, les calculs et les limites des estimations.
             </p>
           </header>
 
