@@ -4,6 +4,20 @@
 > Update this file whenever a material decision, code change, test, deployment, or blocker occurs.
 > Last updated: 2026-11-13 (UTC).
 
+## Current active checkpoint — PR #128 (2026-11-13 22:12 UTC)
+
+- Active branch: `feat/complete-art-direction-promo-vip-2026-11-13`; PR #128 remains open and draft, targeting `main`.
+- Latest verified compare before this checkpoint: branch is ahead of `main`, behind by 0; all work remains isolated from `main`.
+- Initial PR head `2e6f4e6f18639619ab55a8d5629f350427ce28e3`: Vercel check succeeded. GitHub Actions run `43503251998` failed in `pull-request-checks`; no steps were exposed and job logs returned 404. Deploy and private VIP jobs were skipped. Do not merge while CI is unresolved.
+- Additional source changes made on this branch: global design tokens in `src/app/football-intelligence.css`, browser theme color/color scheme in `src/app/layout.tsx`, and `tests/global-design-system.test.ts`. Latest CSS semantic status-color correction is commit `6d7dbfa4bd2c545d31d5b4fb248e57fafb4ccfce`; earlier commits in this pass: `0b73edada31954fe934789b342282f2b4c9922ec`, `63936661cd6fa588167db5ef8d298b3c5603da76`, `a14f02ecce12d368def210d3603f625085dde9f0`.
+- The root layout SEO metadata, canonical, titles, descriptions, and route structure were not changed. No production deploy or merge was performed.
+- Validation status for the new design-token work: files were re-fetched from GitHub and the expected tokens/viewport/canonical were checked; automated tests, lint, typecheck and production build have NOT been run in this environment.
+- Read-only VIP architecture audit: current `workers/vip-api/src/index.js` still accepts legacy bookmaker-deposit requests (minimum USD 3, proof image, manual review, lifetime-access wording on frontend). Current Worker routes are request/admin operations; no real crypto payment verification or subscription entitlement flow was found in the inspected API. `src/contexts/AuthContext.jsx` is a legacy Firebase context using `import.meta.env`; the current Next root layout does not mount an `AuthProvider`. No Worker, D1, secret, Firebase config, production data, or Cloudflare resource was modified.
+- Mobile navigation already has exactly three tabs and localizes their labels; the desktop shell still uses the existing sidebar/topbar and mobile drawer. The global navigation palette has now been aligned to navy/blue/gold, but full layout redesign and responsive visual QA remain open.
+- Next actions: inspect remaining page/card/footer styles and affiliate destinations/tracking; design the new VIP auth/entitlement architecture without touching production; request the owner's exact Pro price/billing duration, crypto asset/network, Binance receiving address or supported verification source before implementing payment. Diagnose the PR Actions runner failure; do not bypass checks or merge.
+
+
+
 ## 1. Project identity
 
 - Repository: `prophete221/bttspredict` (private GitHub repository).
@@ -361,3 +375,19 @@ Continue a read-only analytics/authentication funnel audit: verify whether `NEXT
 - Ne pas choisir arbitrairement « 10 USDT/mois » ou USDT TRC20 : ces valeurs n'étaient que des exemples discutés, pas des décisions du propriétaire.
 - Aucun Worker Cloudflare, D1 production, secret, données VIP, données de pronostics, page SEO ni site en production n'a été modifié. Aucun déploiement n'a été effectué.
 - Étapes suivantes : obtenir du propriétaire le tarif/durée VIP Pro et l'actif/réseau/adresse Binance; définir l'authentification réelle; implémenter migration D1 + vérification de transaction + entitlements + expiration/renouvellement + notifications Telegram; refaire ensuite la page VIP et le parcours complet; lancer tests/build/Vercel, puis traiter le blocage GitHub Actions runner avant tout FTP.
+
+## 25. PR #128 resumption and global palette correction — 2026-11-13 (UTC)
+
+- Read `CHATGPT_PROJECT_CONTEXT.md` directly from the requested PR branch before source work.
+- Verified PR #128: open, draft, target `main`, head branch `feat/complete-art-direction-promo-vip-2026-11-13`, initial head `2e6f4e6f18639619ab55a8d5629f350427ce28e3`, 10 commits at first inspection, 8 changed files at first inspection.
+- Compared branch to `main`: base/merge-base `e7943e81faf28fe588a129ee6d3d8e1a52db0f45`; branch ahead by 10 and behind by 0 before this pass's commits.
+- PR file audit confirmed first-pass work already present: design guide, promo shell and 888Starz mobile sticky CTAs, worldwide Linebet EN wording, VIP palette adjustment and affiliate disclosure tests. These were not repeated.
+- CI run `43503251998` for the initial PR head completed with failure in `pull-request-checks`; job exposed no steps, and fetching logs returned 404 BlobNotFound. The same commit's Vercel status was success. Deploy and private VIP candidate jobs were skipped. This does not prove the new commits' checks and does not justify merging.
+- Read current navigation shell, bottom navigation, global CSS, root layout, VIP page/modal, Firebase AuthContext, VIP Worker and Wrangler configuration. Mobile bottom navigation already contains only home/predictions/VIP with FR/EN/AR translations. Desktop currently has a 258px sidebar plus sticky topbar; mobile uses a drawer. The global palette previously remained teal-heavy and the root viewport declared a light color scheme despite dark surfaces.
+- Applied global palette alignment in `src/app/football-intelligence.css`: navy surfaces, analytical blue accents, matte VIP gold, semantic green success indicators, and matching text/border tokens. Corrected the fresh-data indicator to remain green rather than blue in follow-up commit `6d7dbfa4bd2c545d31d5b4fb248e57fafb4ccfce`.
+- Updated only viewport presentation in `src/app/layout.tsx` to `themeColor #070B12` and `colorScheme dark`; root SEO metadata and canonical were preserved.
+- Added `tests/global-design-system.test.ts` to assert core palette tokens, semantic success color, dark browser theme, and preserved canonical.
+- Commits from this pass: `0b73edada31954fe934789b342282f2b4c9922ec`, `63936661cd6fa588167db5ef8d298b3c5603da76`, `a14f02ecce12d368def210d3603f625085dde9f0`, `6d7dbfa4bd2c545d31d5b4fb248e57fafb4ccfce`.
+- Re-fetched modified source from GitHub and confirmed expected palette tokens, dark viewport settings, canonical preservation and test-file presence. No local test runner was available through the GitHub connector; automated tests/lint/typecheck/build are not claimed as run.
+- VIP audit confirms the current API remains a manual bookmaker-deposit request system. The inspected Worker does not implement crypto transaction verification, paid subscription state, payment history, or automatic subscription expiry. Firebase AuthContext is not mounted by the root layout and relies on Vite-style `import.meta.env`, so it cannot be assumed to be ready for the Next.js VIP journey. No production Worker, D1, secrets, Firebase settings, Cloudflare resources or data were changed.
+- No merge, production deploy, or change to `main` was performed.
