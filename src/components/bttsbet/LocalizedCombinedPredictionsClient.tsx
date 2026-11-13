@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import { Navbar, Footer, FreePredictions } from '@/components/bttsbet'
 import { useLanguage } from './LanguageSwitcher'
-import AnimatedTitle from './HeroWordmark'
 import VipButtons from './VipButtons'
 
 export default function LocalizedCombinedPredictionsClient() {
@@ -11,32 +10,32 @@ export default function LocalizedCombinedPredictionsClient() {
   const c = lang === 'fr' ? {
     badge: 'BTTS + Over 2.5 · Combiné',
     title: 'Prédictions BTTS et Over 2.5 du jour',
-    intro: 'Prédictions combinées où les deux équipes marquent et où le total dépasse 2,5 buts. Ces matchs doivent satisfaire les deux critères simultanément.',
+    intro: 'Cette page affiche uniquement les matchs disposant d’une sélection BTTS et d’une sélection Over 2,5.',
     update: 'Mise à jour quatre fois par jour. Aucun gain n’est garanti. 18+.',
     what: 'Qu’est-ce que BTTS + Over 2.5 ?',
     btts: 'BTTS signifie que les deux équipes marquent au moins un but. Over 2.5 signifie au moins trois buts au total.',
-    why: 'Notre modèle statistique vérifie les buts attendus (xG) des deux équipes et le total xG, à partir des données récentes.',
-    links: 'Liens rapides',
+    why: 'Les deux marchés sont affichés séparément avec leurs estimations respectives.',
+    links: 'Autres analyses',
     methodology: 'Voir la méthodologie →',
   } : lang === 'en' ? {
     badge: 'BTTS + Over 2.5 · Combined',
     title: 'BTTS and Over 2.5 Predictions Today',
-    intro: 'Combined predictions where both teams score and total goals exceed 2.5. Matches must meet both criteria simultaneously.',
+    intro: 'This page lists only matches with both a BTTS selection and an Over 2.5 selection.',
     update: 'Updated four times daily. No profit is guaranteed. 18+.',
     what: 'What is BTTS + Over 2.5?',
     btts: 'BTTS means both teams score at least one goal. Over 2.5 means at least three total goals.',
-    why: 'Our statistical model checks both teams’ expected goals (xG) and the combined xG total, based on recent data.',
-    links: 'Quick links',
+    why: 'Both markets are displayed separately with their respective estimates.',
+    links: 'Other analysis pages',
     methodology: 'View methodology →',
   } : {
     badge: 'BTTS + Over 2.5 · معاً',
     title: 'توقعات BTTS وأكثر من 2.5 اليوم',
-    intro: 'توقعات مجمعة حيث يسجل الفريقان ويتجاوز إجمالي الأهداف 2.5. يجب أن تحقق المباراة الشرطين معاً.',
+    intro: 'تعرض هذه الصفحة المباريات التي تتوفر لها اختيارات BTTS وOver 2.5 معاً.',
     update: 'يتم التحديث أربع مرات يومياً. لا توجد ضمانات للربح. 18+.',
     what: 'ما هو BTTS وأكثر من 2.5؟',
     btts: 'يعني BTTS أن يسجل كلا الفريقين هدفاً واحداً على الأقل. أكثر من 2.5 يعني ثلاثة أهداف على الأقل.',
-    why: 'يتحقق نموذجنا الإحصائي من الأهداف المتوقعة (xG) للفريقين ومجموع xG استناداً إلى البيانات الأخيرة.',
-    links: 'روابط سريعة',
+    why: 'يُعرض كل سوق بشكل منفصل مع التقدير الخاص به.',
+    links: 'صفحات تحليل أخرى',
     methodology: 'عرض المنهجية ←',
   }
   const path = (p: string) => lang === 'fr' ? p : `/${lang}${p}`
@@ -47,7 +46,7 @@ export default function LocalizedCombinedPredictionsClient() {
       <main id="main-content" className="flex-1" style={{ paddingBottom: 'calc(140px + env(safe-area-inset-bottom, 0px))' }}>
         <section className="max-w-5xl mx-auto px-4 pt-12 pb-6">
           <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-4 text-[#2F7DFF] border border-[#2F7DFF55]">{c.badge}</span>
-          <AnimatedTitle as="h1" text={c.title} className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" />
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 tracking-tight">{c.title}</h1>
           <p className="text-base text-[#9DABBB] leading-relaxed mb-3 max-w-3xl">{c.intro}</p>
           <p className="text-sm text-[#9DABBB]">{c.update}</p>
           <div className="mt-5"><VipButtons /></div>
@@ -62,7 +61,7 @@ export default function LocalizedCombinedPredictionsClient() {
         </section>
 
         <section className="max-w-5xl mx-auto px-4 pb-12">
-          <FreePredictions />
+          <FreePredictions marketFilter="combined" />
         </section>
 
         <section className="max-w-3xl mx-auto px-4 pb-12">
@@ -71,7 +70,7 @@ export default function LocalizedCombinedPredictionsClient() {
             {[
               [path('/btts/predictions/today'), lang === 'en' ? 'BTTS Predictions Today' : lang === 'ar' ? 'توقعات BTTS اليوم' : 'Prédictions BTTS du jour'],
               [path('/over-2-5/predictions/today'), lang === 'en' ? 'Over 2.5 Predictions Today' : lang === 'ar' ? 'توقعات أكثر من 2.5 اليوم' : 'Prédictions Over 2.5 du jour'],
-              [path('/ai-correct-score-predictions'), lang === 'en' ? 'AI Correct Score' : lang === 'ar' ? 'النتيجة الدقيقة بالذكاء الاصطناعي' : 'Score exact IA'],
+              [path('/ai-correct-score-predictions'), lang === 'en' ? 'Correct Score Estimates' : lang === 'ar' ? 'تقديرات النتيجة الدقيقة' : 'Estimations de score exact'],
             ].map(([href, label]) => (
               <Link key={href} href={href} className="p-4 rounded-xl bg-[#141C25] border border-[#6B7A8C] text-sm font-bold">{label} →</Link>
             ))}
