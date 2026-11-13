@@ -424,3 +424,11 @@ Continue a read-only analytics/authentication funnel audit: verify whether `NEXT
 - Commits in this batch: `ed0467f3cbb1dabbfef9485c5eadfcedfbc1014f`, `621eb005f7148250d6b756b45f0753915e7482b9`, `dfd2c3834e77929720a1e260abaa91e0431c8449`.
 - This remains source-level work only. No browser screenshot, local npm test, lint, TypeScript check, or production build has been executed. Do not claim the rendered result is visually verified until the deployment preview is inspected.
 - VIP workflow itself is still the old bookmaker-deposit/manual-review process. The color redesign does not imply the Discovery/Pro authentication or crypto billing is implemented.
+
+## 29. Mobile navigation accessibility and CI follow-up — 2026-11-13 (UTC)
+
+- Improved the mobile navigation drawer in `Navbar.tsx`: opening moves focus to the close control; Escape closes the drawer; Tab/Shift+Tab are contained within the dialog; closing restores focus to the menu trigger. A guard prevents initial desktop render from stealing focus.
+- Extended the navigation test assertions for focus trapping and focus restoration.
+- Commits: `22190a21d719930e36364600dee37ec2526db803`, `878b928e827294927e8af93ee959e8868ef9a8f4`, `3926eaf7a61665250bb3bffb82be3060263d18a5`, `c47d32f0f1c903bb2e96741ac3eae8afc1a8e5c0`.
+- Re-read `.github/workflows/deploy.yml`: PR checks run `npm test`, Python unit tests, `npm run lint`, `npx tsc --noEmit`, then `npm run build -- --webpack`. The latest observed run `43519345629` ended with `pull-request-checks` failure; GitHub returned no step summaries and its job-log download returned BlobNotFound. A failed-job rerun request was accepted, but the observed job state still showed failure at the last poll. Root cause remains unknown; do not claim tests passed.
+- Latest PR branch code head before this continuity update: `878b928e827294927e8af93ee959e8868ef9a8f4` (context commit follows). PR #128 remains draft/open, not merged; Vercel was pending. No production deployment or main-branch change.
