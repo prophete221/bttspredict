@@ -97,3 +97,51 @@ describe('GA4 production-only consent gating', () => {
 })
 
 
+
+
+describe('Editorial redesign regression checks', () => {
+  it('removes animated template elements from the public homepage', () => {
+    const hero = readFileSync(resolve(ROOT, 'src/components/bttsbet/Hero.tsx'), 'utf8')
+    const home = readFileSync(resolve(ROOT, 'src/app/page.tsx'), 'utf8')
+    const localizedHome = readFileSync(resolve(ROOT, 'src/app/[locale]/page.tsx'), 'utf8')
+
+    expect(hero).not.toContain('AnimatedTitle')
+    expect(hero).not.toContain('CLUB_LOGOS.map')
+    expect(hero).not.toContain('hp-clubs__track')
+    expect(home).not.toContain('TrustPillars')
+    expect(home).not.toContain('ScrollProgressBar')
+    expect(localizedHome).not.toContain('TrustPillars')
+  })
+
+  it('keeps prediction cards focused on markets and data rather than AI badges', () => {
+    const dashboard = readFileSync(resolve(ROOT, 'src/components/bttsbet/BttsTodayDashboard.tsx'), 'utf8')
+    const css = readFileSync(resolve(ROOT, 'src/app/football-intelligence.css'), 'utf8')
+
+    expect(dashboard).not.toContain('BTTS · AI')
+    expect(dashboard).not.toContain('BTTS · IA')
+    expect(dashboard).not.toContain('btx-combo__icon')
+    expect(css).toContain('.fi-today-dashboard .btx-card')
+    expect(css).toContain('.hp-mc-grid')
+    expect(css).toContain('.combox')
+  })
+
+  it('removes unsupported superlatives and repeated global bonus claims from visible copy', () => {
+    const translations = readFileSync(resolve(ROOT, 'src/lib/i18n.ts'), 'utf8')
+    const promo = readFileSync(resolve(ROOT, 'src/components/bttsbet/LocalizedPromoClient.tsx'), 'utf8')
+
+    expect(translations).not.toContain('N°1 Mondiale')
+    expect(translations).not.toContain('World’s No.1')
+    expect(translations).not.toContain('300% worldwide confirmed for Linebet')
+    expect(promo).not.toContain('works worldwide')
+    expect(promo).not.toContain('fonctionne dans le monde entier')
+  })
+
+  it('uses the shared editorial partner-guide shell and preserves affiliate disclosure', () => {
+    const shell = readFileSync(resolve(ROOT, 'src/components/bttsbet/PromoLandingShell.tsx'), 'utf8')
+    expect(shell).toContain('promo-editorial__code-panel')
+    expect(shell).toContain('promo-editorial__sticky')
+    expect(shell).toContain('data-affiliate-disclosure')
+    expect(shell).not.toContain('framer-motion')
+    expect(shell).not.toContain('motion.')
+  })
+})
