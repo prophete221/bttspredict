@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useLanguage } from './LanguageSwitcher'
 import { translationsFor, type Locale, localizedPath } from '@/lib/i18n'
 import { generateMatchSlug } from '@/lib/match-slug'
@@ -13,8 +13,6 @@ import { getGeminiPicks } from '@/lib/gemini-predictions'
 import { groupGeminiItemsByDakarDay, prioritizeMatchCenterItems, selectUpcomingGeminiItems } from '@/lib/match-center-window'
 import { resolveMatchPageLogos } from '@/lib/matchPageLogos'
 import { resolveTeamLogoSrc } from '@/lib/teamLogoOverrides'
-// useLayoutEffect isomorphe (évite le warning SSR React)
-const useIsoLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect
 
 /**
  * MatchCenter — pronostics Gemini publics uniquement.
@@ -121,7 +119,6 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
   // Horloge partagée du compte à rebours — cadence 30 s, synchronisée sur l'horloge du navigateur.
   // pour l'ensemble des cartes (évite 44 intervalles individuels).
   const [nowTs, setNowTs] = useState<number>(() => Date.now())
-  const gridRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
     let cancelled = false
@@ -169,54 +166,6 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
   )
   const matchWord = lang === 'en' ? 'matches' : lang === 'ar' ? 'مباريات' : 'matchs'
 
-  // ═══ Révélation 3D au scroll ═══
-  // Gate JS (.mc3d) : sans JS les cartes restent visibles (progressive enhancement).
-  // Chaque carte entre en scène (opacity + rotateX + translateY, stagger via --d)
-  // quand elle entre dans le viewport, puis le délai de transition est retiré
-  // pour que le hover 3D reste instantané.
-  useIsoLayoutEffect(() => {
-    if (loading) return
-    const grid = gridRef.current
-    if (!grid) return
-    const cards = Array.from(grid.querySelectorAll<HTMLElement>('.hp-mc-card'))
-    if (cards.length === 0) return
-
-    let reduced = false
-    try {
-      reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    } catch {
-      /* no-op */
-    }
-    if (reduced || typeof IntersectionObserver === 'undefined') {
-      cards.forEach(c => c.classList.add('is-revealed'))
-      return
-    }
-
-    grid.classList.add('mc3d')
-    const io = new IntersectionObserver(
-      entries => {
-        for (const entry of entries) {
-          if (!entry.isIntersecting) continue
-          const el = entry.target as HTMLElement
-          el.style.transitionDelay = el.style.getPropertyValue('--d') || '0ms'
-          el.classList.add('is-revealed')
-          io.unobserve(el)
-          const done = (e: TransitionEvent) => {
-            if (e.propertyName !== 'transform') return
-            el.style.transitionDelay = ''
-            el.removeEventListener('transitionend', done)
-          }
-          el.addEventListener('transitionend', done)
-        }
-      },
-      { rootMargin: '0px 0px -8% 0px', threshold: 0.08 }
-    )
-    cards.forEach(c => {
-      if (!c.classList.contains('is-revealed')) io.observe(c)
-    })
-    return () => io.disconnect()
-  }, [loading, filtered])
-
   return (
     <section id="matchs" className="hp-section" style={{ scrollMarginTop: '72px' }}>
       <div className="mx-auto max-w-[1280px] px-4 sm:px-6">
@@ -238,14 +187,14 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
           </div>
         </div>
 
-        {/* Générateur de Combiné Intelligente — en tête du Match Center */}
+        {/* Outil facultatif de composition à partir des sélections publiées */}
         {items.length > 0 && (
           <ComboBuilder items={items} lang={lang} />
         )}
 
         {/* Contenu */}
         {loading ? (
-          <div className="hp-mc-grid" aria-hidden="true" ref={loading ? gridRef : undefined}>
+          <div className="hp-mc-grid" aria-hidden="true">
             {[1, 2, 3, 4].map(i => <div key={i} className="hp-mc-card hp-skeleton" />)}
           </div>
         ) : filtered.length === 0 ? (
@@ -261,7 +210,7 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
             </a>
           </div>
         ) : (
-          <div className="hp-mc-grid" ref={filtered.length > 0 ? gridRef : undefined}>
+          <div className="hp-mc-grid">
             {todayItems.length > 0 && (
               <h3 data-match-group="today" className="hp-mc-group">
                 <span className="hp-mc-group__marker" aria-hidden="true" />
