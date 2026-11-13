@@ -414,3 +414,13 @@ Continue a read-only analytics/authentication funnel audit: verify whether `NEXT
 - The last inspected CI run `43518343402` has failed `pull-request-checks`; the rerun was accepted but remains failed on inspection. GitHub's job-step response was empty and job-log endpoint returned BlobNotFound, so the failure cause cannot be established from available evidence. No new PR-triggered Actions run was returned for the latest head; Vercel was pending at last check.
 - Latest code head at this checkpoint before this context commit: `877343c02e5e9b3247d4fd9417fd0beae6280833`. PR #128 remains open/draft, not merged. Main remains untouched; no production deployment, FTP, Cloudflare Worker/D1, secrets, or production data changed.
 - VIP rebuild is still pending: current live UI/API contains the legacy bookmaker deposit/proof/lifetime-access workflow. Do not relabel it as Discovery/Pro or enable a crypto-payment claim until the new auth/entitlement/payment workflow is implemented and the owner's Pro price, billing period, asset, network, and public receiving address are confirmed.
+
+## 28. Homepage, prediction and VIP visual convergence — 2026-11-13 (UTC)
+
+- Continued the global art direction beyond navigation: found later legacy CSS blocks that had reintroduced white card surfaces and older teal/red accents on home, BTTS dashboard, match analysis and promo guides.
+- Added a final surface layer to `src/app/football-intelligence.css` for the homepage hero, match center cards, BTTS dashboard panels/filters, prediction and match-detail cards, partner promo shells, 888Starz page, and 1xBet gift panel. Surfaces now use the shared navy panels, muted text, analytical-blue active states, and the existing green semantic status.
+- Added a final VIP CSS layer to `src/app/vip/vip.css` to neutralize red accents in the late overrides and align the flow, steps, locked previews, FAQ and video frame with champagne gold and navy.
+- Added test assertions for the final home/dashboard/promo surface layer and the VIP gold layer in `tests/global-design-system.test.ts`.
+- Commits in this batch: `ed0467f3cbb1dabbfef9485c5eadfcedfbc1014f`, `621eb005f7148250d6b756b45f0753915e7482b9`, `dfd2c3834e77929720a1e260abaa91e0431c8449`.
+- This remains source-level work only. No browser screenshot, local npm test, lint, TypeScript check, or production build has been executed. Do not claim the rendered result is visually verified until the deployment preview is inspected.
+- VIP workflow itself is still the old bookmaker-deposit/manual-review process. The color redesign does not imply the Discovery/Pro authentication or crypto billing is implemented.
