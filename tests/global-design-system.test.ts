@@ -36,3 +36,16 @@ describe('Shared footer visual and RTL consistency', () => {
     expect(footer).toContain("lang === 'ar' ? 'قانوني'")
   })
 })
+
+describe('Legacy theme override protection', () => {
+  it('keeps the final rendered shell dark and the active/VIP navigation on brand', () => {
+    const css = readFileSync(resolve(ROOT, 'src/app/football-intelligence.css'), 'utf8')
+    const finalTheme = css.slice(css.lastIndexOf('/* 2026-11-13 — final authority'))
+
+    expect(finalTheme).toContain('color-scheme: dark !important')
+    expect(finalTheme).toContain('background: #070B12 !important')
+    expect(finalTheme).toContain('background: #3B82F6 !important')
+    expect(finalTheme).toContain('color: #E8C97A !important')
+    expect(finalTheme).not.toContain('color-scheme: light !important')
+  })
+})
