@@ -5,7 +5,6 @@ import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { useLanguage } from '@/components/bttsbet/LanguageSwitcher'
 import { translationsFor, localizedPath } from '@/lib/i18n'
-import AnimatedTitle from '@/components/bttsbet/HeroWordmark'
 import BookmakerCardLinks from '@/components/bttsbet/BookmakerCardLinks'
 
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
@@ -63,10 +62,15 @@ export default function AICorrectScorePage() {
       .then(r => r.json())
       .then(data => {
         const arr = data?.free || data?.predictions || []
-        const scored: ScorePrediction[] = arr.map((m: any) => {
-          const lh = m.homeLambda || m.xgHome || 1.3
-          const la = m.awayLambda || m.xgAway || 1.1
-          return {
+        const scored: ScorePrediction[] = arr.flatMap((m: any) => {
+          const lh = typeof m.homeLambda === 'number' && Number.isFinite(m.homeLambda)
+            ? m.homeLambda
+            : typeof m.xgHome === 'number' && Number.isFinite(m.xgHome) ? m.xgHome : null
+          const la = typeof m.awayLambda === 'number' && Number.isFinite(m.awayLambda)
+            ? m.awayLambda
+            : typeof m.xgAway === 'number' && Number.isFinite(m.xgAway) ? m.xgAway : null
+          if (lh === null || la === null || lh < 0 || la < 0 || !m.home || !m.away || !m.date) return []
+          return [{
             home: m.home,
             away: m.away,
             league: m.league || '',
@@ -77,7 +81,7 @@ export default function AICorrectScorePage() {
             lambdaHome: lh,
             lambdaAway: la,
             topScores: computeTopScores(lh, la, 5),
-          }
+          }]
         })
         setPredictions(scored)
         setLoading(false)
@@ -95,7 +99,7 @@ export default function AICorrectScorePage() {
         <nav aria-label={lang === 'en' ? 'Breadcrumb' : lang === 'ar' ? 'مسار التنقل' : "Fil d'Ariane"} className="text-xs text-[#9DABBB] mb-4 max-w-5xl mx-auto px-4 pt-8">
           <Link href={lang === 'fr' ? '/' : `/${lang}`} className="hover:text-[#2F7DFF]">{t.common.home}</Link>
           <span className="mx-1">/</span>
-          <span className="text-[#9DABBB]">{lang === 'fr' ? 'Score exact IA' : lang === 'ar' ? 'النتيجة الدقيقة بالذكاء الاصطناعي' : 'AI Correct Score'}</span>
+          <span className="text-[#9DABBB]">{lang === 'fr' ? 'Score exact' : lang === 'ar' ? 'النتيجة الدقيقة' : 'Correct score'}</span>
         </nav>
 
         <section className="max-w-5xl mx-auto px-4 pt-4 pb-6">
@@ -103,14 +107,11 @@ export default function AICorrectScorePage() {
             style={{ backgroundColor: 'rgba(169, 196, 223, 0.12)', color: '#2F7DFF', border: '1px solid rgba(169, 196, 223, 0.25)' }}>
             {lang === 'fr' ? 'Analyse · Score exact · Modèle statistique' : lang === 'en' ? 'Analysis · Correct Score · Statistical Model' : 'التحليل · النتيجة الدقيقة · نموذج إحصائي'}
           </span>
-          <AnimatedTitle
-            as="h1"
-            text={lang === 'fr' ? 'Prédictions de score exact par IA' : lang === 'en' ? 'AI Correct Score Predictions' : 'توقعات النتيجة الدقيقة بالذكاء الاصطناعي'}
-            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4"
-            style={{ fontFamily: 'Poppins, sans-serif' }}
-          />
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 tracking-tight">
+            {lang === 'fr' ? 'Estimations de score exact' : lang === 'en' ? 'Correct score estimates' : 'تقديرات النتيجة الدقيقة'}
+          </h1>
           <p className="text-base sm:text-lg text-[#9DABBB] leading-relaxed mb-3 max-w-3xl mx-auto">
-            {lang === 'fr' ? 'Les scores exacts les plus probables sont calculés par notre modèle statistique à partir des buts attendus (xG) de chaque équipe. Les cinq scores les plus probables sont affichés pour chaque match.' : lang === 'en' ? 'Most likely exact scores computed by our statistical model from each team’s expected goals (xG). The top 5 scorelines are shown per match, ranked by probability.' : 'يحسب نموذجنا الإحصائي النتائج الدقيقة الأكثر احتمالاً من الأهداف المتوقعة لكل فريق. نعرض أفضل خمسة نتائج مرتبة حسب الاحتمال.'}
+            {lang === 'fr' ? 'Les scores proposés sont calculés avec un modèle de Poisson à partir des moyennes de buts récentes disponibles pour chaque équipe. Les cinq scores les mieux classés sont affichés pour chaque match.' : lang === 'en' ? 'Score estimates are calculated with a Poisson model using the available recent goal averages for each team. The five highest-ranked scorelines are shown for each match.' : 'تُحسب تقديرات النتائج باستخدام نموذج بواسون ومتوسطات الأهداف الحديثة المتاحة لكل فريق. تُعرض أعلى خمس نتائج لكل مباراة.'}
           </p>
           <p className="text-sm text-[#9DABBB] leading-relaxed max-w-3xl mx-auto">
             {t.legal.noGuarantee} {lang === 'fr' ? 'Il s’agit de probabilités statistiques, pas de certitudes.' : lang === 'en' ? 'These are statistical probabilities, not certainties.' : 'هذه احتمالات إحصائية وليست يقيناً.'} {t.legal.eighteen}
@@ -147,7 +148,7 @@ export default function AICorrectScorePage() {
             </div>
           ) : filtered.length === 0 ? (
             <div className="rounded-xl p-10 text-center" style={{ backgroundColor: '#141C25', border: '1px solid #6B7A8C' }}>
-              <p className="text-sm text-[#9DABBB]">{lang === 'fr' ? 'Aucun match disponible aujourd’hui.' : lang === 'en' ? 'No matches available today.' : 'لا توجد مباريات متاحة اليوم.'}</p>
+              <p className="text-sm text-[#9DABBB]">{lang === 'fr' ? 'Aucun match ne dispose des données nécessaires pour estimer un score exact.' : lang === 'en' ? 'No match currently has the data required for a score estimate.' : 'لا تتوفر حالياً بيانات كافية لتقدير نتيجة دقيقة.'}</p>
             </div>
           ) : (
             <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
