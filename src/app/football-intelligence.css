@@ -2877,3 +2877,13 @@ body { color: var(--fi-text); }
 .page-design--competition main .blur-3xl,
 .match-analysis-page .blur-3xl { display:none !important; }
 .match-analysis-page .shadow-\[0_18px_44px_rgba\(0\,0\,0\,0\.22\)\] { box-shadow:none !important; }
+
+.page-design { background:#080d14 !important; color:#edf2f7 !important; }
+.page-design > main { background:transparent !important; }
+.page-design main [class*="rounded-3xl"][class*="border"] {
+  border:1px solid var(--fi-line) !important;
+  border-radius:10px !important;
+  background:#101823 !important;
+  box-shadow:none !important;
+}
+.page-design main .rounded-full.border { box-shadow:none !important; }
