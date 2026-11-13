@@ -55,5 +55,7 @@ describe('Partner navigation state', () => {
     const navigation = readFileSync(resolve(ROOT, 'src/components/bttsbet/Navbar.tsx'), 'utf8')
 
     expect(navigation).toContain("aria-current={isActive(partnerRoutes[id]) ? 'page' : undefined}")
+    expect(navigation).toContain("const activePartner = Object.entries(partnerRoutes).find(([, href]) => isActive(href))?.[0]")
+    expect(navigation).toContain("activePage?.label[lang] ?? activePartnerTitle")
   })
 })
