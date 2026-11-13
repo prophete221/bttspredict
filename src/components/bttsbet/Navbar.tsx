@@ -152,7 +152,11 @@ function NavigationContent() {
   const partnerRoutes = useMemo(() => ({ '1xbet': paths.promo1xbet, linebet: paths.promolinebet, melbet: paths.promomelbet, '888starz': paths.promo888 }), [paths])
   const flatLinks = groups.flatMap(group => group.links)
   const activePage = flatLinks.find(link => isActive(link.href))
-  const pageTitle = activePage?.label[lang] ?? (lang === 'ar' ? 'مساحة التحليل' : lang === 'en' ? 'Analysis workspace' : 'Espace d’analyse')
+  const activePartner = Object.entries(partnerRoutes).find(([, href]) => isActive(href))?.[0]
+  const activePartnerTitle = activePartner
+    ? ({ '1xbet': '1xBet', linebet: 'Linebet', melbet: 'MelBet', '888starz': '888Starz' } as Record<string, string>)[activePartner]
+    : undefined
+  const pageTitle = activePage?.label[lang] ?? activePartnerTitle ?? (lang === 'ar' ? 'مساحة التحليل' : lang === 'en' ? 'Analysis workspace' : 'Espace d’analyse')
 
   const currentPartner = useMemo(() => {
     if (pathname.includes('code-promo-1xbet')) return BOOKMAKERS.find(item => item.id === '1xbet')
