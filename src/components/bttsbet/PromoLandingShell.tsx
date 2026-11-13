@@ -100,7 +100,7 @@ export default function PromoLandingShell(p: PromoLandingProps) {
       dir={p.lang === 'ar' ? 'rtl' : 'ltr'}
       className={`promo-shell promo-shell--editorial promo-shell--${p.bookmakerId}`}
     >
-      <main className="promo-editorial">
+      <main id="main-content" className="promo-editorial">
         <header className="promo-editorial__header">
           <a href={p.lang === 'fr' ? '/' : `/${p.lang}`} className="promo-editorial__brand">BTTSPredict <span>/</span> {guidesLabel}</a>
           <span className="promo-editorial__age">18+</span>
