@@ -21,7 +21,7 @@ const COPY = {
     market: 'Marché',
     score: 'Score final',
     win: 'GAGNÉ',
-    unlock: 'Voir les formules',
+    unlock: 'Demander l’accès VIP',
   },
   en: {
     eyebrow: 'VIP history',
@@ -32,7 +32,7 @@ const COPY = {
     market: 'Market',
     score: 'Final score',
     win: 'WON',
-    unlock: 'View plans',
+    unlock: 'Request VIP access',
   },
   ar: {
     eyebrow: 'سجل VIP',
@@ -43,7 +43,7 @@ const COPY = {
     market: 'السوق',
     score: 'النتيجة النهائية',
     win: 'فوز',
-    unlock: 'عرض الخطط',
+    unlock: 'اطلب الوصول إلى VIP',
   },
 } as const
 
@@ -59,7 +59,7 @@ function marketLabel(market?: string, lang: 'fr' | 'en' | 'ar' = 'fr') {
   return market?.trim() ? market.toUpperCase() : ''
 }
 
-export default function VipWinHistory({ onViewPlans }: { onViewPlans: () => void }) {
+export default function VipWinHistory({ onUnlock }: { onUnlock: () => void }) {
   const { lang } = useLanguage()
   const t = COPY[lang]
   const [rows, setRows] = useState<MainHistoryWin[]>([])
@@ -136,7 +136,7 @@ export default function VipWinHistory({ onViewPlans }: { onViewPlans: () => void
       )}
 
       <div className="vipx-history-cta">
-        <button type="button" className="vipx-btn vipx-btn--gold" onClick={onViewPlans} data-cta="vip-history-view-plans">
+        <button type="button" className="vipx-btn vipx-btn--gold" onClick={onUnlock} data-cta="vip-history-unlock">
           {t.unlock}<span aria-hidden="true">→</span>
         </button>
       </div>
