@@ -2044,3 +2044,143 @@ footer#faq,
   outline: 0 !important;
   box-shadow: none !important;
 }
+
+
+/* 2026-11-13 — final authority: restore the approved dark analytics system after legacy theme overrides. */
+:root {
+  color-scheme: dark;
+  --fi-bg: #070B12;
+  --fi-bg-raised: #0C121C;
+  --fi-panel: #0F1622;
+  --fi-panel-raised: #121A26;
+  --fi-line: rgba(157, 171, 187, .13);
+  --fi-line-strong: rgba(157, 171, 187, .23);
+  --fi-text: #F2F6FA;
+  --fi-muted: #9DABBB;
+  --fi-subtle: #6F8093;
+  --fi-teal: #3B82F6;
+  --fi-blue: #60A5FA;
+  --fi-active: #3B82F6;
+  --fi-cta: #3B82F6;
+  --fi-gold: #E8C97A;
+  --color-bg-main: #070B12;
+  --color-bg-secondary: #0C121C;
+  --color-bg-tertiary: #0F1622;
+  --color-card: #0F1622;
+  --color-card-hover: #121A26;
+  --color-surface-card: #0F1622;
+  --color-surface-card-hover: #121A26;
+  --color-surface-premium: #171B24;
+  --color-border: rgba(157, 171, 187, .13);
+  --color-border-strong: rgba(157, 171, 187, .23);
+  --color-text-primary: #F2F6FA;
+  --color-text-secondary: #9DABBB;
+  --color-text-tertiary: #6F8093;
+  --color-text-muted: #9DABBB;
+  --color-text-on-dark: #F2F6FA;
+  --color-text-on-dark-secondary: #9DABBB;
+  --color-action-primary: #3B82F6;
+  --color-action-primary-hover: #2563EB;
+  --color-dark-900: #070B12;
+  --color-dark-800: #0C121C;
+  --color-dark-700: #0F1622;
+  --color-dark-600: #121A26;
+  --color-dark-500: #172131;
+  --color-dark-400: #283548;
+  --color-card-border: #283548;
+  --color-card-border-hover: #3B82F6;
+  --color-midnight: #070B12;
+  --color-edge: #283548;
+  --color-panel: #0F1622;
+  --color-glass: rgba(15, 22, 34, .96);
+  --color-glass-border: rgba(157, 171, 187, .13);
+  --color-abyss: #070B12;
+  --color-vault: #0C121C;
+  --color-socle: #0F1622;
+  --color-papier: #F2F6FA;
+  --color-cendre: #9DABBB;
+  --color-braise: #3B82F6;
+  --grad-bg: #070B12;
+  --grad-mesh: #0C121C;
+}
+
+html,
+html.dark {
+  color-scheme: dark !important;
+  background: #070B12 !important;
+}
+html.dark body,
+body {
+  color-scheme: dark !important;
+  color: #F2F6FA !important;
+  background: #070B12 !important;
+  background-color: #070B12 !important;
+  background-image: none;
+}
+#main-content,
+.page-design,
+.page-design--home,
+.page-design--over25,
+.page-design--score-exact,
+.promo-shell,
+.match-analysis-page {
+  color: #F2F6FA !important;
+}
+
+.fi-sidebar,
+.fi-nav-drawer,
+.bottomnav-shell {
+  color: #F2F6FA !important;
+  background: #0B111B !important;
+  border-color: rgba(157, 171, 187, .16) !important;
+}
+.fi-sidebar {
+  background: linear-gradient(180deg, #0C1420 0%, #090F18 100%) !important;
+}
+.fi-topbar {
+  color: #F2F6FA !important;
+  background: rgba(7, 11, 18, .94) !important;
+  border-color: rgba(157, 171, 187, .16) !important;
+}
+.fi-nav-drawer__head { background: #0B111B !important; }
+.fi-nav-link { color: #AAB7C6 !important; }
+.fi-nav-link:hover {
+  color: #F2F6FA !important;
+  background: rgba(59, 130, 246, .09) !important;
+  border-color: rgba(59, 130, 246, .18) !important;
+}
+.fi-nav-link[aria-current="page"] {
+  color: #DBEAFE !important;
+  background: linear-gradient(90deg, rgba(59, 130, 246, .18), rgba(59, 130, 246, .06)) !important;
+  border-color: rgba(59, 130, 246, .28) !important;
+}
+.fi-nav-link[aria-current="page"]::before { background: #3B82F6 !important; }
+.fi-nav-link[aria-current="page"] .fi-nav-icon { color: #60A5FA !important; }
+.fi-topbar__vip {
+  color: #E8C97A !important;
+  border-color: rgba(232, 201, 122, .3) !important;
+  background: rgba(232, 201, 122, .08) !important;
+}
+.fi-topbar__vip:hover {
+  color: #F5DFA6 !important;
+  border-color: rgba(232, 201, 122, .5) !important;
+  background: rgba(232, 201, 122, .13) !important;
+}
+.fi-topbar__promo,
+.fi-topbar__promo:hover {
+  color: #BFDBFE !important;
+  border-color: rgba(59, 130, 246, .28) !important;
+  background: rgba(59, 130, 246, .08) !important;
+}
+.bottomnav-shell { border-top-color: rgba(157, 171, 187, .18) !important; }
+.bottomnav-shell .bottomnav-tab { color: #9DABBB !important; }
+.bottomnav-shell .bottomnav-tab.is-active { color: #DBEAFE !important; }
+.bottomnav-shell .bottomnav-tab.is-active > span:first-child { background: #3B82F6 !important; }
+.bottomnav-shell .bottomnav-tab--vip,
+.bottomnav-shell .bottomnav-tab--vip.is-active { color: #E8C97A !important; }
+.bottomnav-shell .bottomnav-tab--vip:focus-visible { box-shadow: inset 0 0 0 2px #E8C97A !important; }
+
+@media (min-width: 801px) {
+  .fi-sidebar { box-shadow: 12px 0 36px rgba(0, 0, 0, .18); }
+  .fi-nav-link { min-height: 40px; border-radius: 9px; }
+}
