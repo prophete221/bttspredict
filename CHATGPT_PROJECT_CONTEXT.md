@@ -253,3 +253,13 @@ Continue a read-only analytics/authentication funnel audit: verify whether `NEXT
 - Next: obtain the GA4 Measurement ID (`G-XXXXXXXXXX`) from the Google Analytics property, then add it as an Actions repository variable named exactly `NEXT_PUBLIC_GA_ID`. Do not paste the ID into source code. Confirm workflow actually injects repository variables into the build environment before deployment; verify after deploy using GA4 Realtime/Tag Assistant and consent acceptance.
 - Prior connection blocker: user previously reported Google Analytics said no GA4 accounts were accessible while signed in as `luxxdii@gmail.com`. Therefore first verify the correct Google account has access to the GA4 property, or create a GA4 property if none exists.
 - No repository source, Actions variable, secret, production config, or deployment was changed during this confirmation.
+
+
+## 15. GA4 Web stream created — 2026-11-13
+
+- User created the GA4 account/property and Web data stream named `BTTSPredict Website` for `https://bttspredict.com`.
+- User supplied stream ID: `16337488315`. This is the numeric GA4 stream ID, NOT the Measurement ID needed by the site's `NEXT_PUBLIC_GA_ID`.
+- GA4 UI currently reports “Aucune donnée reçue au cours des dernières 48 h”; this is expected until the web tag is installed/deployed and receives traffic, and is not by itself evidence of a fault.
+- Next required value: retrieve the stream's Measurement ID in format `G-XXXXXXXXXX` from Admin → Data streams → BTTSPredict Website. User should share only that non-secret Measurement ID (never any credentials).
+- After obtaining it, add it as GitHub Actions variable `NEXT_PUBLIC_GA_ID` only after verifying the build workflow passes repository variables into the Next.js build environment. Then deploy only with explicit owner approval and verify GA4 Realtime after consenting to analytics.
+- No source code, Actions variable, secret, production setting, or deployment changed in this step.
