@@ -57,3 +57,12 @@ Le bleu sert aux interactions et à l'analyse. L'or mat identifie uniquement les
 - Préserver les titres SEO, URLs, canonicals et données de pronostics déjà en production.
 - Ne jamais présenter une demande manuelle, une capture d'écran ou un clic « payé » comme une vérification automatique de paiement.
 - VIP Discovery (7 jours gratuits) et VIP Pro payant nécessitent une authentification et un contrôle serveur de l'entitlement; l'activation/expiration ne peut pas être simulée par le seul frontend.
+
+## 7. Détails d'implémentation — 13 novembre 2026
+
+- Les règles finales du système navy sont placées après les anciennes couches CSS afin qu'aucun ancien thème clair, teal ou rouge ne reprenne la priorité.
+- Accueil, cartes Match Center, dashboard BTTS, analyses de match et pages partenaires partagent les surfaces navy; le bleu analytique marque les états actifs et l'or champagne reste réservé au VIP.
+- Le tiroir de navigation mobile enferme le focus au clavier, se ferme avec Échap et restitue le focus au bouton déclencheur.
+- Les liens partenaires actifs portent `aria-current="page"`; le contexte de la barre supérieure reprend le nom du partenaire concerné.
+- Le footer utilise les couleurs globales et des alignements logiques compatibles RTL.
+- Le rendu visuel final doit encore être contrôlé sur le preview Vercel en mobile/desktop et en arabe; les tests automatisés doivent passer avant fusion.
