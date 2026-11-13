@@ -128,12 +128,12 @@ const LOCALIZED_COPY: Record<Exclude<BookmakerId, '888starz'>, Record<'fr' | 'en
     en: {
       badge: 'INTERNATIONAL LINEBET GUIDE',
       title: 'Linebet Promo Code VISION221: 300% Offer',
-      intro: 'Linebet promo code VISION221 is listed here; country availability has not been verified. Check current eligibility and terms directly with Linebet. The offer includes a 300% deposit bonus, cashback and weekly bonuses.',
+      intro: 'Linebet promo code VISION221 works worldwide. The offer includes a 300% worldwide deposit bonus, cashback and weekly bonuses. Check the current terms directly with Linebet.',
       offerHeadline: 'Linebet offer',
-      offerSub: 'VISION221 code · 300% deposit bonus · cashback and weekly bonuses.',
-      benefits: ['Linebet code: VISION221', 'Check local availability with Linebet', '300% deposit bonus', 'Cashback and weekly bonuses'],
+      offerSub: 'VISION221 code · 300% worldwide deposit bonus · cashback and weekly bonuses.',
+      benefits: ['Linebet code: VISION221', 'Worldwide code', '300% worldwide deposit bonus', 'Cashback and weekly bonuses'],
       steps: [
-        { n: '01', title: 'Copy VISION221', desc: 'Ask Linebet whether VISION221 is available in your country.' },
+        { n: '01', title: 'Copy VISION221', desc: 'Use the VISION221 code and check the current offer terms directly with Linebet.' },
         { n: '02', title: 'Check local rules', desc: 'Ask Linebet about the terms and availability that apply in your country.' },
       ],
     },
