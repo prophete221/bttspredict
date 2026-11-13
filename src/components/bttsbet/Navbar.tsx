@@ -63,7 +63,7 @@ function NavItems({ groups, lang, isActive, onNavigate, partnerRoutes }: {
             if (!partner) return null
             const name: Record<typeof id, string> = { '1xbet': '1xBet', linebet: 'Linebet', melbet: 'MelBet', '888starz': '888Starz' }
             return (
-              <a className="fi-nav-link fi-nav-partner" href={partnerRoutes[id]} key={id} onClick={onNavigate} title={name[id]}>
+              <a className="fi-nav-link fi-nav-partner" href={partnerRoutes[id]} key={id} onClick={onNavigate} title={name[id]} aria-current={isActive(partnerRoutes[id]) ? 'page' : undefined}>
                 <span className="fi-nav-partner__logo"><img src={partner.logoFull} alt={`${name[id]} logo`} loading="lazy" /></span>
                 <span className="fi-nav-link__label">{name[id]}</span>
                 <span className="fi-nav-partner__external" aria-hidden="true">↗</span>
