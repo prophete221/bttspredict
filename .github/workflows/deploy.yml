@@ -115,10 +115,9 @@ jobs:
         run: npm run build -- --webpack
         env:
           NODE_OPTIONS: --max-old-space-size=4096
-          # GA4 — définir la variable de dépôt "NEXT_PUBLIC_GA_ID"
-          # (Settings > Secrets and variables > Actions > Variables).
-          # Si absente, le build reste fonctionnel, sans tracking.
+          # PR/preview builds must never send production analytics.
           NEXT_PUBLIC_GA_ID: ${{ vars.NEXT_PUBLIC_GA_ID }}
+          NEXT_PUBLIC_GA_ENABLED: 'false'
 
   vip-candidates-only:
     name: Private VIP candidate generation and approval sync
@@ -407,10 +406,9 @@ jobs:
         run: npm run build -- --webpack
         env:
           NODE_OPTIONS: --max-old-space-size=4096
-          # GA4 — définir la variable de dépôt "NEXT_PUBLIC_GA_ID"
-          # (Settings > Secrets and variables > Actions > Variables).
-          # Si absente, le build reste fonctionnel, sans tracking.
-          NEXT_PUBLIC_GA_ID: ${{ vars.NEXT_PUBLIC_GA_ID }}
+          # Production-only GA4; public measurement ID fallback avoids a missing Actions variable.
+          NEXT_PUBLIC_GA_ID: ${{ vars.NEXT_PUBLIC_GA_ID || 'G-F705Z3L2HT' }}
+          NEXT_PUBLIC_GA_ENABLED: 'true'
 
       - name: Copy routing files
         run: |
