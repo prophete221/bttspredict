@@ -346,3 +346,16 @@ Continue a read-only analytics/authentication funnel audit: verify whether `NEXT
 - Vercel pour le commit précédent est maintenant `success`; le nouveau commit doit recevoir son propre contrôle.
 - Aucun merge, aucun déploiement de production, aucun changement de `main`, aucune modification des données publiques/privées ou de Cloudflare.
 - Prochaine étape : vérifier le statut du nouveau commit et le comportement du runner PR; demander au propriétaire de vérifier les paramètres Actions si le runner reste non assigné. Ne pas contourner les contrôles ni fusionner tant que le build et les contrôles ne sont pas validés.
+
+## 23. Fusion de la correction cookies/CI et blocage du déploiement FTP — 2026-11-13 (UTC)
+
+- PR #127 fusionnée dans `main` le 2026-11-13 à 20:21 UTC.
+- Commit de merge sur `main`: `e7943e81faf28fe588a129ee6d3d8e1a52db0f45`.
+- Message de merge contient explicitement `[code-only]`; le workflow a donc ignoré les étapes de rafraîchissement, pruning, enrichissement Gemini et traitement VIP. Le code modifié est limité à `.github/workflows/deploy.yml`, `src/components/bttsbet/CookieConsent.tsx` et ce fichier de continuité.
+- Contrôle Vercel de la branche PR : succès (preview/build). Ce n'est pas une confirmation du déploiement FTP de production.
+- Déploiement de production non réalisé : le workflow `Build & Deploy to bttspredict.com` a été déclenché sur `main` (run #1159, ID `43500738436`) puis a échoué avant la première étape, avec `runner_id=0`, `runner_name` vide et `steps=[]`. Deux tentatives de relance ont reproduit le même échec (attempt 2 et 3). Aucun transfert FTP n'a commencé; le site live n'est donc pas confirmé mis à jour.
+- Les jobs de la PR échouaient également avant la première étape avec `runner_id=0`. L'API de statut GitHub indiquait « All Systems Operational » au relevé de 20:21 UTC; ne pas attribuer sans preuve le problème à une panne globale GitHub.
+- Hypothèses à vérifier côté compte/dépôt : limite de minutes Actions / spending limit, quota de concurrence ou paramètres d'accès/runner. Le compte propriétaire possède les permissions admin du dépôt; les outils connectés ne donnent pas accès aux réglages de facturation ni à la configuration des runners.
+- Ne pas lancer de déploiement FTP manuel ni contourner le contrôle : les identifiants FTP sont des secrets GitHub non accessibles au connecteur.
+- Prochaine étape obligatoire : le propriétaire vérifie GitHub Settings > Billing & licensing > Usage (Actions minutes/spending limit) et Repository Settings > Actions > General (permissions/runner access). Une fois le blocage levé, relancer le run #1159; vérifier succès du build, préflight FTP, allowlist `codeOnly=true`, transfert FTP, puis contrôler les pages live et GA4 Realtime après consentement.
+- Aucun changement SEO, aucun changement de données publiques/privées, aucune suppression d'archives et aucune mise à jour des ressources Cloudflare.
