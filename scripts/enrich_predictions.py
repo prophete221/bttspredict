@@ -41,7 +41,7 @@ RETRY_MAX_DELAY_S = 45.0
 RETRY_JITTER_MAX_S = 2.0
 RETRY_JITTER_FRACTION = 0.25
 RETRYABLE_HTTP_CODES = frozenset({408, 429, 500, 502, 503, 504})
-CHUNK_SIZE = 2  # lots plus petits sous forte charge 503
+CHUNK_SIZE = 4  # lots modestes : moins d'appels séquentiels, sans requêtes parallèles
 MAX_OUTPUT_TOKENS = 8192
 REQUEST_TIMEOUT_MS = 45_000
 ENRICH_TIME_BUDGET_S = 300  # borne totale, en laissant marge au timeout final du job
@@ -514,7 +514,17 @@ def call_gemini_batch(
             break
         chunk = matches[i : i + CHUNK_SIZE]
         errors_before_chunk = len(provider_errors)
-        part = _call_gemini_chunk(client, chunk, id_offset=i, provider_errors=provider_errors)
+        try:
+            part = _call_gemini_chunk(client, chunk, id_offset=i, provider_errors=provider_errors)
+        except Exception as exc:
+            # Une erreur locale de lecture/parsing d'un lot ne doit pas effacer les
+            # décisions déjà reçues des lots précédents. Le lot courant reste no-pick.
+            print(
+                f"[analyze] chunk {i+1}-{i+len(chunk)} failed locally "
+                f"({type(exc).__name__}); keep earlier responses"
+            )
+            provider_errors.append((MODELS_TO_TRY[0], _http_status_code(exc)))
+            part = []
         expected_ids = set(range(i, i + len(chunk)))
         for item in part:
             if not isinstance(item, dict):

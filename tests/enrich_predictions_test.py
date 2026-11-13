@@ -146,6 +146,39 @@ class EnrichmentImmutabilityTests(unittest.TestCase):
 
         self.assertEqual([item["id"] for item in result], [0, 1])
 
+    def test_default_batch_size_reduces_serial_requests_without_remapping_ids(self):
+        self.assertEqual(enrich.CHUNK_SIZE, 4)
+        calls = []
+
+        def respond(_client, matches, id_offset, provider_errors=None):
+            calls.append((id_offset, len(matches)))
+            return [{"id": id_offset + offset} for offset in range(len(matches))]
+
+        with (
+            patch.object(enrich, "_call_gemini_chunk", side_effect=respond),
+            patch.object(enrich.time, "sleep"),
+        ):
+            result = enrich.call_gemini_batch(object(), [{} for _ in range(9)])
+
+        self.assertEqual(calls, [(0, 4), (4, 4), (8, 1)])
+        self.assertEqual([item["id"] for item in result], list(range(9)))
+
+    def test_chunk_exception_keeps_prior_decisions_and_continues(self):
+        provider_errors = []
+        with (
+            patch.object(enrich, "CHUNK_SIZE", 2),
+            patch.object(enrich, "_call_gemini_chunk", side_effect=[
+                [{"id": 0, "market": "BTTS"}],
+                RuntimeError("response text unavailable"),
+                [{"id": 4, "market": "OVER_25"}],
+            ]),
+            patch.object(enrich.time, "sleep"),
+        ):
+            result = enrich.call_gemini_batch(object(), [{} for _ in range(6)], provider_errors)
+
+        self.assertEqual([item["id"] for item in result], [0, 4])
+        self.assertEqual(provider_errors, [(enrich.MODELS_TO_TRY[0], None)])
+
     def test_model_404_stops_all_remaining_chunks_without_retry(self):
         class FailingModels:
             calls = 0
