@@ -87,3 +87,16 @@ describe('Page surface and VIP palette consistency', () => {
     expect(finalVip).not.toContain('#ff827b')
   })
 })
+
+describe('GA4 production-only consent gating', () => {
+  it('disables tracking in PR builds and enables the known GA4 stream only for main deployment', () => {
+    const analytics = readFileSync(resolve(ROOT, 'src/components/bttsbet/AnalyticsLoader.tsx'), 'utf8')
+    const workflow = readFileSync(resolve(ROOT, '.github/workflows/deploy.yml'), 'utf8')
+
+    expect(analytics).toContain("process.env.NEXT_PUBLIC_GA_ENABLED === 'true'")
+    expect(analytics).toContain("parsed.preferences?.analytics === true")
+    expect(workflow).toContain("NEXT_PUBLIC_GA_ENABLED: 'false'")
+    expect(workflow).toContain("NEXT_PUBLIC_GA_ENABLED: 'true'")
+    expect(workflow).toContain("vars.NEXT_PUBLIC_GA_ID || 'G-F705Z3L2HT'")
+  })
+})
