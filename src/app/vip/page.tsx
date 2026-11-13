@@ -252,20 +252,26 @@ export default function VipPage() {
               </ul>
             </div>
 
-            {/* La vidéo occupe le panneau hero encadré, juste avant l’aperçu VIP. */}
-            <div className="vipx-hero__card">
-              <video
-                className="vipx-hero__video"
-                controls
-                preload="metadata"
-                playsInline
-                poster="/videos/vip-parcours-poster.jpg"
-                aria-label={lang === 'fr' ? 'Vidéo du parcours VIP en français' : lang === 'en' ? 'French-language VIP walkthrough video' : 'فيديو شرح VIP باللغة الفرنسية'}
-                data-testid="vip-hero-walkthrough-video"
+            {/* Aperçu visuel des deux nouvelles formules — aucune promesse d’activation avant la mise en service. */}
+            <div className="vipx-hero__card vipx-scene">
+              <div
+                className="vipx-member vipx-tilt"
+                role="img"
+                aria-label={lang === 'fr' ? 'Aperçu des formules Discovery et VIP Pro' : lang === 'en' ? 'Discovery and VIP Pro plan preview' : 'معاينة خطتي Discovery وVIP Pro'}
               >
-                <source src="/videos/vip-parcours.mp4" type="video/mp4" />
-                {lang === 'ar' ? 'المتصفح لا يدعم تشغيل الفيديو.' : lang === 'en' ? 'Your browser does not support video playback.' : 'Ton navigateur ne prend pas en charge la lecture vidéo.'}
-              </video>
+                <div className="vipx-member__row">
+                  <strong>BTTSPredict</strong>
+                  <span className="vipx-member__crown"><Icon.crown /> VIP PRO</span>
+                </div>
+                <div className="vipx-member__middle">
+                  <span>DISCOVERY / VIP PRO</span>
+                  <small>{lang === 'fr' ? 'Intelligence football premium' : lang === 'en' ? 'Premium football intelligence' : 'ذكاء كرة القدم المميز'}</small>
+                </div>
+                <div className="vipx-member__row vipx-member__row--bottom">
+                  <span className="vipx-member__verified"><Icon.check />{lang === 'fr' ? 'Discovery · 7 jours' : lang === 'en' ? 'Discovery · 7 days' : 'Discovery · 7 أيام'}</span>
+                  <span className="vipx-member__stars" aria-hidden="true">✦ ✦ ✦</span>
+                </div>
+              </div>
             </div>
           </div>
         </section>
