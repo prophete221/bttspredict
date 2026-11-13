@@ -48,27 +48,26 @@ export default function LinebetPromoCodePage() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#FFFFFF',
-        color: '#F2F6FA',
+        backgroundColor: '#080D14',
+        color: '#EDF2F7',
         fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
         textAlign: 'center',
         padding: '2rem',
       }}
     >
-      <div style={{ maxWidth: '500px' }}>
-        <h1 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '1rem', color: '#F2F6FA' }}>
-          Linebet Promo Code VISION221 Sénégal
+      <div style={{ maxWidth: '500px', width: '100%', padding: '2rem', border: '1px solid rgba(161,178,198,.18)', borderRadius: '12px', backgroundColor: '#101823' }}>
+        <h1 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '1rem', color: '#EDF2F7' }}>
+          Code promo Linebet VISION221
         </h1>
         <p style={{ fontSize: '0.875rem', marginBottom: '1.5rem', color: '#9DABBB', lineHeight: 1.6 }}>
-          Le code promo <strong style={{ color: '#2F7DFF' }}>VISION221</strong> fonctionne dans le monde entier.
-          L’offre comprend un bonus de dépôt de 300 %, du cashback et des bonus hebdomadaires. Redirection vers la page principale...
+          Vous allez être redirigé vers le guide Linebet. Vous y trouverez le code <strong style={{ color: '#8DB8FF' }}>VISION221</strong>, les liens d’accès et les conditions à vérifier auprès de l’opérateur.
         </p>
         <a
           href={TARGET}
           style={{
             display: 'inline-block',
             padding: '0.75rem 1.5rem',
-            backgroundColor: '#2F7DFF',
+            backgroundColor: '#2866BD',
             color: '#FFFFFF',
             fontWeight: 700,
             borderRadius: '0.5rem',
@@ -76,10 +75,10 @@ export default function LinebetPromoCodePage() {
             fontSize: '0.875rem',
           }}
         >
-          Continuer vers /code-promo-linebet-senegal
+          Ouvrir le guide Linebet
         </a>
         <p style={{ fontSize: '0.75rem', marginTop: '1.5rem', color: '#9DABBB' }}>
-          18+ · Lien d&apos;affiliation rémunéré · Aucun gain garanti
+          18+ · Lien partenaire · Aucun gain garanti
         </p>
       </div>
       {/* Redirection JavaScript — fallback si .htaccess 301 non atteint */}
