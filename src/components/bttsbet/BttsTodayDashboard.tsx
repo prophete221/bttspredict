@@ -36,6 +36,7 @@ import { useLanguage } from './LanguageSwitcher'
 import { translationsFor, type Locale, localizedPath } from '@/lib/i18n'
 import { getDakarDateString, getDakarMatchStatus, getDakarDayDiff } from '@/lib/dakar-date'
 import { buildBttsTodayDashboardData, type BttsTodayDashboardData, type BttsTodayMatchData as MatchData, type BttsTodayScheduleFixture as ScheduleFixture } from '@/lib/btts-today-dashboard-data'
+import { summarizeVisibleBttsPredictions } from '@/lib/btts-today-dashboard-stats'
 import BookmakerCardLinks from './BookmakerCardLinks'
 import ShareAnalysisButton from './ShareAnalysisButton'
 import VipMarketTeaser from './VipMarketTeaser'
@@ -628,22 +629,6 @@ export default function BttsTodayDashboard({
     [todayMatches, now],
   )
 
-  // ─── Real stats from loaded data (no fabrication) ──────────────────────
-  const stats = useMemo(() => {
-    // « Today » = matchs réellement affichés (filtrés par date >= todayStr dans useEffect).
-    // On utilise matches.length qui correspond exactement à ce qui est rendu dans la grille.
-    const bttsHigh = matches.filter(m => (m.bttsProb ?? 0) >= 0.6).length
-    const overHigh = matches.filter(m => (m.over25Prob ?? 0) >= 0.6).length
-
-    // todayCount = number of active/scheduled matches for today (Africa/Dakar).
-    // Finished matches remain visible in their own section but are not counted as current selections.
-    return {
-      todayCount: scheduledTodayMatches.length + liveTodayMatches.length,
-      total: matches.length,
-      bttsHigh,
-      overHigh,
-    }
-  }, [matches, scheduledTodayMatches, liveTodayMatches])
 
   // ─── AI COMBO OF THE DAY — deterministic selection from Gemini picks ───
   // Eligibility filter:
@@ -723,6 +708,9 @@ export default function BttsTodayDashboard({
   const visibleTodayMatches = [...liveTodayMatches, ...scheduledTodayMatches].filter(passesDashboardFilters)
   const visibleFinishedMatches = quickFilter === 'today' ? [] : finishedTodayMatches.filter(passesDashboardFilters)
   const visibleUpcomingMatches = quickFilter === 'today' ? [] : upcomingMatches.filter(passesDashboardFilters)
+  const displayedPredictionMatches = [...visibleTodayMatches, ...visibleFinishedMatches, ...visibleUpcomingMatches]
+  // Count only prediction cards currently rendered; schedule-only fixture rows are intentionally excluded.
+  const stats = summarizeVisibleBttsPredictions(displayedPredictionMatches)
   const hasVisibleMatches = visibleTodayMatches.length + visibleFinishedMatches.length + visibleUpcomingMatches.length > 0
   const todayDate = getDakarDateString(new Date(now))
   const visibleFixtures = activeFilter === 'all' && (quickFilter === 'all' || quickFilter === 'today')
@@ -782,9 +770,25 @@ export default function BttsTodayDashboard({
   }, [loading, activeFilter, quickFilter, filteredMatches, liveTodayMatches, scheduledTodayMatches, finishedTodayMatches, upcomingMatches, now])
 
   // ─── Compteurs animés du header ────────────────────────────────────────
-  const animCount = useCountUp(stats.todayCount, !loading)
+  const animCount = useCountUp(stats.total, !loading)
   const animBtts = useCountUp(stats.bttsHigh, !loading)
   const animOver = useCountUp(stats.overHigh, !loading)
+  const countLabel = quickFilter === 'today'
+    ? lang === 'fr' ? 'Matchs du jour' : lang === 'en' ? 'Matches today' : 'مباريات اليوم'
+    : quickFilter === 'all' && activeFilter === 'all'
+      ? lang === 'fr' ? 'Matchs avec pronostic' : lang === 'en' ? 'Matches with predictions' : 'مباريات بتوقعات'
+      : lang === 'fr' ? 'Matchs affichés' : lang === 'en' ? 'Matches shown' : 'المباريات المعروضة'
+  const countAriaLabel = lang === 'fr'
+    ? quickFilter === 'today'
+      ? `${animCount} matchs du jour affichés. Touchez pour revenir à tous les matchs avec pronostic.`
+      : `${animCount} matchs affichés. Touchez pour filtrer les matchs du jour.`
+    : lang === 'en'
+      ? quickFilter === 'today'
+        ? `${animCount} matches today. Activate to show all prediction matches.`
+        : `${animCount} prediction matches shown. Activate to filter today’s matches.`
+      : quickFilter === 'today'
+        ? `${animCount} مباراة اليوم. اضغط لعرض جميع المباريات ذات التوقعات.`
+        : `${animCount} مباراة معروضة ذات توقعات. اضغط لتصفية مباريات اليوم.`
 
   // ─── Render ───────────────────────────────────────────────────────────
   return (
@@ -818,8 +822,8 @@ export default function BttsTodayDashboard({
 
         {/* ─── Stats réelles ─── */}
         <div className="btx-stats mt-4" role="group" aria-label={lang === 'fr' ? 'Filtres rapides des pronostics' : lang === 'en' ? 'Quick prediction filters' : 'مرشحات سريعة للتوقعات'}>
-          <button type="button" className={`btx-stat${quickFilter === 'today' ? ' is-selected' : ''}`} aria-pressed={quickFilter === 'today'} aria-controls="btx-dashboard-grid" aria-describedby="btx-metric-help" aria-label={lang === 'fr' ? `Afficher les ${animCount} matchs du jour` : lang === 'en' ? `Show ${animCount} matches today` : `عرض ${animCount} مباراة اليوم`} onClick={() => selectMetric('today')}>
-            <div className="btx-stat__label">{lang === 'fr' ? 'Matchs du jour' : lang === 'en' ? 'Matches today' : 'مباريات اليوم'}</div>
+          <button type="button" className={`btx-stat${quickFilter === 'today' ? ' is-selected' : ''}`} aria-pressed={quickFilter === 'today'} aria-controls="btx-dashboard-grid" aria-describedby="btx-metric-help" aria-label={countAriaLabel} onClick={() => selectMetric('today')}>
+            <div className="btx-stat__label">{countLabel}</div>
             <div className="btx-stat__value" style={{ ['--accent' as string]: '#F2F6FA' }}>{animCount}</div>
           </button>
           <button type="button" className={`btx-stat${quickFilter === 'btts60' ? ' is-selected' : ''}`} aria-pressed={quickFilter === 'btts60'} aria-controls="btx-dashboard-grid" aria-describedby="btx-metric-help" aria-label={lang === 'fr' ? `Filtrer les matchs avec BTTS à 60 % ou plus : ${animBtts}` : lang === 'en' ? `Filter matches with BTTS at 60 percent or higher: ${animBtts}` : `تصفية المباريات ذات BTTS بنسبة 60٪ أو أكثر: ${animBtts}`} onClick={() => selectMetric('btts60')}>
@@ -838,10 +842,10 @@ export default function BttsTodayDashboard({
 
         <p id="btx-metric-help" className="btx-period-note">
           {lang === 'fr'
-            ? 'Touchez un indicateur pour filtrer. Les seuils BTTS et Over 2.5 s’appliquent à tous les matchs affichés.'
+            ? 'Les compteurs suivent les matchs avec pronostic actuellement affichés; chaque filtre met à jour les trois valeurs.'
             : lang === 'en'
-              ? 'Tap a metric to filter. BTTS and Over 2.5 thresholds apply to all listed matches.'
-              : 'اضغط على مؤشر للتصفية. تنطبق عتبات BTTS وOver 2.5 على جميع المباريات المعروضة.'}
+              ? 'Counts follow the prediction matches currently shown; every filter updates all three values.'
+              : 'تعكس العدادات مباريات التوقعات المعروضة حالياً؛ يؤدي كل مرشح إلى تحديث القيم الثلاث.'}
         </p>
 
       </div>
