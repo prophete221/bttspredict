@@ -465,3 +465,13 @@ Continue a read-only analytics/authentication funnel audit: verify whether `NEXT
 - The architecture proposes Firebase ID token verification in the Worker, D1-authoritative entitlements, one-time 7-day Discovery trial, idempotent payment intents/transaction hashes, expiry/renewal ledger and Telegram notifications only after confirmed entitlement.
 - No auth provider, D1 migration, Worker endpoint, Firebase config, Binance integration, secret or production resource was changed. The doc lists owner inputs required before the payment rail can be implemented.
 - Architecture doc commit: `64e86a3739ac76a857a0dc183559ad67d9be583f`.
+
+## 34. GA4 production-only activation — 2026-11-13 (UTC)
+
+- Audited `AnalyticsLoader.tsx`: GA4 already loads directly through `gtag.js`, but previously gated only by `NODE_ENV === 'production'`, which is also true for production-mode preview builds. The code also relied on `NEXT_PUBLIC_GA_ID` being set in Actions variables.
+- Changed the loader to require an explicit `NEXT_PUBLIC_GA_ENABLED === 'true'` flag in addition to production build mode and saved analytics consent.
+- Updated `.github/workflows/deploy.yml`: PR build sets `NEXT_PUBLIC_GA_ENABLED: 'false'`; main production deployment sets it to `'true'` and uses the existing known GA4 measurement ID `G-F705Z3L2HT` as a fallback if the repository variable is absent.
+- Added a test assertion for consent gating and production/PR workflow separation.
+- GTM container `GTM-NGVK3V3V` is not added here; the site uses one direct GA4 loader, avoiding accidental double initialization. Do not inject a second GA4 tag through GTM without deliberately switching the implementation.
+- No GitHub Actions variable/secret settings, Vercel settings, analytics account, production deployment, or live site was changed. Actual event receipt still requires a successful main deployment and the visitor's analytics consent.
+- Commits: `ecc8e4e394cbc9c54adbf1c8290d2906f3f3df92`, `e37ac33c8c8713dbcd265ba3823d66b35ffd16bd`, `f4b05c74d12e0d6cf04569820c2ce1aced3ab007`.
