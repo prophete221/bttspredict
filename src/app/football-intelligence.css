@@ -126,7 +126,7 @@ body:has(.fi-sidebar) #main-content { min-width: 0; }
 .fi-nav-partner__external { margin-inline-start: auto; color: #536977; font-size: 12px; }
 .fi-sidebar__foot { display: flex; align-items: center; gap: 8px; min-height: 35px; padding: 10px 10px 0; border-top: 1px solid var(--fi-line); color: #718592; font-size: 10px; }
 .fi-status-dot { width: 7px; height: 7px; flex: 0 0 7px; border-radius: 50%; background: #647987; }
-.fi-status-dot.is-fresh { background: var(--fi-teal); box-shadow: 0 0 9px rgba(59,130,246,.4); }
+.fi-status-dot.is-fresh { background: var(--fi-success); box-shadow: 0 0 9px rgba(34,197,94,.4); }
 .fi-sidebar__foot-note { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .fi-sidebar__foot-age { margin-inline-start: auto; color: #516571; font-size: 9px; white-space: nowrap; }
 
