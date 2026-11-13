@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Navbar, Footer, FreePredictions } from '@/components/bttsbet'
+import { Navbar, Footer } from '@/components/bttsbet'
 
 export const metadata: Metadata = {
   title: 'Méthodologie',
@@ -210,15 +210,12 @@ export default function MethodologiePage() {
                 Voir les pronostics du jour →
               </a>
               <a href="/jouer-responsable" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] text-sm font-bold transition-all"
-                style={{ backgroundColor: 'transparent', color: '#F87171', border: '1px solid rgba(255, 122, 122, 0.3)' }}>
+                style={{ backgroundColor: 'transparent', color: '#B7C6D8', border: '1px solid #304259' }}>
                 Jouer responsable →
               </a>
             </div>
           </section>
         </article>
-              <section className="max-w-5xl mx-auto px-4 py-8">
-          <FreePredictions />
-        </section>
       </main>
 
       <Footer />
