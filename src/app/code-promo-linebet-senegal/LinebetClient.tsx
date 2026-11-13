@@ -29,16 +29,16 @@ export default function LinebetClient(_props: { reviewDate?: string } = {}) {
         signupUrl={AFFILIATE.linebet}
         downloadUrl={AFFILIATE.linebetDownload}
         lang="fr"
-        title="Code promo Linebet VISION221 : offre mondiale 300 %"
+        title="Code promo Linebet VISION221 : bonus de dépôt 300 %"
         badge="CODE PROMO LINEBET · VISION221"
-        intro="Le code promo Linebet VISION221 est international, pour les pays où Linebet l’accepte. L’offre comprend un bonus de dépôt mondial de 300 %, du cashback et des bonus hebdomadaires. Ce guide s’adresse aux joueurs d’Afrique, d’Europe et d’autres régions. Vérifiez la disponibilité, l’éligibilité et les modalités auprès de Linebet pour votre pays."
-        offerHeadline="Repères sur l’offre Linebet"
-        offerSub="Bonus de dépôt mondial de 300 % · cashback · bonus hebdomadaires."
-        benefits={['Code exact : VISION221', 'Site et APK : deux parcours distincts', 'Modalités locales à vérifier avant dépôt']}
+        intro="Saisissez VISION221 lors de votre inscription chez Linebet. L’offre annoncée comprend un bonus de dépôt de 300 %, du cashback et des bonus hebdomadaires. Vérifiez les conditions et la disponibilité auprès de Linebet."
+        offerHeadline="Offre Linebet"
+        offerSub="Bonus de dépôt 300 % · cashback · bonus hebdomadaires."
+        benefits={['Code promo : VISION221', 'Bonus de dépôt annoncé : 300 %', 'Cashback et bonus hebdomadaires']}
         steps={[
-          { n: '01', title: 'Garder le code à portée de main', desc: 'Copiez VISION221 et distinguez-le du lien d’accès au site ou au téléchargement APK.' },
-          { n: '02', title: 'Lire les détails de l’offre', desc: 'Sur Linebet, vérifiez les conditions, l’éligibilité et la façon d’utiliser le code avant toute action.' },
-          { n: '03', title: 'Choisir votre parcours', desc: 'Utilisez le lien du site ou celui de l’APK selon votre besoin, puis suivez les indications affichées par Linebet.' },
+          { n: '01', title: 'Garder le code à portée de main', desc: 'Copiez le code avant de créer votre compte.' },
+          { n: '02', title: 'Lire les détails de l’offre', desc: 'Consultez les conditions et les critères d’éligibilité affichés par Linebet.' },
+          { n: '03', title: 'Choisir votre parcours', desc: 'Choisissez le site ou l’application officielle selon votre appareil.' },
         ]}
         faq={getPromoFaq('linebet', 'fr')}
         crossLinks={ALL_LINKS.filter((l) => l.id !== SELF).map(({ label, href }) => ({ label, href }))}
