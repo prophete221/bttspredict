@@ -1,7 +1,7 @@
 import type { Locale } from './i18n'
 
 /**
- * Traductions complémentaires (AI Combo Builder + indicateur temps réel du
+ * Traductions complémentaires (combo builder + indicateur temps réel du
  * coup d'envoi + filtre horaire).
  *
  * ⚠ src/lib/i18n.ts est GELÉ byte-for-byte par tests/seo-preservation.test.ts :
