@@ -203,13 +203,13 @@ export default function Star888PromoClient({
       lang={lang}
       dir={copy.dir}
       data-888starz-promo
-      className="min-h-[60vh] bg-[#001E28] px-4 py-6 text-[#EAF2F4] sm:py-10"
+      className="promo-shell--888starz min-h-[60vh] bg-[#070B12] px-4 pb-36 pt-6 text-[#F2F6FA] sm:py-10 md:pb-10"
       style={{
         colorScheme: 'dark',
         fontFamily: lang === 'ar' ? 'var(--font-arabic), var(--font-body), Arial, sans-serif' : 'var(--font-body), Roboto, Arial, sans-serif',
       }}
     >
-      <section className="mx-auto w-full max-w-5xl overflow-hidden rounded-2xl border border-white/10 bg-[#06232E] shadow-[0_10px_32px_rgba(0,0,0,0.45)]" aria-labelledby="star888-title">
+      <section className="mx-auto w-full max-w-5xl overflow-hidden rounded-2xl border border-white/10 bg-[#0C1726] shadow-[0_20px_56px_rgba(0,0,0,0.42)]" aria-labelledby="star888-title">
         <div className="grid lg:grid-cols-[1.05fr_.95fr]">
           <div className="border-b border-white/10 p-5 sm:p-8 lg:border-b-0 lg:border-e lg:p-10">
             <div className="flex flex-wrap items-center justify-between gap-4">
@@ -232,7 +232,7 @@ export default function Star888PromoClient({
             </div>
             <div className="mt-5 grid gap-2 sm:grid-cols-3" data-promo-highlights>
               {copy.highlights.map((highlight, index) => (
-                <div key={highlight} className="rounded-lg border border-white/10 bg-[#0B2B36] p-3">
+                <div key={highlight} className="rounded-xl border border-white/10 bg-[#101E30] p-3">
                   <span className="text-[10px] font-bold tracking-widest text-[#FF7A9C]">0{index + 1}</span>
                   <p className="mt-1 text-xs font-semibold leading-relaxed text-[#CBDDE0]">{highlight}</p>
                 </div>
@@ -242,7 +242,7 @@ export default function Star888PromoClient({
 
           <div className="p-5 sm:p-8 lg:p-10">
             <p className="text-sm font-bold text-[#CBDDE0]">{copy.codeLabel}</p>
-            <div className="mt-2 rounded-xl border border-white/15 bg-[#0B2B36] p-4 sm:p-5">
+            <div className="mt-2 rounded-2xl border border-white/15 bg-[#101E30] p-4 sm:p-5">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <code dir="ltr" className="select-all text-3xl font-extrabold tracking-[.12em] text-white sm:text-4xl">{CODE}</code>
                 <button
@@ -299,11 +299,11 @@ export default function Star888PromoClient({
           </div>
         </div>
       </section>
-      <section data-promo-steps aria-labelledby="star888-steps-title" className="mx-auto mt-8 w-full max-w-5xl rounded-2xl border border-white/10 bg-[#06232E] p-5 sm:p-8">
+      <section data-promo-steps aria-labelledby="star888-steps-title" className="mx-auto mt-8 w-full max-w-5xl rounded-2xl border border-white/10 bg-[#0C1726] p-5 sm:p-8">
         <h2 id="star888-steps-title" className="text-xl font-bold text-white sm:text-2xl">{copy.guideTitle}</h2>
         <div className="mt-5 grid gap-3 sm:grid-cols-2">
           {copy.steps.map((step, index) => (
-            <div key={step.title} className="rounded-xl border border-[#D9164C]/25 bg-[#0B2B36] p-4">
+            <div key={step.title} className="rounded-xl border border-[#D9164C]/25 bg-[#101E30] p-4">
               <span className="text-xs font-bold tracking-widest text-[#FF7A9C]">0{index + 1}</span>
               <h3 className="mt-1 font-bold text-white">{step.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-[#B9CDD2]">{step.body}</p>
@@ -315,13 +315,34 @@ export default function Star888PromoClient({
         <h2 id="star888-faq-title" className="text-xl font-bold text-white sm:text-2xl">{copy.faqTitle}</h2>
         <div className="mt-5 grid gap-4 sm:grid-cols-2">
           {faq.map((item) => (
-            <div key={item.q} className="rounded-xl border border-white/10 bg-[#0B2B36] p-4">
+            <div key={item.q} className="rounded-xl border border-white/10 bg-[#101E30] p-4">
               <h3 className="text-base font-bold text-white">{item.q}</h3>
               <p className="mt-2 text-sm leading-relaxed text-[#B9CDD2]">{item.a}</p>
             </div>
           ))}
         </div>
       </section>
+
+      <div className="fixed bottom-[calc(86px+env(safe-area-inset-bottom))] left-1/2 z-[45] flex w-[calc(100%-24px)] max-w-[520px] -translate-x-1/2 gap-2 rounded-2xl border border-white/10 bg-[#0B1422]/95 p-2 shadow-2xl backdrop-blur-xl md:hidden">
+        <button
+          type="button"
+          onClick={handleCopy}
+          data-cta={`promo-sticky-copy-888starz-${lang}`}
+          className="min-h-11 flex-1 rounded-xl border border-white/15 bg-white/5 px-3 text-xs font-extrabold text-white"
+        >
+          {copied ? copy.copied : copy.copy}
+        </button>
+        <a
+          href={AFFILIATE.star888}
+          target="_blank"
+          rel="sponsored nofollow noopener noreferrer"
+          onClick={() => trackAffiliateAction('888starz', 'signup_cta_click', `promo-sticky-${lang}`)}
+          data-cta={`promo-sticky-signup-888starz-${lang}`}
+          className="flex min-h-11 flex-[1.25] items-center justify-center rounded-xl bg-[#D9164C] px-3 text-center text-xs font-extrabold text-white"
+        >
+          {copy.visit} →
+        </a>
+      </div>
     </main>
   )
 }
