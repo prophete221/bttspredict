@@ -203,7 +203,7 @@ export default function Star888PromoClient({
       lang={lang}
       dir={copy.dir}
       data-888starz-promo
-      className="promo-shell--888starz min-h-[60vh] bg-[#070B12] px-4 pb-36 pt-6 text-[#F2F6FA] sm:py-10 md:pb-10"
+      className="promo-shell--888starz min-h-[60vh] bg-[#070B12] px-4 pb-36 pt-6 text-[#F2F6FA] sm:pt-10 sm:pb-36 md:pb-10"
       style={{
         colorScheme: 'dark',
         fontFamily: lang === 'ar' ? 'var(--font-arabic), var(--font-body), Arial, sans-serif' : 'var(--font-body), Roboto, Arial, sans-serif',
