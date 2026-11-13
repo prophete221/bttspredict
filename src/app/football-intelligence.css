@@ -2767,3 +2767,54 @@ body { color: var(--fi-text); }
 .combox .bg-gradient-to-b, .combox [class*="bg-gradient"] { background:#101823 !important; }
 .cbx-chip { min-height:34px !important; padding:0 11px !important; border:1px solid var(--fi-line) !important; border-radius:6px !important; background:#0c141e !important; color:#b7c5d5 !important; font-size:11px !important; }
 .cbx-chip.is-active { border-color:#3e78c6 !important; background:#1a3d66 !important; color:#fff !important; }
+
+
+/* Shared market-prediction cards used by BTTS, Over 2.5 and combined pages. */
+.prediction-section-heading { align-items:flex-end !important; padding-bottom:14px; border-bottom:1px solid var(--fi-line); }
+.prediction-section-heading__eyebrow { color:#8fa1b5 !important; font-size:10px !important; letter-spacing:.1em !important; text-transform:uppercase; }
+.prediction-section-heading__title { color:#edf2f7 !important; font-size:clamp(20px,2.5vw,28px) !important; font-weight:730 !important; letter-spacing:-.035em !important; }
+.prediction-section-heading__subtitle { color:#93a3b5 !important; font-size:12px !important; line-height:1.65 !important; }
+.prediction-section-heading__count { color:#c0ccda !important; border:1px solid var(--fi-line) !important; border-radius:6px !important; background:#101823 !important; padding:7px 10px !important; font-size:11px !important; }
+.prediction-match-card {
+  overflow:hidden !important;
+  border:1px solid var(--fi-line) !important;
+  border-radius:10px !important;
+  background:#101823 !important;
+  box-shadow:none !important;
+  transform:none !important;
+}
+.prediction-match-card:hover { border-color:rgba(75,141,248,.48) !important; background:#131f2d !important; }
+.prediction-match-card__accent { display:none !important; }
+.prediction-match-card__body { padding:16px !important; }
+.prediction-match-card__meta { padding-bottom:11px; border-bottom:1px solid var(--fi-line); }
+.prediction-match-card__teams { padding:15px 0; border-bottom:1px solid var(--fi-line); }
+.prediction-match-card__team { color:#e8eef5 !important; }
+.prediction-match-card__analysis { border:1px solid var(--fi-line) !important; border-radius:7px !important; background:#0c141e !important; box-shadow:none !important; }
+.prediction-match-card__footer { border-color:var(--fi-line) !important; }
+.prediction-match-card__footer button, .prediction-match-card__footer a { min-height:38px; border:1px solid var(--fi-line) !important; border-radius:6px !important; background:#142236 !important; color:#c6d3e1 !important; text-decoration:none; }
+.prediction-match-card__footer button:hover, .prediction-match-card__footer a:hover { border-color:#4b8df8 !important; color:#fff !important; }
+.prediction-match-card .badge-live { border-radius:5px !important; box-shadow:none !important; }
+.prediction-match-card .bg-gradient-to-br { background:#172333 !important; }
+.over25-intro-panel, .over25-info-card {
+  border:1px solid var(--fi-line) !important;
+  border-radius:11px !important;
+  background:#101823 !important;
+  box-shadow:none !important;
+}
+.over25-title { color:#edf2f7 !important; letter-spacing:-.04em !important; }
+.over25-actions a { border-radius:6px !important; box-shadow:none !important; }
+.over25-info-card h2, .over25-related-section h2 { color:#edf2f7 !important; letter-spacing:-.025em; }
+.over25-related-section a { border:1px solid var(--fi-line) !important; border-radius:8px !important; background:#101823 !important; transition:border-color .16s ease, background-color .16s ease !important; }
+.over25-related-section a:hover { transform:none !important; border-color:rgba(75,141,248,.5) !important; background:#142033 !important; }
+.page-design--score-exact main [class*="rounded-xl"] {
+  border-color:var(--fi-line) !important;
+  border-radius:9px !important;
+  background:#101823 !important;
+  box-shadow:none !important;
+}
+.page-design--score-exact main [style*="background-color: rgb(255, 255, 255)"] { background:#121d2a !important; }
+.page-design--score-exact main [class*="animate-pulse"] { animation:none !important; }
+@media (max-width:640px) {
+  .prediction-match-card__body { padding:13px !important; }
+  .over25-intro-panel { padding:17px !important; }
+}
