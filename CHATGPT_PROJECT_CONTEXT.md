@@ -432,3 +432,11 @@ Continue a read-only analytics/authentication funnel audit: verify whether `NEXT
 - Commits: `22190a21d719930e36364600dee37ec2526db803`, `878b928e827294927e8af93ee959e8868ef9a8f4`, `3926eaf7a61665250bb3bffb82be3060263d18a5`, `c47d32f0f1c903bb2e96741ac3eae8afc1a8e5c0`.
 - Re-read `.github/workflows/deploy.yml`: PR checks run `npm test`, Python unit tests, `npm run lint`, `npx tsc --noEmit`, then `npm run build -- --webpack`. The latest observed run `43519345629` ended with `pull-request-checks` failure; GitHub returned no step summaries and its job-log download returned BlobNotFound. A failed-job rerun request was accepted, but the observed job state still showed failure at the last poll. Root cause remains unknown; do not claim tests passed.
 - Latest PR branch code head before this continuity update: `878b928e827294927e8af93ee959e8868ef9a8f4` (context commit follows). PR #128 remains draft/open, not merged; Vercel was pending. No production deployment or main-branch change.
+
+## 30. Design specification and latest CI retry — 2026-11-13 (UTC)
+
+- Extended `docs/project/design/DIRECTION_ARTISTIQUE_BTTSPREDICT.md` with the final cascade rules, navy/blue/gold surface treatment, partner route context, mobile drawer focus management, and preview validation requirements.
+- Latest code/document commit before this checkpoint: `0694797ff8134909f5c7c64850778621157403f0`.
+- Latest PR-triggered workflow run observed: `43519773319`, job `pull-request-checks` concluded failure; deploy and VIP candidate jobs skipped as expected for a PR. GitHub exposed no job-step summaries, no artifacts, and prior job log downloads returned BlobNotFound. A rerun of the failed job was accepted; latest poll still showed the previous failure. Cause remains unverified.
+- Vercel preview status for the latest head was pending. Do not report a successful preview, visual QA, test suite, lint, typecheck, or production build.
+- PR #128 remains open and draft, 36 commits ahead of main and 0 behind; no merge and no deployment.
