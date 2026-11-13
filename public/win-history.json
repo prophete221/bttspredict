@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-11-12T17:35:57.373Z",
+  "generatedAt": "2026-11-13T04:05:55.787Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,47 +15,40 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 550,
-    "won": 438,
-    "lost": 112,
-    "pending": 79,
+    "total": 541,
+    "won": 430,
+    "lost": 111,
+    "pending": 93,
     "unverifiable": 203,
-    "archivedTotal": 832,
-    "rate": 79.6,
+    "archivedTotal": 837,
+    "rate": 79.5,
     "gold": {
-      "total": 429,
-      "won": 347,
-      "lost": 82,
-      "rate": 80.9
+      "total": 421,
+      "won": 341,
+      "lost": 80,
+      "rate": 81
     },
     "standard": {
-      "total": 121,
-      "won": 91,
-      "lost": 30,
-      "rate": 75.2
+      "total": 120,
+      "won": 89,
+      "lost": 31,
+      "rate": 74.2
     },
     "byType": {
       "btts": {
-        "total": 452,
-        "won": 367,
-        "lost": 85,
-        "rate": 81.2
+        "total": 442,
+        "won": 358,
+        "lost": 84,
+        "rate": 81
       },
       "over25": {
-        "total": 98,
-        "won": 71,
+        "total": 99,
+        "won": 72,
         "lost": 27,
-        "rate": 72.4
+        "rate": 72.7
       }
     },
     "trend14": [
-      {
-        "date": "2026-10-27",
-        "total": 5,
-        "won": 4,
-        "lost": 1,
-        "rate": 80
-      },
       {
         "date": "2026-10-28",
         "total": 23,
@@ -146,15 +139,60 @@
         "won": 2,
         "lost": 0,
         "rate": 100
+      },
+      {
+        "date": "2026-11-12",
+        "total": 3,
+        "won": 2,
+        "lost": 1,
+        "rate": 66.7
       }
     ],
     "period": {
-      "from": "2026-08-15",
-      "to": "2026-11-12",
+      "from": "2026-08-16",
+      "to": "2026-11-13",
       "days": 90
     }
   },
   "history": [
+    {
+      "date": "2026-11-12",
+      "match": "Ponte Preta vs Operário PR",
+      "league": "Brazilian Serie B",
+      "market": "btts",
+      "tier": "STANDARD",
+      "proba": 0.62,
+      "status": "LOST",
+      "finalScore": "0-2",
+      "verifiedAt": "2026-11-13T04:04:17.607Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-11-12",
+      "match": "São Bernardo vs Athletic",
+      "league": "Brazilian Serie B",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.65,
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-11-13T04:04:17.607Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-12",
+      "match": "São Bernardo vs Athletic",
+      "league": "Brazilian Serie B",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.68,
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-11-13T04:04:17.607Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
     {
       "date": "2026-11-11",
       "match": "Londrina vs Náutico",
@@ -6606,45 +6644,6 @@
       "status": "LOST",
       "finalScore": "5-0",
       "verifiedAt": "2026-08-23T04:36:56.502Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-08-23",
-      "match": "LAFC vs Portland Timbers",
-      "league": "MLS",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.6153,
-      "status": "WON",
-      "finalScore": "1-1",
-      "verifiedAt": "2026-08-23T04:36:56.499Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-08-23",
-      "match": "San Diego FC vs Colorado Rapids",
-      "league": "MLS",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.6087,
-      "status": "LOST",
-      "finalScore": "3-0",
-      "verifiedAt": "2026-08-23T04:36:56.499Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-08-23",
-      "match": "Nashville SC vs Columbus Crew",
-      "league": "MLS",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.6198,
-      "status": "WON",
-      "finalScore": "3-2",
-      "verifiedAt": "2026-08-23T04:36:56.498Z",
       "source": "ESPN public",
       "prediction": "Oui"
     }
