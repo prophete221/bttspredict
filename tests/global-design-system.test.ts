@@ -71,6 +71,8 @@ describe('Page surface and VIP palette consistency', () => {
     const finalSurfaces = css.slice(css.lastIndexOf('/* 2026-11-13 — final surface pass'))
 
     expect(finalSurfaces).toContain('.hp-hero')
+    expect(finalSurfaces).toContain('.page-design--home')
+    expect(finalSurfaces).toContain('footer#faq')
     expect(finalSurfaces).toContain('#btts-today-dashboard .btx-card')
     expect(finalSurfaces).toContain('[data-promo-shell]')
     expect(finalSurfaces).toContain('background: var(--fi-panel) !important')
