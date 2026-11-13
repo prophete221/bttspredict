@@ -76,7 +76,8 @@ export default function Over25StatisticsPage() {
             <span className="mt-1 block text-xs text-[#8FA1B5]">View the competitions listed for BTTS →</span>
           </Link>
         </section>
-      </main>      <Footer />
+      </main>
+      <Footer />
     </div>
   )
 }
