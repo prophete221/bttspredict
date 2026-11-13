@@ -14,7 +14,6 @@ import { useState, useEffect, type ReactNode } from 'react'
 import Link from 'next/link'
 import { Navbar, Footer } from '@/components/bttsbet'
 import { useLanguage } from '@/components/bttsbet/LanguageSwitcher'
-import AnimatedTitle from '@/components/bttsbet/HeroWordmark'
 import { RateBar, CompositionBar, CumulativeLine, DailyBars, fmtPct } from '@/components/bttsbet/SimpleCharts'
 
 interface HistoryEntry {
@@ -181,7 +180,7 @@ export default function StatistiquesClient() {
       {/* En-tête */}
       <header className="mb-6">
         <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#2F7DFF] mb-2">BTTSPredict · {copy.scopeTitle}</p>
-        <AnimatedTitle as="h1" text={copy.title} className="text-2xl sm:text-3xl font-bold text-[#F2F6FA]" style={{ fontFamily: 'Poppins, sans-serif' }} />
+        <h1 className="text-2xl sm:text-3xl font-bold text-[#F2F6FA] tracking-tight">{copy.title}</h1>
         <p className="mt-2 text-sm text-[#9DABBB] leading-relaxed max-w-3xl">{copy.subtitle}</p>
       </header>
 
