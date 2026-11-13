@@ -43,6 +43,7 @@ export const metadata: Metadata = {
 export default function LinebetPromoCodePage() {
   return (
     <div
+      className="page-design page-design--promo"
       style={{
         minHeight: '100vh',
         display: 'flex',
