@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useState, type MouseEvent } from 'react'
 import dynamic from 'next/dynamic'
 import { useLanguage } from '@/components/bttsbet/LanguageSwitcher'
 import { localizedPath, type Locale } from '@/lib/i18n'
@@ -8,11 +8,32 @@ import { trackAffiliateAction } from '@/lib/affiliateTracking'
 import AnimatedTitle from '@/components/bttsbet/HeroWordmark'
 import VipWinHistory from './VipWinHistory'
 import VipLockedPicks from './VipLockedPicks'
+import VipJourneyModal from './VipJourneyModal'
 import './vip.css'
 
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
 const ErrorBoundary = dynamic(() => import('@/components/bttsbet/ErrorBoundary'), { loading: () => null })
+
+/* ─────────── Parcours VIP — quatre partenaires, deux prioritaires ─────
+   L’inscription et les conditions sont consultées sur les guides promo
+   dédiés; l’accès VIP fait ensuite l’objet d’une validation manuelle.
+   ──────────────────────────────────────────────────────────────────── */
+type VipBook = '1xbet' | 'linebet' | 'melbet' | '888starz'
+
+const VIP_PARTNERS: Record<VipBook, { brand: string; guide: string }> = {
+  '1xbet': { brand: '1xBet', guide: '/code-promo-1xbet' },
+  linebet: { brand: 'Linebet', guide: '/code-promo-linebet-senegal' },
+  melbet: { brand: 'MelBet', guide: '/code-promo-melbet' },
+  '888starz': { brand: '888Starz', guide: '/bonus-888starz-btts221' },
+}
+const VIP_BOOKS: VipBook[] = ['1xbet', 'linebet', 'melbet', '888starz']
+const VIP_LOGOS: Record<VipBook, string> = {
+  '1xbet': '/logos/1xbet-logo.png',
+  linebet: '/logos/linebet-logo.jpg',
+  melbet: '/logos/melbet-logo.jpg',
+  '888starz': '/logos/888starz-logo.jpg',
+}
 
 /* ────────────────────────── Icônes inline ────────────────────────── */
 
@@ -72,154 +93,174 @@ const VIP_PAGE_COPY: Record<Locale, VipPageText> = {
   fr: {
     eyebrow: 'Accès VIP privé', freeLink: 'Pronostics gratuits', trust1: 'Scores vérifiés ESPN',
     trust2: 'Historique VIP',
-    memberTop: 'BTTSPredict', memberKind: 'Discovery · 7 jours gratuits · VIP Pro sur abonnement',
+    memberTop: 'BTTSPredict', memberKind: 'Accès à vie après validation manuelle',
     memberPerks: 'Pronostics · Statistiques complètes · Notifications · Alertes de signaux',
-    memberVerified: 'Accès selon la formule active',
+    memberVerified: 'Verrouillé jusqu’à validation',
     benefitsEyebrow: 'Espace VIP',
-    benefitsTitle: 'Discovery gratuit pendant 7 jours, puis VIP Pro sur abonnement : pronostics, statistiques et alertes',
-    b1Title: 'Discovery — 7 jours gratuits', b1Desc: 'Un essai de découverte unique par compte, avec une durée limitée de 7 jours.',
-    b2Title: 'Pronostics VIP', b2Desc: 'Les pronostics à venir restent masqués dans l’espace public et accessibles selon les droits actifs du compte.',
-    b3Title: 'Statistiques complètes', b3Desc: 'Les statistiques complètes sont réservées aux comptes dont l’accès VIP est actif; aucun chiffre de performance n’est promis ici.',
-    b4Title: 'Notifications', b4Desc: 'Les notifications sont réservées aux comptes dont l’accès VIP est actif.',
-    b5Title: 'Alertes de signaux', b5Desc: 'Les alertes de signaux sont réservées aux comptes dont l’accès VIP est actif.',
-    b6Title: 'Activation sécurisée', b6Desc: 'Les droits sont activés uniquement après authentification et vérification côté serveur.',
+    benefitsTitle: 'Accès VIP à vie après validation : pronostics, statistiques complètes, notifications et alertes de signaux',
+    b1Title: 'Accès VIP à vie', b1Desc: 'L’accès est accordé à vie uniquement après confirmation personnelle du propriétaire.',
+    b2Title: 'Pronostics VIP', b2Desc: 'Les pronostics à venir restent cachés dans l’espace public et verrouillés jusqu’à validation.',
+    b3Title: 'Statistiques complètes', b3Desc: 'Les statistiques complètes sont réservées à l’accès VIP approuvé; aucun chiffre de performance n’est promis ici.',
+    b4Title: 'Notifications', b4Desc: 'Les notifications sont réservées aux membres dont l’accès VIP a été approuvé.',
+    b5Title: 'Alertes de signaux', b5Desc: 'Les alertes de signaux sont réservées aux membres dont l’accès VIP a été approuvé.',
+    b6Title: 'Validation personnelle', b6Desc: 'Le propriétaire examine chaque demande manuellement. Aucun clic, formulaire ou dépôt ne déverrouille le VIP automatiquement.',
     trustEyebrow: 'Confiance & transparence', trustTitle: 'Vérifiable — pas des promesses',
     trustDesc: 'Les pronostics publics restent consultables avec leurs résultats. Aucun gain n’est garanti; les paris sportifs comportent des risques.', trustLink: 'Historique VIP',
     faqTitle: 'Questions fréquentes',
     faq1Q: 'Les offres sont-elles identiques partout ?', faq1A: 'Non. Les informations et conditions peuvent varier selon l’opérateur et le pays. Consulte le guide dédié et les informations actuelles de l’opérateur.',
     faq2Q: 'Où trouver le code promo ?', faq2A: 'Le code exact de chaque partenaire figure sur son guide dédié. Cette page VIP générale ne révèle pas de code.',
-    faq3Q: 'Comment l’accès est-il activé ?', faq3A: 'Discovery sera activé une seule fois pour 7 jours. VIP Pro sera activé uniquement après confirmation serveur du paiement.',
-    faq4Q: 'Faut-il un compte bookmaker ?', faq4A: 'Non. Le nouveau VIP fonctionnera avec un compte BTTSPredict. Aucun identifiant bookmaker, capture de dépôt ou mot de passe bookmaker ne sera demandé.',
+    faq3Q: 'Qui décide de l’accès VIP ?', faq3A: 'Le propriétaire examine chaque demande et doit confirmer personnellement l’accès à vie. Jusqu’à cette confirmation, le contenu VIP reste verrouillé.',
+    faq4Q: 'Quel identifiant faut-il fournir ?', faq4A: 'Le formulaire demande l’identifiant de ton compte bookmaker. N’envoie aucune pièce d’identité, aucun mot de passe, PIN ou code OTP.',
     faq5Q: 'Des gains sont-ils garantis ?', faq5A: 'Non. Aucun résultat n’est garanti dans les paris sportifs. Ne mise jamais plus que ce que tu peux te permettre de perdre (18+).',
-    finalTitle: 'Nouveau VIP en préparation', finalDesc: 'Discovery 7 jours et VIP Pro arrivent avec une authentification et une vérification de paiement sécurisées. Aucun dépôt bookmaker n’est demandé et aucun paiement n’est collecté depuis cette page pour le moment.',
+    finalTitle: 'Demander l’accès VIP', finalDesc: 'Dépôt minimum de 3 $, puis validation manuelle par le propriétaire. L’accès à vie reste verrouillé jusque-là.',
     responsible: '18+ · Les paris sportifs comportent des risques. Aucun gain n’est garanti. Joue de manière responsable.',
     footerNote: 'BTTSPredict est un site d’information et d’affiliation : il ne prend pas de paris et ne collecte pas de fonds.',
   },
   en: {
     eyebrow: 'Private VIP access', freeLink: 'Free predictions', trust1: 'Scores checked against ESPN',
     trust2: 'VIP history',
-    memberTop: 'BTTSPredict', memberKind: 'Discovery · 7 days free · VIP Pro subscription',
+    memberTop: 'BTTSPredict', memberKind: 'Lifetime access after manual approval',
     memberPerks: 'VIP picks · Full stats · Notifications · Signal alerts',
-    memberVerified: 'Access follows the active plan',
+    memberVerified: 'Locked until approved',
     benefitsEyebrow: 'VIP area',
-    benefitsTitle: '7 days of free Discovery, followed by a paid VIP Pro subscription: picks, stats and alerts',
-    b1Title: 'Discovery — 7 days free', b1Desc: 'One 7-day Discovery trial per account, with server-controlled expiry.',
-    b2Title: 'VIP picks', b2Desc: 'Upcoming picks stay hidden from the public area and are available according to the account’s active entitlement.',
-    b3Title: 'Full stats', b3Desc: 'Full statistics are reserved for accounts with an active VIP entitlement; no performance figures are promised here.',
-    b4Title: 'Notifications', b4Desc: 'Notifications are reserved for accounts with active VIP access.',
-    b5Title: 'Signal alerts', b5Desc: 'Signal alerts are reserved for accounts with active VIP access.',
-    b6Title: 'Secure activation', b6Desc: 'Access is enabled only after authentication and server-side entitlement verification.',
+    benefitsTitle: 'Lifetime VIP access after approval: picks, full stats, notifications and signal alerts',
+    b1Title: 'Lifetime VIP access', b1Desc: 'Access is granted for life only after the owner personally approves the request.',
+    b2Title: 'VIP picks', b2Desc: 'Upcoming picks remain hidden from the public area and locked until approval.',
+    b3Title: 'Full stats', b3Desc: 'Full statistics are reserved for approved VIP access; no performance figures are promised here.',
+    b4Title: 'Notifications', b4Desc: 'Notifications are reserved for members whose VIP access has been approved.',
+    b5Title: 'Signal alerts', b5Desc: 'Signal alerts are reserved for members whose VIP access has been approved.',
+    b6Title: 'Personal approval', b6Desc: 'The owner reviews every request manually. No click, form or deposit automatically unlocks VIP.',
     trustEyebrow: 'Trust & transparency', trustTitle: 'Verifiable, not promised',
     trustDesc: 'Public predictions and their results remain available to review. No win is guaranteed; sports betting carries risk.', trustLink: 'VIP history',
     faqTitle: 'Frequently asked questions',
     faq1Q: 'Are offers the same everywhere?', faq1A: 'No. Information and terms may vary by operator and country. Check the dedicated guide and the operator’s current information.',
     faq2Q: 'Where do I find the promo code?', faq2A: 'Each partner’s exact code is on its dedicated guide. This general VIP page does not reveal codes.',
-    faq3Q: 'How is access activated?', faq3A: 'Discovery will be activated once for 7 days. VIP Pro will be enabled only after server-confirmed payment.',
-    faq4Q: 'Do I need a bookmaker account?', faq4A: 'No. The new VIP will use a BTTSPredict account. No bookmaker ID, deposit screenshot or bookmaker password will be requested.',
+    faq3Q: 'Who decides VIP access?', faq3A: 'The owner reviews each request and must personally approve lifetime access. VIP content remains locked until then.',
+    faq4Q: 'What identifier should I provide?', faq4A: 'The request form asks for your bookmaker account ID. Do not send identity documents, passwords, PINs or OTPs.',
     faq5Q: 'Are wins guaranteed?', faq5A: 'No. No sports betting result is guaranteed. Never bet more than you can afford to lose (18+).',
-    finalTitle: 'New VIP access coming soon', finalDesc: 'Discovery 7 days and VIP Pro are being prepared with secure authentication and payment verification. No bookmaker deposit is required and no payment is collected from this page yet.',
+    finalTitle: 'Request VIP access', finalDesc: 'Minimum deposit of $3, then manual approval by the owner. Lifetime access stays locked until then.',
     responsible: '18+ · Sports betting carries risk. No wins are guaranteed. Please play responsibly.',
     footerNote: 'BTTSPredict is an information and affiliate site: it does not accept bets or collect funds.',
   },
   ar: {
     eyebrow: 'وصول VIP خاص', freeLink: 'التوقعات المجانية', trust1: 'نتائج متحققة من ESPN',
     trust2: 'سجل VIP',
-    memberTop: 'BTTSPredict', memberKind: 'Discovery · 7 أيام مجاناً · اشتراك VIP Pro',
+    memberTop: 'BTTSPredict', memberKind: 'وصول مدى الحياة بعد الموافقة اليدوية',
     memberPerks: 'توقعات VIP · إحصاءات كاملة · إشعارات · تنبيهات الإشارات',
-    memberVerified: 'الوصول حسب الخطة النشطة',
+    memberVerified: 'مقفل حتى الموافقة',
     benefitsEyebrow: 'مساحة VIP',
-    benefitsTitle: 'اكتشف الخدمة مجاناً لمدة 7 أيام، ثم اشترك في VIP Pro للتوقعات والإحصاءات والتنبيهات',
-    b1Title: 'Discovery — 7 أيام مجاناً', b1Desc: 'تجربة اكتشاف واحدة لكل حساب، لمدة 7 أيام مع انتهاء صلاحية من جهة الخادم.',
-    b2Title: 'توقعات VIP', b2Desc: 'تبقى التوقعات القادمة مخفية عن المساحة العامة وتتاح وفق صلاحية الحساب النشطة.',
-    b3Title: 'إحصاءات كاملة', b3Desc: 'الإحصاءات الكاملة مخصصة للحسابات التي لديها صلاحية VIP نشطة؛ لا نعد هنا بأرقام أداء.',
-    b4Title: 'الإشعارات', b4Desc: 'الإشعارات مخصصة للحسابات التي لديها وصول VIP نشط.',
-    b5Title: 'تنبيهات الإشارات', b5Desc: 'تنبيهات الإشارات مخصصة للحسابات التي لديها وصول VIP نشط.',
-    b6Title: 'تفعيل آمن', b6Desc: 'يتم تفعيل الوصول فقط بعد التحقق من الهوية والصلاحية على الخادم.',
+    benefitsTitle: 'وصول VIP مدى الحياة بعد الموافقة: توقعات وإحصاءات كاملة وإشعارات وتنبيهات الإشارات',
+    b1Title: 'وصول VIP مدى الحياة', b1Desc: 'يُمنح الوصول مدى الحياة فقط بعد موافقة المالك شخصياً على الطلب.',
+    b2Title: 'توقعات VIP', b2Desc: 'تبقى التوقعات القادمة مخفية عن المساحة العامة ومقفلة حتى الموافقة.',
+    b3Title: 'إحصاءات كاملة', b3Desc: 'الإحصاءات الكاملة مخصصة لوصول VIP الموافق عليه؛ لا نعد هنا بأرقام أداء.',
+    b4Title: 'الإشعارات', b4Desc: 'الإشعارات مخصصة للأعضاء الذين تمت الموافقة على وصولهم إلى VIP.',
+    b5Title: 'تنبيهات الإشارات', b5Desc: 'تنبيهات الإشارات مخصصة للأعضاء الذين تمت الموافقة على وصولهم إلى VIP.',
+    b6Title: 'موافقة شخصية', b6Desc: 'يراجع المالك كل طلب يدوياً. لا يؤدي أي نقر أو نموذج أو إيداع إلى فتح VIP تلقائياً.',
     trustEyebrow: 'الثقة والشفافية', trustTitle: 'قابل للتحقق — بلا وعود',
     trustDesc: 'يمكن مراجعة التوقعات العامة ونتائجها. لا توجد أرباح مضمونة؛ وتنطوي المراهنات الرياضية على مخاطر.', trustLink: 'سجل VIP',
     faqTitle: 'الأسئلة الشائعة',
     faq1Q: 'هل العروض متطابقة في كل مكان؟', faq1A: 'لا. قد تختلف المعلومات والشروط حسب المشغل والبلد. راجع الدليل المخصص والمعلومات الحالية لدى المشغل.',
     faq2Q: 'أين أجد الرمز الترويجي؟', faq2A: 'يوجد الرمز الدقيق لكل شريك في دليله المخصص. لا تكشف صفحة VIP العامة هذه الرموز.',
-    faq3Q: 'كيف يتم تفعيل الوصول؟', faq3A: 'يتم تفعيل Discovery مرة واحدة لمدة 7 أيام. ولا يتم تفعيل VIP Pro إلا بعد تأكيد الدفع من الخادم.',
-    faq4Q: 'هل أحتاج إلى حساب مراهنات؟', faq4A: 'لا. سيعمل VIP الجديد بحساب BTTSPredict. لن نطلب معرّف شركة مراهنات أو صورة إيداع أو كلمة مرور المراهنات.',
+    faq3Q: 'من يقرر الوصول إلى VIP؟', faq3A: 'يراجع المالك كل طلب ويجب أن يوافق شخصياً على الوصول مدى الحياة. يظل محتوى VIP مقفلاً حتى ذلك الحين.',
+    faq4Q: 'ما المعرّف المطلوب؟', faq4A: 'يطلب النموذج معرّف حساب شركة المراهنات. لا ترسل وثائق هوية أو كلمات مرور أو PIN أو رموز OTP.',
     faq5Q: 'هل الأرباح مضمونة؟', faq5A: 'لا. لا توجد نتيجة مضمونة في المراهنات الرياضية. لا تراهن بأكثر مما يمكنك تحمل خسارته (18+).',
-    finalTitle: 'نظام VIP الجديد قيد الإعداد', finalDesc: 'نعمل على Discovery لمدة 7 أيام وVIP Pro مع مصادقة آمنة والتحقق من الدفع. لا يُطلب إيداع لدى شركة مراهنات ولا يتم تحصيل أي دفعة من هذه الصفحة حالياً.',
+    finalTitle: 'اطلب الوصول إلى VIP', finalDesc: 'حد أدنى للإيداع 3 دولارات، ثم موافقة المالك يدوياً. يبقى الوصول مدى الحياة مقفلاً حتى ذلك الحين.',
     responsible: '18+ · تنطوي المراهنات الرياضية على مخاطر. لا توجد أرباح مضمونة. العب بمسؤولية.',
     footerNote: 'BTTSPredict موقع معلومات وتسويق بالعمولة: لا يقبل الرهانات ولا يجمع الأموال.',
   },
 }
 
-/* ────────────── Plans Discovery / VIP Pro ────────────── */
-type VipPlanCopy = {
+/* ────────────── Parcours VIP — quatre étapes ordonnées ────────────── */
+type VipFlowCopy = {
   eyebrow: string; title: string; sub: string
-  discoveryName: string; discoveryBadge: string; discoveryPrice: string; discoveryDesc: string
-  discoveryFeatures: string[]
-  proName: string; proBadge: string; proPrice: string; proDesc: string
-  proFeatures: string[]
-  statusTitle: string; statusText: string; unavailable: string
-  heroCta: string; finalCta: string; note: string
+  guidePanelTitle: string; guidePanelText: string
+  accessPanelTitle: string; accessPanelText: string; deliveryText: string
+  heroCta: string; finalCta: string; statusTitle: string; statusText: string; wizardStart: string
+  wizardSteps: { title: string; body: string }[]
 }
 
-const VIP_PLAN_COPY: Record<Locale, VipPlanCopy> = {
+const VIP_FLOW: Record<Locale, VipFlowCopy> = {
   fr: {
-    eyebrow: 'Formules VIP', title: 'Choisis ton niveau d’accès',
-    sub: 'Discovery permet de découvrir l’espace pendant 7 jours. VIP Pro donnera accès aux fonctionnalités premium avec un abonnement payant.',
-    discoveryName: 'Discovery', discoveryBadge: '7 jours gratuits', discoveryPrice: 'Gratuit · 7 jours',
-    discoveryDesc: 'Une période de découverte unique par compte BTTSPredict, avec expiration automatique.',
-    discoveryFeatures: ['Découverte de l’espace VIP', 'Accès limité dans le temps', 'Aucun dépôt bookmaker demandé'],
-    proName: 'VIP Pro', proBadge: 'Abonnement premium', proPrice: 'Tarif affiché avant paiement',
-    proDesc: 'L’expérience complète pour les membres qui souhaitent conserver leur accès premium.',
-    proFeatures: ['Pronostics et analyses VIP', 'Statistiques et historique premium', 'Notifications et alertes', 'Renouvellement et expiration gérés côté serveur'],
-    statusTitle: 'Nouveau système en préparation',
-    statusText: 'L’authentification, l’essai Discovery et la vérification sécurisée des paiements Pro doivent être activés avant l’ouverture des inscriptions.',
-    unavailable: 'Bientôt disponible', heroCta: 'Voir les formules', finalCta: 'Ouverture prochaine',
-    note: 'Aucun paiement n’est accepté pour le moment. Ne verse aucun dépôt à un bookmaker pour obtenir un accès BTTSPredict.',
+    eyebrow: 'Parcours d’accès', title: 'Accès VIP à vie — validation manuelle',
+    sub: 'Dépôt minimum de 3 $ sur le compte bookmaker, puis validation manuelle par le propriétaire.',
+    guidePanelTitle: 'Guides promo — codes et conditions',
+    guidePanelText: 'Les codes exacts et les liens existants se trouvent sur les guides dédiés. Vérifie les conditions actuelles auprès de l’opérateur avant toute action.',
+    accessPanelTitle: 'Accès à vie après approbation',
+    accessPanelText: 'Suis le parcours en quatre étapes et utilise Telegram pour le suivi. Le propriétaire examine chaque demande manuellement; aucun document d’identité ni identifiant secret n’est requis.',
+    deliveryText: 'Après approbation manuelle : accès à vie aux pronostics VIP, statistiques complètes, notifications et alertes de signaux. Aucun résultat n’est garanti.',
+    heroCta: 'Débloquer le VIP', finalCta: 'Demander mon accès VIP',
+    statusTitle: 'Accès verrouillé',
+    statusText: 'Aucun clic, formulaire ou dépôt ne débloque le VIP automatiquement. Le propriétaire confirme chaque accès personnellement.',
+    wizardStart: 'Ouvrir la procédure en 4 étapes',
+    wizardSteps: [
+      { title: '1. Choisir un bookmaker', body: 'Sélectionne l’un des quatre bookmakers ci-dessous.' },
+      { title: '2. Utiliser le code du guide', body: 'Ouvre le guide du partenaire choisi et inscris-toi avec son code exact. Vérifie les conditions actuelles auprès de l’opérateur.' },
+      { title: '3. Confirmer l’inscription et le dépôt', body: 'Confirme ton inscription et un dépôt d’au moins 3 $ sur ton compte bookmaker. BTTSPredict ne collecte aucun fonds et ne vérifie pas automatiquement le compte.' },
+      { title: '4. Envoyer la preuve et les identifiants', body: 'Dans le parcours, ajoute la capture du dépôt, l’identifiant du compte bookmaker et ton identifiant Telegram. N’envoie jamais de pièce d’identité, mot de passe, PIN ou code OTP; le propriétaire vérifie ensuite la demande manuellement.' },
+    ],
   },
   en: {
-    eyebrow: 'VIP plans', title: 'Choose your access level',
-    sub: 'Discovery lets you explore the area for 7 days. VIP Pro will provide premium features through a paid subscription.',
-    discoveryName: 'Discovery', discoveryBadge: '7 days free', discoveryPrice: 'Free · 7 days',
-    discoveryDesc: 'One Discovery period per BTTSPredict account, with automatic expiry.',
-    discoveryFeatures: ['Explore the VIP area', 'Time-limited access', 'No bookmaker deposit required'],
-    proName: 'VIP Pro', proBadge: 'Premium subscription', proPrice: 'Price shown before payment',
-    proDesc: 'The complete experience for members who want to keep premium access.',
-    proFeatures: ['VIP picks and analysis', 'Premium statistics and history', 'Notifications and alerts', 'Server-managed renewal and expiry'],
-    statusTitle: 'New system in preparation',
-    statusText: 'Authentication, the Discovery trial and secure Pro payment verification must be enabled before registration opens.',
-    unavailable: 'Coming soon', heroCta: 'View plans', finalCta: 'Opening soon',
-    note: 'Payments are not accepted yet. Do not make a bookmaker deposit to obtain BTTSPredict access.',
+    eyebrow: 'Access process', title: 'Lifetime VIP access — manual approval',
+    sub: 'Minimum deposit of $3 on your bookmaker account, then the owner approves access manually.',
+    guidePanelTitle: 'Promo guides — codes and terms',
+    guidePanelText: 'Exact codes and existing links are on the dedicated guides. Check the operator’s current terms before taking action.',
+    accessPanelTitle: 'Lifetime access after approval',
+    accessPanelText: 'Follow the four-step process and use Telegram for follow-up. The owner reviews each request manually; no identity document or secret credential is required.',
+    deliveryText: 'After manual approval: lifetime access to VIP picks, full stats, notifications and signal alerts. No result is guaranteed.',
+    heroCta: 'Unlock VIP', finalCta: 'Request VIP access',
+    statusTitle: 'Access locked',
+    statusText: 'No click, form or deposit automatically unlocks VIP. The owner personally confirms every access request.',
+    wizardStart: 'Open the 4-step process',
+    wizardSteps: [
+      { title: '1. Choose a bookmaker', body: 'Select one of the four bookmakers below.' },
+      { title: '2. Use the guide’s code', body: 'Open the selected partner’s guide and register with its exact code. Check the operator’s current terms.' },
+      { title: '3. Confirm registration and deposit', body: 'Confirm your registration and a deposit of at least $3 on your bookmaker account. BTTSPredict does not collect funds or automatically verify the account.' },
+      { title: '4. Send your proof and identifiers', body: 'In the process, add a deposit screenshot, your bookmaker account ID, and your Telegram username. Never send an identity document, password, PIN or OTP; the owner then reviews the request manually.' },
+    ],
   },
   ar: {
-    eyebrow: 'خطط VIP', title: 'اختر مستوى الوصول',
-    sub: 'تتيح لك Discovery استكشاف المساحة لمدة 7 أيام. وستوفر VIP Pro الميزات المميزة عبر اشتراك مدفوع.',
-    discoveryName: 'Discovery', discoveryBadge: '7 أيام مجاناً', discoveryPrice: 'مجاناً · 7 أيام',
-    discoveryDesc: 'فترة تجربة واحدة لكل حساب BTTSPredict مع انتهاء تلقائي للصلاحية.',
-    discoveryFeatures: ['استكشاف مساحة VIP', 'وصول محدود المدة', 'لا حاجة إلى إيداع لدى شركة مراهنات'],
-    proName: 'VIP Pro', proBadge: 'اشتراك مميز', proPrice: 'سيظهر السعر قبل الدفع',
-    proDesc: 'التجربة الكاملة للأعضاء الذين يرغبون في الاحتفاظ بالوصول المميز.',
-    proFeatures: ['توقعات وتحليلات VIP', 'إحصاءات وسجل مميز', 'إشعارات وتنبيهات', 'إدارة التجديد والانتهاء على الخادم'],
-    statusTitle: 'النظام الجديد قيد الإعداد',
-    statusText: 'يجب تفعيل المصادقة وتجربة Discovery والتحقق الآمن من مدفوعات Pro قبل فتح التسجيل.',
-    unavailable: 'قريباً', heroCta: 'عرض الخطط', finalCta: 'الافتتاح قريباً',
-    note: 'لا نقبل المدفوعات حالياً. لا تقم بإيداع لدى شركة مراهنات للحصول على وصول BTTSPredict.',
+    eyebrow: 'إجراءات الوصول', title: 'وصول VIP مدى الحياة — بموافقة يدوية',
+    sub: 'حد أدنى للإيداع 3 دولارات في حساب شركة المراهنات، ثم يوافق المالك على الوصول يدوياً.',
+    guidePanelTitle: 'أدلة العروض — الرموز والشروط',
+    guidePanelText: 'توجد الرموز الدقيقة والروابط الحالية في الأدلة المخصصة. تحقق من الشروط الحالية لدى المشغل قبل أي إجراء.',
+    accessPanelTitle: 'وصول مدى الحياة بعد الموافقة',
+    accessPanelText: 'اتبع الخطوات الأربع واستخدم تيليجرام للمتابعة. يراجع المالك كل طلب يدوياً؛ ولا تُطلب وثيقة هوية أو بيانات اعتماد سرية.',
+    deliveryText: 'بعد الموافقة اليدوية: وصول مدى الحياة إلى توقعات VIP والإحصاءات الكاملة والإشعارات وتنبيهات الإشارات. لا توجد نتيجة مضمونة.',
+    heroCta: 'افتح VIP', finalCta: 'اطلب الوصول إلى VIP',
+    statusTitle: 'الوصول مقفل',
+    statusText: 'لا يؤدي أي نقر أو نموذج أو إيداع إلى فتح VIP تلقائياً. يؤكد المالك كل طلب شخصياً.',
+    wizardStart: 'افتح الإجراءات في 4 خطوات',
+    wizardSteps: [
+      { title: '1. اختر شركة مراهنات', body: 'اختر إحدى شركات المراهنات الأربع أدناه.' },
+      { title: '2. استخدم رمز الدليل', body: 'افتح دليل الشريك المختار وسجّل باستخدام رمزه الدقيق. تحقق من الشروط الحالية لدى المشغل.' },
+      { title: '3. أكّد التسجيل والإيداع', body: 'أكّد التسجيل وإيداعاً لا يقل عن 3 دولارات في حساب شركة المراهنات. لا تجمع BTTSPredict الأموال ولا تتحقق تلقائياً من الحساب.' },
+      { title: '4. أرسل الإثبات والمعرّفات', body: 'أرفق صورة الإيداع ومعرّف حساب شركة المراهنات واسم المستخدم على تيليجرام. لا ترسل وثيقة هوية أو كلمة مرور أو PIN أو رمز OTP؛ ثم يراجع المالك الطلب يدوياً.' },
+    ],
   },
+}
+
+const FLOW_HEADING: Record<Locale, string> = {
+  fr: 'La procédure, étape par étape',
+  en: 'The procedure, step by step',
+  ar: 'الإجراءات خطوة بخطوة',
 }
 
 export default function VipPage() {
   const { lang: detectedLang } = useLanguage()
   const lang: Locale = detectedLang
+  const [vipFlowOpen, setVipFlowOpen] = useState(false)
 
   const text = VIP_PAGE_COPY[lang]
-  const flow = VIP_PLAN_COPY[lang]
+  const flow = VIP_FLOW[lang]
 
   /* Mesure : 1 visite de la page VIP par session (visite ≠ clic ≠ inscription) */
   useEffect(() => {
     trackAffiliateAction('platform', 'vip_page_view', 'vip-page-visit')
   }, [])
 
-  const openVipFlow = (event?: { preventDefault?: () => void }) => {
-    event?.preventDefault?.()
-    document.getElementById('vip-plans')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  const openVipFlow = (event?: MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => {
+    event?.preventDefault()
+    setVipFlowOpen(true)
   }
 
   return (
@@ -238,10 +279,10 @@ export default function VipPage() {
           <div className="vipx-hero__grid vipx-shell">
             <div className="vipx-hero__copy">
               <span className="vipx-eyebrow"><i aria-hidden="true" />{text.eyebrow}</span>
-              <AnimatedTitle as="h1" text={flow.title} accentColor="#E8C97A" />
+              <AnimatedTitle as="h1" text={flow.title} accentColor="#EB4648" />
               <p className="vipx-hero__sub">{flow.sub}</p>
               <div className="vipx-hero__cta">
-                <a className="vipx-btn vipx-btn--gold" href="#vip-plans" onClick={openVipFlow}>{flow.heroCta}<span aria-hidden="true">→</span></a>
+                <a className="vipx-btn vipx-btn--gold" href="#vip-application" onClick={openVipFlow}>{flow.heroCta}<span aria-hidden="true">→</span></a>
                 <a className="vipx-btn vipx-btn--ghost" href="#historique-vip">{text.trustLink}<span aria-hidden="true">↘</span></a>
               </div>
               <a className="vipx-hero__free-link" href={localizedPath('/btts/predictions/today', lang)}>{text.freeLink}<span aria-hidden="true">↗</span></a>
@@ -252,44 +293,38 @@ export default function VipPage() {
               </ul>
             </div>
 
-            {/* Aperçu visuel des deux nouvelles formules — aucune promesse d’activation avant la mise en service. */}
-            <div className="vipx-hero__card vipx-scene">
-              <div
-                className="vipx-member vipx-tilt"
-                role="img"
-                aria-label={lang === 'fr' ? 'Aperçu des formules Discovery et VIP Pro' : lang === 'en' ? 'Discovery and VIP Pro plan preview' : 'معاينة خطتي Discovery وVIP Pro'}
+            {/* La vidéo occupe le panneau hero encadré, juste avant l’aperçu VIP. */}
+            <div className="vipx-hero__card">
+              <video
+                className="vipx-hero__video"
+                controls
+                preload="metadata"
+                playsInline
+                poster="/videos/vip-parcours-poster.jpg"
+                aria-label={lang === 'fr' ? 'Vidéo du parcours VIP en français' : lang === 'en' ? 'French-language VIP walkthrough video' : 'فيديو شرح VIP باللغة الفرنسية'}
+                data-testid="vip-hero-walkthrough-video"
               >
-                <div className="vipx-member__row">
-                  <strong>BTTSPredict</strong>
-                  <span className="vipx-member__crown"><Icon.crown /> VIP PRO</span>
-                </div>
-                <div className="vipx-member__middle">
-                  <span>DISCOVERY / VIP PRO</span>
-                  <small>{lang === 'fr' ? 'Intelligence football premium' : lang === 'en' ? 'Premium football intelligence' : 'ذكاء كرة القدم المميز'}</small>
-                </div>
-                <div className="vipx-member__row vipx-member__row--bottom">
-                  <span className="vipx-member__verified"><Icon.check />{lang === 'fr' ? 'Discovery · 7 jours' : lang === 'en' ? 'Discovery · 7 days' : 'Discovery · 7 أيام'}</span>
-                  <span className="vipx-member__stars" aria-hidden="true">✦ ✦ ✦</span>
-                </div>
-              </div>
+                <source src="/videos/vip-parcours.mp4" type="video/mp4" />
+                {lang === 'ar' ? 'المتصفح لا يدعم تشغيل الفيديو.' : lang === 'en' ? 'Your browser does not support video playback.' : 'Ton navigateur ne prend pas en charge la lecture vidéo.'}
+              </video>
             </div>
           </div>
         </section>
 
         <div className="vipx-content-grid vipx-shell">
           <div className="vipx-content-grid__main">
-            <VipLockedPicks onViewPlans={openVipFlow} />
+            <VipLockedPicks onRequestReview={openVipFlow} />
           </div>
           <aside className="vipx-content-grid__aside" aria-label={flow.eyebrow}>
-        {/* ═══════════ DISCOVERY / VIP PRO PLANS ═══════════ */}
-        <section id="vip-plans" className="vipx-flow vipx-flow--card" aria-labelledby="vip-flow-heading" style={{ scrollMarginTop: '96px' }}>
+        {/* ═══════════ PARCOURS VIP — 4 ÉTAPES DANS L'ORDRE ═══════════ */}
+        <section id="parcours" className="vipx-flow vipx-flow--card" aria-labelledby="vip-flow-heading" style={{ scrollMarginTop: '96px' }}>
           <header className="vipx-section-head">
             <span className="vipx-eyebrow"><i aria-hidden="true" />{flow.eyebrow}</span>
-            <h2 id="vip-flow-heading">{flow.title}</h2>
+            <h2 id="vip-flow-heading">{FLOW_HEADING[lang]}</h2>
             <p>{flow.sub}</p>
           </header>
 
-          <div className="vipx-flow__status" role="status">
+          <div className="vipx-flow__status" role="note">
             <Icon.lock />
             <div>
               <strong>{flow.statusTitle}</strong>
@@ -297,42 +332,70 @@ export default function VipPage() {
             </div>
           </div>
 
-          <div className="vipx-plans-grid">
-            <article className="vipx-plan-card">
-              <div className="vipx-plan-card__top">
-                <span className="vipx-plan-card__badge">{flow.discoveryBadge}</span>
-                <Icon.spark />
-              </div>
-              <h3>{flow.discoveryName}</h3>
-              <p className="vipx-plan-card__price">{flow.discoveryPrice}</p>
-              <p className="vipx-plan-card__description">{flow.discoveryDesc}</p>
-              <ul>
-                {flow.discoveryFeatures.map((feature) => <li key={feature}><Icon.check />{feature}</li>)}
-              </ul>
-              <button type="button" className="vipx-btn vipx-btn--ghost vipx-btn--block" disabled>{flow.unavailable}</button>
-            </article>
+          <a href="#vip-application" onClick={openVipFlow} className="vipx-btn vipx-btn--gold vipx-flow__start">
+            {flow.wizardStart}<span aria-hidden="true">→</span>
+          </a>
 
-            <article className="vipx-plan-card vipx-plan-card--pro">
-              <div className="vipx-plan-card__top">
-                <span className="vipx-plan-card__badge">{flow.proBadge}</span>
-                <Icon.crown />
-              </div>
-              <h3>{flow.proName}</h3>
-              <p className="vipx-plan-card__price">{flow.proPrice}</p>
-              <p className="vipx-plan-card__description">{flow.proDesc}</p>
-              <ul>
-                {flow.proFeatures.map((feature) => <li key={feature}><Icon.check />{feature}</li>)}
+          <ol className="vipx-flow__steps vipx-flow__steps--full">
+            {flow.wizardSteps.map((step, index) => (
+              <li className="vipx-flow__step" key={step.title}>
+                <span className="vipx-flow__num" aria-hidden="true">{index + 1}</span>
+                <div className="vipx-flow__body">
+                  <h3>{step.title}</h3>
+                  <p>{step.body}</p>
+                  {index === 0 && (
+                    <div className="vipx-flow__actions vipx-flow__partner-guides">
+                      {VIP_BOOKS.map((id, partnerIndex) => (
+                        <a
+                          key={id}
+                          href={localizedPath(VIP_PARTNERS[id].guide, lang)}
+                          className="vipx-flow__guide"
+                          aria-label={`${VIP_PARTNERS[id].brand} — ${lang === 'en' ? 'promo guide' : lang === 'ar' ? 'دليل العرض' : 'guide promo'}`}
+                          data-cta={`vip-guide-${id}`}
+                        >
+                          <img src={VIP_LOGOS[id]} alt="" width={64} height={26} loading="lazy" />
+                          <span>{VIP_PARTNERS[id].brand}</span>
+                          {partnerIndex < 2 && <small className="vipx-flow__priority">{lang === 'en' ? 'Priority' : lang === 'ar' ? 'أولوية' : 'Prioritaire'}</small>}
+                          <span aria-hidden="true">↗</span>
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ol>
+
+          {/* Deux blocs distincts : guides promo d'un côté, accès VIP de l'autre */}
+          <div className="vipx-flow__panels">
+            <article className="vipx-flow__panel">
+              <h3><Icon.target />{flow.guidePanelTitle}</h3>
+              <p>{flow.guidePanelText}</p>
+              <ul className="vipx-flow__links">
+                {VIP_BOOKS.map((id) => (
+                  <li key={id}>
+                    <a href={localizedPath(VIP_PARTNERS[id].guide, lang)}>
+                      {VIP_PARTNERS[id].brand}<span aria-hidden="true"> →</span>
+                    </a>
+                  </li>
+                ))}
               </ul>
-              <button type="button" className="vipx-btn vipx-btn--gold vipx-btn--block" disabled>{flow.unavailable}</button>
+            </article>
+            <article className="vipx-flow__panel vipx-flow__panel--accent">
+              <h3><Icon.crown />{flow.accessPanelTitle}</h3>
+              <p>{flow.accessPanelText}</p>
+              <p className="vipx-flow__delivery"><Icon.spark />{flow.deliveryText}</p>
+              <a href="#vip-application" className="vipx-btn vipx-btn--gold vipx-btn--sm" onClick={openVipFlow} data-cta="vip-panel-procedure">
+                {flow.wizardStart}<span aria-hidden="true">→</span>
+              </a>
             </article>
           </div>
-          <p className="vipx-plans__note">{flow.note}</p>
         </section>
           </aside>
         </div>
 
         {/* Historique passé uniquement; l’accès aux pronostics à venir reste verrouillé. */}
-        <VipWinHistory onViewPlans={openVipFlow} />
+        <VipWinHistory onUnlock={openVipFlow} />
 
         {/* ═══════════ BÉNÉFICES ═══════════ */}
         <section className="vipx-benefits vipx-shell">
@@ -394,7 +457,7 @@ export default function VipPage() {
           <div className="vipx-final__card vipx-shell">
             <h2>{text.finalTitle}</h2>
             <p>{text.finalDesc}</p>
-            <a href="#vip-plans" className="vipx-btn vipx-btn--gold" onClick={openVipFlow}>{flow.finalCta}<span aria-hidden="true">→</span></a>
+            <a href="#vip-application" className="vipx-btn vipx-btn--gold" onClick={openVipFlow}>{flow.finalCta}<span aria-hidden="true">→</span></a>
             <p className="vipx-final__responsible">{text.responsible}</p>
             <p className="vipx-final__note">{text.footerNote}</p>
           </div>
@@ -402,6 +465,7 @@ export default function VipPage() {
       </main>
 
       <ErrorBoundary><Footer /></ErrorBoundary>
+      <VipJourneyModal isOpen={vipFlowOpen} onClose={() => setVipFlowOpen(false)} />
     </div>
   )
 }
