@@ -2186,3 +2186,196 @@ body {
   .fi-sidebar { box-shadow: 12px 0 36px rgba(0, 0, 0, .18); }
   .fi-nav-link { min-height: 40px; border-radius: 9px; }
 }
+
+
+/* 2026-11-13 — final surface pass for homepage, prediction dashboards and partner guides. */
+.hp-hero,
+.page-design--home .hp-hero--refonte {
+  background: radial-gradient(ellipse at 82% 0%, rgba(59, 130, 246, .13), transparent 44%), linear-gradient(145deg, #0C1420, #070B12 76%) !important;
+  border-color: var(--fi-line) !important;
+}
+.hp-hero--refonte .hp-hero__title em,
+.hp-hero--refonte .hp-hero__title strong { color: #93C5FD !important; -webkit-text-fill-color: #93C5FD !important; }
+.hp-hero__text,
+.hp-hero__subtitle,
+.page-design--home .hp-section p,
+.page-design--home .hp-method__step-text,
+.page-design--home .hp-method__note { color: var(--fi-muted) !important; }
+.hp-hero__trust li { background: #121A26 !important; border-color: var(--fi-line) !important; }
+.hp-hero__trust-k { color: var(--fi-muted) !important; }
+.hp-hero__trust-v { color: var(--fi-text) !important; }
+.hp-btn-ghost { color: var(--fi-text) !important; background: #121A26 !important; border-color: var(--fi-line-strong) !important; }
+.hp-btn-ghost:hover { background: #172235 !important; }
+.hp-mc-card--refonte,
+.hp-live,
+.hp-empty,
+.hp-pillars article,
+.hp-perf__card,
+.hp-method__step,
+.hp-league,
+.hp-partner,
+.btx-hero,
+.btx-card,
+.btx-combo,
+.btx-stat,
+.btx-score,
+.btx-ai,
+.btx-filters,
+.btx-combo-row,
+.prediction-match-card,
+.rv-card,
+.vipx-card,
+.vipx-member,
+.vipx-step,
+.promo-card,
+.page-design__hero,
+.page-design__hero-wrap,
+.result-card,
+.stats-card {
+  border-color: var(--fi-line) !important;
+  background: var(--fi-panel) !important;
+  color: var(--fi-text) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .18) !important;
+}
+.hp-mc-top,
+#btts-today-dashboard .btx-card__top { border-bottom-color: var(--fi-line) !important; }
+.hp-mc-league,
+#btts-today-dashboard .btx-datechip,
+#btts-today-dashboard .btx-count-pill,
+#btts-today-dashboard .btx-eyebrow {
+  color: #93C5FD !important;
+  background: rgba(59, 130, 246, .09) !important;
+  border-color: rgba(59, 130, 246, .2) !important;
+}
+.hp-mc-when,
+.hp-mc-data span i,
+#btts-today-dashboard .btx-stat__label,
+#btts-today-dashboard .btx-period-note,
+#btts-today-dashboard .btx-disclaimer,
+#btts-today-dashboard .btx-reliability__note,
+#btts-today-dashboard .btx-partner-rail__copy p,
+#btts-today-dashboard .btx-lambda__label,
+#btts-today-dashboard .btx-prob__label,
+#btts-today-dashboard .btx-score__label,
+#btts-today-dashboard .btx-meta,
+#btts-today-dashboard .btx-card__hint { color: var(--fi-muted) !important; }
+.hp-mc-team,
+.hp-mc-team span,
+.hp-mc-result,
+.hp-mc-picks .hp-pick,
+.hp-mc-data span,
+#btts-today-dashboard .btx-team__name,
+#btts-today-dashboard .btx-section-title,
+#btts-today-dashboard .btx-stat__value,
+#btts-today-dashboard .btx-prob__head { color: var(--fi-text) !important; }
+.hp-mc-picks .hp-pick,
+.hp-mc-data span,
+#btts-today-dashboard .btx-dashboard-grid .btx-filter {
+  background: #121A26 !important;
+  border-color: var(--fi-line) !important;
+  color: var(--fi-muted) !important;
+}
+.hp-mc-open,
+#btts-today-dashboard .btx-partner-rail__eyebrow,
+#btts-today-dashboard .btx-link { color: #93C5FD !important; }
+.hp-chip.is-active,
+.btx-filter.is-active,
+#btts-today-dashboard .btx-dashboard-grid .btx-filter.is-active,
+#btts-today-dashboard .btx-dashboard-grid .btx-filter[aria-pressed="true"],
+#btts-today-dashboard .btx-stat.is-selected,
+#btts-today-dashboard .btx-stat[aria-pressed="true"],
+[role="tab"][aria-selected="true"] {
+  color: #FFFFFF !important;
+  background: #2563EB !important;
+  border-color: #3B82F6 !important;
+}
+#btts-today-dashboard .btx-title em { color: #93C5FD !important; -webkit-text-fill-color: #93C5FD !important; }
+#btts-today-dashboard .btx-card :disabled,
+#btts-today-dashboard .btx-card[aria-disabled="true"] {
+  color: #9DABBB !important;
+  background: #172131 !important;
+  border-color: #283548 !important;
+}
+#main-content .prediction-match-card,
+#main-content .prediction-match-card__analysis,
+#main-content .match-dashboard-panel,
+.match-analysis-page section[dir="ltr"] > div > article,
+.match-analysis-page section[dir="rtl"] > div > article,
+.match-analysis-page section[dir="ltr"] article figure,
+.match-analysis-page section[dir="rtl"] article figure {
+  border-color: var(--fi-line) !important;
+  background: var(--fi-panel) !important;
+  color: var(--fi-text) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .18) !important;
+}
+#main-content .prediction-match-card__analysis { background: var(--fi-panel-raised) !important; }
+.match-analysis-page section[dir="ltr"] article p,
+.match-analysis-page section[dir="rtl"] article p { color: var(--fi-muted) !important; }
+.match-analysis-page section[dir="ltr"] article a,
+.match-analysis-page section[dir="rtl"] article a { color: #93C5FD !important; }
+#main-content [class~="bg-[#0B0F14]"],
+#main-content [class~="bg-[#10161D]"],
+#main-content [class~="bg-[#141C25]"],
+#main-content [class~="bg-[#0F1622]"],
+#main-content [class~="bg-[#070B12]"],
+#main-content [class~="bg-[#0C121C]"],
+#main-content [class~="bg-[#05070B]"],
+#main-content [class~="bg-[#111827]"],
+#main-content [class~="bg-[#0D0B12]"],
+#main-content [class~="bg-dark-900"],
+#main-content [class~="bg-dark-800"],
+#main-content [class~="bg-dark-700"] {
+  background: var(--fi-panel) !important;
+  color: var(--fi-text) !important;
+  border-color: var(--fi-line) !important;
+}
+#main-content :is(p, span, small, li, label)[class~="text-cendre"],
+#main-content :is(p, span, small, li, label)[class~="text-[#9DABBB]"],
+#main-content :is(p, span, small, li, label)[class~="text-[#6B7A8C]"] { color: var(--fi-muted) !important; }
+
+[data-promo-shell],
+[data-888starz-promo] {
+  background: #070B12 !important;
+  background-color: #070B12 !important;
+  color: var(--fi-text) !important;
+}
+[data-promo-shell] h1,
+[data-promo-shell] h2,
+[data-promo-shell] h3,
+[data-888starz-promo] h1 { color: var(--fi-text) !important; }
+[data-promo-shell] .promo-story__intro,
+[data-promo-shell] .promo-main__responsible,
+[data-promo-shell] .promo-main__trust p,
+[data-promo-shell] .promo-main__steps p,
+[data-promo-shell] .promo-main__faq p { color: var(--fi-muted) !important; }
+[data-promo-shell] .promo-main__offer > div,
+[data-promo-shell] .promo-main__trust > div,
+[data-promo-shell] .promo-main__steps .rounded-2xl,
+[data-promo-shell] .promo-main__faq .rounded-2xl,
+[data-888starz-promo] > section {
+  background: var(--fi-panel) !important;
+  color: var(--fi-text) !important;
+  border-color: var(--fi-line) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .18) !important;
+}
+[data-promo-shell] .promo-main__crosslinks a,
+[data-888starz-promo] [class*="bg-[#F5F7F8]"],
+[data-888starz-promo] [class*="bg-[#EEEEEE]"],
+[data-888starz-promo] [class*="bg-white"]:not(span) {
+  background: var(--fi-panel-raised) !important;
+  color: var(--fi-text) !important;
+  border-color: var(--fi-line) !important;
+}
+[data-promo-shell] .promo-sticky-mobile-cta { background: #0B111B !important; border-color: var(--fi-line-strong) !important; }
+[data-888starz-promo] p,
+[data-888starz-promo] a:not([data-cta]) { color: var(--fi-muted) !important; }
+[data-888starz-promo] [class*="text-[#001E28]"],
+[data-888starz-promo] [class*="text-[#14212A]"],
+[data-888starz-promo] [class*="text-[#24343C]"] { color: var(--fi-text) !important; }
+.hp-gift-card--1xbet { background: var(--fi-panel) !important; border-color: var(--fi-line) !important; color: var(--fi-text) !important; }
+.hp-gift-1xbet__ad,
+.hp-gift-1xbet__legal,
+.hp-gift-1xbet__code { color: var(--fi-muted) !important; }
+.hp-gift-1xbet__label,
+.hp-gift-1xbet__bonus { color: var(--fi-text) !important; }
+.hp-gift-1xbet__code code { background: var(--fi-panel-raised) !important; color: var(--fi-text) !important; border-color: var(--fi-line) !important; }
