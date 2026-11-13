@@ -1,0 +1,182 @@
+# BTTSPredict — Project handover and continuity notes
+
+> Living handover document for ChatGPT and any collaborator taking over the project.
+> Update this file whenever a material decision, code change, test, deployment, or blocker occurs.
+> Last updated: 2026-11-13 (UTC).
+
+## 1. Project identity
+
+- Repository: `prophete221/bttspredict` (private GitHub repository).
+- Production website: https://bttspredict.com
+- Product/brand direction: **BTTSPredict / VISION221 PRO ANALYTICS**.
+- Product: multilingual football analytics and predictions platform, with free and VIP experiences.
+- Main product languages: French, English, Arabic; Arabic must use proper RTL behavior.
+- Primary user workflow: mobile-first. The project owner works mainly from Android and does not rely on a desktop computer.
+
+## 2. Working agreement — do not violate
+
+1. **Never commit directly to `main`.** Work on a dedicated feature/fix branch.
+2. **Never merge, deploy, or change production resources without the owner's explicit approval.**
+3. Do not alter production Cloudflare Workers, D1 data, secrets, DNS, or live configuration as part of ordinary development.
+4. Never read, print, copy, or request secret values. It is acceptable to check whether a secret name is configured.
+5. Do not trust the README as the sole source of truth. Inspect actual source files, package scripts, migrations, workflows, and deployed configuration.
+6. Preserve working SEO pages, URLs, and titles unless a strong, evidence-backed reason and explicit approval justify a change. In particular protect:
+   - `/en/btts-and-over-2-5-predictions-today`
+   - Other established BTTS / Over 2.5 landing pages.
+7. Prefer small, reviewable commits. Before each change, identify affected files and acceptance criteria. After each change, run the relevant tests/build and report exact results.
+8. Keep production state and repository state clearly distinguished. A GitHub commit does not prove that Cloudflare has deployed it.
+9. Do not claim a task is complete unless the relevant file/commit/test/deployment result has actually been verified.
+10. When uncertain, stop before a risky or irreversible action and explain the uncertainty.
+
+## 3. Current GitHub work state
+
+### Active working branch
+
+- Branch: `chatgpt/project-takeover-2026-11-13`
+- Created from `main` during the 2026-11-13 session.
+- Branch creation succeeded.
+- At creation, `package.json` on the branch matched `main` (same blob SHA: `db50e41214caddf1a1067998694b9b8b842baa77`).
+- **No source-file commit had been made at the time this handover was drafted.** The first meaningful file commit is intended to verify content-write access.
+- Do not assume this branch is still based on the latest `main`; re-check both refs before substantial work.
+
+Branch URL: https://github.com/prophete221/bttspredict/tree/chatgpt/project-takeover-2026-11-13
+
+### Before resuming work
+
+- Fetch the latest `main` SHA and active branch SHA.
+- Check open pull requests and recent commits.
+- Check whether another collaborator has updated the active branch.
+- Inspect the real source and workflow state; do not rely only on this note.
+- If `main` has moved, decide whether to update/rebase the working branch safely. Do not overwrite concurrent work.
+
+## 4. Cloudflare environment — previously verified, read-only
+
+The Cloudflare connection was successfully authenticated during the 2026-11-13 session. The following resources were discovered:
+
+### Workers
+
+- `bttspredict-vip-production-api`
+- `bttspredict-vip-staging-api`
+- `bttspredict-github-bridge`
+
+### D1 databases
+
+- `bttspredict-vip-production-db`
+- `bttspredict-vip-staging-db`
+
+Production Worker previously inspected:
+- Worker: `bttspredict-vip-production-api`
+- Bound D1 database: `bttspredict-vip-production-db`
+- An hourly cron was configured.
+- Configured secret names included `ADMIN_PASSWORD`, `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHANNEL_ID`, and `TELEGRAM_OWNER_CHAT_ID`. **Secret values were not read and must never be exposed.**
+
+Production D1 database was inspected read-only. At that time:
+- 3 VIP requests were recorded, all in `approved_pending_telegram`.
+- 22 candidate records were present, all `ineligible`.
+- Relevant tables included `vip_requests`, `vip_candidates`, `vip_publications`, `vip_publication_runs`, `vip_candidate_sync_state`, and `d1_migrations`.
+
+Important discrepancy previously observed:
+- VIP auto-publication policy was `paused-trilingual-required`, while the Worker code expected `verified-auto-v1`.
+- Do not enable publication or change this policy without a fresh security/logic audit and explicit owner approval.
+- Presence of Telegram secrets does not prove that Telegram notifications are successfully delivered.
+
+All Cloudflare observations above are historical snapshots. Re-check current state before relying on them. Production resources and production D1 data must remain untouched unless separately authorized.
+
+## 5. Product and business direction
+
+The owner has expressed the following intended direction; verify current implementation before changing it:
+
+- Free **VIP Discovery** access for 7 days.
+- Paid **VIP Pro** tier.
+- Binance/crypto payment with genuine payment verification.
+- Telegram notifications and automated activation/expiration only after payment verification.
+- A user clicking “I paid” is not proof of payment.
+- Goal: increase free registrations and convert suitable users to paid VIP Pro.
+- Do not invent payment minimums, bonuses, bookmaker restrictions, or promotional claims.
+
+Historical affiliate references (verify current code and approved partner terms before use):
+- Linebet: code `VISION221`, domain `lb-aff.com`, ad `22611` (older APK ad `66803`).
+- 1xBet: code `Vipbtts`, domain `reffpa.com`, ad `1599`.
+- Melbet: code `Bttswin`, domain `refpa3665.com`, ad `2170`.
+- 888Starz: code `btts221`, domain `888ghta.com`.
+- Owner previously stated that codes are worldwide. Claims previously authorized: “300% worldwide”, cashback, and weekly bonuses. Do not add unverified terms or imply country limitations.
+
+## 6. Visual and UX direction
+
+The owner wants a coherent redesign, not merely a color swap:
+
+- Premium, trustworthy football analytics product; **not a blog**.
+- Dark visual system across the full site.
+- Mobile-first, then desktop.
+- Clear hierarchy, restrained depth/3D treatment on prediction cards, compact readable content.
+- Mobile bottom navigation should be limited to: **ACCUEIL / PRONOSTICS / VIP**.
+- Desktop navigation should look intentional and professional.
+- French, English, and Arabic must remain coherent; Arabic needs real RTL support.
+- Inspect the current UI and shared components before selecting or implementing design tokens.
+- Avoid broad visual rewrites that risk existing working routes or SEO.
+
+Historical areas/files to re-inspect (paths may have changed):
+- `src/components/bttsbet/ApplicationNavigationShell.tsx`
+- `src/components/bttsbet/Navbar.tsx`
+- `src/app/vip/page.tsx`
+- `VipJourneyModal.tsx`
+- `src/contexts/AuthContext.jsx`
+- `workers/vip-api/src/index.js`
+- `workers/vip-api/wrangler.jsonc`
+- `workers/vip-api/migrations/`
+- `public/vip-admin/admin.html`
+- `public/vip-admin/admin.js`
+
+## 7. SEO and performance guardrails
+
+Historical Search Console snapshot (not necessarily current):
+- 3 months: 367 clicks, 3.75k impressions, 9.8% CTR, average position 57.3.
+- At a later point, traffic was reported above 20 visits/day, with traffic concentrated on English prediction pages.
+- Affiliate dashboard had shown 2 Linebet clicks and 0 signups at that time.
+
+These are historical observations, not current analytics. Before diagnosing a traffic decline, collect fresh analytics/Search Console evidence and compare date ranges, page groups, country, device, impressions, clicks, CTR, and position.
+
+Never change proven page titles, canonical URLs, or slugs casually. The English BTTS/Over 2.5 page listed above is explicitly considered valuable by the owner.
+
+## 8. Known historical technical observations — re-verify
+
+- Firebase authentication context was previously observed in `src/contexts/AuthContext.jsx`, with email/password, Google login, password reset, and Firestore profile support.
+- A prior audit reported that `AuthProvider` was not wired into `src/app/layout.tsx` and that login/register routes were not found. This may have changed; inspect current code before acting.
+- A previous VIP frontend flow reportedly asked for bookmaker, promo code, registration confirmation, a deposit amount, bookmaker ID, Telegram details, deposit screenshot, and consent. This older flow may conflict with the intended Discovery/Pro subscription model.
+- Previous GitHub PR/branch references (including PR #117 and `feat/refonte-complete-nov2026`) are historical. Check current PR state rather than assuming they remain open or unmerged.
+- Previous Gemini issue: Python `google-genai` SDK, `GEMINI_API_KEY`, batches of 3; intermittent 503 failures and local empirical fallback. Do not change the prediction pipeline without fresh code/log inspection and tests.
+
+## 9. Working method and handover updates
+
+For each work item, record:
+
+- **Objective:** what outcome is being pursued.
+- **Evidence:** exact files, logs, API responses, or metrics inspected.
+- **Plan:** smallest safe change and files affected.
+- **Implementation:** branch, commit SHA, and changed files.
+- **Validation:** commands/tests and exact pass/fail outcomes.
+- **Risk:** SEO, user data, payments, auth, security, or production impact.
+- **Next step:** one clearly defined next action.
+
+Update this file after every material milestone:
+- new branch/PR/commit;
+- meaningful code or design decision;
+- test/build result;
+- discovery of a production/repository mismatch;
+- new blocker or resolved blocker;
+- deployment only if explicitly authorized and verified.
+
+Keep the latest status near the top of this file so a new conversation can resume quickly.
+
+## 10. Latest checkpoint
+
+As of 2026-11-13:
+- GitHub private repository access: verified.
+- Working branch creation: verified.
+- Cloudflare account connection: verified.
+- Cloudflare resource inspection: read-only and verified at the time.
+- File-content write on the working branch: **not yet verified when this document was first prepared**.
+- Source changes: none made in this takeover session before this document.
+- Merge/deployment/production writes: none performed.
+
+**Immediate next action:** re-fetch current `main`, active branch, open PRs, and actual project structure; then perform a source-grounded audit and make one small, useful, testable change on the working branch. Do not merge or deploy.
