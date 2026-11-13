@@ -2596,7 +2596,7 @@ body { color: var(--fi-text); }
   .promo-editorial__fact:nth-child(2) { border-inline-end:0; }
   .promo-editorial__fact:nth-child(-n+2) { border-bottom:1px solid var(--fi-line); }
   .promo-editorial__fact:first-child { padding-inline-start:16px; }
-  .promo-editorial__sticky { position:fixed; z-index:80; inset-inline:12px; bottom:calc(12px + env(safe-area-inset-bottom)); display:flex; gap:8px; padding:8px; border:1px solid var(--fi-line-strong); border-radius:9px; background:rgba(12,19,29,.97); box-shadow:0 12px 36px rgba(0,0,0,.35); }
+  .promo-editorial__sticky { position:fixed; z-index:80; inset-inline:12px; bottom:calc(78px + env(safe-area-inset-bottom)); display:flex; gap:8px; padding:8px; border:1px solid var(--fi-line-strong); border-radius:9px; background:rgba(12,19,29,.97); box-shadow:0 12px 36px rgba(0,0,0,.35); }
   .promo-editorial__sticky button, .promo-editorial__sticky a { display:flex; min-height:43px; flex:1; align-items:center; justify-content:center; gap:8px; border:1px solid var(--fi-line-strong); border-radius:6px; background:#142236; color:#eaf1f8; font-size:11px; font-weight:700; text-decoration:none; }
   .promo-editorial__sticky a { background:#2866bd; border-color:#367bd8; color:white; }
 }
@@ -2670,7 +2670,7 @@ body { color: var(--fi-text); }
 [data-888starz-promo] [data-promo-steps] h2, [data-888starz-promo] [data-promo-faq] h2 { color:#edf2f7 !important; font-size:22px !important; }
 [data-888starz-promo] [data-promo-steps] h3, [data-888starz-promo] [data-promo-faq] h3 { color:#e5ecf4 !important; }
 [data-888starz-promo] a { text-decoration:none; }
-[data-888starz-promo] .fixed { bottom:calc(12px + env(safe-area-inset-bottom)) !important; border:1px solid var(--fi-line-strong) !important; border-radius:9px !important; background:rgba(12,19,29,.97) !important; box-shadow:0 8px 24px rgba(0,0,0,.24) !important; -webkit-backdrop-filter:none !important; backdrop-filter:none !important; }
+[data-888starz-promo] .fixed { bottom:calc(78px + env(safe-area-inset-bottom)) !important; border:1px solid var(--fi-line-strong) !important; border-radius:9px !important; background:rgba(12,19,29,.97) !important; box-shadow:0 8px 24px rgba(0,0,0,.24) !important; -webkit-backdrop-filter:none !important; backdrop-filter:none !important; }
 @media (max-width:820px) {
   .fi-today-dashboard .btx-dashboard-grid { grid-template-columns:1fr !important; }
   .fi-today-dashboard .btx-dashboard-insights, .fi-today-dashboard .btx-dashboard-filters, .fi-today-dashboard .btx-dashboard-feed { grid-column:1; grid-row:auto; }
