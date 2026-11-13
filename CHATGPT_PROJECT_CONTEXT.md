@@ -310,3 +310,15 @@ Continue a read-only analytics/authentication funnel audit: verify whether `NEXT
 - Le workflow `.github/workflows/deploy.yml` avait déjà été relu et transmet `vars.NEXT_PUBLIC_GA_ID` aux étapes de build concernées.
 - Prochaine étape: avant tout déploiement, effectuer une dernière vérification du workflow et obtenir une autorisation explicite du propriétaire. Après un déploiement autorisé, accepter le consentement Analytics sur le site puis vérifier la réception dans GA4 Realtime / Tag Assistant.
 - Aucun workflow n'a été lancé, aucun déploiement, merge, changement de code, secret ou ressource de production n'a été effectué à la suite de cette confirmation.
+
+
+## 20. PR de mise en service GA4 bloquée par les contrôles — 2026-11-13 (UTC)
+
+- Après confirmation du propriétaire que la variable GitHub Actions `NEXT_PUBLIC_GA_ID` a été ajoutée, création de la PR #127: https://github.com/prophete221/bttspredict/pull/127.
+- PR basée sur `main`, branche source `chatgpt/project-takeover-2026-11-13`; comparaison avant ouverture: 11 commits d'avance, 0 en retard, un seul fichier modifié (`CHATGPT_PROJECT_CONTEXT.md`), aucune modification du code applicatif.
+- L'intention de déploiement est strictement `code-only`, pour éviter les tâches de mise à jour des pronostics et le pipeline privé VIP du mode `full`.
+- Le workflow PR #1153 (run ID `43492348400`) a échoué presque immédiatement: job `pull-request-checks` en échec avec zéro étape exposée et aucun runner assigné. Les jobs `deploy` et VIP ont été ignorés comme prévu sur un événement pull_request.
+- Une tentative de relance des jobs en échec a été acceptée, mais le second essai a également échoué immédiatement sans étapes; les logs de job ne sont pas récupérables via les actions GitHub actuellement disponibles.
+- Le statut Vercel du commit de tête était encore `pending` au dernier contrôle. La PR était ouverte et signalée mergeable par GitHub, mais les contrôles n'étaient pas validés.
+- Décision de sécurité: ne pas fusionner et ne pas déployer tant que l'échec des contrôles GitHub et le statut Vercel ne sont pas clarifiés. Aucun workflow de déploiement, FTP, mise à jour de pronostics, synchronisation VIP, merge, changement SEO, modification de code source ou changement Cloudflare n'a été effectué.
+- Étape suivante: examiner le run #1153 dans GitHub Actions et le contrôle Vercel de la PR #127; déterminer pourquoi le job échoue avant la première étape et pourquoi Vercel reste en attente. Une fois les contrôles validés, fusionner en squash avec un titre de commit contenant `[code-only]`, puis surveiller le déploiement et vérifier GA4 Realtime après consentement analytique.
