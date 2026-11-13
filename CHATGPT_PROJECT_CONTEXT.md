@@ -1,3 +1,20 @@
+# Latest checkpoint — full public-site redesign (2026-11-13 UTC)
+
+- Owner clarified the actual scope: a complete professional redesign of the public site, not a palette-only pass. Keep protected pages unchanged; defer VIP to a separate phase.
+- Active branch: feat/complete-art-direction-promo-vip-2026-11-13; PR #128 remains draft/open and must not be merged or deployed until validation is complete.
+- Public homepage: replaced the animated/marquee hero with direct editorial typography and standard links; removed generic trust-pillar block and decorative scroll-progress component. Rewrote FR/EN/AR homepage claims to remove “world’s No.1”, “Master”, “best/reliable/surebets” and similar unsupported language. Partner copy no longer claims the same 300% worldwide offer for every operator.
+- Predictions dashboard: new desktop/mobile grid and restrained card system; compact stat cards, filter controls, match cards, probability bars, source/sample metadata, and less decorative status treatment. Removed visible “AI” suffixes and sparkle icon from cards/combo. Kept prediction data, calculations, routes and model inputs unchanged.
+- Match center and shared public surfaces: editorial grid, flat cards, clean match details, no 3D transforms or glowing decoration. Extended the shared design layer to verified results, statistics, history, methodology, competitions and match-analysis panels.
+- Promo guides: replaced PromoLandingShell with a concise editorial layout: operator/code panel, one primary CTA, APK link, visible affiliate disclosure, short steps, compact FAQ, related guides and mobile sticky actions. Removed animated gradients, floating orbs, animated progress and duplicated trust/offer copy. Rewrote FR/EN/AR copy for 1xBet, Linebet, Melbet and 888Starz; preserved promo codes and affiliate destinations. SEO metadata, canonical URLs and slugs were not edited.
+- Removed animated title treatment from history, statistics and methodology headings.
+- Protected VIP scope: restored src/app/vip/page.tsx, VipLockedPicks.tsx, VipWinHistory.tsx and vip.css to the current main-branch content. No new VIP implementation is included in this phase. The separate architecture note remains documentation only.
+- Updated public design documentation and adjusted static regression assertions for the new promo copy. No tests, lint, TypeScript check or build have been confirmed as passing.
+- Latest observed PR run before this checkpoint: GitHub Actions run 43523671484 failed in pull-request-checks; job steps returned empty and logs returned BlobNotFound. Vercel status was failure with build-rate-limit upgrade URL. These are unresolved validation blockers; do not claim the preview is ready.
+- No merge, production deployment, Cloudflare Worker/D1 changes, secrets, FTP or production data changes. Main branch remains untouched.
+- Next: finish source-level review for all public routes and styles, verify protected VIP files match main, update tests for the new UI, then rerun CI and Vercel preview. Only mark ready when actual tests/build/preview pass.
+
+---
+
 # BTTSPredict — Project handover and continuity notes
 
 > Living handover document for ChatGPT and any collaborator taking over the project.
