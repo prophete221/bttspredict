@@ -1,6 +1,6 @@
 {
   "date": "2026-11-13",
-  "lastUpdated": "2026-11-13T03:57:30.785Z",
+  "lastUpdated": "2026-11-13T13:39:55.513Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -757,7 +757,8 @@
       "over25Prob": 0.58,
       "prediction": "Oui",
       "proba": 0.58,
-      "confidence": 58
+      "confidence": 58,
+      "status": "PENDING"
     },
     {
       "id": "rochdale-vs-yorkcity-2026-11-14",
@@ -1892,18 +1893,19 @@
       "statsOnly": true,
       "ai_abstain": true,
       "ai_market": "ABSTAIN",
-      "ai_key_fact": "Le taux d'Over 2.5 est limité à 20% malgré des classements élevés.",
-      "ai_analysis": "Bien que le taux BTTS empirique atteigne 70%, le taux d'Over 2.5 extrêmement bas (20%) et le nombre élevé de matchs nuls récents incitent à la prudence. Isidro Metapán et Luis Ángel Firpo affichent des profils défensifs solides qui réduisent la fiabilité d'un pari sur les buts. L'abstention est recommandée.",
-      "ai_analysis_en": "Although the empirical BTTS rate reaches 70%, the extremely low Over 2.5 rate (20%) and high frequency of recent draws advise caution. Both teams display solid defensive profiles reducing the reliability of goal markets. Abstention is recommended.",
-      "ai_form_summary": "Isidro Metapán (1V-3D-1L) et Luis Ángel Firpo (2V-3D-0L) se caractérisent par des matchs fermés et un taux d'Over 2.5 de seulement 20%.",
-      "ai_form_summary_en": "Isidro Metapán (1W-3D-1L) and Luis Ángel Firpo (2W-3D-0L) are characterized by low-scoring games and a 20% Over 2.5 rate.",
+      "ai_key_fact": "Malgré un taux BTTS de 70%, l'Over 2.5 n'atteint que 20% sur les échantillons récents.",
+      "ai_analysis": "Malgré un taux de BTTS intéressant de 70%, les données révèlent un taux d'Over 2.5 extrêmement bas fixé à 20%. Les deux équipes affichent des bilans récents très pauvres en buts (seulement 4 buts marqués et 4 encaissés pour chacune sur leurs 5 derniers matchs). Cette contradiction entre les marchés et la faible productivité offensive générale nous pousse à appliquer la règle d'abstention pour éviter un pari trop incertain.",
+      "ai_analysis_en": "Despite an interesting 70% BTTS rate, the data reveals an extremely low Over 2.5 rate fixed at 20%. Both teams show very poor recent goal records (only 4 goals scored and 4 conceded each in their last 5 matches). This contradiction between markets and the overall low offensive productivity leads us to apply the abstention rule to avoid an uncertain bet.",
+      "ai_form_summary": "Isidro Metapán (1W-3D-1L) et Luis Ángel Firpo (2W-3D-0L) présentent des matchs récents très pauvres en buts.",
+      "ai_form_summary_en": "Isidro Metapán (1W-3D-1L) and Luis Ángel Firpo (2W-3D-0L) display very low-scoring recent matches.",
       "ai_reasons": [
-        "Taux d'Over 2.5 très faible à 20% pour les deux équipes.",
-        "Taux BTTS correct à 70% mais couplé à des moyennes de buts et des taux d'Over trop bas pour dégager une valeur claire."
+        "Taux empirique Over 2.5 très faible à 0.2 malgré un taux BTTS de 0.7.",
+        "Faible nombre de buts inscrits et encaissés lors des 5 derniers matchs (4 buts pour chaque équipe).",
+        "Statistiques contradictoires entre le taux de buts globale et le faible taux d'Over 2.5."
       ],
       "ai_risks": [
-        "Faible propension aux matchs ouverts (Over 2.5 à 0.2).",
-        "Nombreux matchs nuls récents pour les deux formations."
+        "Match serré entre le premier et le deuxième du championnat avec des scores souvent restreints.",
+        "Risque d'un match fermé avec moins de trois buts."
       ],
       "ai_confidence": "low",
       "modelEngine": "gemini-stats-v1",
@@ -2643,18 +2645,19 @@
       "statsOnly": true,
       "ai_abstain": true,
       "ai_market": "ABSTAIN",
-      "ai_key_fact": "Alianza FC enregistre un taux BTTS de seulement 20% sur ses 5 derniers matchs.",
-      "ai_analysis": "Malgré un taux BTTS récent élevé pour CD FAS, Alianza FC présente des statistiques très hermétiques avec un taux BTTS de 20% et un Over 2.5 à 20% sur ses 5 derniers matchs. Cette contradiction importante entre les dynamiques des deux formations justifie de s'abstenir sur ce marché.",
-      "ai_analysis_en": "Despite CD FAS's recent high BTTS rate, Alianza FC shows very low metrics with a 20% BTTS and 20% Over 2.5 rate in their last 5 games. This significant contradiction between the teams' dynamics justifies abstaining from this market.",
-      "ai_form_summary": "Alianza FC : 2W-0D-3L, 4 buts pour, 6 buts contre. CD FAS : 0W-4D-1L, 6 buts pour, 8 buts contre.",
-      "ai_form_summary_en": "Alianza FC: 2W-0D-3L, 4 goals for, 6 goals against. CD FAS: 0W-4D-1L, 6 goals for, 8 goals against.",
+      "ai_key_fact": "Alianza FC n'affiche que 20% de matchs avec les deux équipes marquent sur ses 5 dernières rencontres.",
+      "ai_analysis": "L'analyse des statistiques révèle des signaux contradictoires entre le taux BTTS récent d'Alianza FC (20%) et celui de CD FAS (80%). Les taux empiriques (50% BTTS, 40% Over) combinés à des moyennes de buts modérées incitent à la prudence et à l'abstention.",
+      "ai_analysis_en": "The statistical analysis reveals contradictory signals between Alianza FC's recent BTTS rate (20%) and CD FAS's rate (80%). The empirical rates (50% BTTS, 40% Over) combined with moderate goal averages suggest caution and abstention.",
+      "ai_form_summary": "Alianza FC (2W-0D-3L, 4-6 buts) vs CD FAS (0W-4D-1L, 6-8 buts)",
+      "ai_form_summary_en": "Alianza FC (2W-0D-3L, 4-6 goals) vs CD FAS (0W-4D-1L, 6-8 goals)",
       "ai_reasons": [
-        "Taux BTTS empirique de seulement 50% et Over 2.5 à 40%.",
-        "Alianza FC affiche un taux BTTS très faible de 20% sur ses 5 derniers matchs."
+        "Taux BTTS empirique à 50% et taux Over 2.5 à 40%",
+        "Forme récente d'Alianza FC très faible en BTTS (20%)",
+        "Données mixtes ne permettant pas de trancher clairement"
       ],
       "ai_risks": [
-        "CD FAS a un taux BTTS de 80% sur ses 5 derniers matchs, créant une contradiction avec les stats d'Alianza.",
-        "Faible moyenne de buts pour Alianza FC (2 buts) sur l'échantillon récent."
+        "Alianza FC ne montre que 20% de BTTS sur ses 5 derniers matchs",
+        "CD FAS présente un taux BTTS de 80% en déplacement mais une faible moyenne offensive globale"
       ],
       "ai_confidence": "low",
       "modelEngine": "gemini-stats-v1",
@@ -2855,7 +2858,8 @@
       "over25Prob": 0.52,
       "prediction": "Oui",
       "proba": 0.52,
-      "confidence": 52
+      "confidence": 52,
+      "status": "PENDING"
     },
     {
       "id": "godoycru-vs-tristnsu-2026-11-15",
@@ -2864,7 +2868,7 @@
       "away": "Tristán Suárez",
       "league": "Argentine Nacional B",
       "date": "2026-11-15",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "time": "20:00",
       "matchSemantic": "godoycru-vs-tristnsu-2026-11-15",
       "source": "empirical-form-data",
@@ -3017,752 +3021,27 @@
       "homeLambda": 3,
       "awayLambda": 0.5,
       "statsOnly": true,
-      "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_key_fact": "Godoy Cruz affiche une moyenne de 3 buts marqués par match sur son échantillon récent.",
-      "ai_analysis": "L'attaque prolifique de Godoy Cruz, qui tourne à 3 buts par match et présente 80% d'Over 2.5 récents, constitue le principal moteur de ce pronostic. Néanmoins, la solidité défensive extrême de Tristán Suárez et son absence totale de matchs ouverts récents représentent un risque notable qu'il convient de souligner.",
-      "ai_analysis_en": "Godoy Cruz's prolific attack, averaging 3 goals per game with an 80% recent Over 2.5 rate, drives this selection. Nevertheless, Tristán Suárez's extreme defensive solidity and complete lack of recent open games represent a notable risk to consider.",
-      "ai_form_summary": "Godoy Cruz : 4W-1D-0L, 13 buts pour, 5 buts contre. Tristán Suárez : 1W-4D-0L, 2 buts pour, 1 but contre.",
-      "ai_form_summary_en": "Godoy Cruz: 4W-1D-0L, 13 goals for, 5 goals against. Tristán Suárez: 1W-4D-0L, 2 goals for, 1 goal against.",
-      "ai_reasons": [
-        "Godoy Cruz affiche un taux Over 2.5 élevé de 80% sur ses 5 derniers matchs.",
-        "Godoy Cruz possède une forte moyenne de 3 buts marqués par match sur l'échantillon."
-      ],
-      "ai_risks": [
-        "Tristán Suárez a un taux Over 2.5 de 0% sur ses 5 derniers matchs.",
-        "La défense de Tristán Suárez est extrêmement solide avec seulement 1 but encaissé récemment."
-      ],
-      "ai_confidence": "medium",
-      "modelEngine": "gemini-stats-v1",
-      "ai_source": "gemini-stats-v1",
-      "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "pick",
-      "predictions": [
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 58,
-          "proba": 0.58,
-          "modelEngine": "gemini-3.5-flash-lite",
-          "over25Prob": 0.58
-        }
-      ],
-      "over25Prob": 0.58,
-      "prediction": "Oui",
-      "proba": 0.58,
-      "confidence": 58
-    },
-    {
-      "id": "incaarub-vs-guila-2026-11-16",
-      "match": "Inca Aruba vs Águila",
-      "home": "Inca Aruba",
-      "away": "Águila",
-      "league": "Salvadoran Primera Division",
-      "date": "2026-11-16",
-      "type": "BTTS",
-      "time": "00:00",
-      "matchSemantic": "incaarub-vs-guila-2026-11-16",
-      "source": "empirical-form-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/132480.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7226.png",
-      "tier": "GOLD",
-      "reliabilityScore": 89.38,
-      "dataQuality": "HIGH",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "xgHome": 1,
-      "xgAway": 2.67,
-      "xgTotal": 3.67,
-      "formBTTS": 70,
-      "analysis": "Inca Aruba : forme D-N-D-D-D (0V 1N 4D, 2 buts marqués / 10 encaissés sur 5) · Águila : forme N-D-V-V-N (2V 2N 1D, 12 buts marqués / 10 encaissés sur 5). Classement : Inca Aruba 12e (17 pts), Águila 4e (31 pts). Stats empiriques (forme récente) : buts moy. 3.67, BTTS 70.0%, Over 2.5 50.0%. Affinage AI ensuite. Fiabilité 89.38%.",
-      "analysisData": {
-        "empiricalBttsRate": 0.7,
-        "empiricalOver25Rate": 0.5,
-        "homeLambda": 1,
-        "awayLambda": 2.67,
-        "xgTotal": 3.67
-      },
-      "odds": null,
-      "oddsSource": null,
-      "formHome": {
-        "last5String": "D-N-D-D-D",
-        "wins": 0,
-        "draws": 1,
-        "losses": 4,
-        "goalsFor": 2,
-        "goalsAgainst": 10,
-        "bttsRate": 0.4,
-        "over25Rate": 0.2,
-        "cleanSheets": 0,
-        "failedToScore": 3,
-        "count": 5
-      },
-      "formAway": {
-        "last5String": "N-D-V-V-N",
-        "wins": 2,
-        "draws": 2,
-        "losses": 1,
-        "goalsFor": 12,
-        "goalsAgainst": 10,
-        "bttsRate": 1,
-        "over25Rate": 0.8,
-        "cleanSheets": 0,
-        "failedToScore": 0,
-        "count": 5
-      },
-      "last5Home": [
-        {
-          "date": "2026-11-12",
-          "opponent": "Atletico Balboa",
-          "venue": "A",
-          "score": "1-4",
-          "result": "L"
-        },
-        {
-          "date": "2026-11-07",
-          "opponent": "Isidro Metapán",
-          "venue": "H",
-          "score": "1-1",
-          "result": "D"
-        },
-        {
-          "date": "2026-10-31",
-          "opponent": "Cacahuatique",
-          "venue": "A",
-          "score": "0-1",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-24",
-          "opponent": "Internacional Santa Tecla",
-          "venue": "H",
-          "score": "0-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-16",
-          "opponent": "Luis Ángel Firpo",
-          "venue": "A",
-          "score": "0-2",
-          "result": "L"
-        }
-      ],
-      "last5Away": [
-        {
-          "date": "2026-11-12",
-          "opponent": "CD Municipal Limeño",
-          "venue": "H",
-          "score": "1-1",
-          "result": "D"
-        },
-        {
-          "date": "2026-11-08",
-          "opponent": "Alianza FC",
-          "venue": "A",
-          "score": "2-3",
-          "result": "L"
-        },
-        {
-          "date": "2026-11-01",
-          "opponent": "Fuerte San Francisco",
-          "venue": "A",
-          "score": "4-3",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-24",
-          "opponent": "CD FAS",
-          "venue": "H",
-          "score": "3-1",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-18",
-          "opponent": "Atletico Balboa",
-          "venue": "A",
-          "score": "2-2",
-          "result": "D"
-        }
-      ],
-      "standingsHome": {
-        "rank": 12,
-        "points": 17,
-        "played": 20,
-        "gf": 15,
-        "ga": 37
-      },
-      "standingsAway": {
-        "rank": 4,
-        "points": 31,
-        "played": 20,
-        "gf": 37,
-        "ga": 28
-      },
-      "empiricalBttsRate": 0.7,
-      "empiricalOver25Rate": 0.5,
-      "homeLambda": 1,
-      "awayLambda": 2.67,
-      "statsOnly": true,
-      "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_key_fact": "Águila présente un taux BTTS de 100% sur ses 5 derniers matchs.",
-      "ai_analysis": "Águila se déplace avec une dynamique offensive redoutable (2.67 buts de moyenne et un taux BTTS récent de 100%). Bien qu'Inca Aruba peine offensivement (2 buts sur les 5 derniers matchs), la fragilité défensive chronique de la lanterne rouge (37 buts encaissés en 20 matchs) offre de bonnes chances de voir les deux équipes marquer, soutenues par un taux empirique de 0.7.",
-      "ai_analysis_en": "Águila travels with formidable attacking momentum (2.67 goals per match and a 100% recent BTTS rate). Although Inca Aruba struggles offensively with only 2 goals in their last 5 matches, the chronic defensive frailty of the bottom side (37 goals conceded in 20 matches) supports a strong chance for both teams to score, backed by a 0.7 empirical rate.",
-      "ai_form_summary": "Inca Aruba: 0W-1D-4L, 2 BP, 10 BC, BTTS 40%. Águila: 2W-2D-1L, 12 BP, 10 BC, BTTS 100%.",
-      "ai_form_summary_en": "Inca Aruba: 0W-1D-4L, 2 GF, 10 GA, BTTS 40%. Águila: 2W-2D-1L, 12 GF, 10 GA, BTTS 100%.",
-      "ai_reasons": [
-        "Águila affiche un taux BTTS de 100% sur ses 5 derniers matchs et 2.67 buts par match en moyenne.",
-        "Le taux BTTS empirique global est solide à 0.7 avec un formBTTS évalué à 70%.",
-        "Inca Aruba encaisse beaucoup (10 buts en 5 matchs) malgré une attaque faible."
-      ],
-      "ai_risks": [
-        "Inca Aruba n'a marqué que 2 buts lors de ses 5 derniers matchs.",
-        "Inca Aruba a un taux BTTS récent de seulement 40%."
-      ],
-      "ai_confidence": "medium",
-      "modelEngine": "gemini-stats-v1",
-      "ai_source": "gemini-stats-v1",
-      "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "pick",
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 65,
-          "proba": 0.65,
-          "modelEngine": "gemini-3.5-flash-lite",
-          "bttsProb": 0.65
-        }
-      ],
-      "bttsProb": 0.65,
-      "prediction": "Oui",
-      "proba": 0.65,
-      "confidence": 65
-    },
-    {
-      "id": "albacete-vs-rcceltaf-2026-11-16",
-      "match": "Albacete vs RC Celta Fortuna",
-      "home": "Albacete",
-      "away": "RC Celta Fortuna",
-      "league": "LaLiga 2",
-      "date": "2026-11-16",
-      "type": "BTTS",
-      "time": "19:30",
-      "matchSemantic": "albacete-vs-rcceltaf-2026-11-16",
-      "source": "empirical-form-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2737.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/131858.png",
-      "tier": "GOLD",
-      "reliabilityScore": 88.75,
-      "dataQuality": "HIGH",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "xgHome": 1.5,
-      "xgAway": 1,
-      "xgTotal": 2.5,
-      "formBTTS": 80,
-      "analysis": "Albacete : forme V-V-V-D-D (3V 0N 2D, 8 buts marqués / 9 encaissés sur 5) · RC Celta Fortuna : forme D-N-D-N-V (1V 2N 2D, 9 buts marqués / 11 encaissés sur 5). Classement : Albacete 21e (10 pts), RC Celta Fortuna 16e (13 pts). Stats empiriques (forme récente) : buts moy. 2.5, BTTS 80.0%, Over 2.5 80.0%. Affinage AI ensuite. Fiabilité 88.75%.",
-      "analysisData": {
-        "empiricalBttsRate": 0.8,
-        "empiricalOver25Rate": 0.8,
-        "homeLambda": 1.5,
-        "awayLambda": 1,
-        "xgTotal": 2.5
-      },
-      "odds": null,
-      "oddsSource": null,
-      "formHome": {
-        "last5String": "V-V-V-D-D",
-        "wins": 3,
-        "draws": 0,
-        "losses": 2,
-        "goalsFor": 8,
-        "goalsAgainst": 9,
-        "bttsRate": 0.6,
-        "over25Rate": 0.8,
-        "cleanSheets": 1,
-        "failedToScore": 1,
-        "count": 5
-      },
-      "formAway": {
-        "last5String": "D-N-D-N-V",
-        "wins": 1,
-        "draws": 2,
-        "losses": 2,
-        "goalsFor": 9,
-        "goalsAgainst": 11,
-        "bttsRate": 1,
-        "over25Rate": 0.8,
-        "cleanSheets": 0,
-        "failedToScore": 0,
-        "count": 5
-      },
-      "last5Home": [
-        {
-          "date": "2026-11-07",
-          "opponent": "Leganés",
-          "venue": "A",
-          "score": "3-1",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-31",
-          "opponent": "CD Sabadell",
-          "venue": "H",
-          "score": "2-1",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-25",
-          "opponent": "Eldense",
-          "venue": "H",
-          "score": "2-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-17",
-          "opponent": "Sporting Gijón",
-          "venue": "A",
-          "score": "1-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-12",
-          "opponent": "Real Valladolid",
-          "venue": "A",
-          "score": "0-5",
-          "result": "L"
-        }
-      ],
-      "last5Away": [
-        {
-          "date": "2026-11-07",
-          "opponent": "Burgos",
-          "venue": "A",
-          "score": "1-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-31",
-          "opponent": "Córdoba",
-          "venue": "H",
-          "score": "2-2",
-          "result": "D"
-        },
-        {
-          "date": "2026-10-24",
-          "opponent": "Girona",
-          "venue": "A",
-          "score": "1-5",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-19",
-          "opponent": "Tenerife",
-          "venue": "H",
-          "score": "1-1",
-          "result": "D"
-        },
-        {
-          "date": "2026-10-10",
-          "opponent": "Real Sociedad II",
-          "venue": "H",
-          "score": "4-1",
-          "result": "W"
-        }
-      ],
-      "standingsHome": {
-        "rank": 21,
-        "points": 10,
-        "played": 13,
-        "gf": 13,
-        "ga": 24
-      },
-      "standingsAway": {
-        "rank": 16,
-        "points": 13,
-        "played": 13,
-        "gf": 19,
-        "ga": 25
-      },
-      "empiricalBttsRate": 0.8,
-      "empiricalOver25Rate": 0.8,
-      "homeLambda": 1.5,
-      "awayLambda": 1,
-      "statsOnly": true,
-      "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_key_fact": "Albacete et Celta Fortuna affichent respectivement 24 et 25 buts encaissés en 13 matchs.",
-      "ai_analysis": "Les statistiques observées soutiennent clairement une rencontre ouverte entre Albacete et le RC Celta Fortuna. Le taux BTTS empirique global est de 80%, tandis que l'équipe extérieure affiche un taux impressionnant de 100% de matchs avec les deux équipes marquantes. Les difficultés défensives des deux formations, illustrées par 24 et 25 buts encaissés en 13 matchs, renforcent grandement la probabilité de voir des buts des deux côtés.",
-      "ai_analysis_en": "Observed statistics clearly support an open match between Albacete and RC Celta Fortuna. The overall empirical BTTS rate stands at 80%, while the away team boasts an impressive 100% BTTS rate in their recent form. Both defenses struggle significantly, having conceded 24 and 25 goals respectively in 13 matches, heavily reinforcing the probability of goals from both sides.",
-      "ai_form_summary": "Albacete : 3V-0D-2L sur les 5 derniers, 8 buts pour, 9 contre. Celta Fortuna : 1W-2D-2L, 9 buts pour, 11 contre.",
-      "ai_form_summary_en": "Albacete: 3W-0D-2L in last 5, 8 goals for, 9 against. Celta Fortuna: 1W-2D-2L, 9 goals for, 11 against.",
-      "ai_reasons": [
-        "Taux BTTS empirique très élevé à 80% sur l'ensemble des données.",
-        "Taux BTTS de l'équipe extérieure atteignant 100% sur ses 5 derniers matchs.",
-        "Défenses en difficulté avec Albacete (24 buts encaissés en 13 matchs) et Celta Fortuna (25 buts encaissés en 13 matchs)."
-      ],
-      "ai_risks": [
-        "Albacete a montré une irrégularité récente avec deux défaites sur ses cinq derniers matchs.",
-        "La solidité défensive relative de l'équipe visiteuse sur certains matchs nuls (2N)."
-      ],
-      "ai_confidence": "high",
-      "modelEngine": "gemini-stats-v1",
-      "ai_source": "gemini-stats-v1",
-      "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "pick",
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 75,
-          "proba": 0.75,
-          "modelEngine": "gemini-3.5-flash-lite",
-          "bttsProb": 0.75
-        }
-      ],
-      "bttsProb": 0.75,
-      "prediction": "Oui",
-      "proba": 0.75,
-      "confidence": 75,
-      "status": "PENDING"
-    },
-    {
-      "id": "andorra-vs-azerbaij-2026-11-16",
-      "match": "Andorra vs Azerbaijan",
-      "home": "Andorra",
-      "away": "Azerbaijan",
-      "league": "International Friendly",
-      "date": "2026-11-16",
-      "type": "BTTS",
-      "time": "18:00",
-      "matchSemantic": "andorra-vs-azerbaij-2026-11-16",
-      "source": "empirical-form-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/and.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/aze.png",
-      "tier": "SILVER",
-      "reliabilityScore": 60.69,
-      "dataQuality": "MEDIUM",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 6,
-      "matchCountAway": 4,
-      "h2hAvailable": false,
-      "xgHome": 2,
-      "xgAway": 2.25,
-      "xgTotal": 4.25,
-      "formBTTS": 25,
-      "analysis": "Andorra : forme D-D-V-D-N (1V 1N 3D, 2 buts marqués / 7 encaissés sur 5) · Azerbaijan : forme V-V-D-V (3V 0N 1D, 9 buts marqués / 4 encaissés sur 5). Stats empiriques (forme récente) : buts moy. 4.25, BTTS 25.0%, Over 2.5 45.0%. Affinage AI ensuite. Fiabilité 60.69%.",
-      "analysisData": {
-        "empiricalBttsRate": 0.25,
-        "empiricalOver25Rate": 0.45,
-        "homeLambda": 2,
-        "awayLambda": 2.25,
-        "xgTotal": 4.25
-      },
-      "odds": null,
-      "oddsSource": null,
-      "formHome": {
-        "last5String": "D-D-V-D-N",
-        "wins": 1,
-        "draws": 1,
-        "losses": 3,
-        "goalsFor": 2,
-        "goalsAgainst": 7,
-        "bttsRate": 0,
-        "over25Rate": 0.4,
-        "cleanSheets": 2,
-        "failedToScore": 4,
-        "count": 5
-      },
-      "formAway": {
-        "last5String": "V-V-D-V",
-        "wins": 3,
-        "draws": 0,
-        "losses": 1,
-        "goalsFor": 9,
-        "goalsAgainst": 4,
-        "bttsRate": 0.5,
-        "over25Rate": 0.5,
-        "cleanSheets": 1,
-        "failedToScore": 1,
-        "count": 4
-      },
-      "last5Home": [
-        {
-          "date": "2026-09-30",
-          "opponent": "Lithuania",
-          "venue": "A",
-          "score": "0-3",
-          "result": "L"
-        },
-        {
-          "date": "2026-06-07",
-          "opponent": "Kosovo",
-          "venue": "A",
-          "score": "0-3",
-          "result": "L"
-        },
-        {
-          "date": "2026-06-04",
-          "opponent": "Liechtenstein",
-          "venue": "H",
-          "score": "2-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-05-29",
-          "opponent": "Iraq",
-          "venue": "A",
-          "score": "0-1",
-          "result": "L"
-        },
-        {
-          "date": "2026-03-31",
-          "opponent": "San Marino",
-          "venue": "A",
-          "score": "0-0",
-          "result": "D"
-        }
-      ],
-      "last5Away": [
-        {
-          "date": "2026-09-23",
-          "opponent": "Tajikistan",
-          "venue": "H",
-          "score": "1-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-06-09",
-          "opponent": "San Marino",
-          "venue": "H",
-          "score": "2-1",
-          "result": "W"
-        },
-        {
-          "date": "2026-06-05",
-          "opponent": "Malta",
-          "venue": "H",
-          "score": "0-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-03-27",
-          "opponent": "St. Lucia",
-          "venue": "H",
-          "score": "6-1",
-          "result": "W"
-        }
-      ],
-      "standingsHome": null,
-      "standingsAway": null,
-      "empiricalBttsRate": 0.25,
-      "empiricalOver25Rate": 0.45,
-      "homeLambda": 2,
-      "awayLambda": 2.25,
-      "statsOnly": true,
       "ai_abstain": true,
       "ai_market": "ABSTAIN",
-      "ai_key_fact": "Andorra affiche un taux BTTS de 0% sur ses 5 derniers matchs.",
-      "ai_analysis": "Malgré des moyennes de buts apparentes correctes, les taux réels de BTTS (0% pour Andorra) et l'indicateur global de 0.25 incitent à la prudence. Il s'agit d'un match amical international avec un échantillon limité, rendant tout pronostic sur les buts peu fiable.",
-      "ai_analysis_en": "Despite seemingly decent goal averages, actual BTTS rates (0% for Andorra) and the 0.25 global indicator counsel caution. This is an international friendly with a limited sample, making any goal prediction unreliable.",
-      "ai_form_summary": "Andorra: 1W-1D-3L, 2 BP, 7 BC, BTTS 0%. Azerbaijan: 3W-0D-1L, 9 BP, 4 BC, BTTS 50%.",
-      "ai_form_summary_en": "Andorra: 1W-1D-3L, 2 GF, 7 GA, BTTS 0%. Azerbaijan: 3W-0D-1L, 9 GF, 4 GA, BTTS 50%.",
+      "ai_key_fact": "Tristán Suárez ne présente que 0% d'Over 2.5 sur ses 5 derniers matchs et 1 seul but encaissé.",
+      "ai_analysis": "Malgré la forte attaque de Godoy Cruz (3 buts de moyenne à domicile), la défense de Tristán Suárez et ses statistiques récentes (0% d'Over 2.5, 1 seul but encaissé en 5 matchs) créent un profil trop déséquilibré. Les taux empiriques étant sous les seuils, l'abstention est de mise.",
+      "ai_analysis_en": "Despite Godoy Cruz's strong attack (average of 3 goals at home), Tristán Suárez's defense and recent stats (0% Over 2.5, only 1 goal conceded in 5 games) create an overly unbalanced profile. With empirical rates below thresholds, abstention is recommended.",
+      "ai_form_summary": "Godoy Cruz (4W-1D-0L, 13-5 buts) vs Tristán Suárez (1W-4D-0L, 2-1 buts)",
+      "ai_form_summary_en": "Godoy Cruz (4W-1D-0L, 13-5 goals) vs Tristán Suárez (1W-4D-0L, 2-1 goals)",
       "ai_reasons": [
-        "Taux empirique BTTS très bas à 0.25.",
-        "Taux récent de BTTS à 0% pour Andorra sur ses 5 derniers matchs.",
-        "Données de qualité moyenne avec seulement 4 matchs d'échantillon pour l'équipe extérieure."
+        "Tristán Suárez affiche un taux d'Over 2.5 récent de 0% et une moyenne de 0.5 buts à l'extérieur",
+        "Taux empiriques BTTS (40%) et Over 2.5 (40%) tous deux inférieurs au seuil de sécurité",
+        "Profil très défensif de l'équipe visiteuse en dépit de la bonne attaque de Godoy Cruz"
       ],
       "ai_risks": [
-        "Match amical international pouvant réserver des surprises tactiques.",
-        "Faible volume de buts récents pour Andorra (2 buts en 5 matchs)."
+        "Tristán Suárez n'a concédé que 1 seul but lors de ses 5 derniers matchs",
+        "La rigueur défensive adverse risque de bloquer le marché des buts"
       ],
       "ai_confidence": "low",
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain"
-    },
-    {
-      "id": "chile-vs-colombia-2026-11-17",
-      "match": "Chile vs Colombia",
-      "home": "Chile",
-      "away": "Colombia",
-      "league": "International Friendly",
-      "date": "2026-11-17",
-      "type": "BTTS",
-      "time": "23:00",
-      "matchSemantic": "chile-vs-colombia-2026-11-17",
-      "source": "empirical-form-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/chi.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/col.png",
-      "tier": "SILVER",
-      "reliabilityScore": 71.63,
-      "dataQuality": "MEDIUM",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 7,
-      "matchCountAway": 7,
-      "h2hAvailable": false,
-      "xgHome": 4,
-      "xgAway": 1,
-      "xgTotal": 5,
-      "formBTTS": 50,
-      "analysis": "Chile : forme V-D-D-V-D (2V 0N 3D, 7 buts marqués / 8 encaissés sur 5) · Colombia : forme V-D-N-V-V (3V 1N 1D, 8 buts marqués / 3 encaissés sur 5). Stats empiriques (forme récente) : buts moy. 5, BTTS 50.0%, Over 2.5 40.0%. Affinage AI ensuite. Fiabilité 71.63%.",
-      "analysisData": {
-        "empiricalBttsRate": 0.5,
-        "empiricalOver25Rate": 0.4,
-        "homeLambda": 4,
-        "awayLambda": 1,
-        "xgTotal": 5
-      },
-      "odds": null,
-      "oddsSource": null,
-      "formHome": {
-        "last5String": "V-D-D-V-D",
-        "wins": 2,
-        "draws": 0,
-        "losses": 3,
-        "goalsFor": 7,
-        "goalsAgainst": 8,
-        "bttsRate": 0.6,
-        "over25Rate": 0.6,
-        "cleanSheets": 1,
-        "failedToScore": 1,
-        "count": 5
-      },
-      "formAway": {
-        "last5String": "V-D-N-V-V",
-        "wins": 3,
-        "draws": 1,
-        "losses": 1,
-        "goalsFor": 8,
-        "goalsAgainst": 3,
-        "bttsRate": 0.4,
-        "over25Rate": 0.2,
-        "cleanSheets": 2,
-        "failedToScore": 1,
-        "count": 5
-      },
-      "last5Home": [
-        {
-          "date": "2026-10-07",
-          "opponent": "Mexico",
-          "venue": "A",
-          "score": "2-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-09-30",
-          "opponent": "United States",
-          "venue": "A",
-          "score": "2-4",
-          "result": "L"
-        },
-        {
-          "date": "2026-09-26",
-          "opponent": "Canada",
-          "venue": "A",
-          "score": "0-1",
-          "result": "L"
-        },
-        {
-          "date": "2026-06-09",
-          "opponent": "Congo DR",
-          "venue": "A",
-          "score": "2-1",
-          "result": "W"
-        },
-        {
-          "date": "2026-06-06",
-          "opponent": "Portugal",
-          "venue": "A",
-          "score": "1-2",
-          "result": "L"
-        }
-      ],
-      "last5Away": [
-        {
-          "date": "2026-10-06",
-          "opponent": "Peru",
-          "venue": "H",
-          "score": "2-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-03",
-          "opponent": "Paraguay",
-          "venue": "H",
-          "score": "0-1",
-          "result": "L"
-        },
-        {
-          "date": "2026-09-27",
-          "opponent": "Mexico",
-          "venue": "A",
-          "score": "1-1",
-          "result": "D"
-        },
-        {
-          "date": "2026-06-07",
-          "opponent": "Jordan",
-          "venue": "H",
-          "score": "2-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-06-01",
-          "opponent": "Costa Rica",
-          "venue": "H",
-          "score": "3-1",
-          "result": "W"
-        }
-      ],
-      "standingsHome": null,
-      "standingsAway": null,
-      "empiricalBttsRate": 0.5,
-      "empiricalOver25Rate": 0.4,
-      "homeLambda": 4,
-      "awayLambda": 1,
-      "statsOnly": true,
-      "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_key_fact": "Le Chili présente une moyenne de 4 buts par match sur son échantillon.",
-      "ai_analysis": "Le profil statistique de cette rencontre amicale est partagé. D'un côté, le Chili montre de l'animation avec une forte moyenne offensive et 60% de matchs BTTS récents. De l'autre, la Colombie concède très peu de buts (3 sur ses 5 derniers matchs). Le taux empirique de 0.5 justifie une probabilité mesurée.",
-      "ai_analysis_en": "The statistical profile of this friendly is mixed. On one hand, Chile shows animation with a high attacking average and 60% recent BTTS matches. On the other hand, Colombia concedes very few goals (3 in their last 5 matches). The 0.5 empirical rate justifies a measured probability.",
-      "ai_form_summary": "Chili: 2W-0D-3L, 7 BP, 8 BC, BTTS 60%. Colombie: 3W-1D-1L, 8 BP, 3 BC, BTTS 40%.",
-      "ai_form_summary_en": "Chile: 2W-0D-3L, 7 GF, 8 GA, BTTS 60%. Colombia: 3W-1D-1L, 8 GF, 3 GA, BTTS 40%.",
-      "ai_reasons": [
-        "Taux BTTS récent de 60% pour le Chili lors de ses 5 derniers matchs.",
-        "Taux BTTS empirique global établi à 0.5.",
-        "Moyenne de buts élevée pour le Chili (4 buts par match sur l'échantillon)."
-      ],
-      "ai_risks": [
-        "Colombia a un taux BTTS récent de seulement 40% et encaisse peu (3 buts en 5 matchs).",
-        "Échantillon moyen (7 matchs) et statut de match amical."
-      ],
-      "ai_confidence": "low",
-      "modelEngine": "gemini-stats-v1",
-      "ai_source": "gemini-stats-v1",
-      "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "pick",
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 55,
-          "proba": 0.55,
-          "modelEngine": "gemini-3.5-flash-lite",
-          "bttsProb": 0.55
-        }
-      ],
-      "bttsProb": 0.55,
-      "prediction": "Oui",
-      "proba": 0.55,
-      "confidence": 55
     },
     {
       "id": "jordan-vs-australi-2026-11-17",
@@ -3939,7 +3218,8 @@
       "bttsProb": 0.65,
       "prediction": "Oui",
       "proba": 0.65,
-      "confidence": 65
+      "confidence": 65,
+      "status": "PENDING"
     },
     {
       "id": "russia-vs-venezuel-2026-11-17",
@@ -4116,7 +3396,8 @@
       "over25Prob": 0.62,
       "prediction": "Oui",
       "proba": 0.62,
-      "confidence": 62
+      "confidence": 62,
+      "status": "PENDING"
     },
     {
       "id": "saudiara-vs-uzbekist-2026-11-17",
@@ -4293,7 +3574,8 @@
       "over25Prob": 0.7,
       "prediction": "Oui",
       "proba": 0.7,
-      "confidence": 70
+      "confidence": 70,
+      "status": "PENDING"
     },
     {
       "id": "japan-vs-paraguay-2026-11-17",
@@ -4436,27 +3718,41 @@
       "homeLambda": 2,
       "awayLambda": 1.25,
       "statsOnly": true,
-      "ai_abstain": true,
-      "ai_market": "ABSTAIN",
-      "ai_key_fact": "Le Japon et le Paraguay n'ont concédé que 2 buts chacun lors de leurs 5 derniers matchs.",
-      "ai_analysis": "Les statistiques défensives des deux sélections sont particulièrement hermétiques, le Japon et le Paraguay n'ayant encaissé que 2 buts chacun lors de leurs cinq derniers matchs. Les taux empiriques pour le BTTS (30%) et l'Over 2.5 (40%) étant faibles, il est plus prudent de s'abstenir sur ce match.",
-      "ai_analysis_en": "The defensive statistics of both teams are particularly airtight, with Japan and Paraguay having conceded only 2 goals each in their last five matches. Since the empirical rates for BTTS (30%) and Over 2.5 (40%) are low, it is safer to abstain on this match.",
-      "ai_form_summary": "Japon : 5V-0N-0L, 8 buts pour, 2 contre. Paraguay : 4V-0D-1L, 9 buts pour, 2 contre.",
-      "ai_form_summary_en": "Japan: 5W-0D-0L, 8 goals for, 2 against. Paraguay: 4W-0D-1L, 9 goals for, 2 against.",
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Le Paraguay enregistre un taux BTTS de seulement 20% avec une excellente solidité défensive.",
+      "ai_analysis": "Les données indiquent une rencontre fermée en termes de buts partagés, le taux BTTS empirique n'étant que de 30%. Le Paraguay ne présente qu'un taux BTTS de 20% sur ses derniers matchs et affiche une défense hermétique avec seulement 2 buts encaissés. La solidité défensive nippone s'accorde avec cette tendance, rendant l'option BTTS Non cohérente.",
+      "ai_analysis_en": "The data indicates a closed match in terms of shared goals, with the empirical BTTS rate at only 30%. Paraguay has a BTTS rate of just 20% in their recent matches and displays a tight defense with only 2 goals conceded. Japanese defensive solidity aligns with this trend, making the BTTS No option consistent.",
+      "ai_form_summary": "Japon : 5V-0N-0L, 8 buts pour, 2 buts contre. Paraguay : 4V-0N-1L, 9 buts pour, 2 buts contre.",
+      "ai_form_summary_en": "Japan: 5W-0D-0L, 8 goals for, 2 goals against. Paraguay: 4W-0D-1L, 9 goals for, 2 goals against.",
       "ai_reasons": [
-        "Taux BTTS empirique très bas à 30% pour cette rencontre.",
-        "Taux Over 2.5 empirique limité à 40%.",
-        "Les deux défenses sont très solides avec seulement 2 buts encaissés sur les 5 derniers matchs respectifs."
+        "Faible taux BTTS empirique estimé à 30% pour cette rencontre.",
+        "Taux BTTS de l'équipe extérieure (Paraguay) particulièrement bas à 20%.",
+        "Faible nombre de buts encaissés par les deux formations sur leurs 5 derniers matchs (2 buts chacun)."
       ],
       "ai_risks": [
-        "Faiblesse des probabilités de buts multiples, rendant les marchés Over et BTTS risqués.",
-        "Excellente solidité défensive des deux côtés."
+        "Moyennes offensives correctes de part et d'autre (2 buts pour le Japon, 1.25 pour le Paraguay).",
+        "Échantillon limité à 5 matchs pour chaque équipe."
       ],
-      "ai_confidence": "low",
+      "ai_confidence": "medium",
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Non",
+          "confidence": 65,
+          "proba": 0.65,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.65
+        }
+      ],
+      "bttsProb": 0.65,
+      "prediction": "Non",
+      "proba": 0.65,
+      "confidence": 65
     },
     {
       "id": "argentin-vs-costaric-2026-11-17",
@@ -4626,7 +3922,8 @@
       "over25Prob": 0.75,
       "prediction": "Oui",
       "proba": 0.75,
-      "confidence": 75
+      "confidence": 75,
+      "status": "PENDING"
     },
     {
       "id": "ecuador-vs-bolivia-2026-11-17",
@@ -4803,7 +4100,8 @@
       "over25Prob": 0.65,
       "prediction": "Oui",
       "proba": 0.65,
-      "confidence": 65
+      "confidence": 65,
+      "status": "PENDING"
     },
     {
       "id": "bkhcken-vs-manchest-2026-11-18",
@@ -4978,7 +4276,8 @@
       "bttsProb": 0.6,
       "prediction": "Oui",
       "proba": 0.6,
-      "confidence": 60
+      "confidence": 60,
+      "status": "PENDING"
     },
     {
       "id": "realmadr-vs-internaz-2026-11-18",
@@ -5153,7 +4452,8 @@
       "bttsProb": 0.65,
       "prediction": "Oui",
       "proba": 0.65,
-      "confidence": 65
+      "confidence": 65,
+      "status": "PENDING"
     },
     {
       "id": "manchest-vs-everton-2026-11-18",
@@ -5327,7 +4627,8 @@
       "over25Prob": 0.75,
       "prediction": "Oui",
       "proba": 0.75,
-      "confidence": 75
+      "confidence": 75,
+      "status": "PENDING"
     },
     {
       "id": "londonci-vs-brighton-2026-11-18",
@@ -5501,7 +4802,8 @@
       "over25Prob": 0.62,
       "prediction": "Oui",
       "proba": 0.62,
-      "confidence": 62
+      "confidence": 62,
+      "status": "PENDING"
     },
     {
       "id": "juventus-vs-ohleuven-2026-11-18",
@@ -5676,137 +4978,18 @@
       "over25Prob": 0.65,
       "prediction": "Oui",
       "proba": 0.65,
-      "confidence": 65
+      "confidence": 65,
+      "status": "PENDING"
     }
   ],
   "fixtures": [
-    {
-      "match": "FC Sellier & Bellot Vla'im vs Kladno",
-      "home": "FC Sellier & Bellot Vla'im",
-      "away": "Kladno",
-      "league": "Club Friendly",
-      "date": "2026-11-13",
-      "time": "10:00",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/132496.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/133417.png"
-    },
-    {
-      "match": "Schwarz-Weiß Bregenz vs SC Rheindorf Altach",
-      "home": "Schwarz-Weiß Bregenz",
-      "away": "SC Rheindorf Altach",
-      "league": "Club Friendly",
-      "date": "2026-11-13",
-      "time": "10:00",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/131869.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4405.png"
-    },
-    {
-      "match": "Västerås SK vs IF Brommapojkarna",
-      "home": "Västerås SK",
-      "away": "IF Brommapojkarna",
-      "league": "Club Friendly",
-      "date": "2026-11-13",
-      "time": "11:00",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22163.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/8221.png"
-    },
-    {
-      "match": "TPS vs FC Ilves",
-      "home": "TPS",
-      "away": "FC Ilves",
-      "league": "Club Friendly",
-      "date": "2026-11-13",
-      "time": "11:30",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/8219.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/19248.png"
-    },
-    {
-      "match": "TSV Hartberg vs Floridsdorfer AC",
-      "home": "TSV Hartberg",
-      "away": "Floridsdorfer AC",
-      "league": "Club Friendly",
-      "date": "2026-11-13",
-      "time": "11:30",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6907.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/131873.png"
-    },
-    {
-      "match": "Dynamo Dresden vs Dukla Prague",
-      "home": "Dynamo Dresden",
-      "away": "Dukla Prague",
-      "league": "Club Friendly",
-      "date": "2026-11-13",
-      "time": "12:00",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7017.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22172.png"
-    },
-    {
-      "match": "NK Istra 1961 Pula vs NK Radomlje",
-      "home": "NK Istra 1961 Pula",
-      "away": "NK Radomlje",
-      "league": "Club Friendly",
-      "date": "2026-11-13",
-      "time": "12:00",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/133773.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/133593.png"
-    },
-    {
-      "match": "Singapore vs Paraguay",
-      "home": "Singapore",
-      "away": "Paraguay",
-      "league": "International Friendly",
-      "date": "2026-11-13",
-      "time": "12:00",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/sin.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/par.png"
-    },
-    {
-      "match": "SV Kapfenberg vs NK Uljanik",
-      "home": "SV Kapfenberg",
-      "away": "NK Uljanik",
-      "league": "Club Friendly",
-      "date": "2026-11-13",
-      "time": "12:00",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/133512.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/134161.png"
-    },
-    {
-      "match": "NK Varazdin vs NK Maribor",
-      "home": "NK Varazdin",
-      "away": "NK Maribor",
-      "league": "Club Friendly",
-      "date": "2026-11-13",
-      "time": "13:00",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/133685.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/619.png"
-    },
-    {
-      "match": "Shillong Lajong FC vs Sreenidi Deccan FC",
-      "home": "Shillong Lajong FC",
-      "away": "Sreenidi Deccan FC",
-      "league": "Indian Football League",
-      "date": "2026-11-13",
-      "time": "13:00",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18898.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21311.png"
-    },
-    {
-      "match": "Raków Czestochowa vs Lechia Gdansk",
-      "home": "Raków Czestochowa",
-      "away": "Lechia Gdansk",
-      "league": "Club Friendly",
-      "date": "2026-11-13",
-      "time": "13:30",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21005.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9658.png"
-    },
     {
       "match": "United Arab Emirates vs Honduras",
       "home": "United Arab Emirates",
       "away": "Honduras",
       "league": "International Friendly",
       "date": "2026-11-13",
-      "time": "14:15",
+      "time": "14:10",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/uae.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/hon.png"
     },
@@ -5929,6 +5112,26 @@
       "time": "09:00",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/ind.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/5784.png"
+    },
+    {
+      "match": "Csíkszereda vs Bacau",
+      "home": "Csíkszereda",
+      "away": "Bacau",
+      "league": "Club Friendly",
+      "date": "2026-11-14",
+      "time": "09:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21032.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/133734.png"
+    },
+    {
+      "match": "FC Arges vs Rapid Bucuresti",
+      "home": "FC Arges",
+      "away": "Rapid Bucuresti",
+      "league": "Club Friendly",
+      "date": "2026-11-14",
+      "time": "10:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20725.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/545.png"
     },
     {
       "match": "Japan vs Brazil",
@@ -6601,6 +5804,16 @@
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20889.png"
     },
     {
+      "match": "Godoy Cruz Antonio Tomba vs Tristán Suárez",
+      "home": "Godoy Cruz Antonio Tomba",
+      "away": "Tristán Suárez",
+      "league": "Argentine Nacional B",
+      "date": "2026-11-15",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6756.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10163.png"
+    },
+    {
       "match": "Ferro Carril Oeste vs Gimnasia y Tiro (Salta)",
       "home": "Ferro Carril Oeste",
       "away": "Gimnasia y Tiro (Salta)",
@@ -6611,6 +5824,16 @@
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10743.png"
     },
     {
+      "match": "Inca Aruba vs Águila",
+      "home": "Inca Aruba",
+      "away": "Águila",
+      "league": "Salvadoran Primera Division",
+      "date": "2026-11-16",
+      "time": "00:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/132480.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7226.png"
+    },
+    {
       "match": "Andorra vs Azerbaijan",
       "home": "Andorra",
       "away": "Azerbaijan",
@@ -6619,6 +5842,16 @@
       "time": "18:00",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/and.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/aze.png"
+    },
+    {
+      "match": "Albacete vs RC Celta Fortuna",
+      "home": "Albacete",
+      "away": "RC Celta Fortuna",
+      "league": "LaLiga 2",
+      "date": "2026-11-16",
+      "time": "19:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2737.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/131858.png"
     },
     {
       "match": "Tahiti vs Cook Islands",
@@ -6681,16 +5914,6 @@
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/pal.png"
     },
     {
-      "match": "Japan vs Paraguay",
-      "home": "Japan",
-      "away": "Paraguay",
-      "league": "International Friendly",
-      "date": "2026-11-17",
-      "time": "13:10",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/jpn.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/par.png"
-    },
-    {
       "match": "Qatar vs South Korea",
       "home": "Qatar",
       "away": "South Korea",
@@ -6739,6 +5962,16 @@
       "time": "20:00",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/kuw.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/hon.png"
+    },
+    {
+      "match": "Chile vs Colombia",
+      "home": "Chile",
+      "away": "Colombia",
+      "league": "International Friendly",
+      "date": "2026-11-17",
+      "time": "23:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/chi.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/col.png"
     },
     {
       "match": "Uruguay vs Dominican Republic",
@@ -6913,11 +6146,11 @@
   ],
   "stats": {
     "avgReliability": 74.66,
-    "totalAnalyzed": 150,
-    "totalRejected": 71,
+    "totalAnalyzed": 140,
+    "totalRejected": 61,
     "totalAccepted": 79,
-    "freeCount": 31,
-    "fixtureCount": 123
+    "freeCount": 27,
+    "fixtureCount": 116
   },
   "predictions": [
     {
@@ -7674,7 +6907,8 @@
       "over25Prob": 0.58,
       "prediction": "Oui",
       "proba": 0.58,
-      "confidence": 58
+      "confidence": 58,
+      "status": "PENDING"
     },
     {
       "id": "rochdale-vs-yorkcity-2026-11-14",
@@ -8809,18 +8043,19 @@
       "statsOnly": true,
       "ai_abstain": true,
       "ai_market": "ABSTAIN",
-      "ai_key_fact": "Le taux d'Over 2.5 est limité à 20% malgré des classements élevés.",
-      "ai_analysis": "Bien que le taux BTTS empirique atteigne 70%, le taux d'Over 2.5 extrêmement bas (20%) et le nombre élevé de matchs nuls récents incitent à la prudence. Isidro Metapán et Luis Ángel Firpo affichent des profils défensifs solides qui réduisent la fiabilité d'un pari sur les buts. L'abstention est recommandée.",
-      "ai_analysis_en": "Although the empirical BTTS rate reaches 70%, the extremely low Over 2.5 rate (20%) and high frequency of recent draws advise caution. Both teams display solid defensive profiles reducing the reliability of goal markets. Abstention is recommended.",
-      "ai_form_summary": "Isidro Metapán (1V-3D-1L) et Luis Ángel Firpo (2V-3D-0L) se caractérisent par des matchs fermés et un taux d'Over 2.5 de seulement 20%.",
-      "ai_form_summary_en": "Isidro Metapán (1W-3D-1L) and Luis Ángel Firpo (2W-3D-0L) are characterized by low-scoring games and a 20% Over 2.5 rate.",
+      "ai_key_fact": "Malgré un taux BTTS de 70%, l'Over 2.5 n'atteint que 20% sur les échantillons récents.",
+      "ai_analysis": "Malgré un taux de BTTS intéressant de 70%, les données révèlent un taux d'Over 2.5 extrêmement bas fixé à 20%. Les deux équipes affichent des bilans récents très pauvres en buts (seulement 4 buts marqués et 4 encaissés pour chacune sur leurs 5 derniers matchs). Cette contradiction entre les marchés et la faible productivité offensive générale nous pousse à appliquer la règle d'abstention pour éviter un pari trop incertain.",
+      "ai_analysis_en": "Despite an interesting 70% BTTS rate, the data reveals an extremely low Over 2.5 rate fixed at 20%. Both teams show very poor recent goal records (only 4 goals scored and 4 conceded each in their last 5 matches). This contradiction between markets and the overall low offensive productivity leads us to apply the abstention rule to avoid an uncertain bet.",
+      "ai_form_summary": "Isidro Metapán (1W-3D-1L) et Luis Ángel Firpo (2W-3D-0L) présentent des matchs récents très pauvres en buts.",
+      "ai_form_summary_en": "Isidro Metapán (1W-3D-1L) and Luis Ángel Firpo (2W-3D-0L) display very low-scoring recent matches.",
       "ai_reasons": [
-        "Taux d'Over 2.5 très faible à 20% pour les deux équipes.",
-        "Taux BTTS correct à 70% mais couplé à des moyennes de buts et des taux d'Over trop bas pour dégager une valeur claire."
+        "Taux empirique Over 2.5 très faible à 0.2 malgré un taux BTTS de 0.7.",
+        "Faible nombre de buts inscrits et encaissés lors des 5 derniers matchs (4 buts pour chaque équipe).",
+        "Statistiques contradictoires entre le taux de buts globale et le faible taux d'Over 2.5."
       ],
       "ai_risks": [
-        "Faible propension aux matchs ouverts (Over 2.5 à 0.2).",
-        "Nombreux matchs nuls récents pour les deux formations."
+        "Match serré entre le premier et le deuxième du championnat avec des scores souvent restreints.",
+        "Risque d'un match fermé avec moins de trois buts."
       ],
       "ai_confidence": "low",
       "modelEngine": "gemini-stats-v1",
@@ -9560,18 +8795,19 @@
       "statsOnly": true,
       "ai_abstain": true,
       "ai_market": "ABSTAIN",
-      "ai_key_fact": "Alianza FC enregistre un taux BTTS de seulement 20% sur ses 5 derniers matchs.",
-      "ai_analysis": "Malgré un taux BTTS récent élevé pour CD FAS, Alianza FC présente des statistiques très hermétiques avec un taux BTTS de 20% et un Over 2.5 à 20% sur ses 5 derniers matchs. Cette contradiction importante entre les dynamiques des deux formations justifie de s'abstenir sur ce marché.",
-      "ai_analysis_en": "Despite CD FAS's recent high BTTS rate, Alianza FC shows very low metrics with a 20% BTTS and 20% Over 2.5 rate in their last 5 games. This significant contradiction between the teams' dynamics justifies abstaining from this market.",
-      "ai_form_summary": "Alianza FC : 2W-0D-3L, 4 buts pour, 6 buts contre. CD FAS : 0W-4D-1L, 6 buts pour, 8 buts contre.",
-      "ai_form_summary_en": "Alianza FC: 2W-0D-3L, 4 goals for, 6 goals against. CD FAS: 0W-4D-1L, 6 goals for, 8 goals against.",
+      "ai_key_fact": "Alianza FC n'affiche que 20% de matchs avec les deux équipes marquent sur ses 5 dernières rencontres.",
+      "ai_analysis": "L'analyse des statistiques révèle des signaux contradictoires entre le taux BTTS récent d'Alianza FC (20%) et celui de CD FAS (80%). Les taux empiriques (50% BTTS, 40% Over) combinés à des moyennes de buts modérées incitent à la prudence et à l'abstention.",
+      "ai_analysis_en": "The statistical analysis reveals contradictory signals between Alianza FC's recent BTTS rate (20%) and CD FAS's rate (80%). The empirical rates (50% BTTS, 40% Over) combined with moderate goal averages suggest caution and abstention.",
+      "ai_form_summary": "Alianza FC (2W-0D-3L, 4-6 buts) vs CD FAS (0W-4D-1L, 6-8 buts)",
+      "ai_form_summary_en": "Alianza FC (2W-0D-3L, 4-6 goals) vs CD FAS (0W-4D-1L, 6-8 goals)",
       "ai_reasons": [
-        "Taux BTTS empirique de seulement 50% et Over 2.5 à 40%.",
-        "Alianza FC affiche un taux BTTS très faible de 20% sur ses 5 derniers matchs."
+        "Taux BTTS empirique à 50% et taux Over 2.5 à 40%",
+        "Forme récente d'Alianza FC très faible en BTTS (20%)",
+        "Données mixtes ne permettant pas de trancher clairement"
       ],
       "ai_risks": [
-        "CD FAS a un taux BTTS de 80% sur ses 5 derniers matchs, créant une contradiction avec les stats d'Alianza.",
-        "Faible moyenne de buts pour Alianza FC (2 buts) sur l'échantillon récent."
+        "Alianza FC ne montre que 20% de BTTS sur ses 5 derniers matchs",
+        "CD FAS présente un taux BTTS de 80% en déplacement mais une faible moyenne offensive globale"
       ],
       "ai_confidence": "low",
       "modelEngine": "gemini-stats-v1",
@@ -9772,7 +9008,8 @@
       "over25Prob": 0.52,
       "prediction": "Oui",
       "proba": 0.52,
-      "confidence": 52
+      "confidence": 52,
+      "status": "PENDING"
     },
     {
       "id": "godoycru-vs-tristnsu-2026-11-15",
@@ -9781,7 +9018,7 @@
       "away": "Tristán Suárez",
       "league": "Argentine Nacional B",
       "date": "2026-11-15",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "time": "20:00",
       "matchSemantic": "godoycru-vs-tristnsu-2026-11-15",
       "source": "empirical-form-data",
@@ -9934,752 +9171,27 @@
       "homeLambda": 3,
       "awayLambda": 0.5,
       "statsOnly": true,
-      "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_key_fact": "Godoy Cruz affiche une moyenne de 3 buts marqués par match sur son échantillon récent.",
-      "ai_analysis": "L'attaque prolifique de Godoy Cruz, qui tourne à 3 buts par match et présente 80% d'Over 2.5 récents, constitue le principal moteur de ce pronostic. Néanmoins, la solidité défensive extrême de Tristán Suárez et son absence totale de matchs ouverts récents représentent un risque notable qu'il convient de souligner.",
-      "ai_analysis_en": "Godoy Cruz's prolific attack, averaging 3 goals per game with an 80% recent Over 2.5 rate, drives this selection. Nevertheless, Tristán Suárez's extreme defensive solidity and complete lack of recent open games represent a notable risk to consider.",
-      "ai_form_summary": "Godoy Cruz : 4W-1D-0L, 13 buts pour, 5 buts contre. Tristán Suárez : 1W-4D-0L, 2 buts pour, 1 but contre.",
-      "ai_form_summary_en": "Godoy Cruz: 4W-1D-0L, 13 goals for, 5 goals against. Tristán Suárez: 1W-4D-0L, 2 goals for, 1 goal against.",
-      "ai_reasons": [
-        "Godoy Cruz affiche un taux Over 2.5 élevé de 80% sur ses 5 derniers matchs.",
-        "Godoy Cruz possède une forte moyenne de 3 buts marqués par match sur l'échantillon."
-      ],
-      "ai_risks": [
-        "Tristán Suárez a un taux Over 2.5 de 0% sur ses 5 derniers matchs.",
-        "La défense de Tristán Suárez est extrêmement solide avec seulement 1 but encaissé récemment."
-      ],
-      "ai_confidence": "medium",
-      "modelEngine": "gemini-stats-v1",
-      "ai_source": "gemini-stats-v1",
-      "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "pick",
-      "predictions": [
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 58,
-          "proba": 0.58,
-          "modelEngine": "gemini-3.5-flash-lite",
-          "over25Prob": 0.58
-        }
-      ],
-      "over25Prob": 0.58,
-      "prediction": "Oui",
-      "proba": 0.58,
-      "confidence": 58
-    },
-    {
-      "id": "incaarub-vs-guila-2026-11-16",
-      "match": "Inca Aruba vs Águila",
-      "home": "Inca Aruba",
-      "away": "Águila",
-      "league": "Salvadoran Primera Division",
-      "date": "2026-11-16",
-      "type": "BTTS",
-      "time": "00:00",
-      "matchSemantic": "incaarub-vs-guila-2026-11-16",
-      "source": "empirical-form-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/132480.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7226.png",
-      "tier": "GOLD",
-      "reliabilityScore": 89.38,
-      "dataQuality": "HIGH",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "xgHome": 1,
-      "xgAway": 2.67,
-      "xgTotal": 3.67,
-      "formBTTS": 70,
-      "analysis": "Inca Aruba : forme D-N-D-D-D (0V 1N 4D, 2 buts marqués / 10 encaissés sur 5) · Águila : forme N-D-V-V-N (2V 2N 1D, 12 buts marqués / 10 encaissés sur 5). Classement : Inca Aruba 12e (17 pts), Águila 4e (31 pts). Stats empiriques (forme récente) : buts moy. 3.67, BTTS 70.0%, Over 2.5 50.0%. Affinage AI ensuite. Fiabilité 89.38%.",
-      "analysisData": {
-        "empiricalBttsRate": 0.7,
-        "empiricalOver25Rate": 0.5,
-        "homeLambda": 1,
-        "awayLambda": 2.67,
-        "xgTotal": 3.67
-      },
-      "odds": null,
-      "oddsSource": null,
-      "formHome": {
-        "last5String": "D-N-D-D-D",
-        "wins": 0,
-        "draws": 1,
-        "losses": 4,
-        "goalsFor": 2,
-        "goalsAgainst": 10,
-        "bttsRate": 0.4,
-        "over25Rate": 0.2,
-        "cleanSheets": 0,
-        "failedToScore": 3,
-        "count": 5
-      },
-      "formAway": {
-        "last5String": "N-D-V-V-N",
-        "wins": 2,
-        "draws": 2,
-        "losses": 1,
-        "goalsFor": 12,
-        "goalsAgainst": 10,
-        "bttsRate": 1,
-        "over25Rate": 0.8,
-        "cleanSheets": 0,
-        "failedToScore": 0,
-        "count": 5
-      },
-      "last5Home": [
-        {
-          "date": "2026-11-12",
-          "opponent": "Atletico Balboa",
-          "venue": "A",
-          "score": "1-4",
-          "result": "L"
-        },
-        {
-          "date": "2026-11-07",
-          "opponent": "Isidro Metapán",
-          "venue": "H",
-          "score": "1-1",
-          "result": "D"
-        },
-        {
-          "date": "2026-10-31",
-          "opponent": "Cacahuatique",
-          "venue": "A",
-          "score": "0-1",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-24",
-          "opponent": "Internacional Santa Tecla",
-          "venue": "H",
-          "score": "0-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-16",
-          "opponent": "Luis Ángel Firpo",
-          "venue": "A",
-          "score": "0-2",
-          "result": "L"
-        }
-      ],
-      "last5Away": [
-        {
-          "date": "2026-11-12",
-          "opponent": "CD Municipal Limeño",
-          "venue": "H",
-          "score": "1-1",
-          "result": "D"
-        },
-        {
-          "date": "2026-11-08",
-          "opponent": "Alianza FC",
-          "venue": "A",
-          "score": "2-3",
-          "result": "L"
-        },
-        {
-          "date": "2026-11-01",
-          "opponent": "Fuerte San Francisco",
-          "venue": "A",
-          "score": "4-3",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-24",
-          "opponent": "CD FAS",
-          "venue": "H",
-          "score": "3-1",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-18",
-          "opponent": "Atletico Balboa",
-          "venue": "A",
-          "score": "2-2",
-          "result": "D"
-        }
-      ],
-      "standingsHome": {
-        "rank": 12,
-        "points": 17,
-        "played": 20,
-        "gf": 15,
-        "ga": 37
-      },
-      "standingsAway": {
-        "rank": 4,
-        "points": 31,
-        "played": 20,
-        "gf": 37,
-        "ga": 28
-      },
-      "empiricalBttsRate": 0.7,
-      "empiricalOver25Rate": 0.5,
-      "homeLambda": 1,
-      "awayLambda": 2.67,
-      "statsOnly": true,
-      "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_key_fact": "Águila présente un taux BTTS de 100% sur ses 5 derniers matchs.",
-      "ai_analysis": "Águila se déplace avec une dynamique offensive redoutable (2.67 buts de moyenne et un taux BTTS récent de 100%). Bien qu'Inca Aruba peine offensivement (2 buts sur les 5 derniers matchs), la fragilité défensive chronique de la lanterne rouge (37 buts encaissés en 20 matchs) offre de bonnes chances de voir les deux équipes marquer, soutenues par un taux empirique de 0.7.",
-      "ai_analysis_en": "Águila travels with formidable attacking momentum (2.67 goals per match and a 100% recent BTTS rate). Although Inca Aruba struggles offensively with only 2 goals in their last 5 matches, the chronic defensive frailty of the bottom side (37 goals conceded in 20 matches) supports a strong chance for both teams to score, backed by a 0.7 empirical rate.",
-      "ai_form_summary": "Inca Aruba: 0W-1D-4L, 2 BP, 10 BC, BTTS 40%. Águila: 2W-2D-1L, 12 BP, 10 BC, BTTS 100%.",
-      "ai_form_summary_en": "Inca Aruba: 0W-1D-4L, 2 GF, 10 GA, BTTS 40%. Águila: 2W-2D-1L, 12 GF, 10 GA, BTTS 100%.",
-      "ai_reasons": [
-        "Águila affiche un taux BTTS de 100% sur ses 5 derniers matchs et 2.67 buts par match en moyenne.",
-        "Le taux BTTS empirique global est solide à 0.7 avec un formBTTS évalué à 70%.",
-        "Inca Aruba encaisse beaucoup (10 buts en 5 matchs) malgré une attaque faible."
-      ],
-      "ai_risks": [
-        "Inca Aruba n'a marqué que 2 buts lors de ses 5 derniers matchs.",
-        "Inca Aruba a un taux BTTS récent de seulement 40%."
-      ],
-      "ai_confidence": "medium",
-      "modelEngine": "gemini-stats-v1",
-      "ai_source": "gemini-stats-v1",
-      "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "pick",
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 65,
-          "proba": 0.65,
-          "modelEngine": "gemini-3.5-flash-lite",
-          "bttsProb": 0.65
-        }
-      ],
-      "bttsProb": 0.65,
-      "prediction": "Oui",
-      "proba": 0.65,
-      "confidence": 65
-    },
-    {
-      "id": "albacete-vs-rcceltaf-2026-11-16",
-      "match": "Albacete vs RC Celta Fortuna",
-      "home": "Albacete",
-      "away": "RC Celta Fortuna",
-      "league": "LaLiga 2",
-      "date": "2026-11-16",
-      "type": "BTTS",
-      "time": "19:30",
-      "matchSemantic": "albacete-vs-rcceltaf-2026-11-16",
-      "source": "empirical-form-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2737.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/131858.png",
-      "tier": "GOLD",
-      "reliabilityScore": 88.75,
-      "dataQuality": "HIGH",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "xgHome": 1.5,
-      "xgAway": 1,
-      "xgTotal": 2.5,
-      "formBTTS": 80,
-      "analysis": "Albacete : forme V-V-V-D-D (3V 0N 2D, 8 buts marqués / 9 encaissés sur 5) · RC Celta Fortuna : forme D-N-D-N-V (1V 2N 2D, 9 buts marqués / 11 encaissés sur 5). Classement : Albacete 21e (10 pts), RC Celta Fortuna 16e (13 pts). Stats empiriques (forme récente) : buts moy. 2.5, BTTS 80.0%, Over 2.5 80.0%. Affinage AI ensuite. Fiabilité 88.75%.",
-      "analysisData": {
-        "empiricalBttsRate": 0.8,
-        "empiricalOver25Rate": 0.8,
-        "homeLambda": 1.5,
-        "awayLambda": 1,
-        "xgTotal": 2.5
-      },
-      "odds": null,
-      "oddsSource": null,
-      "formHome": {
-        "last5String": "V-V-V-D-D",
-        "wins": 3,
-        "draws": 0,
-        "losses": 2,
-        "goalsFor": 8,
-        "goalsAgainst": 9,
-        "bttsRate": 0.6,
-        "over25Rate": 0.8,
-        "cleanSheets": 1,
-        "failedToScore": 1,
-        "count": 5
-      },
-      "formAway": {
-        "last5String": "D-N-D-N-V",
-        "wins": 1,
-        "draws": 2,
-        "losses": 2,
-        "goalsFor": 9,
-        "goalsAgainst": 11,
-        "bttsRate": 1,
-        "over25Rate": 0.8,
-        "cleanSheets": 0,
-        "failedToScore": 0,
-        "count": 5
-      },
-      "last5Home": [
-        {
-          "date": "2026-11-07",
-          "opponent": "Leganés",
-          "venue": "A",
-          "score": "3-1",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-31",
-          "opponent": "CD Sabadell",
-          "venue": "H",
-          "score": "2-1",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-25",
-          "opponent": "Eldense",
-          "venue": "H",
-          "score": "2-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-17",
-          "opponent": "Sporting Gijón",
-          "venue": "A",
-          "score": "1-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-12",
-          "opponent": "Real Valladolid",
-          "venue": "A",
-          "score": "0-5",
-          "result": "L"
-        }
-      ],
-      "last5Away": [
-        {
-          "date": "2026-11-07",
-          "opponent": "Burgos",
-          "venue": "A",
-          "score": "1-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-31",
-          "opponent": "Córdoba",
-          "venue": "H",
-          "score": "2-2",
-          "result": "D"
-        },
-        {
-          "date": "2026-10-24",
-          "opponent": "Girona",
-          "venue": "A",
-          "score": "1-5",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-19",
-          "opponent": "Tenerife",
-          "venue": "H",
-          "score": "1-1",
-          "result": "D"
-        },
-        {
-          "date": "2026-10-10",
-          "opponent": "Real Sociedad II",
-          "venue": "H",
-          "score": "4-1",
-          "result": "W"
-        }
-      ],
-      "standingsHome": {
-        "rank": 21,
-        "points": 10,
-        "played": 13,
-        "gf": 13,
-        "ga": 24
-      },
-      "standingsAway": {
-        "rank": 16,
-        "points": 13,
-        "played": 13,
-        "gf": 19,
-        "ga": 25
-      },
-      "empiricalBttsRate": 0.8,
-      "empiricalOver25Rate": 0.8,
-      "homeLambda": 1.5,
-      "awayLambda": 1,
-      "statsOnly": true,
-      "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_key_fact": "Albacete et Celta Fortuna affichent respectivement 24 et 25 buts encaissés en 13 matchs.",
-      "ai_analysis": "Les statistiques observées soutiennent clairement une rencontre ouverte entre Albacete et le RC Celta Fortuna. Le taux BTTS empirique global est de 80%, tandis que l'équipe extérieure affiche un taux impressionnant de 100% de matchs avec les deux équipes marquantes. Les difficultés défensives des deux formations, illustrées par 24 et 25 buts encaissés en 13 matchs, renforcent grandement la probabilité de voir des buts des deux côtés.",
-      "ai_analysis_en": "Observed statistics clearly support an open match between Albacete and RC Celta Fortuna. The overall empirical BTTS rate stands at 80%, while the away team boasts an impressive 100% BTTS rate in their recent form. Both defenses struggle significantly, having conceded 24 and 25 goals respectively in 13 matches, heavily reinforcing the probability of goals from both sides.",
-      "ai_form_summary": "Albacete : 3V-0D-2L sur les 5 derniers, 8 buts pour, 9 contre. Celta Fortuna : 1W-2D-2L, 9 buts pour, 11 contre.",
-      "ai_form_summary_en": "Albacete: 3W-0D-2L in last 5, 8 goals for, 9 against. Celta Fortuna: 1W-2D-2L, 9 goals for, 11 against.",
-      "ai_reasons": [
-        "Taux BTTS empirique très élevé à 80% sur l'ensemble des données.",
-        "Taux BTTS de l'équipe extérieure atteignant 100% sur ses 5 derniers matchs.",
-        "Défenses en difficulté avec Albacete (24 buts encaissés en 13 matchs) et Celta Fortuna (25 buts encaissés en 13 matchs)."
-      ],
-      "ai_risks": [
-        "Albacete a montré une irrégularité récente avec deux défaites sur ses cinq derniers matchs.",
-        "La solidité défensive relative de l'équipe visiteuse sur certains matchs nuls (2N)."
-      ],
-      "ai_confidence": "high",
-      "modelEngine": "gemini-stats-v1",
-      "ai_source": "gemini-stats-v1",
-      "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "pick",
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 75,
-          "proba": 0.75,
-          "modelEngine": "gemini-3.5-flash-lite",
-          "bttsProb": 0.75
-        }
-      ],
-      "bttsProb": 0.75,
-      "prediction": "Oui",
-      "proba": 0.75,
-      "confidence": 75,
-      "status": "PENDING"
-    },
-    {
-      "id": "andorra-vs-azerbaij-2026-11-16",
-      "match": "Andorra vs Azerbaijan",
-      "home": "Andorra",
-      "away": "Azerbaijan",
-      "league": "International Friendly",
-      "date": "2026-11-16",
-      "type": "BTTS",
-      "time": "18:00",
-      "matchSemantic": "andorra-vs-azerbaij-2026-11-16",
-      "source": "empirical-form-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/and.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/aze.png",
-      "tier": "SILVER",
-      "reliabilityScore": 60.69,
-      "dataQuality": "MEDIUM",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 6,
-      "matchCountAway": 4,
-      "h2hAvailable": false,
-      "xgHome": 2,
-      "xgAway": 2.25,
-      "xgTotal": 4.25,
-      "formBTTS": 25,
-      "analysis": "Andorra : forme D-D-V-D-N (1V 1N 3D, 2 buts marqués / 7 encaissés sur 5) · Azerbaijan : forme V-V-D-V (3V 0N 1D, 9 buts marqués / 4 encaissés sur 5). Stats empiriques (forme récente) : buts moy. 4.25, BTTS 25.0%, Over 2.5 45.0%. Affinage AI ensuite. Fiabilité 60.69%.",
-      "analysisData": {
-        "empiricalBttsRate": 0.25,
-        "empiricalOver25Rate": 0.45,
-        "homeLambda": 2,
-        "awayLambda": 2.25,
-        "xgTotal": 4.25
-      },
-      "odds": null,
-      "oddsSource": null,
-      "formHome": {
-        "last5String": "D-D-V-D-N",
-        "wins": 1,
-        "draws": 1,
-        "losses": 3,
-        "goalsFor": 2,
-        "goalsAgainst": 7,
-        "bttsRate": 0,
-        "over25Rate": 0.4,
-        "cleanSheets": 2,
-        "failedToScore": 4,
-        "count": 5
-      },
-      "formAway": {
-        "last5String": "V-V-D-V",
-        "wins": 3,
-        "draws": 0,
-        "losses": 1,
-        "goalsFor": 9,
-        "goalsAgainst": 4,
-        "bttsRate": 0.5,
-        "over25Rate": 0.5,
-        "cleanSheets": 1,
-        "failedToScore": 1,
-        "count": 4
-      },
-      "last5Home": [
-        {
-          "date": "2026-09-30",
-          "opponent": "Lithuania",
-          "venue": "A",
-          "score": "0-3",
-          "result": "L"
-        },
-        {
-          "date": "2026-06-07",
-          "opponent": "Kosovo",
-          "venue": "A",
-          "score": "0-3",
-          "result": "L"
-        },
-        {
-          "date": "2026-06-04",
-          "opponent": "Liechtenstein",
-          "venue": "H",
-          "score": "2-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-05-29",
-          "opponent": "Iraq",
-          "venue": "A",
-          "score": "0-1",
-          "result": "L"
-        },
-        {
-          "date": "2026-03-31",
-          "opponent": "San Marino",
-          "venue": "A",
-          "score": "0-0",
-          "result": "D"
-        }
-      ],
-      "last5Away": [
-        {
-          "date": "2026-09-23",
-          "opponent": "Tajikistan",
-          "venue": "H",
-          "score": "1-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-06-09",
-          "opponent": "San Marino",
-          "venue": "H",
-          "score": "2-1",
-          "result": "W"
-        },
-        {
-          "date": "2026-06-05",
-          "opponent": "Malta",
-          "venue": "H",
-          "score": "0-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-03-27",
-          "opponent": "St. Lucia",
-          "venue": "H",
-          "score": "6-1",
-          "result": "W"
-        }
-      ],
-      "standingsHome": null,
-      "standingsAway": null,
-      "empiricalBttsRate": 0.25,
-      "empiricalOver25Rate": 0.45,
-      "homeLambda": 2,
-      "awayLambda": 2.25,
-      "statsOnly": true,
       "ai_abstain": true,
       "ai_market": "ABSTAIN",
-      "ai_key_fact": "Andorra affiche un taux BTTS de 0% sur ses 5 derniers matchs.",
-      "ai_analysis": "Malgré des moyennes de buts apparentes correctes, les taux réels de BTTS (0% pour Andorra) et l'indicateur global de 0.25 incitent à la prudence. Il s'agit d'un match amical international avec un échantillon limité, rendant tout pronostic sur les buts peu fiable.",
-      "ai_analysis_en": "Despite seemingly decent goal averages, actual BTTS rates (0% for Andorra) and the 0.25 global indicator counsel caution. This is an international friendly with a limited sample, making any goal prediction unreliable.",
-      "ai_form_summary": "Andorra: 1W-1D-3L, 2 BP, 7 BC, BTTS 0%. Azerbaijan: 3W-0D-1L, 9 BP, 4 BC, BTTS 50%.",
-      "ai_form_summary_en": "Andorra: 1W-1D-3L, 2 GF, 7 GA, BTTS 0%. Azerbaijan: 3W-0D-1L, 9 GF, 4 GA, BTTS 50%.",
+      "ai_key_fact": "Tristán Suárez ne présente que 0% d'Over 2.5 sur ses 5 derniers matchs et 1 seul but encaissé.",
+      "ai_analysis": "Malgré la forte attaque de Godoy Cruz (3 buts de moyenne à domicile), la défense de Tristán Suárez et ses statistiques récentes (0% d'Over 2.5, 1 seul but encaissé en 5 matchs) créent un profil trop déséquilibré. Les taux empiriques étant sous les seuils, l'abstention est de mise.",
+      "ai_analysis_en": "Despite Godoy Cruz's strong attack (average of 3 goals at home), Tristán Suárez's defense and recent stats (0% Over 2.5, only 1 goal conceded in 5 games) create an overly unbalanced profile. With empirical rates below thresholds, abstention is recommended.",
+      "ai_form_summary": "Godoy Cruz (4W-1D-0L, 13-5 buts) vs Tristán Suárez (1W-4D-0L, 2-1 buts)",
+      "ai_form_summary_en": "Godoy Cruz (4W-1D-0L, 13-5 goals) vs Tristán Suárez (1W-4D-0L, 2-1 goals)",
       "ai_reasons": [
-        "Taux empirique BTTS très bas à 0.25.",
-        "Taux récent de BTTS à 0% pour Andorra sur ses 5 derniers matchs.",
-        "Données de qualité moyenne avec seulement 4 matchs d'échantillon pour l'équipe extérieure."
+        "Tristán Suárez affiche un taux d'Over 2.5 récent de 0% et une moyenne de 0.5 buts à l'extérieur",
+        "Taux empiriques BTTS (40%) et Over 2.5 (40%) tous deux inférieurs au seuil de sécurité",
+        "Profil très défensif de l'équipe visiteuse en dépit de la bonne attaque de Godoy Cruz"
       ],
       "ai_risks": [
-        "Match amical international pouvant réserver des surprises tactiques.",
-        "Faible volume de buts récents pour Andorra (2 buts en 5 matchs)."
+        "Tristán Suárez n'a concédé que 1 seul but lors de ses 5 derniers matchs",
+        "La rigueur défensive adverse risque de bloquer le marché des buts"
       ],
       "ai_confidence": "low",
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain"
-    },
-    {
-      "id": "chile-vs-colombia-2026-11-17",
-      "match": "Chile vs Colombia",
-      "home": "Chile",
-      "away": "Colombia",
-      "league": "International Friendly",
-      "date": "2026-11-17",
-      "type": "BTTS",
-      "time": "23:00",
-      "matchSemantic": "chile-vs-colombia-2026-11-17",
-      "source": "empirical-form-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/chi.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/col.png",
-      "tier": "SILVER",
-      "reliabilityScore": 71.63,
-      "dataQuality": "MEDIUM",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 7,
-      "matchCountAway": 7,
-      "h2hAvailable": false,
-      "xgHome": 4,
-      "xgAway": 1,
-      "xgTotal": 5,
-      "formBTTS": 50,
-      "analysis": "Chile : forme V-D-D-V-D (2V 0N 3D, 7 buts marqués / 8 encaissés sur 5) · Colombia : forme V-D-N-V-V (3V 1N 1D, 8 buts marqués / 3 encaissés sur 5). Stats empiriques (forme récente) : buts moy. 5, BTTS 50.0%, Over 2.5 40.0%. Affinage AI ensuite. Fiabilité 71.63%.",
-      "analysisData": {
-        "empiricalBttsRate": 0.5,
-        "empiricalOver25Rate": 0.4,
-        "homeLambda": 4,
-        "awayLambda": 1,
-        "xgTotal": 5
-      },
-      "odds": null,
-      "oddsSource": null,
-      "formHome": {
-        "last5String": "V-D-D-V-D",
-        "wins": 2,
-        "draws": 0,
-        "losses": 3,
-        "goalsFor": 7,
-        "goalsAgainst": 8,
-        "bttsRate": 0.6,
-        "over25Rate": 0.6,
-        "cleanSheets": 1,
-        "failedToScore": 1,
-        "count": 5
-      },
-      "formAway": {
-        "last5String": "V-D-N-V-V",
-        "wins": 3,
-        "draws": 1,
-        "losses": 1,
-        "goalsFor": 8,
-        "goalsAgainst": 3,
-        "bttsRate": 0.4,
-        "over25Rate": 0.2,
-        "cleanSheets": 2,
-        "failedToScore": 1,
-        "count": 5
-      },
-      "last5Home": [
-        {
-          "date": "2026-10-07",
-          "opponent": "Mexico",
-          "venue": "A",
-          "score": "2-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-09-30",
-          "opponent": "United States",
-          "venue": "A",
-          "score": "2-4",
-          "result": "L"
-        },
-        {
-          "date": "2026-09-26",
-          "opponent": "Canada",
-          "venue": "A",
-          "score": "0-1",
-          "result": "L"
-        },
-        {
-          "date": "2026-06-09",
-          "opponent": "Congo DR",
-          "venue": "A",
-          "score": "2-1",
-          "result": "W"
-        },
-        {
-          "date": "2026-06-06",
-          "opponent": "Portugal",
-          "venue": "A",
-          "score": "1-2",
-          "result": "L"
-        }
-      ],
-      "last5Away": [
-        {
-          "date": "2026-10-06",
-          "opponent": "Peru",
-          "venue": "H",
-          "score": "2-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-03",
-          "opponent": "Paraguay",
-          "venue": "H",
-          "score": "0-1",
-          "result": "L"
-        },
-        {
-          "date": "2026-09-27",
-          "opponent": "Mexico",
-          "venue": "A",
-          "score": "1-1",
-          "result": "D"
-        },
-        {
-          "date": "2026-06-07",
-          "opponent": "Jordan",
-          "venue": "H",
-          "score": "2-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-06-01",
-          "opponent": "Costa Rica",
-          "venue": "H",
-          "score": "3-1",
-          "result": "W"
-        }
-      ],
-      "standingsHome": null,
-      "standingsAway": null,
-      "empiricalBttsRate": 0.5,
-      "empiricalOver25Rate": 0.4,
-      "homeLambda": 4,
-      "awayLambda": 1,
-      "statsOnly": true,
-      "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_key_fact": "Le Chili présente une moyenne de 4 buts par match sur son échantillon.",
-      "ai_analysis": "Le profil statistique de cette rencontre amicale est partagé. D'un côté, le Chili montre de l'animation avec une forte moyenne offensive et 60% de matchs BTTS récents. De l'autre, la Colombie concède très peu de buts (3 sur ses 5 derniers matchs). Le taux empirique de 0.5 justifie une probabilité mesurée.",
-      "ai_analysis_en": "The statistical profile of this friendly is mixed. On one hand, Chile shows animation with a high attacking average and 60% recent BTTS matches. On the other hand, Colombia concedes very few goals (3 in their last 5 matches). The 0.5 empirical rate justifies a measured probability.",
-      "ai_form_summary": "Chili: 2W-0D-3L, 7 BP, 8 BC, BTTS 60%. Colombie: 3W-1D-1L, 8 BP, 3 BC, BTTS 40%.",
-      "ai_form_summary_en": "Chile: 2W-0D-3L, 7 GF, 8 GA, BTTS 60%. Colombia: 3W-1D-1L, 8 GF, 3 GA, BTTS 40%.",
-      "ai_reasons": [
-        "Taux BTTS récent de 60% pour le Chili lors de ses 5 derniers matchs.",
-        "Taux BTTS empirique global établi à 0.5.",
-        "Moyenne de buts élevée pour le Chili (4 buts par match sur l'échantillon)."
-      ],
-      "ai_risks": [
-        "Colombia a un taux BTTS récent de seulement 40% et encaisse peu (3 buts en 5 matchs).",
-        "Échantillon moyen (7 matchs) et statut de match amical."
-      ],
-      "ai_confidence": "low",
-      "modelEngine": "gemini-stats-v1",
-      "ai_source": "gemini-stats-v1",
-      "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "pick",
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 55,
-          "proba": 0.55,
-          "modelEngine": "gemini-3.5-flash-lite",
-          "bttsProb": 0.55
-        }
-      ],
-      "bttsProb": 0.55,
-      "prediction": "Oui",
-      "proba": 0.55,
-      "confidence": 55
     },
     {
       "id": "jordan-vs-australi-2026-11-17",
@@ -10856,7 +9368,8 @@
       "bttsProb": 0.65,
       "prediction": "Oui",
       "proba": 0.65,
-      "confidence": 65
+      "confidence": 65,
+      "status": "PENDING"
     },
     {
       "id": "russia-vs-venezuel-2026-11-17",
@@ -11033,7 +9546,8 @@
       "over25Prob": 0.62,
       "prediction": "Oui",
       "proba": 0.62,
-      "confidence": 62
+      "confidence": 62,
+      "status": "PENDING"
     },
     {
       "id": "saudiara-vs-uzbekist-2026-11-17",
@@ -11210,7 +9724,8 @@
       "over25Prob": 0.7,
       "prediction": "Oui",
       "proba": 0.7,
-      "confidence": 70
+      "confidence": 70,
+      "status": "PENDING"
     },
     {
       "id": "japan-vs-paraguay-2026-11-17",
@@ -11353,27 +9868,41 @@
       "homeLambda": 2,
       "awayLambda": 1.25,
       "statsOnly": true,
-      "ai_abstain": true,
-      "ai_market": "ABSTAIN",
-      "ai_key_fact": "Le Japon et le Paraguay n'ont concédé que 2 buts chacun lors de leurs 5 derniers matchs.",
-      "ai_analysis": "Les statistiques défensives des deux sélections sont particulièrement hermétiques, le Japon et le Paraguay n'ayant encaissé que 2 buts chacun lors de leurs cinq derniers matchs. Les taux empiriques pour le BTTS (30%) et l'Over 2.5 (40%) étant faibles, il est plus prudent de s'abstenir sur ce match.",
-      "ai_analysis_en": "The defensive statistics of both teams are particularly airtight, with Japan and Paraguay having conceded only 2 goals each in their last five matches. Since the empirical rates for BTTS (30%) and Over 2.5 (40%) are low, it is safer to abstain on this match.",
-      "ai_form_summary": "Japon : 5V-0N-0L, 8 buts pour, 2 contre. Paraguay : 4V-0D-1L, 9 buts pour, 2 contre.",
-      "ai_form_summary_en": "Japan: 5W-0D-0L, 8 goals for, 2 against. Paraguay: 4W-0D-1L, 9 goals for, 2 against.",
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Le Paraguay enregistre un taux BTTS de seulement 20% avec une excellente solidité défensive.",
+      "ai_analysis": "Les données indiquent une rencontre fermée en termes de buts partagés, le taux BTTS empirique n'étant que de 30%. Le Paraguay ne présente qu'un taux BTTS de 20% sur ses derniers matchs et affiche une défense hermétique avec seulement 2 buts encaissés. La solidité défensive nippone s'accorde avec cette tendance, rendant l'option BTTS Non cohérente.",
+      "ai_analysis_en": "The data indicates a closed match in terms of shared goals, with the empirical BTTS rate at only 30%. Paraguay has a BTTS rate of just 20% in their recent matches and displays a tight defense with only 2 goals conceded. Japanese defensive solidity aligns with this trend, making the BTTS No option consistent.",
+      "ai_form_summary": "Japon : 5V-0N-0L, 8 buts pour, 2 buts contre. Paraguay : 4V-0N-1L, 9 buts pour, 2 buts contre.",
+      "ai_form_summary_en": "Japan: 5W-0D-0L, 8 goals for, 2 goals against. Paraguay: 4W-0D-1L, 9 goals for, 2 goals against.",
       "ai_reasons": [
-        "Taux BTTS empirique très bas à 30% pour cette rencontre.",
-        "Taux Over 2.5 empirique limité à 40%.",
-        "Les deux défenses sont très solides avec seulement 2 buts encaissés sur les 5 derniers matchs respectifs."
+        "Faible taux BTTS empirique estimé à 30% pour cette rencontre.",
+        "Taux BTTS de l'équipe extérieure (Paraguay) particulièrement bas à 20%.",
+        "Faible nombre de buts encaissés par les deux formations sur leurs 5 derniers matchs (2 buts chacun)."
       ],
       "ai_risks": [
-        "Faiblesse des probabilités de buts multiples, rendant les marchés Over et BTTS risqués.",
-        "Excellente solidité défensive des deux côtés."
+        "Moyennes offensives correctes de part et d'autre (2 buts pour le Japon, 1.25 pour le Paraguay).",
+        "Échantillon limité à 5 matchs pour chaque équipe."
       ],
-      "ai_confidence": "low",
+      "ai_confidence": "medium",
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Non",
+          "confidence": 65,
+          "proba": 0.65,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.65
+        }
+      ],
+      "bttsProb": 0.65,
+      "prediction": "Non",
+      "proba": 0.65,
+      "confidence": 65
     },
     {
       "id": "argentin-vs-costaric-2026-11-17",
@@ -11543,7 +10072,8 @@
       "over25Prob": 0.75,
       "prediction": "Oui",
       "proba": 0.75,
-      "confidence": 75
+      "confidence": 75,
+      "status": "PENDING"
     },
     {
       "id": "ecuador-vs-bolivia-2026-11-17",
@@ -11720,7 +10250,8 @@
       "over25Prob": 0.65,
       "prediction": "Oui",
       "proba": 0.65,
-      "confidence": 65
+      "confidence": 65,
+      "status": "PENDING"
     },
     {
       "id": "bkhcken-vs-manchest-2026-11-18",
@@ -11895,7 +10426,8 @@
       "bttsProb": 0.6,
       "prediction": "Oui",
       "proba": 0.6,
-      "confidence": 60
+      "confidence": 60,
+      "status": "PENDING"
     },
     {
       "id": "realmadr-vs-internaz-2026-11-18",
@@ -12070,7 +10602,8 @@
       "bttsProb": 0.65,
       "prediction": "Oui",
       "proba": 0.65,
-      "confidence": 65
+      "confidence": 65,
+      "status": "PENDING"
     },
     {
       "id": "manchest-vs-everton-2026-11-18",
@@ -12244,7 +10777,8 @@
       "over25Prob": 0.75,
       "prediction": "Oui",
       "proba": 0.75,
-      "confidence": 75
+      "confidence": 75,
+      "status": "PENDING"
     },
     {
       "id": "londonci-vs-brighton-2026-11-18",
@@ -12418,7 +10952,8 @@
       "over25Prob": 0.62,
       "prediction": "Oui",
       "proba": 0.62,
-      "confidence": 62
+      "confidence": 62,
+      "status": "PENDING"
     },
     {
       "id": "juventus-vs-ohleuven-2026-11-18",
@@ -12593,7 +11128,8 @@
       "over25Prob": 0.65,
       "prediction": "Oui",
       "proba": 0.65,
-      "confidence": 65
+      "confidence": 65,
+      "status": "PENDING"
     }
   ],
   "analysisEngine": "gemini-stats-v1"

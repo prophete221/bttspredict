@@ -757,7 +757,8 @@
       "over25Prob": 0.58,
       "prediction": "Oui",
       "proba": 0.58,
-      "confidence": 58
+      "confidence": 58,
+      "status": "PENDING"
     },
     {
       "id": "rochdale-vs-yorkcity-2026-11-14",
@@ -1909,7 +1910,8 @@
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "abstain",
+      "status": "PENDING"
     },
     {
       "id": "cdplaten-vs-atletico-2026-11-15",
@@ -2856,7 +2858,8 @@
       "over25Prob": 0.52,
       "prediction": "Oui",
       "proba": 0.52,
-      "confidence": 52
+      "confidence": 52,
+      "status": "PENDING"
     },
     {
       "id": "godoycru-vs-tristnsu-2026-11-15",
@@ -3051,7 +3054,8 @@
       "over25Prob": 0.58,
       "prediction": "Oui",
       "proba": 0.58,
-      "confidence": 58
+      "confidence": 58,
+      "status": "PENDING"
     },
     {
       "id": "incaarub-vs-guila-2026-11-16",
@@ -3240,7 +3244,8 @@
       "bttsProb": 0.65,
       "prediction": "Oui",
       "proba": 0.65,
-      "confidence": 65
+      "confidence": 65,
+      "status": "PENDING"
     },
     {
       "id": "albacete-vs-rcceltaf-2026-11-16",
@@ -3764,7 +3769,8 @@
       "bttsProb": 0.55,
       "prediction": "Oui",
       "proba": 0.55,
-      "confidence": 55
+      "confidence": 55,
+      "status": "PENDING"
     },
     {
       "id": "jordan-vs-australi-2026-11-17",
@@ -3941,7 +3947,8 @@
       "bttsProb": 0.65,
       "prediction": "Oui",
       "proba": 0.65,
-      "confidence": 65
+      "confidence": 65,
+      "status": "PENDING"
     },
     {
       "id": "russia-vs-venezuel-2026-11-17",
@@ -4118,7 +4125,8 @@
       "over25Prob": 0.62,
       "prediction": "Oui",
       "proba": 0.62,
-      "confidence": 62
+      "confidence": 62,
+      "status": "PENDING"
     },
     {
       "id": "saudiara-vs-uzbekist-2026-11-17",
@@ -4295,7 +4303,8 @@
       "over25Prob": 0.7,
       "prediction": "Oui",
       "proba": 0.7,
-      "confidence": 70
+      "confidence": 70,
+      "status": "PENDING"
     },
     {
       "id": "japan-vs-paraguay-2026-11-17",
@@ -4458,7 +4467,8 @@
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "abstain",
+      "status": "PENDING"
     },
     {
       "id": "argentin-vs-costaric-2026-11-17",
@@ -4628,7 +4638,8 @@
       "over25Prob": 0.75,
       "prediction": "Oui",
       "proba": 0.75,
-      "confidence": 75
+      "confidence": 75,
+      "status": "PENDING"
     },
     {
       "id": "ecuador-vs-bolivia-2026-11-17",
@@ -4805,7 +4816,8 @@
       "over25Prob": 0.65,
       "prediction": "Oui",
       "proba": 0.65,
-      "confidence": 65
+      "confidence": 65,
+      "status": "PENDING"
     },
     {
       "id": "bkhcken-vs-manchest-2026-11-18",
@@ -4980,7 +4992,8 @@
       "bttsProb": 0.6,
       "prediction": "Oui",
       "proba": 0.6,
-      "confidence": 60
+      "confidence": 60,
+      "status": "PENDING"
     },
     {
       "id": "realmadr-vs-internaz-2026-11-18",
@@ -5155,7 +5168,8 @@
       "bttsProb": 0.65,
       "prediction": "Oui",
       "proba": 0.65,
-      "confidence": 65
+      "confidence": 65,
+      "status": "PENDING"
     },
     {
       "id": "manchest-vs-everton-2026-11-18",
@@ -5329,7 +5343,8 @@
       "over25Prob": 0.75,
       "prediction": "Oui",
       "proba": 0.75,
-      "confidence": 75
+      "confidence": 75,
+      "status": "PENDING"
     },
     {
       "id": "londonci-vs-brighton-2026-11-18",
@@ -5503,7 +5518,8 @@
       "over25Prob": 0.62,
       "prediction": "Oui",
       "proba": 0.62,
-      "confidence": 62
+      "confidence": 62,
+      "status": "PENDING"
     },
     {
       "id": "juventus-vs-ohleuven-2026-11-18",
@@ -5677,6 +5693,367 @@
       ],
       "over25Prob": 0.65,
       "prediction": "Oui",
+      "proba": 0.65,
+      "confidence": 65,
+      "status": "PENDING"
+    },
+    {
+      "id": "godoycru-vs-tristnsu-2026-11-15",
+      "match": "Godoy Cruz Antonio Tomba vs Tristán Suárez",
+      "home": "Godoy Cruz Antonio Tomba",
+      "away": "Tristán Suárez",
+      "league": "Argentine Nacional B",
+      "date": "2026-11-15",
+      "type": "BTTS",
+      "time": "20:00",
+      "matchSemantic": "godoycru-vs-tristnsu-2026-11-15",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6756.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10163.png",
+      "tier": "GOLD",
+      "reliabilityScore": 76.25,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 3,
+      "xgAway": 0.5,
+      "xgTotal": 3.5,
+      "formBTTS": 40,
+      "analysis": "Godoy Cruz Antonio Tomba : forme V-V-V-N-V (4V 1N 0D, 13 buts marqués / 5 encaissés sur 5) · Tristán Suárez : forme N-N-V-N-N (1V 4N 0D, 2 buts marqués / 1 encaissés sur 5). Classement : Godoy Cruz Antonio Tomba 1e (66 pts), Tristán Suárez 1e (64 pts). Stats empiriques (forme récente) : buts moy. 3.5, BTTS 40.0%, Over 2.5 40.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.15 / N: 2.75 / 2: 3.75. Fiabilité 76.25%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.4,
+        "empiricalOver25Rate": 0.4,
+        "homeLambda": 3,
+        "awayLambda": 0.5,
+        "xgTotal": 3.5
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.15,
+        "draw": 2.75,
+        "away": 3.75,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "V-V-V-N-V",
+        "wins": 4,
+        "draws": 1,
+        "losses": 0,
+        "goalsFor": 13,
+        "goalsAgainst": 5,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 2,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-N-V-N-N",
+        "wins": 1,
+        "draws": 4,
+        "losses": 0,
+        "goalsFor": 2,
+        "goalsAgainst": 1,
+        "bttsRate": 0.2,
+        "over25Rate": 0,
+        "cleanSheets": 4,
+        "failedToScore": 3,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-31",
+          "opponent": "Almirante Brown",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Mitre (Santiago del Estero)",
+          "venue": "A",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Estudiantes (Buenos Aires)",
+          "venue": "H",
+          "score": "6-3",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-12",
+          "opponent": "All Boys",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-04",
+          "opponent": "Los Andes",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-31",
+          "opponent": "Deportivo Maipú",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Almagro",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Patronato",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Colegiales",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-03",
+          "opponent": "Quilmes",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 1,
+        "points": 66,
+        "played": 36,
+        "gf": 53,
+        "ga": 33
+      },
+      "standingsAway": {
+        "rank": 1,
+        "points": 64,
+        "played": 36,
+        "gf": 34,
+        "ga": 16
+      },
+      "empiricalBttsRate": 0.4,
+      "empiricalOver25Rate": 0.4,
+      "homeLambda": 3,
+      "awayLambda": 0.5,
+      "statsOnly": true,
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "Tristán Suárez ne présente que 0% d'Over 2.5 sur ses 5 derniers matchs et 1 seul but encaissé.",
+      "ai_analysis": "Malgré la forte attaque de Godoy Cruz (3 buts de moyenne à domicile), la défense de Tristán Suárez et ses statistiques récentes (0% d'Over 2.5, 1 seul but encaissé en 5 matchs) créent un profil trop déséquilibré. Les taux empiriques étant sous les seuils, l'abstention est de mise.",
+      "ai_analysis_en": "Despite Godoy Cruz's strong attack (average of 3 goals at home), Tristán Suárez's defense and recent stats (0% Over 2.5, only 1 goal conceded in 5 games) create an overly unbalanced profile. With empirical rates below thresholds, abstention is recommended.",
+      "ai_form_summary": "Godoy Cruz (4W-1D-0L, 13-5 buts) vs Tristán Suárez (1W-4D-0L, 2-1 buts)",
+      "ai_form_summary_en": "Godoy Cruz (4W-1D-0L, 13-5 goals) vs Tristán Suárez (1W-4D-0L, 2-1 goals)",
+      "ai_reasons": [
+        "Tristán Suárez affiche un taux d'Over 2.5 récent de 0% et une moyenne de 0.5 buts à l'extérieur",
+        "Taux empiriques BTTS (40%) et Over 2.5 (40%) tous deux inférieurs au seuil de sécurité",
+        "Profil très défensif de l'équipe visiteuse en dépit de la bonne attaque de Godoy Cruz"
+      ],
+      "ai_risks": [
+        "Tristán Suárez n'a concédé que 1 seul but lors de ses 5 derniers matchs",
+        "La rigueur défensive adverse risque de bloquer le marché des buts"
+      ],
+      "ai_confidence": "low",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "abstain",
+      "status": "PENDING"
+    },
+    {
+      "id": "japan-vs-paraguay-2026-11-17",
+      "match": "Japan vs Paraguay",
+      "home": "Japan",
+      "away": "Paraguay",
+      "league": "International Friendly",
+      "date": "2026-11-17",
+      "type": "BTTS",
+      "time": "13:10",
+      "matchSemantic": "japan-vs-paraguay-2026-11-17",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/jpn.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/par.png",
+      "tier": "SILVER",
+      "reliabilityScore": 62.88,
+      "dataQuality": "MEDIUM",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 5,
+      "matchCountAway": 5,
+      "h2hAvailable": false,
+      "xgHome": 2,
+      "xgAway": 1.25,
+      "xgTotal": 3.25,
+      "formBTTS": 30,
+      "analysis": "Japan : forme V-V-V-V-V (5V 0N 0D, 8 buts marqués / 2 encaissés sur 5) · Paraguay : forme V-V-V-D-V (4V 0N 1D, 9 buts marqués / 2 encaissés sur 5). Stats empiriques (forme récente) : buts moy. 3.25, BTTS 30.0%, Over 2.5 40.0%. Affinage AI ensuite. Fiabilité 62.88%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.3,
+        "empiricalOver25Rate": 0.4,
+        "homeLambda": 2,
+        "awayLambda": 1.25,
+        "xgTotal": 3.25
+      },
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "V-V-V-V-V",
+        "wins": 5,
+        "draws": 0,
+        "losses": 0,
+        "goalsFor": 8,
+        "goalsAgainst": 2,
+        "bttsRate": 0.4,
+        "over25Rate": 0.4,
+        "cleanSheets": 3,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-V-D-V",
+        "wins": 4,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 9,
+        "goalsAgainst": 2,
+        "bttsRate": 0.2,
+        "over25Rate": 0.4,
+        "cleanSheets": 4,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-09-28",
+          "opponent": "Venezuela",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-24",
+          "opponent": "Uruguay",
+          "venue": "H",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-05-31",
+          "opponent": "Iceland",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-03-31",
+          "opponent": "England",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-03-28",
+          "opponent": "Scotland",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-03",
+          "opponent": "Colombia",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-27",
+          "opponent": "Bolivia",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-06-05",
+          "opponent": "Nicaragua",
+          "venue": "H",
+          "score": "4-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-03-31",
+          "opponent": "Morocco",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-03-27",
+          "opponent": "Greece",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        }
+      ],
+      "standingsHome": null,
+      "standingsAway": null,
+      "empiricalBttsRate": 0.3,
+      "empiricalOver25Rate": 0.4,
+      "homeLambda": 2,
+      "awayLambda": 1.25,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Le Paraguay enregistre un taux BTTS de seulement 20% avec une excellente solidité défensive.",
+      "ai_analysis": "Les données indiquent une rencontre fermée en termes de buts partagés, le taux BTTS empirique n'étant que de 30%. Le Paraguay ne présente qu'un taux BTTS de 20% sur ses derniers matchs et affiche une défense hermétique avec seulement 2 buts encaissés. La solidité défensive nippone s'accorde avec cette tendance, rendant l'option BTTS Non cohérente.",
+      "ai_analysis_en": "The data indicates a closed match in terms of shared goals, with the empirical BTTS rate at only 30%. Paraguay has a BTTS rate of just 20% in their recent matches and displays a tight defense with only 2 goals conceded. Japanese defensive solidity aligns with this trend, making the BTTS No option consistent.",
+      "ai_form_summary": "Japon : 5V-0N-0L, 8 buts pour, 2 buts contre. Paraguay : 4V-0N-1L, 9 buts pour, 2 buts contre.",
+      "ai_form_summary_en": "Japan: 5W-0D-0L, 8 goals for, 2 goals against. Paraguay: 4W-0D-1L, 9 goals for, 2 goals against.",
+      "ai_reasons": [
+        "Faible taux BTTS empirique estimé à 30% pour cette rencontre.",
+        "Taux BTTS de l'équipe extérieure (Paraguay) particulièrement bas à 20%.",
+        "Faible nombre de buts encaissés par les deux formations sur leurs 5 derniers matchs (2 buts chacun)."
+      ],
+      "ai_risks": [
+        "Moyennes offensives correctes de part et d'autre (2 buts pour le Japon, 1.25 pour le Paraguay).",
+        "Échantillon limité à 5 matchs pour chaque équipe."
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Non",
+          "confidence": 65,
+          "proba": 0.65,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.65
+        }
+      ],
+      "bttsProb": 0.65,
+      "prediction": "Non",
       "proba": 0.65,
       "confidence": 65
     }
@@ -12612,6 +12989,367 @@
       ],
       "over25Prob": 0.65,
       "prediction": "Oui",
+      "proba": 0.65,
+      "confidence": 65,
+      "status": "PENDING"
+    },
+    {
+      "id": "godoycru-vs-tristnsu-2026-11-15",
+      "match": "Godoy Cruz Antonio Tomba vs Tristán Suárez",
+      "home": "Godoy Cruz Antonio Tomba",
+      "away": "Tristán Suárez",
+      "league": "Argentine Nacional B",
+      "date": "2026-11-15",
+      "type": "BTTS",
+      "time": "20:00",
+      "matchSemantic": "godoycru-vs-tristnsu-2026-11-15",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6756.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10163.png",
+      "tier": "GOLD",
+      "reliabilityScore": 76.25,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 3,
+      "xgAway": 0.5,
+      "xgTotal": 3.5,
+      "formBTTS": 40,
+      "analysis": "Godoy Cruz Antonio Tomba : forme V-V-V-N-V (4V 1N 0D, 13 buts marqués / 5 encaissés sur 5) · Tristán Suárez : forme N-N-V-N-N (1V 4N 0D, 2 buts marqués / 1 encaissés sur 5). Classement : Godoy Cruz Antonio Tomba 1e (66 pts), Tristán Suárez 1e (64 pts). Stats empiriques (forme récente) : buts moy. 3.5, BTTS 40.0%, Over 2.5 40.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.15 / N: 2.75 / 2: 3.75. Fiabilité 76.25%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.4,
+        "empiricalOver25Rate": 0.4,
+        "homeLambda": 3,
+        "awayLambda": 0.5,
+        "xgTotal": 3.5
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.15,
+        "draw": 2.75,
+        "away": 3.75,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "V-V-V-N-V",
+        "wins": 4,
+        "draws": 1,
+        "losses": 0,
+        "goalsFor": 13,
+        "goalsAgainst": 5,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 2,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-N-V-N-N",
+        "wins": 1,
+        "draws": 4,
+        "losses": 0,
+        "goalsFor": 2,
+        "goalsAgainst": 1,
+        "bttsRate": 0.2,
+        "over25Rate": 0,
+        "cleanSheets": 4,
+        "failedToScore": 3,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-31",
+          "opponent": "Almirante Brown",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Mitre (Santiago del Estero)",
+          "venue": "A",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Estudiantes (Buenos Aires)",
+          "venue": "H",
+          "score": "6-3",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-12",
+          "opponent": "All Boys",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-04",
+          "opponent": "Los Andes",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-31",
+          "opponent": "Deportivo Maipú",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Almagro",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Patronato",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Colegiales",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-03",
+          "opponent": "Quilmes",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 1,
+        "points": 66,
+        "played": 36,
+        "gf": 53,
+        "ga": 33
+      },
+      "standingsAway": {
+        "rank": 1,
+        "points": 64,
+        "played": 36,
+        "gf": 34,
+        "ga": 16
+      },
+      "empiricalBttsRate": 0.4,
+      "empiricalOver25Rate": 0.4,
+      "homeLambda": 3,
+      "awayLambda": 0.5,
+      "statsOnly": true,
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "Tristán Suárez ne présente que 0% d'Over 2.5 sur ses 5 derniers matchs et 1 seul but encaissé.",
+      "ai_analysis": "Malgré la forte attaque de Godoy Cruz (3 buts de moyenne à domicile), la défense de Tristán Suárez et ses statistiques récentes (0% d'Over 2.5, 1 seul but encaissé en 5 matchs) créent un profil trop déséquilibré. Les taux empiriques étant sous les seuils, l'abstention est de mise.",
+      "ai_analysis_en": "Despite Godoy Cruz's strong attack (average of 3 goals at home), Tristán Suárez's defense and recent stats (0% Over 2.5, only 1 goal conceded in 5 games) create an overly unbalanced profile. With empirical rates below thresholds, abstention is recommended.",
+      "ai_form_summary": "Godoy Cruz (4W-1D-0L, 13-5 buts) vs Tristán Suárez (1W-4D-0L, 2-1 buts)",
+      "ai_form_summary_en": "Godoy Cruz (4W-1D-0L, 13-5 goals) vs Tristán Suárez (1W-4D-0L, 2-1 goals)",
+      "ai_reasons": [
+        "Tristán Suárez affiche un taux d'Over 2.5 récent de 0% et une moyenne de 0.5 buts à l'extérieur",
+        "Taux empiriques BTTS (40%) et Over 2.5 (40%) tous deux inférieurs au seuil de sécurité",
+        "Profil très défensif de l'équipe visiteuse en dépit de la bonne attaque de Godoy Cruz"
+      ],
+      "ai_risks": [
+        "Tristán Suárez n'a concédé que 1 seul but lors de ses 5 derniers matchs",
+        "La rigueur défensive adverse risque de bloquer le marché des buts"
+      ],
+      "ai_confidence": "low",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "abstain",
+      "status": "PENDING"
+    },
+    {
+      "id": "japan-vs-paraguay-2026-11-17",
+      "match": "Japan vs Paraguay",
+      "home": "Japan",
+      "away": "Paraguay",
+      "league": "International Friendly",
+      "date": "2026-11-17",
+      "type": "BTTS",
+      "time": "13:10",
+      "matchSemantic": "japan-vs-paraguay-2026-11-17",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/jpn.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/par.png",
+      "tier": "SILVER",
+      "reliabilityScore": 62.88,
+      "dataQuality": "MEDIUM",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 5,
+      "matchCountAway": 5,
+      "h2hAvailable": false,
+      "xgHome": 2,
+      "xgAway": 1.25,
+      "xgTotal": 3.25,
+      "formBTTS": 30,
+      "analysis": "Japan : forme V-V-V-V-V (5V 0N 0D, 8 buts marqués / 2 encaissés sur 5) · Paraguay : forme V-V-V-D-V (4V 0N 1D, 9 buts marqués / 2 encaissés sur 5). Stats empiriques (forme récente) : buts moy. 3.25, BTTS 30.0%, Over 2.5 40.0%. Affinage AI ensuite. Fiabilité 62.88%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.3,
+        "empiricalOver25Rate": 0.4,
+        "homeLambda": 2,
+        "awayLambda": 1.25,
+        "xgTotal": 3.25
+      },
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "V-V-V-V-V",
+        "wins": 5,
+        "draws": 0,
+        "losses": 0,
+        "goalsFor": 8,
+        "goalsAgainst": 2,
+        "bttsRate": 0.4,
+        "over25Rate": 0.4,
+        "cleanSheets": 3,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-V-D-V",
+        "wins": 4,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 9,
+        "goalsAgainst": 2,
+        "bttsRate": 0.2,
+        "over25Rate": 0.4,
+        "cleanSheets": 4,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-09-28",
+          "opponent": "Venezuela",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-24",
+          "opponent": "Uruguay",
+          "venue": "H",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-05-31",
+          "opponent": "Iceland",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-03-31",
+          "opponent": "England",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-03-28",
+          "opponent": "Scotland",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-03",
+          "opponent": "Colombia",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-27",
+          "opponent": "Bolivia",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-06-05",
+          "opponent": "Nicaragua",
+          "venue": "H",
+          "score": "4-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-03-31",
+          "opponent": "Morocco",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-03-27",
+          "opponent": "Greece",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        }
+      ],
+      "standingsHome": null,
+      "standingsAway": null,
+      "empiricalBttsRate": 0.3,
+      "empiricalOver25Rate": 0.4,
+      "homeLambda": 2,
+      "awayLambda": 1.25,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Le Paraguay enregistre un taux BTTS de seulement 20% avec une excellente solidité défensive.",
+      "ai_analysis": "Les données indiquent une rencontre fermée en termes de buts partagés, le taux BTTS empirique n'étant que de 30%. Le Paraguay ne présente qu'un taux BTTS de 20% sur ses derniers matchs et affiche une défense hermétique avec seulement 2 buts encaissés. La solidité défensive nippone s'accorde avec cette tendance, rendant l'option BTTS Non cohérente.",
+      "ai_analysis_en": "The data indicates a closed match in terms of shared goals, with the empirical BTTS rate at only 30%. Paraguay has a BTTS rate of just 20% in their recent matches and displays a tight defense with only 2 goals conceded. Japanese defensive solidity aligns with this trend, making the BTTS No option consistent.",
+      "ai_form_summary": "Japon : 5V-0N-0L, 8 buts pour, 2 buts contre. Paraguay : 4V-0N-1L, 9 buts pour, 2 buts contre.",
+      "ai_form_summary_en": "Japan: 5W-0D-0L, 8 goals for, 2 goals against. Paraguay: 4W-0D-1L, 9 goals for, 2 goals against.",
+      "ai_reasons": [
+        "Faible taux BTTS empirique estimé à 30% pour cette rencontre.",
+        "Taux BTTS de l'équipe extérieure (Paraguay) particulièrement bas à 20%.",
+        "Faible nombre de buts encaissés par les deux formations sur leurs 5 derniers matchs (2 buts chacun)."
+      ],
+      "ai_risks": [
+        "Moyennes offensives correctes de part et d'autre (2 buts pour le Japon, 1.25 pour le Paraguay).",
+        "Échantillon limité à 5 matchs pour chaque équipe."
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Non",
+          "confidence": 65,
+          "proba": 0.65,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.65
+        }
+      ],
+      "bttsProb": 0.65,
+      "prediction": "Non",
       "proba": 0.65,
       "confidence": 65,
       "status": "PENDING"
