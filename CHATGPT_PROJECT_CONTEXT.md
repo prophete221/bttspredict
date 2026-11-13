@@ -301,3 +301,12 @@ Continue a read-only analytics/authentication funnel audit: verify whether `NEXT
 - Action requise côté propriétaire: GitHub → dépôt `prophete221/bttspredict` → Settings → Secrets and variables → Actions → Variables → New repository variable; Name: `NEXT_PUBLIC_GA_ID`; Value: `G-F705Z3L2HT`.
 - Après création, aucun déploiement automatique ne doit être lancé manuellement sans approbation explicite. La vérification de présence/absence de l'ancienne variable et les tests GA4 Realtime restent à faire après autorisation de déploiement.
 - Aucun code source, workflow, secret, variable Actions ou production modifié dans cette étape.
+
+
+## 19. Variable GitHub Actions ajoutée — confirmation du propriétaire — 2026-11-13
+
+- Le propriétaire confirme avoir ajouté la variable de dépôt GitHub Actions `NEXT_PUBLIC_GA_ID`.
+- Valeur attendue selon l'étape précédente: Measurement ID GA4 `G-F705Z3L2HT`. Cette valeur n'a pas été relue depuis GitHub; la présence, le nom exact, la portée (repository variable) et la valeur restent donc confirmés par déclaration du propriétaire, pas par vérification indépendante.
+- Le workflow `.github/workflows/deploy.yml` avait déjà été relu et transmet `vars.NEXT_PUBLIC_GA_ID` aux étapes de build concernées.
+- Prochaine étape: avant tout déploiement, effectuer une dernière vérification du workflow et obtenir une autorisation explicite du propriétaire. Après un déploiement autorisé, accepter le consentement Analytics sur le site puis vérifier la réception dans GA4 Realtime / Tag Assistant.
+- Aucun workflow n'a été lancé, aucun déploiement, merge, changement de code, secret ou ressource de production n'a été effectué à la suite de cette confirmation.
