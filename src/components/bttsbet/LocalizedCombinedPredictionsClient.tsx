@@ -41,7 +41,7 @@ export default function LocalizedCombinedPredictionsClient() {
   const path = (p: string) => lang === 'fr' ? p : `/${lang}${p}`
 
   return (
-    <div className="min-h-screen bg-[#0B0F14] flex flex-col text-[#F2F6FA]">
+    <div className="page-design page-design--combo min-h-screen bg-[#080D14] flex flex-col text-[#EDF2F7]">
       <Navbar />
       <main id="main-content" className="flex-1" style={{ paddingBottom: 'calc(140px + env(safe-area-inset-bottom, 0px))' }}>
         <section className="max-w-5xl mx-auto px-4 pt-12 pb-6">
