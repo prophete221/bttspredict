@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import AnimatedTitle from '@/components/bttsbet/HeroWordmark'
 
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
@@ -36,14 +35,9 @@ export default function BttsAndOver25Page() {
             style={{ backgroundColor: 'rgba(127, 162, 198, 0.16)', color: '#2F7DFF', border: '1px solid rgba(127, 162, 198, 0.30)' }}>
             BTTS + Over 2.5 · Combined
           </span>
-          <AnimatedTitle
-            as="h1"
-            text="BTTS and Over 2.5 Predictions Today"
-            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4"
-            style={{ fontFamily: 'Poppins, sans-serif' }}
-          />
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 tracking-tight">BTTS and Over 2.5 Predictions Today</h1>
           <p className="text-base sm:text-lg text-[#9DABBB] leading-relaxed mb-3 max-w-3xl mx-auto">
-            Combined predictions where <strong>both teams score</strong> (BTTS) AND <strong>total goals exceed 2.5</strong>. These high-confidence matches meet both criteria simultaneously — the most offensive games of the day.
+            Combined predictions where <strong>both teams score</strong> (BTTS) AND <strong>total goals exceed 2.5</strong>. Each selection must include both a BTTS pick and an Over 2.5 pick.
           </p>
           <p className="text-sm text-[#9DABBB] leading-relaxed max-w-3xl mx-auto">
             Updated 4x daily. Aucun gain n&apos;est garanti. 18+.
@@ -59,7 +53,7 @@ export default function BttsAndOver25Page() {
               <strong>BTTS (Both Teams To Score)</strong> means both teams score at least one goal. <strong>Over 2.5</strong> means at least 3 goals total in the match. When <strong>both conditions are met</strong>, the match ends with a score like 2-1, 1-2, 2-2, 3-1, 1-3, etc.
             </p>
             <p className="text-sm text-[#9DABBB] leading-relaxed mb-3">
-              <strong>Why combine them?</strong> Matches where both BTTS and Over 2.5 hit are the most offensive, high-scoring games. Our statistical model identifies these by checking that both teams have high modeled expected goals (lambda derived from recent real goals) individually, and the total lambda exceeds 2.5.
+              <strong>How the combined market works</strong> Matches where both BTTS and Over 2.5 hit are the most offensive, high-scoring games. Our statistical model identifies these by checking that both teams have high modeled expected goals (lambda derived from recent real goals) individually, and the total lambda exceeds 2.5.
             </p>
             <p className="text-sm text-[#9DABBB] leading-relaxed">
               For the methodology, see our <Link href="/methodologie" className="text-[#2F7DFF] underline">methodology page</Link>.
@@ -68,10 +62,10 @@ export default function BttsAndOver25Page() {
         </section>
 
         <section className="max-w-5xl mx-auto px-4 pb-12">
-          <FreePredictions />
+          <FreePredictions marketFilter="combined" />
         </section>
 
-        {/* Quick Links — internal linking */}
+        {/* Other analysis pages — internal linking */}
         <section className="max-w-3xl mx-auto px-4 pb-12">
           <h2 className="text-2xl font-bold mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>
             Quick Links
@@ -89,7 +83,7 @@ export default function BttsAndOver25Page() {
             </Link>
             <Link href="/ai-correct-score-predictions" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2F7DFF]"
               style={{ backgroundColor: '#141C25', border: '1px solid #6B7A8C' }}>
-              <div className="text-sm font-bold text-[#F2F6FA]">AI Correct Score Predictions →</div>
+              <div className="text-sm font-bold text-[#F2F6FA]">Correct Score Estimates →</div>
               <div className="text-xs text-[#9DABBB] mt-1">Exact score probabilities</div>
             </Link>
             <Link href="/resultats-verifies" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2F7DFF]"
