@@ -97,7 +97,6 @@ export default function PromoLandingShell(p: PromoLandingProps) {
       lang={p.lang}
       dir={p.lang === 'ar' ? 'rtl' : 'ltr'}
       className={`promo-shell promo-shell--editorial promo-shell--${p.bookmakerId}`}
-      style={{ '--promo-accent': p.accent } as React.CSSProperties}
     >
       <main className="promo-editorial">
         <header className="promo-editorial__header">
