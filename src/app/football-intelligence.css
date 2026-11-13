@@ -2684,3 +2684,71 @@ body { color: var(--fi-text); }
   [data-888starz-promo] > section:first-of-type { border-radius:9px !important; }
   [data-888starz-promo] h1 { font-size:34px !important; }
 }
+
+
+/* Public data pages: history, verified results, statistics, competitions and match analysis. */
+.rv-card, .rv-market, .rv-empty-note, .rv-table-wrap,
+.competition-match-card, .match-dashboard-panel,
+.match-analysis-page .match-dash__kpi,
+.match-analysis-page [class*="rounded-2xl"][class*="border"],
+.match-analysis-page [class*="rounded-xl"][class*="border"] {
+  border-color: var(--fi-line) !important;
+  border-radius: 10px !important;
+  background: #101823 !important;
+  box-shadow: none !important;
+}
+.rv-card { padding:18px !important; }
+.rv-card__eyebrow, .rv-market__label { color:#8fa1b5 !important; }
+.rv-card__value, .rv-market__rate { color:#edf2f7 !important; font-weight:750 !important; }
+.rv-section__title { color:#edf2f7 !important; font-size:17px !important; font-weight:720 !important; letter-spacing:-.02em; }
+.rv-market__track { height:5px !important; border-radius:99px !important; background:#243246 !important; }
+.rv-market__bar-ghost { border-radius:99px !important; }
+.rv-table-wrap { overflow-x:auto; }
+.rv-table { width:100%; border-collapse:collapse; }
+.rv-table thead { background:#131e2b !important; }
+.rv-table th { color:#a7b6c8 !important; font-size:10px !important; letter-spacing:.06em; }
+.rv-table td, .rv-table th { border-color:var(--fi-line) !important; }
+.rv-table tbody tr:hover { background:#152235 !important; }
+.rv-badge, .rv-gold-flag, .rv-sample-flag { border-radius:5px !important; box-shadow:none !important; }
+.competition-match-card { padding:16px !important; }
+.competition-match-card:hover { border-color:rgba(75,141,248,.55) !important; background:#142033 !important; }
+.match-analysis-page { background:#080d14 !important; }
+.match-analysis-page > main { max-width:1320px !important; margin-inline:auto !important; }
+.match-analysis-page .match-dash__head,
+.match-analysis-page .match-dashboard-panel { border-color:var(--fi-line) !important; background:#101823 !important; box-shadow:none !important; }
+.match-analysis-page .match-dash__title { color:#edf2f7 !important; font-size:clamp(22px,3vw,32px) !important; letter-spacing:-.04em !important; }
+.match-analysis-page .match-dash__eyebrow,
+.match-analysis-page .match-dash__source { color:#8fa1b5 !important; }
+.match-analysis-page .match-dash__kpi { border:1px solid var(--fi-line) !important; background:#0d151f !important; }
+.match-analysis-page .match-dashboard-panel__summary { border-bottom:1px solid var(--fi-line) !important; }
+.match-analysis-page [class*="bg-[#141C25]"],
+.match-analysis-page [class*="bg-[#10161D]"] { background:#101823 !important; }
+.page-design main > .max-w-5xl,
+.page-design main > .max-w-6xl,
+.min-h-screen > main > .max-w-5xl,
+.min-h-screen > main > .max-w-4xl {
+  color:var(--fi-text);
+}
+.page-design main [class*="rounded-2xl"][class*="border"],
+.page-design main [class*="rounded-xl"][class*="border"],
+.min-h-screen > main [class*="rounded-2xl"][class*="border"],
+.min-h-screen > main [class*="rounded-xl"][class*="border"] {
+  border-color:var(--fi-line) !important;
+  background:#101823 !important;
+  box-shadow:none !important;
+}
+.page-design main table, .min-h-screen > main table { border-collapse:collapse; }
+.page-design main th, .page-design main td,
+.min-h-screen > main th, .min-h-screen > main td { border-color:var(--fi-line) !important; }
+.page-design main h1, .page-design main h2, .page-design main h3,
+.min-h-screen > main h1, .min-h-screen > main h2, .min-h-screen > main h3 {
+  color:#edf2f7;
+  letter-spacing:-.025em;
+}
+.page-design main p, .min-h-screen > main p { line-height:1.7; }
+@media (max-width:640px) {
+  .rv-grid { grid-template-columns:1fr !important; }
+  .rv-table { min-width:720px; }
+  .competition-match-card { padding:13px !important; }
+  .match-analysis-page > main { padding-inline:12px !important; }
+}
