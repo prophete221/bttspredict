@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Navbar, Footer, FreePredictions } from '@/components/bttsbet'
 import Link from 'next/link'
-import AnimatedTitle from '@/components/bttsbet/HeroWordmark'
 
 const PAGE_URL = 'https://bttspredict.com/btts/statistics'
 const DESCRIPTION = "Découvrez les ligues suivies par BTTSPredict pour le marché BTTS. Aucun taux par ligue n’est publié sans résultats historiques et méthode de calcul vérifiables."
@@ -56,7 +55,7 @@ const faqJsonLd = {
 
 export default function BTTSStatisticsPage() {
   return (
-    <div className="min-h-screen bg-[#0B0F14] flex flex-col text-[#F2F6FA]">
+    <div className="page-design page-design--statistics min-h-screen bg-[#080D14] flex flex-col text-[#EDF2F7]">
       <Navbar />
       <main id="main-content" className="flex-1">
         <article className="max-w-4xl mx-auto px-4 py-12 sm:py-16">
@@ -72,12 +71,7 @@ export default function BTTSStatisticsPage() {
           >
             BTTS · Compétitions suivies
           </span>
-          <AnimatedTitle
-            as="h1"
-            text="Statistiques BTTS par ligue"
-            className="text-3xl sm:text-4xl font-bold mb-4"
-            style={{ fontFamily: 'Poppins, sans-serif' }}
-          />
+          <h1 className="text-3xl sm:text-4xl font-bold mb-4 tracking-tight">Statistiques BTTS par ligue</h1>
           <p className="text-base text-[#9DABBB] leading-relaxed mb-8">
             Cette page présente les ligues suivies par BTTSPredict pour le marché BTTS (Both Teams To Score). Elle décrit le périmètre couvert ; elle ne constitue pas un classement des ligues et ne publie pas de taux non vérifiés.
           </p>
