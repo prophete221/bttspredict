@@ -3,6 +3,7 @@
 import { AFFILIATE } from '@/lib/constants'
 import { useLanguage } from './LanguageSwitcher'
 import Navbar from './Navbar'
+import Footer from './Footer'
 import PromoLandingShell from './PromoLandingShell'
 import { getPromoFaq, type PromoBookmakerId } from '@/lib/promo-faq'
 import Star888PromoClient from './Star888PromoClient'
@@ -207,6 +208,7 @@ export default function LocalizedPromoClient({
       <>
         <Navbar />
         <Star888PromoClient lang={langKey} showDownload variant="main" />
+        <Footer />
       </>
     )
   }
@@ -241,6 +243,7 @@ export default function LocalizedPromoClient({
         faq={faq}
         crossLinks={crossLinks}
       />
+      <Footer />
     </>
   )
 }
