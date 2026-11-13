@@ -2539,3 +2539,18 @@
   .vipx-plans-grid { grid-template-columns: minmax(0, 1fr); gap: 10px; }
   .vipx-plan-card { padding: 15px; }
 }
+
+
+.vipx .vipx-member {
+  border-color: rgba(232, 201, 122, .3) !important;
+  background:
+    linear-gradient(145deg, rgba(232, 201, 122, .16), rgba(232, 201, 122, .025) 38%),
+    linear-gradient(160deg, #171B24, #0C121C 72%) !important;
+}
+.vipx .vipx-member__crown {
+  color: #17130A !important;
+  background: linear-gradient(135deg, #F4DFA6, #C9A24B) !important;
+}
+.vipx .vipx-member__chip { background: linear-gradient(135deg, #F4DFA6, #C9A24B) !important; }
+.vipx .vipx-member__verified,
+.vipx .vipx-member__stars { color: #E8C97A !important; }
