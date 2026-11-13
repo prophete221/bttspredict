@@ -334,3 +334,15 @@ Continue a read-only analytics/authentication funnel audit: verify whether `NEXT
 - Validation après commit : fichier relu sur la branche et deux changements attendus confirmés. Contrôles GitHub Actions pas encore apparus au moment du relevé ; statut Vercel en attente.
 - Aucun merge, aucun déploiement en production, aucune modification de `main`.
 - Prochaine étape : attendre les contrôles du commit, corriger toute erreur de lint/typecheck/test, puis poursuivre la vérification GA4 et le déploiement code-only seulement lorsque les contrôles sont verts.
+
+## 22. CI: build de production ajouté à tous les contrôles PR — 2026-11-13 (UTC)
+
+- Relecture du workflow réel `.github/workflows/deploy.yml` et comparaison avec les exécutions récentes.
+- Constat : le job `pull-request-checks` exécutait tests Python/Node, lint et typecheck, mais l'étape `Build static export` était conditionnée à une branche de données publique très spécifique (`work/public-upcoming-picks-20261109`). La plupart des PR ne validaient donc pas le build Next.js de production.
+- Correction sur la branche de travail : retrait de cette condition uniquement pour l'étape `Build static export`. Chaque PR doit maintenant compiler le site avec le même build `npm run build -- --webpack` et transmettre `vars.NEXT_PUBLIC_GA_ID`.
+- Les étapes de collecte, enrichissement Gemini et validation de données restent conditionnées à la branche dédiée; elles ne sont pas rendues générales. Le déploiement reste interdit depuis une branche PR.
+- Commit : `35432dc1d5cbf19b90b436830c4182e905d9fd04`.
+- Vérification de l'historique Actions : les jobs de production sur `main` ont démarré normalement avec runners GitHub valides (ex. run #1156, runner ID 1000002732). Les jobs PR #1153 à #1157 échouent en 1–2 secondes avec `runner_id=0`, aucun runner et aucune étape. Cela isole le problème aux exécutions pull_request / attribution de runner, mais ne permet pas d'identifier la cause de configuration exacte depuis les APIs disponibles.
+- Vercel pour le commit précédent est maintenant `success`; le nouveau commit doit recevoir son propre contrôle.
+- Aucun merge, aucun déploiement de production, aucun changement de `main`, aucune modification des données publiques/privées ou de Cloudflare.
+- Prochaine étape : vérifier le statut du nouveau commit et le comportement du runner PR; demander au propriétaire de vérifier les paramètres Actions si le runner reste non assigné. Ne pas contourner les contrôles ni fusionner tant que le build et les contrôles ne sont pas validés.
