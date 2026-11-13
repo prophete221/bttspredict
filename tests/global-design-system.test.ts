@@ -49,3 +49,11 @@ describe('Legacy theme override protection', () => {
     expect(finalTheme).not.toContain('color-scheme: light !important')
   })
 })
+
+describe('Partner navigation state', () => {
+  it('marks the current partner guide in both navigation renderings', () => {
+    const navigation = readFileSync(resolve(ROOT, 'src/components/bttsbet/Navbar.tsx'), 'utf8')
+
+    expect(navigation).toContain("aria-current={isActive(partnerRoutes[id]) ? 'page' : undefined}")
+  })
+})
