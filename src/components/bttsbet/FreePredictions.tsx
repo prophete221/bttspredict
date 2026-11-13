@@ -252,7 +252,7 @@ function TeamLogo({ src, name, size = 48 }: { src?: string; name: string; size?:
 }
 
 // ─── PredictionCard ──────────────────────────────────────────────────────
-function PredictionCard({ match, initialLocale }: { match: MatchData; initialLocale?: Locale }) {
+function PredictionCard({ match, initialLocale, marketFilter }: { match: MatchData; initialLocale?: Locale; marketFilter: 'all' | 'btts' | 'over25' | 'combined' }) {
   const [expanded, setExpanded] = useState(false)
   const { lang: detectedLang } = useLanguage()
   const lang = initialLocale ?? detectedLang
@@ -498,7 +498,7 @@ function PredictionCard({ match, initialLocale }: { match: MatchData; initialLoc
               if (opening) {
                 trackAffiliateAction('platform', 'prediction_view', `card-expand:${window.location.pathname}`, {
                   match: match.match,
-                  market: 'BTTS',
+                  market: marketFilter === 'over25' ? 'Over 2.5' : marketFilter === 'combined' ? 'BTTS + Over 2.5' : 'BTTS',
                   lang,
                 })
               }
@@ -651,7 +651,7 @@ export default function FreePredictions({ initialLocale, dayOffset = 0, marketFi
         ) : (
           <div className="grid gap-3 md:gap-4 md:grid-cols-2">
             {visibleMatches.map((m) => (
-              <PredictionCard key={`${m.match}-${m.date}-${m.time}`} match={m} initialLocale={lang} />
+              <PredictionCard key={`${m.match}-${m.date}-${m.time}`} match={m} initialLocale={lang} marketFilter={marketFilter} />
             ))}
           </div>
         )}
