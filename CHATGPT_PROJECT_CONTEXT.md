@@ -225,3 +225,20 @@ Continue with a read-only source and workflow audit first. Prioritize understand
 ### Current safe next step
 
 Continue a read-only analytics/authentication funnel audit: verify whether `NEXT_PUBLIC_GA_ID` is configured without exposing any secret values, inspect cookie-consent behavior and signup route/event instrumentation, then identify the correct Google account/property owner for GA4. Do not change code, tracking configuration, SEO metadata, or production until the evidence identifies a minimal fix and the owner approves it.
+
+
+## 13. Analytics and signup audit — 2026-11-13 (UTC, current pass)
+
+- Re-verified `package.json` on `main` and `chatgpt/project-takeover-2026-11-13`: identical blob SHA `db50e41214caddf1a1067998694b9b8b842baa77`. The working branch remains a documentation-only branch relative to the application source; no production code changes were made.
+- Read current `src/components/bttsbet/AnalyticsLoader.tsx`. GA4 is loaded only when `NEXT_PUBLIC_GA_ID` is present at build time, the build is production, and localStorage key `bttsbet_cookie_consent` contains `preferences.analytics === true`. Otherwise the GA disable flag is set. No measurement ID was exposed.
+- Read current `CookieConsent.tsx`. First-time visitors are shown a consent panel; Accept enables analytics and advertising, Refuse disables both, and custom preferences are persisted. It dispatches `cookie-consent-changed`, which AnalyticsLoader listens for.
+- Read current `src/app/layout.tsx`: it renders AnalyticsLoader and CookieConsent globally. Root metadata and SEO configuration were not changed.
+- Read current `src/contexts/AuthContext.jsx`. It defines Firebase email/password registration, login, Google login, password reset, and Firestore profile creation. Firebase configuration is sourced from `VITE_FIREBASE_*` build environment variables. No secret/config values were requested or exposed.
+- Important unresolved integration concern: neither the root layout nor `src/app/[locale]/layout.tsx` wraps children in `AuthProvider`. GitHub code search returned no indexed results for `AuthProvider` / `useAuth`; component and route directory listings did not reveal obvious login/register/signup routes. This is a strong indication the Firebase context may be orphaned, but a complete repository-wide reference scan is still required before concluding.
+- The GitHub connector does not expose a safe read operation for repository Actions variables in the current tool set. Therefore presence of `NEXT_PUBLIC_GA_ID` and the `VITE_FIREBASE_*` variables remains unverified. Never read secret values; only check whether names are configured.
+- No source code, workflow, environment variable, Cloudflare resource, production data, DNS, or secret was changed. No workflow was dispatched; no merge or deployment occurred.
+
+### Next audit steps
+1. Complete repository-wide reference scan for `AuthProvider` / `useAuth` and locate any hidden or legacy signup UI.
+2. Ask the owner to confirm in GitHub Settings whether the non-secret Actions variable `NEXT_PUBLIC_GA_ID` is present, without sharing its value in chat. Confirm required Firebase environment variable names are configured in the build environment, without exposing values.
+3. If auth is genuinely unwired, map the smallest safe route/provider integration proposal; do not implement until existing UI and intended registration flow are understood.
