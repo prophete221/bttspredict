@@ -1,13 +1,10 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useScrollAnimation } from '@/hooks/useAnimations'
 import { useLanguage } from './LanguageSwitcher'
 import { translationsFor, type Locale, localizedPath } from '@/lib/i18n'
 import { generateMatchSlug } from '@/lib/match-slug'
 import { matchMetricLabels } from '@/lib/matchMetricLabels'
-import AnimatedTitle from './HeroWordmark'
-import MovingGradientButton from './MovingGradientButton'
 import BookmakerCardLinks from './BookmakerCardLinks'
 import { getDakarDayDiff, hasDakarKickoffPassed } from '@/lib/dakar-date'
 
@@ -31,12 +28,6 @@ import { getDakarDayDiff, hasDakarKickoffPassed } from '@/lib/dakar-date'
  * téléchargés depuis la même source ESPN que les logos d'équipes des matchs.
  * Purement décoratif : aucun club n'endosse ce site.
  */
-const CLUB_LOGOS = [
-  'real-madrid', 'barcelona', 'manchester-united', 'liverpool', 'bayern',
-  'psg', 'chelsea', 'manchester-city', 'arsenal', 'juventus', 'ac-milan',
-  'inter', 'dortmund', 'atletico', 'tottenham',
-] as const
-
 interface MarketPick {
   type: string
   prediction: string
@@ -97,7 +88,6 @@ function accentOf(text: string) {
 }
 
 export default function Hero({ initialLocale }: { initialLocale?: Locale } = {}) {
-  const [sectionRef] = useScrollAnimation(0.05)
   const { lang: detectedLang } = useLanguage()
   const lang = initialLocale ?? detectedLang
   const t = translationsFor(lang)
@@ -155,12 +145,7 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
   ]
 
   return (
-    <section ref={sectionRef} className="hp-hero hp-hero--refonte relative overflow-hidden">
-      {/* Ambiance : halos lumineux + grille fine (décoratif) */}
-      <div className="hp-hero__glow hp-hero__glow--a" aria-hidden="true" />
-      <div className="hp-hero__glow hp-hero__glow--b" aria-hidden="true" />
-      <div className="hp-hero__gridbg" aria-hidden="true" />
-
+    <section className="hp-hero hp-hero--refonte">
       <div className="hp-hero__inner relative z-10 mx-auto max-w-[1280px] px-4 sm:px-6">
         <div className="hp-hero__grid">
           {/* ═══ Colonne message ═══ */}
@@ -200,10 +185,9 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
             <p className="hp-hero__text">{t.home2.heroText}</p>
 
             <div className="hp-hero__cta-zone">
-              <MovingGradientButton href="#matchs" dataCta="hero-open-matchs">
-                {t.home2.heroCtaPrimary}
-                <span className="hp-btn-arrow" aria-hidden="true">→</span>
-              </MovingGradientButton>
+              <a href="#matchs" data-cta="hero-open-matchs" className="hp-cta-primary">
+                {t.home2.heroCtaPrimary}<span aria-hidden="true">→</span>
+              </a>
               <a href={localizedPath('/historique', lang)} data-cta="hero-history" className="hp-btn-ghost">
                 {t.home2.heroCtaSecondary}
               </a>
@@ -237,8 +221,7 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
 
           {/* ═══ Carte « Signal en vedette » — vraies données du flux ═══ */}
           <aside className="hp-live-zone" aria-label={t.home2.heroLiveEyebrow}>
-            <div className="hp-live-halo" aria-hidden="true" />
-            <article className="hp-live">
+                        <article className="hp-live">
               <div className="hp-live__lab-scene" aria-hidden="true">
                 <img
                   src="/hero-matchday-analytics.webp"
