@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { getDakarDateString } from '@/lib/dakar-date'
-import AnimatedTitle from '@/components/bttsbet/HeroWordmark'
 import VipButtons from '@/components/bttsbet/VipButtons'
 
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
@@ -63,12 +62,7 @@ export default function Over25PredictionsTodayPage() {
                 Aujourd&apos;hui · {dakarDateLabel}
               </span>
             </div>
-            <AnimatedTitle
-              as="h1"
-              text="Pronostics Over 2.5 du jour"
-              className="over25-title text-3xl sm:text-4xl md:text-5xl font-bold mb-3"
-              style={{ fontFamily: 'Poppins, sans-serif' }}
-            />
+            <h1 className="over25-title text-3xl sm:text-4xl md:text-5xl font-bold mb-3 tracking-tight">Pronostics Over 2,5 du jour</h1>
             <p className="over25-intro text-base sm:text-lg text-[#9DABBB] leading-relaxed max-w-3xl">
               Les matchs sélectionnés aujourd&apos;hui selon la probabilité d&apos;au moins 3 buts.
             </p>
@@ -88,13 +82,13 @@ export default function Over25PredictionsTodayPage() {
         </section>
 
         <section id="over25-dashboard" aria-label="Pronostics Over 2.5 du jour" className="over25-results-section max-w-5xl mx-auto px-4 pb-10 scroll-mt-6">
-          <FreePredictions />
+          <FreePredictions marketFilter="over25" />
         </section>
 
         <section className="over25-info-section max-w-3xl mx-auto px-4 pb-10">
           <div className="over25-info-card rounded-xl p-5" style={{ backgroundColor: '#141C25', border: '1px solid #6B7A8C' }}>
             <h2 className="text-lg font-bold mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>
-              Comprendre Over 2.5 en 30 secondes
+              Règle du marché Over 2,5
             </h2>
             <p className="text-sm text-[#9DABBB] leading-relaxed mb-3">
               <strong>Over 2.5</strong> est validé si le match produit au moins 3 buts, quel que soit le vainqueur : 2-1, 3-0, 1-2 et 4-1 sont gagnants ; 0-0, 1-0, 1-1 et 2-0 ne le sont pas.
@@ -107,24 +101,24 @@ export default function Over25PredictionsTodayPage() {
 
         <section className="over25-related-section max-w-3xl mx-auto px-4 pb-12">
           <h2 className="text-2xl font-bold mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>
-            Quick Links
+            Autres analyses
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <Link href="/btts/predictions/today" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2F7DFF]" style={{ backgroundColor: '#141C25', border: '1px solid #6B7A8C' }}>
-              <div className="text-sm font-bold text-[#F2F6FA]">BTTS Predictions Today →</div>
-              <div className="text-xs text-[#9DABBB] mt-1">Both teams to score</div>
+              <div className="text-sm font-bold text-[#F2F6FA]">Pronostics BTTS du jour →</div>
+              <div className="text-xs text-[#9DABBB] mt-1">Les deux équipes marquent</div>
             </Link>
             <Link href="/btts-and-over-2-5-predictions-today" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2F7DFF]" style={{ backgroundColor: '#141C25', border: '1px solid #6B7A8C' }}>
-              <div className="text-sm font-bold text-[#F2F6FA]">BTTS + Over 2.5 Combined →</div>
-              <div className="text-xs text-[#9DABBB] mt-1">Both conditions met</div>
+              <div className="text-sm font-bold text-[#F2F6FA]">BTTS + Over 2,5 →</div>
+              <div className="text-xs text-[#9DABBB] mt-1">Les deux marchés réunis</div>
             </Link>
             <Link href="/ai-correct-score-predictions" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2F7DFF]" style={{ backgroundColor: '#141C25', border: '1px solid #6B7A8C' }}>
-              <div className="text-sm font-bold text-[#F2F6FA]">AI Correct Score →</div>
-              <div className="text-xs text-[#9DABBB] mt-1">Exact score probabilities</div>
+              <div className="text-sm font-bold text-[#F2F6FA]">Score exact →</div>
+              <div className="text-xs text-[#9DABBB] mt-1">Estimations de scores</div>
             </Link>
             <Link href="/over-2-5/statistics" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2F7DFF]" style={{ backgroundColor: '#141C25', border: '1px solid #6B7A8C' }}>
-              <div className="text-sm font-bold text-[#F2F6FA]">Over 2.5 Statistics →</div>
-              <div className="text-xs text-[#9DABBB] mt-1">League stats</div>
+              <div className="text-sm font-bold text-[#F2F6FA]">Statistiques Over 2,5 →</div>
+              <div className="text-xs text-[#9DABBB] mt-1">Données par compétition</div>
             </Link>
           </div>
         </section>
