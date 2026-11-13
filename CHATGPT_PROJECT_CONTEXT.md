@@ -322,3 +322,14 @@ Continue a read-only analytics/authentication funnel audit: verify whether `NEXT
 - Le statut Vercel du commit de tête était encore `pending` au dernier contrôle. La PR était ouverte et signalée mergeable par GitHub, mais les contrôles n'étaient pas validés.
 - Décision de sécurité: ne pas fusionner et ne pas déployer tant que l'échec des contrôles GitHub et le statut Vercel ne sont pas clarifiés. Aucun workflow de déploiement, FTP, mise à jour de pronostics, synchronisation VIP, merge, changement SEO, modification de code source ou changement Cloudflare n'a été effectué.
 - Étape suivante: examiner le run #1153 dans GitHub Actions et le contrôle Vercel de la PR #127; déterminer pourquoi le job échoue avant la première étape et pourquoi Vercel reste en attente. Une fois les contrôles validés, fusionner en squash avec un titre de commit contenant `[code-only]`, puis surveiller le déploiement et vérifier GA4 Realtime après consentement analytique.
+
+## 21. Première correction du consentement GA4 — 2026-11-13
+
+- Commit de correction : `5fd8049381b23d1c131f89d944664056f2985c2a`.
+- Fichier modifié : `src/components/bttsbet/CookieConsent.tsx` uniquement.
+- Le panneau de consentement restaure désormais les préférences déjà enregistrées lorsqu'il s'affiche ou est rouvert pour personnalisation. Avant, l'interface repartait visuellement des valeurs par défaut, ce qui pouvait induire l'utilisateur en erreur sur ses choix enregistrés.
+- Le texte FR/EN/AR précise désormais que les cookies analytiques et publicitaires ne sont activés qu'après accord explicite. L'ancien texte laissait entendre que continuer à naviguer valait acceptation.
+- Le mécanisme GA4 existant reste en opt-in ; aucun GTM, aucun changement d'identifiant, aucune modification SEO.
+- Validation après commit : fichier relu sur la branche et deux changements attendus confirmés. Contrôles GitHub Actions pas encore apparus au moment du relevé ; statut Vercel en attente.
+- Aucun merge, aucun déploiement en production, aucune modification de `main`.
+- Prochaine étape : attendre les contrôles du commit, corriger toute erreur de lint/typecheck/test, puis poursuivre la vérification GA4 et le déploiement code-only seulement lorsque les contrôles sont verts.
