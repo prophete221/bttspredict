@@ -482,3 +482,15 @@ Continue a read-only analytics/authentication funnel audit: verify whether `NEXT
 - Added static test assertions connecting the cookie consent component to the GA4 loader, in addition to the production-only workflow flag checks.
 - No tracking request was sent from this source inspection; event collection remains dependent on successful production deployment and user consent.
 - Commit: `f13a3b563655407b40855bdb2951fc723ac80af6`.
+
+## 36. VIP public-page transition to Discovery / Pro preview — 2026-11-13 (UTC)
+
+- Replaced the public VIP page's lifetime/bookmaker-deposit messaging and four-step bookmaker proof wizard with a three-language Discovery 7-day / VIP Pro plan preview.
+- Removed the old `VipJourneyModal` from the public page; the plan CTA buttons are intentionally disabled until account authentication, D1 entitlements and verified payment are implemented. The page explicitly says no payment is currently accepted and tells visitors not to make bookmaker deposits for BTTSPredict access.
+- Replaced old manual-review CTAs in `VipLockedPicks.tsx` and `VipWinHistory.tsx` with navigation to the new plan section.
+- Removed the old walkthrough video from the public VIP hero because it demonstrated the obsolete bookmaker-deposit process; replaced it with a Discovery / VIP Pro membership-card preview in the approved champagne-gold style.
+- Added responsive plan-card styling and regression assertions preventing lifetime/deposit claims or reintroduction of the old modal/video.
+- Files: `src/app/vip/page.tsx`, `src/app/vip/VipLockedPicks.tsx`, `src/app/vip/VipWinHistory.tsx`, `src/app/vip/vip.css`, `tests/global-design-system.test.ts`.
+- Commits: `7deb82837a7d1fb1f953f1e50eb05336a75134ae`, `edca57765ce4724ed94a9b1a1673114647bab446`, `d0a0a7670c9a3f425083698714a14798849b2eeb`, `730578574380e8d3ee7b5a370e8ead3e2c81e14a`, `84d1c0d0a86f55b54354eefef3aed90f9d690a42`, `1ce59042b5706e8c15a50a3b966c32d93c2832f1`, `dd705ece4b16fa6993475ca6081bdd089c9f4e3a`, `2e226c0f9059c9341ebf1cc15483390a893b3ad8`, `ce4a4717b1d42a1dafc37988fda57595c8e53962`, `e69d469d4dc2813fa75563f5d3d598b4d6f013d6`, `a49370dfd67320b4cc198d6d38952d0316f03653`, `bf2625dd79f35f4449af25a182ec74a1c429cd33`.
+- The legacy Worker routes, D1 tables and modal source file are retained but are no longer imported by the public VIP page; do not delete old request data or deploy the new page until the replacement backend and migration are ready.
+- No account, payment, entitlement or production access has been activated. Price, subscription duration and crypto rail remain unconfigured.
