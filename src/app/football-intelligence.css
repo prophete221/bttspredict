@@ -2622,3 +2622,65 @@ body { color: var(--fi-text); }
 }
 [dir="rtl"] .promo-editorial__fact { text-align:right; }
 [dir="rtl"] .promo-editorial__steps li { text-align:right; }
+
+
+/* Layout corrections for the actual dashboard and match-center roots. */
+.fi-today-dashboard { width:100% !important; max-width:1320px !important; margin-inline:auto !important; padding:28px clamp(14px,2.5vw,30px) 52px !important; }
+.fi-today-dashboard .btx-hero { padding:0 0 18px !important; margin-bottom:18px !important; background:transparent !important; border:0 !important; box-shadow:none !important; }
+.fi-today-dashboard .btx-dashboard-grid { display:grid !important; grid-template-columns:minmax(220px,270px) minmax(0,1fr) !important; gap:16px !important; align-items:start !important; }
+.fi-today-dashboard .btx-dashboard-insights { grid-column:1; grid-row:1; }
+.fi-today-dashboard .btx-dashboard-filters { grid-column:1; grid-row:2; position:sticky; top:82px; }
+.fi-today-dashboard .btx-dashboard-feed { grid-column:2; grid-row:1 / span 2; min-width:0; }
+.fi-today-dashboard .btx-card { overflow:hidden; padding:0 !important; }
+.fi-today-dashboard .btx-card__inner { padding:16px !important; background:transparent !important; }
+.fi-today-dashboard .btx-card__edge { display:none !important; }
+.fi-today-dashboard .btx-card__top { border-bottom:1px solid var(--fi-line); padding-bottom:11px !important; }
+.fi-today-dashboard .btx-teams { padding:17px 0 !important; }
+.fi-today-dashboard .btx-team__name { color:#e8eef5 !important; font-size:13px !important; font-weight:700 !important; }
+.fi-today-dashboard .btx-vs__chip { border:1px solid var(--fi-line) !important; background:#172333 !important; color:#8295aa !important; }
+.fi-today-dashboard .btx-probs { gap:8px !important; }
+.fi-today-dashboard .btx-prob { padding:10px !important; border:1px solid var(--fi-line) !important; border-radius:7px !important; background:#0c141e !important; }
+.fi-today-dashboard .btx-prob__label { color:#91a2b5 !important; font-size:10px !important; }
+.fi-today-dashboard .btx-prob__value { color:#edf2f7 !important; font-size:18px !important; font-weight:750 !important; }
+.fi-today-dashboard .btx-lambdas, .fi-today-dashboard .btx-meta { border-top:1px solid var(--fi-line); padding-top:11px !important; }
+.fi-today-dashboard .btx-ai { border:1px solid var(--fi-line) !important; border-radius:8px !important; background:#0c141e !important; }
+.fi-today-dashboard .btx-actions { border-top:1px solid var(--fi-line); padding-top:12px !important; }
+.fi-today-dashboard .btx-link { border-radius:6px !important; background:#1c4d87 !important; box-shadow:none !important; }
+.hp-mc-grid { display:grid !important; grid-template-columns:repeat(2,minmax(0,1fr)) !important; gap:12px !important; }
+.hp-mc-card { padding:16px !important; transform:none !important; }
+.hp-mc-card.is-revealed, .hp-mc-grid.mc3d .hp-mc-card { opacity:1 !important; transform:none !important; }
+.hp-mc-teams { gap:12px !important; padding:16px 0 !important; }
+.hp-mc-team-name { color:#e8eef5 !important; font-size:13px !important; font-weight:700 !important; }
+.hp-mc-picks { gap:7px !important; }
+.hp-mc-picks > * { border-radius:6px !important; box-shadow:none !important; }
+.hp-mc-data { border-top:1px solid var(--fi-line); padding-top:11px !important; }
+.hp-mc-foot { border-top:1px solid var(--fi-line); padding-top:12px !important; }
+.hp-mc-status__dot { box-shadow:none !important; }
+
+/* 888Starz has its own copy but shares the same visual language as other guides. */
+[data-888starz-promo] { background:#080d14 !important; padding-top:20px !important; }
+[data-888starz-promo] > section:first-of-type { max-width:1160px !important; border:1px solid var(--fi-line-strong) !important; border-radius:12px !important; background:#101925 !important; box-shadow:none !important; }
+[data-888starz-promo] > section:first-of-type > div > div { background:transparent !important; }
+[data-888starz-promo] h1 { color:#f2f6fb !important; font-size:clamp(30px,4.4vw,52px) !important; line-height:1.08 !important; letter-spacing:-.05em !important; }
+[data-888starz-promo] p { color:#a6b4c4; }
+[data-888starz-promo] [data-promo-highlights] > div,
+[data-888starz-promo] [data-promo-steps] > div > div,
+[data-888starz-promo] [data-promo-faq] > div > div { border:1px solid var(--fi-line) !important; border-radius:8px !important; background:#0d1722 !important; box-shadow:none !important; }
+[data-888starz-promo] [data-promo-steps], [data-888starz-promo] [data-promo-faq] { max-width:1160px !important; border:0 !important; border-top:1px solid var(--fi-line) !important; border-radius:0 !important; background:transparent !important; padding:34px 0 !important; }
+[data-888starz-promo] [data-promo-steps] h2, [data-888starz-promo] [data-promo-faq] h2 { color:#edf2f7 !important; font-size:22px !important; }
+[data-888starz-promo] [data-promo-steps] h3, [data-888starz-promo] [data-promo-faq] h3 { color:#e5ecf4 !important; }
+[data-888starz-promo] a { text-decoration:none; }
+[data-888starz-promo] .fixed { bottom:calc(12px + env(safe-area-inset-bottom)) !important; border:1px solid var(--fi-line-strong) !important; border-radius:9px !important; background:rgba(12,19,29,.97) !important; box-shadow:0 12px 36px rgba(0,0,0,.35) !important; }
+@media (max-width:820px) {
+  .fi-today-dashboard .btx-dashboard-grid { grid-template-columns:1fr !important; }
+  .fi-today-dashboard .btx-dashboard-insights, .fi-today-dashboard .btx-dashboard-filters, .fi-today-dashboard .btx-dashboard-feed { grid-column:1; grid-row:auto; }
+  .fi-today-dashboard .btx-dashboard-filters { position:static; }
+  .hp-mc-grid { grid-template-columns:1fr !important; }
+}
+@media (max-width:560px) {
+  .fi-today-dashboard { padding:20px 12px 40px !important; }
+  .fi-today-dashboard .btx-probs { grid-template-columns:repeat(2,minmax(0,1fr)) !important; }
+  .fi-today-dashboard .btx-card__inner { padding:13px !important; }
+  [data-888starz-promo] > section:first-of-type { border-radius:9px !important; }
+  [data-888starz-promo] h1 { font-size:34px !important; }
+}
