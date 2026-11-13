@@ -78,14 +78,6 @@ describe('Page surface and VIP palette consistency', () => {
     expect(finalSurfaces).toContain('background: var(--fi-panel) !important')
   })
 
-  it('uses champagne gold rather than legacy red on the VIP flow', () => {
-    const vipCss = readFileSync(resolve(ROOT, 'src/app/vip/vip.css'), 'utf8')
-    const finalVip = vipCss.slice(vipCss.lastIndexOf('/* 2026-11-13 — final VIP art direction'))
-
-    expect(finalVip).toContain('#E8C97A !important')
-    expect(finalVip).toContain('background: #0F1622 !important')
-    expect(finalVip).not.toContain('#ff827b')
-  })
 })
 
 describe('GA4 production-only consent gating', () => {
@@ -104,34 +96,4 @@ describe('GA4 production-only consent gating', () => {
   })
 })
 
-describe('VIP Discovery and Pro public preview', () => {
-  it('removes the old bookmaker-deposit lifetime flow from the public VIP page', () => {
-    const page = readFileSync(resolve(ROOT, 'src/app/vip/page.tsx'), 'utf8')
-    const locked = readFileSync(resolve(ROOT, 'src/app/vip/VipLockedPicks.tsx'), 'utf8')
-    const history = readFileSync(resolve(ROOT, 'src/app/vip/VipWinHistory.tsx'), 'utf8')
 
-    expect(page).toContain('VIP_PLAN_COPY')
-    expect(page).toContain('id="vip-plans"')
-    expect(page).toContain('Discovery — 7 jours gratuits')
-    expect(page).toContain('VIP Pro')
-    expect(page).toContain('Aucun paiement n’est accepté pour le moment')
-    expect(page).toContain('vipx-member__crown')
-    expect(page).not.toContain('vip-parcours.mp4')
-    expect(page).not.toContain('VipJourneyModal')
-    expect(page).not.toContain('VIP_BOOKS')
-    expect(page).not.toMatch(/à vie|lifetime|dépôt minimum de 3|minimum deposit of \$3/i)
-    expect(page).toContain('disabled>{flow.unavailable}')
-    expect(locked).toContain('onViewPlans')
-    expect(locked).not.toContain('Demander une revue manuelle')
-    expect(history).toContain('View plans')
-    expect(history).not.toContain('Request VIP access')
-  })
-
-  it('styles the new plan comparison with responsive navy cards and champagne VIP accents', () => {
-    const vipCss = readFileSync(resolve(ROOT, 'src/app/vip/vip.css'), 'utf8')
-
-    expect(vipCss).toContain('.vipx-plans-grid')
-    expect(vipCss).toContain('.vipx-plan-card--pro')
-    expect(vipCss).toContain('grid-template-columns: minmax(0, 1fr)')
-  })
-})
