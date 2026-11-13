@@ -39,20 +39,20 @@ describe('Divulgation affiliée sur les pages promotionnelles', () => {
       expect(html).toContain('promo-sticky-copy-linebet')
       expect(html).toContain('promo-sticky-signup-linebet')
       expect(html.slice(disclosureIndex, disclosureIndex + 500)).toContain(lang === 'fr'
-        ? 'Les liens vers l’opérateur sont affiliés ; BTTSPredict peut percevoir une commission si vous les utilisez.'
+        ? 'Cette page contient des liens affiliés. BTTSPredict peut percevoir une commission, sans coût supplémentaire pour vous.'
         : lang === 'en'
-          ? 'Links to the operator are affiliate links; BTTSPredict may receive a commission if you use them.'
-          : 'روابط المشغّل تابعة؛ قد تحصل BTTSPredict على عمولة عند استخدامها.')
+          ? 'This page contains affiliate links. BTTSPredict may receive a commission at no extra cost to you.'
+          : 'تتضمن هذه الصفحة روابط تابعة. قد تحصل BTTSPredict على عمولة دون تكلفة إضافية عليك.')
     }
 
     const source = readFileSync(resolve(ROOT, 'src/components/bttsbet/PromoLandingShell.tsx'), 'utf8')
     expect(source).toContain('data-affiliate-disclosure')
     expect(source).toContain('{L.affiliateDisclosure}')
-    expect(source).toContain('Links to the operator are affiliate links')
-    expect(source).toContain('Les liens vers l’opérateur sont affiliés')
-    expect(source).toContain('روابط المشغّل تابعة')
+    expect(source).toContain('This page contains affiliate links')
+    expect(source).toContain('Cette page contient des liens affiliés')
+    expect(source).toContain('تتضمن هذه الصفحة روابط تابعة')
     const localized = readFileSync(resolve(ROOT, 'src/components/bttsbet/LocalizedPromoClient.tsx'), 'utf8')
-    expect(localized).toContain('Linebet promo code VISION221 works worldwide.')
+    expect(localized).toContain('Enter VISION221 when registering with Linebet.')
     expect(localized).not.toContain('country availability has not been verified')
   })
 
