@@ -518,3 +518,39 @@ Continue a read-only analytics/authentication funnel audit: verify whether `NEXT
 - The new VIP preview does not activate any account or entitlement. Old Worker endpoints, D1 request data and the orphaned modal source remain retained for historical compatibility until the replacement backend migration is ready.
 - PR workflow run `43520868377` failed in `pull-request-checks`; rerunning the failed job was accepted but the latest poll still showed failure. Job step summaries were empty and the log download returned BlobNotFound, so the failing step/root cause is still unknown.
 - Vercel preview was pending at the last status poll. No visual preview has been inspected, no tests/build have been confirmed green, and no production deployment or merge has occurred.
+
+
+## 38. Reprise du chantier refonte publique — 2026-11-13 (UTC, 23:31)
+
+### Portée et état réel
+- La PR #128 reste ouverte en brouillon, base `main`, head `feat/complete-art-direction-promo-vip-2026-11-13`.
+- Dernier head confirmé : `cfcc720ff8489446dedf8b26cbfff7fb22a2278d`; 171 commits, 58 fichiers modifiés.
+- La page VIP et son CSS sont strictement identiques à `main` sur le head actuel. Le chantier VIP est donc bien exclu de cette refonte publique; il sera repris séparément.
+- Aucun merge ni déploiement de production effectué.
+
+### Corrections complémentaires apportées après la première passe
+- Guides 888Starz : retrait du bloc de vérification répétitif, ajout navigation/footer partagés sur les routes localisées, suppression de l'ancien habillage CSS glass/gradient, correction du main landmark et du chevauchement avec la bottom navigation mobile.
+- Guides Linebet/1xBet/Melbet : retrait du composant de vérification dupliqué, alignement des shells sur le fond navy commun et ajout du footer partagé aux guides localisés.
+- Résumés promo : suppression de formulations répétées « worldwide » pour 1xBet/Melbet; wording du fallback Linebet clarifié pour ne pas répéter de promesse bonus non vérifiée.
+- Statistiques BTTS : retrait du second flux de pronostics qui dupliquait la page et clarification du titre en « Compétitions suivies · BTTS ».
+- Statistiques Over 2.5 : remplacement des sections vides par une liste des compétitions réellement configurées, sans inventer de pourcentages de réussite; liens vers les pronostics du jour et la couverture BTTS.
+- Pronostics BTTS demain : retrait du titre animé, du texte explicatif répétitif et du CTA en doublon; filtrage explicite du flux sur le marché BTTS.
+- Résultats archivés : retrait du flux de pronostics dupliqué et réécriture des textes FR/EN/AR pour ne pas prétendre à une vérification ESPN universelle si la source n'est pas établie sur chaque ligne.
+- Historique, statistiques et pages de compétition : application du shell éditorial partagé; cartes de compétition/statistiques aplaties et débarrassées des ombres/effets décoratifs.
+- Les slugs, URLs SEO et données de pronostics n'ont pas été volontairement changés par ces retouches.
+
+### Validation technique — état à 23:31 UTC
+- GitHub Actions run `43527590865` sur le head `cfcc720...` : job `pull-request-checks` en échec; jobs `deploy` et génération VIP ignorés.
+- Le job GitHub ne fournit pas de steps et le téléchargement des logs retourne `BlobNotFound`; cause racine CI toujours inconnue.
+- Statut Vercel pour ce head : failure avec indication `build-rate-limit` (limite de builds du compte), pas un résultat de build applicatif.
+- Aucun résultat vert de lint/typecheck/tests/build n'a été obtenu. Aucun contrôle visuel complet du preview n'a été fait.
+- Le statut Vercel précédemment marqué success concernait un autre head/état; ne pas le présenter comme validation du head actuel.
+
+### Prochaines tâches obligatoires avant de déclarer prêt
+1. Continuer la refonte des pages publiques restantes : accueil, flux pronostics, détail match, résultats, historique, statistiques, compétitions et toutes les pages promo.
+2. Auditer les styles hérités et les cartes de match réellement rendues, sans remplacer les données ou les composants fonctionnels à l'aveugle.
+3. Vérifier FR/EN/AR, RTL, responsive mobile/desktop, navigation clavier et accessibilité.
+4. Contrôler toutes les métadonnées, slugs, canonicals, liens internes et paramètres affiliés sans les modifier.
+5. Résoudre ou obtenir des logs exploitables pour le job CI; relancer les tests, lint, typecheck et build jusqu'à obtention de résultats verts.
+6. Inspecter le preview Vercel après rétablissement de la capacité de build; ne pas confondre l'URL preview avec le site en production.
+7. Garder la PR en brouillon et ne pas fusionner/déployer sans nouvelle vérification complète.
