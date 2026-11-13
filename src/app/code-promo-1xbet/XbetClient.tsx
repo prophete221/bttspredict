@@ -28,16 +28,16 @@ export default function XbetClient(_props: { reviewDate?: string } = {}) {
         signupUrl={AFFILIATE.oneXbet}
         downloadUrl={AFFILIATE.oneXbetDownload}
         lang="fr"
-        title="Code promo 1xBet vipbtts : bonus mondial 300 %"
+        title="Code promo 1xBet vipbtts : bonus de dépôt 300 %"
         badge="CODE PROMO 1XBET"
-        intro="Le code promo 1xBet vipbtts fonctionne dans le monde entier. L’offre comprend un bonus de dépôt mondial de 300 %, du cashback et des bonus hebdomadaires. Cette page concerne 1xBet, pas 1xBit ; vérifiez les modalités auprès de 1xBet."
-        offerHeadline="Repères sur l’offre 1xBet"
-        offerSub="Bonus de dépôt mondial de 300 % · cashback · bonus hebdomadaires."
-        benefits={['Code exact : vipbtts', 'Site et APK : deux parcours distincts', 'Conditions à vérifier avant dépôt']}
+        intro="Saisissez vipbtts dans le champ code promo de 1xBet. L’offre annoncée comprend un bonus de dépôt de 300 %, du cashback et des bonus hebdomadaires. Vérifiez les conditions et votre éligibilité auprès de l’opérateur."
+        offerHeadline="Offre 1xBet"
+        offerSub="Bonus de dépôt 300 % · cashback · bonus hebdomadaires."
+        benefits={['Code promo : vipbtts', 'Bonus de dépôt annoncé : 300 %', 'Cashback et bonus hebdomadaires']}
         steps={[
-          { n: '01', title: 'Copier le code exact', desc: 'Reprenez vipbtts tel qu’il est écrit ; il s’agit d’un code promo 1xBet.' },
-          { n: '02', title: 'Vérifier la fiche de l’offre', desc: 'Consultez 1xBet pour connaître les conditions, l’éligibilité et la méthode d’utilisation avant toute action.' },
-          { n: '03', title: 'Choisir site ou APK', desc: 'Le lien du site et celui de téléchargement APK sont deux parcours distincts : utilisez celui qui correspond à votre besoin.' },
+          { n: '01', title: 'Copier le code exact', desc: 'Copiez vipbtts avant de créer votre compte.' },
+          { n: '02', title: 'Vérifier la fiche de l’offre', desc: 'Vérifiez les conditions de l’offre et les critères d’éligibilité affichés par 1xBet.' },
+          { n: '03', title: 'Choisir site ou APK', desc: 'Choisissez le site ou l’application officielle selon votre appareil.' },
         ]}
         faq={getPromoFaq('1xbet', 'fr')}
         crossLinks={ALL_LINKS.filter((link) => link.id !== SELF).map(({ label, href }) => ({ label, href }))}
