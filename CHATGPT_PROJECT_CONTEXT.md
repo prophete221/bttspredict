@@ -271,3 +271,22 @@ Continue a read-only analytics/authentication funnel audit: verify whether `NEXT
 - Do not set `NEXT_PUBLIC_GA_ID` to this GTM ID. The existing AnalyticsLoader expects a GA4 measurement ID.
 - Next: guide user to GA4 Admin → Data streams → BTTSPredict Website → Measurement ID (format `G-XXXXXXXXXX`). Keep GTM separate; do not configure or inject it unless the project is intentionally migrated to GTM and code/workflow are audited first.
 - No code, environment variable, or deployment changed.
+
+
+## 17. Reprise de l'audit Analytics — 2026-11-13 (UTC)
+
+- Relecture directe de ce fichier sur la branche active avant toute autre intervention.
+- Dépôt privé accessible via la connexion GitHub; branche `chatgpt/project-takeover-2026-11-13` confirmée existante.
+- Comparaison GitHub actuelle `main...chatgpt/project-takeover-2026-11-13`: branche en avance de 8 commits, en retard de 0; l'unique chemin modifié reste `CHATGPT_PROJECT_CONTEXT.md` (273 ajouts). Aucun changement applicatif n'est présent sur la branche de reprise.
+- SHA du dernier commit trouvé sur `main`: `6ac049324bda675345554d405e77b21e4c4a191c` (`chore: auto-update data`, 2026-11-13 13:58:20 UTC). Le merge-base correspond à ce SHA; la branche de travail n'est donc pas en retard sur main à cet instant.
+- PR ouvertes détectées: #86 (refactor VIP legacy) et #56 (README); elles sont anciennes et ne concernent pas le suivi Analytics immédiat. Les autres PR récentes avaient été indiquées fermées/mergées dans la section 12.
+- Fichiers réels relus sur `main` et la branche de reprise: `src/components/bttsbet/AnalyticsLoader.tsx` (blob `c00b38a337cc2b28288d8d8b6b2b78c58c6fdf1a`), `.github/workflows/deploy.yml` (blob `a1487a27620b4cf93db0ccc0a3bfd29c6c34e78c`), `src/app/layout.tsx` (blob `afdcc7b593a999b7c028f58d47045b4baff8a8ff`), `src/components/bttsbet/CookieConsent.tsx` (blob `2aee11a7e9d10a73a3d6dc927eeae0055f3d374a`). Les blobs des fichiers contrôlés sont identiques entre main et la branche de travail.
+- `AnalyticsLoader.tsx` utilise exclusivement `process.env.NEXT_PUBLIC_GA_ID` et le chargement Google tag `gtag/js?id=${GA_ID}`; il ne configure pas un conteneur GTM. Le code exige un build production et le consentement analytique enregistré dans `bttsbet_cookie_consent` avec `preferences.analytics === true`.
+- `CookieConsent.tsx` persiste les choix et émet `cookie-consent-changed`; Accepter active analytics, Refuser le désactive, et la personnalisation respecte le choix enregistré.
+- `src/app/layout.tsx` monte globalement AnalyticsLoader et CookieConsent. Aucun changement SEO/layout n'a été fait.
+- Le workflow `.github/workflows/deploy.yml` injecte bien `${{ vars.NEXT_PUBLIC_GA_ID }}` dans l'environnement des deux étapes de build (build conditionnel PR et build de déploiement). Le chaînon workflow → build est donc déjà présent; la variable de dépôt elle-même avait été déclarée absente par le propriétaire et n'a pas été modifiée.
+- Le nombre `16337488315` est l'identifiant numérique du flux Web GA4, et `GTM-NGVK3V3V` est un identifiant de conteneur GTM. Aucun des deux ne peut remplacer la Measurement ID GA4 `G-XXXXXXXXXX` attendue par le code actuel.
+- La recherche de code GitHub a renvoyé zéro résultat pour les termes GTM/GA, mais l'index de code du dépôt est signalé indisponible; ces résultats ne prouvent donc pas l'absence de références ailleurs dans le dépôt. Les fichiers actifs ci-dessus ont été vérifiés directement.
+- Décision technique recommandée (pas encore appliquée): conserver GA4 direct pour le moment. C'est le chemin déjà implémenté et câblé dans les deux builds; migrer vers GTM imposerait de modifier le chargeur, la gestion du consentement et la configuration du conteneur, avec un risque de double comptage. GTM ne doit pas être injecté en parallèle de GA4 direct.
+- Prochaine étape sans modification de production: récupérer la Measurement ID GA4 au format `G-XXXXXXXXXX`; ensuite seulement, confirmer le paramétrage de la variable GitHub Actions (nom uniquement, valeur jamais copiée dans le chat). Déploiement soumis à autorisation explicite et vérification GA4 Realtime après consentement.
+- Aucun fichier source, workflow, variable Actions, secret, configuration Cloudflare, donnée de production, merge ou déploiement n'a été modifié pendant cet audit.
