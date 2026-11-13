@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import { checkSeo } from '@/lib/seo'
 import { buildPromoFaqJsonLd } from '@/lib/promo-faq'
-import PromoVerificationGuide from '@/components/bttsbet/PromoVerificationGuide'
 
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
@@ -72,7 +71,6 @@ export default function Bonus888StarzPage() {
       <ErrorBoundary><Navbar /></ErrorBoundary>
       <main id="main-content" className="flex-1 relative z-10" style={{ paddingBottom: 'calc(80px + env(safe-area-inset-bottom, 0px))' }}>
         <Star888Client />
-        <PromoVerificationGuide bookmaker="888starz" lang="fr" variant="offer" />
       </main>
       <ErrorBoundary><Footer /></ErrorBoundary>
     </div>
