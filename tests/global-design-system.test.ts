@@ -117,7 +117,7 @@ describe('VIP Discovery and Pro public preview', () => {
     expect(page).toContain('Aucun paiement n’est accepté pour le moment')
     expect(page).not.toContain('VipJourneyModal')
     expect(page).not.toContain('VIP_BOOKS')
-    expect(page).not.toMatch(/à vie|lifetime|dépôt minimum de 3|minimum deposit of \\$3/i)
+    expect(page).not.toMatch(/à vie|lifetime|dépôt minimum de 3|minimum deposit of \$3/i)
     expect(page).toContain('disabled>{flow.unavailable}')
     expect(locked).toContain('onViewPlans')
     expect(locked).not.toContain('Demander une revue manuelle')
