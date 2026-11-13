@@ -150,36 +150,9 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
         <div className="hp-hero__grid">
           {/* ═══ Colonne message ═══ */}
           <div className="hp-hero__copy">
-            {/* Bandeau défilant — grands clubs suivis (décoratif, logos locaux) */}
-            <div className="hp-clubs" aria-hidden="true">
-              <div className="hp-clubs__track">
-                {[0, 1].map(copy => (
-                  <div className="hp-clubs__group" key={copy}>
-                    {CLUB_LOGOS.map(slug => (
-                      <img
-                        key={`${copy}-${slug}`}
-                        src={`/logos/clubs/${slug}.png`}
-                        alt=""
-                        width={500}
-                        height={500}
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    ))}
-                  </div>
-                ))}
-              </div>
-            </div>
             <h1 className="hp-hero__title">
-              <AnimatedTitle
-                text={plainTitle(t.home2.heroTitle1)}
-                accent={accentOf(t.home2.heroTitle1)}
-              />
-              <AnimatedTitle
-                text={plainTitle(t.home2.heroTitle2)}
-                accent={accentOf(t.home2.heroTitle2)}
-                className="hp-hero__title-line2"
-              />
+              <span>{plainTitle(t.home2.heroTitle1)}</span>
+              <span className="hp-hero__title-line2">{plainTitle(t.home2.heroTitle2)}</span>
             </h1>
 
             <p className="hp-hero__text">{t.home2.heroText}</p>
@@ -222,16 +195,6 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
           {/* ═══ Carte « Signal en vedette » — vraies données du flux ═══ */}
           <aside className="hp-live-zone" aria-label={t.home2.heroLiveEyebrow}>
                         <article className="hp-live">
-              <div className="hp-live__lab-scene" aria-hidden="true">
-                <img
-                  src="/hero-matchday-analytics.webp"
-                  alt=""
-                  width={2176}
-                  height={1632}
-                  loading="eager"
-                  decoding="async"
-                />
-              </div>
               <header className="hp-live__head">
                 <p className="hp-live__eyebrow">
                   <span className="hp-live__pulse" aria-hidden="true" />
