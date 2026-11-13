@@ -440,3 +440,11 @@ Continue a read-only analytics/authentication funnel audit: verify whether `NEXT
 - Latest PR-triggered workflow run observed: `43519773319`, job `pull-request-checks` concluded failure; deploy and VIP candidate jobs skipped as expected for a PR. GitHub exposed no job-step summaries, no artifacts, and prior job log downloads returned BlobNotFound. A rerun of the failed job was accepted; latest poll still showed the previous failure. Cause remains unverified.
 - Vercel preview status for the latest head was pending. Do not report a successful preview, visual QA, test suite, lint, typecheck, or production build.
 - PR #128 remains open and draft, 36 commits ahead of main and 0 behind; no merge and no deployment.
+
+## 31. Focus trap coverage and current validation attempt — 2026-11-13 (UTC)
+
+- Completed the mobile drawer focusable selector so links, buttons, inputs, selects, textareas and explicit tabindex controls are all included in keyboard focus cycling.
+- Added a matching static assertion to `tests/global-design-system.test.ts`.
+- Reviewed the PR patches for the global stylesheet, VIP stylesheet, Navbar, footer, promo shell, tests and root layout. No SEO title, description, canonical, route or prediction-data changes were found in the inspected patches; root layout change remains limited to browser dark-mode metadata.
+- Source re-fetch confirms the focus selector and test assertion are present.
+- Latest head before this checkpoint: `87b1a386d21c69dfee0ae4f6ec358f3e5f804393`. A fresh PR workflow run `43519980753` was queued at last poll; Vercel was pending. Await results before calling validation successful.
