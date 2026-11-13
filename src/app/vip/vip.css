@@ -4,18 +4,18 @@
    ═══════════════════════════════════════════════════════════════ */
 
 .vipx {
-  --vipx-bg: #08070c;
-  --vipx-bg-2: #0d0b12;
-  --vipx-card: #12101a;
-  --vipx-card-2: #171423;
+  --vipx-bg: #070b12;
+  --vipx-bg-2: #0c121c;
+  --vipx-card: #0f1622;
+  --vipx-card-2: #121a26;
   --vipx-gold: #e8c97a;
   --vipx-gold-hi: #f4dfa6;
   --vipx-gold-deep: #c9a24b;
   --vipx-gold-soft: rgba(232, 201, 122, 0.13);
   --vipx-line: rgba(232, 201, 122, 0.24);
   --vipx-line-faint: rgba(232, 201, 122, 0.12);
-  --vipx-text: #f4efe3;
-  --vipx-muted: #a89f8c;
+  --vipx-text: #f2f6fa;
+  --vipx-muted: #9dabbb;
   --vipx-wa: #25d366;
   --vipx-wa-deep: #128c50;
   --vipx-radius: 18px;
