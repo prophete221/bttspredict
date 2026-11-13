@@ -2850,3 +2850,14 @@ body { color: var(--fi-text); }
 .page-design--combo main [class*="hover:scale"] { transform:none !important; }
 .page-design--combo main a { transition:border-color .16s ease, background-color .16s ease !important; }
 .page-design--combo main a:hover { border-color:rgba(75,141,248,.55) !important; }
+
+.hp-mc-card--refonte {
+  border:1px solid var(--fi-line) !important;
+  border-radius:10px !important;
+  background:#101823 !important;
+  background-image:none !important;
+  box-shadow:none !important;
+  transform:none !important;
+  opacity:1 !important;
+}
+.hp-mc-card--refonte:hover { border-color:rgba(75,141,248,.55) !important; background:#142033 !important; box-shadow:none !important; }
