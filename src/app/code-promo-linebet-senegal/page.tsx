@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Navbar, Footer } from '@/components/bttsbet'
 import LinebetClient from './LinebetClient'
-import PromoVerificationGuide from '@/components/bttsbet/PromoVerificationGuide'
 import { buildPromoFaqJsonLd } from '@/lib/promo-faq'
 import { checkSeo } from '@/lib/seo'
 
@@ -60,16 +59,13 @@ function breadcrumbJsonLd() {
 export default function CodePromoLinebetSenegalPage() {
   const faq = buildPromoFaqJsonLd('linebet', 'fr')
   return (
-    <div className="min-h-screen bg-dark-800 flex flex-col text-papier">
+    <div className="page-design page-design--promo min-h-screen bg-[#080D14] flex flex-col text-[#EDF2F7]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd()) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd()) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faq) }} />
       <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-emerald focus:text-dark-900 focus:font-bold focus:rounded-lg">Aller au contenu principal</a>
       <Navbar />
-      <main id="main-content" className="flex-1 relative z-10" style={{ paddingBottom: 'calc(80px + env(safe-area-inset-bottom, 0px))' }}>
-        <LinebetClient />
-        <PromoVerificationGuide bookmaker="linebet" lang="fr" />
-      </main>
+      <LinebetClient />
       <Footer />
     </div>
   )
