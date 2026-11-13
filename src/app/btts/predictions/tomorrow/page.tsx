@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Navbar, Footer, FreePredictions } from '@/components/bttsbet'
 import Link from 'next/link'
-import AnimatedTitle from '@/components/bttsbet/HeroWordmark'
 
 export const metadata: Metadata = {
   title: 'BTTS Predictions Tomorrow — Pronostics demain',
@@ -12,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function BTTSPredictionsTomorrowPage() {
   return (
-    <div className="min-h-screen bg-[#0B0F14] flex flex-col text-[#F2F6FA]">
+    <div className="page-design page-design--btts min-h-screen bg-[#080D14] flex flex-col text-[#EDF2F7]">
       <Navbar />
       <main id="main-content" className="flex-1">
         <section className="max-w-4xl mx-auto px-4 py-12 sm:py-16">
@@ -21,32 +20,27 @@ export default function BTTSPredictionsTomorrowPage() {
             <span className="mx-1">/</span>
             <Link href="/btts/predictions/today" className="hover:text-[#2F7DFF]">Pronostics</Link>
             <span className="mx-1">/</span>
-            <span className="text-[#9DABBB]">BTTS Tomorrow</span>
+            <span className="text-[#9DABBB]">BTTS · Tomorrow</span>
           </nav>
 
           <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-4"
             style={{ backgroundColor: 'rgba(169, 196, 223, 0.12)', color: '#2F7DFF', border: '1px solid rgba(169, 196, 223, 0.25)' }}>
             BTTS · Tomorrow
           </span>
-          <AnimatedTitle
-            as="h1"
-            text="BTTS Predictions Tomorrow"
-            className="text-3xl sm:text-4xl font-bold mb-4"
-            style={{ fontFamily: 'Poppins, sans-serif' }}
-          />
+          <h1 className="text-3xl sm:text-4xl font-bold mb-4 tracking-tight">BTTS Predictions Tomorrow</h1>
           <p className="text-base text-[#9DABBB] leading-relaxed mb-6">
-            BTTSPredict publie chaque jour une nouvelle sélection de pronostics BTTS. Les pronostics pour les matchs de demain sont publiés la veille au soir et le jour même, plusieurs fois par jour. Chaque sélection est issue du modèle statistique, basée sur les données disponibles des deux équipes.
+            Les sélections BTTS pour demain apparaissent ci-dessous lorsque les données nécessaires sont disponibles. Chaque carte présente les estimations publiées pour le match.
           </p>
 
           <div className="p-5 rounded-xl mb-6" style={{ backgroundColor: '#141C25', border: '1px solid #6B7A8C' }}>
             <h2 className="text-lg font-bold mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>
-              Comment accéder aux pronostics BTTS de demain ?
+              Disponibilité des sélections
             </h2>
             <p className="text-sm text-[#9DABBB] leading-relaxed mb-3">
-              Les pronostics de demain sont disponibles sur la page <Link href="/btts/predictions/today" className="text-[#2F7DFF] underline">Pronostics du jour</Link> dès leur publication.
+              La liste est construite à partir des données disponibles pour la date de demain. Si aucun match n’apparaît, aucune sélection BTTS n’est publiée pour cette date.
             </p>
             <p className="text-sm text-[#9DABBB] leading-relaxed">
-              Vous pouvez filtrer par date (aujourd'hui, demain, 7 jours) directement sur la page des pronostics.
+              Les probabilités sont des estimations statistiques, pas des certitudes.
             </p>
           </div>
 
@@ -66,7 +60,7 @@ export default function BTTSPredictionsTomorrowPage() {
           </p>
         </section>
               <section className="max-w-5xl mx-auto px-4 py-8">
-          <FreePredictions dayOffset={1} />
+          <FreePredictions dayOffset={1} marketFilter="btts" />
         </section>
       </main>
       <Footer />
