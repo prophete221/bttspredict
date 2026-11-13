@@ -92,9 +92,12 @@ describe('GA4 production-only consent gating', () => {
   it('disables tracking in PR builds and enables the known GA4 stream only for main deployment', () => {
     const analytics = readFileSync(resolve(ROOT, 'src/components/bttsbet/AnalyticsLoader.tsx'), 'utf8')
     const workflow = readFileSync(resolve(ROOT, '.github/workflows/deploy.yml'), 'utf8')
+    const consent = readFileSync(resolve(ROOT, 'src/components/bttsbet/CookieConsent.tsx'), 'utf8')
 
     expect(analytics).toContain("process.env.NEXT_PUBLIC_GA_ENABLED === 'true'")
     expect(analytics).toContain("parsed.preferences?.analytics === true")
+    expect(consent).toContain("const STORAGE_KEY = 'bttsbet_cookie_consent'")
+    expect(consent).toContain("window.dispatchEvent(new CustomEvent('cookie-consent-changed'")
     expect(workflow).toContain("NEXT_PUBLIC_GA_ENABLED: 'false'")
     expect(workflow).toContain("NEXT_PUBLIC_GA_ENABLED: 'true'")
     expect(workflow).toContain("vars.NEXT_PUBLIC_GA_ID || 'G-F705Z3L2HT'")
