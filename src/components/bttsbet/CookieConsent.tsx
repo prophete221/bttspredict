@@ -28,25 +28,29 @@ export default function CookieConsent() {
   ]
 
   useEffect(() => {
-    const restorePreferences = () => {
+    const restorePreferences = (): boolean => {
+      const stored = localStorage.getItem(STORAGE_KEY)
+      if (!stored) return false
       try {
-        const stored = localStorage.getItem(STORAGE_KEY)
-        if (!stored) return
         const parsed = JSON.parse(stored) as { preferences?: Partial<typeof preferences> }
-        if (parsed.preferences) {
-          setPreferences({
-            essential: true,
-            analytics: parsed.preferences.analytics === true,
-            advertising: parsed.preferences.advertising === true,
-          })
+        if (!parsed.preferences || typeof parsed.preferences !== 'object') {
+          localStorage.removeItem(STORAGE_KEY)
+          return false
         }
+        setPreferences({
+          essential: true,
+          analytics: parsed.preferences.analytics === true,
+          advertising: parsed.preferences.advertising === true,
+        })
+        return true
       } catch {
-        // Une préférence invalide ne doit pas bloquer l'affichage du bandeau.
+        // Un consentement illisible est invalidé pour réafficher le choix.
+        localStorage.removeItem(STORAGE_KEY)
+        return false
       }
     }
     const checkConsent = () => {
-      restorePreferences()
-      if (!localStorage.getItem(STORAGE_KEY)) setShow(true)
+      if (!restorePreferences()) setShow(true)
     }
     queueMicrotask(checkConsent)
     const handleReopen = () => {
