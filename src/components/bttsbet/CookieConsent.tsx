@@ -28,12 +28,36 @@ export default function CookieConsent() {
   ]
 
   useEffect(() => {
+    const restorePreferences = (): boolean => {
+      const stored = localStorage.getItem(STORAGE_KEY)
+      if (!stored) return false
+      try {
+        const parsed = JSON.parse(stored) as { preferences?: Partial<typeof preferences> }
+        if (!parsed.preferences || typeof parsed.preferences !== 'object') {
+          localStorage.removeItem(STORAGE_KEY)
+          return false
+        }
+        setPreferences({
+          essential: true,
+          analytics: parsed.preferences.analytics === true,
+          advertising: parsed.preferences.advertising === true,
+        })
+        return true
+      } catch {
+        // Un consentement illisible est invalidé pour réafficher le choix.
+        localStorage.removeItem(STORAGE_KEY)
+        return false
+      }
+    }
     const checkConsent = () => {
-      const consent = localStorage.getItem(STORAGE_KEY)
-      if (!consent) setShow(true)
+      if (!restorePreferences()) setShow(true)
     }
     queueMicrotask(checkConsent)
-    const handleReopen = () => { setCustomize(true); setShow(true) }
+    const handleReopen = () => {
+      restorePreferences()
+      setCustomize(true)
+      setShow(true)
+    }
     window.addEventListener('cookie-consent-reopen', handleReopen)
     return () => window.removeEventListener('cookie-consent-reopen', handleReopen)
   }, [])
@@ -83,7 +107,7 @@ export default function CookieConsent() {
                 </div>
                 <div>
                   <h3 id="cookie-consent-title" className="text-papier font-bold text-sm sm:text-base mb-0.5 sm:mb-1">{lang === 'fr' ? 'Consentement aux cookies' : lang === 'en' ? 'Cookie consent' : 'الموافقة على ملفات تعريف الارتباط'}</h3>
-                  <p id="cookie-consent-description" className="text-xs sm:text-sm text-papier leading-snug sm:leading-relaxed">{lang === 'fr' ? 'Nous utilisons des cookies pour améliorer votre expérience. En continuant, vous acceptez notre utilisation de cookies.' : lang === 'en' ? 'We use cookies to improve your experience. By continuing, you accept our use of cookies.' : 'نستخدم ملفات تعريف الارتباط لتحسين تجربتك. بمتابعة التصفح، فإنك توافق على استخدامها.'}</p>
+                  <p id="cookie-consent-description" className="text-xs sm:text-sm text-papier leading-snug sm:leading-relaxed">{lang === 'fr' ? 'Choisissez vos préférences. Les cookies analytiques et publicitaires ne sont activés qu’après votre accord.' : lang === 'en' ? 'Choose your preferences. Analytics and advertising cookies are enabled only with your consent.' : 'اختر تفضيلاتك. لا يتم تفعيل ملفات تعريف الارتباط التحليلية والإعلانية إلا بموافقتك.'}</p>
                 </div>
               </div>
             </div>
