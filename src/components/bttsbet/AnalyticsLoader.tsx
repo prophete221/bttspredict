@@ -4,11 +4,12 @@ import { useEffect } from 'react'
 
 const CONSENT_KEY = 'bttsbet_cookie_consent'
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID
-// Ne charge GA qu'en build de production (next dev / preview exclus).
-const IS_PRODUCTION_BUILD = process.env.NODE_ENV === 'production'
+// Explicit build flag prevents analytics on Vercel previews and pull-request builds.
+const IS_PRODUCTION_DEPLOYMENT = process.env.NODE_ENV === 'production'
+  && process.env.NEXT_PUBLIC_GA_ENABLED === 'true'
 
 function analyticsAllowed(): boolean {
-  if (!GA_ID || !IS_PRODUCTION_BUILD) return false
+  if (!GA_ID || !IS_PRODUCTION_DEPLOYMENT) return false
   try {
     const stored = localStorage.getItem(CONSENT_KEY)
     if (!stored) return false
@@ -26,7 +27,7 @@ function disableAnalytics(): void {
 }
 
 function loadAnalytics(): void {
-  if (!GA_ID || !IS_PRODUCTION_BUILD || typeof window === 'undefined') return
+  if (!GA_ID || !IS_PRODUCTION_DEPLOYMENT || typeof window === 'undefined') return
   const analyticsGlobal = window as unknown as Record<string, unknown>
   analyticsGlobal[`ga-disable-${GA_ID}`] = false
   if (document.querySelector(`script[data-bttspredict-ga="${GA_ID}"]`)) return
