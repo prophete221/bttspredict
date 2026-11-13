@@ -2861,3 +2861,19 @@ body { color: var(--fi-text); }
   opacity:1 !important;
 }
 .hp-mc-card--refonte:hover { border-color:rgba(75,141,248,.55) !important; background:#142033 !important; box-shadow:none !important; }
+
+
+.page-design--history main .rounded-2xl,
+.page-design--history main .rounded-xl,
+.page-design--competition main [class*="rounded-3xl"][class*="border"],
+.page-design--competition main [class*="rounded-2xl"][class*="border"] {
+  border:1px solid var(--fi-line) !important;
+  border-radius:10px !important;
+  background:#101823 !important;
+  box-shadow:none !important;
+}
+.page-design--history main .rounded-2xl:hover,
+.page-design--competition main a:hover { border-color:rgba(75,141,248,.5) !important; }
+.page-design--competition main .blur-3xl,
+.match-analysis-page .blur-3xl { display:none !important; }
+.match-analysis-page .shadow-\[0_18px_44px_rgba\(0\,0\,0\,0\.22\)\] { box-shadow:none !important; }
