@@ -20,7 +20,7 @@ export default function BTTSPredictionsTomorrowPage() {
             <span className="mx-1">/</span>
             <Link href="/btts/predictions/today" className="hover:text-[#2F7DFF]">Pronostics</Link>
             <span className="mx-1">/</span>
-            <span className="text-[#9DABBB]">BTTS · Tomorrow</span>
+            <span className="text-[#9DABBB]">BTTS · Demain</span>
           </nav>
 
           <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-4"
@@ -48,10 +48,6 @@ export default function BTTSPredictionsTomorrowPage() {
             <Link href="/btts/predictions/today" className="inline-flex items-center gap-2 px-6 py-3 rounded-[10px] font-bold text-sm transition-all"
               style={{ backgroundColor: '#2F7DFF', color: '#FFFFFF' }}>
               Voir les pronostics du jour →
-            </Link>
-            <Link href="/btts/predictions/today" className="inline-flex items-center gap-2 px-6 py-3 rounded-[10px] font-bold text-sm transition-all"
-              style={{ backgroundColor: '#141C25', color: '#9DABBB', border: '1px solid #6B7A8C' }}>
-              BTTS du jour →
             </Link>
           </div>
 
