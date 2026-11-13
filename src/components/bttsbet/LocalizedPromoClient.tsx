@@ -92,7 +92,7 @@ const LOCALIZED_COPY: Record<Exclude<BookmakerId, '888starz'>, Record<'fr' | 'en
       title: '1xBet promo code: vipbtts',
       intro: 'Enter vipbtts in the 1xBet promo-code field. The advertised offer includes a 300% deposit bonus, cashback and weekly bonuses. Confirm eligibility and current terms with the operator.',
       offerHeadline: '1xBet deposit bonus',
-      offerSub: '300% worldwide deposit bonus · cashback · weekly bonuses.',
+      offerSub: '300% deposit bonus · cashback · weekly bonuses.',
       benefits: ['Exact code: vipbtts', '300% deposit bonus', 'Cashback', 'Weekly bonuses'],
       steps: [
         { n: '01', title: 'Copy the exact code', desc: 'Copy vipbtts exactly as shown on this page.' },
@@ -168,7 +168,7 @@ const LOCALIZED_COPY: Record<Exclude<BookmakerId, '888starz'>, Record<'fr' | 'en
       title: 'Melbet promo code: Bttswin',
       intro: 'The Melbet code is Bttswin (capital B). The advertised offer includes a 300% deposit bonus, cashback and weekly bonuses. Check the applicable terms directly with Melbet.',
       offerHeadline: 'Melbet bonus and cashback',
-      offerSub: '300% worldwide deposit bonus · cashback · weekly bonuses.',
+      offerSub: '300% deposit bonus · cashback · weekly bonuses.',
       benefits: ['Exact code: Bttswin', '300% deposit bonus', 'Cashback', 'Weekly bonuses'],
       steps: [
         { n: '01', title: 'Copy the Bttswin code', desc: 'The code provided for Melbet is Bttswin, with an initial capital B.' },
