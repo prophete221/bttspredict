@@ -82,11 +82,6 @@ function plainTitle(text: string) {
   return text.replace(/[\[\]]/g, '')
 }
 
-function accentOf(text: string) {
-  const m = text.match(/\[(.+?)\]/)
-  return m ? m[1] : undefined
-}
-
 export default function Hero({ initialLocale }: { initialLocale?: Locale } = {}) {
   const { lang: detectedLang } = useLanguage()
   const lang = initialLocale ?? detectedLang
