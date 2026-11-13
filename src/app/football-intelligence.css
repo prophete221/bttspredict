@@ -2818,3 +2818,34 @@ body { color: var(--fi-text); }
   .prediction-match-card__body { padding:13px !important; }
   .over25-intro-panel { padding:17px !important; }
 }
+
+
+/* Editorial treatment for the remaining public market and statistics routes. */
+.page-design--statistics main .rounded-xl,
+.page-design--statistics main .rounded-2xl,
+.page-design--statistics main .overflow-x-auto,
+.page-design--over25 main .rounded-xl,
+.page-design--over25 main .rounded-2xl,
+.page-design--combo main .rounded-xl,
+.page-design--combo main .rounded-2xl {
+  border:1px solid var(--fi-line) !important;
+  border-radius:9px !important;
+  background:#101823 !important;
+  box-shadow:none !important;
+}
+.page-design--statistics main h1,
+.page-design--statistics main h2,
+.page-design--over25 main h1,
+.page-design--over25 main h2,
+.page-design--combo main h1,
+.page-design--combo main h2 {
+  color:#edf2f7 !important;
+  letter-spacing:-.03em !important;
+}
+.page-design--statistics main table { width:100%; border-collapse:collapse; }
+.page-design--statistics main th { background:#152131 !important; color:#a9b8c9 !important; }
+.page-design--statistics main th, .page-design--statistics main td { border-color:var(--fi-line) !important; }
+.page-design--statistics main tr:hover { background:#142033 !important; }
+.page-design--combo main [class*="hover:scale"] { transform:none !important; }
+.page-design--combo main a { transition:border-color .16s ease, background-color .16s ease !important; }
+.page-design--combo main a:hover { border-color:rgba(75,141,248,.55) !important; }
