@@ -272,7 +272,7 @@ export default function VipPage() {
 
         <div className="vipx-content-grid vipx-shell">
           <div className="vipx-content-grid__main">
-            <VipLockedPicks onRequestReview={openVipFlow} />
+            <VipLockedPicks onViewPlans={openVipFlow} />
           </div>
           <aside className="vipx-content-grid__aside" aria-label={flow.eyebrow}>
         {/* ═══════════ DISCOVERY / VIP PRO PLANS ═══════════ */}
@@ -326,7 +326,7 @@ export default function VipPage() {
         </div>
 
         {/* Historique passé uniquement; l’accès aux pronostics à venir reste verrouillé. */}
-        <VipWinHistory onUnlock={openVipFlow} />
+        <VipWinHistory onViewPlans={openVipFlow} />
 
         {/* ═══════════ BÉNÉFICES ═══════════ */}
         <section className="vipx-benefits vipx-shell">
