@@ -553,7 +553,7 @@ export default function FreePredictions({ initialLocale, dayOffset = 0, marketFi
   const intelligenceSubtitle = lang === 'en' ? 'Published selections, match data and model estimates.' : lang === 'ar' ? 'اختيارات منشورة وبيانات المباريات وتقديرات النموذج.' : 'Sélections publiées, données de match et estimations du modèle.'
   const fixturesTitle = lang === 'en' ? 'Schedule — fixtures without a pick' : lang === 'ar' ? 'الجدول — مباريات بلا توقع' : 'Calendrier — matchs sans pronostic'
   const fixturesNote = lang === 'en' ? 'These are scheduled matches only; no prediction is available.' : lang === 'ar' ? 'هذه مباريات مجدولة فقط؛ لا يوجد توقع متاح.' : 'Ce sont des rencontres programmées : aucun pronostic n’est disponible.'
-  // Seed build-time: le HTML statique contient déjà les matchs (crawlers / IA).
+  // Seed build-time: le HTML statique contient déjà les matchs pour les moteurs de recherche.
   // Le fetch client rafraîchit ensuite avec le predictions.json live.
   const [matches, setMatches] = useState<MatchData[]>(() => seedMatchesFromBuild(dayOffset))
   const [fixtures, setFixtures] = useState<FixtureData[]>(() => seedFixturesFromBuild(dayOffset))
@@ -589,7 +589,7 @@ export default function FreePredictions({ initialLocale, dayOffset = 0, marketFi
 
   return (
     <>
-      {/* JSON-LD + liste lisible machines : les IA voient les matchs sans exécuter JS */}
+      {/* JSON-LD + liste lisible par les moteurs de recherche sans exécuter JS */}
       {visibleMatches.length > 0 && (
         <script
           type="application/ld+json"
