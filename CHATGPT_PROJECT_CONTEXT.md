@@ -475,3 +475,10 @@ Continue a read-only analytics/authentication funnel audit: verify whether `NEXT
 - GTM container `GTM-NGVK3V3V` is not added here; the site uses one direct GA4 loader, avoiding accidental double initialization. Do not inject a second GA4 tag through GTM without deliberately switching the implementation.
 - No GitHub Actions variable/secret settings, Vercel settings, analytics account, production deployment, or live site was changed. Actual event receipt still requires a successful main deployment and the visitor's analytics consent.
 - Commits: `ecc8e4e394cbc9c54adbf1c8290d2906f3f3df92`, `e37ac33c8c8713dbcd265ba3823d66b35ffd16bd`, `f4b05c74d12e0d6cf04569820c2ce1aced3ab007`.
+
+## 35. GA4 consent integration verification — 2026-11-13 (UTC)
+
+- Inspected `CookieConsent.tsx` to confirm it uses the same storage key as `AnalyticsLoader.tsx`, persists `preferences.analytics`, and dispatches `cookie-consent-changed` after the user saves preferences.
+- Added static test assertions connecting the cookie consent component to the GA4 loader, in addition to the production-only workflow flag checks.
+- No tracking request was sent from this source inspection; event collection remains dependent on successful production deployment and user consent.
+- Commit: `f13a3b563655407b40855bdb2951fc723ac80af6`.
