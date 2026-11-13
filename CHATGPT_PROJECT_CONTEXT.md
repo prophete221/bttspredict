@@ -494,3 +494,10 @@ Continue a read-only analytics/authentication funnel audit: verify whether `NEXT
 - Commits: `7deb82837a7d1fb1f953f1e50eb05336a75134ae`, `edca57765ce4724ed94a9b1a1673114647bab446`, `d0a0a7670c9a3f425083698714a14798849b2eeb`, `730578574380e8d3ee7b5a370e8ead3e2c81e14a`, `84d1c0d0a86f55b54354eefef3aed90f9d690a42`, `1ce59042b5706e8c15a50a3b966c32d93c2832f1`, `dd705ece4b16fa6993475ca6081bdd089c9f4e3a`, `2e226c0f9059c9341ebf1cc15483390a893b3ad8`, `ce4a4717b1d42a1dafc37988fda57595c8e53962`, `e69d469d4dc2813fa75563f5d3d598b4d6f013d6`, `a49370dfd67320b4cc198d6d38952d0316f03653`, `bf2625dd79f35f4449af25a182ec74a1c429cd33`.
 - The legacy Worker routes, D1 tables and modal source file are retained but are no longer imported by the public VIP page; do not delete old request data or deploy the new page until the replacement backend and migration are ready.
 - No account, payment, entitlement or production access has been activated. Price, subscription duration and crypto rail remain unconfigured.
+
+## 37. VIP preview validation status — 2026-11-13 (UTC)
+
+- Re-fetched the VIP page, locked-picks component, history component, VIP CSS and regression tests after the public transition. Source inspection confirms: no lifetime wording, no $3 bookmaker deposit, no manual-review copy, no old modal import, no old walkthrough video, Discovery/Pro cards present, disabled CTAs, and clear no-payment-yet copy.
+- The new VIP preview does not activate any account or entitlement. Old Worker endpoints, D1 request data and the orphaned modal source remain retained for historical compatibility until the replacement backend migration is ready.
+- PR workflow run `43520868377` failed in `pull-request-checks`; rerunning the failed job was accepted but the latest poll still showed failure. Job step summaries were empty and the log download returned BlobNotFound, so the failing step/root cause is still unknown.
+- Vercel preview was pending at the last status poll. No visual preview has been inspected, no tests/build have been confirmed green, and no production deployment or merge has occurred.
