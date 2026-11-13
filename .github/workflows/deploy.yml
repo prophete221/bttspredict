@@ -110,7 +110,8 @@ jobs:
         run: node scripts/validate-predictions.mjs public/predictions.json --require-timestamp --require-gemini --require-scheduled-content
 
       - name: Build static export
-        if: ${{ github.head_ref == 'work/public-upcoming-picks-20261109' && github.event.pull_request.head.repo.full_name == github.repository }}
+        # Every PR must validate the same production build path; prediction-data
+        # refresh/enrichment remains restricted to its dedicated branch above.
         run: npm run build -- --webpack
         env:
           NODE_OPTIONS: --max-old-space-size=4096
