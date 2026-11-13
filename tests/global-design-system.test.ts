@@ -60,6 +60,7 @@ describe('Partner navigation state', () => {
     expect(navigation).toContain("if (event.shiftKey && document.activeElement === first)")
     expect(navigation).toContain("drawerCloseButtonRef.current?.focus()")
     expect(navigation).toContain("menuTriggerRef.current?.focus()")
+    expect(navigation).toContain("if (drawerWasOpenRef.current) menuTriggerRef.current?.focus()")
   })
 })
 
