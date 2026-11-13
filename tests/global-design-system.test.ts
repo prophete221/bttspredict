@@ -103,3 +103,31 @@ describe('GA4 production-only consent gating', () => {
     expect(workflow).toContain("vars.NEXT_PUBLIC_GA_ID || 'G-F705Z3L2HT'")
   })
 })
+
+describe('VIP Discovery and Pro public preview', () => {
+  it('removes the old bookmaker-deposit lifetime flow from the public VIP page', () => {
+    const page = readFileSync(resolve(ROOT, 'src/app/vip/page.tsx'), 'utf8')
+    const locked = readFileSync(resolve(ROOT, 'src/app/vip/VipLockedPicks.tsx'), 'utf8')
+    const history = readFileSync(resolve(ROOT, 'src/app/vip/VipWinHistory.tsx'), 'utf8')
+
+    expect(page).toContain('VIP_PLAN_COPY')
+    expect(page).toContain('id="vip-plans"')
+    expect(page).toContain('Discovery — 7 jours gratuits')
+    expect(page).toContain('VIP Pro')
+    expect(page).toContain('Aucun paiement n’est accepté pour le moment')
+    expect(page).not.toContain('VipJourneyModal')
+    expect(page).not.toContain('VIP_BOOKS')
+    expect(locked).toContain('onViewPlans')
+    expect(locked).not.toContain('Demander une revue manuelle')
+    expect(history).toContain('View plans')
+    expect(history).not.toContain('Request VIP access')
+  })
+
+  it('styles the new plan comparison with responsive navy cards and champagne VIP accents', () => {
+    const vipCss = readFileSync(resolve(ROOT, 'src/app/vip/vip.css'), 'utf8')
+
+    expect(vipCss).toContain('.vipx-plans-grid')
+    expect(vipCss).toContain('.vipx-plan-card--pro')
+    expect(vipCss).toContain('grid-template-columns: minmax(0, 1fr)')
+  })
+})
