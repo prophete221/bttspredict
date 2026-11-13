@@ -40,7 +40,7 @@ export default function BttsAndOver25Page() {
             Combined predictions where <strong>both teams score</strong> (BTTS) AND <strong>total goals exceed 2.5</strong>. Each selection must include both a BTTS pick and an Over 2.5 pick.
           </p>
           <p className="text-sm text-[#9DABBB] leading-relaxed max-w-3xl mx-auto">
-            Updated 4x daily. Aucun gain n&apos;est garanti. 18+.
+            Statistical estimates only. No result is guaranteed. 18+.
           </p>
         </section>
 
