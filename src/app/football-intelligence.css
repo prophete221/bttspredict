@@ -2420,7 +2420,8 @@ body { color: var(--fi-text); }
 
 /* Strip ornamental motion that made the interface feel like a template. */
 .hp-hero__glow, .hp-hero__gridbg, .hp-live-halo, .hp-clubs,
-.hp-live__lab-scene, .btx-rev, .hp-reveal, .fi-cursor-glow { display: none !important; }
+.hp-live__lab-scene, .fi-cursor-glow { display: none !important; }
+.hp-reveal, .btx-rev { opacity: 1 !important; visibility: visible !important; transform: none !important; filter: none !important; }
 .hp-hero *, .btx-dashboard *, .promo-shell * {
   animation-duration: .01ms !important;
   animation-iteration-count: 1 !important;
