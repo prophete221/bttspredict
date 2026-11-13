@@ -2137,6 +2137,8 @@ body {
 .fi-sidebar {
   background: linear-gradient(180deg, #0C1420 0%, #090F18 100%) !important;
 }
+.fi-sidebar__brand img { filter: drop-shadow(0 4px 10px rgba(59, 130, 246, .22)); }
+.fi-mobile-brand img { filter: drop-shadow(0 3px 8px rgba(59, 130, 246, .2)); }
 .fi-topbar {
   color: #F2F6FA !important;
   background: rgba(7, 11, 18, .94) !important;
