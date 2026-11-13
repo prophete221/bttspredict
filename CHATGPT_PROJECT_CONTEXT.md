@@ -36,7 +36,7 @@
 - Created from `main` during the 2026-11-13 session.
 - Branch creation succeeded.
 - At creation, `package.json` on the branch matched `main` (same blob SHA: `db50e41214caddf1a1067998694b9b8b842baa77`).
-- **No source-file commit had been made at the time this handover was drafted.** The first meaningful file commit is intended to verify content-write access.
+- The continuity file itself was committed and successfully re-fetched; GitHub content-write access is verified by commit 73ddd7b81b9c1e4bccfba5ec46060bd1eaf7eab5.
 - Do not assume this branch is still based on the latest `main`; re-check both refs before substantial work.
 
 Branch URL: https://github.com/prophete221/bttspredict/tree/chatgpt/project-takeover-2026-11-13
@@ -175,8 +175,25 @@ As of 2026-11-13:
 - Working branch creation: verified.
 - Cloudflare account connection: verified.
 - Cloudflare resource inspection: read-only and verified at the time.
-- File-content write on the working branch: **not yet verified when this document was first prepared**.
+- File-content write on the working branch: **verified** by commit 73ddd7b81b9c1e4bccfba5ec46060bd1eaf7eab5; the file was successfully re-fetched.
 - Source changes: none made in this takeover session before this document.
 - Merge/deployment/production writes: none performed.
 
 **Immediate next action:** re-fetch current `main`, active branch, open PRs, and actual project structure; then perform a source-grounded audit and make one small, useful, testable change on the working branch. Do not merge or deploy.
+
+## 11. Verified resumption checkpoint — 2026-11-13 (UTC)
+
+- Private repository access is currently working. The installed GitHub connection reports admin, maintain, pull, and push permissions for prophete221/bttspredict.
+- The default branch is main; the repository is private and not archived.
+- Latest commit found on the repository's recent commit search: 6ac049324bda675345554d405e77b21e4c4a191c (chore: auto-update data, 2026-11-13 13:58:20 UTC).
+- A compare of main against chatgpt/project-takeover-2026-11-13 reports: branch is ahead by 1, behind by 0; merge base equals the latest main SHA above. The only branch change is the added CHATGPT_PROJECT_CONTEXT.md (182 lines). No source code changes have been made on this branch.
+- package.json has identical blob SHA on main and the working branch: db50e41214caddf1a1067998694b9b8b842baa77.
+- The actual root layout imports ApplicationNavigationShell, BottomNavigation, analytics, cookie consent, gift popup, and legacy credential cleanup. The global layout currently contains root metadata; avoid modifying it without a dedicated SEO review.
+- The active mobile bottom navigation component currently defines exactly three tabs (home, predictions, VIP) and applies localized paths and Arabic RTL direction. The global navigation shell renders Navbar above the page content.
+- The current VIP page source still describes lifetime VIP access after manual owner approval; this is not the same as the previously discussed VIP Discovery 7-day / VIP Pro subscription concept. Treat this as a product-direction mismatch to resolve before implementing any subscription/payment changes.
+- Recent repository PR search surfaced work including #126 (competition/Aviator pages with a stated FTP capacity/deployment blocker), #125 (future Gemini picks on homepage), #124 (public Gemini feed extension), and #122 (VIP candidate batch/status with D1 migration). Their live states and checks must be inspected before relying on their descriptions; do not merge or deploy them.
+- No Cloudflare resources were modified. No merge or deployment was performed.
+
+### Resumption decision
+
+Continue with a read-only source and workflow audit first. Prioritize understanding the reported traffic decline using current analytics evidence if the owner can provide it or connect the relevant source. Do not make SEO metadata, URL, sitemap, feed, or deployment changes based on guesswork.
