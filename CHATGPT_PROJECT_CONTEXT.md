@@ -448,3 +448,11 @@ Continue a read-only analytics/authentication funnel audit: verify whether `NEXT
 - Reviewed the PR patches for the global stylesheet, VIP stylesheet, Navbar, footer, promo shell, tests and root layout. No SEO title, description, canonical, route or prediction-data changes were found in the inspected patches; root layout change remains limited to browser dark-mode metadata.
 - Source re-fetch confirms the focus selector and test assertion are present.
 - Latest head before this checkpoint: `87b1a386d21c69dfee0ae4f6ec358f3e5f804393`. A fresh PR workflow run `43519980753` was queued at last poll; Vercel was pending. Await results before calling validation successful.
+
+## 32. Residual outer-shell palette cleanup — 2026-11-13 (UTC)
+
+- A final cascade review found the legacy teal page canvas still applied to homepage, over-2.5, exact-score, match-analysis and BTTS dashboard outer containers, plus the FAQ/footer shell.
+- Added a final CSS override to place those outer shells on the approved `#070B12` background and keep footer text on the global text token.
+- Extended the global design-system test to assert the outer page and footer shell rules.
+- Commits: `929e3914b9dd70153fb6757046b18b1c7ed541ef`, `aaa5a4f36e4e300a49b5a30e06db2693b9cce01a`.
+- Source inspection only; no screenshot or browser verification yet. The most recent known CI failure remains unresolved because job summaries/logs are unavailable through GitHub; a later PR run may be needed to validate this final patch.
