@@ -115,6 +115,8 @@ describe('VIP Discovery and Pro public preview', () => {
     expect(page).toContain('Discovery — 7 jours gratuits')
     expect(page).toContain('VIP Pro')
     expect(page).toContain('Aucun paiement n’est accepté pour le moment')
+    expect(page).toContain('vipx-member__crown')
+    expect(page).not.toContain('vip-parcours.mp4')
     expect(page).not.toContain('VipJourneyModal')
     expect(page).not.toContain('VIP_BOOKS')
     expect(page).not.toMatch(/à vie|lifetime|dépôt minimum de 3|minimum deposit of \$3/i)
