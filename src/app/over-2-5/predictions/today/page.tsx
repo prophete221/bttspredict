@@ -77,7 +77,7 @@ export default function Over25PredictionsTodayPage() {
             <div className="over25-vip-actions mt-3">
               <VipButtons locale="fr" />
             </div>
-            <p className="over25-note mt-4 text-xs text-[#7F98A4]">Mise à jour 4 fois par jour · Aucun gain garanti · 18+</p>
+            <p className="over25-note mt-4 text-xs text-[#7F98A4]">Données disponibles · Aucun résultat garanti · 18+</p>
           </div>
         </section>
 
