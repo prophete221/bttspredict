@@ -105,9 +105,7 @@ export default function PromoLandingShell(p: PromoLandingProps) {
 
   const accent = p.accent
   const soft = p.accentSoft ?? `${accent}33`
-  const offerTerms = p.bookmakerId === 'linebet' && p.lang === 'en'
-    ? 'Country availability has not been verified. Check current eligibility and terms directly with Linebet.'
-    : '300% worldwide deposit bonus, cashback and weekly bonuses.'
+  const offerTerms = '300% worldwide deposit bonus, cashback and weekly bonuses. Check the operator’s current terms before registering.'
 
   useEffect(() => {
     trackAffiliateAction(p.bookmakerId, 'promo_view', `promo:${p.bookmakerId}:${p.lang}`)
@@ -131,8 +129,10 @@ export default function PromoLandingShell(p: PromoLandingProps) {
     <div
       data-promo-shell
       data-bookmaker={p.bookmakerId}
+      lang={p.lang}
+      dir={p.lang === 'ar' ? 'rtl' : 'ltr'}
       className={`relative min-h-screen overflow-x-hidden text-[#F2F6FA] promo-shell promo-shell--${p.bookmakerId}`}
-      style={{ backgroundColor: '#05070B' }}
+      style={{ backgroundColor: '#070B12' }}
     >
       {/* Scroll progress */}
       <motion.div
@@ -157,7 +157,7 @@ export default function PromoLandingShell(p: PromoLandingProps) {
         <div className="absolute inset-0 opacity-[0.035]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #fff 1px, transparent 0)', backgroundSize: '28px 28px' }} />
       </div>
 
-      <main className="promo-main relative z-10 mx-auto w-full max-w-3xl px-4 pb-14 pt-7 sm:pt-12">
+      <main className="promo-main relative z-10 mx-auto w-full max-w-5xl px-4 pb-36 pt-7 sm:px-6 sm:pt-12 md:pb-14">
         {/* Hero */}
         <section className="promo-main__story text-center">
           <motion.p
@@ -445,6 +445,28 @@ export default function PromoLandingShell(p: PromoLandingProps) {
       <p className="promo-main__responsible mt-12 text-center text-[11px] text-[#6B7A8C]">
           18+ · {L.responsible} · {p.lang === 'en' ? 'No future result is guaranteed.' : p.lang === 'ar' ? 'لا توجد ضمانات مستقبلية.' : 'Aucun résultat futur n’est garanti.'}
         </p>
+
+        <div className="promo-sticky-cta fixed bottom-[calc(86px+env(safe-area-inset-bottom))] left-1/2 z-[45] flex w-[calc(100%-24px)] max-w-[520px] -translate-x-1/2 gap-2 rounded-2xl border border-white/10 bg-[#0B1422]/95 p-2 shadow-2xl backdrop-blur-xl md:hidden">
+          <button
+            type="button"
+            onClick={handleCopy}
+            className="min-h-11 flex-1 rounded-xl border border-white/15 bg-white/5 px-3 text-xs font-extrabold text-white"
+            data-cta={`promo-sticky-copy-${p.bookmakerId}`}
+          >
+            {copied ? L.copied : L.copy}
+          </button>
+          <a
+            href={p.signupUrl}
+            target="_blank"
+            rel="sponsored nofollow noopener noreferrer"
+            onClick={() => trackAffiliateAction(p.bookmakerId, 'signup_cta_click', `promo-sticky-${p.lang}`)}
+            data-cta={`promo-sticky-signup-${p.bookmakerId}`}
+            className="flex min-h-11 flex-[1.25] items-center justify-center rounded-xl px-3 text-center text-xs font-extrabold text-white"
+            style={{ background: accent }}
+          >
+            {L.stickySignup} {p.brand} →
+          </a>
+        </div>
       </main>
     </div>
   )
