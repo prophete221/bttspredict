@@ -57,6 +57,9 @@ describe('Partner navigation state', () => {
     expect(navigation).toContain("aria-current={isActive(partnerRoutes[id]) ? 'page' : undefined}")
     expect(navigation).toContain("const activePartner = Object.entries(partnerRoutes).find(([, href]) => isActive(href))?.[0]")
     expect(navigation).toContain("activePage?.label[lang] ?? activePartnerTitle")
+    expect(navigation).toContain("if (event.shiftKey && document.activeElement === first)")
+    expect(navigation).toContain("drawerCloseButtonRef.current?.focus()")
+    expect(navigation).toContain("menuTriggerRef.current?.focus()")
   })
 })
 
