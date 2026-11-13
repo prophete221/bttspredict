@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Navbar, Footer, FreePredictions } from '@/components/bttsbet'
+import { Navbar, Footer } from '@/components/bttsbet'
 import Link from 'next/link'
 
 const PAGE_URL = 'https://bttspredict.com/btts/statistics'
@@ -71,7 +71,7 @@ export default function BTTSStatisticsPage() {
           >
             BTTS · Compétitions suivies
           </span>
-          <h1 className="text-3xl sm:text-4xl font-bold mb-4 tracking-tight">Statistiques BTTS par ligue</h1>
+          <h1 className="text-3xl sm:text-4xl font-bold mb-4 tracking-tight">Compétitions suivies · BTTS</h1>
           <p className="text-base text-[#9DABBB] leading-relaxed mb-8">
             Cette page présente les ligues suivies par BTTSPredict pour le marché BTTS (Both Teams To Score). Elle décrit le périmètre couvert ; elle ne constitue pas un classement des ligues et ne publie pas de taux non vérifiés.
           </p>
@@ -140,7 +140,7 @@ export default function BTTSStatisticsPage() {
               </Link>
               <Link href="/historique" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2F7DFF]" style={{ backgroundColor: '#141C25', border: '1px solid #223041' }}>
                 <div className="text-sm font-bold text-[#F2F6FA]">Résultats vérifiés →</div>
-                <div className="text-xs text-[#9DABBB] mt-1">Historique complet</div>
+                <div className="text-xs text-[#9DABBB] mt-1">Résultats archivés</div>
               </Link>
               <Link href="/resultats-verifies" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2F7DFF]" style={{ backgroundColor: '#141C25', border: '1px solid #223041' }}>
                 <div className="text-sm font-bold text-[#F2F6FA]">Vérifications →</div>
@@ -153,9 +153,6 @@ export default function BTTSStatisticsPage() {
             18+ · BTTSPredict fournit des informations et ne prend pas de paris. Les paris sportifs comportent un risque de perte ; aucun gain ni résultat futur n’est garanti. Jouez de manière responsable.
           </p>
         </article>
-        <section className="max-w-5xl mx-auto px-4 py-8">
-          <FreePredictions />
-        </section>
       </main>
       <Footer />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
