@@ -242,3 +242,14 @@ Continue a read-only analytics/authentication funnel audit: verify whether `NEXT
 1. Complete repository-wide reference scan for `AuthProvider` / `useAuth` and locate any hidden or legacy signup UI.
 2. Ask the owner to confirm in GitHub Settings whether the non-secret Actions variable `NEXT_PUBLIC_GA_ID` is present, without sharing its value in chat. Confirm required Firebase environment variable names are configured in the build environment, without exposing values.
 3. If auth is genuinely unwired, map the smallest safe route/provider integration proposal; do not implement until existing UI and intended registration flow are understood.
+
+
+## 14. GA4 configuration confirmation — 2026-11-13
+
+- Owner checked GitHub repository Settings → Secrets and variables → Actions.
+- Confirmed `NEXT_PUBLIC_GA_ID` does NOT appear among configured Actions variables (owner explicitly confirmed).
+- `VIP_CANDIDATE_API_URL` is present, but it is unrelated and does not substitute for the GA4 Measurement ID.
+- Consequence from current source: `AnalyticsLoader.tsx` cannot initialize GA4 because the build-time `NEXT_PUBLIC_GA_ID` value is missing. Analytics also remains consent-gated (`preferences.analytics === true`).
+- Next: obtain the GA4 Measurement ID (`G-XXXXXXXXXX`) from the Google Analytics property, then add it as an Actions repository variable named exactly `NEXT_PUBLIC_GA_ID`. Do not paste the ID into source code. Confirm workflow actually injects repository variables into the build environment before deployment; verify after deploy using GA4 Realtime/Tag Assistant and consent acceptance.
+- Prior connection blocker: user previously reported Google Analytics said no GA4 accounts were accessible while signed in as `luxxdii@gmail.com`. Therefore first verify the correct Google account has access to the GA4 property, or create a GA4 property if none exists.
+- No repository source, Actions variable, secret, production config, or deployment was changed during this confirmation.
