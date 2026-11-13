@@ -2413,3 +2413,73 @@
   .vipx-application__code > span { flex-basis: 100%; }
   .vipx-application__submit { width: 100%; }
 }
+
+
+/* 2026-11-13 — final VIP art direction: champagne gold, navy surfaces, no legacy red accent. */
+.vipx-content-grid__aside .vipx-flow--card {
+  border-color: rgba(232, 201, 122, .24) !important;
+  background: linear-gradient(155deg, rgba(18, 26, 38, .98), rgba(9, 15, 24, .98)) !important;
+}
+.vipx-content-grid__aside .vipx-flow__step,
+.vipx-content-grid__aside .vipx-flow__panel,
+.vipx-locked-preview-card,
+.vipx .vipx-history-empty {
+  border-color: rgba(157, 171, 187, .15) !important;
+  background: #0F1622 !important;
+  color: #F2F6FA !important;
+}
+.vipx-content-grid__aside .vipx-flow__num {
+  color: #17130A !important;
+  background: linear-gradient(135deg, #F4DFA6, #C9A24B) !important;
+}
+.vipx-content-grid__aside .vipx-flow__body h3,
+.vipx-content-grid__aside .vipx-flow__panel h3 { color: #F2F6FA !important; }
+.vipx-content-grid__aside .vipx-flow__body p,
+.vipx-content-grid__aside .vipx-flow__panel p { color: #9DABBB !important; }
+.vipx-content-grid__aside .vipx-flow__panel--accent {
+  border-color: rgba(232, 201, 122, .28) !important;
+  background: linear-gradient(145deg, rgba(232, 201, 122, .09), #0F1622 68%) !important;
+}
+.vipx-content-grid__aside .vipx-flow__panel h3 svg,
+.vipx-content-grid__aside .vipx-flow__delivery svg,
+.vipx-content-grid__aside .vipx-flow__status svg { color: #E8C97A !important; }
+.vipx-content-grid__aside .vipx-flow__links a,
+.vipx-content-grid__aside .vipx-flow__priority { color: #E8C97A !important; }
+.vipx-content-grid__aside .vipx-flow__links a { border-color: rgba(232, 201, 122, .38) !important; }
+.vipx-content-grid__aside .vipx-flow__guide {
+  border-color: rgba(157, 171, 187, .16) !important;
+  background: #121A26 !important;
+  color: #F2F6FA !important;
+}
+.vipx-content-grid__aside .vipx-flow__status {
+  border-color: rgba(232, 201, 122, .24) !important;
+  background: rgba(232, 201, 122, .07) !important;
+}
+.vipx-content-grid__aside .vipx-flow__status strong { color: #F4DFA6 !important; }
+.vipx-content-grid__aside .vipx-flow__status span { color: #9DABBB !important; }
+.vipx-locked-preview-card__badge {
+  border-color: rgba(232, 201, 122, .28) !important;
+  background: rgba(232, 201, 122, .09) !important;
+  color: #E8C97A !important;
+}
+.vipx-locked-preview-card__fixture { border-color: rgba(157, 171, 187, .14) !important; background: #0C121C !important; }
+.vipx-locked-preview-footer {
+  border-color: rgba(232, 201, 122, .2) !important;
+  background: rgba(232, 201, 122, .045) !important;
+}
+.vipx .vipx-benefits__icon {
+  color: #E8C97A !important;
+  border-color: rgba(232, 201, 122, .24) !important;
+  background: rgba(232, 201, 122, .09) !important;
+}
+.vipx .vipx-faq__list summary::after {
+  color: #E8C97A !important;
+  background: rgba(232, 201, 122, .09) !important;
+  border-color: rgba(232, 201, 122, .2) !important;
+}
+.vipx .vipx-flow__video {
+  border-color: rgba(232, 201, 122, .22) !important;
+  background: linear-gradient(145deg, rgba(232, 201, 122, .07), rgba(15, 22, 34, .96)) !important;
+}
+.vipx .vipx-hero__video { border-color: rgba(232, 201, 122, .2) !important; }
+.vipx :focus-visible { outline-color: #E8C97A !important; }
