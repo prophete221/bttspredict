@@ -93,6 +93,7 @@ function NavigationContent() {
   const menuTriggerRef = useRef<HTMLButtonElement>(null)
   const drawerRef = useRef<HTMLElement>(null)
   const drawerCloseButtonRef = useRef<HTMLButtonElement>(null)
+  const drawerWasOpenRef = useRef(false)
 
   const paths = useMemo(() => ({
     home: localizedPath('/', lang),
@@ -183,10 +184,12 @@ function NavigationContent() {
 
   useEffect(() => {
     if (!menuOpen) {
-      menuTriggerRef.current?.focus()
+      if (drawerWasOpenRef.current) menuTriggerRef.current?.focus()
+      drawerWasOpenRef.current = false
       return
     }
 
+    drawerWasOpenRef.current = true
     drawerCloseButtonRef.current?.focus()
     const handleDrawerKeys = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
