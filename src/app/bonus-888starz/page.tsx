@@ -63,7 +63,7 @@ function breadcrumbJsonLd() {
 export default function Bonus888StarzPage() {
   const faq = buildPromoFaqJsonLd('888starz', 'fr')
   return (
-    <div className="min-h-screen bg-dark-800 flex flex-col text-papier">
+    <div className="page-design page-design--promo min-h-screen bg-[#080D14] flex flex-col text-[#EDF2F7]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd()) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd()) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faq) }} />
