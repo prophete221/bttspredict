@@ -7,7 +7,6 @@ import { translationsFor, type Locale, localizedPath } from '@/lib/i18n'
 import { AFFILIATE, BOOKMAKERS } from '@/lib/constants'
 import { trackAffiliateAction, trackAffiliateCodeCopy } from '@/lib/affiliateTracking'
 import { copyTextToClipboard } from '@/lib/clipboard'
-import MovingGradientButton from './MovingGradientButton'
 
 type PartnerCodeId = (typeof BOOKMAKERS)[number]['id']
 const codeForPartner = (id: PartnerCodeId) => BOOKMAKERS.find((bookmaker) => bookmaker.id === id)?.promoCode ?? ''
@@ -194,17 +193,18 @@ export function PartnerCard({ initialLocale }: { initialLocale?: Locale } = {}) 
                 </button>
               </div>}
             <div className="grid gap-2 w-full">
-              <MovingGradientButton
+              <a
                 href={AFFILIATE.oneXbet}
-                external
+                target="_blank"
                 rel="sponsored nofollow noopener noreferrer"
-                dataCta="partner-signup-home-1xbet"
+                data-cta="partner-signup-home-1xbet"
                 onClick={() => trackAffiliateAction('1xbet', 'signup_cta_click', 'home-partner-1xbet')}
+                className="hp-cta-primary"
               >
                 <span className="grid h-7 w-7 place-items-center rounded bg-white p-0.5"><img src="/logos/1xbet-logo.png" alt="" width="24" height="24" className="h-6 w-6 object-contain" /></span>
                 {showCodes ? withDiscreetCode(t.home2.ptCta, primaryCode) : lang === 'ar' ? 'زيارة 1xBet' : lang === 'fr' ? 'Consulter 1xBet' : 'Visit 1xBet'}
-                <span className="hp-btn-arrow" aria-hidden="true">→</span>
-              </MovingGradientButton>
+                <span aria-hidden="true">→</span>
+              </a>
               <a
                 href={AFFILIATE.linebet}
                 target="_blank"
