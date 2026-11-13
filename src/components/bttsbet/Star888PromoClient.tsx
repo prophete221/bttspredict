@@ -36,10 +36,10 @@ const COPY: Record<Lang, {
     dir: 'ltr',
     badge: 'OFFRE 888STARZ',
     title: 'Code promo 888Starz btts221 : bonus mondial de 300 %',
-    positioning: 'Le code 888Starz btts221 fonctionne dans le monde entier. L’offre comprend un bonus de dépôt mondial de 300 %, du cashback et des bonus hebdomadaires. Consultez 888Starz pour les modalités en vigueur.',
+    positioning: 'Le code 888Starz est btts221. L’offre annoncée comprend un bonus de dépôt de 300 %, du cashback et des bonus hebdomadaires. Vérifiez les conditions et votre éligibilité directement auprès de 888Starz.',
     offer: 'Bonus de dépôt mondial 300 %',
     highlights: ['Cashback', 'Bonus hebdomadaires', 'Code exact : btts221'],
-    guideTitle: 'Comment utiliser ce guide',
+    guideTitle: 'Utiliser le code',
     steps: [
       { title: 'Copier le code', body: 'Recopiez btts221 tel qu’il apparaît sur cette page.' },
       { title: 'Vérifier les modalités', body: 'Consultez les conditions en vigueur directement auprès de 888Starz.' },
@@ -59,10 +59,10 @@ const COPY: Record<Lang, {
     dir: 'ltr',
     badge: '888STARZ OFFER',
     title: '888Starz btts221 Promo Code: 300% Worldwide Bonus',
-    positioning: '888Starz code btts221 works worldwide. The offer includes a 300% worldwide deposit bonus, cashback and weekly bonuses. Check current terms with 888Starz.',
+    positioning: 'The 888Starz code is btts221. The advertised offer includes a 300% deposit bonus, cashback and weekly bonuses. Confirm eligibility and current terms with 888Starz.',
     offer: '300% Worldwide Deposit Bonus',
     highlights: ['Cashback', 'Weekly bonuses', 'Exact code: btts221'],
-    guideTitle: 'How to use this guide',
+    guideTitle: 'Using the code',
     steps: [
       { title: 'Copy the code', body: 'Copy btts221 exactly as shown on this page.' },
       { title: 'Check the terms', body: 'Review the current terms directly with 888Starz.' },
@@ -82,10 +82,10 @@ const COPY: Record<Lang, {
     dir: 'rtl',
     badge: 'عرض 888Starz',
     title: 'رمز 888Starz الترويجي btts221: عرض عالمي بنسبة 300%',
-    positioning: 'يعمل رمز 888Starz ‏btts221 حول العالم. يشمل العرض مكافأة إيداع عالمية بنسبة 300%، واستردادًا نقديًا ومكافآت أسبوعية. راجع الشروط السارية لدى 888Starz.',
+    positioning: 'رمز 888Starz هو btts221. يتضمن العرض المعلن مكافأة إيداع بنسبة 300% واسترداداً نقدياً ومكافآت أسبوعية. تحقق من الأهلية والشروط الحالية لدى 888Starz.',
     offer: 'مكافأة إيداع عالمية 300%',
     highlights: ['استرداد نقدي', 'مكافآت أسبوعية', 'الرمز الدقيق: btts221'],
-    guideTitle: 'طريقة استخدام هذا الدليل',
+    guideTitle: 'استخدام الرمز',
     steps: [
       { title: 'انسخ الرمز', body: 'انسخ btts221 كما يظهر في هذه الصفحة.' },
       { title: 'تحقق من الشروط', body: 'راجع الشروط الحالية مباشرة لدى 888Starz.' },
@@ -106,7 +106,7 @@ const COPY: Record<Lang, {
 const CODE_COPY: Record<Lang, Pick<typeof COPY.fr, 'title' | 'positioning' | 'offer'>> = {
   fr: {
     title: 'Guide du code promo 888Starz btts221 et du bonus mondial de 300 %',
-    positioning: 'Le code 888Starz btts221 fonctionne dans le monde entier. L’offre comprend un bonus de dépôt mondial de 300 %, du cashback et des bonus hebdomadaires. Consultez 888Starz pour les modalités en vigueur.',
+    positioning: 'Le code 888Starz est btts221. L’offre annoncée comprend un bonus de dépôt de 300 %, du cashback et des bonus hebdomadaires. Vérifiez les conditions et votre éligibilité directement auprès de 888Starz.',
     offer: 'Bonus de dépôt mondial 300 %',
   },
   en: {
@@ -126,7 +126,7 @@ type MainPromoCopy = Pick<typeof COPY.fr, 'title' | 'positioning' | 'offer' | 'h
 const MAIN_PROMO_COPY: Record<Lang, MainPromoCopy> = {
   fr: {
     title: 'Code promo 888Starz btts221 : bonus mondial 300 %',
-    positioning: 'Le code promo 888Starz btts221 fonctionne dans le monde entier. L’offre comprend un bonus de dépôt mondial de 300 %, du cashback et des bonus hebdomadaires.',
+    positioning: 'Le code 888Starz est btts221. L’offre annoncée comprend un bonus de dépôt de 300 %, du cashback et des bonus hebdomadaires. Vérifiez les conditions auprès de l’opérateur.',
     offer: 'Bonus de dépôt mondial 300 %',
     highlights: ['Bonus de dépôt 300 %', 'Cashback', 'Bonus hebdomadaires · code btts221'],
     guideTitle: 'Comment utiliser le code btts221',
@@ -137,7 +137,7 @@ const MAIN_PROMO_COPY: Record<Lang, MainPromoCopy> = {
   },
   en: {
     title: '888Starz Promo Code btts221: 300% Worldwide Bonus',
-    positioning: '888Starz promo code btts221 works worldwide. The offer includes a 300% worldwide deposit bonus, cashback and weekly bonuses.',
+    positioning: 'The 888Starz code is btts221. The advertised offer includes a 300% deposit bonus, cashback and weekly bonuses. Check the terms with the operator.',
     offer: '300% Worldwide Deposit Bonus',
     highlights: ['300% deposit bonus', 'Cashback', 'Weekly bonuses · code btts221'],
     guideTitle: 'How to use code btts221',
@@ -148,7 +148,7 @@ const MAIN_PROMO_COPY: Record<Lang, MainPromoCopy> = {
   },
   ar: {
     title: 'رمز 888Starz الترويجي btts221: مكافأة عالمية 300%',
-    positioning: 'يعمل رمز 888Starz الترويجي btts221 حول العالم. يشمل العرض مكافأة إيداع عالمية بنسبة 300%، واستردادًا نقديًا ومكافآت أسبوعية.',
+    positioning: 'رمز 888Starz هو btts221. يتضمن العرض المعلن مكافأة إيداع بنسبة 300% واسترداداً نقدياً ومكافآت أسبوعية. تحقق من الشروط لدى المشغّل.',
     offer: 'مكافأة إيداع عالمية 300%',
     highlights: ['مكافأة إيداع 300%', 'استرداد نقدي', 'مكافآت أسبوعية · الرمز btts221'],
     guideTitle: 'طريقة استخدام الرمز btts221',
