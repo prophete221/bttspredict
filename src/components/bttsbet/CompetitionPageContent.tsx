@@ -40,7 +40,7 @@ export default function CompetitionPageContent({ competition, locale }: { compet
   const updated = feed.lastUpdated ? formatCompetitionDate(feed.lastUpdated.slice(0, 10), locale) : null
   const name = competition.displayName[locale]
   return (
-    <div className="min-h-screen flex flex-col bg-[#0B0F14] text-[#F2F6FA]" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+    <div className="page-design page-design--competition min-h-screen flex flex-col bg-[#080D14] text-[#EDF2F7]" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
       <Navbar />
       <main id="main-content" className="flex-1">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-6 sm:pt-9 pb-12">
