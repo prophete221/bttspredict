@@ -392,7 +392,7 @@ export default function PromoLandingShell(p: PromoLandingProps) {
                 >
                   <button
                     type="button"
-                    className="flex w-full items-center justify-between gap-3 px-4 py-3.5 text-left text-sm font-bold"
+                    className="flex w-full items-center justify-between gap-3 px-4 py-3.5 text-start text-sm font-bold"
                     onClick={() => setOpenFaq(open ? null : i)}
                     aria-expanded={open}
                   >
