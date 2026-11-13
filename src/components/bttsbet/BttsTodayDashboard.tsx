@@ -1,31 +1,15 @@
 'use client'
 
 /**
- * BttsTodayDashboard — premium predictions dashboard for /btts/predictions/today
+ * BttsTodayDashboard — public BTTS market view.
  *
- * Visual identity V3 — « plateforme mondiale » : dark glass, liserés animés,
- * barres de probabilité animées au scroll, reveal en cascade (IntersectionObserver),
- * combo IA vedette à bordure conique animée, sheen au survol des cartes.
- * Motion design 100% CSS/IO — reduced-motion : tout est désactivé et visible.
- * NOT a blog article.
+ * Presentation: compact editorial data cards, clear market probabilities,
+ * source and sample details, responsive filters. No decorative motion or
+ * unsupported performance claims.
  *
- * Data sources (read-only):
- *   - public/predictions.json (fields already produced by the engine)
- *
- * Current picks are read only from rows tagged as Gemini; empirical form data
- * remains context and is never turned into a frontend selection.
- * Fields consumed:
- *   match, league, date, time, homeLogo, awayLogo,
- *   home, away,
- *   bttsProb, over25Prob,                  ← published market probabilities (0..1)
- *   homeLambda, awayLambda,                ← recent goals-scored averages (legacy field names)
- *   xgHome, xgAway, xgTotal,               ← fallback fields for those averages
- *   reliabilityScore,                      ← 0..100 data confidence (NOT a win chance)
- *   dataSource, dataQuality,               ← ESPN_TEAM_SCHEDULE | LEAGUE_FALLBACK ; HIGH|MEDIUM|LOW
- *   matchCountHome, matchCountAway,        ← real ESPN matches analysed per team
- *   ai_exact_score, exact_score_prob,      ← Gemini exact score view
- *   ai_btts_view, ai_over25_view,          ← Gemini views (displayed, not overriding Poisson)
- *   ai_key_fact, ai_analysis               ← Gemini short text
+ * Data source (read-only): public/predictions.json.
+ * Picks are accepted only from rows carrying the configured source marker;
+ * recent form is context and is never promoted into a market selection.
  */
 
 import { useEffect, useMemo, useRef, useState } from 'react'
