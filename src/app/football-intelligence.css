@@ -2379,3 +2379,19 @@ body {
 .hp-gift-1xbet__label,
 .hp-gift-1xbet__bonus { color: var(--fi-text) !important; }
 .hp-gift-1xbet__code code { background: var(--fi-panel-raised) !important; color: var(--fi-text) !important; border-color: var(--fi-line) !important; }
+
+
+/* 2026-11-13 — outer page shells: remove residual teal canvas from legacy layouts. */
+.page-design--home,
+.page-design--over25,
+.page-design--score-exact,
+.match-analysis-page,
+#btts-today-dashboard {
+  background: #070B12 !important;
+  background-color: #070B12 !important;
+}
+footer#faq,
+.hp-footer {
+  background: #070B12 !important;
+  color: var(--fi-text) !important;
+}
