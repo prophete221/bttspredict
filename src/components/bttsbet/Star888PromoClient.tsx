@@ -200,6 +200,7 @@ export default function Star888PromoClient({
 
   return (
     <main
+      id="main-content"
       lang={lang}
       dir={copy.dir}
       data-888starz-promo
