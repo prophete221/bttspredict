@@ -65,7 +65,7 @@ describe('Partner navigation state', () => {
   })
 })
 
-describe('Page surface and VIP palette consistency', () => {
+describe('Public page surface consistency', () => {
   it('keeps home, prediction dashboards and promo guides on the navy surface system', () => {
     const css = readFileSync(resolve(ROOT, 'src/app/football-intelligence.css'), 'utf8')
     const finalSurfaces = css.slice(css.lastIndexOf('/* 2026-11-13 — final surface pass'))
