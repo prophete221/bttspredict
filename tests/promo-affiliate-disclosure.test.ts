@@ -36,6 +36,8 @@ describe('Divulgation affiliée sur les pages promotionnelles', () => {
       const disclosureIndex = html.indexOf('data-affiliate-disclosure')
       expect(ctaIndex).toBeGreaterThanOrEqual(0)
       expect(disclosureIndex).toBeGreaterThan(ctaIndex)
+      expect(html).toContain('promo-sticky-copy-linebet')
+      expect(html).toContain('promo-sticky-signup-linebet')
       expect(html.slice(disclosureIndex, disclosureIndex + 500)).toContain(lang === 'fr'
         ? 'Les liens vers l’opérateur sont affiliés ; BTTSPredict peut percevoir une commission si vous les utilisez.'
         : lang === 'en'
@@ -49,6 +51,9 @@ describe('Divulgation affiliée sur les pages promotionnelles', () => {
     expect(source).toContain('Links to the operator are affiliate links')
     expect(source).toContain('Les liens vers l’opérateur sont affiliés')
     expect(source).toContain('روابط المشغّل تابعة')
+    const localized = readFileSync(resolve(ROOT, 'src/components/bttsbet/LocalizedPromoClient.tsx'), 'utf8')
+    expect(localized).toContain('Linebet promo code VISION221 works worldwide.')
+    expect(localized).not.toContain('country availability has not been verified')
   })
 
   it('affiche la divulgation sur la page promo 888Starz dans les trois langues', () => {
@@ -66,6 +71,8 @@ describe('Divulgation affiliée sur les pages promotionnelles', () => {
         const disclosureIndex = html.indexOf('data-affiliate-disclosure')
         expect(ctaIndex).toBeGreaterThanOrEqual(0)
         expect(disclosureIndex).toBeGreaterThan(ctaIndex)
+        expect(html).toContain(`promo-sticky-copy-888starz-${lang}`)
+        expect(html).toContain(`promo-sticky-signup-888starz-${lang}`)
         expect(html.slice(disclosureIndex, disclosureIndex + 500)).toContain(lang === 'fr'
           ? 'Les liens vers 888Starz sont affiliés ; BTTSPredict peut percevoir une commission si vous les utilisez.'
           : lang === 'en'
