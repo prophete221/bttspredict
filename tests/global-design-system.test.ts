@@ -58,6 +58,7 @@ describe('Partner navigation state', () => {
     expect(navigation).toContain("const activePartner = Object.entries(partnerRoutes).find(([, href]) => isActive(href))?.[0]")
     expect(navigation).toContain("activePage?.label[lang] ?? activePartnerTitle")
     expect(navigation).toContain("if (event.shiftKey && document.activeElement === first)")
+    expect(navigation).toContain("select:not([disabled]), textarea:not([disabled])")
     expect(navigation).toContain("drawerCloseButtonRef.current?.focus()")
     expect(navigation).toContain("menuTriggerRef.current?.focus()")
     expect(navigation).toContain("if (drawerWasOpenRef.current) menuTriggerRef.current?.focus()")
