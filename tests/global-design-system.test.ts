@@ -25,3 +25,14 @@ describe('Global BTTSPredict design system', () => {
     expect(layout).toContain('canonical: "https://bttspredict.com/"')
   })
 })
+
+describe('Shared footer visual and RTL consistency', () => {
+  it('uses the global dark surface tokens and logical text alignment', () => {
+    const footer = readFileSync(resolve(ROOT, 'src/components/bttsbet/Footer.tsx'), 'utf8')
+
+    expect(footer).toContain("backgroundColor: '#0F1622'")
+    expect(footer).toContain("border: '1px solid #283548'")
+    expect(footer).toContain('text-start')
+    expect(footer).toContain("lang === 'ar' ? 'قانوني'")
+  })
+})
