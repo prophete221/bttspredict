@@ -329,6 +329,7 @@ Continue a read-only analytics/authentication funnel audit: verify whether `NEXT
 - Fichier modifié : `src/components/bttsbet/CookieConsent.tsx` uniquement.
 - Le panneau de consentement restaure désormais les préférences déjà enregistrées lorsqu'il s'affiche ou est rouvert pour personnalisation. Avant, l'interface repartait visuellement des valeurs par défaut, ce qui pouvait induire l'utilisateur en erreur sur ses choix enregistrés.
 - Le texte FR/EN/AR précise désormais que les cookies analytiques et publicitaires ne sont activés qu'après accord explicite. L'ancien texte laissait entendre que continuer à naviguer valait acceptation.
+- Correctif complémentaire : un consentement JSON illisible ou sans objet `preferences` est maintenant invalidé, puis le bandeau est réaffiché au lieu de considérer à tort qu'un choix existe. Commit : `0d1774c403ce1e5432abacaf478a27ada8516a23`.
 - Le mécanisme GA4 existant reste en opt-in ; aucun GTM, aucun changement d'identifiant, aucune modification SEO.
 - Validation après commit : fichier relu sur la branche et deux changements attendus confirmés. Contrôles GitHub Actions pas encore apparus au moment du relevé ; statut Vercel en attente.
 - Aucun merge, aucun déploiement en production, aucune modification de `main`.
