@@ -323,7 +323,7 @@ export default function StatistiquesClient() {
 
 function Shell({ children }: { children: ReactNode }) {
   return (
-    <div className="min-h-screen bg-[#0B0F14] flex flex-col text-[#F2F6FA]">
+    <div className="page-design page-design--statistics min-h-screen bg-[#080D14] flex flex-col text-[#EDF2F7]">
       <Navbar />
       <main id="main-content" className="flex-1">{children}</main>
       <Footer />
