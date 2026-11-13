@@ -263,3 +263,11 @@ Continue a read-only analytics/authentication funnel audit: verify whether `NEXT
 - Next required value: retrieve the stream's Measurement ID in format `G-XXXXXXXXXX` from Admin → Data streams → BTTSPredict Website. User should share only that non-secret Measurement ID (never any credentials).
 - After obtaining it, add it as GitHub Actions variable `NEXT_PUBLIC_GA_ID` only after verifying the build workflow passes repository variables into the Next.js build environment. Then deploy only with explicit owner approval and verify GA4 Realtime after consenting to analytics.
 - No source code, Actions variable, secret, production setting, or deployment changed in this step.
+
+
+## 16. Identifier clarification — 2026-11-13
+
+- User supplied `GTM-NGVK3V3V`. This is a Google Tag Manager container ID (prefix `GTM-`), not a GA4 Measurement ID (prefix `G-`).
+- Do not set `NEXT_PUBLIC_GA_ID` to this GTM ID. The existing AnalyticsLoader expects a GA4 measurement ID.
+- Next: guide user to GA4 Admin → Data streams → BTTSPredict Website → Measurement ID (format `G-XXXXXXXXXX`). Keep GTM separate; do not configure or inject it unless the project is intentionally migrated to GTM and code/workflow are audited first.
+- No code, environment variable, or deployment changed.
