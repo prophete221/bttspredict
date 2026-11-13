@@ -59,3 +59,24 @@ describe('Partner navigation state', () => {
     expect(navigation).toContain("activePage?.label[lang] ?? activePartnerTitle")
   })
 })
+
+describe('Page surface and VIP palette consistency', () => {
+  it('keeps home, prediction dashboards and promo guides on the navy surface system', () => {
+    const css = readFileSync(resolve(ROOT, 'src/app/football-intelligence.css'), 'utf8')
+    const finalSurfaces = css.slice(css.lastIndexOf('/* 2026-11-13 — final surface pass'))
+
+    expect(finalSurfaces).toContain('.hp-hero')
+    expect(finalSurfaces).toContain('#btts-today-dashboard .btx-card')
+    expect(finalSurfaces).toContain('[data-promo-shell]')
+    expect(finalSurfaces).toContain('background: var(--fi-panel) !important')
+  })
+
+  it('uses champagne gold rather than legacy red on the VIP flow', () => {
+    const vipCss = readFileSync(resolve(ROOT, 'src/app/vip/vip.css'), 'utf8')
+    const finalVip = vipCss.slice(vipCss.lastIndexOf('/* 2026-11-13 — final VIP art direction'))
+
+    expect(finalVip).toContain('#E8C97A !important')
+    expect(finalVip).toContain('background: #0F1622 !important')
+    expect(finalVip).not.toContain('#ff827b')
+  })
+})
