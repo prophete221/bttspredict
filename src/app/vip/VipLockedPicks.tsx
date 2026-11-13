@@ -10,8 +10,8 @@ const COPY: Record<Locale, {
   locked: string
   fixturePlaceholder: string
   detailsLocked: string
-  activationNote: string
-  viewPlans: string
+  manualApproval: string
+  requestReview: string
   requestNote: string
 }> = {
   fr: {
@@ -21,9 +21,9 @@ const COPY: Record<Locale, {
     locked: 'Verrouillé',
     fixturePlaceholder: 'Rencontre masquée',
     detailsLocked: 'Sélection réservée aux membres VIP',
-    activationNote: 'L’accès sera activé côté serveur après connexion et vérification de la formule.',
-    viewPlans: 'Voir les formules',
-    requestNote: 'Les inscriptions ne sont pas encore ouvertes.',
+    manualApproval: 'L’accès reste bloqué jusqu’à la validation personnelle du propriétaire.',
+    requestReview: 'Demander une revue manuelle',
+    requestNote: 'Envoyer une demande ne déverrouille pas le contenu automatiquement.',
   },
   en: {
     eyebrow: 'Locked VIP preview',
@@ -32,9 +32,9 @@ const COPY: Record<Locale, {
     locked: 'Locked',
     fixturePlaceholder: 'Fixture hidden',
     detailsLocked: 'Selection reserved for VIP members',
-    activationNote: 'Access will be enabled server-side after sign-in and plan verification.',
-    viewPlans: 'View plans',
-    requestNote: 'Registration is not open yet.',
+    manualApproval: 'Access stays locked until the owner personally approves it.',
+    requestReview: 'Request a manual review',
+    requestNote: 'Sending a request does not unlock the content automatically.',
   },
   ar: {
     eyebrow: 'معاينة VIP مقفلة',
@@ -43,9 +43,9 @@ const COPY: Record<Locale, {
     locked: 'مقفل',
     fixturePlaceholder: 'مباراة مخفية',
     detailsLocked: 'الاختيار مخصص لأعضاء VIP',
-    activationNote: 'سيتم تفعيل الوصول على الخادم بعد تسجيل الدخول والتحقق من الخطة.',
-    viewPlans: 'عرض الخطط',
-    requestNote: 'التسجيل غير متاح بعد.',
+    manualApproval: 'يبقى الوصول مقفلاً حتى يوافق المالك شخصياً.',
+    requestReview: 'طلب مراجعة يدوية',
+    requestNote: 'إرسال الطلب لا يفتح المحتوى تلقائياً.',
   },
 }
 
@@ -60,7 +60,7 @@ function LockIcon() {
   )
 }
 
-export default function VipLockedPicks({ onViewPlans }: { onViewPlans: () => void }) {
+export default function VipLockedPicks({ onRequestReview }: { onRequestReview: () => void }) {
   const { lang } = useLanguage()
   const text = COPY[lang]
 
@@ -99,9 +99,9 @@ export default function VipLockedPicks({ onViewPlans }: { onViewPlans: () => voi
       </ul>
 
       <div className="vipx-locked-preview-footer">
-        <p>{text.activationNote}</p>
-        <button type="button" className="vipx-btn vipx-btn--gold" onClick={onViewPlans} data-cta="vip-locked-preview-view-plans">
-          {text.viewPlans}<span aria-hidden="true">→</span>
+        <p>{text.manualApproval}</p>
+        <button type="button" className="vipx-btn vipx-btn--gold" onClick={onRequestReview} data-cta="vip-locked-preview-request">
+          {text.requestReview}<span aria-hidden="true">→</span>
         </button>
         <small>{text.requestNote}</small>
       </div>
