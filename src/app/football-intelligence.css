@@ -2752,3 +2752,18 @@ body { color: var(--fi-text); }
   .competition-match-card { padding:13px !important; }
   .match-analysis-page > main { padding-inline:12px !important; }
 }
+
+
+/* Combo builder: functional controls, not a neon/gradient promotional widget. */
+.combox {
+  border:1px solid var(--fi-line) !important;
+  border-radius:10px !important;
+  background:#101823 !important;
+  box-shadow:none !important;
+}
+.combox summary { color:#e7edf5 !important; font-size:13px !important; font-weight:700 !important; }
+.combox summary > span > span:last-child { color:#8fa1b5 !important; }
+.combox .rounded-xl { border-radius:8px !important; border-color:var(--fi-line) !important; background:#0c141e !important; }
+.combox .bg-gradient-to-b, .combox [class*="bg-gradient"] { background:#101823 !important; }
+.cbx-chip { min-height:34px !important; padding:0 11px !important; border:1px solid var(--fi-line) !important; border-radius:6px !important; background:#0c141e !important; color:#b7c5d5 !important; font-size:11px !important; }
+.cbx-chip.is-active { border-color:#3e78c6 !important; background:#1a3d66 !important; color:#fff !important; }
