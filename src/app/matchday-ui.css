@@ -151,3 +151,137 @@ a { text-decoration-thickness: .06em; text-underline-offset: .18em; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
+
+/* Promotional journeys: compact editorial layout, one clear code and one primary action. */
+[data-promo-shell] {
+  background: var(--bp-bg) !important;
+  color: var(--bp-text) !important;
+}
+[data-promo-shell] > .fixed.top-0,
+[data-promo-shell] > .pointer-events-none.fixed.inset-0 { display: none !important; }
+[data-promo-shell] .promo-main {
+  max-width: 700px !important;
+  padding-top: 28px !important;
+  padding-bottom: 42px !important;
+}
+[data-promo-shell] .promo-main__story { text-align: left !important; }
+[data-promo-shell] .promo-story__badge { display: none !important; }
+[data-promo-shell] .promo-story__title {
+  margin-top: 0 !important;
+  font-family: var(--font-body), Inter, sans-serif !important;
+  font-size: clamp(1.65rem, 5vw, 2.35rem) !important;
+  line-height: 1.18 !important;
+  font-weight: 750 !important;
+  letter-spacing: -.035em !important;
+}
+[data-promo-shell] .promo-story__logo {
+  justify-content: flex-start !important;
+  width: fit-content !important;
+  min-height: 0 !important;
+  max-width: 220px !important;
+  margin: 18px 0 0 !important;
+  padding: 8px 12px !important;
+  border: 1px solid var(--bp-line) !important;
+  border-radius: 8px !important;
+  background: var(--bp-surface) !important;
+  box-shadow: none !important;
+}
+[data-promo-shell] .promo-story__logo img { max-height: 34px !important; }
+[data-promo-shell] .promo-story__intro {
+  max-width: 620px !important;
+  margin: 14px 0 0 !important;
+  color: var(--bp-muted) !important;
+  font-size: 14px !important;
+  line-height: 1.65 !important;
+}
+[data-promo-shell] .promo-story__actions {
+  max-width: 620px !important;
+  margin: 22px 0 0 !important;
+}
+[data-promo-shell] .promo-story__actions > p:first-child {
+  margin-bottom: 7px !important;
+  color: var(--bp-muted) !important;
+  letter-spacing: .04em !important;
+}
+[data-promo-shell] .promo-story__actions > button {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  min-height: 58px !important;
+  padding: 12px 16px !important;
+  border: 1px solid #3b7043 !important;
+  border-radius: 9px !important;
+  background: var(--bp-surface-raised) !important;
+  box-shadow: none !important;
+  color: var(--bp-accent) !important;
+}
+[data-promo-shell] .promo-story__actions > button span:first-child {
+  color: var(--bp-accent) !important;
+  letter-spacing: .12em !important;
+}
+[data-promo-shell] .promo-story__actions > button span:nth-child(2) {
+  display: inline !important;
+  margin: 0 0 0 12px !important;
+  color: var(--bp-muted) !important;
+}
+[data-promo-shell] .promo-story__actions > button > span:last-child { display: none !important; }
+[data-promo-shell] .promo-story__actions a[data-cta^="promo-signup"] {
+  background: var(--bp-accent) !important;
+  color: #071009 !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+}
+[data-promo-shell] .promo-story__actions a[data-cta^="promo-apk"] {
+  background: transparent !important;
+  color: var(--bp-text) !important;
+  border: 1px solid var(--bp-line) !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+}
+[data-promo-shell] [data-affiliate-disclosure] {
+  text-align: left !important;
+  padding: 0 !important;
+  color: var(--bp-dim) !important;
+}
+[data-promo-shell] .promo-main__benefits,
+[data-promo-shell] .promo-main__offer,
+[data-promo-shell] .promo-main__trust { display: none !important; }
+[data-promo-shell] .promo-main__steps,
+[data-promo-shell] .promo-main__faq,
+[data-promo-shell] .promo-main__crosslinks {
+  margin-top: 28px !important;
+}
+[data-promo-shell] .promo-main__steps h2,
+[data-promo-shell] .promo-main__faq h2,
+[data-promo-shell] .promo-main__crosslinks h2 {
+  margin-bottom: 10px !important;
+  text-align: left !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+}
+[data-promo-shell] .promo-main__steps > div > div {
+  padding: 12px 0 !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--bp-line) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+[data-promo-shell] .promo-main__faq > div > div {
+  border: 0 !important;
+  border-bottom: 1px solid var(--bp-line) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+[data-promo-shell] .promo-main__faq button { padding: 13px 0 !important; }
+[data-promo-shell] .promo-main__faq button span:last-child { color: var(--bp-accent) !important; }
+[data-promo-shell] .promo-main__faq p { padding-left: 0 !important; padding-right: 0 !important; }
+[data-promo-shell] .promo-main__crosslinks > div { justify-content: flex-start !important; }
+[data-promo-shell] .promo-main__crosslinks a {
+  padding: 7px 10px !important;
+  border: 1px solid var(--bp-line) !important;
+  border-radius: 7px !important;
+  background: var(--bp-surface) !important;
+  color: var(--bp-muted) !important;
+  font-size: 12px !important;
+}
