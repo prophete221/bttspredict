@@ -124,19 +124,11 @@ function NavigationContent() {
       ],
     },
     {
-      id: 'more', label: { fr: 'Plus', en: 'More', ar: 'المزيد' }, links: [
+      id: 'partners', label: { fr: 'Plus', en: 'More', ar: 'المزيد' }, links: [
         { id: 'stats', label: { fr: 'Statistiques', en: 'Statistics', ar: 'الإحصائيات' }, href: paths.stats, icon: 'stats' },
         { id: 'history', label: { fr: 'Historique', en: 'History', ar: 'السجل' }, href: paths.history, icon: 'history' },
         { id: 'method', label: { fr: 'Méthode', en: 'Method', ar: 'المنهجية' }, href: paths.method, icon: 'method' },
         { id: 'guide', label: { fr: 'Guide BTTS', en: 'BTTS guide', ar: 'دليل BTTS' }, href: paths.guide, icon: 'info' },
-      ],
-    },
-    {
-      id: 'information', label: { fr: 'Informations', en: 'Information', ar: 'معلومات' }, links: [
-        { id: 'responsible', label: { fr: 'Jeu responsable', en: 'Responsible play', ar: 'اللعب المسؤول' }, href: paths.responsible, icon: 'info' },
-        { id: 'terms', label: { fr: 'Conditions', en: 'Terms', ar: 'الشروط' }, href: paths.terms, icon: 'info' },
-        { id: 'privacy', label: { fr: 'Confidentialité', en: 'Privacy', ar: 'الخصوصية' }, href: paths.privacy, icon: 'info' },
-        { id: 'legal', label: { fr: 'Mentions légales', en: 'Legal notice', ar: 'إشعار قانوني' }, href: paths.legal, icon: 'info' },
       ],
     },
   ], [paths])
