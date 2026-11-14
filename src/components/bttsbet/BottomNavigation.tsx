@@ -75,7 +75,7 @@ export default function BottomNavigation() {
   const tabs = TABS.map(tab => ({
     ...tab,
     href: localizedPath(tab.href, lang),
-    label: tab.id === 'home' ? t.nav.home : tab.id === 'predictions' ? t.nav.predictions : t.nav.vip,
+    label: tab.id === 'home' ? (lang === 'fr' ? 'Accueil' : t.nav.home) : tab.id === 'predictions' ? (lang === 'fr' ? 'Pronostics' : t.nav.predictions) : t.nav.vip,
   }))
   const [active, setActive] = useState<TabId>('home')
 
