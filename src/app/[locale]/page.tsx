@@ -37,9 +37,13 @@ export default async function LocalizedHomePage({ params }: { params: Promise<{ 
         <Hero initialLocale={locale} />
         <MatchCenter initialLocale={locale} />
         <PerformanceDashboard initialLocale={locale} />
-        <section className="max-w-[440px] mx-auto px-4 py-8">
-          <div className="rounded-xl p-4 text-center" style={{ backgroundColor: '#141C25', border: '1px solid #6B7A8C' }}>
-            <p className="text-sm text-[#9DABBB]">18+ · Sports betting carries risk. No future result is guaranteed.</p>
+        <section className="mx-auto max-w-[980px] px-4 py-6 sm:px-6" lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+          <div className="rounded-xl border border-[#303030] bg-[#191919] p-4">
+            <p className="text-sm text-[#A4A4A4]">
+              {locale === 'ar'
+                ? '18+ · المراهنات الرياضية تنطوي على مخاطر الخسارة. لا تراهن بأكثر مما يمكنك تحمّل خسارته.'
+                : '18+ · Sports betting involves the risk of loss. Never bet more than you can afford to lose.'}
+            </p>
           </div>
         </section>
         <Footer initialLocale={locale} />
