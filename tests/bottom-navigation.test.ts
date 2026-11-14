@@ -20,7 +20,7 @@ describe('responsive bottom navigation', () => {
 
   it('sets Arabic RTL and keeps text crisp against the black-and-gold background', () => {
     expect(component).toContain("dir={lang === 'ar' ? 'rtl' : 'ltr'}")
-    expect(component).toContain('text-[12px] font-extrabold')
+    expect(component).toContain('text-[12px] font-semibold')
     expect(styles).toContain('.bottomnav-shell')
     expect(styles).toContain('color: #F2D28C !important')
     expect(styles).toContain('color: #F4F6F8 !important')
