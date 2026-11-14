@@ -1023,3 +1023,81 @@ main .rounded-3xl { border-radius: 12px !important; box-shadow: none !important;
 main .shadow-lg,
 main .shadow-xl,
 main .shadow-2xl { box-shadow: none !important; }
+
+
+/* Homepage hero: remove the old glowing/3D treatment and keep the live match useful. */
+.hp-hero {
+  padding: 18px 0 20px !important;
+  background: var(--bp-bg) !important;
+}
+.hp-hero__glow,
+.hp-hero__gridbg,
+.hp-live-halo,
+.hp-live__lab-scene { display: none !important; }
+.hp-hero__inner { max-width: 1180px !important; padding-inline: 16px !important; }
+.hp-hero__grid { gap: 20px !important; align-items: start !important; }
+.hp-hero__title {
+  margin: 0 !important;
+  color: var(--bp-text) !important;
+  font-size: clamp(1.8rem, 4vw, 2.7rem) !important;
+  line-height: 1.12 !important;
+  font-weight: 760 !important;
+  letter-spacing: -.04em !important;
+  text-shadow: none !important;
+}
+.hp-hero__title :is(span,em,strong) { color: inherit !important; text-shadow: none !important; }
+.hp-hero__title-line2 { color: var(--bp-accent) !important; }
+.hp-hero__text {
+  max-width: 560px !important;
+  margin-top: 10px !important;
+  color: var(--bp-muted) !important;
+  font-size: 13px !important;
+  line-height: 1.55 !important;
+}
+.hp-hero__cta-zone { gap: 8px !important; margin-top: 16px !important; }
+.hp-hero__trust { gap: 8px !important; margin-top: 16px !important; }
+.hp-hero__trust li {
+  min-width: 0 !important;
+  padding: 7px 10px !important;
+  border: 1px solid var(--bp-line) !important;
+  border-radius: 7px !important;
+  background: var(--bp-surface) !important;
+}
+.hp-hero__trust-k { color: var(--bp-dim) !important; font-size: 9px !important; }
+.hp-hero__trust-v { color: var(--bp-text) !important; font-size: 11px !important; }
+.hp-live {
+  overflow: hidden !important;
+  border: 1px solid var(--bp-line) !important;
+  border-radius: 11px !important;
+  background: var(--bp-surface) !important;
+  box-shadow: none !important;
+}
+.hp-live__head { padding: 12px 14px !important; border-bottom: 1px solid var(--bp-line) !important; }
+.hp-live__eyebrow { color: var(--bp-text) !important; font-size: 12px !important; font-weight: 650 !important; }
+.hp-live__pulse { background: var(--bp-accent) !important; box-shadow: none !important; }
+.hp-live__badge { border: 1px solid var(--bp-line) !important; background: var(--bp-surface-raised) !important; color: var(--bp-muted) !important; box-shadow: none !important; }
+.hp-live__meta { padding: 10px 14px !important; }
+.hp-live__league { color: var(--bp-muted) !important; font-size: 11px !important; }
+.hp-live__teams { padding: 12px 14px !important; }
+.hp-live__team { color: var(--bp-text) !important; font-size: 13px !important; }
+.hp-live__sep i { color: var(--bp-dim) !important; }
+.hp-live__markets { gap: 6px !important; padding: 0 14px 10px !important; }
+.hp-live__pick {
+  border: 1px solid var(--bp-line) !important;
+  border-radius: 7px !important;
+  background: var(--bp-surface-raised) !important;
+  box-shadow: none !important;
+}
+.hp-live__pick b { color: var(--bp-accent) !important; }
+.hp-live__pick span { color: var(--bp-text) !important; }
+.hp-live__data { padding: 8px 14px !important; border-top: 1px solid var(--bp-line) !important; }
+.hp-live__bookmakers { padding: 8px 14px !important; }
+.hp-live__foot { padding: 10px 14px !important; border-top: 1px solid var(--bp-line) !important; }
+.hp-live__open { color: var(--bp-accent) !important; }
+@media (max-width: 760px) {
+  .hp-hero__grid { grid-template-columns: minmax(0,1fr) !important; }
+  .hp-hero__inner { padding-inline: 14px !important; }
+  .hp-hero__title { font-size: clamp(1.7rem, 8vw, 2.2rem) !important; }
+  .hp-hero__trust { display: grid !important; grid-template-columns: repeat(3,minmax(0,1fr)) !important; }
+  .hp-hero__trust li { padding: 6px 7px !important; }
+}
