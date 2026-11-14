@@ -105,9 +105,11 @@ export default function PromoLandingShell(p: PromoLandingProps) {
 
   const accent = p.accent
   const soft = p.accentSoft ?? `${accent}33`
-  const offerTerms = p.bookmakerId === 'linebet' && p.lang === 'en'
-    ? 'Country availability has not been verified. Check current eligibility and terms directly with Linebet.'
-    : '300% worldwide deposit bonus, cashback and weekly bonuses.'
+  const offerTerms = p.lang === 'ar'
+    ? 'مكافأة إيداع عالمية بنسبة 300%، واسترداد نقدي ومكافآت أسبوعية.'
+    : p.lang === 'en'
+      ? '300% worldwide deposit bonus, cashback and weekly bonuses.'
+      : 'Bonus de dépôt mondial de 300 %, cashback et bonus hebdomadaires.'
 
   useEffect(() => {
     trackAffiliateAction(p.bookmakerId, 'promo_view', `promo:${p.bookmakerId}:${p.lang}`)
