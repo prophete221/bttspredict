@@ -209,7 +209,7 @@ export default function Home() {
 
         <section className="mx-auto max-w-[980px] px-4 py-5 sm:px-6" aria-labelledby="home-platform-summary">
           <div className="border-t border-[#303030] pt-5">
-            <h2 id="home-platform-summary" className="text-lg font-semibold text-white">Plateforme de sélections BTTS, Over 2.5 et score exact</h2>
+            <h2>Plateforme de sélections BTTS, Over 2.5 et score exact</h2>
             <p className="mt-2 max-w-3xl text-sm leading-6 text-[#A4A4A4]">
               BTTSPredict aide les parieurs africains à lire des sélections de matchs internationaux :
               BTTS, Over 2.5 et projection de score exact. Les données sont publiées avant le match,
