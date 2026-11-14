@@ -8,7 +8,7 @@
 
 - Repository: `prophete221/bttspredict` (private GitHub repository).
 - Production website: https://bttspredict.com
-- Product/brand direction: **BTTSPredict / VISION221 PRO ANALYTICS**.
+- Product/brand direction: **BTTSPredict only**. VISION221 is exclusively the LINEBET promo code, never a platform name, slogan, or commercial signature.
 - Product: multilingual football analytics and predictions platform, with free and VIP experiences.
 - Main product languages: French, English, Arabic; Arabic must use proper RTL behavior.
 - Primary user workflow: mobile-first. The project owner works mainly from Android and does not rely on a desktop computer.
@@ -346,3 +346,17 @@ Continue a read-only analytics/authentication funnel audit: verify whether `NEXT
 - Vercel pour le commit précédent est maintenant `success`; le nouveau commit doit recevoir son propre contrôle.
 - Aucun merge, aucun déploiement de production, aucun changement de `main`, aucune modification des données publiques/privées ou de Cloudflare.
 - Prochaine étape : vérifier le statut du nouveau commit et le comportement du runner PR; demander au propriétaire de vérifier les paramètres Actions si le runner reste non assigné. Ne pas contourner les contrôles ni fusionner tant que le build et les contrôles ne sont pas validés.
+
+
+## 23. Nouveau brief de refonte et reset Cue — 2026-11-14 (UTC)
+
+- Le propriétaire confirme l'objectif commercial prioritaire : générer de nouvelles inscriptions sur chacun des bookmakers partenaires, et non promouvoir VISION221 comme signature.
+- Identité officielle unique : **BTTSPredict**. `VISION221` est exclusivement le code promo LINEBET.
+- Codes validés dans le brief de refonte : LINEBET `VISION221`; 1xBet `vipbtts`; MelBet `Bttswin`; 888Starz `btts221`. Priorité commerciale : LINEBET et 1xBet, puis MelBet et 888Starz. Tous les partenaires restent présents.
+- Création des documents directeurs sur la branche `rebuild/vision221-premium-design-2026-11-14` :
+  - `docs/design/BTTSPREDICT_DESIGN_SYSTEM.md` : brief produit, direction artistique originale, parcours de conversion, préservation des fonctions et critères d'acceptation.
+  - `docs/design/CUE_WORKSPACE_RESET.md` : procédure obligatoire de suppression de l'ancien espace local jetable de Cue et de nouveau checkout propre.
+- La branche de reconstruction a été confirmée existante. `package.json` correspond à `main` (blob identique) lors de ce contrôle.
+- Limite d'accès : le connecteur GitHub ne donne pas accès au disque/espace local privé de Cue. Le reset local ne peut donc pas être déclaré exécuté par ChatGPT; Cue ou un opérateur ayant accès doit fournir la preuve demandée dans `CUE_WORKSPACE_RESET.md`.
+- Aucun ancien design n'a été importé. Aucun code applicatif n'a été modifié à cette étape. Aucun test, preview, merge ou déploiement n'a été exécuté.
+- Prochaine étape : transmettre à Cue le document de reset, exiger la preuve d'un checkout propre, puis seulement commencer l'audit fonctionnel et la création du nouveau design depuis les références approuvées.
