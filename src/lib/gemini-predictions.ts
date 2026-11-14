@@ -39,6 +39,15 @@ function numericProbability(value: unknown): number | null {
     : null
 }
 
+/** Merge independently validated market picks without duplicating a market. */
+export function mergeUniqueMarketPicks<T extends { type: string }>(current: T[], incoming: readonly T[]): T[] {
+  const merged = [...current]
+  for (const pick of incoming) {
+    if (!merged.some(existing => existing.type === pick.type)) merged.push(pick)
+  }
+  return merged
+}
+
 /**
  * Return only a single, explicitly sourced pick from the pinned Gemini model.
  * Empirical/local rows, legacy hybrid tags, stale fields, and abstentions are not picks.
