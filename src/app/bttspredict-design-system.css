@@ -259,3 +259,81 @@ a { text-underline-offset: 3px; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+
+/* 888Starz's dedicated trilingual guide shares the same neutral page system. */
+[data-888starz-promo] {
+  background: var(--bp-bg) !important;
+  color: var(--bp-text) !important;
+}
+[data-888starz-promo] section {
+  background: var(--bp-panel) !important;
+  border-color: var(--bp-line) !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,.16) !important;
+}
+[data-888starz-promo] [data-promo-highlights] > div,
+[data-888starz-promo] [data-promo-steps] [class*="rounded-xl"],
+[data-888starz-promo] [data-promo-faq] [class*="rounded-xl"] {
+  background: var(--bp-bg-soft) !important;
+  border-color: var(--bp-line) !important;
+}
+[data-888starz-promo] h1,
+[data-888starz-promo] h2,
+[data-888starz-promo] h3,
+[data-888starz-promo] code { color: var(--bp-text) !important; }
+[data-888starz-promo] p { color: var(--bp-muted) !important; }
+[data-888starz-promo] [data-promo-highlights] span { color: #f0a0a6 !important; }
+[data-888starz-promo] [data-cta^="promo-signup-888starz"] {
+  background: #c94d60 !important;
+  box-shadow: none !important;
+}
+
+/* VIP presentation only: preserve the existing approval, entitlement and payment flow. */
+.vipx { background: var(--bp-bg) !important; color: var(--bp-text) !important; }
+.vipx .vipx-hero,
+.vipx .vipx-flow,
+.vipx .vipx-benefits__grid article,
+.vipx .vipx-trust__card,
+.vipx .vipx-faq__list > *,
+.vipx .vipx-final__card,
+.vipx .vipx-hero__card {
+  background: var(--bp-panel) !important;
+  border: 1px solid var(--bp-line) !important;
+  border-radius: var(--bp-radius-lg) !important;
+  box-shadow: 0 12px 32px rgba(0,0,0,.18) !important;
+}
+.vipx .vipx-hero__aura,
+.vipx .vipx-hero__grid::before { display: none !important; }
+.vipx .vipx-hero h1,
+.vipx .vipx-hero h2,
+.vipx .vipx-section-head h2,
+.vipx .vipx-benefits__grid h3,
+.vipx .vipx-faq h3 { color: var(--bp-text) !important; }
+.vipx .vipx-hero__sub,
+.vipx .vipx-hero__note,
+.vipx .vipx-benefits__grid p,
+.vipx .vipx-trust__card p,
+.vipx .vipx-faq__list p,
+.vipx .vipx-final__responsible,
+.vipx .vipx-final__note { color: var(--bp-muted) !important; }
+.vipx .vipx-eyebrow { color: #d8c18e !important; }
+.vipx .vipx-btn--gold {
+  color: #111827 !important;
+  background: var(--bp-gold) !important;
+  border-color: var(--bp-gold) !important;
+  box-shadow: none !important;
+}
+.vipx .vipx-btn--ghost {
+  color: var(--bp-text) !important;
+  background: var(--bp-bg-soft) !important;
+  border: 1px solid var(--bp-line-strong) !important;
+  box-shadow: none !important;
+}
+.vipx .vipx-flow__step,
+.vipx .vipx-flow__panel { background: var(--bp-bg-soft) !important; border-color: var(--bp-line) !important; }
+.vipx .vipx-flow__num,
+.vipx .vipx-benefits__icon { color: var(--bp-gold) !important; }
+@media (max-width: 767px) {
+  .vipx .vipx-hero { border-radius: 14px !important; }
+  .vipx .vipx-content-grid { grid-template-columns: minmax(0,1fr) !important; }
+}
