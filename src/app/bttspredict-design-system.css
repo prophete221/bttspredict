@@ -621,3 +621,17 @@ main [class~="text-[#6B7A8C]"] { color: var(--bp-subtle) !important; }
 [data-888starz-promo] [data-cta^="promo-signup-888starz"] {
   color: #fff !important; background: #a84458 !important; border-color: #a84458 !important; box-shadow: none !important;
 }
+
+
+/* Recharts and data visualization surfaces: readable labels and quiet grids. */
+.recharts-cartesian-grid line { stroke: rgba(166,190,218,.12) !important; }
+.recharts-cartesian-axis-line, .recharts-cartesian-axis-tick-line { stroke: rgba(166,190,218,.20) !important; }
+.recharts-text, .recharts-cartesian-axis-tick-value { fill: var(--bp-muted) !important; }
+.recharts-legend-item-text { color: var(--bp-muted) !important; }
+.recharts-default-tooltip {
+  color: var(--bp-text) !important; background: #102137 !important;
+  border: 1px solid var(--bp-line-strong) !important; border-radius: 10px !important;
+  box-shadow: var(--bp-shadow) !important;
+}
+.recharts-tooltip-label { color: var(--bp-text) !important; }
+.recharts-tooltip-item { color: var(--bp-muted) !important; }
