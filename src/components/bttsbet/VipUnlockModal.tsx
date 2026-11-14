@@ -42,12 +42,12 @@ const LABELS: Record<Locale, {
     accountHelp: 'Cet identifiant précède immédiatement l’étape WhatsApp. N’envoie aucun document d’identité, mot de passe, PIN ou code OTP.',
     whatsapp: 'Vérification via WhatsApp', whatsappNote: 'Le bouton prépare un message à relire. Il n’est pas envoyé automatiquement; tu gardes le contrôle de l’envoi.',
     openWhatsapp: 'Ouvrir WhatsApp', opened: 'WhatsApp ouvert dans un nouvel onglet.',
-    waitTitle: 'Attendre l’approbation manuelle',
+    waitTitle: 'Demande en cours d’examen',
     waitBody: 'Après l’envoi de ta demande sur WhatsApp, suis les instructions reçues. L’accès VIP est activé après examen de la demande.',
     manualGate: 'Activation après examen', back: 'Retour', next: 'Continuer', close: 'Fermer', locked: 'Accès verrouillé',
     noAuto: 'L’accès VIP est activé après examen de votre demande.',
     messageTitle: 'Message prérempli',
-    messageBody: (brand, code, id) => `Bonjour BTTSPredict, je demande une vérification manuelle de mon accès VIP à vie. Partenaire : ${brand}. Code promo utilisé : ${code}. Inscription confirmée : oui. Dépôt confirmé : oui. Identifiant de mon compte bookmaker : ${id}. Merci de valider personnellement ma demande.`,
+    messageBody: (brand, code, id) => `Bonjour BTTSPredict, je demande l’accès VIP à vie. Partenaire : ${brand}. Code promo utilisé : ${code}. Inscription confirmée : oui. Dépôt confirmé : oui. Identifiant de mon compte bookmaker : ${id}. Merci d’examiner ma demande.`,
     partnerNames: { '1xbet': '1xBet', linebet: 'Linebet', melbet: 'MelBet', '888starz': '888Starz' },
   },
   en: {
@@ -87,7 +87,7 @@ const LABELS: Record<Locale, {
     manualGate: 'التفعيل بعد المراجعة', back: 'رجوع', next: 'متابعة', close: 'إغلاق', locked: 'الوصول مقفل',
     noAuto: 'يتم تفعيل الوصول إلى VIP بعد مراجعة طلبك.',
     messageTitle: 'رسالة جاهزة',
-    messageBody: (brand, code, id) => `مرحباً BTTSPredict، أطلب مراجعة يدوية لوصولي مدى الحياة إلى VIP. الشريك: ${brand}. الرمز المستخدم: ${code}. تم تأكيد التسجيل: نعم. تم تأكيد الإيداع: نعم. معرّف حسابي لدى شركة المراهنات: ${id}. يرجى مراجعة طلبي والموافقة عليه شخصياً.`,
+    messageBody: (brand, code, id) => `مرحباً BTTSPredict، أطلب الوصول مدى الحياة إلى VIP. الشريك: ${brand}. الرمز المستخدم: ${code}. تم تأكيد التسجيل: نعم. تم تأكيد الإيداع: نعم. معرّف حسابي لدى شركة المراهنات: ${id}. يرجى مراجعة طلبي.`,
     partnerNames: { '1xbet': '1xBet', linebet: 'Linebet', melbet: 'MelBet', '888starz': '888Starz' },
   },
 }
