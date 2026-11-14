@@ -194,7 +194,6 @@ function NavigationContent() {
   const menuLabel = copy(lang, 'Navigation principale', 'Main navigation', 'التنقل الرئيسي')
   const mobileOpenLabel = copy(lang, 'Ouvrir le menu', 'Open menu', 'فتح القائمة')
   const mobileCloseLabel = copy(lang, 'Fermer le menu', 'Close menu', 'إغلاق القائمة')
-  const partnerHeading = copy(lang, 'Partenaires', 'Partners', 'الشركاء')
   const footerLabel = copy(lang, 'Jeu responsable · 18+', 'Play responsibly · 18+', 'العب بمسؤولية · 18+')
   const copiedText = copy(lang, '✓ Copié', '✓ Copied', '✓ تم النسخ')
   const copyCodeLabel = currentPartner ? copy(lang, `Copier le code ${currentPartner.promoCode}`, `Copy code ${currentPartner.promoCode}`, `نسخ الرمز ${currentPartner.promoCode}`) : ''
