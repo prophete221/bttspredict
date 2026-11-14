@@ -17,9 +17,9 @@ const copy = (lang: Locale, fr: string, en: string, ar: string) => ({ fr, en, ar
 function NavIcon({ kind }: { kind: string }) {
   const common = { viewBox: '0 0 24 24', 'aria-hidden': true as const }
   switch (kind) {
-    case 'home': return <svg {...common}><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg>
-    case 'btts': return <svg {...common}><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3.2"/><path d="M12 2v3M22 12h-3M12 22v-3M2 12h3"/></svg>
-    case 'over': return <svg {...common}><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg>
+    case 'home': return <svg {...common}><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V10Z"/></svg>
+    case 'btts': return <svg {...common}><circle cx="12" cy="12" r="9"/><path d="m12 3 2.4 3.2-1 3.2h-3l-1-3.2L12 3ZM3.5 8.5l3.8.2 1.6 2.7-2 2.5-3.6-.8M20.5 8.5l-3.8.2-1.6 2.7 2 2.5 3.6-.8M7 18l1-4.1h8l1 4.1M12 9.4v.1"/></svg>
+    case 'over': return <svg {...common}><path d="M5 5h14M5 12h14M5 19h14"/><circle cx="2.5" cy="5" r=".5"/><circle cx="2.5" cy="12" r=".5"/><circle cx="2.5" cy="19" r=".5"/></svg>
     case 'combined': return <svg {...common}><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5M3 16l9 5 9-5"/></svg>
     case 'score': return <svg {...common}><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M3 16v3a2 2 0 0 0 2 2h3"/><path d="M8 12h8M12 8v8"/></svg>
     case 'trophy': return <svg {...common}><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4Z"/><path d="M7 6H4v2a4 4 0 0 0 4 4M17 6h3v2a4 4 0 0 1-4 4"/></svg>
