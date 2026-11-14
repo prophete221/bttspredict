@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef, type ReactNode } from 'react'
-import { motion, useScroll, useTransform, useInView, AnimatePresence } from 'framer-motion'
+import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { trackAffiliateAction, trackAffiliateCodeCopy } from '@/lib/affiliateTracking'
 import { copyTextToClipboard } from '@/lib/clipboard'
 
@@ -81,8 +81,6 @@ export default function PromoLandingShell(p: PromoLandingProps) {
   const [copied, setCopied] = useState(false)
   const [copyFailed, setCopyFailed] = useState(false)
   const [openFaq, setOpenFaq] = useState<number | null>(0)
-  const { scrollYProgress } = useScroll()
-  const progressWidth = useTransform(scrollYProgress, [0, 1], ['0%', '100%'])
 
   const L = {
     copy: p.labels?.copy ?? (p.lang === 'en' ? 'Copy code' : p.lang === 'ar' ? 'نسخ الرمز' : 'Copier le code'),
@@ -104,13 +102,6 @@ export default function PromoLandingShell(p: PromoLandingProps) {
   }
 
   const accent = p.accent
-  const soft = p.accentSoft ?? `${accent}33`
-  const offerTerms = p.lang === 'ar'
-    ? 'مكافأة إيداع عالمية بنسبة 300%، واسترداد نقدي ومكافآت أسبوعية.'
-    : p.lang === 'en'
-      ? '300% worldwide deposit bonus, cashback and weekly bonuses.'
-      : 'Bonus de dépôt mondial de 300 %, cashback et bonus hebdomadaires.'
-
   useEffect(() => {
     trackAffiliateAction(p.bookmakerId, 'promo_view', `promo:${p.bookmakerId}:${p.lang}`)
   }, [p.bookmakerId, p.lang])
@@ -133,40 +124,17 @@ export default function PromoLandingShell(p: PromoLandingProps) {
     <div
       data-promo-shell
       data-bookmaker={p.bookmakerId}
-      className={`relative min-h-screen overflow-x-hidden text-[#F2F6FA] promo-shell promo-shell--${p.bookmakerId}`}
-      style={{ backgroundColor: '#05070B' }}
+      className={`relative min-h-screen overflow-x-hidden text-[#F5F5F5] promo-shell promo-shell--${p.bookmakerId}`}
+      style={{ backgroundColor: '#090909' }}
     >
-      {/* Scroll progress */}
-      <motion.div
-        className="fixed top-0 left-0 right-0 z-[80] h-[3px] origin-left"
-        style={{ scaleX: 1, width: progressWidth, background: `linear-gradient(90deg, ${accent}, #fff)` }}
-      />
-
-      {/* Ambient orbs */}
-      <div className="pointer-events-none fixed inset-0 overflow-hidden" aria-hidden>
-        <motion.div
-          className="absolute -top-32 -left-20 h-80 w-80 rounded-full blur-[100px]"
-          style={{ background: soft }}
-          animate={{ x: [0, 40, 0], y: [0, 30, 0] }}
-          transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        <motion.div
-          className="absolute top-1/3 -right-24 h-96 w-96 rounded-full blur-[120px] opacity-60"
-          style={{ background: soft }}
-          animate={{ x: [0, -30, 0], y: [0, 50, 0] }}
-          transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        <div className="absolute inset-0 opacity-[0.035]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #fff 1px, transparent 0)', backgroundSize: '28px 28px' }} />
-      </div>
-
-      <main className="promo-main relative z-10 mx-auto w-full max-w-3xl px-4 pb-14 pt-7 sm:pt-12">
+      <main className="promo-main relative z-10 mx-auto w-full max-w-3xl px-4 pb-14 pt-6 sm:pt-8">
         {/* Hero */}
         <section className="promo-main__story text-center">
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease }}
-            className="promo-story__badge inline-flex items-center gap-2 rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.2em]"
+            className="promo-story__badge inline-flex items-center gap-2 rounded-md px-2.5 py-1 text-[11px] font-semibold"
             style={{ color: accent, border: `1px solid ${accent}55`, background: `${accent}14` }}
           >
             <span className="h-1.5 w-1.5 animate-pulse rounded-full" style={{ background: accent }} />
@@ -187,10 +155,10 @@ export default function PromoLandingShell(p: PromoLandingProps) {
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.55, delay: 0.15, ease }}
-            className="promo-story__logo mx-auto mt-6 flex min-h-[72px] max-w-[300px] items-center justify-center rounded-2xl px-5 py-3 shadow-2xl sm:max-w-[360px]"
+            className="promo-story__logo mx-auto mt-5 flex min-h-[60px] max-w-[240px] items-center justify-center rounded-xl px-4 py-2 sm:max-w-[280px]"
             style={{
               backgroundColor: p.logoBg,
-              boxShadow: `0 20px 50px ${accent}33`,
+              boxShadow: 'none',
               border: `1px solid ${accent}33`,
             }}
           >
@@ -218,17 +186,17 @@ export default function PromoLandingShell(p: PromoLandingProps) {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6, ease }}
-            className="promo-story__actions mx-auto mt-8 max-w-md"
+            className="promo-story__actions mx-auto mt-6 max-w-md"
           >
             <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#9DABBB]">{L.codeLabel}</p>
             <button
               type="button"
               onClick={handleCopy}
               data-cta={`promo-copy-${p.bookmakerId}`}
-              className="group relative w-full overflow-hidden rounded-2xl px-4 py-4 transition-transform active:scale-[0.98]"
+              className="group relative w-full overflow-hidden rounded-xl px-4 py-3.5 transition-colors"
               style={{
                 background: `linear-gradient(135deg, ${accent} 0%, ${accent}cc 100%)`,
-                boxShadow: `0 12px 40px ${accent}55`,
+                boxShadow: 'none',
               }}
               aria-label={`${p.code} — ${L.copy}`}
             >
@@ -254,8 +222,8 @@ export default function PromoLandingShell(p: PromoLandingProps) {
                 rel="sponsored nofollow noopener noreferrer"
                 onClick={() => trackAffiliateAction(p.bookmakerId, 'signup_cta_click', `promo-hero-${p.lang}`)}
                 data-cta={`promo-signup-${p.bookmakerId}`}
-                className="rounded-xl py-3.5 text-center text-sm font-bold text-white transition-transform active:scale-[0.98]"
-                style={{ backgroundColor: accent, boxShadow: `0 8px 28px ${accent}44` }}
+                className="rounded-lg py-3 text-center text-sm font-semibold text-white transition-colors"
+                style={{ backgroundColor: accent, boxShadow: 'none' }}
               >
                 <span className="inline-flex items-center justify-center gap-2">
                   <span className="grid h-7 w-7 place-items-center rounded-md bg-white p-0.5">
@@ -270,7 +238,7 @@ export default function PromoLandingShell(p: PromoLandingProps) {
                 rel="sponsored nofollow noopener noreferrer"
                 onClick={() => trackAffiliateAction(p.bookmakerId, 'download_click', `promo-apk-${p.lang}`)}
                 data-cta={`promo-apk-${p.bookmakerId}`}
-                className="rounded-xl py-3.5 text-center text-sm font-bold transition-transform active:scale-[0.98]"
+                className="rounded-lg py-3 text-center text-sm font-semibold transition-colors"
                 style={{
                   color: '#F2F6FA',
                   border: `1px solid ${accent}66`,
@@ -290,16 +258,6 @@ export default function PromoLandingShell(p: PromoLandingProps) {
           </motion.div>
         </section>
 
-        {/* Offer snapshot: static, scannable facts instead of a duplicated moving ticker. */}
-        <section className="promo-main__benefits" aria-label={p.lang === 'en' ? 'Offer highlights' : p.lang === 'ar' ? 'أبرز عناصر العرض' : 'Repères sur l’offre'}>
-          {p.benefits.map((benefit, index) => (
-            <div key={`${p.bookmakerId}-${index}`} data-promo-highlight>
-              <span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-              <p>{benefit}</p>
-            </div>
-          ))}
-        </section>
-
         {/* Offer card */}
         <FadeIn className="promo-main__offer mt-10" delay={0.05}>
           <div
@@ -312,40 +270,6 @@ export default function PromoLandingShell(p: PromoLandingProps) {
           >
             <p className="text-2xl font-black sm:text-3xl" style={{ color: accent }}>{p.offerHeadline}</p>
             <p className="mt-3 text-sm text-[#9DABBB]">{p.offerSub}</p>
-          </div>
-        </FadeIn>
-
-        {/* Trust / transparency — no invented bonus terms */}
-        <FadeIn className="promo-main__trust mt-8" delay={0.05}>
-          <div
-            className="grid gap-3 rounded-2xl p-4 sm:grid-cols-3 sm:p-5"
-            style={{
-              background: 'rgba(12, 18, 28, 0.9)',
-              border: `1px solid ${accent}22`,
-            }}
-          >
-            {[
-              p.lang === 'en'
-                ? ['Exact code', 'Use the code with the capitalization shown.']
-                : p.lang === 'ar'
-                  ? ['الرمز الدقيق', 'استخدم الرمز بنفس الأحرف المعروضة.']
-                  : ['Code exact', 'Utilise le code avec la casse affichée.'],
-              p.lang === 'en'
-                ? ['Offer', offerTerms]
-                : p.lang === 'ar'
-                  ? ['العرض', 'مكافأة إيداع عالمية 300%، واسترداد نقدي ومكافآت أسبوعية.']
-                  : ['Offre', 'Bonus de dépôt mondial de 300 %, cashback et bonus hebdomadaires.'],
-              p.lang === 'en'
-                ? ['18+ only', 'Play responsibly. Availability depends on local regulation.']
-                : p.lang === 'ar'
-                  ? ['18+ فقط', 'العب بمسؤولية. التوافر يعتمد على القوانين المحلية.']
-                  : ['18+ uniquement', 'Jouez responsable. Disponibilité selon la réglementation locale.'],
-            ].map(([title, body]) => (
-              <div key={title as string} className="rounded-xl p-3" style={{ background: `${accent}0d`, border: `1px solid ${accent}18` }}>
-                <p className="text-xs font-bold" style={{ color: accent }}>{title}</p>
-                <p className="mt-1 text-[11px] leading-relaxed text-[#9DABBB]">{body}</p>
-              </div>
-            ))}
           </div>
         </FadeIn>
 
