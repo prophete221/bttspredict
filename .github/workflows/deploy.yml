@@ -36,7 +36,9 @@ permissions:
 # attend le précédent. Le mode VIP-only a son propre groupe et évite la file FTP.
 concurrency:
   group: ${{ (github.event_name == 'workflow_dispatch' && inputs.mode == 'vip' || (github.event_name == 'schedule' && (github.event.schedule == '30 23 * * *' || github.event.schedule == '30 6 * * *' || github.event.schedule == '30 15 * * *'))) && 'vip-candidates-only' || format('deploy-{0}', github.ref) }}
-  cancel-in-progress: false
+  # One-time recovery: only an owner-pushed code-only commit with this marker
+  # may cancel the stale queued main deployment. All normal runs remain non-cancelling.
+  cancel-in-progress: ${{ github.event_name == 'push' && github.actor == github.repository_owner && contains(github.event.head_commit.message || '', '[code-only]') && contains(github.event.head_commit.message || '', '[recover-stuck-queue]') }}
 
 jobs:
   pull-request-checks:
