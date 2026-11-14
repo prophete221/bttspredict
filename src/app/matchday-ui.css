@@ -452,3 +452,111 @@ body:has(.fi-sidebar) { background: var(--bp-bg) !important; }
 @media (min-width: 768px) {
   .page-design--home .hp-mc-grid { grid-template-columns: minmax(0, 1fr) !important; }
 }
+
+
+/* Featured match: keep it factual and compact, not a second hero card. */
+.page-design--home .hp-live-zone { max-width: 560px !important; margin-inline: auto !important; }
+.page-design--home .hp-live {
+  overflow: hidden !important;
+  padding: 0 !important;
+  border: 1px solid var(--bp-line) !important;
+  border-radius: 12px !important;
+  background: var(--bp-surface) !important;
+}
+.page-design--home .hp-live__head {
+  min-height: 42px !important;
+  padding: 10px 14px !important;
+  border-bottom: 1px solid var(--bp-line) !important;
+  background: transparent !important;
+}
+.page-design--home .hp-live__eyebrow {
+  color: var(--bp-muted) !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: .02em !important;
+  text-transform: none !important;
+}
+.page-design--home .hp-live__pulse { background: var(--bp-accent) !important; box-shadow: none !important; }
+.page-design--home .hp-live__badge {
+  padding: 3px 7px !important;
+  border-radius: 5px !important;
+  background: var(--bp-accent-soft) !important;
+  color: var(--bp-accent) !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+}
+.page-design--home .hp-live__meta {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+  padding: 12px 14px 4px !important;
+}
+.page-design--home .hp-live__league { color: var(--bp-muted) !important; font-size: 11px !important; }
+.page-design--home .hp-live__when { color: var(--bp-text) !important; font-size: 12px !important; }
+.page-design--home .hp-live__when small,
+.page-design--home .hp-live__when em { color: var(--bp-dim) !important; font-size: 10px !important; font-style: normal !important; }
+.page-design--home .hp-live__teams {
+  display: grid !important;
+  grid-template-columns: minmax(0,1fr) auto minmax(0,1fr) !important;
+  align-items: center !important;
+  gap: 10px !important;
+  padding: 12px 14px !important;
+}
+.page-design--home .hp-live__team { gap: 8px !important; color: var(--bp-text) !important; font-size: 13px !important; font-weight: 600 !important; }
+.page-design--home .hp-live__team img { width: 26px !important; height: 26px !important; object-fit: contain !important; }
+.page-design--home .hp-live__sep { color: var(--bp-dim) !important; font-size: 10px !important; }
+.page-design--home .hp-live__markets {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 6px !important;
+  padding: 0 14px 12px !important;
+}
+.page-design--home .hp-live__pick {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+  min-height: 28px !important;
+  padding: 5px 8px !important;
+  border: 1px solid var(--bp-line) !important;
+  border-radius: 6px !important;
+  background: transparent !important;
+  color: var(--bp-muted) !important;
+  font-size: 11px !important;
+  box-shadow: none !important;
+}
+.page-design--home .hp-live__pick b { color: var(--bp-text) !important; font-weight: 600 !important; }
+.page-design--home .hp-live__pick i { color: var(--bp-accent) !important; font-style: normal !important; }
+.page-design--home .hp-live__data {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 12px !important;
+  padding: 0 14px 12px !important;
+  color: var(--bp-muted) !important;
+  font-size: 11px !important;
+}
+.page-design--home .hp-live__data i { color: var(--bp-dim) !important; font-style: normal !important; }
+.page-design--home .hp-live__bookmakers { padding: 0 14px 12px !important; }
+.page-design--home .hp-live__foot {
+  min-height: 40px !important;
+  padding: 8px 14px !important;
+  border-top: 1px solid var(--bp-line) !important;
+  background: transparent !important;
+}
+.page-design--home .hp-live__pub { color: var(--bp-dim) !important; font-size: 10px !important; }
+.page-design--home .hp-live__open { color: var(--bp-accent) !important; font-size: 12px !important; font-weight: 600 !important; }
+.page-design--home .hp-live__pipeline { padding: 14px !important; }
+.page-design--home .hp-live__pipeline-note { color: var(--bp-muted) !important; font-size: 12px !important; }
+.page-design--home .hp-live__step-n { background: var(--bp-surface-raised) !important; color: var(--bp-accent) !important; }
+@media (max-width: 767px) {
+  .page-design--home .hp-hero__inner { padding-top: 22px !important; padding-bottom: 20px !important; }
+  .page-design--home .hp-hero__grid { grid-template-columns: minmax(0,1fr) !important; gap: 18px !important; }
+  .page-design--home .hp-hero__copy { max-width: 100% !important; }
+  .page-design--home .hp-hero__title { max-width: 15ch !important; font-size: clamp(1.8rem, 8vw, 2.35rem) !important; }
+  .page-design--home .hp-hero__text { font-size: 13px !important; }
+  .page-design--home .hp-hero__cta-zone { display: flex !important; flex-wrap: wrap !important; }
+  .page-design--home .hp-live-zone { width: 100% !important; }
+  .page-design--home .hp-live__teams { gap: 6px !important; }
+  .page-design--home .hp-live__team { font-size: 11px !important; }
+  .page-design--home .hp-live__team img { width: 22px !important; height: 22px !important; }
+}
