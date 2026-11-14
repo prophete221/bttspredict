@@ -113,6 +113,16 @@ describe('Editorial redesign regression checks', () => {
     expect(localizedHome).not.toContain('TrustPillars')
   })
 
+  it('preserves the homepage BTTS and Over 2.5 search terms without unsupported superlatives', () => {
+    const translations = readFileSync(resolve(ROOT, 'src/lib/i18n.ts'), 'utf8')
+
+    expect(translations).toContain("heroTitle1: 'Pronostics BTTS et Over 2,5'")
+    expect(translations).toContain("heroTitle1: 'BTTS & Over 2.5 Predictions'")
+    expect(translations).toContain("heroTitle1: 'توقعات BTTS وOver 2.5'")
+    expect(translations).not.toContain('World’s No.1')
+    expect(translations).not.toContain('N°1 Mondiale')
+  })
+
   it('keeps prediction cards focused on markets and data rather than AI badges', () => {
     const dashboard = readFileSync(resolve(ROOT, 'src/components/bttsbet/BttsTodayDashboard.tsx'), 'utf8')
     const css = readFileSync(resolve(ROOT, 'src/app/football-intelligence.css'), 'utf8')
