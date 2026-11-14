@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import { checkSeo } from '@/lib/seo'
 import { buildPromoFaqJsonLd } from '@/lib/promo-faq'
-import PromoVerificationGuide from '@/components/bttsbet/PromoVerificationGuide'
 
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
@@ -64,16 +63,13 @@ function breadcrumbJsonLd() {
 export default function Bonus888StarzPage() {
   const faq = buildPromoFaqJsonLd('888starz', 'fr')
   return (
-    <div className="min-h-screen bg-dark-800 flex flex-col text-papier">
+    <div className="page-design page-design--promo min-h-screen bg-[#080D14] flex flex-col text-[#EDF2F7]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd()) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd()) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faq) }} />
       <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-emerald focus:text-dark-900 focus:font-bold focus:rounded-lg">Aller au contenu principal</a>
       <ErrorBoundary><Navbar /></ErrorBoundary>
-      <main id="main-content" className="flex-1 relative z-10" style={{ paddingBottom: 'calc(80px + env(safe-area-inset-bottom, 0px))' }}>
-        <Star888Client />
-        <PromoVerificationGuide bookmaker="888starz" lang="fr" variant="offer" />
-      </main>
+      <Star888Client />
       <ErrorBoundary><Footer /></ErrorBoundary>
     </div>
   )

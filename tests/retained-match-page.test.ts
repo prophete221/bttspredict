@@ -27,9 +27,10 @@ const PROTECTED_SEO_ROUTES = [
       ['src/components/bttsbet/LocalizedCombinedPredictionsClient.tsx', [
         "title: 'BTTS and Over 2.5 Predictions Today'",
         "title: 'توقعات BTTS وأكثر من 2.5 اليوم'",
-        '<AnimatedTitle as="h1" text={c.title}',
-        "intro: 'Combined predictions where both teams score and total goals exceed 2.5. Matches must meet both criteria simultaneously.'",
-        "intro: 'توقعات مجمعة حيث يسجل الفريقان ويتجاوز إجمالي الأهداف 2.5. يجب أن تحقق المباراة الشرطين معاً.'",
+        '<h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 tracking-tight">{c.title}</h1>',
+        "intro: 'This page lists only matches with both a BTTS selection and an Over 2.5 selection.'",
+        "intro: 'تعرض هذه الصفحة المباريات التي تتوفر لها اختيارات BTTS وOver 2.5 معاً.'",
+        'FreePredictions marketFilter="combined"',
       ]],
     ],
   },
@@ -64,9 +65,10 @@ const PROTECTED_SEO_ROUTES = [
         "'x-default': 'https://bttspredict.com/over-2-5/predictions/today'",
         'alternates: { canonical: url, languages:',
         "openGraph: { title, description, url, siteName: 'BTTSPredict', type: 'website', locale: LOCALE_META[locale].htmlLang }",
-        "<AnimatedTitle as=\"h1\" text={isAr ? 'توقعات Over 2.5 اليوم' : 'Over 2.5 Predictions Today'}",
-        "Today's Over 2.5 predictions: matches where total goals are expected to exceed 2.5, meaning at least 3 goals. Updated and checked after the match.",
-        'مباريات يُتوقع أن يتجاوز فيها إجمالي الأهداف 2.5، أي ثلاثة أهداف على الأقل. يتم التحديث والتحقق من النتائج بعد المباراة.',
+        "<h1 className=\"text-3xl sm:text-4xl md:text-5xl font-bold mb-4 tracking-tight\">{isAr ? 'توقعات Over 2.5 اليوم' : 'Over 2.5 Predictions Today'}</h1>",
+        'Matches with a published Over 2.5 selection (at least three total goals).',
+        'مباريات تتوفر لها اختيارات منشورة لسوق Over 2.5 (ثلاثة أهداف على الأقل).',
+        'FreePredictions marketFilter="over25"',
       ]],
     ],
   },
@@ -111,11 +113,10 @@ const PROTECTED_SEO_ROUTES = [
         "openGraph: { title, description, url, siteName: 'BTTSPredict', type: 'website', locale: LOCALE_META[locale].htmlLang }",
       ]],
       ['src/app/ai-correct-score-predictions/page.tsx', [
-        "text={lang === 'fr' ? 'Prédictions de score exact par IA' : lang === 'en' ? 'AI Correct Score Predictions'",
-        "'AI Correct Score Predictions' : 'توقعات النتيجة الدقيقة بالذكاء الاصطناعي'",
-        'text={lang === \'fr\' ? \'Prédictions de score exact par IA\' : lang === \'en\' ? \'AI Correct Score Predictions\' : \'توقعات النتيجة الدقيقة بالذكاء الاصطناعي\'}',
-        'Most likely exact scores computed by our statistical model from each team’s expected goals (xG). The top 5 scorelines are shown per match, ranked by probability.',
-        'يحسب نموذجنا الإحصائي النتائج الدقيقة الأكثر احتمالاً من الأهداف المتوقعة لكل فريق. نعرض أفضل خمسة نتائج مرتبة حسب الاحتمال.',
+        '<h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 tracking-tight">',
+        "lang === 'en' ? 'AI Correct Score Predictions'",
+        'Score estimates are calculated with a Poisson model using the available recent goal averages for each team. The five highest-ranked scorelines are shown for each match.',
+        'تُحسب تقديرات النتائج باستخدام نموذج بواسون ومتوسطات الأهداف الحديثة المتاحة لكل فريق. تُعرض أعلى خمس نتائج لكل مباراة.',
       ]],
     ],
   },
@@ -227,22 +228,44 @@ describe('five protected SEO routes', () => {
     for (const [file, snippets] of files) sourceContains(file, snippets)
   })
 
-  it('keeps the exact localized home title and description text used by metadata and H1', () => {
+  it('keeps accurate localized home H1s and the original descriptions used by metadata', () => {
     const english = translationsFor('en')
-    expect(english.home2.heroTitle1).toBe('The [World’s No.1]')
-    expect(english.home2.heroTitle2).toBe('BTTS & Over 2.5 Master Platform')
-    expect(english.home2.heroText).toBe('Best BTTS, Over 2.5 and surebets picks | Reliable football analysis')
+    expect(english.home2.heroTitle1).toBe('BTTS & Over 2.5 Predictions')
+    expect(english.home2.heroTitle2).toBe('Football Analytics')
+    expect(english.home2.heroText).toBe('BTTS and Over 2.5 selections based on the available match data.')
     expect(english.hero.subtitle).toBe('BTTS, Over 2.5 and correct-score analysis, published before kick-off and tracked to the verified result.')
 
     const french = translationsFor('fr')
-    expect(french.home2.heroTitle1).toBe('Plateforme [N°1 Mondiale]')
-    expect(french.home2.heroTitle2).toBe('BTTS & Over 2.5 Master')
-    expect(french.home2.heroText).toBe('Meilleurs pronostics BTTS, Over 2.5 et surbets | Analyses foot fiables')
+    expect(french.home2.heroTitle1).toBe('Pronostics BTTS et Over 2,5')
+    expect(french.home2.heroTitle2).toBe('Analyse footballistique')
+    expect(french.home2.heroText).toBe('Des sélections BTTS et Over 2,5 à partir des données disponibles sur chaque match.')
+    expect(french.hero.subtitle).toBe('Analyses BTTS, Over 2,5 et score exact, publiées avant le match et suivies jusqu’au résultat vérifié.')
 
     const arabic = translationsFor('ar')
-    expect(arabic.home2.heroTitle1).toBe('المنصة [الأولى عالمياً]')
-    expect(arabic.home2.heroTitle2).toBe('BTTS و Over 2.5 Master')
-    expect(arabic.home2.heroText).toBe('أفضل توقعات BTTS و Over 2.5 والسيربيت | تحليلات كرة قدم موثوقة')
+    expect(arabic.home2.heroTitle1).toBe('توقعات BTTS وOver 2.5')
+    expect(arabic.home2.heroTitle2).toBe('تحليل كرة القدم')
+    expect(arabic.home2.heroText).toBe('اختيارات BTTS وOver 2.5 اعتماداً على البيانات المتاحة لكل مباراة.')
     expect(arabic.hero.subtitle).toBe('تحليلات BTTS وOver 2.5 والنتيجة الدقيقة، تُنشر قبل المباراة وتُتابع حتى النتيجة الموثّقة.')
+
+    for (const text of [english.home2.heroTitle1, english.home2.heroText, french.home2.heroTitle1, french.home2.heroText, arabic.home2.heroTitle1, arabic.home2.heroText]) {
+      expect(text).not.toMatch(/world.?s no\.? ?1|n°\s*1|الأولى عالمياً|surebets|surbets|مضمونة/i)
+    }
+  })
+
+  it('keeps the verified-results integrity promise and public predictions feed', () => {
+    sourceContains('src/app/resultats-verifies/ResultatsLocalizedShell.tsx', [
+      "title: 'Verified prediction results'",
+      'No prediction is modified or deleted after publication.',
+      'FreePredictions',
+    ])
+  })
+
+  it('keeps strategic statistics H1s and the BTTS predictions feed', () => {
+    sourceContains('src/app/btts/statistics/page.tsx', ['<h1 className=', 'Statistiques BTTS par ligue', '<FreePredictions />'])
+    sourceContains('src/app/over-2-5/statistics/page.tsx', ['Over 2.5 Statistics by League'])
+  })
+
+  it('keeps the methodology page connected to published predictions', () => {
+    sourceContains('src/app/methodologie/LocalizedMethodologieClient.tsx', ['<FreePredictions />'])
   })
 })

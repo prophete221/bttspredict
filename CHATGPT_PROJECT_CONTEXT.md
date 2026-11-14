@@ -1,8 +1,84 @@
+# Latest checkpoint — 2026-11-14 05:13 UTC
+
+- Resumption verified directly from GitHub: PR #128 is still open/draft, base `main`, head branch `feat/complete-art-direction-promo-vip-2026-11-13`; repository permissions include push. Before this checkpoint the head was `7d31faa1d6d82fc6e2ba088f89929fdecb6986bb`; main/base SHA is `e7943e81faf28fe588a129ee6d3d8e1a52db0f45`. Compare reported 172 commits ahead, 0 behind; 58 files changed.
+- Re-read this continuity file from the requested branch. Confirmed the previously reported one-line TypeScript fix was NOT present in `src/app/[locale]/page.tsx`: the component used `t.legal.*` without a component-local `t`. Added `const t = translationsFor(locale)` immediately after locale resolution. Commit: `94e0c2226f7be6c3b8d5ed4f7f441e4bef99f866`; file re-fetched and scoped binding verified.
+- Confirmed the sibling-market parsing defect remained in `src/components/bttsbet/FreePredictions.tsx`: duplicate match keys were discarded with `if (!key || matchMap.has(key)) continue`. Replaced that behavior with a merge of distinct `getGeminiPicks` results by market type only. This preserves the strict Gemini source/model/status/abstention validation and does not fabricate picks or probabilities. Commit: `e50fd1ddccb77cddc86829097173ed3034deb767`; file re-fetched and merge logic verified.
+- The dashboard data builder `src/lib/btts-today-dashboard-data.ts` already merges validated sibling market rows; the defect was specifically in the separate `FreePredictions.tsx` parser used by the public BTTS/Over and combined pages. The combined filter itself requires both BTTS and Over 2.5 picks.
+- SEO spot-check: metadata title, description and canonical for `/btts-and-over-2-5-predictions-today` are unchanged between main and the branch. The visible H1 “BTTS and Over 2.5 Predictions Today” remains unchanged; explanatory copy and filtering changed. The Over 2.5 route metadata/H1 also remains intact in the inspected files. Continue auditing all protected EN landing pages and do not generalize this spot-check to every route.
+- Current PR head after these two commits: `e50fd1ddccb77cddc86829097173ed3034deb767`; PR remains draft/open. Combined commit status exposed only Vercel pending; no new GitHub Actions run was returned for the new commit at the time of inspection. No local test runner/build environment has been executed in this session, so the earlier 680/38/16 test result remains unverified and unresolved. No tests have been disabled.
+- No merge, production deployment, FTP, Cloudflare, D1, secret, payment, VIP entitlement or production data change. VIP remains out of scope for this public-site phase.
+
+## Validation follow-up — sibling market regression — 2026-11-14 05:05 UTC
+
+- Refined the parser fix into a small pure helper `mergeUniqueMarketPicks<T extends { type: string }>` in `src/lib/gemini-predictions.ts`; `FreePredictions.tsx` now uses this helper when it encounters a repeated match key. This keeps market merging testable and de-duplicates by explicit market type.
+- Added a Vitest case to `tests/gemini-predictions.test.ts` using two individually validated source rows (BTTS 0.63 and Over 2.5 0.58). It asserts both market types/probabilities are preserved and a repeated Over row does not create a duplicate. The test is committed but has NOT yet been executed in this session.
+- Commits after the prior checkpoint: `ab7af451feb51fe25f2abae1c4510f6d37e1c645` (helper), `3eef4f5ea7ce14c89581511a1d60b9ada9124d30` (parser integration), `4ecdccf4778e657201c874c11f51042d05aca56f` (test).
+- Latest CI investigation: previous run `43527590865` job `132237096511` is conclusively marked failure, but GitHub returns an empty step list and the log download returns Azure `BlobNotFound`; no failed test names or step can be recovered from that run. No branch-specific Actions run was returned for the newly pushed commits; Vercel status is pending and is not an Actions/build result.
+- Workflow source confirms PR checks are intended to run `npm test`, Python unit tests, `npm run lint`, `npx tsc --noEmit`, and `npm run build -- --webpack`. No deployment runs for pull requests; the FTP deploy job is gated to `main` only.
+- Test baseline comparison (38 failures on PR vs main) is still outstanding: this environment has not executed either test suite and historical job logs are unavailable. Do not attribute the 38 failures to this branch or declare them pre-existing without a reproducible main-vs-PR run.
+
+## SEO, promo and localization audit follow-up — 2026-11-14 05:10 UTC
+
+- Audited all PR patches for changed SEO metadata fields. No changed `title:`, `description:`, canonical, alternates, keywords, robots or Open Graph metadata lines were found in the changed TS/TSX files. This is a diff scan, not a full crawl. Confirmed the high-traffic combined BTTS/Over 2.5 route keeps its existing metadata and English H1; the Over 2.5 route inspected also keeps its metadata and H1.
+- Found that the localized homepage H1 had been changed from unsupported “World’s No.1 / Master” claims to generic “Football analysis / BTTS and Over 2.5”. To retain the core search intent without repeating unsubstantiated superlatives, adjusted FR/EN/AR H1 lines to “Pronostics BTTS et Over 2,5”, “BTTS & Over 2.5 Predictions”, and “توقعات BTTS وOver 2.5”, with secondary lines “Analyse footballistique”, “Football Analytics”, and “تحليل كرة القدم”. Added a regression assertion. Commits: `3a2f864ef8f4354104ab7d436503464bb834e1b3`, `7fb292593a2f1f70664dbc0b88fb95275927d5da`.
+- Promo shell audit confirmed CTA and APK links still resolve through the existing centralized `AFFILIATE` constants, links retain `sponsored nofollow noopener noreferrer`, signup/download/copy events remain tracked, and affiliate disclosure is visible. Constants file is identical to main; no affiliate destination was changed. Existing 1xBet code in repository is lower-case `vipbtts` (including an explicit code-case comment), while the new handover text wrote `Vipbtts`; left the canonical repository spelling unchanged rather than silently changing the affiliate code. Confirm case with owner before any casing edit.
+- Arabic promo guide heading fallback in `PromoLandingShell.tsx` was incorrectly French (“Utiliser le code”). Corrected to `كيفية استخدام الرمز` and added a server-rendered FR/EN/AR regression assertion. Commits: `80a8de279ca6745ace6ab92930b9a7fa6f10ed77`, `514b9fc9491a7cb36abd2d4293936c8eac1305f9`.
+- RTL source checks: root layout sets `document.documentElement.dir` to rtl for Arabic; promo shell sets `dir="rtl"` for Arabic and keeps promo codes in LTR `bdi/code` spans. Browser-level RTL visual verification has not been performed.
+- No test, lint, typecheck, build, or visual preview has been executed locally. Existing Actions run logs remain unavailable; Vercel has not returned a completed preview for the latest head. Do not mark the PR ready.
+
+## Protected VIP, analytics and navigation verification — 2026-11-14 05:12 UTC
+
+- Verified by exact Git blob SHA that `src/app/vip/page.tsx`, `VipLockedPicks.tsx`, `VipWinHistory.tsx` and `vip.css` are byte-for-byte identical to `main`. The new VIP architecture note is documentation only; no VIP rights, payment, authentication or backend implementation changed in this phase.
+- Reviewed the deployment workflow patch: only PR/production GA4 build flags and the known measurement-ID fallback changed. PR build sets `NEXT_PUBLIC_GA_ENABLED=false`; production build sets it to true and uses `G-F705Z3L2HT` if the Actions variable is absent. FTP/LWS deploy steps, allowlists, manifest and deploy gates were not changed in this PR. The deploy job remains gated to main, not PRs.
+- Re-read `AnalyticsLoader.tsx`: it loads one direct GA4 script only when production mode, explicit enable flag, and saved analytics consent are all true. It does not inject GTM; this avoids double initialization. No Analytics account settings or production variables were modified.
+- Re-read `BottomNavigation.tsx`: exactly three localized tabs remain (home, predictions, VIP); Arabic direction is RTL. The desktop navigation drawer includes keyboard focus handling. Source checks only; no device/browser interaction test has been performed.
+- The new Arabic promo heading fallback and regression test are committed. The public VIP source remains unchanged from main. No merge or production deployment.
+
+## GitHub Actions retry result — 2026-11-14 05:13 UTC
+
+- Requested a rerun of the previously failed PR check job from run `43527590865` (run number 1296) to try to recover actionable logs. GitHub accepted the rerun; the new job `132339406206` immediately concluded failure. Its step list was empty and log download again returned Azure `BlobNotFound`. This retry does not validate the current PR head; it only confirms that the earlier run's Actions/logging issue persists.
+- Current PR head at this checkpoint: `99858d9efeb32b82339c6e931f18b2de905e8659`; PR #128 remains open, draft, not merged. Current combined status exposes only Vercel pending. No new workflow run has been returned for this head.
+- The 38 historical Vitest failures still cannot be classified as branch regressions or main-baseline failures without a reproducible run on both refs. Do not alter or suppress tests to work around this.
+- No production deployment or merge; deploy job for the PR retry was skipped.
+
+---
+
+# Latest checkpoint — full public-site redesign (2026-11-13 UTC)
+
+- Owner clarified the actual scope: a complete professional redesign of the public site, not a palette-only pass. Keep protected pages unchanged; defer VIP to a separate phase.
+- Active branch: feat/complete-art-direction-promo-vip-2026-11-13; PR #128 remains draft/open and must not be merged or deployed until validation is complete.
+- Public homepage: replaced the animated/marquee hero with direct editorial typography and standard links; removed generic trust-pillar block and decorative scroll-progress component. Rewrote FR/EN/AR homepage claims to remove “world’s No.1”, “Master”, “best/reliable/surebets” and similar unsupported language. Partner copy no longer claims the same 300% worldwide offer for every operator.
+- Predictions dashboard: new desktop/mobile grid and restrained card system; compact stat cards, filter controls, match cards, probability bars, source/sample metadata, and less decorative status treatment. Removed visible “AI” suffixes and sparkle icon from cards/combo. Kept prediction data, calculations, routes and model inputs unchanged.
+- Match center and shared public surfaces: editorial grid, flat cards, clean match details, no 3D transforms or glowing decoration. Extended the shared design layer to verified results, statistics, history, methodology, competitions and match-analysis panels.
+- Promo guides: replaced PromoLandingShell with a concise editorial layout: operator/code panel, one primary CTA, APK link, visible affiliate disclosure, short steps, compact FAQ, related guides and mobile sticky actions. Removed animated gradients, floating orbs, animated progress and duplicated trust/offer copy. Rewrote FR/EN/AR copy for 1xBet, Linebet, Melbet and 888Starz; preserved promo codes and affiliate destinations. SEO metadata, canonical URLs and slugs were not edited.
+- Removed animated title treatment from history, statistics and methodology headings.
+- Protected VIP scope: restored src/app/vip/page.tsx, VipLockedPicks.tsx, VipWinHistory.tsx and vip.css to the current main-branch content. No new VIP implementation is included in this phase. The separate architecture note remains documentation only.
+- Updated public design documentation and adjusted static regression assertions for the new promo copy. No tests, lint, TypeScript check or build have been confirmed as passing.
+- Latest observed PR run before this checkpoint: GitHub Actions run 43523671484 failed in pull-request-checks; job steps returned empty and logs returned BlobNotFound. Vercel status was failure with build-rate-limit upgrade URL. These are unresolved validation blockers; do not claim the preview is ready.
+- No merge, production deployment, Cloudflare Worker/D1 changes, secrets, FTP or production data changes. Main branch remains untouched.
+- Next: finish source-level review for all public routes and styles, verify protected VIP files match main, update tests for the new UI, then rerun CI and Vercel preview. Only mark ready when actual tests/build/preview pass.
+
+---
+
 # BTTSPredict — Project handover and continuity notes
 
 > Living handover document for ChatGPT and any collaborator taking over the project.
 > Update this file whenever a material decision, code change, test, deployment, or blocker occurs.
 > Last updated: 2026-11-13 (UTC).
+
+## Current active checkpoint — PR #128 (2026-11-13 22:12 UTC)
+
+- Active branch: `feat/complete-art-direction-promo-vip-2026-11-13`; PR #128 remains open and draft, targeting `main`.
+- Latest verified compare before this checkpoint: branch is ahead of `main`, behind by 0; all work remains isolated from `main`.
+- Initial PR head `2e6f4e6f18639619ab55a8d5629f350427ce28e3`: Vercel check succeeded. GitHub Actions run `43503251998` failed in `pull-request-checks`; no steps were exposed and job logs returned 404. Deploy and private VIP jobs were skipped. Do not merge while CI is unresolved.
+- Additional source changes made on this branch: global design tokens in `src/app/football-intelligence.css`, browser theme color/color scheme in `src/app/layout.tsx`, and `tests/global-design-system.test.ts`. Latest CSS semantic status-color correction is commit `6d7dbfa4bd2c545d31d5b4fb248e57fafb4ccfce`; earlier commits in this pass: `0b73edada31954fe934789b342282f2b4c9922ec`, `63936661cd6fa588167db5ef8d298b3c5603da76`, `a14f02ecce12d368def210d3603f625085dde9f0`.
+- The root layout SEO metadata, canonical, titles, descriptions, and route structure were not changed. No production deploy or merge was performed.
+- Validation status for the new design-token work: files were re-fetched from GitHub and the expected tokens/viewport/canonical were checked; automated tests, lint, typecheck and production build have NOT been run in this environment.
+- Read-only VIP architecture audit: current `workers/vip-api/src/index.js` still accepts legacy bookmaker-deposit requests (minimum USD 3, proof image, manual review, lifetime-access wording on frontend). Current Worker routes are request/admin operations; no real crypto payment verification or subscription entitlement flow was found in the inspected API. `src/contexts/AuthContext.jsx` is a legacy Firebase context using `import.meta.env`; the current Next root layout does not mount an `AuthProvider`. No Worker, D1, secret, Firebase config, production data, or Cloudflare resource was modified.
+- Mobile navigation already has exactly three tabs and localizes their labels; the desktop shell still uses the existing sidebar/topbar and mobile drawer. The global navigation palette has now been aligned to navy/blue/gold, but full layout redesign and responsive visual QA remain open.
+- Next actions: inspect remaining page/card/footer styles and affiliate destinations/tracking; design the new VIP auth/entitlement architecture without touching production; request the owner's exact Pro price/billing duration, crypto asset/network, Binance receiving address or supported verification source before implementing payment. Diagnose the PR Actions runner failure; do not bypass checks or merge.
+
+
 
 ## 1. Project identity
 
@@ -346,3 +422,180 @@ Continue a read-only analytics/authentication funnel audit: verify whether `NEXT
 - Vercel pour le commit précédent est maintenant `success`; le nouveau commit doit recevoir son propre contrôle.
 - Aucun merge, aucun déploiement de production, aucun changement de `main`, aucune modification des données publiques/privées ou de Cloudflare.
 - Prochaine étape : vérifier le statut du nouveau commit et le comportement du runner PR; demander au propriétaire de vérifier les paramètres Actions si le runner reste non assigné. Ne pas contourner les contrôles ni fusionner tant que le build et les contrôles ne sont pas validés.
+
+## 24. Direction artistique et première passe promo/VIP — 2026-11-13
+
+- Nouvelle branche de travail dédiée : `feat/complete-art-direction-promo-vip-2026-11-13`, créée depuis le `main` fusionné `e7943e81faf28fe588a129ee6d3d8e1a52db0f45`. Ne pas fusionner ni publier avant contrôles.
+- Document de référence ajouté : `docs/project/design/DIRECTION_ARTISTIQUE_BTTSPREDICT.md`. Il formalise les tokens navy/bleu/or VIP, typographie Inter/Noto Sans Arabic/JetBrains Mono, densité, navigation, responsive, RTL, accessibilité et garde-fous produit.
+- Pages promo partagées : conteneur élargi de 3xl à 5xl, langue/direction déclarées sur le shell, espace mobile réservé à la barre sticky, CTA mobile compact « copier le code » + « ouvrir le partenaire », et alignement FAQ compatible RTL.
+- Pages promo 888Starz : palette rapprochée du fond navy global, barre sticky mobile ajoutée avec tracking CTA et espace réservé au-dessus de la navigation basse.
+- Linebet EN : le texte visible indique désormais que le code VISION221 fonctionne dans le monde entier, cohérent avec la confirmation du propriétaire. Les titres SEO, descriptions SEO, URLs, canonicals et métadonnées des pages existantes n'ont pas été modifiés.
+- Tests promo : `tests/promo-affiliate-disclosure.test.ts` étendu pour vérifier les CTA sticky FR/EN/AR et le texte mondial Linebet.
+- VIP : tokens CSS alignés sur la palette globale et accent du titre hero aligné sur l'or mat. Le parcours fonctionnel reste encore l'ancien parcours « dépôt bookmaker ≥ 3 USD + capture + approbation manuelle + accès à vie »; il ne doit pas être présenté comme le modèle final.
+- Modèle VIP confirmé dans les échanges antérieurs : VIP Discovery gratuit 7 jours, puis VIP Pro payant; paiements crypto directs vers le portefeuille Binance; vérification réelle côté serveur; activation, expiration et renouvellement contrôlés serveur; aucune activation sur simple clic « j'ai payé ».
+- Blocages à résoudre avant refonte fonctionnelle VIP : aucun tarif exact ni durée de facturation Pro confirmés; aucun token/réseau, adresse de réception Binance ou identifiant marchand confirmé; aucune API/clé de vérification de paiement disponible. Authentification Firebase existe dans un ancien `AuthContext.jsx`, mais le fournisseur n'est pas monté dans l'app Next actuelle et aucune route login/register n'a été trouvée. Le Worker actuel n'accepte que les demandes manuelles liées aux dépôts bookmakers; aucune table d'abonnement/paiement ni vérification crypto n'existe.
+- Ne pas choisir arbitrairement « 10 USDT/mois » ou USDT TRC20 : ces valeurs n'étaient que des exemples discutés, pas des décisions du propriétaire.
+- Aucun Worker Cloudflare, D1 production, secret, données VIP, données de pronostics, page SEO ni site en production n'a été modifié. Aucun déploiement n'a été effectué.
+- Étapes suivantes : obtenir du propriétaire le tarif/durée VIP Pro et l'actif/réseau/adresse Binance; définir l'authentification réelle; implémenter migration D1 + vérification de transaction + entitlements + expiration/renouvellement + notifications Telegram; refaire ensuite la page VIP et le parcours complet; lancer tests/build/Vercel, puis traiter le blocage GitHub Actions runner avant tout FTP.
+
+## 25. PR #128 resumption and global palette correction — 2026-11-13 (UTC)
+
+- Read `CHATGPT_PROJECT_CONTEXT.md` directly from the requested PR branch before source work.
+- Verified PR #128: open, draft, target `main`, head branch `feat/complete-art-direction-promo-vip-2026-11-13`, initial head `2e6f4e6f18639619ab55a8d5629f350427ce28e3`, 10 commits at first inspection, 8 changed files at first inspection.
+- Compared branch to `main`: base/merge-base `e7943e81faf28fe588a129ee6d3d8e1a52db0f45`; branch ahead by 10 and behind by 0 before this pass's commits.
+- PR file audit confirmed first-pass work already present: design guide, promo shell and 888Starz mobile sticky CTAs, worldwide Linebet EN wording, VIP palette adjustment and affiliate disclosure tests. These were not repeated.
+- CI run `43503251998` for the initial PR head completed with failure in `pull-request-checks`; job exposed no steps, and fetching logs returned 404 BlobNotFound. The same commit's Vercel status was success. Deploy and private VIP candidate jobs were skipped. This does not prove the new commits' checks and does not justify merging.
+- Read current navigation shell, bottom navigation, global CSS, root layout, VIP page/modal, Firebase AuthContext, VIP Worker and Wrangler configuration. Mobile bottom navigation already contains only home/predictions/VIP with FR/EN/AR translations. Desktop currently has a 258px sidebar plus sticky topbar; mobile uses a drawer. The global palette previously remained teal-heavy and the root viewport declared a light color scheme despite dark surfaces.
+- Applied global palette alignment in `src/app/football-intelligence.css`: navy surfaces, analytical blue accents, matte VIP gold, semantic green success indicators, and matching text/border tokens. Corrected the fresh-data indicator to remain green rather than blue in follow-up commit `6d7dbfa4bd2c545d31d5b4fb248e57fafb4ccfce`.
+- Updated only viewport presentation in `src/app/layout.tsx` to `themeColor #070B12` and `colorScheme dark`; root SEO metadata and canonical were preserved.
+- Added `tests/global-design-system.test.ts` to assert core palette tokens, semantic success color, dark browser theme, and preserved canonical.
+- Commits from this pass: `0b73edada31954fe934789b342282f2b4c9922ec`, `63936661cd6fa588167db5ef8d298b3c5603da76`, `a14f02ecce12d368def210d3603f625085dde9f0`, `6d7dbfa4bd2c545d31d5b4fb248e57fafb4ccfce`.
+- Re-fetched modified source from GitHub and confirmed expected palette tokens, dark viewport settings, canonical preservation and test-file presence. No local test runner was available through the GitHub connector; automated tests/lint/typecheck/build are not claimed as run.
+- VIP audit confirms the current API remains a manual bookmaker-deposit request system. The inspected Worker does not implement crypto transaction verification, paid subscription state, payment history, or automatic subscription expiry. Firebase AuthContext is not mounted by the root layout and relies on Vite-style `import.meta.env`, so it cannot be assumed to be ready for the Next.js VIP journey. No production Worker, D1, secrets, Firebase settings, Cloudflare resources or data were changed.
+- No merge, production deploy, or change to `main` was performed.
+
+## 26. Footer and RTL polish — 2026-11-13 (UTC)
+
+- Continued work without waiting on VIP payment parameters; payment configuration remains the only owner-dependent implementation blocker.
+- Updated `src/components/bttsbet/Footer.tsx` to use the approved navy surface `#0F1622` and border `#283548`, replaced FAQ button physical `text-left` with logical `text-start` for Arabic RTL, and localized the legal navigation aria-label in FR/EN/AR.
+- Extended `tests/global-design-system.test.ts` with footer palette, logical alignment and Arabic label assertions.
+- Commits for this continuation: `75ef9053b682614f779a8fd568118a822c6a35af` and `93677a7c6590b1f5f28fa534df68a583a88354db`.
+- Re-fetched Footer, test, global CSS and root layout from the PR branch and verified the expected source strings; this is source inspection, not execution of the tests.
+- Latest PR head at checkpoint: `93677a7c6590b1f5f28fa534df68a583a88354db`; PR #128 remains open/draft, 17 commits, 12 changed files. Compare against main: ahead 17, behind 0. No main changes.
+- Latest Vercel status was pending at the time of check. GitHub Actions run `43518343402` failed in the `pull-request-checks` job; GitHub did not expose job steps/logs (logs endpoint returned BlobNotFound). Failed-job rerun was successfully requested; result is not yet known. Deploy and private VIP jobs remain skipped for the PR event.
+- No merge, production deployment, FTP, Cloudflare resource, Worker, D1, secret, or production data modification was performed.
+
+## 27. Global dark-theme override and navigation completion — 2026-11-13 (UTC)
+
+- Audited the full global stylesheet and found later legacy rules from 2026-11-05 overriding the newer navy system: they forced `html/body` to light mode, changed page text to dark, and reset navigation to teal/red. Earlier token edits alone were therefore insufficient.
+- Added a final authoritative dark-theme layer at the end of `src/app/football-intelligence.css`: restores dark color-scheme and navy surfaces, updates shared design tokens, sets the analytical blue active navigation state, and keeps VIP navigation gold. Desktop/mobile brand glows now use blue.
+- Updated `Navbar.tsx`: partner navigation links now expose `aria-current="page"` when their guide is active, and the desktop topbar page context displays the active partner brand rather than the generic workspace label.
+- Expanded `tests/global-design-system.test.ts` to guard the final dark override, blue/gold navigation, footer RTL treatment, and active partner route semantics.
+- Commits in this batch: `38a197bd24c566aa700a572c507d0254df2ce293`, `12db3ae9483ca25bdfe1642bcff85eba8035ba59`, `f703b499ac6129cfce1dfc88cd6df14ad2746d78`, `16e64bfba83297d2491bf1a343f130b039a3212b`, `3f996f6db1d273ef05bc5b037e433253d28c4b7b`, `1ba67aa6750381a0f3adc742fa64fc0ca43b6c33`, `877343c02e5e9b3247d4fd9417fd0beae6280833`.
+- Source re-fetch verified the final CSS override exists after legacy rules, dark color-scheme declarations appear later than the old light-mode declarations, partner links contain `aria-current`, and the test source contains assertions for these changes. Tests/build have NOT been executed in this session.
+- The last inspected CI run `43518343402` has failed `pull-request-checks`; the rerun was accepted but remains failed on inspection. GitHub's job-step response was empty and job-log endpoint returned BlobNotFound, so the failure cause cannot be established from available evidence. No new PR-triggered Actions run was returned for the latest head; Vercel was pending at last check.
+- Latest code head at this checkpoint before this context commit: `877343c02e5e9b3247d4fd9417fd0beae6280833`. PR #128 remains open/draft, not merged. Main remains untouched; no production deployment, FTP, Cloudflare Worker/D1, secrets, or production data changed.
+- VIP rebuild is still pending: current live UI/API contains the legacy bookmaker deposit/proof/lifetime-access workflow. Do not relabel it as Discovery/Pro or enable a crypto-payment claim until the new auth/entitlement/payment workflow is implemented and the owner's Pro price, billing period, asset, network, and public receiving address are confirmed.
+
+## 28. Homepage, prediction and VIP visual convergence — 2026-11-13 (UTC)
+
+- Continued the global art direction beyond navigation: found later legacy CSS blocks that had reintroduced white card surfaces and older teal/red accents on home, BTTS dashboard, match analysis and promo guides.
+- Added a final surface layer to `src/app/football-intelligence.css` for the homepage hero, match center cards, BTTS dashboard panels/filters, prediction and match-detail cards, partner promo shells, 888Starz page, and 1xBet gift panel. Surfaces now use the shared navy panels, muted text, analytical-blue active states, and the existing green semantic status.
+- Added a final VIP CSS layer to `src/app/vip/vip.css` to neutralize red accents in the late overrides and align the flow, steps, locked previews, FAQ and video frame with champagne gold and navy.
+- Added test assertions for the final home/dashboard/promo surface layer and the VIP gold layer in `tests/global-design-system.test.ts`.
+- Commits in this batch: `ed0467f3cbb1dabbfef9485c5eadfcedfbc1014f`, `621eb005f7148250d6b756b45f0753915e7482b9`, `dfd2c3834e77929720a1e260abaa91e0431c8449`.
+- This remains source-level work only. No browser screenshot, local npm test, lint, TypeScript check, or production build has been executed. Do not claim the rendered result is visually verified until the deployment preview is inspected.
+- VIP workflow itself is still the old bookmaker-deposit/manual-review process. The color redesign does not imply the Discovery/Pro authentication or crypto billing is implemented.
+
+## 29. Mobile navigation accessibility and CI follow-up — 2026-11-13 (UTC)
+
+- Improved the mobile navigation drawer in `Navbar.tsx`: opening moves focus to the close control; Escape closes the drawer; Tab/Shift+Tab are contained within the dialog; closing restores focus to the menu trigger. A guard prevents initial desktop render from stealing focus.
+- Extended the navigation test assertions for focus trapping and focus restoration.
+- Commits: `22190a21d719930e36364600dee37ec2526db803`, `878b928e827294927e8af93ee959e8868ef9a8f4`, `3926eaf7a61665250bb3bffb82be3060263d18a5`, `c47d32f0f1c903bb2e96741ac3eae8afc1a8e5c0`.
+- Re-read `.github/workflows/deploy.yml`: PR checks run `npm test`, Python unit tests, `npm run lint`, `npx tsc --noEmit`, then `npm run build -- --webpack`. The latest observed run `43519345629` ended with `pull-request-checks` failure; GitHub returned no step summaries and its job-log download returned BlobNotFound. A failed-job rerun request was accepted, but the observed job state still showed failure at the last poll. Root cause remains unknown; do not claim tests passed.
+- Latest PR branch code head before this continuity update: `878b928e827294927e8af93ee959e8868ef9a8f4` (context commit follows). PR #128 remains draft/open, not merged; Vercel was pending. No production deployment or main-branch change.
+
+## 30. Design specification and latest CI retry — 2026-11-13 (UTC)
+
+- Extended `docs/project/design/DIRECTION_ARTISTIQUE_BTTSPREDICT.md` with the final cascade rules, navy/blue/gold surface treatment, partner route context, mobile drawer focus management, and preview validation requirements.
+- Latest code/document commit before this checkpoint: `0694797ff8134909f5c7c64850778621157403f0`.
+- Latest PR-triggered workflow run observed: `43519773319`, job `pull-request-checks` concluded failure; deploy and VIP candidate jobs skipped as expected for a PR. GitHub exposed no job-step summaries, no artifacts, and prior job log downloads returned BlobNotFound. A rerun of the failed job was accepted; latest poll still showed the previous failure. Cause remains unverified.
+- Vercel preview status for the latest head was pending. Do not report a successful preview, visual QA, test suite, lint, typecheck, or production build.
+- PR #128 remains open and draft, 36 commits ahead of main and 0 behind; no merge and no deployment.
+
+## 31. Focus trap coverage and current validation attempt — 2026-11-13 (UTC)
+
+- Completed the mobile drawer focusable selector so links, buttons, inputs, selects, textareas and explicit tabindex controls are all included in keyboard focus cycling.
+- Added a matching static assertion to `tests/global-design-system.test.ts`.
+- Reviewed the PR patches for the global stylesheet, VIP stylesheet, Navbar, footer, promo shell, tests and root layout. No SEO title, description, canonical, route or prediction-data changes were found in the inspected patches; root layout change remains limited to browser dark-mode metadata.
+- Source re-fetch confirms the focus selector and test assertion are present.
+- Latest head before this checkpoint: `87b1a386d21c69dfee0ae4f6ec358f3e5f804393`. A fresh PR workflow run `43519980753` was queued at last poll; Vercel was pending. Await results before calling validation successful.
+
+## 32. Residual outer-shell palette cleanup — 2026-11-13 (UTC)
+
+- A final cascade review found the legacy teal page canvas still applied to homepage, over-2.5, exact-score, match-analysis and BTTS dashboard outer containers, plus the FAQ/footer shell.
+- Added a final CSS override to place those outer shells on the approved `#070B12` background and keep footer text on the global text token.
+- Extended the global design-system test to assert the outer page and footer shell rules.
+- Commits: `929e3914b9dd70153fb6757046b18b1c7ed541ef`, `aaa5a4f36e4e300a49b5a30e06db2693b9cce01a`.
+- Source inspection only; no screenshot or browser verification yet. The most recent known CI failure remains unresolved because job summaries/logs are unavailable through GitHub; a later PR run may be needed to validate this final patch.
+
+## 33. VIP Discovery / Pro migration architecture — 2026-11-13 (UTC)
+
+- Added `docs/project/vip/ARCHITECTURE_DISCOVERY_PRO.md` based on a fresh inspection of the existing Firebase Auth context, root Next layout, VIP Worker routes and D1 `0001_initial.sql`.
+- Confirmed the current VIP request model still requires a bookmaker deposit of at least USD 3 and proof image, with manual owner review; no paid entitlement or real crypto verification endpoints exist.
+- Confirmed a Firebase Auth implementation exists but uses Vite `import.meta.env.VITE_FIREBASE_*` variables and its provider is not mounted by the Next root layout. Existing Firestore `isVip` must not be trusted as server authorization.
+- The architecture proposes Firebase ID token verification in the Worker, D1-authoritative entitlements, one-time 7-day Discovery trial, idempotent payment intents/transaction hashes, expiry/renewal ledger and Telegram notifications only after confirmed entitlement.
+- No auth provider, D1 migration, Worker endpoint, Firebase config, Binance integration, secret or production resource was changed. The doc lists owner inputs required before the payment rail can be implemented.
+- Architecture doc commit: `64e86a3739ac76a857a0dc183559ad67d9be583f`.
+
+## 34. GA4 production-only activation — 2026-11-13 (UTC)
+
+- Audited `AnalyticsLoader.tsx`: GA4 already loads directly through `gtag.js`, but previously gated only by `NODE_ENV === 'production'`, which is also true for production-mode preview builds. The code also relied on `NEXT_PUBLIC_GA_ID` being set in Actions variables.
+- Changed the loader to require an explicit `NEXT_PUBLIC_GA_ENABLED === 'true'` flag in addition to production build mode and saved analytics consent.
+- Updated `.github/workflows/deploy.yml`: PR build sets `NEXT_PUBLIC_GA_ENABLED: 'false'`; main production deployment sets it to `'true'` and uses the existing known GA4 measurement ID `G-F705Z3L2HT` as a fallback if the repository variable is absent.
+- Added a test assertion for consent gating and production/PR workflow separation.
+- GTM container `GTM-NGVK3V3V` is not added here; the site uses one direct GA4 loader, avoiding accidental double initialization. Do not inject a second GA4 tag through GTM without deliberately switching the implementation.
+- No GitHub Actions variable/secret settings, Vercel settings, analytics account, production deployment, or live site was changed. Actual event receipt still requires a successful main deployment and the visitor's analytics consent.
+- Commits: `ecc8e4e394cbc9c54adbf1c8290d2906f3f3df92`, `e37ac33c8c8713dbcd265ba3823d66b35ffd16bd`, `f4b05c74d12e0d6cf04569820c2ce1aced3ab007`.
+
+## 35. GA4 consent integration verification — 2026-11-13 (UTC)
+
+- Inspected `CookieConsent.tsx` to confirm it uses the same storage key as `AnalyticsLoader.tsx`, persists `preferences.analytics`, and dispatches `cookie-consent-changed` after the user saves preferences.
+- Added static test assertions connecting the cookie consent component to the GA4 loader, in addition to the production-only workflow flag checks.
+- No tracking request was sent from this source inspection; event collection remains dependent on successful production deployment and user consent.
+- Commit: `f13a3b563655407b40855bdb2951fc723ac80af6`.
+
+## 36. VIP public-page transition to Discovery / Pro preview — 2026-11-13 (UTC)
+
+- Replaced the public VIP page's lifetime/bookmaker-deposit messaging and four-step bookmaker proof wizard with a three-language Discovery 7-day / VIP Pro plan preview.
+- Removed the old `VipJourneyModal` from the public page; the plan CTA buttons are intentionally disabled until account authentication, D1 entitlements and verified payment are implemented. The page explicitly says no payment is currently accepted and tells visitors not to make bookmaker deposits for BTTSPredict access.
+- Replaced old manual-review CTAs in `VipLockedPicks.tsx` and `VipWinHistory.tsx` with navigation to the new plan section.
+- Removed the old walkthrough video from the public VIP hero because it demonstrated the obsolete bookmaker-deposit process; replaced it with a Discovery / VIP Pro membership-card preview in the approved champagne-gold style.
+- Added responsive plan-card styling and regression assertions preventing lifetime/deposit claims or reintroduction of the old modal/video.
+- Files: `src/app/vip/page.tsx`, `src/app/vip/VipLockedPicks.tsx`, `src/app/vip/VipWinHistory.tsx`, `src/app/vip/vip.css`, `tests/global-design-system.test.ts`.
+- Commits: `7deb82837a7d1fb1f953f1e50eb05336a75134ae`, `edca57765ce4724ed94a9b1a1673114647bab446`, `d0a0a7670c9a3f425083698714a14798849b2eeb`, `730578574380e8d3ee7b5a370e8ead3e2c81e14a`, `84d1c0d0a86f55b54354eefef3aed90f9d690a42`, `1ce59042b5706e8c15a50a3b966c32d93c2832f1`, `dd705ece4b16fa6993475ca6081bdd089c9f4e3a`, `2e226c0f9059c9341ebf1cc15483390a893b3ad8`, `ce4a4717b1d42a1dafc37988fda57595c8e53962`, `e69d469d4dc2813fa75563f5d3d598b4d6f013d6`, `a49370dfd67320b4cc198d6d38952d0316f03653`, `bf2625dd79f35f4449af25a182ec74a1c429cd33`.
+- The legacy Worker routes, D1 tables and modal source file are retained but are no longer imported by the public VIP page; do not delete old request data or deploy the new page until the replacement backend and migration are ready.
+- No account, payment, entitlement or production access has been activated. Price, subscription duration and crypto rail remain unconfigured.
+
+## 37. VIP preview validation status — 2026-11-13 (UTC)
+
+- Re-fetched the VIP page, locked-picks component, history component, VIP CSS and regression tests after the public transition. Source inspection confirms: no lifetime wording, no $3 bookmaker deposit, no manual-review copy, no old modal import, no old walkthrough video, Discovery/Pro cards present, disabled CTAs, and clear no-payment-yet copy.
+- The new VIP preview does not activate any account or entitlement. Old Worker endpoints, D1 request data and the orphaned modal source remain retained for historical compatibility until the replacement backend migration is ready.
+- PR workflow run `43520868377` failed in `pull-request-checks`; rerunning the failed job was accepted but the latest poll still showed failure. Job step summaries were empty and the log download returned BlobNotFound, so the failing step/root cause is still unknown.
+- Vercel preview was pending at the last status poll. No visual preview has been inspected, no tests/build have been confirmed green, and no production deployment or merge has occurred.
+
+
+## 38. Reprise du chantier refonte publique — 2026-11-13 (UTC, 23:31)
+
+### Portée et état réel
+- La PR #128 reste ouverte en brouillon, base `main`, head `feat/complete-art-direction-promo-vip-2026-11-13`.
+- Dernier head confirmé : `cfcc720ff8489446dedf8b26cbfff7fb22a2278d`; 171 commits, 58 fichiers modifiés.
+- La page VIP et son CSS sont strictement identiques à `main` sur le head actuel. Le chantier VIP est donc bien exclu de cette refonte publique; il sera repris séparément.
+- Aucun merge ni déploiement de production effectué.
+
+### Corrections complémentaires apportées après la première passe
+- Guides 888Starz : retrait du bloc de vérification répétitif, ajout navigation/footer partagés sur les routes localisées, suppression de l'ancien habillage CSS glass/gradient, correction du main landmark et du chevauchement avec la bottom navigation mobile.
+- Guides Linebet/1xBet/Melbet : retrait du composant de vérification dupliqué, alignement des shells sur le fond navy commun et ajout du footer partagé aux guides localisés.
+- Résumés promo : suppression de formulations répétées « worldwide » pour 1xBet/Melbet; wording du fallback Linebet clarifié pour ne pas répéter de promesse bonus non vérifiée.
+- Statistiques BTTS : retrait du second flux de pronostics qui dupliquait la page et clarification du titre en « Compétitions suivies · BTTS ».
+- Statistiques Over 2.5 : remplacement des sections vides par une liste des compétitions réellement configurées, sans inventer de pourcentages de réussite; liens vers les pronostics du jour et la couverture BTTS.
+- Pronostics BTTS demain : retrait du titre animé, du texte explicatif répétitif et du CTA en doublon; filtrage explicite du flux sur le marché BTTS.
+- Résultats archivés : retrait du flux de pronostics dupliqué et réécriture des textes FR/EN/AR pour ne pas prétendre à une vérification ESPN universelle si la source n'est pas établie sur chaque ligne.
+- Historique, statistiques et pages de compétition : application du shell éditorial partagé; cartes de compétition/statistiques aplaties et débarrassées des ombres/effets décoratifs.
+- Les slugs, URLs SEO et données de pronostics n'ont pas été volontairement changés par ces retouches.
+
+### Validation technique — état à 23:31 UTC
+- GitHub Actions run `43527590865` sur le head `cfcc720...` : job `pull-request-checks` en échec; jobs `deploy` et génération VIP ignorés.
+- Le job GitHub ne fournit pas de steps et le téléchargement des logs retourne `BlobNotFound`; cause racine CI toujours inconnue.
+- Statut Vercel pour ce head : failure avec indication `build-rate-limit` (limite de builds du compte), pas un résultat de build applicatif.
+- Aucun résultat vert de lint/typecheck/tests/build n'a été obtenu. Aucun contrôle visuel complet du preview n'a été fait.
+- Le statut Vercel précédemment marqué success concernait un autre head/état; ne pas le présenter comme validation du head actuel.
+
+### Prochaines tâches obligatoires avant de déclarer prêt
+1. Continuer la refonte des pages publiques restantes : accueil, flux pronostics, détail match, résultats, historique, statistiques, compétitions et toutes les pages promo.
+2. Auditer les styles hérités et les cartes de match réellement rendues, sans remplacer les données ou les composants fonctionnels à l'aveugle.
+3. Vérifier FR/EN/AR, RTL, responsive mobile/desktop, navigation clavier et accessibilité.
+4. Contrôler toutes les métadonnées, slugs, canonicals, liens internes et paramètres affiliés sans les modifier.
+5. Résoudre ou obtenir des logs exploitables pour le job CI; relancer les tests, lint, typecheck et build jusqu'à obtention de résultats verts.
+6. Inspecter le preview Vercel après rétablissement de la capacité de build; ne pas confondre l'URL preview avec le site en production.
+7. Garder la PR en brouillon et ne pas fusionner/déployer sans nouvelle vérification complète.

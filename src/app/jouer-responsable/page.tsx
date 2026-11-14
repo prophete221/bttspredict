@@ -137,7 +137,7 @@ const responsibleTips = [
    ────────────────────────────────────────────────────────────── */
 export default function JouerResponsablePage() {
   return (
-    <div className="min-h-screen bg-dark-800 flex flex-col text-papier">
+    <div className="page-design page-design--legal min-h-screen bg-[#080D14] flex flex-col text-[#EDF2F7]">
       {/* Structured Data */}
       <script
         type="application/ld+json"

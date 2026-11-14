@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 
 export default function GuideBttsPage() {
   return (
-    <div className="min-h-screen bg-dark-800 flex flex-col text-papier">
+    <div className="page-design page-design--legal min-h-screen bg-[#080D14] flex flex-col text-[#EDF2F7]">
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-emerald focus:text-dark-900 focus:font-bold focus:rounded-lg"

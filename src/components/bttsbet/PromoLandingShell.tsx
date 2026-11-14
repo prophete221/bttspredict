@@ -1,7 +1,7 @@
 'use client'
 
-import { useState, useEffect, useRef, type ReactNode } from 'react'
-import { motion, useScroll, useTransform, useInView, AnimatePresence } from 'framer-motion'
+import { useEffect, useState } from 'react'
+import Image from 'next/image'
 import { trackAffiliateAction, trackAffiliateCodeCopy } from '@/lib/affiliateTracking'
 import { copyTextToClipboard } from '@/lib/clipboard'
 
@@ -43,71 +43,37 @@ export type PromoLandingProps = {
   }>
 }
 
-const ease = [0.22, 1, 0.36, 1] as const
-
 function renderTitleWithCode(title: string, code: string) {
   const index = title.indexOf(code)
   if (index < 0) return title
   return <>{title.slice(0, index)}<bdi dir="ltr">{code}</bdi>{title.slice(index + code.length)}</>
 }
 
-function FadeIn({
-  children,
-  className = '',
-  delay = 0,
-  y = 28,
-}: {
-  children: ReactNode
-  className?: string
-  delay?: number
-  y?: number
-}) {
-  const ref = useRef<HTMLDivElement>(null)
-  const inView = useInView(ref, { once: true, margin: '-10% 0px' })
-  return (
-    <motion.div
-      ref={ref}
-      className={className}
-      initial={{ opacity: 0, y }}
-      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y }}
-      transition={{ duration: 0.65, delay, ease }}
-    >
-      {children}
-    </motion.div>
-  )
-}
-
 export default function PromoLandingShell(p: PromoLandingProps) {
   const [copied, setCopied] = useState(false)
   const [copyFailed, setCopyFailed] = useState(false)
   const [openFaq, setOpenFaq] = useState<number | null>(0)
-  const { scrollYProgress } = useScroll()
-  const progressWidth = useTransform(scrollYProgress, [0, 1], ['0%', '100%'])
+
+  const guidesLabel = p.lang === 'en' ? 'Partner guides' : p.lang === 'ar' ? 'أدلة الشركاء' : 'Guides partenaires'
 
   const L = {
     copy: p.labels?.copy ?? (p.lang === 'en' ? 'Copy code' : p.lang === 'ar' ? 'نسخ الرمز' : 'Copier le code'),
-    copied: p.labels?.copied ?? (p.lang === 'en' ? 'Copied!' : p.lang === 'ar' ? 'تم النسخ!' : 'Copié !'),
-    copyFailed: p.labels?.copyFailed ?? (p.lang === 'en' ? 'Copy failed — select the code' : p.lang === 'ar' ? 'فشل النسخ' : 'Copie échouée — sélectionne le code'),
-    signup: p.labels?.signup ?? (p.lang === 'en' ? `Open ${p.brand}` : p.lang === 'ar' ? `افتح ${p.brand}` : `Consulter ${p.brand}`),
+    copied: p.labels?.copied ?? (p.lang === 'en' ? 'Copied' : p.lang === 'ar' ? 'تم النسخ' : 'Code copié'),
+    copyFailed: p.labels?.copyFailed ?? (p.lang === 'en' ? 'Select the code to copy it.' : p.lang === 'ar' ? 'حدّد الرمز لنسخه.' : 'Sélectionne le code pour le copier.'),
+    signup: p.labels?.signup ?? (p.lang === 'en' ? `Visit ${p.brand}` : p.lang === 'ar' ? `زيارة ${p.brand}` : `Voir l’offre chez ${p.brand}`),
     download: p.labels?.download ?? (p.lang === 'en' ? 'Download APK' : p.lang === 'ar' ? 'تحميل APK' : 'Télécharger l’APK'),
-    codeLabel: p.labels?.codeLabel ?? (p.lang === 'en' ? 'Promo code' : p.lang === 'ar' ? 'رمز ترويجي' : 'Code promo'),
-    howTitle: p.labels?.howTitle ?? (p.lang === 'en' ? 'Using the code' : p.lang === 'ar' ? 'استخدام الرمز' : 'Utiliser le code'),
-    faqTitle: p.labels?.faqTitle ?? (p.lang === 'en' ? 'FAQ' : p.lang === 'ar' ? 'الأسئلة الشائعة' : 'FAQ'),
-    others: p.labels?.others ?? (p.lang === 'en' ? 'Other offers' : p.lang === 'ar' ? 'عروض أخرى' : 'Autres offres'),
-    stickySignup: p.labels?.stickySignup ?? (p.lang === 'en' ? 'Open' : p.lang === 'ar' ? 'افتح' : 'Ouvrir'),
-    responsible: p.labels?.responsible ?? (p.lang === 'en' ? 'Play responsibly' : p.lang === 'ar' ? 'العب بمسؤولية' : 'Jouez responsable'),
+    codeLabel: p.labels?.codeLabel ?? (p.lang === 'en' ? 'Promo code' : p.lang === 'ar' ? 'الرمز الترويجي' : 'Code promo'),
+    howTitle: p.labels?.howTitle ?? (p.lang === 'en' ? 'How to use the code' : p.lang === 'ar' ? 'كيفية استخدام الرمز' : 'Utiliser le code'),
+    faqTitle: p.labels?.faqTitle ?? (p.lang === 'en' ? 'Terms and questions' : p.lang === 'ar' ? 'الشروط والأسئلة' : 'Conditions et questions'),
+    others: p.labels?.others ?? (p.lang === 'en' ? 'Other partner guides' : p.lang === 'ar' ? 'أدلة الشركاء' : 'Autres guides partenaires'),
+    stickySignup: p.labels?.stickySignup ?? (p.lang === 'en' ? 'Visit' : p.lang === 'ar' ? 'زيارة' : 'Voir'),
+    responsible: p.labels?.responsible ?? (p.lang === 'en' ? 'Play responsibly' : p.lang === 'ar' ? 'العب بمسؤولية' : 'Jouer de façon responsable'),
     affiliateDisclosure: p.labels?.affiliateDisclosure ?? (p.lang === 'en'
-      ? 'Links to the operator are affiliate links; BTTSPredict may receive a commission if you use them.'
+      ? 'This page contains affiliate links. BTTSPredict may receive a commission at no extra cost to you.'
       : p.lang === 'ar'
-        ? 'روابط المشغّل تابعة؛ قد تحصل BTTSPredict على عمولة عند استخدامها.'
-        : 'Les liens vers l’opérateur sont affiliés ; BTTSPredict peut percevoir une commission si vous les utilisez.'),
+        ? 'تتضمن هذه الصفحة روابط تابعة. قد تحصل BTTSPredict على عمولة دون تكلفة إضافية عليك.'
+        : 'Cette page contient des liens affiliés. BTTSPredict peut percevoir une commission, sans coût supplémentaire pour vous.'),
   }
-
-  const accent = p.accent
-  const soft = p.accentSoft ?? `${accent}33`
-  const offerTerms = p.bookmakerId === 'linebet' && p.lang === 'en'
-    ? 'Country availability has not been verified. Check current eligibility and terms directly with Linebet.'
-    : '300% worldwide deposit bonus, cashback and weekly bonuses.'
 
   useEffect(() => {
     trackAffiliateAction(p.bookmakerId, 'promo_view', `promo:${p.bookmakerId}:${p.lang}`)
@@ -120,10 +86,10 @@ export default function PromoLandingShell(p: PromoLandingProps) {
       setCopied(true)
       setCopyFailed(false)
       navigator.vibrate?.(12)
-      setTimeout(() => setCopied(false), 2200)
+      window.setTimeout(() => setCopied(false), 2200)
     } else {
       setCopyFailed(true)
-      setTimeout(() => setCopyFailed(false), 3000)
+      window.setTimeout(() => setCopyFailed(false), 3000)
     }
   }
 
@@ -131,321 +97,121 @@ export default function PromoLandingShell(p: PromoLandingProps) {
     <div
       data-promo-shell
       data-bookmaker={p.bookmakerId}
-      className={`relative min-h-screen overflow-x-hidden text-[#F2F6FA] promo-shell promo-shell--${p.bookmakerId}`}
-      style={{ backgroundColor: '#05070B' }}
+      lang={p.lang}
+      dir={p.lang === 'ar' ? 'rtl' : 'ltr'}
+      className={`promo-shell promo-shell--editorial promo-shell--${p.bookmakerId}`}
     >
-      {/* Scroll progress */}
-      <motion.div
-        className="fixed top-0 left-0 right-0 z-[80] h-[3px] origin-left"
-        style={{ scaleX: 1, width: progressWidth, background: `linear-gradient(90deg, ${accent}, #fff)` }}
-      />
+      <main id="main-content" className="promo-editorial">
+        <header className="promo-editorial__header">
+          <a href={p.lang === 'fr' ? '/' : `/${p.lang}`} className="promo-editorial__brand">BTTSPredict <span>/</span> {guidesLabel}</a>
+          <span className="promo-editorial__age">18+</span>
+        </header>
 
-      {/* Ambient orbs */}
-      <div className="pointer-events-none fixed inset-0 overflow-hidden" aria-hidden>
-        <motion.div
-          className="absolute -top-32 -left-20 h-80 w-80 rounded-full blur-[100px]"
-          style={{ background: soft }}
-          animate={{ x: [0, 40, 0], y: [0, 30, 0] }}
-          transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        <motion.div
-          className="absolute top-1/3 -right-24 h-96 w-96 rounded-full blur-[120px] opacity-60"
-          style={{ background: soft }}
-          animate={{ x: [0, -30, 0], y: [0, 50, 0] }}
-          transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        <div className="absolute inset-0 opacity-[0.035]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #fff 1px, transparent 0)', backgroundSize: '28px 28px' }} />
-      </div>
-
-      <main className="promo-main relative z-10 mx-auto w-full max-w-3xl px-4 pb-14 pt-7 sm:pt-12">
-        {/* Hero */}
-        <section className="promo-main__story text-center">
-          <motion.p
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease }}
-            className="promo-story__badge inline-flex items-center gap-2 rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.2em]"
-            style={{ color: accent, border: `1px solid ${accent}55`, background: `${accent}14` }}
-          >
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full" style={{ background: accent }} />
-            {p.badge}
-          </motion.p>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, delay: 0.08, ease }}
-            className="promo-story__title mt-5 min-w-0 break-words text-3xl font-black leading-tight sm:text-5xl [overflow-wrap:anywhere]"
-            style={{ fontFamily: 'Poppins, sans-serif' }}
-          >
-            {renderTitleWithCode(p.title, p.code)}
-          </motion.h1>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.92 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.55, delay: 0.15, ease }}
-            className="promo-story__logo mx-auto mt-6 flex min-h-[72px] max-w-[300px] items-center justify-center rounded-2xl px-5 py-3 shadow-2xl sm:max-w-[360px]"
-            style={{
-              backgroundColor: p.logoBg,
-              boxShadow: `0 20px 50px ${accent}33`,
-              border: `1px solid ${accent}33`,
-            }}
-          >
-            <img
-              src={p.logo}
-              alt={`${p.brand} logo`}
-              width={p.logoW ?? 200}
-              height={p.logoH ?? 56}
-              className="max-h-14 w-auto object-contain"
-              loading="eager"
-            />
-          </motion.div>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.25, duration: 0.5 }}
-            className="promo-story__intro mx-auto mt-5 max-w-xl text-sm leading-relaxed text-[#9DABBB] sm:text-base"
-          >
-            {p.intro}
-          </motion.p>
-
-          {/* Code + CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.6, ease }}
-            className="promo-story__actions mx-auto mt-8 max-w-md"
-          >
-            <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#9DABBB]">{L.codeLabel}</p>
-            <button
-              type="button"
-              onClick={handleCopy}
-              data-cta={`promo-copy-${p.bookmakerId}`}
-              className="group relative w-full overflow-hidden rounded-2xl px-4 py-4 transition-transform active:scale-[0.98]"
-              style={{
-                background: `linear-gradient(135deg, ${accent} 0%, ${accent}cc 100%)`,
-                boxShadow: `0 12px 40px ${accent}55`,
-              }}
-              aria-label={`${p.code} — ${L.copy}`}
-            >
-              <span dir="ltr" className="relative z-10 font-mono text-2xl font-black tracking-[0.25em] text-white sm:text-3xl">{p.code}</span>
-              <span className="relative z-10 mt-1 block text-[11px] font-bold uppercase tracking-wider text-white/80">
-                {copied ? L.copied : L.copy}
-              </span>
-              <motion.span
-                className="absolute inset-0 opacity-0 group-hover:opacity-100"
-                style={{ background: 'linear-gradient(120deg, transparent, rgba(255,255,255,0.18), transparent)' }}
-                animate={{ x: ['-100%', '100%'] }}
-                transition={{ duration: 2.2, repeat: Infinity, ease: 'linear' }}
-              />
-            </button>
-            {copyFailed && (
-              <p className="mt-2 text-xs text-[#F87171]" role="alert">{L.copyFailed}</p>
-            )}
-
-            <div className="mt-4 grid gap-2 sm:grid-cols-2">
+        <section className="promo-editorial__hero" aria-labelledby="promo-title">
+          <div className="promo-editorial__intro">
+            <p className="promo-editorial__eyebrow">{p.badge}</p>
+            <h1 id="promo-title">{renderTitleWithCode(p.title, p.code)}</h1>
+            <p className="promo-editorial__summary">{p.intro}</p>
+            <div className="promo-editorial__actions">
               <a
                 href={p.signupUrl}
                 target="_blank"
                 rel="sponsored nofollow noopener noreferrer"
                 onClick={() => trackAffiliateAction(p.bookmakerId, 'signup_cta_click', `promo-hero-${p.lang}`)}
                 data-cta={`promo-signup-${p.bookmakerId}`}
-                className="rounded-xl py-3.5 text-center text-sm font-bold text-white transition-transform active:scale-[0.98]"
-                style={{ backgroundColor: accent, boxShadow: `0 8px 28px ${accent}44` }}
-              >
-                <span className="inline-flex items-center justify-center gap-2">
-                  <span className="grid h-7 w-7 place-items-center rounded-md bg-white p-0.5">
-                    <img src={p.logo} alt="" width={24} height={24} className="h-6 w-6 object-contain" />
-                  </span>
-                  <span>{L.signup} →</span>
-                </span>
-              </a>
+                className="promo-editorial__primary"
+              >{L.signup}<span aria-hidden="true">↗</span></a>
               <a
                 href={p.downloadUrl}
                 target="_blank"
                 rel="sponsored nofollow noopener noreferrer"
                 onClick={() => trackAffiliateAction(p.bookmakerId, 'download_click', `promo-apk-${p.lang}`)}
                 data-cta={`promo-apk-${p.bookmakerId}`}
-                className="rounded-xl py-3.5 text-center text-sm font-bold transition-transform active:scale-[0.98]"
-                style={{
-                  color: '#F2F6FA',
-                  border: `1px solid ${accent}66`,
-                  background: `${accent}14`,
-                }}
-              >
-                <span className="inline-flex items-center justify-center gap-2">
-                  <img src={p.logo} alt="" aria-hidden="true" width={22} height={22} className="h-6 w-6 object-contain" />
-                  <img src="/logos/google-play.svg" alt="" aria-hidden="true" width={22} height={22} className="h-6 w-6 object-contain" />
-                  <span>{L.download}</span>
-                </span>
-              </a>
+                className="promo-editorial__secondary"
+              ><Image src="/logos/google-play.svg" alt="" aria-hidden="true" width={18} height={18} />{L.download}</a>
             </div>
-            <p data-affiliate-disclosure className="mt-3 px-2 text-center text-[11px] leading-relaxed text-[#9DABBB]">
-              {L.affiliateDisclosure}
-            </p>
-          </motion.div>
+            <p data-affiliate-disclosure className="promo-editorial__disclosure">{L.affiliateDisclosure}</p>
+          </div>
+
+          <aside className="promo-editorial__code-panel" aria-label={L.codeLabel}>
+            <div className="promo-editorial__operator">
+              <span className="promo-editorial__logo" style={{ backgroundColor: p.logoBg }}>
+                <img src={p.logo} alt={`${p.brand} logo`} width={p.logoW ?? 160} height={p.logoH ?? 48} />
+              </span>
+              <span className="promo-editorial__operator-name">{p.brand}</span>
+            </div>
+            <p className="promo-editorial__code-label">{L.codeLabel}</p>
+            <code dir="ltr" className="promo-editorial__code">{p.code}</code>
+            <button type="button" onClick={handleCopy} className="promo-editorial__copy" data-cta={`promo-copy-${p.bookmakerId}`} aria-live="polite">
+              {copied ? L.copied : L.copy}
+            </button>
+            {copyFailed && <p role="alert" className="promo-editorial__copy-error">{L.copyFailed}</p>}
+            <p className="promo-editorial__offer-title">{p.offerHeadline}</p>
+            <p className="promo-editorial__offer-sub">{p.offerSub}</p>
+          </aside>
         </section>
 
-        {/* Offer snapshot: static, scannable facts instead of a duplicated moving ticker. */}
-        <section className="promo-main__benefits" aria-label={p.lang === 'en' ? 'Offer highlights' : p.lang === 'ar' ? 'أبرز عناصر العرض' : 'Repères sur l’offre'}>
+        <section className="promo-editorial__facts" aria-label={p.lang === 'en' ? 'Offer details' : p.lang === 'ar' ? 'تفاصيل العرض' : 'Détails de l’offre'}>
           {p.benefits.map((benefit, index) => (
-            <div key={`${p.bookmakerId}-${index}`} data-promo-highlight>
-              <span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-              <p>{benefit}</p>
+            <div className="promo-editorial__fact" key={`${p.bookmakerId}-${index}`}>
+              <span>{String(index + 1).padStart(2, '0')}</span><p>{benefit}</p>
             </div>
           ))}
         </section>
 
-        {/* Offer card */}
-        <FadeIn className="promo-main__offer mt-10" delay={0.05}>
-          <div
-            className="relative overflow-hidden rounded-3xl p-6 text-center sm:p-8"
-            style={{
-              background: `linear-gradient(145deg, ${accent}22 0%, #101a26 45%, #0c141f 100%)`,
-              border: `1px solid ${accent}44`,
-              boxShadow: `0 24px 60px rgba(0,0,0,0.35), inset 0 1px 0 ${accent}33`,
-            }}
-          >
-            <p className="text-2xl font-black sm:text-3xl" style={{ color: accent }}>{p.offerHeadline}</p>
-            <p className="mt-3 text-sm text-[#9DABBB]">{p.offerSub}</p>
+        <section className="promo-editorial__section" aria-labelledby="promo-steps-title">
+          <div className="promo-editorial__section-head">
+            <p className="promo-editorial__eyebrow">{p.brand}</p>
+            <h2 id="promo-steps-title">{L.howTitle}</h2>
           </div>
-        </FadeIn>
-
-        {/* Trust / transparency — no invented bonus terms */}
-        <FadeIn className="promo-main__trust mt-8" delay={0.05}>
-          <div
-            className="grid gap-3 rounded-2xl p-4 sm:grid-cols-3 sm:p-5"
-            style={{
-              background: 'rgba(12, 18, 28, 0.9)',
-              border: `1px solid ${accent}22`,
-            }}
-          >
-            {[
-              p.lang === 'en'
-                ? ['Exact code', 'Use the code with the capitalization shown.']
-                : p.lang === 'ar'
-                  ? ['الرمز الدقيق', 'استخدم الرمز بنفس الأحرف المعروضة.']
-                  : ['Code exact', 'Utilise le code avec la casse affichée.'],
-              p.lang === 'en'
-                ? ['Offer', offerTerms]
-                : p.lang === 'ar'
-                  ? ['العرض', 'مكافأة إيداع عالمية 300%، واسترداد نقدي ومكافآت أسبوعية.']
-                  : ['Offre', 'Bonus de dépôt mondial de 300 %, cashback et bonus hebdomadaires.'],
-              p.lang === 'en'
-                ? ['18+ only', 'Play responsibly. Availability depends on local regulation.']
-                : p.lang === 'ar'
-                  ? ['18+ فقط', 'العب بمسؤولية. التوافر يعتمد على القوانين المحلية.']
-                  : ['18+ uniquement', 'Jouez responsable. Disponibilité selon la réglementation locale.'],
-            ].map(([title, body]) => (
-              <div key={title as string} className="rounded-xl p-3" style={{ background: `${accent}0d`, border: `1px solid ${accent}18` }}>
-                <p className="text-xs font-bold" style={{ color: accent }}>{title}</p>
-                <p className="mt-1 text-[11px] leading-relaxed text-[#9DABBB]">{body}</p>
-              </div>
+          <ol className="promo-editorial__steps">
+            {p.steps.map((step, index) => (
+              <li key={step.n}>
+                <span>{String(index + 1).padStart(2, '0')}</span>
+                <div><h3>{step.title}</h3><p>{step.desc}</p></div>
+              </li>
             ))}
-          </div>
-        </FadeIn>
+          </ol>
+        </section>
 
-        {/* Steps */}
-        <FadeIn className="promo-main__steps mt-12" delay={0.05}>
-          <h2 className="mb-5 text-center text-xl font-bold sm:text-2xl">{L.howTitle}</h2>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {p.steps.map((s, i) => (
-              <motion.div
-                key={s.n}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-8%' }}
-                transition={{ duration: 0.5, delay: i * 0.08, ease }}
-                whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                className="rounded-2xl p-4 sm:p-5"
-                style={{
-                  background: 'rgba(16, 22, 34, 0.9)',
-                  border: `1px solid ${accent}28`,
-                  boxShadow: '0 8px 24px rgba(0,0,0,0.25)',
-                }}
-              >
-                <span className="font-mono text-xs font-bold" style={{ color: accent }}>{s.n}</span>
-                <p className="mt-1 text-sm font-bold sm:text-base">{s.title}</p>
-                <p className="mt-1.5 text-xs leading-relaxed text-[#9DABBB] sm:text-sm">{s.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </FadeIn>
-
-        {/* FAQ */}
-        <FadeIn className="promo-main__faq mt-12" delay={0.05}>
-          <h2 className="mb-5 text-center text-xl font-bold sm:text-2xl">{L.faqTitle}</h2>
-          <div className="space-y-2">
-            {p.faq.map((item, i) => {
-              const open = openFaq === i
-              return (
-                <motion.div
-                  key={item.q}
-                  layout
-                  className="overflow-hidden rounded-2xl"
-                  style={{
-                    background: 'rgba(16, 22, 34, 0.92)',
-                    border: `1px solid ${open ? accent + '66' : '#1e293b'}`,
-                  }}
-                >
-                  <button
-                    type="button"
-                    className="flex w-full items-center justify-between gap-3 px-4 py-3.5 text-left text-sm font-bold"
-                    onClick={() => setOpenFaq(open ? null : i)}
-                    aria-expanded={open}
-                  >
-                    <span>{item.q}</span>
-                    <motion.span animate={{ rotate: open ? 45 : 0 }} transition={{ duration: 0.2 }} style={{ color: accent }} className="text-lg leading-none">
-                      +
-                    </motion.span>
-                  </button>
-                  <AnimatePresence initial={false}>
-                    {open && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.28, ease }}
-                      >
-                        <p className="px-4 pb-4 text-sm leading-relaxed text-[#9DABBB]">{item.a}</p>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
-              )
-            })}
-          </div>
-        </FadeIn>
-
-        {/* Cross links */}
-        {p.crossLinks.length > 0 && (
-          <FadeIn className="promo-main__crosslinks mt-12" delay={0.05}>
-            <h2 className="mb-4 text-center text-lg font-bold">{L.others}</h2>
-            <div className="flex flex-wrap justify-center gap-2">
-              {p.crossLinks.map((l) => (
-                <a
-                  key={l.href}
-                  href={l.href}
-                  className="rounded-xl px-3.5 py-2 text-sm font-semibold transition-all hover:scale-[1.03]"
-                  style={{
-                    background: `${accent}14`,
-                    border: `1px solid ${accent}33`,
-                    color: '#F2F6FA',
-                  }}
-                >
-                  {l.label} →
-                </a>
+        {p.faq.length > 0 && (
+          <section className="promo-editorial__section" aria-labelledby="promo-faq-title">
+            <div className="promo-editorial__section-head">
+              <p className="promo-editorial__eyebrow">{p.brand}</p>
+              <h2 id="promo-faq-title">{L.faqTitle}</h2>
+            </div>
+            <div className="promo-editorial__faq">
+              {p.faq.map((item, index) => (
+                <article key={item.q} className={openFaq === index ? 'is-open' : ''}>
+                  <h3>
+                    <button type="button" onClick={() => setOpenFaq(openFaq === index ? null : index)} aria-expanded={openFaq === index}>
+                      {item.q}<span aria-hidden="true">{openFaq === index ? '−' : '+'}</span>
+                    </button>
+                  </h3>
+                  {openFaq === index && <p>{item.a}</p>}
+                </article>
               ))}
             </div>
-          </FadeIn>
+          </section>
         )}
 
-      <p className="promo-main__responsible mt-12 text-center text-[11px] text-[#6B7A8C]">
-          18+ · {L.responsible} · {p.lang === 'en' ? 'No future result is guaranteed.' : p.lang === 'ar' ? 'لا توجد ضمانات مستقبلية.' : 'Aucun résultat futur n’est garanti.'}
-        </p>
+        {p.crossLinks.length > 0 && (
+          <nav className="promo-editorial__related" aria-label={L.others}>
+            <h2>{L.others}</h2>
+            <div>{p.crossLinks.map((link) => <a key={link.href} href={link.href}>{link.label}<span aria-hidden="true">→</span></a>)}</div>
+          </nav>
+        )}
+
+        <footer className="promo-editorial__footer">
+          <span>18+</span><span>•</span><a href={p.lang === 'fr' ? '/jouer-responsable' : `/${p.lang}/jouer-responsable`}>{L.responsible}</a>
+          <p>{p.lang === 'en' ? 'Bonuses are subject to the operator’s current terms and local eligibility. No betting outcome is guaranteed.' : p.lang === 'ar' ? 'تخضع المكافآت لشروط المشغّل الحالية والأهلية المحلية. لا توجد نتيجة مضمونة.' : 'Les bonus dépendent des conditions en vigueur chez l’opérateur et de votre éligibilité locale. Aucun résultat de pari n’est garanti.'}</p>
+        </footer>
       </main>
+
+      <div className="promo-editorial__sticky">
+        <button type="button" onClick={handleCopy} data-cta={`promo-sticky-copy-${p.bookmakerId}`}>{copied ? L.copied : L.copy}</button>
+        <a href={p.signupUrl} target="_blank" rel="sponsored nofollow noopener noreferrer" onClick={() => trackAffiliateAction(p.bookmakerId, 'signup_cta_click', `promo-sticky-${p.lang}`)} data-cta={`promo-sticky-signup-${p.bookmakerId}`}>{L.stickySignup} {p.brand}<span aria-hidden="true">↗</span></a>
+      </div>
     </div>
   )
 }

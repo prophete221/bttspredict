@@ -35,11 +35,11 @@ const COPY: Record<Lang, {
   fr: {
     dir: 'ltr',
     badge: 'OFFRE 888STARZ',
-    title: 'Code promo 888Starz btts221 : bonus mondial de 300 %',
-    positioning: 'Le code 888Starz btts221 fonctionne dans le monde entier. L’offre comprend un bonus de dépôt mondial de 300 %, du cashback et des bonus hebdomadaires. Consultez 888Starz pour les modalités en vigueur.',
-    offer: 'Bonus de dépôt mondial 300 %',
+    title: 'Code promo 888Starz : btts221',
+    positioning: 'Le code 888Starz est btts221. L’offre comprend un bonus de dépôt de 300 %, du cashback et des bonus hebdomadaires. Vérifiez les conditions et votre éligibilité directement auprès de 888Starz.',
+    offer: 'Bonus de dépôt 300 %',
     highlights: ['Cashback', 'Bonus hebdomadaires', 'Code exact : btts221'],
-    guideTitle: 'Comment utiliser ce guide',
+    guideTitle: 'Utiliser le code',
     steps: [
       { title: 'Copier le code', body: 'Recopiez btts221 tel qu’il apparaît sur cette page.' },
       { title: 'Vérifier les modalités', body: 'Consultez les conditions en vigueur directement auprès de 888Starz.' },
@@ -58,11 +58,11 @@ const COPY: Record<Lang, {
   en: {
     dir: 'ltr',
     badge: '888STARZ OFFER',
-    title: '888Starz btts221 Promo Code: 300% Worldwide Bonus',
-    positioning: '888Starz code btts221 works worldwide. The offer includes a 300% worldwide deposit bonus, cashback and weekly bonuses. Check current terms with 888Starz.',
-    offer: '300% Worldwide Deposit Bonus',
+    title: '888Starz promo code: btts221',
+    positioning: 'The 888Starz code is btts221. The offer includes a 300% deposit bonus, cashback and weekly bonuses. Confirm eligibility and current terms with 888Starz.',
+    offer: '300% Deposit Bonus',
     highlights: ['Cashback', 'Weekly bonuses', 'Exact code: btts221'],
-    guideTitle: 'How to use this guide',
+    guideTitle: 'Using the code',
     steps: [
       { title: 'Copy the code', body: 'Copy btts221 exactly as shown on this page.' },
       { title: 'Check the terms', body: 'Review the current terms directly with 888Starz.' },
@@ -81,11 +81,11 @@ const COPY: Record<Lang, {
   ar: {
     dir: 'rtl',
     badge: 'عرض 888Starz',
-    title: 'رمز 888Starz الترويجي btts221: عرض عالمي بنسبة 300%',
-    positioning: 'يعمل رمز 888Starz ‏btts221 حول العالم. يشمل العرض مكافأة إيداع عالمية بنسبة 300%، واستردادًا نقديًا ومكافآت أسبوعية. راجع الشروط السارية لدى 888Starz.',
-    offer: 'مكافأة إيداع عالمية 300%',
+    title: 'رمز 888Starz الترويجي: btts221',
+    positioning: 'رمز 888Starz هو btts221. يتضمن العرض مكافأة إيداع بنسبة 300% واسترداداً نقدياً ومكافآت أسبوعية. تحقق من الأهلية والشروط الحالية لدى 888Starz.',
+    offer: 'مكافأة إيداع 300%',
     highlights: ['استرداد نقدي', 'مكافآت أسبوعية', 'الرمز الدقيق: btts221'],
-    guideTitle: 'طريقة استخدام هذا الدليل',
+    guideTitle: 'استخدام الرمز',
     steps: [
       { title: 'انسخ الرمز', body: 'انسخ btts221 كما يظهر في هذه الصفحة.' },
       { title: 'تحقق من الشروط', body: 'راجع الشروط الحالية مباشرة لدى 888Starz.' },
@@ -105,19 +105,19 @@ const COPY: Record<Lang, {
 
 const CODE_COPY: Record<Lang, Pick<typeof COPY.fr, 'title' | 'positioning' | 'offer'>> = {
   fr: {
-    title: 'Guide du code promo 888Starz btts221 et du bonus mondial de 300 %',
-    positioning: 'Le code 888Starz btts221 fonctionne dans le monde entier. L’offre comprend un bonus de dépôt mondial de 300 %, du cashback et des bonus hebdomadaires. Consultez 888Starz pour les modalités en vigueur.',
-    offer: 'Bonus de dépôt mondial 300 %',
+    title: 'Guide du code promo 888Starz : btts221',
+    positioning: 'Le code 888Starz est btts221. L’offre comprend un bonus de dépôt de 300 %, du cashback et des bonus hebdomadaires. Vérifiez les conditions et votre éligibilité directement auprès de 888Starz.',
+    offer: 'Bonus de dépôt 300 %',
   },
   en: {
-    title: '888Starz btts221 Code Guide: 300% Worldwide Bonus',
-    positioning: '888Starz code btts221 works worldwide. The offer includes a 300% worldwide deposit bonus, cashback and weekly bonuses. Check terms with 888Starz.',
-    offer: '300% Worldwide Deposit Bonus',
+    title: '888Starz code guide: btts221',
+    positioning: 'The 888Starz code is btts221. The offer includes a 300% deposit bonus, cashback and weekly bonuses. Confirm the current terms with 888Starz.',
+    offer: '300% Deposit Bonus',
   },
   ar: {
-    title: 'دليل رمز 888Starz الترويجي btts221 والعرض العالمي بنسبة 300%',
-    positioning: 'يعمل رمز 888Starz ‏btts221 حول العالم. يشمل العرض مكافأة إيداع عالمية بنسبة 300%، واستردادًا نقديًا ومكافآت أسبوعية. راجع الشروط لدى 888Starz.',
-    offer: 'مكافأة إيداع عالمية 300%',
+    title: 'دليل رمز 888Starz الترويجي: btts221',
+    positioning: 'رمز 888Starz هو btts221. يتضمن العرض مكافأة إيداع بنسبة 300% واسترداداً نقدياً ومكافآت أسبوعية. تحقق من الشروط الحالية لدى 888Starz.',
+    offer: 'مكافأة إيداع 300%',
   },
 }
 
@@ -125,9 +125,9 @@ type MainPromoCopy = Pick<typeof COPY.fr, 'title' | 'positioning' | 'offer' | 'h
 
 const MAIN_PROMO_COPY: Record<Lang, MainPromoCopy> = {
   fr: {
-    title: 'Code promo 888Starz btts221 : bonus mondial 300 %',
-    positioning: 'Le code promo 888Starz btts221 fonctionne dans le monde entier. L’offre comprend un bonus de dépôt mondial de 300 %, du cashback et des bonus hebdomadaires.',
-    offer: 'Bonus de dépôt mondial 300 %',
+    title: 'Code promo 888Starz : btts221',
+    positioning: 'Le code 888Starz est btts221. L’offre comprend un bonus de dépôt de 300 %, du cashback et des bonus hebdomadaires. Vérifiez les conditions auprès de l’opérateur.',
+    offer: 'Bonus de dépôt 300 %',
     highlights: ['Bonus de dépôt 300 %', 'Cashback', 'Bonus hebdomadaires · code btts221'],
     guideTitle: 'Comment utiliser le code btts221',
     steps: [
@@ -136,9 +136,9 @@ const MAIN_PROMO_COPY: Record<Lang, MainPromoCopy> = {
     ],
   },
   en: {
-    title: '888Starz Promo Code btts221: 300% Worldwide Bonus',
-    positioning: '888Starz promo code btts221 works worldwide. The offer includes a 300% worldwide deposit bonus, cashback and weekly bonuses.',
-    offer: '300% Worldwide Deposit Bonus',
+    title: '888Starz promo code: btts221',
+    positioning: 'The 888Starz code is btts221. The offer includes a 300% deposit bonus, cashback and weekly bonuses. Check the terms with the operator.',
+    offer: '300% Deposit Bonus',
     highlights: ['300% deposit bonus', 'Cashback', 'Weekly bonuses · code btts221'],
     guideTitle: 'How to use code btts221',
     steps: [
@@ -147,9 +147,9 @@ const MAIN_PROMO_COPY: Record<Lang, MainPromoCopy> = {
     ],
   },
   ar: {
-    title: 'رمز 888Starz الترويجي btts221: مكافأة عالمية 300%',
-    positioning: 'يعمل رمز 888Starz الترويجي btts221 حول العالم. يشمل العرض مكافأة إيداع عالمية بنسبة 300%، واستردادًا نقديًا ومكافآت أسبوعية.',
-    offer: 'مكافأة إيداع عالمية 300%',
+    title: 'رمز 888Starz الترويجي: btts221',
+    positioning: 'رمز 888Starz هو btts221. يتضمن العرض مكافأة إيداع بنسبة 300% واسترداداً نقدياً ومكافآت أسبوعية. تحقق من الشروط لدى المشغّل.',
+    offer: 'مكافأة إيداع 300%',
     highlights: ['مكافأة إيداع 300%', 'استرداد نقدي', 'مكافآت أسبوعية · الرمز btts221'],
     guideTitle: 'طريقة استخدام الرمز btts221',
     steps: [
@@ -200,16 +200,17 @@ export default function Star888PromoClient({
 
   return (
     <main
+      id="main-content"
       lang={lang}
       dir={copy.dir}
       data-888starz-promo
-      className="min-h-[60vh] bg-[#001E28] px-4 py-6 text-[#EAF2F4] sm:py-10"
+      className="promo-shell--888starz min-h-[60vh] bg-[#070B12] px-4 pb-36 pt-6 text-[#F2F6FA] sm:pt-10 sm:pb-36 md:pb-10"
       style={{
         colorScheme: 'dark',
         fontFamily: lang === 'ar' ? 'var(--font-arabic), var(--font-body), Arial, sans-serif' : 'var(--font-body), Roboto, Arial, sans-serif',
       }}
     >
-      <section className="mx-auto w-full max-w-5xl overflow-hidden rounded-2xl border border-white/10 bg-[#06232E] shadow-[0_10px_32px_rgba(0,0,0,0.45)]" aria-labelledby="star888-title">
+      <section className="mx-auto w-full max-w-5xl overflow-hidden rounded-2xl border border-white/10 bg-[#0C1726] shadow-[0_20px_56px_rgba(0,0,0,0.42)]" aria-labelledby="star888-title">
         <div className="grid lg:grid-cols-[1.05fr_.95fr]">
           <div className="border-b border-white/10 p-5 sm:p-8 lg:border-b-0 lg:border-e lg:p-10">
             <div className="flex flex-wrap items-center justify-between gap-4">
@@ -232,7 +233,7 @@ export default function Star888PromoClient({
             </div>
             <div className="mt-5 grid gap-2 sm:grid-cols-3" data-promo-highlights>
               {copy.highlights.map((highlight, index) => (
-                <div key={highlight} className="rounded-lg border border-white/10 bg-[#0B2B36] p-3">
+                <div key={highlight} className="rounded-xl border border-white/10 bg-[#101E30] p-3">
                   <span className="text-[10px] font-bold tracking-widest text-[#FF7A9C]">0{index + 1}</span>
                   <p className="mt-1 text-xs font-semibold leading-relaxed text-[#CBDDE0]">{highlight}</p>
                 </div>
@@ -242,7 +243,7 @@ export default function Star888PromoClient({
 
           <div className="p-5 sm:p-8 lg:p-10">
             <p className="text-sm font-bold text-[#CBDDE0]">{copy.codeLabel}</p>
-            <div className="mt-2 rounded-xl border border-white/15 bg-[#0B2B36] p-4 sm:p-5">
+            <div className="mt-2 rounded-2xl border border-white/15 bg-[#101E30] p-4 sm:p-5">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <code dir="ltr" className="select-all text-3xl font-extrabold tracking-[.12em] text-white sm:text-4xl">{CODE}</code>
                 <button
@@ -299,11 +300,11 @@ export default function Star888PromoClient({
           </div>
         </div>
       </section>
-      <section data-promo-steps aria-labelledby="star888-steps-title" className="mx-auto mt-8 w-full max-w-5xl rounded-2xl border border-white/10 bg-[#06232E] p-5 sm:p-8">
+      <section data-promo-steps aria-labelledby="star888-steps-title" className="mx-auto mt-8 w-full max-w-5xl rounded-2xl border border-white/10 bg-[#0C1726] p-5 sm:p-8">
         <h2 id="star888-steps-title" className="text-xl font-bold text-white sm:text-2xl">{copy.guideTitle}</h2>
         <div className="mt-5 grid gap-3 sm:grid-cols-2">
           {copy.steps.map((step, index) => (
-            <div key={step.title} className="rounded-xl border border-[#D9164C]/25 bg-[#0B2B36] p-4">
+            <div key={step.title} className="rounded-xl border border-[#D9164C]/25 bg-[#101E30] p-4">
               <span className="text-xs font-bold tracking-widest text-[#FF7A9C]">0{index + 1}</span>
               <h3 className="mt-1 font-bold text-white">{step.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-[#B9CDD2]">{step.body}</p>
@@ -315,13 +316,34 @@ export default function Star888PromoClient({
         <h2 id="star888-faq-title" className="text-xl font-bold text-white sm:text-2xl">{copy.faqTitle}</h2>
         <div className="mt-5 grid gap-4 sm:grid-cols-2">
           {faq.map((item) => (
-            <div key={item.q} className="rounded-xl border border-white/10 bg-[#0B2B36] p-4">
+            <div key={item.q} className="rounded-xl border border-white/10 bg-[#101E30] p-4">
               <h3 className="text-base font-bold text-white">{item.q}</h3>
               <p className="mt-2 text-sm leading-relaxed text-[#B9CDD2]">{item.a}</p>
             </div>
           ))}
         </div>
       </section>
+
+      <div className="fixed bottom-[calc(86px+env(safe-area-inset-bottom))] left-1/2 z-[45] flex w-[calc(100%-24px)] max-w-[520px] -translate-x-1/2 gap-2 rounded-2xl border border-white/10 bg-[#0B1422]/95 p-2 shadow-2xl backdrop-blur-xl md:hidden">
+        <button
+          type="button"
+          onClick={handleCopy}
+          data-cta={`promo-sticky-copy-888starz-${lang}`}
+          className="min-h-11 flex-1 rounded-xl border border-white/15 bg-white/5 px-3 text-xs font-extrabold text-white"
+        >
+          {copied ? copy.copied : copy.copy}
+        </button>
+        <a
+          href={AFFILIATE.star888}
+          target="_blank"
+          rel="sponsored nofollow noopener noreferrer"
+          onClick={() => trackAffiliateAction('888starz', 'signup_cta_click', `promo-sticky-${lang}`)}
+          data-cta={`promo-sticky-signup-888starz-${lang}`}
+          className="flex min-h-11 flex-[1.25] items-center justify-center rounded-xl bg-[#D9164C] px-3 text-center text-xs font-extrabold text-white"
+        >
+          {copy.visit} →
+        </a>
+      </div>
     </main>
   )
 }

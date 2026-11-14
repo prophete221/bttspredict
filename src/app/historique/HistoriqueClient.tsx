@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useLanguage } from '@/components/bttsbet/LanguageSwitcher'
-import AnimatedTitle from '@/components/bttsbet/HeroWordmark'
 import { selectBttsHistory } from '@/lib/historyDisplay'
 
 interface TrackingPeriod {
@@ -159,12 +158,7 @@ export default function HistoriqueClient({ initialData }: { initialData: WinHist
             style={{ backgroundColor: 'rgba(127, 162, 198, 0.16)', color: '#2F7DFF', border: '1px solid rgba(127, 162, 198, 0.30)' }}>
             {copy.newTracking}
           </span>
-          <AnimatedTitle
-            as="h1"
-            text={copy.title}
-            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4"
-            style={{ fontFamily: 'Poppins, sans-serif' }}
-          />
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 tracking-tight">{copy.title}</h1>
           <p className="text-base text-[#9DABBB] leading-relaxed max-w-2xl mx-auto">
             {copy.intro}
           </p>

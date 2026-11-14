@@ -86,8 +86,9 @@ describe('deployment safety gates', () => {
     expect(pullRequest).toContain('run: python scripts/enrich_predictions.py')
 
     const staticBuild = pullRequest.split('name: Build static export')[1]?.split('      - name: ')[0] ?? ''
-    expect(staticBuild).toContain("github.head_ref == 'work/public-upcoming-picks-20261109'")
     expect(staticBuild).toContain('run: npm run build -- --webpack')
+    expect(staticBuild).toContain("NEXT_PUBLIC_GA_ENABLED: 'false'")
+    expect(staticBuild).not.toContain('GEMINI_API_KEY')
 
     const scheduleGate = deploy.indexOf('name: Require fresh public schedule content before private jobs or deployment')
     const privateCollect = deploy.indexOf('name: Collect fresh ESPN fixtures privately')

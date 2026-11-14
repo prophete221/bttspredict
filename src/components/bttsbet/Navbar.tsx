@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useContext, useEffect, useMemo, useState } from 'react'
+import { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { BOOKMAKERS } from '@/lib/constants'
 import LanguageSwitcher, { useLanguage } from './LanguageSwitcher'
@@ -63,7 +63,7 @@ function NavItems({ groups, lang, isActive, onNavigate, partnerRoutes }: {
             if (!partner) return null
             const name: Record<typeof id, string> = { '1xbet': '1xBet', linebet: 'Linebet', melbet: 'MelBet', '888starz': '888Starz' }
             return (
-              <a className="fi-nav-link fi-nav-partner" href={partnerRoutes[id]} key={id} onClick={onNavigate} title={name[id]}>
+              <a className="fi-nav-link fi-nav-partner" href={partnerRoutes[id]} key={id} onClick={onNavigate} title={name[id]} aria-current={isActive(partnerRoutes[id]) ? 'page' : undefined}>
                 <span className="fi-nav-partner__logo"><img src={partner.logoFull} alt={`${name[id]} logo`} loading="lazy" /></span>
                 <span className="fi-nav-link__label">{name[id]}</span>
                 <span className="fi-nav-partner__external" aria-hidden="true">↗</span>
@@ -90,6 +90,10 @@ function NavigationContent() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [collapsed, setCollapsed] = useState(false)
   const [dataToday, setDataToday] = useState(false)
+  const menuTriggerRef = useRef<HTMLButtonElement>(null)
+  const drawerRef = useRef<HTMLElement>(null)
+  const drawerCloseButtonRef = useRef<HTMLButtonElement>(null)
+  const drawerWasOpenRef = useRef(false)
 
   const paths = useMemo(() => ({
     home: localizedPath('/', lang),
@@ -152,7 +156,11 @@ function NavigationContent() {
   const partnerRoutes = useMemo(() => ({ '1xbet': paths.promo1xbet, linebet: paths.promolinebet, melbet: paths.promomelbet, '888starz': paths.promo888 }), [paths])
   const flatLinks = groups.flatMap(group => group.links)
   const activePage = flatLinks.find(link => isActive(link.href))
-  const pageTitle = activePage?.label[lang] ?? (lang === 'ar' ? 'مساحة التحليل' : lang === 'en' ? 'Analysis workspace' : 'Espace d’analyse')
+  const activePartner = Object.entries(partnerRoutes).find(([, href]) => isActive(href))?.[0]
+  const activePartnerTitle = activePartner
+    ? ({ '1xbet': '1xBet', linebet: 'Linebet', melbet: 'MelBet', '888starz': '888Starz' } as Record<string, string>)[activePartner]
+    : undefined
+  const pageTitle = activePage?.label[lang] ?? activePartnerTitle ?? (lang === 'ar' ? 'مساحة التحليل' : lang === 'en' ? 'Analysis workspace' : 'Espace d’analyse')
 
   const currentPartner = useMemo(() => {
     if (pathname.includes('code-promo-1xbet')) return BOOKMAKERS.find(item => item.id === '1xbet')
@@ -175,10 +183,39 @@ function NavigationContent() {
   }, [])
 
   useEffect(() => {
-    if (!menuOpen) return
-    const closeOnEscape = (event: KeyboardEvent) => { if (event.key === 'Escape') setMenuOpen(false) }
-    window.addEventListener('keydown', closeOnEscape)
-    return () => window.removeEventListener('keydown', closeOnEscape)
+    if (!menuOpen) {
+      if (drawerWasOpenRef.current) menuTriggerRef.current?.focus()
+      drawerWasOpenRef.current = false
+      return
+    }
+
+    drawerWasOpenRef.current = true
+    drawerCloseButtonRef.current?.focus()
+    const handleDrawerKeys = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        event.preventDefault()
+        setMenuOpen(false)
+        return
+      }
+      if (event.key !== 'Tab') return
+
+      const focusable = drawerRef.current?.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      )
+      if (!focusable?.length) return
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault()
+        last.focus()
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault()
+        first.focus()
+      }
+    }
+
+    window.addEventListener('keydown', handleDrawerKeys)
+    return () => window.removeEventListener('keydown', handleDrawerKeys)
   }, [menuOpen])
 
   const copyCode = useCallback(async () => {
@@ -229,6 +266,7 @@ function NavigationContent() {
         <div className="fi-topbar__left">
           <button
             type="button"
+            ref={menuTriggerRef}
             className="fi-icon-button fi-mobile-menu"
             aria-label={menuOpen ? mobileCloseLabel : mobileOpenLabel}
             aria-expanded={menuOpen}
@@ -268,12 +306,12 @@ function NavigationContent() {
 
       {menuOpen && <>
         <button type="button" className="fi-nav-backdrop" aria-label={mobileCloseLabel} onClick={() => setMenuOpen(false)} />
-        <aside className="fi-nav-drawer" id="fi-mobile-navigation" role="dialog" aria-modal="true" aria-label={menuLabel}>
+        <aside ref={drawerRef} className="fi-nav-drawer" id="fi-mobile-navigation" role="dialog" aria-modal="true" aria-label={menuLabel}>
           <div className="fi-nav-drawer__head">
             <a className="fi-mobile-brand" href={paths.home} onClick={() => setMenuOpen(false)}>
               <img src="/brand/bttspredict-fireball-transparent.png" alt="" width="32" height="32" /><strong>{appName}</strong>
             </a>
-            <div className="fi-topbar__actions"><LanguageSwitcher compact /><button type="button" className="fi-icon-button" aria-label={mobileCloseLabel} onClick={() => setMenuOpen(false)}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg></button></div>
+            <div className="fi-topbar__actions"><LanguageSwitcher compact /><button ref={drawerCloseButtonRef} type="button" className="fi-icon-button fi-nav-drawer__close" aria-label={mobileCloseLabel} onClick={() => setMenuOpen(false)}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg></button></div>
           </div>
           <nav className="fi-nav-drawer__scroll" aria-label={menuLabel}>
             <NavItems groups={groups} lang={lang} isActive={isActive} onNavigate={() => setMenuOpen(false)} partnerRoutes={partnerRoutes} />

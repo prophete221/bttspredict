@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Navbar, Footer } from '@/components/bttsbet'
 import Link from 'next/link'
-import AnimatedTitle from '@/components/bttsbet/HeroWordmark'
 
 const TITLE = 'Over 2.5 Statistics by League — Goal Analysis'
 const DESCRIPTION = "List of leagues covered by BTTSPredict for Over 2.5 market. Historical averages and rates to be integrated via verifiable source. 18+."
@@ -35,71 +34,47 @@ const LEAGUES = [
 
 export default function Over25StatisticsPage() {
   return (
-    <div className="min-h-screen bg-[#0B0F14] flex flex-col text-[#F2F6FA]">
+    <div className="page-design page-design--statistics min-h-screen bg-[#080D14] flex flex-col text-[#EDF2F7]">
       <Navbar />
       <main id="main-content" className="flex-1">
-        <nav aria-label="Fil d'Ariane" className="text-xs text-[#9DABBB] mb-4 max-w-4xl mx-auto px-4 pt-8">
-          <Link href="/" className="hover:text-[#2F7DFF]">Accueil</Link>
-          <span className="mx-1">/</span>
-          <span className="text-[#9DABBB]">Over 2.5 Statistics</span>
+        <nav aria-label="Breadcrumb" className="mx-auto max-w-5xl px-4 pt-8 text-xs text-[#93A3B5]">
+          <Link href="/" className="hover:text-[#8DB8FF]">Home</Link>
+          <span className="mx-2">/</span>
+          <span>Over 2.5 statistics</span>
         </nav>
 
-        <section className="max-w-4xl mx-auto px-4 pt-4 pb-8">
-          <AnimatedTitle
-            as="h1"
-            text="Over 2.5 Statistics by League"
-            className="text-3xl sm:text-4xl font-bold mb-4"
-            style={{ fontFamily: 'Poppins, sans-serif' }}
-          />
-          <p className="text-base text-[#9DABBB] leading-relaxed mb-4">
-            Leagues covered by BTTSPredict for the Over 2.5 market (≥ 3 goals). Historical averages and rates per league will be displayed once a verifiable source is integrated at build time.
+        <section className="mx-auto max-w-5xl px-4 pt-6 pb-8">
+          <p className="mb-3 text-[10px] font-bold uppercase tracking-[.12em] text-[#8DB8FF]">Over 2.5 market</p>
+          <h1 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">Over 2.5 Statistics by League</h1>
+          <p className="max-w-3xl text-sm leading-7 text-[#A6B4C4]">
+            These are the competitions currently listed for the Over 2.5 market. League averages and hit rates are not published until a verifiable historical dataset is available.
           </p>
-          <p className="text-xs text-[#9DABBB] leading-relaxed">
-            Aucune garantie future. 18+.
+          <p className="mt-3 text-xs text-[#7F8FA2]">18+ · Statistical information only. No result is guaranteed.</p>
+        </section>
+
+        <section className="mx-auto max-w-5xl px-4 pb-12">
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
+            {LEAGUES.map((league) => (
+              <article key={league.name} className="rounded-lg border border-[#263548] bg-[#101823] px-4 py-4">
+                <h2 className="text-sm font-semibold text-[#E7EDF5]">{league.name}</h2>
+                <p className="mt-1 text-xs text-[#8FA1B5]">{league.country}</p>
+              </article>
+            ))}
+          </div>
+          <p className="mt-4 text-xs leading-6 text-[#7F8FA2]">
+            No league-level percentage is displayed without a dated sample and a documented calculation method.
           </p>
         </section>
 
-        <section className="max-w-4xl mx-auto px-4 pb-12">
-          <div className="overflow-x-auto rounded-xl" style={{ backgroundColor: '#141C25', border: '1px solid #6B7A8C' }}>
-            <table className="w-full text-sm" style={{ borderCollapse: 'collapse' }}>
-              <thead>
-                <tr style={{ borderBottom: '2px solid #6B7A8C' }}>
-                  <th className="text-left py-3 px-3 font-bold text-[#9DABBB]">League</th>
-                  <th className="text-left py-3 px-3 font-bold text-[#9DABBB] hidden sm:table-cell">Country</th>
-                  <th className="text-right py-3 px-3 font-bold text-[#9DABBB]">Goals/match</th>
-                  <th className="text-right py-3 px-3 font-bold text-[#9DABBB]">Over 2.5 Rate</th>
-                </tr>
-              </thead>
-              <tbody>
-                {LEAGUES.map((league, i) => (
-                  <tr key={i} style={{ borderBottom: '1px solid #6B7A8C' }}>
-                    <td className="py-2.5 px-3 font-semibold text-[#F2F6FA]">{league.name}</td>
-                    <td className="py-2.5 px-3 text-[#9DABBB] hidden sm:table-cell">{league.country}</td>
-                    <td className="py-2.5 px-3 text-right font-mono text-[#9DABBB] text-xs">Données en préparation</td>
-                    <td className="py-2.5 px-3 text-right font-mono text-[#9DABBB] text-xs">Données en préparation</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="text-[10px] text-[#9DABBB] mt-3 leading-relaxed">
-            Historical data not available — to be integrated via verifiable source. Aucune garantie future.
-          </p>
-        </section>
-
-        <section className="max-w-3xl mx-auto px-4 pb-12">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <Link href="/over-2-5/predictions/today" className="block p-4 rounded-xl transition-all hover:scale-[1.01]"
-              style={{ backgroundColor: '#141C25', border: '1px solid #6B7A8C' }}>
-              <div className="text-sm font-bold text-[#F2F6FA]">Over 2.5 Predictions Today →</div>
-              <div className="text-xs text-[#9DABBB] mt-1">Today's picks</div>
-            </Link>
-            <Link href="/btts/statistics" className="block p-4 rounded-xl transition-all hover:scale-[1.01]"
-              style={{ backgroundColor: '#141C25', border: '1px solid #6B7A8C' }}>
-              <div className="text-sm font-bold text-[#F2F6FA]">BTTS Statistics →</div>
-              <div className="text-xs text-[#9DABBB] mt-1">Both teams to score</div>
-            </Link>
-          </div>
+        <section className="mx-auto grid max-w-5xl grid-cols-1 gap-3 px-4 pb-14 sm:grid-cols-2">
+          <Link href="/over-2-5/predictions/today" className="rounded-lg border border-[#263548] bg-[#101823] p-4 transition-colors hover:border-[#4B8DF8]">
+            <span className="text-sm font-semibold text-[#E7EDF5]">Over 2.5 predictions today</span>
+            <span className="mt-1 block text-xs text-[#8FA1B5]">View published match selections →</span>
+          </Link>
+          <Link href="/btts/statistics" className="rounded-lg border border-[#263548] bg-[#101823] p-4 transition-colors hover:border-[#4B8DF8]">
+            <span className="text-sm font-semibold text-[#E7EDF5]">BTTS competition coverage</span>
+            <span className="mt-1 block text-xs text-[#8FA1B5]">View the competitions listed for BTTS →</span>
+          </Link>
         </section>
       </main>
       <Footer />

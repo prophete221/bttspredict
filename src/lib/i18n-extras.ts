@@ -1,7 +1,7 @@
 import type { Locale } from './i18n'
 
 /**
- * Traductions complémentaires (AI Combo Builder + indicateur temps réel du
+ * Traductions complémentaires (combo builder + indicateur temps réel du
  * coup d'envoi + filtre horaire).
  *
  * ⚠ src/lib/i18n.ts est GELÉ byte-for-byte par tests/seo-preservation.test.ts :
@@ -35,9 +35,9 @@ export interface KickoffCopy {
 
 export const COMBO_I18N: Record<Locale, ComboCopy> = {
   fr: {
-    eyebrow: 'Générateur de combiné IA',
-    title: 'AI Combo Builder',
-    subtitle: 'Choisissez votre cote cible et le nombre de matchs : le moteur assemble automatiquement les meilleures probabilités du jour (≥ 65 %).',
+    eyebrow: 'Composer un combiné',
+    title: 'Composer un combiné',
+    subtitle: 'Choisissez une cote cible et le nombre de matchs. Les sélections proposées respectent le seuil de probabilité défini.',
     targetOdds: 'Cote cible',
     matchCount: 'Nombre de matchs',
     minProbLabel: 'Seuil appliqué',
@@ -52,9 +52,9 @@ export const COMBO_I18N: Record<Locale, ComboCopy> = {
     openAnalysis: 'Analyse',
   },
   en: {
-    eyebrow: 'AI combo generator',
-    title: 'AI Combo Builder',
-    subtitle: 'Pick your target odds and number of matches: the engine automatically assembles the day’s best probabilities (≥ 65 %).',
+    eyebrow: 'Combo builder',
+    title: 'Composer un combiné',
+    subtitle: 'Choose target odds and the number of matches. Suggested picks meet the configured probability threshold.',
     targetOdds: 'Target odds',
     matchCount: 'Number of matches',
     minProbLabel: 'Applied threshold',
@@ -69,9 +69,9 @@ export const COMBO_I18N: Record<Locale, ComboCopy> = {
     openAnalysis: 'Analysis',
   },
   ar: {
-    eyebrow: 'مولّد التركيبات الذكي',
-    title: 'AI Combo Builder',
-    subtitle: 'اختر السهم المستهدف وعدد المباريات: يجمع المحرك تلقائياً أفضل احتمالات اليوم (≥ 65 %).',
+    eyebrow: 'إعداد تركيبة',
+    title: 'Composer un combiné',
+    subtitle: 'اختر السعر المستهدف وعدد المباريات. تستوفي الاختيارات المقترحة حد الاحتمال المحدد.',
     targetOdds: 'السهم المستهدف',
     matchCount: 'عدد المباريات',
     minProbLabel: 'الحد المطبق',

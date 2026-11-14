@@ -4,9 +4,7 @@ import { checkSeo } from '@/lib/seo'
 
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
 const Hero = dynamic(() => import('@/components/bttsbet/Hero'), { loading: () => null })
-const ScrollProgressBar = dynamic(() => import('@/components/bttsbet/ScrollProgressBar'), { loading: () => null })
 const MatchCenter = dynamic(() => import('@/components/bttsbet/MatchCenter'), { loading: () => null })
-const TrustPillars = dynamic(() => import('@/components/bttsbet/TrustPillars'), { loading: () => null })
 const PerformanceDashboard = dynamic(() => import('@/components/bttsbet/PerformanceDashboard'), { loading: () => null })
 const MethodSection = dynamic(() => import('@/components/bttsbet/HomeEditorial').then(m => ({ default: m.MethodSection })), { loading: () => null })
 const LeagueCoverage = dynamic(() => import('@/components/bttsbet/HomeEditorial').then(m => ({ default: m.LeagueCoverage })), { loading: () => null })
@@ -231,7 +229,6 @@ export default function Home() {
       </a>
 
       {/* Scroll Progress Bar */}
-      <ScrollProgressBar />
 
       {/* Main Content — Plateforme football intelligence
           Structure : Header produit → Hero + Signal en vedette →
@@ -242,7 +239,6 @@ export default function Home() {
         <ErrorBoundary><Navbar /></ErrorBoundary>
         <ErrorBoundary><Hero /></ErrorBoundary>
         <ErrorBoundary><MatchCenter /></ErrorBoundary>
-        <ErrorBoundary><TrustPillars /></ErrorBoundary>
         <ErrorBoundary><PerformanceDashboard /></ErrorBoundary>
         <ErrorBoundary><MethodSection /></ErrorBoundary>
         <ErrorBoundary><LeagueCoverage /></ErrorBoundary>

@@ -94,14 +94,40 @@ describe('Gemini-only current feed filter', () => {
     expect(result.metrics.unverifiedOrMissing).toBe(1)
   })
 
-  it('withholds duplicate or unidentifiable fixtures without blocking other decisions', () => {
+  it('retains distinct valid markets for one fixture and a separate explicit abstention', () => {
     const duplicateA = pick('BTTS', 'Oui', 0.62, FIXTURE_A)
     const duplicateB = pick('OVER_25', 'Non', 0.58, FIXTURE_A)
     const unique = noPickResponse('abstain', FIXTURE_B)
     const unidentifiable = pick('BTTS', 'Oui', 0.60, { ...FIXTURE_C, league: '' })
     const result = filterGeminiCurrentPicks({ date: '2026-11-05', free: [duplicateA, duplicateB, unique, unidentifiable] })
-    expect(result.payload.free).toEqual([unique])
-    expect(result.metrics).toMatchObject({ duplicateFixtures: 2, unidentifiable: 1, published: 1 })
+    expect(result.payload.free).toEqual([duplicateA, duplicateB, unique])
+    expect(result.metrics).toMatchObject({ duplicateFixtures: 0, duplicateMarketRows: 0, unidentifiable: 1, published: 3 })
+  })
+
+  it('deduplicates identical copies of the same market without dropping its sibling', () => {
+    const btts = pick('BTTS', 'Oui', 0.62, FIXTURE_A)
+    const duplicateBtts = pick('BTTS', 'Oui', 0.62, FIXTURE_A)
+    const over = pick('OVER_25', 'Non', 0.58, FIXTURE_A)
+    const result = filterGeminiCurrentPicks({ free: [btts, duplicateBtts, over] })
+    expect(result.payload.free).toEqual([btts, over])
+    expect(result.metrics).toMatchObject({ duplicateFixtures: 1, duplicateMarketRows: 1, conflictingMarkets: 0, published: 2 })
+  })
+
+  it('withholds only a conflicting market and retains other independently valid markets', () => {
+    const bttsYes = pick('BTTS', 'Oui', 0.62, FIXTURE_A)
+    const bttsNo = pick('BTTS', 'Non', 0.60, FIXTURE_A)
+    const over = pick('OVER_25', 'Non', 0.58, FIXTURE_A)
+    const result = filterGeminiCurrentPicks({ free: [bttsYes, bttsNo, over] })
+    expect(result.payload.free).toEqual([over])
+    expect(result.metrics).toMatchObject({ duplicateMarketRows: 1, conflictingMarkets: 1, published: 1 })
+  })
+
+  it('does not merge fixtures that share a display label but have different identities', () => {
+    const first = pick('BTTS', 'Oui', 0.62, FIXTURE_A)
+    const second = pick('OVER_25', 'Non', 0.58, { ...FIXTURE_B, match: FIXTURE_A.match })
+    const result = filterGeminiCurrentPicks({ free: [first, second] })
+    expect(result.payload.free).toEqual([first, second])
+    expect(result.metrics.published).toBe(2)
   })
 
   it('allows an empty candidate set without creating a local pick', () => {

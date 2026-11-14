@@ -43,7 +43,7 @@ export default function Footer({ initialLocale }: { initialLocale?: Locale } = {
 
   return (
     <>
-      <footer id="faq" className="border-t pt-10 pb-20 lg:pb-8 px-4 sm:px-6" style={{ borderColor: '#223041', backgroundColor: 'transparent' }}>
+      <footer id="faq" className="border-t pt-10 pb-20 lg:pb-8 px-4 sm:px-6" style={{ borderColor: '#283548', backgroundColor: 'transparent' }}>
         <div className="max-w-[1280px] mx-auto">
           {/* ═══ Bloc marque + liens plateforme ═══ */}
           <div className="hp-footer-brand">
@@ -63,7 +63,7 @@ export default function Footer({ initialLocale }: { initialLocale?: Locale } = {
                 <a key={l.href} href={l.href} className="hp-footer-link">{l.label}</a>
               ))}
             </nav>
-            <nav className="hp-footer-col" aria-label="Legal">
+            <nav className="hp-footer-col" aria-label={lang === 'en' ? 'Legal' : lang === 'ar' ? 'قانوني' : 'Légal'}>
               <span className="hp-footer-col__title">{lang === 'en' ? 'Legal' : lang === 'ar' ? 'قانوني' : 'Légal'}</span>
               {legalLinks.map(l => (
                 <a key={l.href + l.label} href={localizedPath(l.href, lang)} className="hp-footer-link">{l.label}</a>
@@ -78,7 +78,7 @@ export default function Footer({ initialLocale }: { initialLocale?: Locale } = {
             <div className="text-center mb-3">
               <span className="text-xs font-semibold uppercase tracking-[0.15em] text-primary">{t.common.transparency}</span>
             </div>
-            <div className="p-4 sm:p-5 rounded-xl text-center" style={{ backgroundColor: '#141C25', border: '1px solid #223041' }}>
+            <div className="p-4 sm:p-5 rounded-xl text-center" style={{ backgroundColor: '#0F1622', border: '1px solid #283548' }}>
               <p className="text-sm text-cendre leading-relaxed">
                 {lang === 'fr' ? (
                   <>BTTSPredict ne publie pas de témoignages clients. Notre engagement de transparence repose sur un <a href={localizedPath('/resultats-verifies', lang)} className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary">historique vérifiable publiquement</a>, une <a href={localizedPath('/methodologie', lang)} className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary">méthodologie documentée</a> et un suivi public lancé le 2026-08-08. Aucun résultat futur n’est garanti.</>
@@ -98,8 +98,8 @@ export default function Footer({ initialLocale }: { initialLocale?: Locale } = {
             </div>
             <div className="space-y-2">
               {visibleFaqItems.map((item, i) => (
-                <div key={item.q} className="rounded-xl overflow-hidden" style={{ backgroundColor: '#141C25', border: '1px solid #223041' }}>
-                  <button onClick={() => setOpenFaq(openFaq === i ? null : i)} aria-expanded={openFaq === i} className="w-full text-left px-4 py-3.5 text-sm font-semibold text-papier hover:bg-white/[0.03] transition-colors">
+                <div key={item.q} className="rounded-xl overflow-hidden" style={{ backgroundColor: '#0F1622', border: '1px solid #283548' }}>
+                  <button onClick={() => setOpenFaq(openFaq === i ? null : i)} aria-expanded={openFaq === i} className="w-full text-start px-4 py-3.5 text-sm font-semibold text-papier hover:bg-white/[0.03] transition-colors">
                     {item.q}
                   </button>
                   {openFaq === i && (
@@ -120,7 +120,7 @@ export default function Footer({ initialLocale }: { initialLocale?: Locale } = {
           </div>
 
           {/* Texte légal + 18+ */}
-          <div className="rounded-xl p-4 sm:p-5 mb-4" style={{ backgroundColor: '#141C25', border: '1px solid #223041' }}>
+          <div className="rounded-xl p-4 sm:p-5 mb-4" style={{ backgroundColor: '#0F1622', border: '1px solid #283548' }}>
             <div className="flex items-center gap-2 mb-2">
               <span className="text-lose font-bold text-xs">18+</span>
               <span className="text-xs text-cendre">| {LONASE.name} | {t.common.responsible}</span>

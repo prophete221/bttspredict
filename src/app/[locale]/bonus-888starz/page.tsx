@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import LocalizedPromoClient from '@/components/bttsbet/LocalizedPromoClient'
-import PromoVerificationGuide from '@/components/bttsbet/PromoVerificationGuide'
 import { SUPPORTED_LOCALES, type Locale } from '@/lib/i18n'
 import { buildPromoFaqJsonLd } from '@/lib/promo-faq'
+import PromoVerificationGuide from '@/components/bttsbet/PromoVerificationGuide'
 
 const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'bonus-888starz'
@@ -46,7 +46,7 @@ export default async function Localized888StarzPage({ params }: { params: Promis
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <LocalizedPromoClient bookmaker="888starz" />
-      {lang === 'ar' && <PromoVerificationGuide bookmaker="888starz" lang="ar" variant="offer" />}
+      {lang === 'ar' && <PromoVerificationGuide bookmaker="888starz" lang="ar" />}
     </>
   )
 }

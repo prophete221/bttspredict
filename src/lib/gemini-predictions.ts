@@ -39,6 +39,25 @@ function numericProbability(value: unknown): number | null {
     : null
 }
 
+/** Merge independently validated market picks without guessing between conflicts. */
+export function mergeUniqueMarketPicks<T extends { type: string; prediction: string; proba: number }>(current: T[], incoming: readonly T[]): T[] {
+  const merged = new Map<string, T>()
+  const conflictedMarkets = new Set<string>()
+  for (const pick of [...current, ...incoming]) {
+    if (conflictedMarkets.has(pick.type)) continue
+    const existing = merged.get(pick.type)
+    if (!existing) {
+      merged.set(pick.type, pick)
+      continue
+    }
+    if (existing.prediction !== pick.prediction || Math.abs(existing.proba - pick.proba) >= 1e-9) {
+      merged.delete(pick.type)
+      conflictedMarkets.add(pick.type)
+    }
+  }
+  return [...merged.values()]
+}
+
 /**
  * Return only a single, explicitly sourced pick from the pinned Gemini model.
  * Empirical/local rows, legacy hybrid tags, stale fields, and abstentions are not picks.

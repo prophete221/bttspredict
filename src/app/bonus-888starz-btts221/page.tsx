@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import { buildPromoFaqJsonLd } from '@/lib/promo-faq'
 import { checkSeo } from '@/lib/seo'
-import PromoVerificationGuide from '@/components/bttsbet/PromoVerificationGuide'
 
+const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
 const Btts221PromoClient = dynamic(() => import('@/components/bttsbet/Btts221PromoClient'), { loading: () => null })
 
@@ -61,16 +61,16 @@ function breadcrumbJsonLd() {
 export default function Bonus888StarzBtts221Page() {
   const faq = buildPromoFaqJsonLd('888starz', 'fr')
   return (
-    <div className="min-h-screen bg-dark-800 text-papier">
+    <div className="page-design page-design--promo min-h-screen bg-[#080D14] text-[#EDF2F7]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd()) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd()) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faq) }} />
       <a href="#star888-title" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-emerald focus:text-dark-900 focus:font-bold focus:rounded-lg">Aller directement au code 888Starz btts221</a>
+      <Navbar />
       <nav aria-label="Navigation de cette page" className="mx-auto max-w-5xl px-5 pt-5">
-        <a href="/bonus-888starz" className="text-emerald underline underline-offset-4">Vous cherchez l’offre 888Starz ? Consultez la page dédiée à l’offre.</a>
+        <a href="/bonus-888starz" className="text-[#9FB6CC] underline underline-offset-4">Vous cherchez l’offre 888Starz ? Consultez la page dédiée à l’offre.</a>
       </nav>
       <Btts221PromoClient lang="fr" />
-      <PromoVerificationGuide bookmaker="888starz" lang="fr" variant="code" />
       <Footer />
     </div>
   )

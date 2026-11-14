@@ -10,6 +10,7 @@ const globalWindow = () => window as unknown as Record<string, unknown>
 beforeEach(() => {
   vi.resetModules()
   vi.stubEnv('NEXT_PUBLIC_GA_ID', ID)
+  vi.stubEnv('NEXT_PUBLIC_GA_ENABLED', 'true')
   vi.stubEnv('NODE_ENV', 'production')
   localStorage.clear()
 })
@@ -56,6 +57,13 @@ describe('GA4 consent and CSP', () => {
     localStorage.setItem(CONSENT, JSON.stringify({ preferences: { analytics: true } }))
     await mountAnalytics()
     expect(document.querySelector('script[data-bttspredict-ga]')).toBeNull()
+  })
+  it('does not load GA in previews when the production deployment flag is disabled', async () => {
+    vi.stubEnv('NEXT_PUBLIC_GA_ENABLED', 'false')
+    localStorage.setItem(CONSENT, JSON.stringify({ preferences: { analytics: true } }))
+    await mountAnalytics()
+    expect(document.querySelector('script[data-bttspredict-ga]')).toBeNull()
+    expect(globalWindow()[`ga-disable-${ID}`]).toBe(true)
   })
   it('permits the GA4 script and collection endpoints without unsafe-eval or advertising domains', () => {
     const contents = fs.readFileSync('public/.htaccess', 'utf8')

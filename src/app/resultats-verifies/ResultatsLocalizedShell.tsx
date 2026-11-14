@@ -3,7 +3,6 @@
 import { Navbar, Footer, FreePredictions } from '@/components/bttsbet'
 import ResultatsClient from './ResultatsClient'
 import { useLanguage } from '@/components/bttsbet/LanguageSwitcher'
-import AnimatedTitle from '@/components/bttsbet/HeroWordmark'
 
 export default function ResultatsLocalizedShell({ initialData }: { initialData: unknown }) {
   const { lang } = useLanguage()
@@ -16,15 +15,15 @@ export default function ResultatsLocalizedShell({ initialData }: { initialData: 
   }
 
   return (
-    <div className="min-h-screen bg-[#0B0F14] flex flex-col text-[#F2F6FA]">
+    <div className="page-design page-design--history min-h-screen bg-[#080D14] flex flex-col text-[#EDF2F7]">
       <Navbar />
       <main id="main-content" className="flex-1 py-12 px-4">
         <div className="max-w-4xl mx-auto">
-          <div className="mb-8"><AnimatedTitle as="h1" text={copy.title} className="text-3xl font-bold mb-2" style={{ fontFamily: 'Poppins, sans-serif' }} /><p className="text-sm text-[#9DABBB]">{copy.intro}</p></div>
+          <div className="mb-8"><h1 className="text-3xl font-bold mb-2 tracking-tight">{copy.title}</h1><p className="text-sm text-[#9DABBB]">{copy.intro}</p></div>
           <ResultatsClient initialData={initialData} />
           <div className="mt-8 p-4 rounded-xl bg-[#141C25] border border-[#6B7A8C]"><p className="text-[11px] text-[#9DABBB] leading-relaxed"><strong className="text-[#9DABBB]">{copy.rule}</strong> {copy.body}</p></div>
+          <section className="mx-auto max-w-5xl px-4 py-8"><FreePredictions /></section>
         </div>
-        <section className="max-w-5xl mx-auto px-4 py-8"><FreePredictions /></section>
       </main>
       <Footer />
     </div>
