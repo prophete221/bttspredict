@@ -907,3 +907,43 @@ body:has(.fi-sidebar) { background: var(--bp-bg) !important; }
   .match-analysis-page .match-dash__kpis { grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
   .match-analysis-page .match-dashboard-panel__content { padding: 10px !important; }
 }
+
+
+/* 888Starz promo uses the same compact BTTSPredict treatment as other partners. */
+[data-888starz-promo] {
+  background: var(--bp-bg) !important;
+  color: var(--bp-text) !important;
+}
+[data-888starz-promo] > section,
+[data-promo-steps],
+[data-promo-faq] {
+  border: 1px solid var(--bp-line) !important;
+  border-radius: 10px !important;
+  background: var(--bp-surface) !important;
+  box-shadow: none !important;
+}
+[data-888starz-promo] > section > div > div,
+[data-promo-steps] > div > div,
+[data-promo-faq] > div > div {
+  border-color: var(--bp-line) !important;
+  background: var(--bp-surface-raised) !important;
+}
+[data-888starz-promo] :is(h1,h2,h3,p,span,code) { text-shadow: none !important; }
+[data-888starz-promo] h1 { color: var(--bp-text) !important; font-size: clamp(1.6rem,5vw,2.3rem) !important; font-weight: 750 !important; letter-spacing: -.03em !important; }
+[data-888starz-promo] :is(p.text-base,p.text-lg) { color: var(--bp-muted) !important; font-size: 13px !important; line-height: 1.55 !important; }
+[data-888starz-promo] :is(.text-\[\#D9164C\],.text-\[\#FF7A9C\]) { color: var(--bp-accent) !important; }
+[data-888starz-promo] :is(.bg-\[\#D9164C\],.hover\:bg-\[\#B81240\]:hover) { background: var(--bp-accent) !important; color: #071009 !important; }
+[data-888starz-promo] :is(.border-\[\#D9164C\]\/40,.border-\[\#D9164C\]\/25) { border-color: var(--bp-line) !important; }
+[data-888starz-promo] button { border-color: var(--bp-line) !important; color: var(--bp-text) !important; }
+[data-888starz-promo] a { box-shadow: none !important; }
+[data-promo-steps] h2,
+[data-promo-faq] h2 { color: var(--bp-text) !important; font-size: 16px !important; }
+[data-promo-steps] h3,
+[data-promo-faq] h3 { color: var(--bp-text) !important; font-size: 13px !important; }
+[data-promo-steps] p,
+[data-promo-faq] p { color: var(--bp-muted) !important; font-size: 12px !important; }
+@media (max-width: 640px) {
+  [data-888starz-promo] > section > div { grid-template-columns: minmax(0,1fr) !important; }
+  [data-promo-highlights] { grid-template-columns: minmax(0,1fr) !important; }
+  [data-promo-steps], [data-promo-faq] { margin-top: 14px !important; padding: 14px !important; }
+}
