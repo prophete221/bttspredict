@@ -1,4 +1,4 @@
-# Latest checkpoint — 2026-11-14 05:10 UTC
+# Latest checkpoint — 2026-11-14 05:12 UTC
 
 - Resumption verified directly from GitHub: PR #128 is still open/draft, base `main`, head branch `feat/complete-art-direction-promo-vip-2026-11-13`; repository permissions include push. Before this checkpoint the head was `7d31faa1d6d82fc6e2ba088f89929fdecb6986bb`; main/base SHA is `e7943e81faf28fe588a129ee6d3d8e1a52db0f45`. Compare reported 172 commits ahead, 0 behind; 58 files changed.
 - Re-read this continuity file from the requested branch. Confirmed the previously reported one-line TypeScript fix was NOT present in `src/app/[locale]/page.tsx`: the component used `t.legal.*` without a component-local `t`. Added `const t = translationsFor(locale)` immediately after locale resolution. Commit: `94e0c2226f7be6c3b8d5ed4f7f441e4bef99f866`; file re-fetched and scoped binding verified.
@@ -25,6 +25,14 @@
 - Arabic promo guide heading fallback in `PromoLandingShell.tsx` was incorrectly French (“Utiliser le code”). Corrected to `كيفية استخدام الرمز` and added a server-rendered FR/EN/AR regression assertion. Commits: `80a8de279ca6745ace6ab92930b9a7fa6f10ed77`, `514b9fc9491a7cb36abd2d4293936c8eac1305f9`.
 - RTL source checks: root layout sets `document.documentElement.dir` to rtl for Arabic; promo shell sets `dir="rtl"` for Arabic and keeps promo codes in LTR `bdi/code` spans. Browser-level RTL visual verification has not been performed.
 - No test, lint, typecheck, build, or visual preview has been executed locally. Existing Actions run logs remain unavailable; Vercel has not returned a completed preview for the latest head. Do not mark the PR ready.
+
+## Protected VIP, analytics and navigation verification — 2026-11-14 05:12 UTC
+
+- Verified by exact Git blob SHA that `src/app/vip/page.tsx`, `VipLockedPicks.tsx`, `VipWinHistory.tsx` and `vip.css` are byte-for-byte identical to `main`. The new VIP architecture note is documentation only; no VIP rights, payment, authentication or backend implementation changed in this phase.
+- Reviewed the deployment workflow patch: only PR/production GA4 build flags and the known measurement-ID fallback changed. PR build sets `NEXT_PUBLIC_GA_ENABLED=false`; production build sets it to true and uses `G-F705Z3L2HT` if the Actions variable is absent. FTP/LWS deploy steps, allowlists, manifest and deploy gates were not changed in this PR. The deploy job remains gated to main, not PRs.
+- Re-read `AnalyticsLoader.tsx`: it loads one direct GA4 script only when production mode, explicit enable flag, and saved analytics consent are all true. It does not inject GTM; this avoids double initialization. No Analytics account settings or production variables were modified.
+- Re-read `BottomNavigation.tsx`: exactly three localized tabs remain (home, predictions, VIP); Arabic direction is RTL. The desktop navigation drawer includes keyboard focus handling. Source checks only; no device/browser interaction test has been performed.
+- The new Arabic promo heading fallback and regression test are committed. The public VIP source remains unchanged from main. No merge or production deployment.
 
 ---
 
