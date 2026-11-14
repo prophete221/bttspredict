@@ -40,10 +40,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 function localizedStructuredData(lang: LocalizedLang) {
   const pageUrl = lang === 'en' ? EN_URL : AR_URL
-  const title = lang === 'en' ? '888Starz btts221 Promo Code for a 300% Worldwide Bonus' : 'رمز 888Starz btts221 الترويجي وعرض عالمي بنسبة 300%'
+  const title = lang === 'en' ? 'How to Use 888Starz Promo Code btts221' : 'كيفية استخدام الرمز الترويجي 888Starz btts221'
   const description = lang === 'en'
-    ? '888Starz code btts221 works worldwide. The offer includes a 300% deposit bonus, cashback and weekly bonuses. 18+. Please gamble responsibly.'
-    : 'يعمل رمز 888Starz btts221 حول العالم. يشمل العرض مكافأة إيداع بنسبة 300%، واستردادًا نقديًا ومكافآت أسبوعية. للبالغين 18+، والعب بمسؤولية.'
+    ? 'Learn where to enter 888Starz code btts221 and how to check whether the offer is applied. Confirm eligibility and terms with 888Starz. 18+.'
+    : 'تعرف على مكان إدخال الرمز 888Starz btts221 وكيفية التحقق من تطبيق العرض. تحقق من الأهلية والشروط لدى 888Starz. للبالغين 18+.'
   const faq = buildPromoFaqJsonLd('888starz', lang)
   return [
     {
