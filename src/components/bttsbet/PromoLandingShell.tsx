@@ -62,7 +62,7 @@ export default function PromoLandingShell(p: PromoLandingProps) {
     signup: p.labels?.signup ?? (p.lang === 'en' ? `Visit ${p.brand}` : p.lang === 'ar' ? `زيارة ${p.brand}` : `Voir l’offre chez ${p.brand}`),
     download: p.labels?.download ?? (p.lang === 'en' ? 'Download APK' : p.lang === 'ar' ? 'تحميل APK' : 'Télécharger l’APK'),
     codeLabel: p.labels?.codeLabel ?? (p.lang === 'en' ? 'Promo code' : p.lang === 'ar' ? 'الرمز الترويجي' : 'Code promo'),
-    howTitle: p.labels?.howTitle ?? (p.lang === 'en' ? 'How to use the code' : p.lang === 'ar' ? 'Utiliser le code' : 'Utiliser le code'),
+    howTitle: p.labels?.howTitle ?? (p.lang === 'en' ? 'How to use the code' : p.lang === 'ar' ? 'كيفية استخدام الرمز' : 'Utiliser le code'),
     faqTitle: p.labels?.faqTitle ?? (p.lang === 'en' ? 'Terms and questions' : p.lang === 'ar' ? 'الشروط والأسئلة' : 'Conditions et questions'),
     others: p.labels?.others ?? (p.lang === 'en' ? 'Other partner guides' : p.lang === 'ar' ? 'أدلة الشركاء' : 'Autres guides partenaires'),
     stickySignup: p.labels?.stickySignup ?? (p.lang === 'en' ? 'Visit' : p.lang === 'ar' ? 'زيارة' : 'Voir'),
