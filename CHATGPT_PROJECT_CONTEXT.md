@@ -1,3 +1,15 @@
+# Latest checkpoint — 2026-11-14 05:02 UTC
+
+- Resumption verified directly from GitHub: PR #128 is still open/draft, base `main`, head branch `feat/complete-art-direction-promo-vip-2026-11-13`; repository permissions include push. Before this checkpoint the head was `7d31faa1d6d82fc6e2ba088f89929fdecb6986bb`; main/base SHA is `e7943e81faf28fe588a129ee6d3d8e1a52db0f45`. Compare reported 172 commits ahead, 0 behind; 58 files changed.
+- Re-read this continuity file from the requested branch. Confirmed the previously reported one-line TypeScript fix was NOT present in `src/app/[locale]/page.tsx`: the component used `t.legal.*` without a component-local `t`. Added `const t = translationsFor(locale)` immediately after locale resolution. Commit: `94e0c2226f7be6c3b8d5ed4f7f441e4bef99f866`; file re-fetched and scoped binding verified.
+- Confirmed the sibling-market parsing defect remained in `src/components/bttsbet/FreePredictions.tsx`: duplicate match keys were discarded with `if (!key || matchMap.has(key)) continue`. Replaced that behavior with a merge of distinct `getGeminiPicks` results by market type only. This preserves the strict Gemini source/model/status/abstention validation and does not fabricate picks or probabilities. Commit: `e50fd1ddccb77cddc86829097173ed3034deb767`; file re-fetched and merge logic verified.
+- The dashboard data builder `src/lib/btts-today-dashboard-data.ts` already merges validated sibling market rows; the defect was specifically in the separate `FreePredictions.tsx` parser used by the public BTTS/Over and combined pages. The combined filter itself requires both BTTS and Over 2.5 picks.
+- SEO spot-check: metadata title, description and canonical for `/btts-and-over-2-5-predictions-today` are unchanged between main and the branch. The visible H1 “BTTS and Over 2.5 Predictions Today” remains unchanged; explanatory copy and filtering changed. The Over 2.5 route metadata/H1 also remains intact in the inspected files. Continue auditing all protected EN landing pages and do not generalize this spot-check to every route.
+- Current PR head after these two commits: `e50fd1ddccb77cddc86829097173ed3034deb767`; PR remains draft/open. Combined commit status exposed only Vercel pending; no new GitHub Actions run was returned for the new commit at the time of inspection. No local test runner/build environment has been executed in this session, so the earlier 680/38/16 test result remains unverified and unresolved. No tests have been disabled.
+- No merge, production deployment, FTP, Cloudflare, D1, secret, payment, VIP entitlement or production data change. VIP remains out of scope for this public-site phase.
+
+---
+
 # Latest checkpoint — full public-site redesign (2026-11-13 UTC)
 
 - Owner clarified the actual scope: a complete professional redesign of the public site, not a palette-only pass. Keep protected pages unchanged; defer VIP to a separate phase.
