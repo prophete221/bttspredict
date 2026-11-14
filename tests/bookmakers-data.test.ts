@@ -140,7 +140,7 @@ describe('bookmakers data guardrails', () => {
     }
   })
 
-  it('does not claim worldwide Linebet availability in English before local terms are verified', () => {
+  it('uses the owner-confirmed worldwide Linebet offer and directs readers to local terms', () => {
     const page = readFileSync('src/app/[locale]/code-promo-linebet-senegal/page.tsx', 'utf8')
     const client = readFileSync('src/components/bttsbet/LocalizedPromoClient.tsx', 'utf8')
     const clientEnglishStart = client.indexOf("    en: {\n      badge: 'INTERNATIONAL LINEBET GUIDE'")
@@ -154,14 +154,14 @@ describe('bookmakers data guardrails', () => {
     expect(page).toContain("const title = isEnglish ? 'Linebet Promo Code VISION221: Worldwide 300% Offer'")
     expect(page).toContain("'Linebet 300% worldwide'")
     const metadataDescription = page.match(/const description = isEnglish\s*\?\s*'([^']+)'/)?.[1] ?? ''
-    expect(metadataDescription).toContain('country availability is unverified')
-    expect(metadataDescription).not.toMatch(/worldwide/i)
-    expect(clientEnglish).toContain('country availability has not been verified')
-    expect(clientEnglish).not.toMatch(/worldwide/i)
-    expect(faqEnglish).toContain('We have not verified which countries can use VISION221')
-    expect(faqEnglish).not.toMatch(/worldwide/i)
+    expect(metadataDescription).toContain('worldwide 300% deposit bonus')
+    expect(metadataDescription).toContain('Check local terms with Linebet')
+    expect(clientEnglish).toContain('Linebet promo code VISION221 is valid worldwide')
+    expect(clientEnglish).toContain('Check the terms that apply to your account with Linebet')
+    expect(faqEnglish).toContain('VISION221 is offered worldwide')
+    expect(faqEnglish).toContain('check the local terms directly with Linebet')
     expect(shell).toContain("p.bookmakerId === 'linebet' && p.lang === 'en'")
-    expect(shell).toContain('Country availability has not been verified')
+    expect(shell).not.toContain('Country availability has not been verified')
   })
 
   it('never shows the superseded neutral Melbet wording', () => {
