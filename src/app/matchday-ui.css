@@ -560,3 +560,107 @@ body:has(.fi-sidebar) { background: var(--bp-bg) !important; }
   .page-design--home .hp-live__team { font-size: 11px !important; }
   .page-design--home .hp-live__team img { width: 22px !important; height: 22px !important; }
 }
+
+
+/* Predictions dashboard: compact match rows, readable data, no glass/3D effects. */
+.page-design--btts {
+  background: var(--bp-bg) !important;
+  color: var(--bp-text) !important;
+}
+.page-design--btts :is(h1,h2,h3) { letter-spacing: -.02em !important; }
+.page-design--btts .btx-grid {
+  display: grid !important;
+  grid-template-columns: minmax(0,1fr) !important;
+  gap: 0 !important;
+  max-width: 980px !important;
+  margin-inline: auto !important;
+}
+.page-design--btts .btx-card {
+  position: relative !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--bp-line) !important;
+  border-radius: 0 !important;
+  background: var(--bp-surface) !important;
+  box-shadow: none !important;
+  transform: none !important;
+  animation: none !important;
+}
+.page-design--btts .btx-card:first-child { border-top: 1px solid var(--bp-line) !important; }
+.page-design--btts .btx-card__edge { display: none !important; }
+.page-design--btts .btx-card__inner { padding: 14px !important; gap: 9px !important; }
+.page-design--btts .btx-card__top { min-height: 20px !important; }
+.page-design--btts .btx-league { color: var(--bp-muted) !important; font-size: 11px !important; font-weight: 500 !important; }
+.page-design--btts .btx-teams {
+  display: grid !important;
+  grid-template-columns: minmax(0,1fr) auto minmax(0,1fr) !important;
+  align-items: center !important;
+  gap: 10px !important;
+  padding: 8px 0 !important;
+}
+.page-design--btts .btx-team { gap: 7px !important; }
+.page-design--btts .btx-team__name { color: var(--bp-text) !important; font-size: 13px !important; font-weight: 600 !important; }
+.page-design--btts .btx-vs { color: var(--bp-dim) !important; }
+.page-design--btts .btx-vs__line { background: var(--bp-line) !important; }
+.page-design--btts .btx-vs__chip { border: 0 !important; background: transparent !important; color: var(--bp-dim) !important; font-size: 10px !important; }
+.page-design--btts .btx-probs {
+  display: grid !important;
+  grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+  gap: 8px !important;
+  padding: 0 !important;
+}
+.page-design--btts .btx-prob,
+.page-design--btts .btx-probbar,
+.page-design--btts .btx-score,
+.page-design--btts .btx-lambda,
+.page-design--btts .btx-ai,
+.page-design--btts .btx-fixture {
+  border: 1px solid var(--bp-line) !important;
+  border-radius: 8px !important;
+  background: var(--bp-surface-raised) !important;
+  box-shadow: none !important;
+}
+.page-design--btts .btx-lambdas {
+  display: flex !important;
+  gap: 14px !important;
+  padding: 3px 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+.page-design--btts .btx-lambda { flex: 1 !important; padding: 0 !important; border: 0 !important; background: transparent !important; }
+.page-design--btts .btx-lambda__label { color: var(--bp-dim) !important; font-size: 10px !important; }
+.page-design--btts .btx-lambda__value { color: var(--bp-text) !important; font-size: 12px !important; font-weight: 600 !important; }
+.page-design--btts .btx-meta { display: none !important; }
+.page-design--btts .btx-ai {
+  margin-top: 3px !important;
+  padding: 10px !important;
+  border-color: var(--bp-line) !important;
+  background: #171717 !important;
+}
+.page-design--btts .btx-ai__head { color: var(--bp-muted) !important; font-size: 11px !important; }
+.page-design--btts .btx-ai__fact { color: var(--bp-text) !important; font-size: 12px !important; line-height: 1.5 !important; }
+.page-design--btts .btx-ai__text { color: var(--bp-muted) !important; font-size: 12px !important; line-height: 1.55 !important; }
+.page-design--btts .btx-actions { border-top-color: var(--bp-line) !important; }
+.page-design--btts .btx-link,
+.page-design--btts .btx-actions a { color: var(--bp-accent) !important; }
+.page-design--btts .btx-disclaimer {
+  max-width: 980px !important;
+  margin: 22px auto 0 !important;
+  padding: 12px 14px !important;
+  border: 1px solid var(--bp-line) !important;
+  border-radius: 8px !important;
+  background: var(--bp-surface) !important;
+  color: var(--bp-muted) !important;
+  font-size: 11px !important;
+  line-height: 1.5 !important;
+}
+.page-design--btts .btx-section-title { color: var(--bp-text) !important; font-size: 14px !important; font-weight: 650 !important; }
+.page-design--btts .btx-count-pill { background: var(--bp-surface-raised) !important; color: var(--bp-muted) !important; border: 0 !important; }
+.page-design--btts .btx-empty { border: 1px solid var(--bp-line) !important; border-radius: 10px !important; background: var(--bp-surface) !important; box-shadow: none !important; }
+@media (max-width: 640px) {
+  .page-design--btts .btx-card__inner { padding: 12px !important; }
+  .page-design--btts .btx-teams { gap: 5px !important; }
+  .page-design--btts .btx-team__name { font-size: 11px !important; }
+  .page-design--btts .btx-lambdas { gap: 8px !important; }
+}
