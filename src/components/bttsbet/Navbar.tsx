@@ -144,7 +144,7 @@ function NavigationContent() {
   const partnerRoutes = useMemo(() => ({ '1xbet': paths.promo1xbet, linebet: paths.promolinebet, melbet: paths.promomelbet, '888starz': paths.promo888 }), [paths])
   const flatLinks = groups.flatMap(group => group.links)
   const activePage = flatLinks.find(link => isActive(link.href))
-  const pageTitle = activePage?.label[lang] ?? (lang === 'ar' ? 'مساحة التحليل' : lang === 'en' ? 'Analysis workspace' : 'Espace d’analyse')
+  const pageTitle = activePage?.label[lang] ?? (lang === 'ar' ? 'الرئيسية' : lang === 'en' ? 'Home' : 'Accueil')
 
   const currentPartner = useMemo(() => {
     if (pathname.includes('code-promo-1xbet')) return BOOKMAKERS.find(item => item.id === '1xbet')
@@ -198,7 +198,6 @@ function NavigationContent() {
   const footerLabel = copy(lang, 'Jeu responsable · 18+', 'Play responsibly · 18+', 'العب بمسؤولية · 18+')
   const copiedText = copy(lang, '✓ Copié', '✓ Copied', '✓ تم النسخ')
   const copyCodeLabel = currentPartner ? copy(lang, `Copier le code ${currentPartner.promoCode}`, `Copy code ${currentPartner.promoCode}`, `نسخ الرمز ${currentPartner.promoCode}`) : ''
-  const titleLabel = ''
 
   return (
     <div className={`fi-navigation${collapsed ? ' is-collapsed' : ''}`}>
