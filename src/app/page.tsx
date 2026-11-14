@@ -64,46 +64,6 @@ const jsonLd = {
   },
 }
 
-// JSON-LD FAQPage — Google SERP rich results
-const faqJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: "Qu'est-ce que le BTTS ?",
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: "BTTS signifie Both Teams To Score (les deux équipes marquent). C'est un type de pari où vous pariez que les deux équipes marqueront au moins un but durant le match, quelle que soit l'issue finale.",
-      },
-    },
-    {
-      '@type': 'Question',
-      name: "Comment fonctionne l'analyse de BTTSPredict ?",
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: "BTTSPredict publie des pronostics BTTS et Over 2.5 basés sur un modèle statistique. Le nouveau suivi public a été lancé le 2026-08-08 — voir /historique pour les chiffres réels. Aucun résultat futur n'est garanti.",
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Quel code partenaire et quelle offre sont confirmés pour Linebet ?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'L’offre partenaire confirmée pour Linebet est de 300 % worldwide et le code exact est VISION221 (voir le guide dédié). Vérifiez directement auprès de Linebet les autres modalités et l’applicabilité.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Les pronostics gratuits sont-ils fiables ?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: "Nos pronostics gratuits sont produits par le même modèle statistique que nos pronostics premium. Ils couvrent les matchs les plus populaires du jour avec une analyse complète. Aucun résultat n'est garanti.",
-      },
-    },
-  ],
-}
-
 // JSON-LD Organization — identité éditoriale vérifiable, sans récompense ni autorité auto-déclarée.
 const organizationJsonLd = {
   '@context': 'https://schema.org',
@@ -120,71 +80,6 @@ const organizationJsonLd = {
   ],
 }
 
-// JSON-LD WebPage — Trust signals
-const webPageJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'WebPage',
-  name: 'BTTSPredict — Prédictions BTTS par modèle statistique',
-  url: 'https://bttspredict.com',
-  description: 'Plateforme de pronostics football BTTS et Over 2.5 par analyse statistique probabiliste. Ligues sélectionnées pour leur fort taux de BTTS. Taux de réussite transparent et vérifié publiquement. Aucun gain garanti. 18+.',
-  isPartOf: { '@type': 'WebSite', name: 'BTTSPredict', url: 'https://bttspredict.com' },
-  about: [
-    { '@type': 'Thing', name: 'BTTS — Both Teams To Score' },
-    { '@type': 'Thing', name: 'Over 2.5 Goals' },
-    { '@type': 'Thing', name: 'Pronostics football par modèle statistique' },
-    { '@type': 'Thing', name: 'Modèles Poisson calibrés' },
-  ],
-  author: { '@type': 'Organization', name: 'BTTSPredict', url: 'https://bttspredict.com' },
-  publisher: { '@type': 'Organization', name: 'BTTSPredict', url: 'https://bttspredict.com' },
-  inLanguage: 'fr',
-  datePublished: '2026-01-01',
-  dateModified: new Date().toISOString().slice(0, 10),
-  keywords: 'BTTS, Over 2.5, pronostics btts aujourd\'hui, analyse statistique football, modèles Poisson, code promo VISION221, Linebet, 888starz, pronostics football gratuits, pronostics Sénégal, both teams to score',
-}
-
-// JSON-LD Dataset — Transparency & credibility
-const datasetJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Dataset',
-  name: 'BTTSPredict — Historique des pronostics BTTS & Over 2.5',
-  description: 'Historique complet des pronostics publiés par BTTSPredict, incluant les résultats gagnés ET perdus. Taux de réussite calculé sur les pronostics réellement publiés. Transparence totale.',
-  url: 'https://bttspredict.com/win-history.json',
-  creator: { '@type': 'Organization', name: 'BTTSPredict', url: 'https://bttspredict.com' },
-  license: 'https://creativecommons.org/licenses/by/4.0/',
-  isAccessibleForFree: true,
-  distribution: [
-    {
-      '@type': 'DataDownload',
-      encodingFormat: 'application/json',
-      contentUrl: 'https://bttspredict.com/win-history.json',
-    },
-  ],
-  keywords: 'pronostics BTTS, historique résultats, taux de réussite, transparence, gagnés perdus',
-  variableMeasured: [
-    { '@type': 'PropertyValue', name: 'Taux de réussite', value: 'Calculé en temps réel depuis /historique' },
-    { '@type': 'PropertyValue', name: 'Ligues couvertes', value: 'Sélection de ligues à fort taux de BTTS' },
-    { '@type': 'PropertyValue', name: 'Source de vérification', value: 'ESPN et TheSportsDB' },
-    { '@type': 'PropertyValue', name: 'Modèle', value: 'Approche statistique probabiliste' },
-    { '@type': 'PropertyValue', name: 'Suivi public', value: 'Lancé le 2026-08-08, voir /historique' },
-  ],
-}
-
-// JSON-LD Review/Trust — SUPPRIMÉ (avis fictifs supprimés pour conformité Google Structured Data)
-// La plateforme n'a pas de système d'avis vérifiable. Inventer des reviews serait une violation.
-// Seules les métriques objectives (pronostics publiés, vérifiés, taux calculé depuis l'archive) sont affichées.
-const reviewJsonLd = null
-
-// JSON-LD BreadcrumbList — breadcrumbs in SERP
-const breadcrumbJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://bttspredict.com/' },
-    { '@type': 'ListItem', position: 2, name: 'Tableau des pronostics', item: 'https://bttspredict.com/btts/predictions/today' },
-    { '@type': 'ListItem', position: 3, name: 'VIP', item: 'https://bttspredict.com/vip' },
-  ],
-}
-
 export default function Home() {
   return (
     <div className="page-design page-design--home min-h-screen bg-dark-800 relative">
@@ -193,14 +88,6 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <script
         type="application/ld+json"
