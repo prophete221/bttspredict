@@ -90,7 +90,7 @@ export default function BottomNavigation() {
       dir={lang === 'ar' ? 'rtl' : 'ltr'}
       style={{
         paddingBottom: 'env(safe-area-inset-bottom, 0px)',
-        height: 'calc(78px + env(safe-area-inset-bottom, 0px))',
+        height: 'calc(68px + env(safe-area-inset-bottom, 0px))',
       }}
       aria-label={lang === 'fr' ? 'Navigation principale' : lang === 'en' ? 'Main navigation' : 'التنقل الرئيسي'}
     >
@@ -101,7 +101,7 @@ export default function BottomNavigation() {
             key={tab.id}
             href={tab.href}
             className={`bottomnav-tab bottomnav-tab--${tab.id} flex-1 flex flex-col items-center justify-center gap-1 relative focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E8C268] focus-visible:ring-inset ${isActive ? 'is-active' : ''}`}
-            style={{ minHeight: '74px' }}
+            style={{ minHeight: '62px' }}
             aria-label={tab.label}
             aria-current={isActive ? 'page' : undefined}
           >
