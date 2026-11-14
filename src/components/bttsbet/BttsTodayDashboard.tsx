@@ -815,7 +815,7 @@ export default function BttsTodayDashboard({
           </div>
           {generationDate && (
             <span className="btx-datechip">
-              {lang === 'fr' ? 'Données générées' : lang === 'en' ? 'Data generated' : 'البيانات المولدة'} · {fmtDate(generationDate)}
+              {lang === 'fr' ? 'Mis à jour' : lang === 'en' ? 'Updated' : 'آخر تحديث'} · {fmtDate(generationDate)}
             </span>
           )}
         </div>
