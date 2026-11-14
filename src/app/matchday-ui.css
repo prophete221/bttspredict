@@ -664,3 +664,117 @@ body:has(.fi-sidebar) { background: var(--bp-bg) !important; }
   .page-design--btts .btx-team__name { font-size: 11px !important; }
   .page-design--btts .btx-lambdas { gap: 8px !important; }
 }
+
+
+/* Bookmaker pages: same BTTSPredict shell, restrained accent and short sections. */
+[data-promo-shell] {
+  background: var(--bp-bg) !important;
+  color: var(--bp-text) !important;
+}
+[data-promo-shell] .promo-main { max-width: 760px !important; }
+[data-promo-shell] .promo-main__story { padding: 0 0 22px !important; border-bottom: 1px solid var(--bp-line) !important; }
+[data-promo-shell] .promo-story__badge {
+  color: var(--bp-accent) !important;
+  border: 1px solid var(--bp-line) !important;
+  background: var(--bp-surface) !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+}
+[data-promo-shell] .promo-story__title {
+  color: var(--bp-text) !important;
+  font-family: var(--font-body), Inter, Arial, sans-serif !important;
+  font-size: clamp(1.65rem, 5vw, 2.4rem) !important;
+  font-weight: 750 !important;
+  letter-spacing: -.035em !important;
+  line-height: 1.15 !important;
+}
+[data-promo-shell] .promo-story__logo {
+  border: 1px solid var(--bp-line) !important;
+  border-radius: 10px !important;
+  box-shadow: none !important;
+}
+[data-promo-shell] .promo-story__intro {
+  color: var(--bp-muted) !important;
+  font-size: 13px !important;
+  line-height: 1.6 !important;
+}
+[data-promo-shell] .promo-story__actions > p { color: var(--bp-muted) !important; letter-spacing: 0 !important; text-transform: none !important; }
+[data-promo-shell] .promo-story__actions button {
+  background: var(--bp-accent) !important;
+  border: 1px solid var(--bp-accent) !important;
+  border-radius: 9px !important;
+  box-shadow: none !important;
+  color: #071009 !important;
+}
+[data-promo-shell] .promo-story__actions button span { color: #071009 !important; }
+[data-promo-shell] .promo-story__actions a:first-child {
+  background: var(--bp-accent) !important;
+  border: 1px solid var(--bp-accent) !important;
+  border-radius: 9px !important;
+  box-shadow: none !important;
+  color: #071009 !important;
+}
+[data-promo-shell] .promo-story__actions a:last-child {
+  background: var(--bp-surface) !important;
+  border: 1px solid var(--bp-line) !important;
+  border-radius: 9px !important;
+  color: var(--bp-text) !important;
+}
+[data-promo-shell] [data-affiliate-disclosure] { color: var(--bp-dim) !important; font-size: 11px !important; }
+[data-promo-shell] .promo-main__offer > div {
+  padding: 18px !important;
+  border: 1px solid var(--bp-line) !important;
+  border-radius: 10px !important;
+  background: var(--bp-surface) !important;
+  box-shadow: none !important;
+  text-align: start !important;
+}
+[data-promo-shell] .promo-main__offer p:first-child {
+  color: var(--bp-text) !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+}
+[data-promo-shell] .promo-main__offer p:last-child { color: var(--bp-muted) !important; font-size: 12px !important; }
+[data-promo-shell] .promo-main__steps,
+[data-promo-shell] .promo-main__faq,
+[data-promo-shell] .promo-main__crosslinks { margin-top: 26px !important; }
+[data-promo-shell] .promo-main__steps h2,
+[data-promo-shell] .promo-main__faq h2,
+[data-promo-shell] .promo-main__crosslinks h2 {
+  margin-bottom: 12px !important;
+  color: var(--bp-text) !important;
+  font-size: 16px !important;
+  font-weight: 650 !important;
+  text-align: start !important;
+}
+[data-promo-shell] .promo-main__steps > div > div {
+  padding: 12px !important;
+  border: 1px solid var(--bp-line) !important;
+  border-radius: 9px !important;
+  background: var(--bp-surface) !important;
+  box-shadow: none !important;
+}
+[data-promo-shell] .promo-main__steps > div > div:hover { transform: none !important; }
+[data-promo-shell] .promo-main__steps > div > div > span { color: var(--bp-accent) !important; }
+[data-promo-shell] .promo-main__steps > div > div p { color: var(--bp-muted) !important; }
+[data-promo-shell] .promo-main__steps > div > div p:first-of-type { color: var(--bp-text) !important; }
+[data-promo-shell] .promo-main__faq > div > div {
+  border: 1px solid var(--bp-line) !important;
+  border-radius: 9px !important;
+  background: var(--bp-surface) !important;
+}
+[data-promo-shell] .promo-main__faq button { color: var(--bp-text) !important; }
+[data-promo-shell] .promo-main__faq button > span:last-child { color: var(--bp-accent) !important; }
+[data-promo-shell] .promo-main__faq p { color: var(--bp-muted) !important; }
+[data-promo-shell] .promo-main__crosslinks a {
+  border: 1px solid var(--bp-line) !important;
+  border-radius: 7px !important;
+  background: var(--bp-surface) !important;
+  color: var(--bp-text) !important;
+}
+[data-promo-shell] .promo-main__responsible { color: var(--bp-dim) !important; }
+@media (max-width: 640px) {
+  [data-promo-shell] .promo-main { padding-top: 18px !important; }
+  [data-promo-shell] .promo-story__title { font-size: 1.7rem !important; }
+  [data-promo-shell] .promo-main__steps > div { grid-template-columns: minmax(0,1fr) !important; }
+}
