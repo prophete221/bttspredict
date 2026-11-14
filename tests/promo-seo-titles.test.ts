@@ -22,7 +22,7 @@ const PROMO_PAGES: Array<{ file: string; code: string; title: string }> = [
   { file: 'src/app/[locale]/code-promo-melbet/page.tsx', code: 'Bttswin', title: 'رمز Melbet الترويجي Bttswin: 300% واسترداد نقدي' },
   { file: 'src/app/[locale]/bonus-888starz/page.tsx', code: 'btts221', title: 'رمز 888Starz الترويجي btts221: مكافأة عالمية 300%' },
   { file: 'src/app/[locale]/bonus-888starz-btts221/page.tsx', code: 'btts221', title: 'كيفية استخدام الرمز الترويجي 888Starz btts221' },
-  { file: 'src/app/linebet-promo-code/page.tsx', code: 'VISION221', title: 'Code Promo Linebet VISION221 Sénégal' },
+  { file: 'src/app/linebet-promo-code/page.tsx', code: 'VISION221', title: 'Code promo Linebet VISION221 : bonus mondial 300 %' },
 ]
 
 const PROMO_H1S: Array<{ file: string; code: string; text: string }> = [
