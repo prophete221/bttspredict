@@ -16,12 +16,12 @@ const PROMO_PAGES: Array<{ file: string; code: string; title: string }> = [
   { file: 'src/app/[locale]/code-promo-linebet-senegal/page.tsx', code: 'VISION221', title: 'Linebet Promo Code VISION221: Worldwide 300% Offer' },
   { file: 'src/app/[locale]/code-promo-melbet/page.tsx', code: 'Bttswin', title: 'Melbet Promo Code Bttswin: 300% + Cashback' },
   { file: 'src/app/[locale]/bonus-888starz/page.tsx', code: 'btts221', title: '888Starz Promo Code btts221: 300% Worldwide Bonus' },
-  { file: 'src/app/[locale]/bonus-888starz-btts221/page.tsx', code: 'btts221', title: '888Starz btts221 Promo Code for a 300% Worldwide Bonus' },
+  { file: 'src/app/[locale]/bonus-888starz-btts221/page.tsx', code: 'btts221', title: 'How to Use 888Starz Promo Code btts221' },
   { file: 'src/app/[locale]/code-promo-1xbet/page.tsx', code: 'vipbtts', title: 'رمز 1xBet الترويجي vipbtts: مكافأة عالمية 300%' },
   { file: 'src/app/[locale]/code-promo-linebet-senegal/page.tsx', code: 'VISION221', title: 'رمز Linebet VISION221 الترويجي: عرض عالمي 300%' },
   { file: 'src/app/[locale]/code-promo-melbet/page.tsx', code: 'Bttswin', title: 'رمز Melbet الترويجي Bttswin: 300% واسترداد نقدي' },
   { file: 'src/app/[locale]/bonus-888starz/page.tsx', code: 'btts221', title: 'رمز 888Starz الترويجي btts221: مكافأة عالمية 300%' },
-  { file: 'src/app/[locale]/bonus-888starz-btts221/page.tsx', code: 'btts221', title: 'رمز 888Starz btts221 الترويجي وعرض عالمي بنسبة 300%' },
+  { file: 'src/app/[locale]/bonus-888starz-btts221/page.tsx', code: 'btts221', title: 'كيفية استخدام الرمز الترويجي 888Starz btts221' },
   { file: 'src/app/linebet-promo-code/page.tsx', code: 'VISION221', title: 'Code Promo Linebet VISION221 Sénégal' },
 ]
 
