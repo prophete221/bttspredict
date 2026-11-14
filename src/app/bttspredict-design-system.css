@@ -604,3 +604,20 @@ main [class~="text-[#6B7A8C]"] { color: var(--bp-subtle) !important; }
 .bp-cookie-consent :where(h2,h3,strong) { color: var(--bp-text) !important; }
 .bp-cookie-consent :where(p,small,label) { color: var(--bp-muted) !important; }
 .bp-cookie-consent button { border-radius: 10px !important; }
+
+
+/* Dedicated 888Starz guide follows the same neutral layout; brand color is a small accent only. */
+[data-888starz-promo] { color: var(--bp-text) !important; background: var(--bp-bg) !important; }
+[data-888starz-promo] :where(h1,h2,h3,h4,code) { color: var(--bp-text) !important; }
+[data-888starz-promo] p { color: var(--bp-muted) !important; }
+[data-888starz-promo] [data-promo-highlights] > div,
+[data-888starz-promo] [data-promo-steps] [class*="rounded-xl"],
+[data-888starz-promo] [data-promo-faq] [class*="rounded-xl"] {
+  color: var(--bp-text) !important; background: var(--bp-surface) !important;
+  border: 1px solid var(--bp-line) !important; border-radius: var(--bp-radius) !important;
+  box-shadow: var(--bp-shadow-soft) !important;
+}
+[data-888starz-promo] [data-promo-highlights] span { color: #e7a4ac !important; }
+[data-888starz-promo] [data-cta^="promo-signup-888starz"] {
+  color: #fff !important; background: #a84458 !important; border-color: #a84458 !important; box-shadow: none !important;
+}
