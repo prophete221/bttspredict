@@ -567,7 +567,7 @@ export default async function MatchPage({ params }: PageProps) {
           <MatchDashboardTabs tabs={dashboardTabs} ariaLabel={dash.aria}>
           {/* 2. COTES DU MARCHÉ (affichées seulement si présentes) */}
           {oddsItems.length > 0 && (
-            <details className="match-dashboard-panel" data-panel="odds" open dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+            <details className="match-dashboard-panel" data-panel="odds" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
               <summary className="match-dashboard-panel__summary">{copy.oddsSection}</summary>
               <div className="match-dashboard-panel__content">
               <section className="mb-0" aria-labelledby="match-odds">
@@ -591,7 +591,7 @@ export default async function MatchPage({ params }: PageProps) {
 
           {/* 3. ACTUALITÉS & INFOS CLÉS (analyse éditoriale du pipeline) */}
           {hasNews && (
-            <details className="match-dashboard-panel" data-panel="news" open dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+            <details className="match-dashboard-panel" data-panel="news" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
               <summary className="match-dashboard-panel__summary">{copy.newsSection}</summary>
               <div className="match-dashboard-panel__content">
               <section className="mb-0" aria-labelledby="match-news">
@@ -615,7 +615,7 @@ export default async function MatchPage({ params }: PageProps) {
 
           {/* 4. FORME DES ÉQUIPES — comparaison détaillée (VISIBLE, données ESPN) */}
           {hasTeamForm && (
-            <details className="match-dashboard-panel" data-panel="form" open dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+            <details className="match-dashboard-panel" data-panel="form" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
               <summary className="match-dashboard-panel__summary">{copy.formSection}</summary>
               <div className="match-dashboard-panel__content">
               <section className="mb-0" aria-labelledby="match-team-form">
@@ -679,7 +679,7 @@ export default async function MatchPage({ params }: PageProps) {
           {/* 5. DERNIÈRE MINUTE — historique détaillé des 5 derniers matchs
               de chaque équipe (données réelles ESPN ; section masquée si absentes) */}
           {(match.last5Home?.length || match.last5Away?.length) ? (
-            <details className="match-dashboard-panel" data-panel="form" open dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+            <details className="match-dashboard-panel" data-panel="form" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
               <summary className="match-dashboard-panel__summary">{copy.lastMinute}</summary>
               <div className="match-dashboard-panel__content">
               <section className="mb-0" aria-labelledby="match-last-minute">
@@ -733,7 +733,7 @@ export default async function MatchPage({ params }: PageProps) {
           ) : null}
 
           {/* 6. ESTIMATIONS DU MODÈLE (graphiques) */}
-          <details className="match-dashboard-panel" data-panel="charts" open dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+          <details className="match-dashboard-panel" data-panel="charts" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
               <summary className="match-dashboard-panel__summary">{locale === 'en' ? 'Charts and trends' : locale === 'ar' ? 'الرسوم والاتجاهات' : 'Graphiques et tendances'}</summary>
             <div className="match-dashboard-panel__content">
               <section className="mb-0" aria-label={copy.intelligence}>
@@ -751,7 +751,7 @@ export default async function MatchPage({ params }: PageProps) {
 
           {/* 7. DONNÉES UTILISÉES */}
           {hasUsageData && (
-            <details className="match-dashboard-panel" data-panel="data" open dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+            <details className="match-dashboard-panel" data-panel="data" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
               <summary className="match-dashboard-panel__summary">{copy.dataUsed}</summary>
               <div className="match-dashboard-panel__content">
               <section className="mb-0" aria-labelledby="match-data-used">
@@ -797,7 +797,7 @@ export default async function MatchPage({ params }: PageProps) {
           )}
 
           {/* 8. CONTEXTE DES ÉQUIPES (actualités de sources ouvertes quand disponibles) */}
-          <details className="match-dashboard-panel" data-panel="news" open dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+          <details className="match-dashboard-panel" data-panel="news" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
               <summary className="match-dashboard-panel__summary">{locale === 'en' ? 'Recent team news' : locale === 'ar' ? 'أخبار الفريقين' : 'Actualités des équipes'}</summary>
             <div className="match-dashboard-panel__content">
               <TeamContext home={home} away={away} locale={locale} />
@@ -805,7 +805,7 @@ export default async function MatchPage({ params }: PageProps) {
           </details>
 
           {/* 10. Vérification */}
-          <details className="match-dashboard-panel" data-panel="data" open dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+          <details className="match-dashboard-panel" data-panel="data" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
               <summary className="match-dashboard-panel__summary">{copy.verification}</summary>
             <div className="match-dashboard-panel__content">
             <section className="mb-0" aria-labelledby="match-verification">
