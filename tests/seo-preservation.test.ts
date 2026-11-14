@@ -99,7 +99,7 @@ describe('owner-requested SEO preservation', () => {
       selected = selected.replace(approvedLogoResolver, 'const match = getMatchBySlug(slug)')
     }
     if (file === 'src/app/[locale]/code-promo-linebet-senegal/page.tsx') {
-      const approvedDescription = "'Linebet code VISION221 is listed here; country availability is unverified. The offer includes a 300% deposit bonus, cashback and weekly bonuses. 18+.'"
+      const approvedDescription = "'Linebet promo code VISION221: worldwide 300% deposit bonus, cashback and weekly bonuses. Check local terms with Linebet. 18+.'"
       const originalDescription = "'Linebet code VISION221 works worldwide. The offer includes a 300% deposit bonus, cashback and weekly bonuses. 18+.'"
       expect(selected.split(approvedDescription).length - 1).toBe(1)
       selected = selected.replace(approvedDescription, originalDescription)
