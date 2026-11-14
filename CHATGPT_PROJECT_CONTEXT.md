@@ -1,4 +1,4 @@
-# Latest checkpoint — 2026-11-14 05:05 UTC
+# Latest checkpoint — 2026-11-14 05:10 UTC
 
 - Resumption verified directly from GitHub: PR #128 is still open/draft, base `main`, head branch `feat/complete-art-direction-promo-vip-2026-11-13`; repository permissions include push. Before this checkpoint the head was `7d31faa1d6d82fc6e2ba088f89929fdecb6986bb`; main/base SHA is `e7943e81faf28fe588a129ee6d3d8e1a52db0f45`. Compare reported 172 commits ahead, 0 behind; 58 files changed.
 - Re-read this continuity file from the requested branch. Confirmed the previously reported one-line TypeScript fix was NOT present in `src/app/[locale]/page.tsx`: the component used `t.legal.*` without a component-local `t`. Added `const t = translationsFor(locale)` immediately after locale resolution. Commit: `94e0c2226f7be6c3b8d5ed4f7f441e4bef99f866`; file re-fetched and scoped binding verified.
@@ -16,6 +16,15 @@
 - Latest CI investigation: previous run `43527590865` job `132237096511` is conclusively marked failure, but GitHub returns an empty step list and the log download returns Azure `BlobNotFound`; no failed test names or step can be recovered from that run. No branch-specific Actions run was returned for the newly pushed commits; Vercel status is pending and is not an Actions/build result.
 - Workflow source confirms PR checks are intended to run `npm test`, Python unit tests, `npm run lint`, `npx tsc --noEmit`, and `npm run build -- --webpack`. No deployment runs for pull requests; the FTP deploy job is gated to `main` only.
 - Test baseline comparison (38 failures on PR vs main) is still outstanding: this environment has not executed either test suite and historical job logs are unavailable. Do not attribute the 38 failures to this branch or declare them pre-existing without a reproducible main-vs-PR run.
+
+## SEO, promo and localization audit follow-up — 2026-11-14 05:10 UTC
+
+- Audited all PR patches for changed SEO metadata fields. No changed `title:`, `description:`, canonical, alternates, keywords, robots or Open Graph metadata lines were found in the changed TS/TSX files. This is a diff scan, not a full crawl. Confirmed the high-traffic combined BTTS/Over 2.5 route keeps its existing metadata and English H1; the Over 2.5 route inspected also keeps its metadata and H1.
+- Found that the localized homepage H1 had been changed from unsupported “World’s No.1 / Master” claims to generic “Football analysis / BTTS and Over 2.5”. To retain the core search intent without repeating unsubstantiated superlatives, adjusted FR/EN/AR H1 lines to “Pronostics BTTS et Over 2,5”, “BTTS & Over 2.5 Predictions”, and “توقعات BTTS وOver 2.5”, with secondary lines “Analyse footballistique”, “Football Analytics”, and “تحليل كرة القدم”. Added a regression assertion. Commits: `3a2f864ef8f4354104ab7d436503464bb834e1b3`, `7fb292593a2f1f70664dbc0b88fb95275927d5da`.
+- Promo shell audit confirmed CTA and APK links still resolve through the existing centralized `AFFILIATE` constants, links retain `sponsored nofollow noopener noreferrer`, signup/download/copy events remain tracked, and affiliate disclosure is visible. Constants file is identical to main; no affiliate destination was changed. Existing 1xBet code in repository is lower-case `vipbtts` (including an explicit code-case comment), while the new handover text wrote `Vipbtts`; left the canonical repository spelling unchanged rather than silently changing the affiliate code. Confirm case with owner before any casing edit.
+- Arabic promo guide heading fallback in `PromoLandingShell.tsx` was incorrectly French (“Utiliser le code”). Corrected to `كيفية استخدام الرمز` and added a server-rendered FR/EN/AR regression assertion. Commits: `80a8de279ca6745ace6ab92930b9a7fa6f10ed77`, `514b9fc9491a7cb36abd2d4293936c8eac1305f9`.
+- RTL source checks: root layout sets `document.documentElement.dir` to rtl for Arabic; promo shell sets `dir="rtl"` for Arabic and keeps promo codes in LTR `bdi/code` spans. Browser-level RTL visual verification has not been performed.
+- No test, lint, typecheck, build, or visual preview has been executed locally. Existing Actions run logs remain unavailable; Vercel has not returned a completed preview for the latest head. Do not mark the PR ready.
 
 ---
 
