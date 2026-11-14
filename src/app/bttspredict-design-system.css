@@ -337,3 +337,35 @@ a { text-underline-offset: 3px; }
   .vipx .vipx-hero { border-radius: 14px !important; }
   .vipx .vipx-content-grid { grid-template-columns: minmax(0,1fr) !important; }
 }
+
+.vipx .vipx-member,
+.vipx .vipx-card,
+.vipx .vipx-modal__panel,
+.vipx .vipx-step,
+.vipx .vipx-bookmaker,
+.vipx .vipx-code,
+.vipx .vipx-card__matches,
+.vipx .vipx-modal__ok,
+.vipx .vipx-modal__alt {
+  background: var(--bp-panel) !important;
+  border-color: var(--bp-line-strong) !important;
+  box-shadow: none !important;
+}
+.vipx .vipx-member::before { animation: none !important; opacity: 0 !important; }
+.vipx .vipx-member__chip,
+.vipx .vipx-card__badge,
+.vipx .vipx-member__crown,
+.vipx .vipx-bookmaker__state.is-on,
+.vipx .vipx-code__copy {
+  color: #101827 !important;
+  background: var(--bp-gold) !important;
+  border-color: var(--bp-gold) !important;
+  box-shadow: none !important;
+}
+.vipx .vipx-card__bar i { background: var(--bp-gold) !important; }
+.vipx .vipx-hero__copy h1,
+.vipx .vipx-final__card h2 {
+  background: none !important;
+  color: var(--bp-text) !important;
+  -webkit-text-fill-color: var(--bp-text) !important;
+}
