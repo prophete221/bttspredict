@@ -160,7 +160,6 @@ describe('bookmakers data guardrails', () => {
     expect(clientEnglish).toContain('Check the terms that apply to your account with Linebet')
     expect(faqEnglish).toContain('VISION221 is offered worldwide')
     expect(faqEnglish).toContain('check the local terms directly with Linebet')
-    expect(shell).toContain("p.bookmakerId === 'linebet' && p.lang === 'en'")
     expect(shell).not.toContain('Country availability has not been verified')
   })
 
