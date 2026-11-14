@@ -38,6 +38,7 @@ describe('Divulgation affiliée sur les pages promotionnelles', () => {
       expect(disclosureIndex).toBeGreaterThan(ctaIndex)
       expect(html).toContain('promo-sticky-copy-linebet')
       expect(html).toContain('promo-sticky-signup-linebet')
+      expect(html).toContain(lang === 'ar' ? 'كيفية استخدام الرمز' : lang === 'en' ? 'How to use the code' : 'Utiliser le code')
       expect(html.slice(disclosureIndex, disclosureIndex + 500)).toContain(lang === 'fr'
         ? 'Cette page contient des liens affiliés. BTTSPredict peut percevoir une commission, sans coût supplémentaire pour vous.'
         : lang === 'en'
