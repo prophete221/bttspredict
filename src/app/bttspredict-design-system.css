@@ -541,3 +541,38 @@ body [class~="border-[#6B7A8C]"] { border-color: var(--bp-line-strong) !importan
 body [class~="text-[#9DABBB]"] { color: var(--bp-muted) !important; }
 body [class~="text-[#F2F6FA]"] { color: var(--bp-text) !important; }
 body [class~="text-[#2F7DFF]"] { color: var(--bp-blue) !important; }
+
+
+/* ── Legal / responsible-play / long-form guide pages ─────────────── */
+.card, main .card {
+  color: var(--bp-text) !important; background: var(--bp-surface) !important;
+  border: 1px solid var(--bp-line) !important; border-radius: var(--bp-radius) !important;
+  box-shadow: var(--bp-shadow-soft) !important;
+}
+.card :where(h1,h2,h3,h4,strong) { color: var(--bp-text) !important; }
+.card :where(p,li,small) { color: var(--bp-muted) !important; }
+.text-emerald, .text-emerald-400, .text-emerald-300 { color: var(--bp-blue) !important; }
+.text-emerald-soft { color: #9bc6f6 !important; }
+.accent-line-emerald { height: 2px; background: linear-gradient(90deg,transparent,var(--bp-blue),transparent) !important; box-shadow: none !important; }
+.neon-glow { text-shadow: none !important; filter: none !important; }
+.bg-dark-800 { background-color: var(--bp-bg) !important; }
+.bg-dark-900 { background-color: var(--bp-bg-2) !important; }
+.bg-dark-700 { background-color: var(--bp-surface-2) !important; }
+.border-emerald, .border-emerald\/20, .border-emerald\/30 { border-color: var(--bp-line-strong) !important; }
+.bg-emerald\/10, .bg-emerald\/5 { background-color: var(--bp-blue-soft) !important; }
+.over25-intro-panel, .page-design__hero, .page-design__hero-wrap {
+  color: var(--bp-text) !important; background: linear-gradient(135deg,rgba(72,139,218,.10),transparent 62%),var(--bp-surface) !important;
+  border: 1px solid var(--bp-line) !important; border-radius: var(--bp-radius-lg) !important; box-shadow: var(--bp-shadow-soft) !important;
+}
+.over25-title { color: var(--bp-text) !important; letter-spacing: -.045em !important; }
+.over25-intro { color: var(--bp-muted) !important; }
+.over25-meta-row > span { border-color: var(--bp-line) !important; }
+.over25-actions a, .over25-vip-actions a { border-radius: 10px !important; box-shadow: none !important; }
+.match-analysis-page [class~="bg-[#10161D]"] { background: var(--bp-bg-2) !important; }
+.match-analysis-page [class~="bg-[#141C25]"] { background: var(--bp-surface) !important; }
+.match-analysis-page [class~="border-[#223041]"] { border-color: var(--bp-line) !important; }
+.match-analysis-page [class~="text-[#6B7A8C]"] { color: var(--bp-subtle) !important; }
+main [class~="border-[#223041]"] { border-color: var(--bp-line) !important; }
+main [class~="bg-[#10161D]"] { background: var(--bp-bg-2) !important; }
+main [class~="bg-[#141C25]"] { background: var(--bp-surface) !important; }
+main [class~="text-[#6B7A8C]"] { color: var(--bp-subtle) !important; }
