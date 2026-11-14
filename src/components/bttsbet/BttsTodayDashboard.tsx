@@ -807,10 +807,10 @@ export default function BttsTodayDashboard({
             </h2>
             <p className="btx-sub">
               {lang === 'fr'
-                ? 'Prédictions statistiques basées sur des données réelles de matchs'
+                ? 'BTTS · Over 2.5 · Score exact'
                 : lang === 'en'
-                  ? 'Statistical predictions powered by real match data'
-                  : 'توقعات إحصائية مبنية على بيانات حقيقية للمباريات'}
+                  ? 'BTTS · Over 2.5 · Correct score'
+                  : 'BTTS · Over 2.5 · النتيجة الصحيحة'}
             </p>
           </div>
           {generationDate && (
