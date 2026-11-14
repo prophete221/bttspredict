@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import "./football-intelligence.css";
 import "./bttspredict-design-system.css";
+import "./matchday-ui.css";
 import ApplicationNavigationShell from "@/components/bttsbet/ApplicationNavigationShell";
 import LegacyCredentialCleanup from "@/components/bttsbet/LegacyCredentialCleanup";
 
@@ -114,7 +115,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#080D16",
+  themeColor: "#090909",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,

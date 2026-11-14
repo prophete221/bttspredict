@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   if (!isEnglish && locale !== 'ar') return {}
   const title = isEnglish ? 'Linebet Promo Code VISION221: Worldwide 300% Offer' : 'رمز Linebet VISION221 الترويجي: عرض عالمي 300%'
   const description = isEnglish
-    ? 'Linebet code VISION221 is listed here; country availability is unverified. The offer includes a 300% deposit bonus, cashback and weekly bonuses. 18+.'
+    ? 'Linebet promo code VISION221: worldwide 300% deposit bonus, cashback and weekly bonuses. Check local terms with Linebet. 18+.'
     : 'يعمل رمز Linebet VISION221 حول العالم. يشمل العرض مكافأة إيداع بنسبة 300%، واستردادًا نقديًا ومكافآت أسبوعية. 18+.'
   return {
     title,

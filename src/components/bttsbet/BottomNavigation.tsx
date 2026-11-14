@@ -53,7 +53,7 @@ const TABS: Tab[] = [
   },
   {
     id: 'predictions',
-    label: 'Pronos',
+    label: 'Pronostics',
     href: '/btts/predictions/today',
     icon: <IconBall />,
     matchPath: (p) => p === '/btts/predictions/today' || p.startsWith('/btts/') || p.startsWith('/match/') || p.includes('/over-2-5') || p.includes('/btts-and-over'),
@@ -100,7 +100,7 @@ export default function BottomNavigation() {
           <a
             key={tab.id}
             href={tab.href}
-            className={`bottomnav-tab bottomnav-tab--${tab.id} flex-1 flex flex-col items-center justify-center gap-1 relative focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E8C268] focus-visible:ring-inset ${isActive ? 'is-active' : ''}`}
+            className={`bottomnav-tab bottomnav-tab--${tab.id} flex-1 flex flex-col items-center justify-center gap-1 relative focus:outline-none focus-visible:ring-2 focus-visible:ring-[#63D471] focus-visible:ring-inset ${isActive ? 'is-active' : ''}`}
             style={{ minHeight: '62px' }}
             aria-label={tab.label}
             aria-current={isActive ? 'page' : undefined}
@@ -113,7 +113,7 @@ export default function BottomNavigation() {
                   width: '32px',
                   height: '3px',
                   borderRadius: '2px',
-                  background: '#E8C268',
+                  background: '#63D471',
                   boxShadow: 'none',
                 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 30 }}
@@ -123,7 +123,7 @@ export default function BottomNavigation() {
               {tab.icon}
             </motion.div>
             <span
-              className="text-[12px] font-extrabold uppercase tracking-[0.08em] leading-none"
+              className="text-[12px] font-semibold leading-none normal-case tracking-normal"
             >
               {tab.label}
             </span>

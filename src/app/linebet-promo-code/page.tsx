@@ -22,7 +22,7 @@ const TARGET = '/code-promo-linebet-senegal'
 const SITE_URL = 'https://bttspredict.com'
 
 export const metadata: Metadata = {
-  title: 'Code Promo Linebet VISION221 Sénégal',
+  title: 'Code promo Linebet VISION221 : bonus mondial 300 %',
   description: 'Code promo Linebet VISION221 valable dans le monde entier : bonus de dépôt de 300 %, cashback et bonus hebdomadaires. 18+.',
   robots: { index: true, follow: true },
   alternates: {
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     canonical: `${SITE_URL}${TARGET}`,
   },
   openGraph: {
-    title: 'Code Promo Linebet Sénégal | BTTSPredict',
+    title: 'Code promo Linebet VISION221 | BTTSPredict',
     description: 'Code promo Linebet VISION221 valable dans le monde entier : bonus de dépôt de 300 %, cashback et bonus hebdomadaires. 18+.',
     url: `${SITE_URL}${TARGET}`,
     type: 'website',
@@ -48,8 +48,8 @@ export default function LinebetPromoCodePage() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#FFFFFF',
-        color: '#F2F6FA',
+        backgroundColor: '#090909',
+        color: '#F5F5F5',
         fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
         textAlign: 'center',
         padding: '2rem',
@@ -57,26 +57,25 @@ export default function LinebetPromoCodePage() {
     >
       <div style={{ maxWidth: '500px' }}>
         <h1 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '1rem', color: '#F2F6FA' }}>
-          Linebet Promo Code VISION221 Sénégal
+          Code promo Linebet VISION221
         </h1>
         <p style={{ fontSize: '0.875rem', marginBottom: '1.5rem', color: '#9DABBB', lineHeight: 1.6 }}>
-          Le code promo <strong style={{ color: '#2F7DFF' }}>VISION221</strong> fonctionne dans le monde entier.
-          L’offre comprend un bonus de dépôt de 300 %, du cashback et des bonus hebdomadaires. Redirection vers la page principale...
+          Le code <strong style={{ color: '#63D471' }}>VISION221</strong> est valable dans le monde entier. Retrouvez les conditions et les étapes d’utilisation sur notre page dédiée.
         </p>
         <a
           href={TARGET}
           style={{
             display: 'inline-block',
             padding: '0.75rem 1.5rem',
-            backgroundColor: '#2F7DFF',
-            color: '#FFFFFF',
+            backgroundColor: '#63D471',
+            color: '#071009',
             fontWeight: 700,
             borderRadius: '0.5rem',
             textDecoration: 'none',
             fontSize: '0.875rem',
           }}
         >
-          Continuer vers /code-promo-linebet-senegal
+          Voir le code promo Linebet
         </a>
         <p style={{ fontSize: '0.75rem', marginTop: '1.5rem', color: '#9DABBB' }}>
           18+ · Lien d&apos;affiliation rémunéré · Aucun gain garanti

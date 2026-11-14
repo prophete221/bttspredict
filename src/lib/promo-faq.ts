@@ -17,7 +17,7 @@ const FAQ: Record<PromoBookmakerId, PromoFaqByLang> = {
     ],
     en: [
       { q: 'What is the Linebet promo code?', a: 'The Linebet promo code is VISION221' },
-      { q: 'Is VISION221 only for Senegal?', a: 'We have not verified which countries can use VISION221; check the current terms directly with Linebet.' },
+      { q: 'Is VISION221 only for Senegal?', a: 'No. VISION221 is offered worldwide; check the local terms directly with Linebet.' },
     ],
     ar: [
       { q: 'ما هو رمز Linebet الترويجي؟', a: 'رمز Linebet الترويجي هو VISION221' },

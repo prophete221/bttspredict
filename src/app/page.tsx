@@ -4,13 +4,8 @@ import { checkSeo } from '@/lib/seo'
 
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
 const Hero = dynamic(() => import('@/components/bttsbet/Hero'), { loading: () => null })
-const ScrollProgressBar = dynamic(() => import('@/components/bttsbet/ScrollProgressBar'), { loading: () => null })
 const MatchCenter = dynamic(() => import('@/components/bttsbet/MatchCenter'), { loading: () => null })
-const TrustPillars = dynamic(() => import('@/components/bttsbet/TrustPillars'), { loading: () => null })
 const PerformanceDashboard = dynamic(() => import('@/components/bttsbet/PerformanceDashboard'), { loading: () => null })
-const MethodSection = dynamic(() => import('@/components/bttsbet/HomeEditorial').then(m => ({ default: m.MethodSection })), { loading: () => null })
-const LeagueCoverage = dynamic(() => import('@/components/bttsbet/HomeEditorial').then(m => ({ default: m.LeagueCoverage })), { loading: () => null })
-const PartnerCard = dynamic(() => import('@/components/bttsbet/HomeEditorial').then(m => ({ default: m.PartnerCard })), { loading: () => null })
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
 const ErrorBoundary = dynamic(() => import('@/components/bttsbet/ErrorBoundary'), { loading: () => null })
 // Tâche 002 — Title et description SEO alignés sur le Prompt Maître.
@@ -69,7 +64,22 @@ const jsonLd = {
   },
 }
 
-// JSON-LD FAQPage — Google SERP rich results
+// JSON-LD Organization — identité éditoriale vérifiable, sans récompense ni autorité auto-déclarée.
+const organizationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'BTTSPredict',
+  url: 'https://bttspredict.com',
+  logo: 'https://bttspredict.com/icon-512.png',
+  description: 'Site informatif consacré aux sélections BTTS, Over 2.5 et score exact sur des matchs internationaux.',
+  knowsAbout: ['BTTS', 'Over 2.5', 'football', 'modèle statistique Poisson'],
+  sameAs: [
+    'https://twitter.com/bttspredict',
+    'https://www.facebook.com/bttspredict',
+    'https://www.instagram.com/bttspredict',
+  ],
+}
+
 const faqJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -110,22 +120,7 @@ const faqJsonLd = {
 }
 
 // JSON-LD Organization — identité éditoriale vérifiable, sans récompense ni autorité auto-déclarée.
-const organizationJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: 'BTTSPredict',
-  url: 'https://bttspredict.com',
-  logo: 'https://bttspredict.com/icon-512.png',
-  description: 'Site informatif consacré aux sélections BTTS, Over 2.5 et score exact sur des matchs internationaux.',
-  knowsAbout: ['BTTS', 'Over 2.5', 'football', 'modèle statistique Poisson'],
-  sameAs: [
-    'https://twitter.com/bttspredict',
-    'https://www.facebook.com/bttspredict',
-    'https://www.instagram.com/bttspredict',
-  ],
-}
 
-// JSON-LD WebPage — Trust signals
 const webPageJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
@@ -148,6 +143,7 @@ const webPageJsonLd = {
 }
 
 // JSON-LD Dataset — Transparency & credibility
+
 const datasetJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Dataset',
@@ -177,18 +173,6 @@ const datasetJsonLd = {
 // JSON-LD Review/Trust — SUPPRIMÉ (avis fictifs supprimés pour conformité Google Structured Data)
 // La plateforme n'a pas de système d'avis vérifiable. Inventer des reviews serait une violation.
 // Seules les métriques objectives (pronostics publiés, vérifiés, taux calculé depuis l'archive) sont affichées.
-const reviewJsonLd = null
-
-// JSON-LD BreadcrumbList — breadcrumbs in SERP
-const breadcrumbJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://bttspredict.com/' },
-    { '@type': 'ListItem', position: 2, name: 'Tableau des pronostics', item: 'https://bttspredict.com/btts/predictions/today' },
-    { '@type': 'ListItem', position: 3, name: 'VIP', item: 'https://bttspredict.com/vip' },
-  ],
-}
 
 export default function Home() {
   return (
@@ -199,28 +183,10 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
-      />
-
-      {/* ═══ SEO CONTENT FOR CRAWLERS & AI — minimal v91 ═══ */}
-      <div className="sr-only">
-        <h2>Plateforme de sélections BTTS, Over 2.5 et score exact</h2>
-        <p>
-          BTTSPredict aide les parieurs africains à lire des sélections de matchs internationaux :
-          BTTS, Over 2.5 et projection de score exact. Les données sont publiées avant le match,
-          les résultats gagnés et perdus sont archivés, et aucun gain futur n&apos;est garanti.
-        </p>
-      </div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(datasetJsonLd) }} />
 
       {/* Skip to content — accessibility */}
       <a
@@ -229,9 +195,6 @@ export default function Home() {
       >
         Aller au contenu principal
       </a>
-
-      {/* Scroll Progress Bar */}
-      <ScrollProgressBar />
 
       {/* Main Content — Plateforme football intelligence
           Structure : Header produit → Hero + Signal en vedette →
@@ -242,25 +205,32 @@ export default function Home() {
         <ErrorBoundary><Navbar /></ErrorBoundary>
         <ErrorBoundary><Hero /></ErrorBoundary>
         <ErrorBoundary><MatchCenter /></ErrorBoundary>
-        <ErrorBoundary><TrustPillars /></ErrorBoundary>
         <ErrorBoundary><PerformanceDashboard /></ErrorBoundary>
-        <ErrorBoundary><MethodSection /></ErrorBoundary>
-        <ErrorBoundary><LeagueCoverage /></ErrorBoundary>
-        <ErrorBoundary><PartnerCard /></ErrorBoundary>
+
+        <section className="mx-auto max-w-[980px] px-4 py-5 sm:px-6" aria-labelledby="home-platform-summary">
+          <div className="border-t border-[#303030] pt-5">
+            <h2>Plateforme de sélections BTTS, Over 2.5 et score exact</h2>
+            <p className="mt-2 max-w-3xl text-sm leading-6 text-[#A4A4A4]">
+              BTTSPredict aide les parieurs africains à lire des sélections de matchs internationaux :
+              BTTS, Over 2.5 et projection de score exact. Les données sont publiées avant le match,
+              les résultats gagnés et perdus sont archivés, et aucun gain futur n&apos;est garanti.
+            </p>
+          </div>
+        </section>
 
         {/* Jeu responsable — compact et moderne */}
         <section className="mx-auto max-w-[980px] px-4 pb-6 sm:px-6">
-          <div className="p-4 rounded-[12px] flex items-start gap-3" style={{ backgroundColor: 'rgba(248, 113, 113, 0.05)', border: '1px solid rgba(248, 113, 113, 0.15)' }}>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F87171" strokeWidth="2" className="flex-shrink-0 mt-0.5">
+          <div className="p-4 rounded-[12px] flex items-start gap-3" style={{ backgroundColor: '#191919', border: '1px solid #303030' }}>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#63D471" strokeWidth="2" className="flex-shrink-0 mt-0.5">
               <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
               <line x1="12" y1="9" x2="12" y2="13" />
               <line x1="12" y1="17" x2="12.01" y2="17" />
             </svg>
             <div>
-              <p className="text-sm text-[#9DABBB] leading-relaxed mb-1">
-                <strong className="text-[#F87171]">18+</strong> · Les paris sportifs comportent un risque de perte. Ne pariez jamais plus que ce que vous pouvez perdre.
+              <p className="text-sm text-[#A4A4A4] leading-relaxed mb-1">
+                <strong className="text-[#63D471]">18+</strong> · Les paris sportifs comportent un risque de perte. Ne pariez jamais plus que ce que vous pouvez perdre.
               </p>
-              <a href="/jouer-responsable" className="text-sm font-semibold text-[#4A90FF] underline">
+              <a href="/jouer-responsable" className="text-sm font-semibold text-[#63D471] underline">
                 En savoir plus →
               </a>
             </div>

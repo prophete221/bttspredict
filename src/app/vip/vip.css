@@ -2413,3 +2413,59 @@
   .vipx-application__code > span { flex-basis: 100%; }
   .vipx-application__submit { width: 100%; }
 }
+
+
+/* Matchday redesign overrides — retain VIP access logic, replace the old gold/3D skin. */
+.vipx {
+  --vipx-bg: #090909;
+  --vipx-bg-2: #151515;
+  --vipx-card: #191919;
+  --vipx-card-2: #222222;
+  --vipx-gold: #63d471;
+  --vipx-gold-hi: #7be487;
+  --vipx-gold-deep: #48b958;
+  --vipx-gold-soft: rgba(99, 212, 113, .12);
+  --vipx-line: #303030;
+  --vipx-line-faint: #292929;
+  --vipx-text: #f5f5f5;
+  --vipx-muted: #a4a4a4;
+  --vipx-shadow: none;
+  --vipx-shadow-gold: none;
+  background: #090909 !important;
+  color: #f5f5f5 !important;
+}
+.vipx :is(.vipx-card,.vipx-panel,.vipx-box,.vipx-step,.vipx-faq-item,.vipx-stat,.vipx-plan,.vipx-partner,.vipx-lock-card) {
+  border-radius: 10px !important;
+  box-shadow: none !important;
+  background-image: none !important;
+}
+.vipx :is(.vipx-btn--gold,.vipx-btn--primary) {
+  background: #63d471 !important;
+  border: 1px solid #63d471 !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  color: #071009 !important;
+}
+.vipx :is(.vipx-btn--ghost,.vipx-btn--outline) {
+  background: #191919 !important;
+  border: 1px solid #303030 !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  color: #f5f5f5 !important;
+}
+.vipx .vipx-eyebrow {
+  color: #63d471 !important;
+  letter-spacing: .04em !important;
+  font-weight: 600 !important;
+}
+.vipx .vipx-eyebrow i { background: #63d471 !important; }
+.vipx :is(h1,h2,h3) { letter-spacing: -.025em !important; }
+.vipx :is(p,li) { text-wrap: pretty; }
+.vipx :is(.vipx-card,.vipx-panel,.vipx-box,.vipx-step,.vipx-faq-item) { border-color: #303030 !important; }
+.vipx :is(.vipx-gold,.vipx-text-gold) { color: #63d471 !important; }
+@media (max-width: 640px) {
+  .vipx-shell { padding-inline: 14px !important; }
+  .vipx-section-head { margin-bottom: 20px !important; }
+  .vipx-section-head h2 { margin-top: 8px !important; font-size: 22px !important; }
+  .vipx-section-head p { font-size: 13px !important; line-height: 1.5 !important; }
+}

@@ -15,7 +15,7 @@ const COPY = {
   fr: {
     eyebrow: 'Historique VIP',
     loading: 'Chargement de l’historique…',
-    unavailable: 'L’historique principal n’est pas disponible dans cette copie locale. Aucun résultat n’a été créé.',
+    unavailable: 'L’historique est momentanément indisponible. Réessayez plus tard.',
     empty: 'Aucune victoire vérifiée n’est disponible dans l’historique principal pour le moment.',
     selection: 'Sélection',
     market: 'Marché',
@@ -26,7 +26,7 @@ const COPY = {
   en: {
     eyebrow: 'VIP history',
     loading: 'Loading history…',
-    unavailable: 'The main history is not available in this local copy. No results have been created.',
+    unavailable: 'History is temporarily unavailable. Please try again later.',
     empty: 'No verified wins are available in the main history yet.',
     selection: 'Selection',
     market: 'Market',
@@ -37,7 +37,7 @@ const COPY = {
   ar: {
     eyebrow: 'سجل VIP',
     loading: 'جارٍ تحميل السجل…',
-    unavailable: 'السجل الرئيسي غير متاح في هذه النسخة المحلية. لم يتم إنشاء أي نتائج.',
+    unavailable: 'السجل غير متاح مؤقتًا. يرجى المحاولة لاحقًا.',
     empty: 'لا تتوفر انتصارات موثقة في السجل الرئيسي حالياً.',
     selection: 'الاختيار',
     market: 'السوق',

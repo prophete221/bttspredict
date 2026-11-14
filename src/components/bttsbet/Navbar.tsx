@@ -17,9 +17,9 @@ const copy = (lang: Locale, fr: string, en: string, ar: string) => ({ fr, en, ar
 function NavIcon({ kind }: { kind: string }) {
   const common = { viewBox: '0 0 24 24', 'aria-hidden': true as const }
   switch (kind) {
-    case 'home': return <svg {...common}><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg>
-    case 'btts': return <svg {...common}><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3.2"/><path d="M12 2v3M22 12h-3M12 22v-3M2 12h3"/></svg>
-    case 'over': return <svg {...common}><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg>
+    case 'home': return <svg {...common}><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V10Z"/></svg>
+    case 'btts': return <svg {...common}><circle cx="12" cy="12" r="9"/><path d="m12 3 2.4 3.2-1 3.2h-3l-1-3.2L12 3ZM3.5 8.5l3.8.2 1.6 2.7-2 2.5-3.6-.8M20.5 8.5l-3.8.2-1.6 2.7 2 2.5 3.6-.8M7 18l1-4.1h8l1 4.1M12 9.4v.1"/></svg>
+    case 'over': return <svg {...common}><path d="M5 5h14M5 12h14M5 19h14"/><circle cx="2.5" cy="5" r=".5"/><circle cx="2.5" cy="12" r=".5"/><circle cx="2.5" cy="19" r=".5"/></svg>
     case 'combined': return <svg {...common}><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5M3 16l9 5 9-5"/></svg>
     case 'score': return <svg {...common}><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M3 16v3a2 2 0 0 0 2 2h3"/><path d="M8 12h8M12 8v8"/></svg>
     case 'trophy': return <svg {...common}><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4Z"/><path d="M7 6H4v2a4 4 0 0 0 4 4M17 6h3v2a4 4 0 0 1-4 4"/></svg>
@@ -115,36 +115,20 @@ function NavigationContent() {
 
   const groups = useMemo<NavGroup[]>(() => [
     {
-      id: 'workspace', label: { fr: 'Espace de travail', en: 'Workspace', ar: 'مساحة العمل' }, links: [
-        { id: 'home', label: { fr: 'Match Center', en: 'Match Center', ar: 'مركز المباريات' }, href: `${paths.home}#matchs`, icon: 'home' },
-        { id: 'btts', label: { fr: 'Pronostics BTTS', en: 'BTTS predictions', ar: 'توقعات BTTS' }, href: paths.btts, icon: 'btts' },
-        { id: 'opportunities', label: { fr: 'Meilleures opportunités', en: 'Top opportunities', ar: 'أفضل الفرص' }, href: `${paths.btts}#opportunities`, icon: 'btts' },
-        { id: 'over', label: { fr: 'Pronostics Over 2,5', en: 'Over 2.5 predictions', ar: 'توقعات أكثر من 2.5' }, href: paths.over, icon: 'over' },
-        { id: 'combined', label: { fr: 'Vue combinée', en: 'Combined view', ar: 'عرض مشترك' }, href: paths.combined, icon: 'combined' },
-        { id: 'score', label: { fr: 'Scores exacts', en: 'Exact scores', ar: 'النتائج الدقيقة' }, href: paths.score, icon: 'score' },
+      id: 'main', label: { fr: 'Menu', en: 'Menu', ar: 'القائمة' }, links: [
+        { id: 'home', label: { fr: 'Accueil', en: 'Home', ar: 'الرئيسية' }, href: paths.home, icon: 'home' },
+        { id: 'matches', label: { fr: 'Matchs', en: 'Matches', ar: 'المباريات' }, href: `${paths.home}#matchs`, icon: 'btts' },
+        { id: 'predictions', label: { fr: 'Pronostics', en: 'Predictions', ar: 'التوقعات' }, href: paths.btts, icon: 'over' },
+        { id: 'results', label: { fr: 'Résultats', en: 'Results', ar: 'النتائج' }, href: paths.results, icon: 'trophy' },
+        { id: 'vip', label: { fr: 'VIP', en: 'VIP', ar: 'VIP' }, href: paths.vip, icon: 'vip' },
       ],
     },
     {
-      id: 'analysis', label: { fr: 'Analyse', en: 'Analysis', ar: 'التحليل' }, links: [
-        { id: 'results', label: { fr: 'Résultats vérifiés', en: 'Verified results', ar: 'النتائج الموثقة' }, href: paths.results, icon: 'trophy' },
+      id: 'partners', label: { fr: 'Plus', en: 'More', ar: 'المزيد' }, links: [
         { id: 'stats', label: { fr: 'Statistiques', en: 'Statistics', ar: 'الإحصائيات' }, href: paths.stats, icon: 'stats' },
         { id: 'history', label: { fr: 'Historique', en: 'History', ar: 'السجل' }, href: paths.history, icon: 'history' },
-        { id: 'method', label: { fr: 'Méthodologie', en: 'Methodology', ar: 'المنهجية' }, href: paths.method, icon: 'method' },
-      ],
-    },
-    {
-      id: 'service', label: { fr: 'Services', en: 'Services', ar: 'الخدمات' }, links: [
-        { id: 'vip', label: { fr: 'Accès VIP', en: 'VIP access', ar: 'دخول VIP' }, href: paths.vip, icon: 'vip' },
-      ],
-    },
-    { id: 'partners', label: { fr: 'Partenaires', en: 'Partners', ar: 'الشركاء' }, links: [] },
-    {
-      id: 'information', label: { fr: 'Informations', en: 'Information', ar: 'معلومات' }, links: [
+        { id: 'method', label: { fr: 'Méthode', en: 'Method', ar: 'المنهجية' }, href: paths.method, icon: 'method' },
         { id: 'guide', label: { fr: 'Guide BTTS', en: 'BTTS guide', ar: 'دليل BTTS' }, href: paths.guide, icon: 'info' },
-        { id: 'responsible', label: { fr: 'Jeu responsable', en: 'Responsible play', ar: 'اللعب المسؤول' }, href: paths.responsible, icon: 'info' },
-        { id: 'terms', label: { fr: 'Conditions', en: 'Terms', ar: 'الشروط' }, href: paths.terms, icon: 'info' },
-        { id: 'privacy', label: { fr: 'Confidentialité', en: 'Privacy', ar: 'الخصوصية' }, href: paths.privacy, icon: 'info' },
-        { id: 'legal', label: { fr: 'Mentions légales', en: 'Legal notice', ar: 'إشعار قانوني' }, href: paths.legal, icon: 'info' },
       ],
     },
   ], [paths])
@@ -152,7 +136,7 @@ function NavigationContent() {
   const partnerRoutes = useMemo(() => ({ '1xbet': paths.promo1xbet, linebet: paths.promolinebet, melbet: paths.promomelbet, '888starz': paths.promo888 }), [paths])
   const flatLinks = groups.flatMap(group => group.links)
   const activePage = flatLinks.find(link => isActive(link.href))
-  const pageTitle = activePage?.label[lang] ?? (lang === 'ar' ? 'مساحة التحليل' : lang === 'en' ? 'Analysis workspace' : 'Espace d’analyse')
+  const pageTitle = activePage?.label[lang] ?? (lang === 'ar' ? 'الرئيسية' : lang === 'en' ? 'Home' : 'Accueil')
 
   const currentPartner = useMemo(() => {
     if (pathname.includes('code-promo-1xbet')) return BOOKMAKERS.find(item => item.id === '1xbet')
@@ -202,18 +186,16 @@ function NavigationContent() {
   const menuLabel = copy(lang, 'Navigation principale', 'Main navigation', 'التنقل الرئيسي')
   const mobileOpenLabel = copy(lang, 'Ouvrir le menu', 'Open menu', 'فتح القائمة')
   const mobileCloseLabel = copy(lang, 'Fermer le menu', 'Close menu', 'إغلاق القائمة')
-  const partnerHeading = copy(lang, 'Partenaires', 'Partners', 'الشركاء')
-  const footerLabel = copy(lang, 'Données du site', 'Site data', 'بيانات الموقع')
+  const footerLabel = copy(lang, 'Jeu responsable · 18+', 'Play responsibly · 18+', 'العب بمسؤولية · 18+')
   const copiedText = copy(lang, '✓ Copié', '✓ Copied', '✓ تم النسخ')
   const copyCodeLabel = currentPartner ? copy(lang, `Copier le code ${currentPartner.promoCode}`, `Copy code ${currentPartner.promoCode}`, `نسخ الرمز ${currentPartner.promoCode}`) : ''
-  const titleLabel = copy(lang, 'Espace d’analyse', 'Analysis workspace', 'مساحة التحليل')
 
   return (
     <div className={`fi-navigation${collapsed ? ' is-collapsed' : ''}`}>
       <aside className="fi-sidebar" data-collapsed={collapsed ? 'true' : 'false'} aria-label={menuLabel}>
         <a className="fi-sidebar__brand" href={paths.home} aria-label={`${appName} — ${groups[0].links[0].label[lang]}`}>
           <img src="/brand/bttspredict-fireball-transparent.png" alt="" width="44" height="44" />
-          <span className="fi-brand-copy"><strong>{appName}</strong><small>FOOTBALL INTELLIGENCE</small></span>
+          <span className="fi-brand-copy"><strong>{appName}</strong></span>
         </a>
         <nav className="fi-sidebar__scroll" aria-label={menuLabel}>
           <NavItems groups={groups} lang={lang} isActive={isActive} partnerRoutes={partnerRoutes} />
@@ -238,11 +220,9 @@ function NavigationContent() {
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d={menuOpen ? 'M6 6l12 12M18 6 6 18' : 'M4 6h16M4 12h16M4 18h16'} /></svg>
           </button>
           <a className="fi-mobile-brand" href={paths.home} aria-label={`${appName} — ${groups[0].links[0].label[lang]}`}>
-            <img src="/brand/bttspredict-fireball-transparent.png" alt="" width="32" height="32" /><strong>{appName}</strong><span>FOOTBALL INTELLIGENCE</span>
+            <img src="/brand/bttspredict-fireball-transparent.png" alt="" width="32" height="32" /><strong>{appName}</strong>
           </a>
           <div className="fi-topbar__context">
-            <span className="fi-topbar__overline">{titleLabel}</span>
-            <span className="fi-topbar__divider" aria-hidden="true" />
             <span className="fi-topbar__page">{pageTitle}</span>
           </div>
         </div>
