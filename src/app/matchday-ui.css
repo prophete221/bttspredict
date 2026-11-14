@@ -971,3 +971,34 @@ body:has(.fi-sidebar) { background: var(--bp-bg) !important; }
   [data-promo-verification] { margin-block: 12px !important; }
   [data-promo-verification] > div { padding: 12px !important; }
 }
+
+
+/* Legacy information pages (results, history, stats, methodology, competitions)
+   share the same neutral Matchday surfaces without changing their data or copy. */
+.bg-\[\#0B0F14\] { background-color: var(--bp-bg) !important; }
+.bg-\[\#0C1521\],
+.bg-\[\#10161D\],
+.bg-\[\#141C25\] { background-color: var(--bp-surface) !important; }
+.bg-\[\#223041\] { background-color: var(--bp-surface-raised) !important; }
+.border-\[\#223041\],
+.border-\[\#6B7A8C\] { border-color: var(--bp-line) !important; }
+.text-\[\#F2F6FA\],
+.text-\[\#EAF2F4\],
+.text-\[\#DAE4EF\] { color: var(--bp-text) !important; }
+.text-\[\#9DABBB\],
+.text-\[\#B7C4D3\],
+.text-\[\#A9B7C7\],
+.text-\[\#718398\],
+.text-\[\#6B7A8C\] { color: var(--bp-muted) !important; }
+.text-\[\#2F7DFF\],
+.text-\[\#7FB2FF\],
+.text-\[\#5BA9FF\],
+.text-\[\#B7D6FF\] { color: var(--bp-accent) !important; }
+.bg-\[\#2F7DFF\] { background-color: var(--bp-accent) !important; color: #071009 !important; }
+.border-\[\#2F7DFF\],
+.border-\[\#2F7DFF\]\/40 { border-color: var(--bp-accent) !important; }
+main .rounded-2xl,
+main .rounded-3xl { border-radius: 12px !important; box-shadow: none !important; }
+main .shadow-lg,
+main .shadow-xl,
+main .shadow-2xl { box-shadow: none !important; }
