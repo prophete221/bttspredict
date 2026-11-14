@@ -115,32 +115,24 @@ function NavigationContent() {
 
   const groups = useMemo<NavGroup[]>(() => [
     {
-      id: 'workspace', label: { fr: 'Espace de travail', en: 'Workspace', ar: 'مساحة العمل' }, links: [
-        { id: 'home', label: { fr: 'Match Center', en: 'Match Center', ar: 'مركز المباريات' }, href: `${paths.home}#matchs`, icon: 'home' },
-        { id: 'btts', label: { fr: 'Pronostics BTTS', en: 'BTTS predictions', ar: 'توقعات BTTS' }, href: paths.btts, icon: 'btts' },
-        { id: 'opportunities', label: { fr: 'Meilleures opportunités', en: 'Top opportunities', ar: 'أفضل الفرص' }, href: `${paths.btts}#opportunities`, icon: 'btts' },
-        { id: 'over', label: { fr: 'Pronostics Over 2,5', en: 'Over 2.5 predictions', ar: 'توقعات أكثر من 2.5' }, href: paths.over, icon: 'over' },
-        { id: 'combined', label: { fr: 'Vue combinée', en: 'Combined view', ar: 'عرض مشترك' }, href: paths.combined, icon: 'combined' },
-        { id: 'score', label: { fr: 'Scores exacts', en: 'Exact scores', ar: 'النتائج الدقيقة' }, href: paths.score, icon: 'score' },
+      id: 'main', label: { fr: 'Menu', en: 'Menu', ar: 'القائمة' }, links: [
+        { id: 'home', label: { fr: 'Accueil', en: 'Home', ar: 'الرئيسية' }, href: paths.home, icon: 'home' },
+        { id: 'matches', label: { fr: 'Matchs', en: 'Matches', ar: 'المباريات' }, href: `${paths.home}#matchs`, icon: 'btts' },
+        { id: 'predictions', label: { fr: 'Pronostics', en: 'Predictions', ar: 'التوقعات' }, href: paths.btts, icon: 'over' },
+        { id: 'results', label: { fr: 'Résultats', en: 'Results', ar: 'النتائج' }, href: paths.results, icon: 'trophy' },
+        { id: 'vip', label: { fr: 'VIP', en: 'VIP', ar: 'VIP' }, href: paths.vip, icon: 'vip' },
       ],
     },
     {
-      id: 'analysis', label: { fr: 'Analyse', en: 'Analysis', ar: 'التحليل' }, links: [
-        { id: 'results', label: { fr: 'Résultats vérifiés', en: 'Verified results', ar: 'النتائج الموثقة' }, href: paths.results, icon: 'trophy' },
+      id: 'more', label: { fr: 'Plus', en: 'More', ar: 'المزيد' }, links: [
         { id: 'stats', label: { fr: 'Statistiques', en: 'Statistics', ar: 'الإحصائيات' }, href: paths.stats, icon: 'stats' },
         { id: 'history', label: { fr: 'Historique', en: 'History', ar: 'السجل' }, href: paths.history, icon: 'history' },
-        { id: 'method', label: { fr: 'Méthodologie', en: 'Methodology', ar: 'المنهجية' }, href: paths.method, icon: 'method' },
+        { id: 'method', label: { fr: 'Méthode', en: 'Method', ar: 'المنهجية' }, href: paths.method, icon: 'method' },
+        { id: 'guide', label: { fr: 'Guide BTTS', en: 'BTTS guide', ar: 'دليل BTTS' }, href: paths.guide, icon: 'info' },
       ],
     },
-    {
-      id: 'service', label: { fr: 'Services', en: 'Services', ar: 'الخدمات' }, links: [
-        { id: 'vip', label: { fr: 'Accès VIP', en: 'VIP access', ar: 'دخول VIP' }, href: paths.vip, icon: 'vip' },
-      ],
-    },
-    { id: 'partners', label: { fr: 'Partenaires', en: 'Partners', ar: 'الشركاء' }, links: [] },
     {
       id: 'information', label: { fr: 'Informations', en: 'Information', ar: 'معلومات' }, links: [
-        { id: 'guide', label: { fr: 'Guide BTTS', en: 'BTTS guide', ar: 'دليل BTTS' }, href: paths.guide, icon: 'info' },
         { id: 'responsible', label: { fr: 'Jeu responsable', en: 'Responsible play', ar: 'اللعب المسؤول' }, href: paths.responsible, icon: 'info' },
         { id: 'terms', label: { fr: 'Conditions', en: 'Terms', ar: 'الشروط' }, href: paths.terms, icon: 'info' },
         { id: 'privacy', label: { fr: 'Confidentialité', en: 'Privacy', ar: 'الخصوصية' }, href: paths.privacy, icon: 'info' },
@@ -203,17 +195,17 @@ function NavigationContent() {
   const mobileOpenLabel = copy(lang, 'Ouvrir le menu', 'Open menu', 'فتح القائمة')
   const mobileCloseLabel = copy(lang, 'Fermer le menu', 'Close menu', 'إغلاق القائمة')
   const partnerHeading = copy(lang, 'Partenaires', 'Partners', 'الشركاء')
-  const footerLabel = copy(lang, 'Données du site', 'Site data', 'بيانات الموقع')
+  const footerLabel = copy(lang, 'Jeu responsable · 18+', 'Play responsibly · 18+', 'العب بمسؤولية · 18+')
   const copiedText = copy(lang, '✓ Copié', '✓ Copied', '✓ تم النسخ')
   const copyCodeLabel = currentPartner ? copy(lang, `Copier le code ${currentPartner.promoCode}`, `Copy code ${currentPartner.promoCode}`, `نسخ الرمز ${currentPartner.promoCode}`) : ''
-  const titleLabel = copy(lang, 'Espace d’analyse', 'Analysis workspace', 'مساحة التحليل')
+  const titleLabel = ''
 
   return (
     <div className={`fi-navigation${collapsed ? ' is-collapsed' : ''}`}>
       <aside className="fi-sidebar" data-collapsed={collapsed ? 'true' : 'false'} aria-label={menuLabel}>
         <a className="fi-sidebar__brand" href={paths.home} aria-label={`${appName} — ${groups[0].links[0].label[lang]}`}>
           <img src="/brand/bttspredict-fireball-transparent.png" alt="" width="44" height="44" />
-          <span className="fi-brand-copy"><strong>{appName}</strong><small>FOOTBALL INTELLIGENCE</small></span>
+          <span className="fi-brand-copy"><strong>{appName}</strong></span>
         </a>
         <nav className="fi-sidebar__scroll" aria-label={menuLabel}>
           <NavItems groups={groups} lang={lang} isActive={isActive} partnerRoutes={partnerRoutes} />
@@ -238,11 +230,9 @@ function NavigationContent() {
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d={menuOpen ? 'M6 6l12 12M18 6 6 18' : 'M4 6h16M4 12h16M4 18h16'} /></svg>
           </button>
           <a className="fi-mobile-brand" href={paths.home} aria-label={`${appName} — ${groups[0].links[0].label[lang]}`}>
-            <img src="/brand/bttspredict-fireball-transparent.png" alt="" width="32" height="32" /><strong>{appName}</strong><span>FOOTBALL INTELLIGENCE</span>
+            <img src="/brand/bttspredict-fireball-transparent.png" alt="" width="32" height="32" /><strong>{appName}</strong>
           </a>
           <div className="fi-topbar__context">
-            <span className="fi-topbar__overline">{titleLabel}</span>
-            <span className="fi-topbar__divider" aria-hidden="true" />
             <span className="fi-topbar__page">{pageTitle}</span>
           </div>
         </div>
