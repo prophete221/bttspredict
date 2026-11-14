@@ -1,4 +1,4 @@
-# Latest checkpoint — 2026-11-14 05:12 UTC
+# Latest checkpoint — 2026-11-14 05:13 UTC
 
 - Resumption verified directly from GitHub: PR #128 is still open/draft, base `main`, head branch `feat/complete-art-direction-promo-vip-2026-11-13`; repository permissions include push. Before this checkpoint the head was `7d31faa1d6d82fc6e2ba088f89929fdecb6986bb`; main/base SHA is `e7943e81faf28fe588a129ee6d3d8e1a52db0f45`. Compare reported 172 commits ahead, 0 behind; 58 files changed.
 - Re-read this continuity file from the requested branch. Confirmed the previously reported one-line TypeScript fix was NOT present in `src/app/[locale]/page.tsx`: the component used `t.legal.*` without a component-local `t`. Added `const t = translationsFor(locale)` immediately after locale resolution. Commit: `94e0c2226f7be6c3b8d5ed4f7f441e4bef99f866`; file re-fetched and scoped binding verified.
@@ -33,6 +33,13 @@
 - Re-read `AnalyticsLoader.tsx`: it loads one direct GA4 script only when production mode, explicit enable flag, and saved analytics consent are all true. It does not inject GTM; this avoids double initialization. No Analytics account settings or production variables were modified.
 - Re-read `BottomNavigation.tsx`: exactly three localized tabs remain (home, predictions, VIP); Arabic direction is RTL. The desktop navigation drawer includes keyboard focus handling. Source checks only; no device/browser interaction test has been performed.
 - The new Arabic promo heading fallback and regression test are committed. The public VIP source remains unchanged from main. No merge or production deployment.
+
+## GitHub Actions retry result — 2026-11-14 05:13 UTC
+
+- Requested a rerun of the previously failed PR check job from run `43527590865` (run number 1296) to try to recover actionable logs. GitHub accepted the rerun; the new job `132339406206` immediately concluded failure. Its step list was empty and log download again returned Azure `BlobNotFound`. This retry does not validate the current PR head; it only confirms that the earlier run's Actions/logging issue persists.
+- Current PR head at this checkpoint: `99858d9efeb32b82339c6e931f18b2de905e8659`; PR #128 remains open, draft, not merged. Current combined status exposes only Vercel pending. No new workflow run has been returned for this head.
+- The 38 historical Vitest failures still cannot be classified as branch regressions or main-baseline failures without a reproducible run on both refs. Do not alter or suppress tests to work around this.
+- No production deployment or merge; deploy job for the PR retry was skipped.
 
 ---
 
