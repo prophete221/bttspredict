@@ -947,3 +947,27 @@ body:has(.fi-sidebar) { background: var(--bp-bg) !important; }
   [data-promo-highlights] { grid-template-columns: minmax(0,1fr) !important; }
   [data-promo-steps], [data-promo-faq] { margin-top: 14px !important; padding: 14px !important; }
 }
+
+
+/* Compact multilingual bookmaker guidance, aligned with the Matchday palette. */
+[data-promo-verification] {
+  color: #f5f5f5 !important;
+}
+[data-promo-verification] > div {
+  border-color: #303030 !important;
+  border-radius: 10px !important;
+  background: #191919 !important;
+  box-shadow: none !important;
+}
+[data-promo-verification] :is(h2,h3,summary) { color: #f5f5f5 !important; }
+[data-promo-verification] :is(p,dd,li) { color: #a4a4a4 !important; }
+[data-promo-verification] :is(details,details > div,dl > div) {
+  border-color: #303030 !important;
+  background-color: #151515 !important;
+}
+[data-promo-verification] a { color: #63d471 !important; }
+[data-promo-verification] [class*="border-[#D9164C]"] { border-color: #63d471 !important; }
+@media (max-width: 640px) {
+  [data-promo-verification] { margin-block: 12px !important; }
+  [data-promo-verification] > div { padding: 12px !important; }
+}
