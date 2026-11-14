@@ -10719,7 +10719,9 @@
       "prediction": "Oui",
       "proba": 0.68,
       "confidence": 68,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-14T21:50:30.317Z"
     },
     {
       "id": "colchest-vs-gillingh-2026-11-14",
@@ -11113,7 +11115,9 @@
       "prediction": "Oui",
       "proba": 0.62,
       "confidence": 62,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-3",
+      "verifiedAt": "2026-11-14T21:50:30.317Z"
     },
     {
       "id": "fortalez-vs-vilanova-2026-11-14",
@@ -11310,7 +11314,9 @@
       "prediction": "Oui",
       "proba": 0.6,
       "confidence": 60,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-14T21:50:30.319Z"
     },
     {
       "id": "tenerife-vs-ceuta-2026-11-15",
@@ -15047,7 +15053,9 @@
       "prediction": "Oui",
       "proba": 0.62,
       "confidence": 62,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-11-14T21:50:26.491Z"
     },
     {
       "id": "nantes-vs-lens-2026-11-13",

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-11-13T13:50:35.669Z",
+  "generatedAt": "2026-11-14T21:51:29.111Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,54 +15,40 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 541,
-    "won": 430,
+    "total": 539,
+    "won": 428,
     "lost": 111,
-    "pending": 93,
-    "unverifiable": 203,
-    "archivedTotal": 837,
-    "rate": 79.5,
+    "pending": 84,
+    "unverifiable": 215,
+    "archivedTotal": 838,
+    "rate": 79.4,
     "gold": {
       "total": 421,
-      "won": 341,
-      "lost": 80,
-      "rate": 81
+      "won": 340,
+      "lost": 81,
+      "rate": 80.8
     },
     "standard": {
-      "total": 120,
-      "won": 89,
-      "lost": 31,
-      "rate": 74.2
+      "total": 118,
+      "won": 88,
+      "lost": 30,
+      "rate": 74.6
     },
     "byType": {
       "btts": {
-        "total": 442,
-        "won": 358,
-        "lost": 84,
-        "rate": 81
+        "total": 439,
+        "won": 356,
+        "lost": 83,
+        "rate": 81.1
       },
       "over25": {
-        "total": 99,
+        "total": 100,
         "won": 72,
-        "lost": 27,
-        "rate": 72.7
+        "lost": 28,
+        "rate": 72
       }
     },
     "trend14": [
-      {
-        "date": "2026-10-28",
-        "total": 23,
-        "won": 15,
-        "lost": 8,
-        "rate": 65.2
-      },
-      {
-        "date": "2026-10-29",
-        "total": 15,
-        "won": 9,
-        "lost": 6,
-        "rate": 60
-      },
       {
         "date": "2026-10-30",
         "total": 13,
@@ -146,15 +132,81 @@
         "won": 2,
         "lost": 1,
         "rate": 66.7
+      },
+      {
+        "date": "2026-11-13",
+        "total": 1,
+        "won": 1,
+        "lost": 0,
+        "rate": 100
+      },
+      {
+        "date": "2026-11-14",
+        "total": 3,
+        "won": 1,
+        "lost": 2,
+        "rate": 33.3
       }
     ],
     "period": {
-      "from": "2026-08-16",
-      "to": "2026-11-13",
+      "from": "2026-08-17",
+      "to": "2026-11-14",
       "days": 90
     }
   },
   "history": [
+    {
+      "date": "2026-11-14",
+      "match": "Fortaleza vs Vila Nova",
+      "league": "Brazilian Serie B",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6,
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-14T21:50:30.319Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-14",
+      "match": "Mallorca vs Córdoba",
+      "league": "LaLiga 2",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.62,
+      "status": "WON",
+      "finalScore": "3-3",
+      "verifiedAt": "2026-11-14T21:50:30.317Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-14",
+      "match": "Real Valladolid vs Castellón",
+      "league": "LaLiga 2",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.68,
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-14T21:50:30.317Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-13",
+      "match": "Leganés vs Burgos",
+      "league": "LaLiga 2",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.62,
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-11-14T21:50:26.491Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
     {
       "date": "2026-11-12",
       "match": "Ponte Preta vs Operário PR",
@@ -6592,58 +6644,6 @@
       "status": "WON",
       "finalScore": "1-1",
       "verifiedAt": "2026-10-23T05:46:14.653Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-08-23",
-      "match": "PSV Eindhoven vs FC Groningen",
-      "league": "Eredivisie",
-      "market": "btts",
-      "tier": "STANDARD",
-      "proba": 0.6424,
-      "status": "WON",
-      "finalScore": "5-1",
-      "verifiedAt": "2026-10-23T05:46:14.653Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-08-23",
-      "match": "SC Cambuur vs Feyenoord Rotterdam",
-      "league": "Eredivisie",
-      "market": "btts",
-      "tier": "STANDARD",
-      "proba": 0.6424,
-      "status": "WON",
-      "finalScore": "2-5",
-      "verifiedAt": "2026-10-23T05:46:14.653Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-08-23",
-      "match": "St. Louis CITY SC vs Houston Dynamo FC",
-      "league": "MLS",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.4866,
-      "status": "LOST",
-      "finalScore": "2-1",
-      "verifiedAt": "2026-08-23T04:36:56.502Z",
-      "source": "ESPN public",
-      "prediction": "Non"
-    },
-    {
-      "date": "2026-08-23",
-      "match": "Vancouver Whitecaps vs FC Dallas",
-      "league": "MLS",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.5108,
-      "status": "LOST",
-      "finalScore": "5-0",
-      "verifiedAt": "2026-08-23T04:36:56.502Z",
       "source": "ESPN public",
       "prediction": "Oui"
     }
