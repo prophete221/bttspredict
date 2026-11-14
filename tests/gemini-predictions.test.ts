@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { getGeminiPicks, getGeminiProbability } from '@/lib/gemini-predictions'
+import { getGeminiPicks, getGeminiProbability, mergeUniqueMarketPicks } from '@/lib/gemini-predictions'
 
 const MODEL = 'gemini-3.5-flash-lite'
 
@@ -21,6 +21,16 @@ function verifiedRow(market: 'BTTS' | 'OVER_25', selection: 'Oui' | 'Non', proba
 }
 
 describe('Gemini-only market picks', () => {
+  it('merges sibling BTTS and Over 2.5 rows for one match without duplicating either market', () => {
+    const btts = getGeminiPicks(verifiedRow('BTTS', 'Oui', 0.63))
+    const over = getGeminiPicks(verifiedRow('OVER_25', 'Non', 0.58))
+    const merged = mergeUniqueMarketPicks(btts, over)
+
+    expect(merged.map(pick => pick.type)).toEqual(['BTTS', 'Over 2.5'])
+    expect(merged.map(pick => pick.proba)).toEqual([0.63, 0.58])
+    expect(mergeUniqueMarketPicks(merged, over)).toHaveLength(2)
+  })
+
   it('normalizes one explicit Gemini market and preserves its probability', () => {
     const btts = getGeminiPicks(verifiedRow('BTTS', 'Oui', 0.63))
     const over = getGeminiPicks(verifiedRow('OVER_25', 'Non', 0.58))
