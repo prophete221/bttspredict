@@ -4,13 +4,8 @@ import { checkSeo } from '@/lib/seo'
 
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
 const Hero = dynamic(() => import('@/components/bttsbet/Hero'), { loading: () => null })
-const ScrollProgressBar = dynamic(() => import('@/components/bttsbet/ScrollProgressBar'), { loading: () => null })
 const MatchCenter = dynamic(() => import('@/components/bttsbet/MatchCenter'), { loading: () => null })
-const TrustPillars = dynamic(() => import('@/components/bttsbet/TrustPillars'), { loading: () => null })
 const PerformanceDashboard = dynamic(() => import('@/components/bttsbet/PerformanceDashboard'), { loading: () => null })
-const MethodSection = dynamic(() => import('@/components/bttsbet/HomeEditorial').then(m => ({ default: m.MethodSection })), { loading: () => null })
-const LeagueCoverage = dynamic(() => import('@/components/bttsbet/HomeEditorial').then(m => ({ default: m.LeagueCoverage })), { loading: () => null })
-const PartnerCard = dynamic(() => import('@/components/bttsbet/HomeEditorial').then(m => ({ default: m.PartnerCard })), { loading: () => null })
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
 const ErrorBoundary = dynamic(() => import('@/components/bttsbet/ErrorBoundary'), { loading: () => null })
 // Tâche 002 — Title et description SEO alignés sur le Prompt Maître.
@@ -212,16 +207,6 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
       />
 
-      {/* ═══ SEO CONTENT FOR CRAWLERS & AI — minimal v91 ═══ */}
-      <div className="sr-only">
-        <h2>Plateforme de sélections BTTS, Over 2.5 et score exact</h2>
-        <p>
-          BTTSPredict aide les parieurs africains à lire des sélections de matchs internationaux :
-          BTTS, Over 2.5 et projection de score exact. Les données sont publiées avant le match,
-          les résultats gagnés et perdus sont archivés, et aucun gain futur n&apos;est garanti.
-        </p>
-      </div>
-
       {/* Skip to content — accessibility */}
       <a
         href="#main-content"
@@ -229,9 +214,6 @@ export default function Home() {
       >
         Aller au contenu principal
       </a>
-
-      {/* Scroll Progress Bar */}
-      <ScrollProgressBar />
 
       {/* Main Content — Plateforme football intelligence
           Structure : Header produit → Hero + Signal en vedette →
@@ -242,11 +224,7 @@ export default function Home() {
         <ErrorBoundary><Navbar /></ErrorBoundary>
         <ErrorBoundary><Hero /></ErrorBoundary>
         <ErrorBoundary><MatchCenter /></ErrorBoundary>
-        <ErrorBoundary><TrustPillars /></ErrorBoundary>
         <ErrorBoundary><PerformanceDashboard /></ErrorBoundary>
-        <ErrorBoundary><MethodSection /></ErrorBoundary>
-        <ErrorBoundary><LeagueCoverage /></ErrorBoundary>
-        <ErrorBoundary><PartnerCard /></ErrorBoundary>
 
         {/* Jeu responsable — compact et moderne */}
         <section className="mx-auto max-w-[980px] px-4 pb-6 sm:px-6">
