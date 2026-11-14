@@ -90,7 +90,7 @@ export default function CookieConsent() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
           transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="fixed left-0 right-0 z-[60] p-3 sm:p-6"
+          className="fixed left-0 right-0 z-[60] p-3 sm:p-6 bp-cookie-consent"
           style={{ bottom: 'calc(64px + env(safe-area-inset-bottom, 0px))', backgroundColor: 'rgba(7, 16, 24, 0.97)', backdropFilter: 'blur(18px)', borderTop: '1px solid rgba(91, 169, 255, 0.28)', maxHeight: 'calc(100dvh - 5rem)', overflowY: 'auto' }}
           role="dialog"
           aria-modal="true"

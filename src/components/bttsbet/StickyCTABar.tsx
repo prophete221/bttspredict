@@ -52,11 +52,11 @@ export default function StickyCTABar() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
           transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="fixed left-0 right-0 z-40 md:hidden"
+          className="fixed left-0 right-0 z-40 md:hidden bp-sticky-cta"
           style={{ bottom: 'calc(64px + env(safe-area-inset-bottom, 0px))' }}
         >
           <div
-            className="flex items-center gap-2 px-3 py-2.5 backdrop-blur-xl"
+            className="flex items-center gap-2 px-3 py-2.5 backdrop-blur-xl bp-sticky-cta__inner"
             style={{
               backgroundColor: 'rgba(7, 17, 26, 0.95)',
               borderTop: '1px solid rgba(197, 243, 106, 0.2)',
