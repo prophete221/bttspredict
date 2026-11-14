@@ -532,3 +532,12 @@ footer button { color: var(--bp-text) !important; }
 .text-gold { color: var(--bp-gold) !important; }
 .border-edge { border-color: var(--bp-line) !important; }
 .bg-dark-900, .bg-dark-800, .bg-dark-700 { background-color: var(--bp-bg-2) !important; }
+
+
+/* Legacy literal utility classes used by a few localized editorial routes. */
+body [class~="bg-[#0B0F14]"] { background: var(--bp-bg) !important; }
+body [class~="bg-[#141C25]"] { background: var(--bp-surface) !important; }
+body [class~="border-[#6B7A8C]"] { border-color: var(--bp-line-strong) !important; }
+body [class~="text-[#9DABBB]"] { color: var(--bp-muted) !important; }
+body [class~="text-[#F2F6FA]"] { color: var(--bp-text) !important; }
+body [class~="text-[#2F7DFF]"] { color: var(--bp-blue) !important; }
