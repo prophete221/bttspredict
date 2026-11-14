@@ -53,7 +53,7 @@ const TABS: Tab[] = [
   },
   {
     id: 'predictions',
-    label: 'Pronos',
+    label: 'Pronostics',
     href: '/btts/predictions/today',
     icon: <IconBall />,
     matchPath: (p) => p === '/btts/predictions/today' || p.startsWith('/btts/') || p.startsWith('/match/') || p.includes('/over-2-5') || p.includes('/btts-and-over'),
@@ -123,7 +123,7 @@ export default function BottomNavigation() {
               {tab.icon}
             </motion.div>
             <span
-              className="text-[12px] font-extrabold uppercase tracking-[0.08em] leading-none"
+              className="text-[12px] font-semibold leading-none normal-case tracking-normal"
             >
               {tab.label}
             </span>
