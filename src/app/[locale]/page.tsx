@@ -33,6 +33,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function LocalizedHomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: value } = await params
   const locale = isLocale(value) && value !== 'fr' ? value as Locale : 'en'
+  const t = translationsFor(locale)
   return (
     <div className="page-design page-design--home min-h-screen bg-dark-800 relative">
       <main id="main-content" className="relative z-10" style={{ paddingBottom: 'calc(80px + env(safe-area-inset-bottom, 0px))' }}>
