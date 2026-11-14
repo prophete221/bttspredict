@@ -1,4 +1,4 @@
-# Latest checkpoint — 2026-11-14 05:02 UTC
+# Latest checkpoint — 2026-11-14 05:05 UTC
 
 - Resumption verified directly from GitHub: PR #128 is still open/draft, base `main`, head branch `feat/complete-art-direction-promo-vip-2026-11-13`; repository permissions include push. Before this checkpoint the head was `7d31faa1d6d82fc6e2ba088f89929fdecb6986bb`; main/base SHA is `e7943e81faf28fe588a129ee6d3d8e1a52db0f45`. Compare reported 172 commits ahead, 0 behind; 58 files changed.
 - Re-read this continuity file from the requested branch. Confirmed the previously reported one-line TypeScript fix was NOT present in `src/app/[locale]/page.tsx`: the component used `t.legal.*` without a component-local `t`. Added `const t = translationsFor(locale)` immediately after locale resolution. Commit: `94e0c2226f7be6c3b8d5ed4f7f441e4bef99f866`; file re-fetched and scoped binding verified.
@@ -7,6 +7,15 @@
 - SEO spot-check: metadata title, description and canonical for `/btts-and-over-2-5-predictions-today` are unchanged between main and the branch. The visible H1 “BTTS and Over 2.5 Predictions Today” remains unchanged; explanatory copy and filtering changed. The Over 2.5 route metadata/H1 also remains intact in the inspected files. Continue auditing all protected EN landing pages and do not generalize this spot-check to every route.
 - Current PR head after these two commits: `e50fd1ddccb77cddc86829097173ed3034deb767`; PR remains draft/open. Combined commit status exposed only Vercel pending; no new GitHub Actions run was returned for the new commit at the time of inspection. No local test runner/build environment has been executed in this session, so the earlier 680/38/16 test result remains unverified and unresolved. No tests have been disabled.
 - No merge, production deployment, FTP, Cloudflare, D1, secret, payment, VIP entitlement or production data change. VIP remains out of scope for this public-site phase.
+
+## Validation follow-up — sibling market regression — 2026-11-14 05:05 UTC
+
+- Refined the parser fix into a small pure helper `mergeUniqueMarketPicks<T extends { type: string }>` in `src/lib/gemini-predictions.ts`; `FreePredictions.tsx` now uses this helper when it encounters a repeated match key. This keeps market merging testable and de-duplicates by explicit market type.
+- Added a Vitest case to `tests/gemini-predictions.test.ts` using two individually validated source rows (BTTS 0.63 and Over 2.5 0.58). It asserts both market types/probabilities are preserved and a repeated Over row does not create a duplicate. The test is committed but has NOT yet been executed in this session.
+- Commits after the prior checkpoint: `ab7af451feb51fe25f2abae1c4510f6d37e1c645` (helper), `3eef4f5ea7ce14c89581511a1d60b9ada9124d30` (parser integration), `4ecdccf4778e657201c874c11f51042d05aca56f` (test).
+- Latest CI investigation: previous run `43527590865` job `132237096511` is conclusively marked failure, but GitHub returns an empty step list and the log download returns Azure `BlobNotFound`; no failed test names or step can be recovered from that run. No branch-specific Actions run was returned for the newly pushed commits; Vercel status is pending and is not an Actions/build result.
+- Workflow source confirms PR checks are intended to run `npm test`, Python unit tests, `npm run lint`, `npx tsc --noEmit`, and `npm run build -- --webpack`. No deployment runs for pull requests; the FTP deploy job is gated to `main` only.
+- Test baseline comparison (38 failures on PR vs main) is still outstanding: this environment has not executed either test suite and historical job logs are unavailable. Do not attribute the 38 failures to this branch or declare them pre-existing without a reproducible main-vs-PR run.
 
 ---
 
