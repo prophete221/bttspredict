@@ -117,38 +117,45 @@ export default function PromoVerificationGuide({ bookmaker, lang, variant = 'off
   return (
     <section lang={lang} dir={lang === 'ar' ? 'rtl' : 'ltr'} aria-labelledby={headingId}
       data-promo-verification={`${bookmaker}-${lang}-${variant}`}
-      className="relative z-10 mx-auto my-10 w-full max-w-4xl px-4 text-[#EAF2F4] sm:px-6">
-      <div className="rounded-2xl border border-white/10 bg-[#0C1521] p-5 sm:p-8">
-        <p className="mb-2 text-sm font-semibold text-[#FF7A9C]">{info.name} · <bdi dir="ltr">{info.code}</bdi></p>
-        <h2 id={headingId} className="text-xl font-bold sm:text-2xl">{focus.title}</h2>
-        <p className="mt-3 text-sm leading-7 text-[#C1CDDA]">{focus.body}</p>
-        <h3 className="mt-7 text-lg font-bold">{copy.before}</h3>
-        <dl className="mt-4 grid gap-4 sm:grid-cols-2">
-          {copy.checks.map(([title, body]: readonly [string, string]) => (
-            <div key={title} className="rounded-xl border border-white/10 p-4">
-              <dt className="text-sm font-bold text-white">{title}</dt>
-              <dd className="mt-2 text-sm leading-6 text-[#C1CDDA]">{body}</dd>
-            </div>
-          ))}
-        </dl>
-        <h3 className="mt-7 text-lg font-bold">{copy.distinction}</h3>
-        <p className="mt-3 text-sm leading-7 text-[#C1CDDA]">{copy.distinctionBody}</p>
-        <h3 className="mt-7 text-lg font-bold">{copy.trouble}</h3>
-        <ol className="mt-3 list-decimal space-y-2 ps-5 text-sm leading-7 text-[#C1CDDA]">
-          {copy.steps.map((step) => <li key={step}>{step}</li>)}
-        </ol>
-        <p className="mt-6 border-s-2 border-[#D9164C] ps-4 text-sm leading-7 text-[#AABBCD]">{copy.limits}</p>
-        {sources.length > 0 && (
-          <aside className="mt-7 border-t border-white/10 pt-5" aria-label={copy.sources}>
-            <h3 className="text-sm font-bold">{copy.sources}</h3>
-            <p className="mt-2 text-xs leading-6 text-[#AABBCD]">{copy.sourceNote}</p>
-            <ul className="mt-2 flex flex-wrap gap-x-5 gap-y-2 text-sm">
-              {sources.map((source) => <li key={source.href}><a href={source.href} target="_blank" rel="noopener noreferrer" className="text-[#FF9DB5] underline underline-offset-4">{source.label}</a></li>)}
-            </ul>
-          </aside>
-        )}
+      className="relative z-10 mx-auto my-5 w-full max-w-4xl px-4 text-[#F5F5F5] sm:px-6">
+      <div className="rounded-xl border border-[#303030] bg-[#191919] p-4 sm:p-5">
+        <p className="mb-2 text-xs font-semibold text-[#63D471]">{info.name} · <bdi dir="ltr">{info.code}</bdi></p>
+        <h2 id={headingId} className="text-lg font-bold sm:text-xl">{focus.title}</h2>
+        <p className="mt-2 text-xs leading-5 text-[#A4A4A4]">{focus.body}</p>
+        <details className="mt-5 overflow-hidden rounded-xl border border-white/10 bg-[#151515]">
+          <summary className="cursor-pointer px-4 py-3 text-sm font-semibold text-white">
+            {lang === 'fr' ? 'Conditions et vérifications' : lang === 'en' ? 'Terms and checks' : 'الشروط والتحقق'}
+          </summary>
+          <div className="border-t border-white/10 p-4 sm:p-5">
+            <h3 className="text-sm font-semibold text-white">{copy.before}</h3>
+            <dl className="mt-3 grid gap-3 sm:grid-cols-2">
+              {copy.checks.map(([title, body]: readonly [string, string]) => (
+                <div key={title} className="rounded-lg border border-white/10 bg-[#1B1B1B] p-3">
+                  <dt className="text-sm font-semibold text-white">{title}</dt>
+                  <dd className="mt-1 text-xs leading-5 text-[#A4A4A4]">{body}</dd>
+                </div>
+              ))}
+            </dl>
+            <h3 className="mt-5 text-sm font-semibold text-white">{copy.distinction}</h3>
+            <p className="mt-2 text-xs leading-5 text-[#A4A4A4]">{copy.distinctionBody}</p>
+            <h3 className="mt-5 text-sm font-semibold text-white">{copy.trouble}</h3>
+            <ol className="mt-2 list-decimal space-y-1 ps-5 text-xs leading-5 text-[#A4A4A4]">
+              {copy.steps.map((step) => <li key={step}>{step}</li>)}
+            </ol>
+            <p className="mt-4 border-s-2 border-[#63D471] ps-3 text-xs leading-5 text-[#A4A4A4]">{copy.limits}</p>
+            {sources.length > 0 && (
+              <aside className="mt-5 border-t border-white/10 pt-4" aria-label={copy.sources}>
+                <h3 className="text-xs font-semibold text-white">{copy.sources}</h3>
+                <p className="mt-1 text-xs leading-5 text-[#A4A4A4]">{copy.sourceNote}</p>
+                <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-2 text-xs">
+                  {sources.map((source) => <li key={source.href}><a href={source.href} target="_blank" rel="noopener noreferrer" className="text-[#63D471] underline underline-offset-4">{source.label}</a></li>)}
+                </ul>
+              </aside>
+            )}
+          </div>
+        </details>
         {bookmaker === '888starz' && variant === 'code' && (
-          <a href={`${lang === 'fr' ? '' : `/${lang}`}/bonus-888starz`} className="mt-6 inline-block text-sm font-semibold text-[#FF9DB5] underline underline-offset-4">{copy.related}</a>
+          <a href={`${lang === 'fr' ? '' : `/${lang}`}/bonus-888starz`} className="mt-4 inline-block text-sm font-semibold text-[#63D471] underline underline-offset-4">{copy.related}</a>
         )}
       </div>
     </section>
