@@ -352,3 +352,103 @@ body:has(.fi-sidebar) { background: var(--bp-bg) !important; }
   .fi-sidebar { display: none !important; }
   .fi-topbar { min-height: 58px !important; }
 }
+
+
+/* Home and match centre: replace decorative cards with a compact match list. */
+.page-design--home .hp-hero {
+  border: 0 !important;
+  border-bottom: 1px solid var(--bp-line) !important;
+  border-radius: 0 !important;
+  background: var(--bp-bg) !important;
+  box-shadow: none !important;
+}
+.page-design--home .hp-hero__inner {
+  padding-top: 30px !important;
+  padding-bottom: 30px !important;
+}
+.page-design--home .hp-hero__glow,
+.page-design--home .hp-hero__gridbg,
+.page-design--home .hp-clubs,
+.page-design--home .hp-hero__trust,
+.page-design--home .hp-live-halo,
+.page-design--home .hp-live__lab-scene { display: none !important; }
+.page-design--home .hp-hero__grid { gap: 22px !important; }
+.page-design--home .hp-hero__title {
+  font-family: var(--font-body), Inter, Arial, sans-serif !important;
+  font-size: clamp(1.8rem, 5vw, 2.65rem) !important;
+  font-weight: 750 !important;
+  letter-spacing: -.035em !important;
+  line-height: 1.12 !important;
+}
+.page-design--home .hp-title-em {
+  background: none !important;
+  color: var(--bp-accent) !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+.page-design--home .hp-hero__text { max-width: 38rem !important; font-size: 14px !important; line-height: 1.55 !important; }
+.page-design--home .hp-hero__cta-zone { margin-top: 16px !important; gap: 9px !important; }
+.page-design--home .hp-live {
+  border: 1px solid var(--bp-line) !important;
+  border-radius: 12px !important;
+  background: var(--bp-surface) !important;
+  box-shadow: none !important;
+}
+.page-design--home .hp-live__head { border-bottom: 1px solid var(--bp-line) !important; }
+.page-design--home .hp-live__eyebrow { color: var(--bp-muted) !important; }
+.page-design--home .hp-live__badge { color: var(--bp-accent) !important; background: var(--bp-accent-soft) !important; border: 0 !important; }
+.page-design--home .hp-section { padding-top: 24px !important; padding-bottom: 24px !important; }
+.page-design--home .hp-sect-title { font-size: clamp(1.1rem, 3vw, 1.45rem) !important; font-weight: 700 !important; letter-spacing: -.02em !important; }
+.page-design--home .hp-sect-head { margin-bottom: 14px !important; }
+.page-design--home .hp-mc-grid {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  gap: 0 !important;
+  max-width: 980px !important;
+  margin-inline: auto !important;
+  perspective: none !important;
+}
+.page-design--home .hp-mc-card {
+  min-width: 0 !important;
+  padding: 13px 15px !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--bp-line) !important;
+  border-radius: 0 !important;
+  background: var(--bp-surface) !important;
+  box-shadow: none !important;
+  transform: none !important;
+  transform-style: flat !important;
+  will-change: auto !important;
+  transition: background .15s ease !important;
+}
+.page-design--home .hp-mc-card:first-of-type { border-top: 1px solid var(--bp-line) !important; }
+.page-design--home .hp-mc-card:hover,
+.page-design--home .hp-mc-card.is-revealed:hover {
+  transform: none !important;
+  border-color: var(--bp-line) !important;
+  box-shadow: none !important;
+  background: var(--bp-surface-raised) !important;
+}
+.page-design--home .hp-mc-card::after { display: none !important; }
+.page-design--home .mc3d .hp-mc-card,
+.page-design--home .mc3d .hp-mc-card:not(.is-revealed),
+.page-design--home .mc3d .hp-mc-card.is-revealed {
+  opacity: 1 !important;
+  transform: none !important;
+}
+.page-design--home .mc3d .hp-mc-card :is(.hp-mc-top,.hp-mc-teams,.hp-mc-result,.hp-mc-picks,.hp-mc-data,.hp-mc-foot) {
+  transform: none !important;
+}
+.page-design--home .hp-mc-group {
+  margin: 18px 0 0 !important;
+  padding: 9px 12px !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--bp-line) !important;
+  background: transparent !important;
+}
+.page-design--home .hp-mc-group__marker { background: var(--bp-accent) !important; }
+.page-design--home .hp-mc-league { color: var(--bp-muted) !important; letter-spacing: .02em !important; }
+.page-design--home .hp-mc-status.is-live { color: var(--bp-accent) !important; }
+.page-design--home .hp-mc-time-value { color: var(--bp-text) !important; }
+@media (min-width: 768px) {
+  .page-design--home .hp-mc-grid { grid-template-columns: minmax(0, 1fr) !important; }
+}
