@@ -397,12 +397,12 @@ function MatchCard({ match, index, status, lang, labels, now }: {
             {match.aiBttsView && (
               <div className="btx-ai__views">
                 <div className="btx-ai__view">
-                  <div className="btx-ai__view-label">{lang === 'en' ? 'BTTS · AI' : lang === 'ar' ? 'BTTS · AI' : 'BTTS · IA'}</div>
+                  <div className="btx-ai__view-label">{lang === 'en' ? 'BTTS' : lang === 'ar' ? 'BTTS' : 'BTTS'}</div>
                   <div className="btx-ai__view-value" style={{ ['--vc' as string]: '#34D399' }}>{match.aiBttsView}</div>
                 </div>
                 {match.aiOver25View && (
                   <div className="btx-ai__view btx-ai__view--amber">
-                    <div className="btx-ai__view-label">{lang === 'en' ? 'Over 2.5 · AI' : lang === 'ar' ? 'Over 2.5 · AI' : 'Over 2.5 · IA'}</div>
+                    <div className="btx-ai__view-label">{lang === 'en' ? 'Over 2.5' : lang === 'ar' ? 'Over 2.5' : 'Over 2.5'}</div>
                     <div className="btx-ai__view-value" style={{ ['--vc' as string]: '#FBBF24' }}>{match.aiOver25View}</div>
                   </div>
                 )}
