@@ -13,7 +13,7 @@ import { getDakarDayDiff, getDakarMatchStatus, parseDakarDateTime } from '@/lib/
 import { getDakarDateOffset, selectCalendarItemsForDakarDay, selectFixtureOnlyItems, type PublicCalendarItem } from '@/lib/public-calendar'
 import VipMarketTeaser from './VipMarketTeaser'
 import MissingMarketVipLink from './MissingMarketVipLink'
-import { getGeminiPicks } from '@/lib/gemini-predictions'
+import { getGeminiPicks, mergeUniqueMarketPicks } from '@/lib/gemini-predictions'
 
 // ─── Helpers ────────────────────────────────────────────────────────────
 function getMatchStatus(date: string, time?: string): 'live' | 'upcoming' | 'past' {
@@ -120,11 +120,7 @@ function parseMatchesPayload(data: { free?: unknown[]; predictions?: unknown[]; 
     // Merge only independently validated Gemini picks; never synthesize a market.
     const existing = matchMap.get(key)
     if (existing) {
-      for (const pick of preds) {
-        if (!existing.predictions.some(current => current.type === pick.type)) {
-          existing.predictions.push(pick)
-        }
-      }
+      existing.predictions = mergeUniqueMarketPicks(existing.predictions, preds)
       continue
     }
 
