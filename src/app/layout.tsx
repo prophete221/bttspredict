@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import localFont from "next/font/local";
 import "./globals.css";
 import "./football-intelligence.css";
+import "./bttspredict-design-system.css";
 import ApplicationNavigationShell from "@/components/bttsbet/ApplicationNavigationShell";
 import LegacyCredentialCleanup from "@/components/bttsbet/LegacyCredentialCleanup";
 
@@ -113,13 +114,13 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#001E28",
+  themeColor: "#080D16",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
   minimumScale: 1,
   viewportFit: "cover",
-  colorScheme: "light",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({
@@ -199,7 +200,7 @@ export default function RootLayout({
         <BottomNavigation />
         <CookieConsent />
         <GiftPopup />
-        <div aria-hidden="true" className="lg:hidden" style={{ height: 'calc(78px + env(safe-area-inset-bottom, 0px))' }} />
+        <div aria-hidden="true" className="lg:hidden" style={{ height: 'calc(68px + env(safe-area-inset-bottom, 0px))' }} />
       </body>
     </html>
   );

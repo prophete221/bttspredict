@@ -2,13 +2,13 @@
 
 > Living handover document for ChatGPT and any collaborator taking over the project.
 > Update this file whenever a material decision, code change, test, deployment, or blocker occurs.
-> Last updated: 2026-11-13 (UTC).
+> Last updated: 2026-11-14 (UTC).
 
 ## 1. Project identity
 
 - Repository: `prophete221/bttspredict` (private GitHub repository).
 - Production website: https://bttspredict.com
-- Product/brand direction: **BTTSPredict / VISION221 PRO ANALYTICS**.
+- Product/brand direction: **BTTSPredict only**. VISION221 is exclusively the LINEBET promo code, never a platform name, slogan, or commercial signature.
 - Product: multilingual football analytics and predictions platform, with free and VIP experiences.
 - Main product languages: French, English, Arabic; Arabic must use proper RTL behavior.
 - Primary user workflow: mobile-first. The project owner works mainly from Android and does not rely on a desktop computer.
@@ -32,14 +32,19 @@
 
 ### Active working branch
 
-- Branch: `chatgpt/project-takeover-2026-11-13`
-- Created from `main` during the 2026-11-13 session.
-- Branch creation succeeded.
-- At creation, `package.json` on the branch matched `main` (same blob SHA: `db50e41214caddf1a1067998694b9b8b842baa77`).
-- The continuity file itself was committed and successfully re-fetched; GitHub content-write access is verified by commit 73ddd7b81b9c1e4bccfba5ec46060bd1eaf7eab5.
-- Do not assume this branch is still based on the latest `main`; re-check both refs before substantial work.
+- Branch: `rebuild/vision221-premium-design-2026-11-14`.
+- Created from the current `main` commit `e7943e81faf28fe588a129ee6d3d8e1a52db0f45`.
+- Current head: `e8454f81eaef020a53fbc69f12105f1ebba415a1`.
+- This branch is the clean redesign baseline. Its authoritative design brief is `docs/design/BTTSPREDICT_DESIGN_SYSTEM.md`; the mandatory workspace reset is documented in `docs/design/CUE_WORKSPACE_RESET.md`.
+- PR #129: https://github.com/prophete221/bttspredict/pull/129
+- PR #128 is abandoned as a design source and must not be reused.
+- Owner explicitly authorized completion, merge and FTP production deployment on 2026-11-14, conditional on validation passing.
+- Current PR scope: new visual CSS layer, root stylesheet import, mobile navigation label/height, and browser dark theme. SEO routes/metadata, prediction logic/data, affiliate URLs/tracking, VIP entitlements/payments, Cloudflare resources and the FTP workflow remain unchanged.
+- Latest GitHub Actions PR run #1317 failed before runner assignment: `runner_id=0`, zero steps, no downloadable logs. This is not evidence of a code/build failure; it also does not count as a passing validation. Do not merge until the build/test checks execute successfully.
+- Production is deployed to `bttspredict.com` through GitHub Actions FTP. Do not treat Vercel as the production deployment target.
+- No merge or production deployment has occurred for PR #129.
 
-Branch URL: https://github.com/prophete221/bttspredict/tree/chatgpt/project-takeover-2026-11-13
+Branch URL: https://github.com/prophete221/bttspredict/tree/rebuild/vision221-premium-design-2026-11-14
 
 ### Before resuming work
 
@@ -346,3 +351,17 @@ Continue a read-only analytics/authentication funnel audit: verify whether `NEXT
 - Vercel pour le commit précédent est maintenant `success`; le nouveau commit doit recevoir son propre contrôle.
 - Aucun merge, aucun déploiement de production, aucun changement de `main`, aucune modification des données publiques/privées ou de Cloudflare.
 - Prochaine étape : vérifier le statut du nouveau commit et le comportement du runner PR; demander au propriétaire de vérifier les paramètres Actions si le runner reste non assigné. Ne pas contourner les contrôles ni fusionner tant que le build et les contrôles ne sont pas validés.
+
+
+## 23. Nouveau brief de refonte et reset Cue — 2026-11-14 (UTC)
+
+- Le propriétaire confirme l'objectif commercial prioritaire : générer de nouvelles inscriptions sur chacun des bookmakers partenaires, et non promouvoir VISION221 comme signature.
+- Identité officielle unique : **BTTSPredict**. `VISION221` est exclusivement le code promo LINEBET.
+- Codes validés dans le brief de refonte : LINEBET `VISION221`; 1xBet `vipbtts`; MelBet `Bttswin`; 888Starz `btts221`. Priorité commerciale : LINEBET et 1xBet, puis MelBet et 888Starz. Tous les partenaires restent présents.
+- Création des documents directeurs sur la branche `rebuild/vision221-premium-design-2026-11-14` :
+  - `docs/design/BTTSPREDICT_DESIGN_SYSTEM.md` : brief produit, direction artistique originale, parcours de conversion, préservation des fonctions et critères d'acceptation.
+  - `docs/design/CUE_WORKSPACE_RESET.md` : procédure obligatoire de suppression de l'ancien espace local jetable de Cue et de nouveau checkout propre.
+- La branche de reconstruction a été confirmée existante. `package.json` correspond à `main` (blob identique) lors de ce contrôle.
+- Limite d'accès : le connecteur GitHub ne donne pas accès au disque/espace local privé de Cue. Le reset local ne peut donc pas être déclaré exécuté par ChatGPT; Cue ou un opérateur ayant accès doit fournir la preuve demandée dans `CUE_WORKSPACE_RESET.md`.
+- Aucun ancien design n'a été importé. Aucun code applicatif n'a été modifié à cette étape. Aucun test, preview, merge ou déploiement n'a été exécuté.
+- Prochaine étape : transmettre à Cue le document de reset, exiger la preuve d'un checkout propre, puis seulement commencer l'audit fonctionnel et la création du nouveau design depuis les références approuvées.
