@@ -43,8 +43,8 @@ export const TRANSLATIONS = {
     },
     home2: {
       statusUpdated: 'Données mises à jour aujourd’hui',
-      heroTitle1: 'Analyses de football',
-      heroTitle2: 'BTTS et Over 2,5',
+      heroTitle1: 'Pronostics BTTS et Over 2,5',
+      heroTitle2: 'Analyse footballistique',
       heroText: 'Des sélections BTTS et Over 2,5 à partir des données disponibles sur chaque match.',
       heroCtaPrimary: 'Voir les matchs analysés',
       heroCtaSecondary: 'Consulter l’historique',
@@ -164,8 +164,8 @@ export const TRANSLATIONS = {
     },
     home2: {
       statusUpdated: 'Data updated today',
-      heroTitle1: 'Football analysis',
-      heroTitle2: 'BTTS and Over 2.5',
+      heroTitle1: 'BTTS & Over 2.5 Predictions',
+      heroTitle2: 'Football Analytics',
       heroText: 'BTTS and Over 2.5 selections based on the available match data.',
       heroCtaPrimary: 'See analysed matches',
       heroCtaSecondary: 'Browse the history',
@@ -285,8 +285,8 @@ export const TRANSLATIONS = {
     },
     home2: {
       statusUpdated: 'بيانات محدّثة اليوم',
-      heroTitle1: 'تحليلات كرة القدم',
-      heroTitle2: 'BTTS و Over 2.5',
+      heroTitle1: 'توقعات BTTS وOver 2.5',
+      heroTitle2: 'تحليل كرة القدم',
       heroText: 'اختيارات BTTS وOver 2.5 اعتماداً على البيانات المتاحة لكل مباراة.',
       heroCtaPrimary: 'عرض المباريات المُحلَّلة',
       heroCtaSecondary: 'تصفّح السجل',
