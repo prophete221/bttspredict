@@ -164,7 +164,6 @@ main h3, .page-design h3, .match-analysis-page h3, [data-promo-shell] h3 { color
 main p, .page-design p, .match-analysis-page p { color: var(--bp-muted); line-height: 1.72; }
 main strong, .page-design strong, .match-analysis-page strong { color: #eaf2fc; }
 main a:not([class*="button"]):not([class*="btn"]) { text-underline-offset: 3px; }
-main :where(.max-w-3xl,.max-w-4xl,.max-w-5xl,.max-w-6xl,.max-w-7xl) { max-width: min(100% - 32px, var(--bp-content)); }
 main section { margin-inline: auto; }
 .page-design { min-height: 100vh; background: var(--bp-bg) !important; }
 .page-design main { width: 100%; }
