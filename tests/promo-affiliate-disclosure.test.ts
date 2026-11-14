@@ -53,8 +53,9 @@ describe('Divulgation affiliée sur les pages promotionnelles', () => {
     expect(source).toContain('Cette page contient des liens affiliés')
     expect(source).toContain('تتضمن هذه الصفحة روابط تابعة')
     const localized = readFileSync(resolve(ROOT, 'src/components/bttsbet/LocalizedPromoClient.tsx'), 'utf8')
-    expect(localized).toContain('Enter VISION221 when registering with Linebet.')
-    expect(localized).not.toContain('country availability has not been verified')
+    expect(localized).toContain('Linebet promo code VISION221 is listed here; country availability has not been verified.')
+    expect(localized).toContain('Check current eligibility and terms directly with Linebet.')
+    expect(localized).not.toMatch(/Linebet promo code VISION221 works worldwide/i)
   })
 
   it('affiche la divulgation sur la page promo 888Starz dans les trois langues', () => {

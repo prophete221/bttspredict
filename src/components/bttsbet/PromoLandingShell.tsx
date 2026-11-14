@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 import { trackAffiliateAction, trackAffiliateCodeCopy } from '@/lib/affiliateTracking'
 import { copyTextToClipboard } from '@/lib/clipboard'
 
@@ -127,7 +128,7 @@ export default function PromoLandingShell(p: PromoLandingProps) {
                 onClick={() => trackAffiliateAction(p.bookmakerId, 'download_click', `promo-apk-${p.lang}`)}
                 data-cta={`promo-apk-${p.bookmakerId}`}
                 className="promo-editorial__secondary"
-              >{L.download}</a>
+              ><Image src="/logos/google-play.svg" alt="" aria-hidden="true" width={18} height={18} />{L.download}</a>
             </div>
             <p data-affiliate-disclosure className="promo-editorial__disclosure">{L.affiliateDisclosure}</p>
           </div>

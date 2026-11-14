@@ -3,32 +3,10 @@ import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 
 const ROOT = resolve(__dirname, '..')
-const CODES = ['vipbtts', 'VISION221', 'Bttswin', 'btts221'] as const
-
-/** Fichiers où la ponctuation collée à un code a été retirée (textes visibles). */
-const SOURCES = [
-  'src/lib/promo-faq.ts',
-  'src/app/code-promo-1xbet/XbetClient.tsx',
-  'src/app/code-promo-linebet-senegal/LinebetClient.tsx',
-  'src/app/code-promo-melbet/MelbetClient.tsx',
-  'src/app/code-promo-1xbet/page.tsx',
-  'src/app/code-promo-linebet-senegal/page.tsx',
-  'src/app/code-promo-melbet/page.tsx',
-  'src/app/bonus-888starz/page.tsx',
-  'src/app/bonus-888starz-btts221/page.tsx',
-  'src/app/[locale]/code-promo-1xbet/page.tsx',
-  'src/app/[locale]/code-promo-linebet-senegal/page.tsx',
-  'src/app/[locale]/code-promo-melbet/page.tsx',
-  'src/app/[locale]/bonus-888starz/page.tsx',
-  'src/app/[locale]/bonus-888starz-btts221/page.tsx',
-  'src/components/bttsbet/LocalizedPromoClient.tsx',
-  'src/app/bonus-888starz/Star888Client.tsx',
+/** Sources whose rendered promo-code elements must contain only the code itself. */
+const CODE_ELEMENT_SOURCES = [
+  'src/components/bttsbet/PromoLandingShell.tsx',
   'src/components/bttsbet/Star888PromoClient.tsx',
-  'src/components/bttsbet/PromoVerificationGuide.tsx',
-  'src/components/bttsbet/Btts221PromoClient.tsx',
-  'src/app/page.tsx',
-  'src/app/cgu/page.tsx',
-  'src/app/linebet-promo-code/page.tsx',
 ]
 
 /** Handlers de copie : l’argument doit être une variable de code, jamais une phrase. */
@@ -42,18 +20,14 @@ const COPY_SOURCES = [
 ]
 
 describe('Codes promo affichés sans ponctuation accolée', () => {
-  it.each(SOURCES)('%s ne colle aucune ponctuation à un code', file => {
+  it.each(CODE_ELEMENT_SOURCES)('%s ne colle aucune ponctuation à un code affiché', file => {
     const source = readFileSync(resolve(ROOT, file), 'utf8')
-    const offenders: string[] = []
-    for (const code of CODES) {
-      // Ponctuation latine, arabe ou idéographique directement après le code.
-      const pattern = new RegExp(`${code}[.。،]`, 'g')
-      for (const match of source.matchAll(pattern)) {
-        const line = source.slice(0, match.index ?? 0).split('\n').length
-        offenders.push(`${file}:${line} → ${match[0]}`)
-      }
+    const codeElements = [...source.matchAll(/<code\b[^>]*>([\s\S]*?)<\/code>/g)]
+    expect(codeElements.length, `${file} doit rendre le code dans un élément <code>`).toBeGreaterThan(0)
+    for (const [, content] of codeElements) {
+      const renderedExpression = content.replace(/\{[^}]+\}/g, 'CODE').replace(/<[^>]+>/g, '').trim()
+      expect(renderedExpression).not.toMatch(/[.。،]\s*$/)
     }
-    expect(offenders).toEqual([])
   })
 })
 

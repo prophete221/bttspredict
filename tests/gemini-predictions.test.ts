@@ -31,6 +31,14 @@ describe('Gemini-only market picks', () => {
     expect(mergeUniqueMarketPicks(merged, over)).toHaveLength(2)
   })
 
+  it('drops a contradictory duplicate market rather than selecting one probability arbitrarily', () => {
+    const bttsYes = getGeminiPicks(verifiedRow('BTTS', 'Oui', 0.63))
+    const bttsNo = getGeminiPicks(verifiedRow('BTTS', 'Non', 0.61))
+    const over = getGeminiPicks(verifiedRow('OVER_25', 'Non', 0.58))
+
+    expect(mergeUniqueMarketPicks(bttsYes, [...bttsNo, ...over])).toEqual(over)
+  })
+
   it('normalizes one explicit Gemini market and preserves its probability', () => {
     const btts = getGeminiPicks(verifiedRow('BTTS', 'Oui', 0.63))
     const over = getGeminiPicks(verifiedRow('OVER_25', 'Non', 0.58))
@@ -86,6 +94,21 @@ describe('Gemini-only market picks', () => {
       ...verifiedRow('BTTS', 'Oui', 0.63),
       ai_market: 'winner',
       predictions: [{ type: 'winner', prediction: 'Home', proba: 0.7, modelEngine: MODEL }],
+    })).toEqual([])
+  })
+
+  it.each([
+    ['Over 1.5', 'OVER_15'],
+    ['Over 3.5', 'OVER_35'],
+    ['BTTS + Over 2.5', 'BTTS_OVER_25'],
+    ['Correct score', 'CORRECT_SCORE'],
+  ])('does not invent support for the unsupported %s market', (type, market) => {
+    const valid = verifiedRow('BTTS', 'Oui', 0.63)
+    expect(getGeminiPicks({
+      ...valid,
+      type,
+      ai_market: market,
+      predictions: [{ type, prediction: 'Oui', proba: 0.63, modelEngine: MODEL }],
     })).toEqual([])
   })
 })

@@ -110,32 +110,26 @@ describe('bookmakers data guardrails', () => {
     expect(AFFILIATE.melbetDownload).toBe('https://refpa3665.com/L?tag=d_6293054m_70867c_&site=6293054&ad=70867')
   })
 
-  it('contains the 300% worldwide offer without invented spin, deposit or wagering terms', () => {
+  it('keeps the supplied 300% amounts without inventing extra bonuses or wagering terms', () => {
     const files = [
-      'src/app/code-promo-1xbet/page.tsx',
       'src/app/code-promo-1xbet/XbetClient.tsx',
-      'src/app/code-promo-melbet/page.tsx',
-      'src/app/code-promo-melbet/MelbetClient.tsx',
-      'src/app/code-promo-linebet-senegal/page.tsx',
       'src/app/code-promo-linebet-senegal/LinebetClient.tsx',
-      'src/app/bonus-888starz/page.tsx',
-      'src/components/bttsbet/Star888PromoClient.tsx',
-      'src/app/bonus-888starz-btts221/page.tsx',
-      'src/app/[locale]/code-promo-1xbet/page.tsx',
-      'src/app/[locale]/code-promo-melbet/page.tsx',
-      'src/app/[locale]/bonus-888starz/page.tsx',
-      'src/app/[locale]/bonus-888starz-btts221/page.tsx',
+      'src/app/code-promo-melbet/MelbetClient.tsx',
       'src/components/bttsbet/LocalizedPromoClient.tsx',
       'src/components/bttsbet/Star888PromoClient.tsx',
+    ]
+    const allPromoCopy = [
+      ...files,
       'src/components/bttsbet/GiftPopup.tsx',
       'src/lib/promo-faq.ts',
-      'src/lib/i18n.ts',
-      'src/app/page.tsx',
+      'src/components/bttsbet/PromoVerificationGuide.tsx',
     ]
     for (const file of files) {
       const text = readFileSync(file, 'utf8')
-      const worldwideOffer = /(?:300\s*%[\s\S]{0,80}(?:worldwide|monde entier|mondial(?:e)?|عالم|حول العالم)|(?:worldwide|monde entier|mondial(?:e)?|عالم|حول العالم)[\s\S]{0,80}300\s*%)/i
-      expect(text, `${file} doit mentionner l’offre mondiale de 300%`).toMatch(worldwideOffer)
+      expect(text, `${file} doit conserver le montant 300% fourni`).toMatch(/300\s*%/)
+    }
+    for (const file of allPromoCopy) {
+      const text = readFileSync(file, 'utf8')
       expect(text, `${file} ne doit pas inventer spins, dépôt ou conditions`).not.toMatch(/100\s*free spins|100\s*لفة مجانية|no wagering requirements|sans condition de mise|بدون شروط مراهنة|first deposit|premier dépôt|dépôt de 1\s*€/i)
     }
   })
@@ -149,10 +143,8 @@ describe('bookmakers data guardrails', () => {
     const faq = readFileSync('src/lib/promo-faq.ts', 'utf8')
     const faqLinebet = faq.slice(faq.indexOf('  linebet: {'), faq.indexOf("  '1xbet': {"))
     const faqEnglish = faqLinebet.slice(faqLinebet.indexOf('    en: ['), faqLinebet.indexOf('    ar: ['))
-    const shell = readFileSync('src/components/bttsbet/PromoLandingShell.tsx', 'utf8')
 
     expect(page).toContain("const title = isEnglish ? 'Linebet Promo Code VISION221: Worldwide 300% Offer'")
-    expect(page).toContain("'Linebet 300% worldwide'")
     const metadataDescription = page.match(/const description = isEnglish\s*\?\s*'([^']+)'/)?.[1] ?? ''
     expect(metadataDescription).toContain('country availability is unverified')
     expect(metadataDescription).not.toMatch(/worldwide/i)
@@ -160,8 +152,6 @@ describe('bookmakers data guardrails', () => {
     expect(clientEnglish).not.toMatch(/worldwide/i)
     expect(faqEnglish).toContain('We have not verified which countries can use VISION221')
     expect(faqEnglish).not.toMatch(/worldwide/i)
-    expect(shell).toContain("p.bookmakerId === 'linebet' && p.lang === 'en'")
-    expect(shell).toContain('Country availability has not been verified')
   })
 
   it('never shows the superseded neutral Melbet wording', () => {

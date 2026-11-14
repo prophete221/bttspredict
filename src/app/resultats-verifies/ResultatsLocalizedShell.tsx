@@ -1,17 +1,17 @@
 'use client'
 
-import { Navbar, Footer } from '@/components/bttsbet'
+import { Navbar, Footer, FreePredictions } from '@/components/bttsbet'
 import ResultatsClient from './ResultatsClient'
 import { useLanguage } from '@/components/bttsbet/LanguageSwitcher'
 
 export default function ResultatsLocalizedShell({ initialData }: { initialData: unknown }) {
   const { lang } = useLanguage()
   const copy = lang === 'fr' ? {
-    title: 'Résultats des sélections archivées', intro: 'Consultez les matchs, les marchés, les scores finaux et le statut de vérification des sélections archivées.', rule: 'Traçabilité :', body: 'Chaque ligne indique la date, le match, le marché, la probabilité publiée, le score final et la source disponible. Les résultats passés ne garantissent pas les suivants. 18+ — Jeu responsable.'
+    title: 'Résultats vérifiés des pronostics', intro: 'Tous les pronostics vérifiés avec scores réels ESPN. Aucun prono modifié ou supprimé après publication.', rule: 'Règle d’intégrité :', body: 'Aucun pronostic n’est modifié ou supprimé après publication. Chaque entrée contient la date, le match, le marché, la probabilité, le score final, le résultat et la source ESPN. Les performances historiques ne garantissent pas les résultats futurs. 18+ — Jeu responsable.'
   } : lang === 'en' ? {
-    title: 'Archived selection results', intro: 'Review the matches, markets, final scores and verification status of archived selections.', rule: 'Traceability:', body: 'Each row shows the date, match, market, published probability, final score and available source. Past results do not guarantee future outcomes. 18+ — Play responsibly.'
+    title: 'Verified prediction results', intro: 'All predictions verified against real ESPN scores. No prediction is modified or deleted after publication.', rule: 'Integrity rule:', body: 'No prediction is modified or deleted after publication. Each entry contains the date, match, market, probability, final score, result and ESPN verification source. Historical performance does not guarantee future results. 18+ — Play responsibly.'
   } : {
-    title: 'نتائج الاختيارات المؤرشفة', intro: 'راجع المباريات والأسواق والنتائج النهائية وحالة التحقق للاختيارات المؤرشفة.', rule: 'التتبع:', body: 'يعرض كل سجل التاريخ والمباراة والسوق والاحتمال المنشور والنتيجة النهائية والمصدر المتاح. النتائج السابقة لا تضمن النتائج المستقبلية. 18+ — العب بمسؤولية.'
+    title: 'نتائج التوقعات الموثقة', intro: 'جميع التوقعات موثقة مقابل نتائج حقيقية من ESPN. لا يتم تعديل أو حذف أي توقع بعد نشره.', rule: 'قاعدة النزاهة:', body: 'لا يتم تعديل أو حذف أي توقع بعد نشره. يتضمن كل سجل التاريخ والمباراة والسوق والاحتمال والنتيجة النهائية ومصدر التحقق من ESPN. الأداء السابق لا يضمن النتائج المستقبلية. 18+ — العب بمسؤولية.'
   }
 
   return (
@@ -22,6 +22,7 @@ export default function ResultatsLocalizedShell({ initialData }: { initialData: 
           <div className="mb-8"><h1 className="text-3xl font-bold mb-2 tracking-tight">{copy.title}</h1><p className="text-sm text-[#9DABBB]">{copy.intro}</p></div>
           <ResultatsClient initialData={initialData} />
           <div className="mt-8 p-4 rounded-xl bg-[#141C25] border border-[#6B7A8C]"><p className="text-[11px] text-[#9DABBB] leading-relaxed"><strong className="text-[#9DABBB]">{copy.rule}</strong> {copy.body}</p></div>
+          <section className="mx-auto max-w-5xl px-4 py-8"><FreePredictions /></section>
         </div>
       </main>
       <Footer />

@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import Btts221PromoClient from '@/components/bttsbet/Btts221PromoClient'
 import { SUPPORTED_LOCALES, type Locale } from '@/lib/i18n'
 import { buildPromoFaqJsonLd } from '@/lib/promo-faq'
+import PromoVerificationGuide from '@/components/bttsbet/PromoVerificationGuide'
 
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
@@ -80,6 +81,7 @@ export default async function LocalizedBtts221Page({ params }: { params: Promise
       {localizedStructuredData(lang).map((schema, index) => <script key={index} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />)}
       <Navbar />
       <Btts221PromoClient lang={lang} />
+      {lang === 'en' && <PromoVerificationGuide bookmaker="888starz" lang="en" variant="code" />}
       <Footer />
     </>
   )

@@ -118,7 +118,7 @@ export const TRANSLATIONS = {
     hero: {
       badge: 'Analyse football',
       title1: 'BTTSPredict — [analyses football].', title2: 'BTTS et Over 2,5.',
-      subtitle: 'Des analyses BTTS, Over 2,5 et score exact, avec un historique des résultats.',
+      subtitle: 'Analyses BTTS, Over 2,5 et score exact, publiées avant le match et suivies jusqu’au résultat vérifié.',
       perfTitle: 'Performance vérifiée',
       statsWon: 'Gagnés', statsLost: 'Perdus',
       liveData: 'Pronos du jour', timezone: 'Africa/Dakar',
@@ -239,7 +239,7 @@ export const TRANSLATIONS = {
     hero: {
       badge: 'Football analysis',
       title1: 'BTTSPredict — [football analysis].', title2: 'BTTS & Over 2.5.',
-      subtitle: 'BTTS, Over 2.5 and correct-score analysis, with a public results history.',
+      subtitle: 'BTTS, Over 2.5 and correct-score analysis, published before kick-off and tracked to the verified result.',
       perfTitle: 'Verified performance',
       statsWon: 'Won', statsLost: 'Lost',
       liveData: 'Today’s picks', timezone: 'Africa/Dakar',
@@ -360,7 +360,7 @@ export const TRANSLATIONS = {
     hero: {
       badge: 'تحليلات كرة القدم',
       title1: 'BTTSPredict — [تحليلات كرة القدم].', title2: 'BTTS وOver 2.5.',
-      subtitle: 'تحليلات BTTS وOver 2.5 والنتيجة الدقيقة، مع سجل علني للنتائج.',
+      subtitle: 'تحليلات BTTS وOver 2.5 والنتيجة الدقيقة، تُنشر قبل المباراة وتُتابع حتى النتيجة الموثّقة.',
       perfTitle: 'الأداء الموثّق',
       statsWon: 'رابحة', statsLost: 'خاسرة',
       liveData: 'توقعات اليوم', timezone: 'Africa/Dakar',

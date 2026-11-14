@@ -1,4 +1,5 @@
 import fs from 'node:fs'
+import { publicFixtureKey } from '../src/lib/fixture-identity.js'
 
 export const GEMINI_MODEL = 'gemini-3.5-flash-lite'
 
@@ -22,11 +23,7 @@ function normalizeSelection(value) {
 }
 
 function fixtureKey(row) {
-  const date = String(row?.date ?? '').trim()
-  const league = normalizeText(row?.league)
-  const home = normalizeText(row?.home)
-  const away = normalizeText(row?.away)
-  return date && league && home && away ? `${date}|${league}|${home}|${away}` : null
+  return publicFixtureKey(row)
 }
 
 export function isCurrentGeminiPick(row) {
@@ -91,6 +88,8 @@ export function filterGeminiCurrentPicks(payload) {
   const verified = candidates.filter(hasCurrentGeminiDecision)
   const groups = new Map()
   let unidentifiable = 0
+  let duplicateMarketRows = 0
+  let conflictingMarkets = 0
 
   for (const candidate of verified) {
     const key = fixtureKey(candidate)
@@ -98,19 +97,43 @@ export function filterGeminiCurrentPicks(payload) {
       unidentifiable += 1
       continue
     }
-    const group = groups.get(key) ?? []
-    group.push(candidate)
+    const group = groups.get(key) ?? { picks: new Map(), conflictedMarkets: new Set(), abstention: null }
+    if (isCurrentGeminiPick(candidate)) {
+      const market = canonicalMarket(candidate.ai_market)
+      if (group.conflictedMarkets.has(market)) {
+        duplicateMarketRows += 1
+        continue
+      }
+      const previous = group.picks.get(market)
+      if (!previous) {
+        group.picks.set(market, candidate)
+      } else {
+        duplicateMarketRows += 1
+        const samePick = normalizeSelection(previous.prediction) === normalizeSelection(candidate.prediction) &&
+          Number(previous.proba) === Number(candidate.proba)
+        if (!samePick) {
+          group.picks.delete(market)
+          group.conflictedMarkets.add(market)
+          conflictingMarkets += 1
+        }
+      }
+    } else if (!group.abstention) {
+      group.abstention = candidate
+    } else {
+      duplicateMarketRows += 1
+    }
     groups.set(key, group)
   }
 
   const selected = []
-  let duplicateFixtures = 0
+  let abstentionsSuppressedByPick = 0
   for (const group of groups.values()) {
-    if (group.length !== 1) {
-      duplicateFixtures += group.length
-      continue
+    if (group.picks.size > 0) {
+      selected.push(...group.picks.values())
+      if (group.abstention) abstentionsSuppressedByPick += 1
+    } else if (group.abstention) {
+      selected.push(group.abstention)
     }
-    selected.push(group[0])
   }
 
   const pickedFixtureKeys = new Set(
@@ -136,7 +159,11 @@ export function filterGeminiCurrentPicks(payload) {
     abstentions: candidates.filter(isCurrentGeminiAbstention).length,
     rejectedResponses: candidates.filter(isCurrentGeminiRejection).length,
     unverifiedOrMissing: candidates.filter(row => !hasCurrentGeminiDecision(row) && !isCurrentGeminiRejection(row)).length,
-    duplicateFixtures,
+    // Keep the legacy counter as an alias; distinct market rows are no longer duplicates.
+    duplicateFixtures: duplicateMarketRows,
+    duplicateMarketRows,
+    conflictingMarkets,
+    abstentionsSuppressedByPick,
     unidentifiable,
     excluded: candidates.length - selected.length,
     published: selected.length,
@@ -168,7 +195,8 @@ function main() {
     `[gemini-feed] candidates=${metrics.candidates}; verified decisions=${metrics.verifiedDecisions}; ` +
     `picks=${metrics.directPicks}; explicit abstentions=${metrics.abstentions}; ` +
     `rejected=${metrics.rejectedResponses}; unverified/missing=${metrics.unverifiedOrMissing}; ` +
-    `duplicate fixtures=${metrics.duplicateFixtures}; published=${metrics.published}`,
+      `duplicate market rows=${metrics.duplicateMarketRows}; conflicting markets=${metrics.conflictingMarkets}; ` +
+      `published=${metrics.published}`,
   )
   if (metrics.excluded > 0) {
     console.log(

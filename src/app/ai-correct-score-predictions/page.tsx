@@ -99,7 +99,7 @@ export default function AICorrectScorePage() {
         <nav aria-label={lang === 'en' ? 'Breadcrumb' : lang === 'ar' ? 'مسار التنقل' : "Fil d'Ariane"} className="text-xs text-[#9DABBB] mb-4 max-w-5xl mx-auto px-4 pt-8">
           <Link href={lang === 'fr' ? '/' : `/${lang}`} className="hover:text-[#2F7DFF]">{t.common.home}</Link>
           <span className="mx-1">/</span>
-          <span className="text-[#9DABBB]">{lang === 'fr' ? 'Score exact' : lang === 'ar' ? 'النتيجة الدقيقة' : 'Correct score'}</span>
+          <span className="text-[#9DABBB]">{lang === 'fr' ? 'Score exact IA' : lang === 'ar' ? 'النتيجة الدقيقة بالذكاء الاصطناعي' : 'AI Correct Score'}</span>
         </nav>
 
         <section className="max-w-5xl mx-auto px-4 pt-4 pb-6">
@@ -108,7 +108,7 @@ export default function AICorrectScorePage() {
             {lang === 'fr' ? 'Analyse · Score exact · Modèle statistique' : lang === 'en' ? 'Analysis · Correct Score · Statistical Model' : 'التحليل · النتيجة الدقيقة · نموذج إحصائي'}
           </span>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 tracking-tight">
-            {lang === 'fr' ? 'Estimations de score exact' : lang === 'en' ? 'Correct score estimates' : 'تقديرات النتيجة الدقيقة'}
+            {lang === 'fr' ? 'Prédictions de score exact par IA' : lang === 'en' ? 'AI Correct Score Predictions' : 'توقعات النتيجة الدقيقة بالذكاء الاصطناعي'}
           </h1>
           <p className="text-base sm:text-lg text-[#9DABBB] leading-relaxed mb-3 max-w-3xl mx-auto">
             {lang === 'fr' ? 'Les scores proposés sont calculés avec un modèle de Poisson à partir des moyennes de buts récentes disponibles pour chaque équipe. Les cinq scores les mieux classés sont affichés pour chaque match.' : lang === 'en' ? 'Score estimates are calculated with a Poisson model using the available recent goal averages for each team. The five highest-ranked scorelines are shown for each match.' : 'تُحسب تقديرات النتائج باستخدام نموذج بواسون ومتوسطات الأهداف الحديثة المتاحة لكل فريق. تُعرض أعلى خمس نتائج لكل مباراة.'}

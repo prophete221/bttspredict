@@ -39,13 +39,23 @@ function numericProbability(value: unknown): number | null {
     : null
 }
 
-/** Merge independently validated market picks without duplicating a market. */
-export function mergeUniqueMarketPicks<T extends { type: string }>(current: T[], incoming: readonly T[]): T[] {
-  const merged = [...current]
-  for (const pick of incoming) {
-    if (!merged.some(existing => existing.type === pick.type)) merged.push(pick)
+/** Merge independently validated market picks without guessing between conflicts. */
+export function mergeUniqueMarketPicks<T extends { type: string; prediction: string; proba: number }>(current: T[], incoming: readonly T[]): T[] {
+  const merged = new Map<string, T>()
+  const conflictedMarkets = new Set<string>()
+  for (const pick of [...current, ...incoming]) {
+    if (conflictedMarkets.has(pick.type)) continue
+    const existing = merged.get(pick.type)
+    if (!existing) {
+      merged.set(pick.type, pick)
+      continue
+    }
+    if (existing.prediction !== pick.prediction || Math.abs(existing.proba - pick.proba) >= 1e-9) {
+      merged.delete(pick.type)
+      conflictedMarkets.add(pick.type)
+    }
   }
-  return merged
+  return [...merged.values()]
 }
 
 /**

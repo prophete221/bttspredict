@@ -45,7 +45,7 @@ export default function Over25StatisticsPage() {
 
         <section className="mx-auto max-w-5xl px-4 pt-6 pb-8">
           <p className="mb-3 text-[10px] font-bold uppercase tracking-[.12em] text-[#8DB8FF]">Over 2.5 market</p>
-          <h1 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">Competitions covered</h1>
+          <h1 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">Over 2.5 Statistics by League</h1>
           <p className="max-w-3xl text-sm leading-7 text-[#A6B4C4]">
             These are the competitions currently listed for the Over 2.5 market. League averages and hit rates are not published until a verifiable historical dataset is available.
           </p>

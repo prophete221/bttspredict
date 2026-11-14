@@ -14,6 +14,7 @@ import { getDakarDateOffset, selectCalendarItemsForDakarDay, selectFixtureOnlyIt
 import VipMarketTeaser from './VipMarketTeaser'
 import MissingMarketVipLink from './MissingMarketVipLink'
 import { getGeminiPicks, mergeUniqueMarketPicks } from '@/lib/gemini-predictions'
+import { publicFixtureKey } from '@/lib/fixture-identity.js'
 
 // ─── Helpers ────────────────────────────────────────────────────────────
 function getMatchStatus(date: string, time?: string): 'live' | 'upcoming' | 'past' {
@@ -54,6 +55,7 @@ function formatDateShort(dateStr: string, lang: 'fr' | 'en' | 'ar' = 'fr') {
 interface Prediction {
   type: string
   prediction: string
+  proba: number
   confidence?: number
   bttsProb?: number
   over25Prob?: number
@@ -108,13 +110,16 @@ function parseMatchesPayload(data: { free?: unknown[]; predictions?: unknown[]; 
   const hasSeparatedFixtures = Array.isArray(data?.fixtures) && data.fixtures.length > 0
   if (!rawPredictions.length) return []
   const matchMap = new Map<string, MatchData>()
-  for (const p of rawPredictions) {
+  for (const [rowIndex, p] of rawPredictions.entries()) {
     const rowQuality: DataQuality = predictionQuality(p as never)
     const preds = getGeminiPicks(p)
     if (hasSeparatedFixtures && preds.length === 0) continue
     const isGeminiResponse = p.ai_source === 'gemini-stats-v1'
-    const key = String(p.match || '')
-    if (!key) continue
+    const matchLabel = String(p.match || '')
+    if (!matchLabel) continue
+    // Never merge rows by display text alone: identical labels can refer to
+    // different fixtures. Rows missing the complete identity stay separate.
+    const key = publicFixtureKey(p) ?? `unidentified:${rowIndex}:${matchLabel}`
 
     // A match can be represented by multiple source rows (one per market).
     // Merge only independently validated Gemini picks; never synthesize a market.
@@ -125,7 +130,7 @@ function parseMatchesPayload(data: { free?: unknown[]; predictions?: unknown[]; 
     }
 
     matchMap.set(key, {
-      match: key,
+      match: matchLabel,
       league: String(p.league || ''),
       date: String(p.date || ''),
       time: String(p.time || '--:--'),
