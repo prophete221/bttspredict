@@ -114,9 +114,9 @@ const LOCALIZED_COPY: Record<Exclude<BookmakerId, '888starz'>, Record<'fr' | 'en
   },
   linebet: {
     fr: {
-      badge: 'GUIDE INTERNATIONAL LINEBET',
+      badge: 'CODE PROMO LINEBET',
       title: 'Code promo Linebet VISION221 : offre mondiale 300 %',
-      intro: 'Le code promo Linebet VISION221 fonctionne dans le monde entier. L’offre comprend un bonus de dépôt de 300 %, du cashback et des bonus hebdomadaires ; vérifiez auprès de Linebet les modalités applicables dans votre pays.',
+      intro: 'Le code VISION221 est valable dans le monde entier. L’offre comprend un bonus de dépôt de 300 %, du cashback et des bonus hebdomadaires. Vérifiez les conditions applicables à votre compte auprès de Linebet.',
       offerHeadline: 'Offre Linebet dans le monde',
       offerSub: 'Code VISION221 · bonus de dépôt mondial de 300 % · cashback et bonus hebdomadaires.',
       benefits: ['Code Linebet : VISION221', 'Fonctionne dans le monde entier', 'Bonus de dépôt mondial de 300 %', 'Cashback et bonus hebdomadaires'],
@@ -126,15 +126,15 @@ const LOCALIZED_COPY: Record<Exclude<BookmakerId, '888starz'>, Record<'fr' | 'en
       ],
     },
     en: {
-      badge: 'INTERNATIONAL LINEBET GUIDE',
-      title: 'Linebet Promo Code VISION221: 300% Offer',
-      intro: 'Linebet promo code VISION221 is listed here; country availability has not been verified. Check current eligibility and terms directly with Linebet. The offer includes a 300% deposit bonus, cashback and weekly bonuses.',
+      badge: 'LINEBET PROMO CODE',
+      title: 'Linebet Promo Code VISION221: 300% Worldwide Bonus',
+      intro: 'Linebet promo code VISION221 is valid worldwide. The offer includes a 300% deposit bonus, cashback and weekly bonuses. Check the terms that apply to your account with Linebet.',
       offerHeadline: 'Linebet offer',
       offerSub: 'VISION221 code · 300% deposit bonus · cashback and weekly bonuses.',
-      benefits: ['Linebet code: VISION221', 'Check local availability with Linebet', '300% deposit bonus', 'Cashback and weekly bonuses'],
+      benefits: ['Code: VISION221', 'Worldwide offer', '300% deposit bonus', 'Cashback and weekly bonuses'],
       steps: [
-        { n: '01', title: 'Copy VISION221', desc: 'Ask Linebet whether VISION221 is available in your country.' },
-        { n: '02', title: 'Check local rules', desc: 'Ask Linebet about the terms and availability that apply in your country.' },
+        { n: '01', title: 'Copy VISION221', desc: 'Enter VISION221 where Linebet asks for a promo code.' },
+        { n: '02', title: 'Check local rules', desc: 'Check the current offer terms with Linebet before making a deposit.' },
       ],
     },
     ar: {
