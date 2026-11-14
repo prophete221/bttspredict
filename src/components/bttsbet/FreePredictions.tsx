@@ -114,7 +114,20 @@ function parseMatchesPayload(data: { free?: unknown[]; predictions?: unknown[]; 
     if (hasSeparatedFixtures && preds.length === 0) continue
     const isGeminiResponse = p.ai_source === 'gemini-stats-v1'
     const key = String(p.match || '')
-    if (!key || matchMap.has(key)) continue
+    if (!key) continue
+
+    // A match can be represented by multiple source rows (one per market).
+    // Merge only independently validated Gemini picks; never synthesize a market.
+    const existing = matchMap.get(key)
+    if (existing) {
+      for (const pick of preds) {
+        if (!existing.predictions.some(current => current.type === pick.type)) {
+          existing.predictions.push(pick)
+        }
+      }
+      continue
+    }
+
     matchMap.set(key, {
       match: key,
       league: String(p.league || ''),
