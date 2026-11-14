@@ -200,7 +200,7 @@ export default function RootLayout({
         <BottomNavigation />
         <CookieConsent />
         <GiftPopup />
-        <div aria-hidden="true" className="lg:hidden" style={{ height: 'calc(78px + env(safe-area-inset-bottom, 0px))' }} />
+        <div aria-hidden="true" className="lg:hidden" style={{ height: 'calc(68px + env(safe-area-inset-bottom, 0px))' }} />
       </body>
     </html>
   );
