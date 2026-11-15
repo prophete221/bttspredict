@@ -210,7 +210,7 @@ describe('ftp-diff forced paths', () => {
     expect(deployList).toBe('^\\.htaccess$\n^robots\\.txt$\n^sitemap\\.xml$\n')
   })
 
-  it('deploys only the approved English Linebet copy and preserves other promo routes', () => {
+  it('deploys refreshed localized promo shells and preserves remaining protected routes', () => {
     const { root, outDir, script } = makeFixture()
     const current = {
       '.htaccess': 'routing rules\n',
@@ -221,8 +221,9 @@ describe('ftp-diff forced paths', () => {
       'en/code-promo-linebet-senegal.html': 'local clicked page\n',
       'en/code-promo-linebet-senegal.txt': 'local clicked sidecar\n',
       'en/code-promo-linebet-senegal/__next._full.txt': 'local clicked RSC\n',
-      'ar/code-promo-1xbet.html': 'unapproved local variant\n',
-      'en/bonus-888starz.html': 'unapproved local bonus page\n',
+      'ar/code-promo-1xbet.html': 'refreshed Arabic promo page\n',
+      'ar/code-promo-1xbet/__next._full.txt': 'refreshed Arabic promo RSC\n',
+      'en/bonus-888starz.html': 'refreshed English promo page\n',
       '_next/static/chunks/app/[locale]/code-promo-linebet-senegal/page-abc.js': 'shared code chunk\n',
     }
     const previousFiles: Record<string, { hash: string; size: number }> = {}
@@ -236,13 +237,14 @@ describe('ftp-diff forced paths', () => {
       const fullPath = path.join(outDir, rel)
       mkdirSync(path.dirname(fullPath), { recursive: true })
       writeFileSync(fullPath, value)
-      const protectedPath = rel.startsWith('ar/code-promo-1xbet') || rel.startsWith('en/bonus-888starz')
+      const protectedPath = rel.startsWith('ar/bonus-888starz-btts221') || rel.startsWith('linebet-promo-code')
       const approvedLinebetPath = rel === 'en/code-promo-linebet-senegal.html'
         || rel === 'en/code-promo-linebet-senegal.txt'
         || rel.startsWith('en/code-promo-linebet-senegal/')
       const absentOnLive = rel === 'ar/code-promo-1xbet.html'
+      const refreshedLocalizedPath = rel === 'ar/code-promo-1xbet/__next._full.txt' || rel === 'en/bonus-888starz.html'
       if (!absentOnLive) {
-        const previous = protectedPath || approvedLinebetPath
+        const previous = protectedPath || approvedLinebetPath || refreshedLocalizedPath
           ? `published ${value}`
           : rel === '_next/static/chunks/app/[locale]/code-promo-linebet-senegal/page-abc.js'
             ? 'old shared code chunk\n'
@@ -263,29 +265,43 @@ describe('ftp-diff forced paths', () => {
     expect(manifest.files['en/code-promo-linebet-senegal.html'].hash).toBe(createHash('sha256').update(current['en/code-promo-linebet-senegal.html']).digest('hex').slice(0, 16))
     expect(manifest.files['en/code-promo-linebet-senegal.txt'].hash).toBe(createHash('sha256').update(current['en/code-promo-linebet-senegal.txt']).digest('hex').slice(0, 16))
     expect(manifest.files['en/code-promo-linebet-senegal/__next._full.txt'].hash).toBe(createHash('sha256').update(current['en/code-promo-linebet-senegal/__next._full.txt']).digest('hex').slice(0, 16))
-    expect(manifest.files['en/bonus-888starz.html'].hash).toBe(previousFiles['en/bonus-888starz.html'].hash)
-    expect(manifest.files['en/bonus-888starz/__next.live-only.txt'].hash).toBe(previousFiles['en/bonus-888starz/__next.live-only.txt'].hash)
-    expect(manifest.files['ar/code-promo-1xbet.html']).toBeUndefined()
+    expect(manifest.files['en/bonus-888starz.html'].hash).toBe(createHash('sha256').update(current['en/bonus-888starz.html']).digest('hex').slice(0, 16))
+    expect(manifest.files['ar/code-promo-1xbet.html'].hash).toBe(createHash('sha256').update(current['ar/code-promo-1xbet.html']).digest('hex').slice(0, 16))
+    expect(manifest.files['ar/code-promo-1xbet/__next._full.txt'].hash).toBe(createHash('sha256').update(current['ar/code-promo-1xbet/__next._full.txt']).digest('hex').slice(0, 16))
+    expect(manifest.files['en/bonus-888starz/__next.live-only.txt']).toBeUndefined()
     expect(manifest.fileCount).toBe(Object.keys(manifest.files).length)
     expect(manifest.totalBytes).toBe(Object.values(manifest.files).reduce((sum, file) => sum + file.size, 0))
 
     execFileSync(process.execPath, [script, 'prepare', '--require-prev'], { cwd: root, encoding: 'utf8' })
     const stats = JSON.parse(readFileSync(path.join(outDir, 'deploy-diff-stats.json'), 'utf8'))
     const deployList = readFileSync(path.join(outDir, 'deploy-list.txt'), 'utf8')
-    expect(stats.newPaths).toEqual([])
-    expect(stats.changedPaths).toHaveLength(4)
+    expect(stats.newPaths).toEqual(['ar/code-promo-1xbet.html'])
+    expect(stats.changedPaths).toHaveLength(6)
     expect(stats.changedPaths).toEqual(expect.arrayContaining([
       '_next/static/chunks/app/[locale]/code-promo-linebet-senegal/page-abc.js',
       'en/code-promo-linebet-senegal.html',
       'en/code-promo-linebet-senegal.txt',
       'en/code-promo-linebet-senegal/__next._full.txt',
+      'ar/code-promo-1xbet/__next._full.txt',
+      'en/bonus-888starz.html',
     ]))
     expect(deployList).toContain('^en/code-promo-linebet-senegal\\.html$')
     expect(deployList).toContain('^en/code-promo-linebet-senegal\\.txt$')
     expect(deployList).toContain('code-promo-linebet-senegal/page-abc')
     expect(deployList).not.toContain('^code-promo-linebet-senegal\\.html$')
-    expect(deployList).not.toContain('ar/code-promo-1xbet')
-    expect(deployList).not.toContain('en/bonus-888starz')
+    expect(deployList).toContain('^ar/code-promo-1xbet\\.html
+  })
+
+})
+)
+    expect(deployList).toContain('ar/code-promo-1xbet/__next\\._full\\.txt')
+    expect(deployList).toContain('^en/bonus-888starz\\.html
+  })
+
+})
+)
+    expect(deployList).not.toContain('ar/bonus-888starz-btts221')
+    expect(deployList).not.toContain('linebet-promo-code')
   })
 
 })
