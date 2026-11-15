@@ -5,6 +5,7 @@ import { useLanguage } from './LanguageSwitcher'
 import { translationsFor, type Locale, localizedPath } from '@/lib/i18n'
 import { generateMatchSlug } from '@/lib/match-slug'
 import { getDakarDayDiff, hasDakarKickoffPassed } from '@/lib/dakar-date'
+import BookmakerCardLinks from './BookmakerCardLinks'
 
 interface Pick { type: string; prediction: string; confidence?: number }
 interface Fixture {
@@ -71,8 +72,8 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
         <div className="bp-home__intro">
           <p className="bp-home__eyebrow">BTTSPREDICT <span>·</span> {copy.eyebrow}</p>
           <h1 className="bp-home__title">
-            <span>Plateforme N°1 Mondiale</span>
-            <strong>BTTS &amp; Over 2.5 Master</strong>
+            <span>{t.home2.heroTitle1.replace(/[\[\]]/g, '')}</span>
+            <strong>{t.home2.heroTitle2}</strong>
           </h1>
           <p className="bp-home__description">{copy.description}</p>
           <div className="bp-home__actions">
@@ -103,6 +104,7 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
               {picks.length > 0 && <div className="bp-feature__picks">{picks.map(p => <div key={p.type}><small>{p.type}</small><b>{p.prediction === 'Oui' ? t.predictions.bttsYes : p.prediction === 'Non' ? t.predictions.bttsNo : p.prediction}</b>{typeof p.confidence === 'number' && p.confidence > 0 && p.confidence <= 100 && <strong>{p.confidence}%</strong>}</div>)}</div>}
             </>
           ) : <div className="bp-feature__empty">{copy.noMatch}</div>}
+          {fixture && <div className="bp-feature__partners"><BookmakerCardLinks locale={lang} placement="home-featured-match-card" compact /></div>}
           <a className="bp-feature__link" href={href}>{copy.view}<span aria-hidden="true">→</span></a>
         </article>
       </div>

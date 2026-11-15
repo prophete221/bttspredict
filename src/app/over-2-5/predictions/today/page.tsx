@@ -107,24 +107,24 @@ export default function Over25PredictionsTodayPage() {
 
         <section className="over25-related-section max-w-3xl mx-auto px-4 pb-12">
           <h2 className="text-2xl font-bold mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>
-            Quick Links
+            Accès rapides
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <Link href="/btts/predictions/today" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2F7DFF]" style={{ backgroundColor: '#141C25', border: '1px solid #6B7A8C' }}>
-              <div className="text-sm font-bold text-[#F2F6FA]">BTTS Predictions Today →</div>
-              <div className="text-xs text-[#9DABBB] mt-1">Both teams to score</div>
+              <div className="text-sm font-bold text-[#F2F6FA]">Prédictions BTTS du jour →</div>
+              <div className="text-xs text-[#9DABBB] mt-1">Les deux équipes marquent</div>
             </Link>
             <Link href="/btts-and-over-2-5-predictions-today" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2F7DFF]" style={{ backgroundColor: '#141C25', border: '1px solid #6B7A8C' }}>
-              <div className="text-sm font-bold text-[#F2F6FA]">BTTS + Over 2.5 Combined →</div>
-              <div className="text-xs text-[#9DABBB] mt-1">Both conditions met</div>
+              <div className="text-sm font-bold text-[#F2F6FA]">BTTS + Over 2,5 combiné →</div>
+              <div className="text-xs text-[#9DABBB] mt-1">Les deux critères réunis</div>
             </Link>
             <Link href="/ai-correct-score-predictions" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2F7DFF]" style={{ backgroundColor: '#141C25', border: '1px solid #6B7A8C' }}>
-              <div className="text-sm font-bold text-[#F2F6FA]">AI Correct Score →</div>
-              <div className="text-xs text-[#9DABBB] mt-1">Exact score probabilities</div>
+              <div className="text-sm font-bold text-[#F2F6FA]">Score exact IA →</div>
+              <div className="text-xs text-[#9DABBB] mt-1">Probabilités des scores exacts</div>
             </Link>
             <Link href="/over-2-5/statistics" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2F7DFF]" style={{ backgroundColor: '#141C25', border: '1px solid #6B7A8C' }}>
-              <div className="text-sm font-bold text-[#F2F6FA]">Over 2.5 Statistics →</div>
-              <div className="text-xs text-[#9DABBB] mt-1">League stats</div>
+              <div className="text-sm font-bold text-[#F2F6FA]">Statistiques Over 2,5 →</div>
+              <div className="text-xs text-[#9DABBB] mt-1">Statistiques par ligue</div>
             </Link>
           </div>
         </section>

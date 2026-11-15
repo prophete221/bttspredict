@@ -176,7 +176,7 @@ const datasetJsonLd = {
 
 export default function Home() {
   return (
-    <div className="page-design page-design--home min-h-screen bg-dark-800 relative">
+    <div className="bp-site-page page-design page-design--home relative">
 
       {/* JSON-LD Structured Data */}
       <script
@@ -207,10 +207,10 @@ export default function Home() {
         <ErrorBoundary><MatchCenter /></ErrorBoundary>
         <ErrorBoundary><PerformanceDashboard /></ErrorBoundary>
 
-        <section className="mx-auto max-w-[980px] px-4 py-5 sm:px-6" aria-labelledby="home-platform-summary">
-          <div className="border-t border-[#303030] pt-5">
-            <h2>Plateforme de sélections BTTS, Over 2.5 et score exact</h2>
-            <p className="mt-2 max-w-3xl text-sm leading-6 text-[#A4A4A4]">
+        <section className="bp-home-summary" aria-labelledby="home-platform-summary">
+          <div>
+            <h2 id="home-platform-summary">Plateforme de sélections BTTS, Over 2.5 et score exact</h2>
+            <p>
               BTTSPredict aide les parieurs africains à lire des sélections de matchs internationaux :
               BTTS, Over 2.5 et projection de score exact. Les données sont publiées avant le match,
               les résultats gagnés et perdus sont archivés, et aucun gain futur n&apos;est garanti.
@@ -219,18 +219,18 @@ export default function Home() {
         </section>
 
         {/* Jeu responsable — compact et moderne */}
-        <section className="mx-auto max-w-[980px] px-4 pb-6 sm:px-6">
-          <div className="p-4 rounded-[12px] flex items-start gap-3" style={{ backgroundColor: '#191919', border: '1px solid #303030' }}>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#63D471" strokeWidth="2" className="flex-shrink-0 mt-0.5">
+        <section className="bp-responsible" aria-label="Jeu responsable">
+          <div>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8dbbfa" strokeWidth="2" className="flex-shrink-0 mt-0.5">
               <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
               <line x1="12" y1="9" x2="12" y2="13" />
               <line x1="12" y1="17" x2="12.01" y2="17" />
             </svg>
             <div>
               <p className="text-sm text-[#A4A4A4] leading-relaxed mb-1">
-                <strong className="text-[#63D471]">18+</strong> · Les paris sportifs comportent un risque de perte. Ne pariez jamais plus que ce que vous pouvez perdre.
+                <strong>18+</strong> · Les paris sportifs comportent un risque de perte. Ne pariez jamais plus que ce que vous pouvez perdre.
               </p>
-              <a href="/jouer-responsable" className="text-sm font-semibold text-[#63D471] underline">
+              <a href="/jouer-responsable">
                 En savoir plus →
               </a>
             </div>
@@ -238,14 +238,12 @@ export default function Home() {
         </section>
 
         {/* Liens internes SEO */}
-        <section className="mx-auto max-w-[980px] px-4 py-4 sm:px-6">
-          <div className="flex flex-wrap gap-2 text-xs">
+        <section className="bp-internal-links" aria-label="Guides et offres">
             <a href="/bonus-888starz" className="text-[#9DABBB] hover:text-[#2F7DFF] transition-colors">Bonus 888Starz</a>
             <span className="text-[#223041]">·</span>
             <a href="/code-promo-linebet-senegal" className="text-[#9DABBB] hover:text-[#2F7DFF] transition-colors">Code Promo Linebet</a>
             <span className="text-[#223041]">·</span>
             <a href="/btts-c-est-quoi" className="text-[#9DABBB] hover:text-[#2F7DFF] transition-colors">BTTS signification</a>
-          </div>
         </section>
 
         <ErrorBoundary><Footer /></ErrorBoundary>

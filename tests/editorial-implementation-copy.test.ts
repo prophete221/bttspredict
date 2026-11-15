@@ -32,7 +32,10 @@ describe('neutral public editorial copy', () => {
     expect(freePredictions).toContain('aucun pronostic n’est disponible')
     expect(competitionPage).toContain("time: 'GMT'")
     expect(competitionPage).not.toMatch(/Gemini|Dakar|داكار/i)
-    expect(hero).toContain('<span className="hp-hero__trust-v">GMT</span>')
+    expect(hero).toContain('<h1 className="bp-home__title">')
+    expect(hero).toContain('<strong>{t.home2.heroTitle2}</strong>')
+    expect(hero).toContain("t.home2.heroTitle1.replace(/[\\[\\]]/g, '')")
+    expect(hero).not.toContain('hp-hero__trust-v')
     expect(share).toContain('${props.time} GMT`')
   })
 

@@ -52,7 +52,7 @@ const C = {
   text:     '#F2F6FA',
   textSec:  '#9DABBB',
   textMute: '#6B7A8C',
-  success:  '#34D399',
+  success:  '#5B9CF0',
   warning:  '#FBBF24',
   data:     '#2F7DFF',
   gold:     '#E8C268',
@@ -330,7 +330,7 @@ function MatchCard({ match, index, status, lang, labels, now }: {
           <ProbBar
             label={`BTTS${bttsPick ? ` · ${bttsPick.prediction === 'Oui' ? (lang === 'en' ? 'Yes' : lang === 'ar' ? 'نعم' : 'Oui') : (lang === 'en' ? 'No' : lang === 'ar' ? 'لا' : 'Non')}` : ''}`}
             value={bttsPick?.proba}
-            color="#34D399"
+            color="#5B9CF0"
             dim={!sufficientData || !bttsPick}
             locale={lang}
             missingMarket={!bttsPick ? 'BTTS' : undefined}
