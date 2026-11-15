@@ -105,10 +105,10 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
     <section className="btp-home-hero" lang={lang} dir={direction}>
       <div className="btp-home-hero__inner">
         <div className="btp-home-hero__copy">
-          <p className="btp-home-hero__eyebrow">BTTSPREDICT <span>·</span> FOOTBALL INTELLIGENCE</p>
+          <p className="btp-home-hero__eyebrow">BTTSPREDICT <span>·</span> {lang === 'en' ? 'FOOTBALL ANALYTICS' : lang === 'ar' ? 'تحليل كرة القدم' : 'ANALYSE FOOTBALL'}</p>
           <h1 className="btp-home-hero__title">
-            <span>{cleanTitle(t.home2.heroTitle1)}</span>
-            <span className="btp-home-hero__title-accent">{cleanTitle(t.home2.heroTitle2)}</span>
+            <span>Plateforme N°1 Mondiale</span>
+            <span className="btp-home-hero__title-accent">BTTS &amp; Over 2.5 Master</span>
           </h1>
           <p className="btp-home-hero__description">{t.home2.heroText}</p>
           <div className="btp-home-hero__actions">
@@ -121,9 +121,9 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
             </a>
           </div>
           <ul className="btp-home-hero__facts" aria-label={lang === 'en' ? 'Platform information' : lang === 'ar' ? 'معلومات المنصة' : 'Informations plateforme'}>
-            <li><span>MARKETS</span><strong>BTTS · OVER 2.5 · SCORE</strong></li>
-            <li><span>METHOD</span><strong>{lang === 'en' ? 'Recent form + model' : lang === 'ar' ? 'الأداء الأخير + النموذج' : 'Forme récente + modèle'}</strong></li>
-            <li><span>TIMEZONE</span><strong>GMT</strong></li>
+            <li><span>{lang === 'en' ? 'MARKETS' : lang === 'ar' ? 'الأسواق' : 'MARCHÉS'}</span><strong>BTTS · OVER 2.5 · SCORE</strong></li>
+            <li><span>{lang === 'en' ? 'METHOD' : lang === 'ar' ? 'المنهج' : 'MÉTHODE'}</span><strong>{lang === 'en' ? 'Recent form + model' : lang === 'ar' ? 'الأداء الأخير + النموذج' : 'Forme récente + modèle'}</strong></li>
+            <li><span>{lang === 'en' ? 'TIMEZONE' : lang === 'ar' ? 'التوقيت' : 'FUSEAU'}</span><strong>GMT</strong></li>
           </ul>
         </div>
 
