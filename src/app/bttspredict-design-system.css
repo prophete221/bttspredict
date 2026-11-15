@@ -670,3 +670,6 @@ a { text-underline-offset: 3px; }
   [data-888starz-promo] > section:first-of-type > div { grid-template-columns:minmax(0,1fr); }
   [data-888starz-promo] > section:first-of-type > div > div { padding:17px !important; }
 }
+
+
+/* [code-only] [recover-stuck-queue] one-time release for the stale FTP queue; no runtime effect. */
