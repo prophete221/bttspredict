@@ -223,6 +223,11 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
         <div className="hp-sect-head">
           <div>
             <p className="hp-eyebrow">{t.home2.mcEyebrow}</p>
+            <p className="hp-brand-line" aria-label="Brand">
+              <span>BTTS &amp; Over 2.5 Master</span>
+              <span className="hp-brand-line__sep" aria-hidden="true">·</span>
+              <span>{lang === 'en' ? 'World’s No.1 platform' : lang === 'ar' ? 'المنصة رقم 1 عالمياً' : 'Plateforme N°1 Mondiale'}</span>
+            </p>
             <h2 className="hp-sect-title">
               {lang === 'en' ? 'Today’s picks and upcoming matches' : lang === 'ar' ? 'توقعات اليوم والمباريات القادمة' : 'Pronostics du jour et matchs à venir'}
             </h2>
