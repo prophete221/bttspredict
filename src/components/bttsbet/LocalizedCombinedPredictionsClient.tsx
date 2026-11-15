@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import { Navbar, Footer, FreePredictions } from '@/components/bttsbet'
 import { useLanguage } from './LanguageSwitcher'
-import AnimatedTitle from './HeroWordmark'
 import VipButtons from './VipButtons'
 
 export default function LocalizedCombinedPredictionsClient() {
