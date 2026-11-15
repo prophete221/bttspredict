@@ -362,14 +362,14 @@ function MatchCard({ m, index, lang, results, nowTs }: {
       data-match-date={m.date}
       data-match={m.match}
       data-match-league={m.league}
-      className={`btp-match-card${won ? ' is-won' : ''}${lost ? ' is-lost' : ''}${matchStatus === 'live' && !isFinished ? ' is-live' : ''}`}
+      className={`btp-match-card hp-mc-card hp-mc-card--approved${won ? ' is-won' : ''}${lost ? ' is-lost' : ''}${matchStatus === 'live' && !isFinished ? ' is-live' : ''}`}
       style={{ ['--card-order' as string]: index }}
       lang={lang}
       dir={lang === 'ar' ? 'rtl' : 'ltr'}
     >
       <div className="btp-match-card__meta">
         <span className="btp-match-card__league">{m.league}</span>
-        <span className={`btp-match-card__status ${statusClass}`}>
+        <span className={`hp-mc-status ${statusClass} btp-match-card__status`}>
           {matchStatus === 'live' && !isFinished && <i aria-hidden="true" />}
           {statusText}
         </span>
@@ -381,9 +381,9 @@ function MatchCard({ m, index, lang, results, nowTs }: {
             <span aria-hidden="true">{m.home.slice(0, 1).toUpperCase()}</span>
             {homeLogo && <img src={homeLogo} alt="" width={40} height={40} loading="lazy" decoding="async" onLoad={event => { event.currentTarget.classList.add('is-loaded'); event.currentTarget.previousElementSibling?.classList.add('is-hidden') }} onError={event => { event.currentTarget.style.display = 'none' }} />}
           </span>
-          <strong>{m.home}</strong>
+          <strong className="hp-mc-team-name">{m.home}</strong>
         </div>
-        <div className="btp-match-card__kickoff">
+        <div className="hp-mc-time-row btp-match-card__kickoff">
           {isFinished && hasResult ? (
             <strong className="btp-match-card__score">{record?.finalScore}</strong>
           ) : (
@@ -397,7 +397,7 @@ function MatchCard({ m, index, lang, results, nowTs }: {
             <span aria-hidden="true">{m.away.slice(0, 1).toUpperCase()}</span>
             {awayLogo && <img src={awayLogo} alt="" width={40} height={40} loading="lazy" decoding="async" onLoad={event => { event.currentTarget.classList.add('is-loaded'); event.currentTarget.previousElementSibling?.classList.add('is-hidden') }} onError={event => { event.currentTarget.style.display = 'none' }} />}
           </span>
-          <strong>{m.away}</strong>
+          <strong className="hp-mc-team-name">{m.away}</strong>
         </div>
       </div>
 
@@ -418,8 +418,8 @@ function MatchCard({ m, index, lang, results, nowTs }: {
             return (
               <div key={p.type} className="btp-market">
                 <span className="btp-market__name">{marketShort}</span>
-                <strong>{selectionLabel}</strong>
-                {p.confidence !== undefined && p.confidence > 0 && p.confidence <= 100 && <span className="btp-market__confidence">{p.confidence}%</span>}
+                <strong className="hp-pick__selection">{selectionLabel}</strong>
+                {p.confidence !== undefined && p.confidence > 0 && p.confidence <= 100 && <span className="hp-pick__confidence btp-market__confidence">{p.confidence}%</span>}
               </div>
             )
           })}
@@ -439,7 +439,7 @@ function MatchCard({ m, index, lang, results, nowTs }: {
         <span className="btp-match-card__result">
           {isFinished ? (won ? t.home2.mcWon : lost ? t.home2.mcLost : t.home2.mcVerifying) : t.home2.mcPublished}
         </span>
-        {matchHref && <a href={matchHref} data-cta={`mc-open-${index}`}>{t.home2.mcOpen}<span aria-hidden="true">↗</span></a>}
+        {matchHref && <a className="hp-mc-open" href={matchHref} data-cta={`mc-open-${index}`}>{t.home2.mcOpen}<span aria-hidden="true">↗</span></a>}
       </div>
     </article>
   )
