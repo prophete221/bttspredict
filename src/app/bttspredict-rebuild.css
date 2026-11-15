@@ -196,3 +196,191 @@ body { font-family: var(--font-body), Inter, Arial, sans-serif; }
   .vipx-content-grid { display:block !important; }
   .promo-shell .promo-main { padding-inline:14px !important; }
 }
+
+
+/* Promo pages — editorial product art direction, with original SEO copy and URLs untouched. */
+[data-promo-shell] {
+  --promo-accent: #4c9aff;
+  --promo-accent-soft: rgba(76,154,255,.12);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 85% 0%, var(--promo-accent-soft), transparent 34%),
+    #080d16 !important;
+}
+[data-promo-shell][data-bookmaker="1xbet"] { --promo-accent:#438dff; --promo-accent-soft:rgba(67,141,255,.16); }
+[data-promo-shell][data-bookmaker="linebet"] { --promo-accent:#38a1ff; --promo-accent-soft:rgba(56,161,255,.15); }
+[data-promo-shell][data-bookmaker="melbet"] { --promo-accent:#e9ad3d; --promo-accent-soft:rgba(233,173,61,.13); }
+[data-promo-shell][data-bookmaker="888starz"] { --promo-accent:#ed4169; --promo-accent-soft:rgba(237,65,105,.14); }
+[data-promo-shell]::before {
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:0 0 auto;
+  height:420px;
+  pointer-events:none;
+  background:linear-gradient(180deg,var(--promo-accent-soft),transparent 78%);
+}
+[data-promo-shell] .promo-main {
+  max-width:900px !important;
+  padding:clamp(18px,3vw,34px) 18px 56px !important;
+}
+[data-promo-shell] .promo-main__story {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(220px,.72fr);
+  align-items:center;
+  gap:12px 30px;
+  padding:clamp(20px,4vw,38px) !important;
+  text-align:start !important;
+  border:1px solid rgba(180,201,229,.14) !important;
+  border-radius:18px !important;
+  background:linear-gradient(145deg,#111d2d,#0c1522 72%) !important;
+  box-shadow:0 24px 70px rgba(0,0,0,.24) !important;
+}
+[data-promo-shell] .promo-story__badge { grid-column:1/-1; width:max-content; border-radius:5px !important; }
+[data-promo-shell] .promo-story__title {
+  grid-column:1/-1;
+  max-width:780px;
+  margin-top:4px !important;
+  font-size:clamp(2rem,5.4vw,3.35rem) !important;
+  line-height:1.04 !important;
+  letter-spacing:-.055em !important;
+  text-wrap:balance;
+}
+[data-promo-shell] .promo-story__logo {
+  grid-column:1;
+  grid-row:3;
+  justify-self:start;
+  width:min(100%,260px);
+  min-height:76px !important;
+  margin:0 !important;
+  border-radius:10px !important;
+  background:#f4f7fb !important;
+  border:1px solid rgba(255,255,255,.16) !important;
+}
+[data-promo-shell] .promo-story__intro {
+  grid-column:1/-1;
+  max-width:740px !important;
+  margin:6px 0 0 !important;
+  color:#b5c3d4 !important;
+  font-size:14px !important;
+  line-height:1.75 !important;
+}
+[data-promo-shell] .promo-story__actions {
+  grid-column:1/-1;
+  width:min(100%,640px);
+  max-width:640px !important;
+  margin:12px 0 0 !important;
+  padding:16px !important;
+  border:1px solid rgba(180,201,229,.16) !important;
+  border-radius:12px !important;
+  background:#0a1320 !important;
+  box-shadow:none !important;
+}
+[data-promo-shell] .promo-story__actions button[data-cta^="promo-copy-"] {
+  min-height:82px;
+  border:1px solid color-mix(in srgb,var(--promo-accent) 65%,white 5%) !important;
+  border-radius:9px !important;
+  background:linear-gradient(135deg,color-mix(in srgb,var(--promo-accent) 24%,#101927),#101927) !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08) !important;
+}
+[data-promo-shell] .promo-story__actions button[data-cta^="promo-copy-"] span:first-child {
+  font-size:clamp(1.65rem,5vw,2.2rem) !important;
+  letter-spacing:.2em !important;
+}
+[data-promo-shell] a[data-cta^="promo-signup-"] {
+  min-height:48px;
+  border-radius:8px !important;
+  background:var(--promo-accent) !important;
+  color:#07111f !important;
+  font-weight:800 !important;
+  box-shadow:none !important;
+}
+[data-promo-shell] a[data-cta^="promo-apk-"] {
+  min-height:48px;
+  border-radius:8px !important;
+  border:1px solid rgba(180,201,229,.22) !important;
+  background:#142033 !important;
+}
+[data-promo-shell] .promo-main__offer { margin-top:18px !important; }
+[data-promo-shell] .promo-main__offer > div {
+  padding:clamp(20px,4vw,30px) !important;
+  text-align:start !important;
+  border:1px solid rgba(180,201,229,.14) !important;
+  border-inline-start:3px solid var(--promo-accent) !important;
+  border-radius:12px !important;
+  background:#101927 !important;
+  box-shadow:none !important;
+}
+[data-promo-shell] .promo-main__offer > div p:first-child {
+  color:var(--promo-accent) !important;
+  font-size:clamp(1.25rem,3vw,1.7rem) !important;
+}
+[data-promo-shell] .promo-main__steps,
+[data-promo-shell] .promo-main__faq,
+[data-promo-shell] .promo-main__crosslinks { margin-top:30px !important; }
+[data-promo-shell] .promo-main__steps > div > div,
+[data-promo-shell] .promo-main__faq > div > div {
+  border:1px solid rgba(180,201,229,.13) !important;
+  border-radius:10px !important;
+  background:#101927 !important;
+  box-shadow:none !important;
+}
+[data-promo-shell] .promo-main__steps > div > div > span { color:var(--promo-accent) !important; }
+[data-promo-shell] .promo-main__steps p,
+[data-promo-shell] .promo-main__faq p { color:#aab9cc !important; }
+[data-promo-shell] .promo-main__steps h2,
+[data-promo-shell] .promo-main__faq h2,
+[data-promo-shell] .promo-main__crosslinks h2 { font-size:18px !important; }
+[data-promo-shell] [data-affiliate-disclosure] { color:#8192a8 !important; }
+[data-promo-shell] :focus-visible,
+main[data-888starz-promo] :focus-visible { outline:2px solid var(--promo-accent,#ed4169); outline-offset:3px; }
+main[data-888starz-promo] {
+  --promo-accent:#ed4169;
+  max-width:none !important;
+  background:
+    radial-gradient(ellipse at 88% 0%,rgba(237,65,105,.13),transparent 34%),
+    #080d16 !important;
+}
+main[data-888starz-promo] > section {
+  border:1px solid rgba(180,201,229,.14) !important;
+  border-radius:16px !important;
+  background:#101927 !important;
+  box-shadow:none !important;
+}
+main[data-888starz-promo] > section:first-of-type > div > div:first-child {
+  background:linear-gradient(145deg,#121f30,#0d1725) !important;
+}
+main[data-888starz-promo] [data-promo-highlights] > div,
+main[data-888starz-promo] [data-promo-steps] > div > div,
+main[data-888starz-promo] [data-promo-faq] > div > div {
+  border:1px solid rgba(180,201,229,.13) !important;
+  border-radius:10px !important;
+  background:#0d1725 !important;
+  box-shadow:none !important;
+}
+main[data-888starz-promo] [data-promo-highlights] span,
+main[data-888starz-promo] [data-promo-steps] span { color:#ff829e !important; }
+main[data-888starz-promo] [data-promo-signup],
+main[data-888starz-promo] a[data-cta^="promo-signup-"] {
+  border-radius:8px !important;
+  background:#ed4169 !important;
+  box-shadow:none !important;
+}
+@media(max-width:700px) {
+  [data-promo-shell] .promo-main__story { grid-template-columns:minmax(0,1fr); gap:14px; padding:18px !important; }
+  [data-promo-shell] .promo-story__badge,
+  [data-promo-shell] .promo-story__title,
+  [data-promo-shell] .promo-story__logo,
+  [data-promo-shell] .promo-story__intro,
+  [data-promo-shell] .promo-story__actions { grid-column:1; grid-row:auto; }
+  [data-promo-shell] .promo-story__logo { justify-self:start; }
+  [data-promo-shell] .promo-story__actions { width:100%; padding:12px !important; }
+  [data-promo-shell] .promo-main__steps > div { grid-template-columns:minmax(0,1fr) !important; }
+  main[data-888starz-promo] { padding-inline:12px !important; }
+  main[data-888starz-promo] > section { border-radius:12px !important; }
+}
+@media(prefers-reduced-motion:reduce) {
+  [data-promo-shell] *,main[data-888starz-promo] * { animation-duration:.01ms !important; transition-duration:.01ms !important; }
+}
