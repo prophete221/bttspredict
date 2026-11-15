@@ -5,7 +5,6 @@ import dynamic from 'next/dynamic'
 import { useLanguage } from '@/components/bttsbet/LanguageSwitcher'
 import { localizedPath, type Locale } from '@/lib/i18n'
 import { trackAffiliateAction } from '@/lib/affiliateTracking'
-import AnimatedTitle from '@/components/bttsbet/HeroWordmark'
 import VipWinHistory from './VipWinHistory'
 import VipLockedPicks from './VipLockedPicks'
 import VipJourneyModal from './VipJourneyModal'
@@ -279,7 +278,7 @@ export default function VipPage() {
           <div className="vipx-hero__grid vipx-shell">
             <div className="vipx-hero__copy">
               <span className="vipx-eyebrow"><i aria-hidden="true" />{text.eyebrow}</span>
-              <AnimatedTitle as="h1" text={flow.title} accentColor="#EB4648" />
+              <h1 className="vipx-hero__title">{flow.title}</h1>
               <p className="vipx-hero__sub">{flow.sub}</p>
               <div className="vipx-hero__cta">
                 <a className="vipx-btn vipx-btn--gold" href="#vip-application" onClick={openVipFlow}>{flow.heroCta}<span aria-hidden="true">→</span></a>
