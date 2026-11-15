@@ -4,7 +4,6 @@ import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { useLanguage } from './LanguageSwitcher'
 import { translationsFor, type Locale, localizedPath } from '@/lib/i18n'
 import { generateMatchSlug } from '@/lib/match-slug'
-import { matchMetricLabels } from '@/lib/matchMetricLabels'
 import { getDakarDateString, getDakarDayDiff, getDakarMatchStatus, parseDakarDateTime } from '@/lib/dakar-date'
 import { KICKOFF_I18N } from '@/lib/i18n-extras'
 import ComboBuilder from './ComboBuilder'
@@ -309,7 +308,6 @@ function MatchCard({ m, index, lang, results, nowTs }: {
   nowTs: number
 }) {
   const t = translationsFor(lang)
-  const metricLabels = matchMetricLabels(lang)
   const record = results.get(`${m.match}|${m.date}`)
   const isFinished = hasFinalResult(record)
   const hasResult = Boolean(record?.finalScore)
