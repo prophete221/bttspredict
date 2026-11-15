@@ -139,7 +139,7 @@ export default function StatistiquesClient() {
       <Shell>
         <div className="max-w-4xl mx-auto px-4 py-20 text-center">
           <div className="inline-block w-10 h-10 border-2 border-[#6B7A8C] border-t-[#2F7DFF] rounded-full animate-spin mb-4" aria-hidden="true" />
-          <p className="text-sm text-[#9DABBB]">{copy.loading}</p>
+          <p className="text-sm text-[var(--text-secondary)]">{copy.loading}</p>
         </div>
       </Shell>
     )
@@ -181,16 +181,16 @@ export default function StatistiquesClient() {
       {/* En-tête */}
       <header className="mb-6">
         <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#2F7DFF] mb-2">BTTSPredict · {copy.scopeTitle}</p>
-        <AnimatedTitle as="h1" text={copy.title} className="text-2xl sm:text-3xl font-bold text-[#F2F6FA]" style={{ fontFamily: 'Poppins, sans-serif' }} />
-        <p className="mt-2 text-sm text-[#9DABBB] leading-relaxed max-w-3xl">{copy.subtitle}</p>
+        <AnimatedTitle as="h1" text={copy.title} className="text-2xl sm:text-3xl font-bold text-[var(--text-primary)]" style={{ fontFamily: 'Poppins, sans-serif' }} />
+        <p className="mt-2 text-sm text-[var(--text-secondary)] leading-relaxed max-w-3xl">{copy.subtitle}</p>
       </header>
 
       {/* Périmètre explicite */}
-      <section className="rounded-2xl border border-[#223041] bg-[#10161D] p-4 sm:p-5 mb-8" aria-label={copy.scopeTitle}>
-        <h2 className="text-sm font-bold text-[#F2F6FA] mb-2 flex items-center gap-2">
-          <span className="inline-block w-1.5 h-4 rounded-full bg-[#2F7DFF]" aria-hidden="true" />{copy.scopeTitle}
+      <section className="rounded-2xl border border-[var(--border)] bg-[var(--bg-elev-1)] p-4 sm:p-5 mb-8" aria-label={copy.scopeTitle}>
+        <h2 className="text-sm font-bold text-[var(--text-primary)] mb-2 flex items-center gap-2">
+          <span className="inline-block w-1.5 h-4 rounded-full bg-[var(--accent)]" aria-hidden="true" />{copy.scopeTitle}
         </h2>
-        <p className="text-sm text-[#9DABBB] leading-relaxed">
+        <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
           {copy.scope(stats.total, stats.won, stats.lost, from)}
         </p>
         {lowVolume && (
@@ -202,47 +202,47 @@ export default function StatistiquesClient() {
 
       {/* KPI — chaque taux avec son dénominateur */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-8">
-        <div className="rounded-2xl border border-[#223041] bg-[#141C25] p-5">
-          <div className="text-xs uppercase tracking-wider text-[#9DABBB] font-bold">{copy.kpiOverall}</div>
-          <div className="mt-1 text-3xl font-bold text-[#F2F6FA] font-mono">{fmtPct(stats.rate.toFixed(1), lang)} %</div>
-          <div className="mt-1 text-xs text-[#9DABBB]"><span className="tracking-win-text">{stats.won} WIN</span> / {stats.lost} LOST — {stats.total} {copy.kpiVerified.toLowerCase()}</div>
+        <div className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5">
+          <div className="text-xs uppercase tracking-wider text-[var(--text-secondary)] font-bold">{copy.kpiOverall}</div>
+          <div className="mt-1 text-3xl font-bold text-[var(--text-primary)] font-mono">{fmtPct(stats.rate.toFixed(1), lang)} %</div>
+          <div className="mt-1 text-xs text-[var(--text-secondary)]"><span className="tracking-win-text">{stats.won} WIN</span> / {stats.lost} LOST — {stats.total} {copy.kpiVerified.toLowerCase()}</div>
         </div>
-        <div className="rounded-2xl border border-[#2F7DFF]/40 bg-[#141C25] p-5">
+        <div className="rounded-2xl border border-[rgba(47,125,255,0.4)] bg-[var(--card)] p-5">
           <div className="text-xs uppercase tracking-wider text-[#2F7DFF] font-bold">{copy.kpiGold}</div>
-          <div className="mt-1 text-3xl font-bold text-[#F2F6FA] font-mono">{fmtPct(stats.gold.rate.toFixed(1), lang)} %</div>
-          <div className="mt-1 text-xs text-[#9DABBB]"><span className="tracking-win-text">{stats.gold.won} WIN</span> / {stats.gold.lost} LOST — {stats.gold.total} {lang === 'fr' ? `vérifié${stats.gold.total > 1 ? 's' : ''}` : lang === 'ar' ? 'موثقة' : 'verified'}</div>
+          <div className="mt-1 text-3xl font-bold text-[var(--text-primary)] font-mono">{fmtPct(stats.gold.rate.toFixed(1), lang)} %</div>
+          <div className="mt-1 text-xs text-[var(--text-secondary)]"><span className="tracking-win-text">{stats.gold.won} WIN</span> / {stats.gold.lost} LOST — {stats.gold.total} {lang === 'fr' ? `vérifié${stats.gold.total > 1 ? 's' : ''}` : lang === 'ar' ? 'موثقة' : 'verified'}</div>
         </div>
-        <div className="rounded-2xl border border-[#223041] bg-[#141C25] p-5">
-          <div className="text-xs uppercase tracking-wider text-[#9DABBB] font-bold">{copy.kpiVerified}</div>
-          <div className="mt-1 text-3xl font-bold text-[#F2F6FA] font-mono">{stats.total}</div>
-          <div className="mt-1 text-xs text-[#9DABBB]">{copy.verifiedOn}</div>
+        <div className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5">
+          <div className="text-xs uppercase tracking-wider text-[var(--text-secondary)] font-bold">{copy.kpiVerified}</div>
+          <div className="mt-1 text-3xl font-bold text-[var(--text-primary)] font-mono">{stats.total}</div>
+          <div className="mt-1 text-xs text-[var(--text-secondary)]">{copy.verifiedOn}</div>
         </div>
       </div>
 
       {/* Composition WIN / LOST (résultats vérifiés uniquement) */}
-      <section className="rounded-2xl border border-[#223041] bg-[#141C25] p-4 sm:p-6 mb-8" aria-labelledby="st-composition">
-        <h2 id="st-composition" className="text-base font-bold text-[#F2F6FA] mb-1" style={{ fontFamily: 'Poppins, sans-serif' }}>{copy.composition}</h2>
-        <p className="text-xs text-[#9DABBB] mb-4">{copy.compositionDesc(stats.total)}</p>
+      <section className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-4 sm:p-6 mb-8" aria-labelledby="st-composition">
+        <h2 id="st-composition" className="text-base font-bold text-[var(--text-primary)] mb-1" style={{ fontFamily: 'Poppins, sans-serif' }}>{copy.composition}</h2>
+        <p className="text-xs text-[var(--text-secondary)] mb-4">{copy.compositionDesc(stats.total)}</p>
         <CompositionBar won={stats.won} lost={stats.lost} lang={lang}
           labels={{ won: 'WIN', lost: 'LOST' }} />
       </section>
 
       {/* Évolution cumulée */}
-      <section className="rounded-2xl border border-[#223041] bg-[#141C25] p-4 sm:p-6 mb-8" aria-labelledby="st-evolution">
-        <h2 id="st-evolution" className="text-base font-bold text-[#F2F6FA] mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>{copy.evolution}</h2>
+      <section className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-4 sm:p-6 mb-8" aria-labelledby="st-evolution">
+        <h2 id="st-evolution" className="text-base font-bold text-[var(--text-primary)] mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>{copy.evolution}</h2>
         <CumulativeLine points={cumulative} lang={lang} />
       </section>
 
       {/* Vérifications par jour */}
-      <section className="rounded-2xl border border-[#223041] bg-[#141C25] p-4 sm:p-6 mb-8" aria-labelledby="st-daily">
-        <h2 id="st-daily" className="text-base font-bold text-[#F2F6FA] mb-1" style={{ fontFamily: 'Poppins, sans-serif' }}>{copy.daily}</h2>
-        <p className="text-xs text-[#9DABBB] mb-4">{copy.dailyDesc}</p>
+      <section className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-4 sm:p-6 mb-8" aria-labelledby="st-daily">
+        <h2 id="st-daily" className="text-base font-bold text-[var(--text-primary)] mb-1" style={{ fontFamily: 'Poppins, sans-serif' }}>{copy.daily}</h2>
+        <p className="text-xs text-[var(--text-secondary)] mb-4">{copy.dailyDesc}</p>
         <DailyBars days={daily30} lang={lang} />
       </section>
 
       {/* Par marché */}
-      <section className="rounded-2xl border border-[#223041] bg-[#141C25] p-4 sm:p-6 mb-8" aria-labelledby="st-markets">
-        <h2 id="st-markets" className="text-base font-bold text-[#F2F6FA] mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>{copy.markets}</h2>
+      <section className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-4 sm:p-6 mb-8" aria-labelledby="st-markets">
+        <h2 id="st-markets" className="text-base font-bold text-[var(--text-primary)] mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>{copy.markets}</h2>
         <div className="space-y-5">
           <RateBar label="BTTS" rate={stats.byType.btts.rate} won={stats.byType.btts.won} lost={stats.byType.btts.lost} lang={lang} />
           <RateBar label="Over 2.5" rate={stats.byType.over25.rate} won={stats.byType.over25.won} lost={stats.byType.over25.lost} lang={lang} />
@@ -250,8 +250,8 @@ export default function StatistiquesClient() {
       </section>
 
       {/* Par niveau de sélection */}
-      <section className="rounded-2xl border border-[#223041] bg-[#141C25] p-4 sm:p-6 mb-8" aria-labelledby="st-tiers">
-        <h2 id="st-tiers" className="text-base font-bold text-[#F2F6FA] mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>{copy.tiers}</h2>
+      <section className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-4 sm:p-6 mb-8" aria-labelledby="st-tiers">
+        <h2 id="st-tiers" className="text-base font-bold text-[var(--text-primary)] mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>{copy.tiers}</h2>
         <div className="space-y-5">
           <RateBar label={lang === 'fr' ? 'Gold (sélection premium)' : lang === 'en' ? 'Gold (premium selection)' : 'Gold (اختيار مميز)'}
             rate={tierGold.won + tierGold.lost > 0 ? Number(((tierGold.won / (tierGold.won + tierGold.lost)) * 100).toFixed(1)) : null}
@@ -263,16 +263,16 @@ export default function StatistiquesClient() {
       </section>
 
       {/* Par compétition */}
-      <section className="rounded-2xl border border-[#223041] bg-[#141C25] p-4 sm:p-6 mb-8" aria-labelledby="st-leagues">
-        <h2 id="st-leagues" className="text-base font-bold text-[#F2F6FA] mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>{copy.leagues}</h2>
-        <p className="text-xs text-[#9DABBB] mb-4 leading-relaxed">{copy.leaguesNote(leagues.length, stats.total)}</p>
+      <section className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-4 sm:p-6 mb-8" aria-labelledby="st-leagues">
+        <h2 id="st-leagues" className="text-base font-bold text-[var(--text-primary)] mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>{copy.leagues}</h2>
+        <p className="text-xs text-[var(--text-secondary)] mb-4 leading-relaxed">{copy.leaguesNote(leagues.length, stats.total)}</p>
         {leagues.length === 0 ? (
-          <p className="text-sm text-[#9DABBB]">—</p>
+          <p className="text-sm text-[var(--text-secondary)]">—</p>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-[#223041] text-xs uppercase tracking-wider text-[#9DABBB]">
+                <tr className="border-b border-[var(--border)] text-xs uppercase tracking-wider text-[var(--text-secondary)]">
                   <th className="text-left py-2 px-2 font-bold">{copy.tableLeague}</th>
                   <th className="text-center py-2 px-2 font-bold">{copy.tableWin}</th>
                   <th className="text-center py-2 px-2 font-bold">{copy.tableLost}</th>
@@ -281,11 +281,11 @@ export default function StatistiquesClient() {
               </thead>
               <tbody>
                 {leagues.map(l => (
-                  <tr key={l.league} className="border-b border-[#223041]/50">
-                    <td className="py-2.5 px-2 text-[#F2F6FA] font-medium">{l.league}</td>
+                  <tr key={l.league} className="border-b border-[var(--border)]/50">
+                    <td className="py-2.5 px-2 text-[var(--text-primary)] font-medium">{l.league}</td>
                     <td className="py-2.5 px-2 text-center font-mono tracking-win-text" style={{ color: '#34D399' }}>{l.won}</td>
                     <td className="py-2.5 px-2 text-center font-mono" style={{ color: '#F87171' }}>{l.lost}</td>
-                    <td className="py-2.5 px-2 text-center font-mono text-[#F2F6FA]">
+                    <td className="py-2.5 px-2 text-center font-mono text-[var(--text-primary)]">
                       {l.rate !== null ? `${fmtPct(l.rate.toFixed(1), lang)} %` : '—'}
                       <span className="ml-1 text-xs text-[#6B7A8C]">({l.total})</span>
                     </td>
@@ -303,11 +303,11 @@ export default function StatistiquesClient() {
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-10">
-        <Link href={lang === 'fr' ? '/methodologie' : `/${lang}/methodologie`} className="p-4 rounded-xl border border-[#223041] bg-[#141C25] hover:border-[#2F7DFF]/60 transition-colors">
-          <div className="text-sm font-bold text-[#F2F6FA]">{copy.method} →</div>
+        <Link href={lang === 'fr' ? '/methodologie' : `/${lang}/methodologie`} className="p-4 rounded-xl border border-[var(--border)] bg-[var(--card)] hover:border-[rgba(47,125,255,0.6)] transition-colors">
+          <div className="text-sm font-bold text-[var(--text-primary)]">{copy.method} →</div>
         </Link>
-        <Link href={lang === 'fr' ? '/resultats-verifies' : `/${lang}/resultats-verifies`} className="p-4 rounded-xl border border-[#223041] bg-[#141C25] hover:border-[#2F7DFF]/60 transition-colors">
-          <div className="text-sm font-bold text-[#F2F6FA]">{copy.results}</div>
+        <Link href={lang === 'fr' ? '/resultats-verifies' : `/${lang}/resultats-verifies`} className="p-4 rounded-xl border border-[var(--border)] bg-[var(--card)] hover:border-[rgba(47,125,255,0.6)] transition-colors">
+          <div className="text-sm font-bold text-[var(--text-primary)]">{copy.results}</div>
         </Link>
         <Link href={lang === 'fr' ? '/btts/predictions/today' : `/${lang}/btts/predictions/today`} className="p-4 rounded-xl font-bold text-sm text-center" style={{ backgroundColor: '#2F7DFF', color: '#FFFFFF' }}>
           {copy.today}
@@ -315,7 +315,7 @@ export default function StatistiquesClient() {
       </div>
 
       <div className="p-4 rounded-xl text-center" style={{ backgroundColor: 'rgba(255, 122, 122, 0.06)', border: '1px solid rgba(255, 122, 122, 0.2)' }}>
-        <p className="text-xs text-[#9DABBB] leading-relaxed">{copy.disclaimer}</p>
+        <p className="text-xs text-[var(--text-secondary)] leading-relaxed">{copy.disclaimer}</p>
       </div>
       </div>
     </Shell>
@@ -324,7 +324,7 @@ export default function StatistiquesClient() {
 
 function Shell({ children }: { children: ReactNode }) {
   return (
-    <div className="min-h-screen bg-[#0B0F14] flex flex-col text-[#F2F6FA]">
+    <div className="content-page stats-page min-h-screen flex flex-col">
       <Navbar />
       <main id="main-content" className="flex-1">{children}</main>
       <Footer />
