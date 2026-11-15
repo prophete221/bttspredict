@@ -88,10 +88,9 @@ const PROTECTED_SEO_ROUTES = [
         'les résultats gagnés et perdus sont archivés, et aucun gain futur n&apos;est garanti.',
       ]],
       ['src/components/bttsbet/Hero.tsx', [
-        '<h1 className="hp-hero__title">',
-        'plainTitle(t.home2.heroTitle1)',
-        'plainTitle(t.home2.heroTitle2)',
-        '{t.home2.heroText}',
+        '<h1 className="bp-home__title">',
+        '<span>Plateforme N°1 Mondiale</span>',
+        '<strong>BTTS &amp; Over 2.5 Master</strong>',
       ]],
     ],
   },
