@@ -88,7 +88,7 @@ function buildBreadcrumbJsonLd() {
    ────────────────────────────────────────────────────────────── */
 export default function MentionsLegalesPage() {
   return (
-    <div className="min-h-screen bg-dark-800 flex flex-col text-papier">
+    <div className="content-page legal-page min-h-screen flex flex-col">
       {/* Structured Data */}
       <script
         type="application/ld+json"

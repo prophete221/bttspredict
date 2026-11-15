@@ -1,0 +1,1342 @@
+/* ═══════════════════════════════════════════════════════════════════════
+ BTTSPREDICT — REFONTE GÉNÉRALE 2026 — DESIGN SYSTEM CANONIQUE
+═══════════════════════════════════════════════════════════════════════════
+ Direction artistique : fond noir profond, surfaces graphite sobres,
+ texte blanc cassé, accent bleu froid unique, états fonctionnels limités.
+ Ce fichier est chargé EN DERNIER : il redéfinit les tokens canoniques
+ (toutes les couches héritées convergent vers cette palette) et restyle
+ intégralement les familles de composants existantes, sans changer les
+ noms de classes (protection du markup et des tests).
+ Règles : mobile-first, RTL réel, pas de glow décoratif, pas de vert lime
+ hérité (vert réservé aux états métier « gagné »), VIP en or réservé.
+═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── 1. TOKENS CANONIQUES ──────────────────────────────────────────────── */
+:root {
+  /* Fonds — noir profond neutre */
+  --bg-page: #050507;
+  --bg-elev-1: #0C0D10;
+  --bg-elev-2: #121419;
+  --bg-inset: #08090C;
+  --bg-page-old: var(--bg-page);
+  --bg-main: #050507;
+  --bg-secondary: #0C0D10;
+  --bg-tertiary: #121419;
+  color-scheme: dark;
+
+  /* Surfaces & cartes */
+  --card: #121419;
+  --card-hover: #171A20;
+  --surface-card: #121419;
+  --surface-card-hover: #171A20;
+  --surface-premium: #171A20;
+
+  /* Lignes */
+  --border: #1F2228;
+  --border-strong: #2C3037;
+  --line: #1F2228;
+  --line-strong: #2C3037;
+
+  /* Texte */
+  --text-primary: #F3F5F8;
+  --text-secondary: #9AA3AE;
+  --text-tertiary: #6B7480;
+  --text-muted: #6B7480;
+  --text-hi: #F3F5F8;
+  --text-mid: #9AA3AE;
+  --text-low: #6B7480;
+  --color-papier: var(--text-primary);
+  --color-cendre: var(--text-secondary);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-bg-main: var(--bg-page);
+
+  /* Accent unique — bleu froid de marque */
+  --accent: #2F7DFF;
+  --accent-hover: #4A90FF;
+  --accent-soft: rgba(47, 125, 255, 0.13);
+  --accent-soft-2: rgba(47, 125, 255, 0.07);
+  --action-primary: var(--accent);
+  --action-primary-hover: var(--accent-hover);
+  --action-primary-text: #FFFFFF;
+  --action-secondary-border: var(--border-strong);
+  --action-secondary-text: var(--text-secondary);
+  --primary: var(--accent);
+  --primary-hover: var(--accent-hover);
+  --focus: var(--accent);
+  --market-btts: #45C7F7;
+  --market-over: #5BA9FF;
+  --trust-accent: var(--accent);
+  --gradient-primary: linear-gradient(180deg, var(--accent-hover), var(--accent));
+
+  /* États fonctionnels — usage limité aux significations métier */
+  --ok: #34D399;
+  --success: #34D399;
+  --success-muted: rgba(52, 211, 153, 0.14);
+  --err: #F87171;
+  --error: #F87171;
+  --warn: #FBBF24;
+  --warning: #FBBF24;
+  --vip-accent: #E8C268;
+
+  /* Couche héritée « football-intelligence » — retokenisée vers la nouvelle
+     palette : toutes ses règles (!important incluses) rendent le nouveau
+     design au lieu de l'ancien teal / ancien thème clair. */
+  --fi-bg: var(--bg-page);
+  --fi-bg-raised: var(--bg-elev-1);
+  --fi-panel: var(--bg-elev-1);
+  --fi-panel-raised: var(--bg-elev-2);
+  --fi-line: var(--border);
+  --fi-line-strong: var(--border-strong);
+  --fi-text: var(--text-primary);
+  --fi-muted: var(--text-secondary);
+  --fi-subtle: var(--text-tertiary);
+  --fi-teal: var(--accent);
+  --fi-blue: var(--accent);
+  --fi-active: var(--accent);
+  --fi-cta: var(--accent);
+  --fi-violet: #A78BFA;
+  --fi-gold: var(--vip-accent);
+  --fi-red: var(--err);
+
+  /* Rayons, ombres, transitions */
+  --radius-s: 8px;
+  --radius-m: 12px;
+  --radius-l: 16px;
+  --radius: var(--radius-m);
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(0, 0, 0, 0.25);
+  --shadow-pop: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --ease: cubic-bezier(0.2, 0.6, 0.2, 1);
+
+  /* Espacements de section */
+  --section-gap: 56px;
+  --content-max: 1280px;
+
+  /* Retokenisation des anciens systèmes de variables — toutes les couches
+     héritées consomment désormais la palette canonique de la refonte. */
+  --bp-bg: var(--bg-page);
+  --bp-bg-soft: var(--bg-elev-1);
+  --bp-blue: var(--accent);
+  --bp-blue-soft: var(--accent-soft);
+  --bp-blue-strong: var(--accent-hover);
+  --bp-gold: var(--vip-accent);
+  --bp-green: var(--ok);
+  --bp-line: var(--border);
+  --bp-line-strong: var(--border-strong);
+  --bp-muted: var(--text-secondary);
+  --bp-panel: var(--bg-elev-1);
+  --bp-panel-hover: var(--bg-elev-2);
+  --bp-panel-raised: var(--bg-elev-2);
+  --bp-promo-accent: var(--accent);
+  --bp-promo-logo-bg: var(--bg-elev-2);
+  --bp-red: var(--err);
+  --bp-subtle: var(--text-tertiary);
+  --bp-text: var(--text-primary);
+  --btp-bg: var(--bg-page);
+  --btp-accent: var(--accent);
+  --btp-green: var(--ok);
+  --btp-line: var(--border);
+  --btp-muted: var(--text-secondary);
+  --btp-surface: var(--bg-elev-1);
+  --btp-surface-raised: var(--bg-elev-2);
+  --btp-text: var(--text-primary);
+  --background: var(--bp-bg);     /* même convention que matchday-ui (compat shadcn) */
+  --foreground: var(--bp-text);
+  --glass: var(--bg-elev-1);
+}
+
+/* ── 2. BASE ───────────────────────────────────────────────────────────── */
+html { background: var(--bg-page); }
+body {
+  background: var(--bg-page);
+  color: var(--text-primary);
+  font-family: var(--font-body), system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+::selection { background: var(--accent-soft); color: var(--text-primary); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+a { color: var(--text-primary); text-decoration-color: transparent; transition: color 160ms var(--ease), text-decoration-color 160ms var(--ease); }
+a:hover { color: var(--accent-hover); }
+h1, h2, h3, h4 { line-height: 1.2; letter-spacing: -0.02em; font-weight: 700; }
+img { max-width: 100%; }
+hr { border: 0; border-top: 1px solid var(--border); }
+* { scrollbar-color: #2C3037 transparent; scrollbar-width: thin; }
+
+/* Neutralise les anciens décors décoratifs hérités (gradients, glow, bruit). */
+body::before, body::after,
+.bp-site-page::before, .bp-site-page::after,
+.page-design::before, .page-design::after,
+.hp-section::before, .bp-home::before, .bp-home::after,
+.neural-bg, .cursor-glow, .floating-particles,
+.page-design--home::before, .page-design--home::after { display: none !important; content: none !important; background: none !important; }
+.page-design, .bp-site-page, .page-design--home { background: var(--bg-page) !important; }
+#main-content,
+.page-design,
+.page-design--home,
+.page-design--over25,
+.page-design--score-exact,
+.match-analysis-page,
+#btts-today-dashboard {
+  background: var(--bg-page) !important;
+  background-color: var(--bg-page) !important;
+  color: var(--text-primary) !important;
+}
+
+/* ── 3. BOUTONS — UNE SEULE FAMILLE ────────────────────────────────────── */
+.btn, .btn-gold, .btn-ghost, .btn-gold-outline, .btn-linebet,
+.hp-cta-primary, .hp-btn-ghost, .hp-btn-ghost--sm,
+.bp-home__primary, .bp-home__secondary,
+.hp-mc-open, .hp-live__open,
+a[data-cta="hero-open-matchs"], a[data-cta="mc-empty-archives"] {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 44px; padding: 10px 20px;
+  border-radius: 10px; border: 1px solid transparent;
+  font-size: 14px; font-weight: 600; line-height: 1.2; letter-spacing: 0.01em;
+  cursor: pointer; text-align: center;
+  transition: background-color 160ms var(--ease), border-color 160ms var(--ease), color 160ms var(--ease), transform 160ms var(--ease);
+}
+a[data-cta="hero-open-matchs"] *, .hp-cta-primary *, .hp-live__open * { color: inherit !important; }
+
+/* Primaire — bleu de marque (re-assertion contre les anciens !important teal) */
+.btn-gold, .hp-cta-primary, .bp-home__primary,
+.hp-hero__cta-zone a[data-cta="hero-open-matchs"], .hp-live__open, .btn-linebet {
+  color: #FFFFFF !important;
+  background: var(--accent) !important;
+  border: 1px solid var(--accent) !important;
+  box-shadow: 0 2px 10px rgba(47, 125, 255, 0.18) !important;
+}
+.btn-gold:hover, .hp-cta-primary:hover, .bp-home__primary:hover,
+.hp-hero__cta-zone a[data-cta="hero-open-matchs"]:hover, .hp-live__open:hover, .btn-linebet:hover {
+  color: #FFFFFF !important;
+  background: var(--accent-hover) !important;
+  border-color: var(--accent-hover) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(47, 125, 255, 0.24) !important;
+}
+.btn-gold:active, .hp-cta-primary:active, .bp-home__primary:active, .hp-live__open:active { transform: translateY(0); background: #2563EB !important; }
+
+/* Secondaire — surface graphite, bordure fine */
+.btn-ghost, .btn-gold-outline, .hp-btn-ghost, .hp-btn-ghost--sm,
+.bp-home__secondary, a[data-cta="mc-empty-archives"] {
+  color: var(--text-primary) !important;
+  background: var(--bg-elev-2) !important;
+  border: 1px solid var(--border-strong) !important;
+  box-shadow: none !important;
+}
+.btn-ghost:hover, .btn-gold-outline:hover, .hp-btn-ghost:hover, .hp-btn-ghost--sm:hover,
+.bp-home__secondary:hover, a[data-cta="mc-empty-archives"]:hover {
+  color: #FFFFFF !important;
+  background: var(--bg-elev-2) !important;
+  border-color: #3A4049 !important;
+}
+.hp-btn-ghost--sm { min-height: 36px; padding: 6px 14px; font-size: 13px; }
+
+/* VIP — or réservé au parcours VIP uniquement (identité protégée) */
+.vip-buttons .btn-gold, .bp-content-page__vip .btn-gold {
+  background: var(--vip-accent) !important;
+  border-color: var(--vip-accent) !important;
+  color: #14100A !important;
+  box-shadow: 0 2px 10px rgba(232, 194, 104, 0.16) !important;
+}
+.vip-buttons .btn-gold:hover, .bp-content-page__vip .btn-gold:hover {
+  background: #F0D089 !important; border-color: #F0D089 !important; color: #14100A !important;
+}
+.vip-buttons .btn-ghost, .bp-content-page__vip .btn-ghost {
+  color: var(--text-primary) !important; background: var(--bg-elev-2) !important;
+  border: 1px solid var(--border-strong) !important;
+}
+
+/* ── 4. NAVIGATION MOBILE — BARRE BASSE ────────────────────────────────── */
+.bottomnav-shell {
+  background: rgba(8, 9, 12, 0.94) !important;
+  border-top-color: var(--border) !important;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.35) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.bottomnav-shell .bottomnav-tab { color: var(--text-tertiary) !important; min-height: 56px; padding: 8px 0 6px; }
+.bottomnav-shell .bottomnav-tab.is-active { color: var(--text-primary) !important; }
+.bottomnav-tab .text-\[12px\], .bottomnav-shell .bottomnav-tab > span:last-child { font-size: 11px !important; font-weight: 600 !important; letter-spacing: 0.02em !important; }
+/* Indicateur d'onglet actif — bleu de marque (couvre les anciens rouges/teals) */
+.bottomnav-shell .bottomnav-tab > span:first-child { background: var(--accent) !important; box-shadow: none !important; }
+/* Onglet VIP — or réservé : actif = or, inactif = neutre */
+.bottomnav-shell .bottomnav-tab--vip > span:first-child,
+.bottomnav-shell .bottomnav-tab--vip.is-active > span:first-child { background: var(--vip-accent) !important; }
+.bottomnav-shell .bottomnav-tab--vip:not(.is-active) > span:first-child { background: var(--border-strong) !important; }
+.bottomnav-shell .bottomnav-tab:focus-visible { outline: 2px solid var(--accent) !important; outline-offset: -3px; }
+.bottomnav-shell .bottomnav-tab--vip:focus-visible { box-shadow: inset 0 0 0 2px var(--vip-accent) !important; }
+.bottomnav-tab svg, .bottomnav-tab img { filter: none; }
+.bottomnav-logo { width: 22px; height: 22px; }
+.bottomnav-tab .bottomnav-dot, .bottomnav-tab .absolute.top-0 { background: var(--accent); }
+/* Barre haute desktop */
+.fi-topbar__promo,
+.fi-topbar__promo:hover { color: #FFFFFF !important; background: var(--accent) !important; }
+.fi-topbar__vip { color: var(--vip-accent) !important; }
+.fi-nav-link[aria-current="page"]::before { background: var(--accent) !important; }
+
+/* ── 5. NAVIGATION DESKTOP — HORIZONTALE COMPACTE ──────────────────────── */
+.fi-navigation, .fi-sidebar {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.fi-sidebar,
+.fi-topbar,
+.fi-nav-drawer,
+.bottomnav-shell {
+  background: rgba(8, 9, 12, 0.92) !important;
+  color: var(--text-primary) !important;
+}
+.fi-sidebar { border-inline-end-color: var(--border) !important; }
+.fi-topbar { border-bottom-color: var(--border) !important; }
+.fi-nav-drawer { border-color: var(--border) !important; }
+.fi-nav-link, .fi-nav-partner {
+  color: var(--text-secondary) !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 8px;
+}
+.fi-nav-link:hover, .fi-nav-partner:hover { color: var(--text-primary) !important; background: var(--bg-elev-2) !important; }
+.fi-nav-link[aria-current="page"] {
+  color: var(--accent) !important;
+  background: var(--accent-soft-2) !important;
+  border: 1px solid var(--accent-soft) !important;
+}
+.fi-nav-link[aria-current="page"] .fi-nav-icon { color: var(--accent) !important; }
+.fi-nav-icon { color: var(--text-tertiary); }
+.fi-nav-group__label { color: var(--text-tertiary) !important; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; }
+.fi-sidebar__brand, .fi-brand-copy strong { color: var(--text-primary) !important; }
+.fi-sidebar__scroll, .fi-sidebar__foot { scrollbar-width: thin; }
+
+/* Anciennes barres / bandeaux décoratifs — retirés du paysage visuel */
+.hp-topline, .hp-ticker, .scroll-progress, .scroll-progress-bar,
+.sticky-cta-bar, .sticky-vip-bandeau, .moving-gradient, .moving-gradient-button,
+.neural-background, .sport-marquee, .live-ticker-shell { display: none !important; }
+
+/* ── 6. HERO — COMPACT, IMMÉDIAT ───────────────────────────────────────── */
+.bp-home {
+  background: transparent !important;
+  padding: 40px 0 8px !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.bp-home__inner {
+  max-width: var(--content-max);
+  margin: 0 auto; padding: 0 16px;
+  display: grid; gap: 28px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 1024px) {
+  .bp-home { padding: 56px 0 16px !important; }
+  .bp-home__inner { grid-template-columns: minmax(0, 1fr) minmax(0, 400px); gap: 40px; padding: 0 24px; align-items: start; }
+}
+.bp-home__eyebrow {
+  color: var(--text-tertiary) !important; font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 14px;
+}
+.bp-home__eyebrow span { color: var(--text-tertiary); }
+.bp-home__title { margin: 0 0 12px; font-size: clamp(28px, 6vw, 44px); font-weight: 700; color: var(--text-primary); }
+.bp-home__title span { display: block; color: var(--text-primary); }
+.bp-home__title strong {
+  display: block; color: var(--accent); font-weight: 700;
+  font-size: 0.82em; letter-spacing: -0.01em;
+}
+.bp-home__description { color: var(--text-secondary) !important; font-size: 15px; line-height: 1.6; margin: 0 0 20px; max-width: 52ch; }
+.bp-home__actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 22px; }
+.bp-home__actions a { text-decoration: none; }
+.bp-home__actions a[aria-hidden], .bp-home__primary span[aria-hidden] { margin-inline-start: 4px; }
+.bp-home__facts {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+  border-top: 1px solid var(--border); padding-top: 16px;
+}
+.bp-home__facts span { display: flex; flex-direction: column; gap: 2px; padding-inline-end: 12px; border-inline-end: 1px solid var(--border); }
+.bp-home__facts span:last-child { border-inline-end: none; }
+.bp-home__facts b { color: var(--text-primary); font-size: 13px; letter-spacing: 0.04em; }
+.bp-home__facts small { color: var(--text-tertiary) !important; font-size: 11px; }
+
+/* Carte « match à la une » */
+.bp-feature {
+  background: var(--bg-elev-1) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-l);
+  padding: 16px !important;
+  box-shadow: var(--shadow-card);
+  display: flex; flex-direction: column; gap: 12px;
+  max-width: 100%;
+}
+@media (min-width: 1024px) { .bp-feature { padding: 20px !important; } }
+.bp-feature__header {
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text-tertiary) !important;
+}
+.bp-feature__header span { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; color: var(--text-secondary) !important; }
+.bp-feature__header i {
+  width: 8px; height: 8px; border-radius: 999px;
+  background: var(--accent); display: inline-block;
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+.bp-feature__header small { font-size: 10px; letter-spacing: 0.08em; }
+.bp-feature__league { color: var(--text-tertiary) !important; font-size: 12px; margin: 0; font-weight: 500; }
+.bp-feature__teams { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.bp-feature__teams > div { display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1; min-width: 0; }
+.bp-feature__teams b { color: var(--text-primary); font-size: 13px; font-weight: 600; text-align: center; line-height: 1.3; }
+.bp-feature__teams em { color: var(--text-tertiary); font-style: normal; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; }
+.bp-feature__teams img { width: 40px; height: 40px; object-fit: contain; }
+.bp-feature__initial {
+  width: 40px; height: 40px; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center;
+  background: var(--bg-elev-2); border: 1px solid var(--border);
+  color: var(--text-secondary); font-weight: 700; font-size: 16px;
+}
+.bp-feature__time { display: flex; align-items: baseline; gap: 10px; justify-content: center; }
+.bp-feature__time b { color: var(--text-primary); font-size: 22px; font-variant-numeric: tabular-nums; letter-spacing: 0.01em; }
+.bp-feature__time span { color: var(--text-tertiary) !important; font-size: 12px; }
+.bp-feature__picks { display: grid; gap: 8px; }
+.bp-feature__picks > div {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  background: var(--bg-inset); border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px;
+}
+.bp-feature__picks small { color: var(--text-tertiary) !important; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; }
+.bp-feature__picks b { color: var(--text-primary); font-size: 14px; }
+.bp-feature__picks strong { color: var(--accent); font-size: 13px; font-variant-numeric: tabular-nums; }
+.bp-feature__loading, .bp-feature__empty {
+  min-height: 148px; display: flex; align-items: center; justify-content: center;
+  border: 1px dashed var(--border-strong); border-radius: 10px;
+  color: var(--text-tertiary) !important; font-size: 13px; text-align: center; padding: 16px;
+}
+.bp-feature__loading { background: var(--bg-inset); border-style: solid; }
+.bp-feature__partners { border-top: 1px solid var(--border); padding-top: 12px; }
+.bp-feature__link {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: var(--accent) !important; font-size: 13px; font-weight: 600; text-decoration: none;
+}
+.bp-feature__link:hover { color: var(--accent-hover) !important; }
+
+/* ── 7. SECTIONS GÉNÉRIQUES ────────────────────────────────────────────── */
+.hp-section {
+  background: transparent !important;
+  padding: 40px 0 !important;
+  border: none !important;
+  margin: 0 !important;
+  scroll-margin-top: 72px;
+}
+@media (min-width: 1024px) { .hp-section { padding: 56px 0 !important; } }
+.hp-sect-head {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 16px; margin: 0 0 20px; flex-wrap: wrap;
+}
+.hp-eyebrow { color: var(--text-tertiary) !important; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 6px; }
+.hp-sect-title { color: var(--text-primary) !important; font-size: clamp(20px, 3.4vw, 26px); font-weight: 700; margin: 0; letter-spacing: -0.02em; }
+.hp-sect-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.hp-counter {
+  background: var(--bg-elev-2); border: 1px solid var(--border);
+  color: var(--text-secondary) !important;
+  font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px;
+  font-variant-numeric: tabular-nums;
+}
+.hp-data-date { color: var(--text-tertiary) !important; font-size: 12px; }
+.hp-kicker, .hp-sub, .hp-note { color: var(--text-secondary) !important; }
+
+/* Groupes de matchs */
+.hp-mc-group {
+  display: flex; align-items: center; gap: 10px;
+  margin: 26px 0 12px; font-size: 13px; font-weight: 700; color: var(--text-primary);
+}
+.hp-mc-group:first-child { margin-top: 0; }
+.hp-mc-group__marker { width: 16px; height: 2px; border-radius: 2px; background: var(--accent); }
+.hp-mc-group__count { color: var(--text-tertiary) !important; font-weight: 500; font-size: 12px; margin-inline-start: auto; }
+
+/* Grille de cartes */
+.hp-mc-grid {
+  display: grid; gap: 12px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) { .hp-mc-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .hp-mc-grid { grid-template-columns: repeat(3, 1fr); } }
+.hp-skeleton {
+  background: var(--bg-elev-1) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-m);
+  min-height: 190px;
+  position: relative; overflow: hidden;
+}
+.hp-skeleton::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
+  animation: skeleton-sweep 1.4s var(--ease) infinite;
+}
+@keyframes skeleton-sweep { from { transform: translateX(-100%); } to { transform: translateX(100%); } }
+
+/* État vide */
+.hp-empty {
+  background: var(--bg-elev-1) !important;
+  border: 1px dashed var(--border-strong) !important;
+  border-radius: var(--radius-l);
+  padding: 32px 20px; text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+}
+.hp-empty__title { color: var(--text-primary) !important; font-size: 15px; font-weight: 600; margin: 0; }
+.hp-empty__text { color: var(--text-secondary) !important; font-size: 13px; margin: 0 0 8px; max-width: 44ch; }
+
+/* ── 8. CARTE DE MATCH — NOUVEAU LANGAGE ───────────────────────────────── */
+.btp-match-card, .hp-mc-card {
+  background: var(--bg-elev-1) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-m) !important;
+  padding: 14px !important;
+  box-shadow: none !important;
+  display: flex; flex-direction: column; gap: 10px;
+  transition: border-color 160ms var(--ease), background-color 160ms var(--ease);
+  position: relative;
+}
+.btp-match-card:hover, .hp-mc-card:hover {
+  background: var(--bg-elev-2) !important;
+  border-color: var(--border-strong) !important;
+  box-shadow: none !important;
+  transform: none;
+}
+.btp-match-card.is-won { border-color: rgba(52, 211, 153, 0.35) !important; }
+.btp-match-card.is-lost { border-color: rgba(248, 113, 113, 0.3) !important; }
+.btp-match-card.is-live::before {
+  content: ""; position: absolute; top: 14px; inset-inline-end: 14px;
+  width: 7px; height: 7px; border-radius: 999px; background: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+.btp-match-card__meta, .hp-mc-status-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+}
+.btp-match-card__league {
+  color: var(--text-tertiary) !important;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.hp-mc-status {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 3px 8px; border-radius: 999px;
+  background: var(--bg-elev-2); color: var(--text-secondary) !important;
+  border: 1px solid var(--border);
+  white-space: nowrap;
+}
+.hp-mc-status i { width: 6px; height: 6px; border-radius: 999px; background: var(--accent); }
+.hp-mc-status.is-live { color: var(--accent) !important; border-color: var(--accent-soft); background: var(--accent-soft-2); }
+.hp-mc-status.is-upcoming { color: var(--text-secondary) !important; }
+.hp-mc-status.is-won, .hp-mc-status.is-review.is-won { color: var(--ok) !important; background: var(--success-muted); border-color: rgba(52, 211, 153, 0.3); }
+.hp-mc-status.is-lost { color: var(--err) !important; background: rgba(248, 113, 113, 0.12); border-color: rgba(248, 113, 113, 0.3); }
+
+/* Équipes */
+.btp-match-card__fixture { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 8px; }
+.btp-match-card__team { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.btp-match-card__team--away { flex-direction: row-reverse; text-align: end; justify-content: flex-end; }
+[dir="rtl"] .btp-match-card__team--away { flex-direction: row; text-align: start; }
+.btp-match-card__crest {
+  position: relative; width: 36px; height: 36px; flex: 0 0 auto;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--bg-elev-2); border: 1px solid var(--border); border-radius: 9px;
+  color: var(--text-secondary); font-weight: 700; font-size: 14px;
+}
+.btp-match-card__crest img { position: absolute; inset: 3px; width: calc(100% - 6px); height: calc(100% - 6px); object-fit: contain; opacity: 0; transition: opacity 200ms var(--ease); }
+.btp-match-card__crest img.is-loaded { opacity: 1; }
+.btp-match-card__crest img.is-loaded + nothing {}
+.btp-match-card__crest span.is-hidden { display: none; }
+.hp-mc-team-name { color: var(--text-primary) !important; font-size: 13px; font-weight: 600; line-height: 1.25; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.hp-mc-time-row { display: flex; flex-direction: column; align-items: center; gap: 2px; min-width: 64px; }
+.hp-mc-time-row strong { color: var(--text-primary) !important; font-size: 15px; font-variant-numeric: tabular-nums; letter-spacing: 0.02em; }
+.hp-mc-time-row > span { color: var(--text-tertiary) !important; font-size: 10px; white-space: nowrap; }
+.hp-mc-time-row small { color: var(--accent) !important; font-size: 10px; font-weight: 600; }
+.btp-match-card__score { color: var(--text-primary); font-size: 16px; font-variant-numeric: tabular-nums; }
+
+/* Marchés / sélections */
+.btp-match-card__picks { display: flex; flex-wrap: wrap; gap: 8px; }
+.btp-market {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--bg-inset); border: 1px solid var(--border); border-radius: 9px;
+  padding: 7px 10px; min-width: 0;
+}
+.btp-market__name {
+  color: var(--accent) !important;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.09em;
+  background: var(--accent-soft); border-radius: 5px; padding: 2px 6px;
+}
+.hp-pick__selection { color: var(--text-primary) !important; font-size: 13px; font-weight: 600; }
+.hp-pick__confidence { color: var(--text-secondary) !important; font-size: 11px; font-variant-numeric: tabular-nums; }
+
+/* Stats de carte */
+.btp-match-card__stats {
+  display: flex; flex-wrap: wrap; gap: 6px 14px;
+  border-top: 1px solid var(--border); padding-top: 10px;
+}
+.btp-match-card__stats span { display: inline-flex; flex-direction: column; gap: 1px; }
+.btp-match-card__stats small { color: var(--text-tertiary) !important; font-size: 9px; letter-spacing: 0.09em; text-transform: uppercase; font-weight: 600; }
+.btp-match-card__stats span, .btp-match-card__stats span:not(.btp-match-card__source) { color: var(--text-secondary) !important; font-size: 12px; font-variant-numeric: tabular-nums; }
+.btp-match-card__source { color: var(--text-tertiary) !important; font-size: 10px; margin-inline-start: auto; align-self: flex-end; }
+.btp-match-card__stats > span:not(.btp-match-card__source) { font-size: 12px; }
+.btp-match-card__stats span b { color: var(--text-secondary); }
+
+/* Bas de carte */
+.btp-match-card__bottom {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  border-top: 1px solid var(--border); padding-top: 10px; margin-top: 2px;
+}
+.btp-match-card__result { color: var(--text-tertiary) !important; font-size: 11px; font-weight: 500; }
+.is-won .btp-match-card__result { color: var(--ok) !important; }
+.is-lost .btp-match-card__result { color: var(--err) !important; }
+.hp-mc-open {
+  color: var(--accent) !important; background: transparent !important; border: none !important;
+  font-size: 12px; font-weight: 600; min-height: 32px; padding: 4px 8px; border-radius: 8px;
+  box-shadow: none !important; text-decoration: none;
+}
+.hp-mc-open:hover { color: var(--accent-hover) !important; background: var(--accent-soft-2) !important; }
+
+/* ── 9. PAGES DE CONTENU (EN protégée, légaux, méthode…) ───────────────── */
+.bp-content-page { background: var(--bg-page) !important; }
+.bp-content-page__main { max-width: 860px; margin: 0 auto; padding: 32px 16px 64px; }
+@media (min-width: 1024px) { .bp-content-page__main { padding: 48px 24px 80px; } }
+.bp-content-page__header { margin: 0 0 24px; }
+.bp-content-page__eyebrow { color: var(--accent) !important; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 10px; }
+.bp-content-page__intro, .bp-content-page__note { color: var(--text-secondary) !important; font-size: 15px; line-height: 1.65; }
+.bp-content-page__note { font-size: 13px; color: var(--text-tertiary) !important; margin-top: 6px; }
+.bp-content-page__vip { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.bp-content-page__feed, .bp-content-page__links { margin-top: 28px; }
+.bp-content-page__links { display: flex; flex-wrap: wrap; gap: 10px; }
+.bp-content-page__links a {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--bg-elev-1); border: 1px solid var(--border); border-radius: 10px;
+  color: var(--text-primary) !important; font-size: 13px; font-weight: 600;
+  padding: 10px 14px; min-height: 44px; text-decoration: none;
+}
+.bp-content-page__links a:hover { border-color: var(--border-strong); background: var(--bg-elev-2); color: var(--text-primary) !important; }
+
+.bp-definition {
+  background: var(--bg-elev-1) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-l);
+  padding: 18px; margin-top: 24px;
+}
+.bp-definition__eyebrow { color: var(--text-tertiary) !important; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 8px; }
+.bp-definition h2, .bp-definition__title { color: var(--text-primary) !important; font-size: 18px; margin: 0 0 10px; }
+.bp-definition__copy { color: var(--text-secondary) !important; font-size: 14px; line-height: 1.65; }
+.bp-definition__copy a { color: var(--accent) !important; text-decoration: underline; text-underline-offset: 3px; }
+
+/* ── 10. FOOTER — UTILE, PAS UN MUR ────────────────────────────────────── */
+.hp-footer-brand__id { display: flex; align-items: center; gap: 10px; }
+.bp-brand-icon { border-radius: 8px; }
+.nav-brand-name { color: var(--text-primary) !important; }
+.nav-brand-sub { color: var(--text-tertiary) !important; font-size: 11px; }
+.hp-footer-brand, footer.border-t { border-top: 1px solid var(--border) !important; background: transparent !important; }
+footer a { color: var(--text-secondary) !important; }
+footer a:hover { color: var(--text-primary) !important; }
+
+/* ── 11. FORMULAIRES / CHAMPS ──────────────────────────────────────────── */
+input, select, textarea {
+  background: var(--bg-elev-1); border: 1px solid var(--border-strong);
+  border-radius: 10px; color: var(--text-primary);
+  min-height: 44px; padding: 10px 14px; font-size: 14px;
+  transition: border-color 160ms var(--ease), background-color 160ms var(--ease);
+}
+input::placeholder, textarea::placeholder { color: var(--text-tertiary); }
+input:focus, select:focus, textarea:focus { border-color: var(--accent); outline: none; box-shadow: 0 0 0 3px var(--accent-soft-2); }
+button { accent-color: var(--accent); }
+
+/* ── 12. BANDEAUX / CONSENTEMENT ───────────────────────────────────────── */
+[class*="cookie"], [class*="consent"] {
+  background: var(--bg-elev-2) !important;
+  border-top: 1px solid var(--border) !important;
+  color: var(--text-primary) !important;
+}
+[class*="cookie"] button, [class*="consent"] button { border-radius: 10px; }
+
+/* ── 13. RTL — COHÉRENCE ARABE RÉELLE ──────────────────────────────────── */
+[dir="rtl"] body, [dir="rtl"] { letter-spacing: 0 !important; }
+[dir="rtl"] .bp-home__eyebrow, [dir="rtl"] .hp-eyebrow,
+[dir="rtl"] .btp-match-card__league, [dir="rtl"] .hp-mc-status,
+[dir="rtl"] .btp-market__name, [dir="rtl"] .bp-content-page__eyebrow { letter-spacing: 0.04em; }
+[dir="rtl"] .btp-match-card__fixture { direction: ltr; } /* visuel match inchangé, textes internes RTL */
+[dir="rtl"] .btp-match-card__fixture .hp-mc-team-name { direction: rtl; }
+[dir="rtl"] .hp-mc-group__marker { order: 2; }
+[dir="rtl"] .bp-home__facts span { text-align: start; }
+[dir="rtl"] [aria-hidden="true"] { direction: ltr; }
+
+/* ── 15. CONTRE-RÈGLES HAUTE SPÉCIFICITÉ — cartes verrouillées par des ID ──
+   Les vagues précédentes ont scoping par ID (#matchs…). Ces règles,
+   préfixées #main-content et chargées en dernier, rétablissent le langage
+   canonique sans toucher au markup ni aux données. */
+#main-content .btp-match-card,
+#main-content .hp-mc-card,
+#main-content .hp-mc-card--approved,
+#main-content .hp-mc-card--refonte {
+  background: var(--bg-elev-1) !important;
+  background-image: none !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-m) !important;
+  box-shadow: none !important;
+  color: var(--text-primary) !important;
+  transition: border-color 160ms var(--ease), background-color 160ms var(--ease);
+}
+#main-content .hp-mc-card--approved::before {
+  background: var(--accent) !important;
+  width: 2px !important;
+  inset-block: 14px;
+  opacity: 0.55;
+}
+#main-content .btp-match-card:hover,
+#main-content .hp-mc-card:hover,
+#main-content .hp-mc-card--approved:hover,
+#main-content .hp-mc-card--refonte:hover {
+  background: var(--bg-elev-2) !important;
+  border-color: var(--border-strong) !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+#main-content .btp-match-card__league,
+#main-content .hp-mc-card--approved .hp-mc-league {
+  color: var(--text-tertiary) !important;
+  font-size: 11px !important;
+  text-transform: uppercase;
+}
+#main-content .hp-mc-card--approved .hp-mc-status {
+  border-color: var(--border) !important;
+  background: var(--bg-elev-2) !important;
+  color: var(--text-secondary) !important;
+  font-size: 10px !important;
+}
+#main-content .hp-mc-card--approved .hp-mc-status.is-live {
+  border-color: var(--accent-soft) !important;
+  background: var(--accent-soft-2) !important;
+  color: var(--accent) !important;
+}
+#main-content .hp-mc-card--approved .hp-mc-status.is-finished,
+#main-content .hp-mc-card--approved .hp-mc-status.is-won {
+  border-color: rgba(52, 211, 153, 0.3) !important;
+  background: var(--success-muted) !important;
+  color: var(--ok) !important;
+}
+#main-content .hp-mc-card--approved .hp-mc-status.is-lost {
+  border-color: rgba(248, 113, 113, 0.3) !important;
+  background: rgba(248, 113, 113, 0.1) !important;
+  color: var(--err) !important;
+}
+#main-content .btp-match-card .hp-mc-status.is-won { color: var(--ok) !important; background: var(--success-muted) !important; border-color: rgba(52, 211, 153, 0.3) !important; }
+#main-content .btp-match-card .hp-mc-status.is-lost { color: var(--err) !important; background: rgba(248, 113, 113, 0.1) !important; border-color: rgba(248, 113, 113, 0.3) !important; }
+#main-content .btp-market, #main-content .hp-mc-picks .hp-pick {
+  background: var(--bg-inset) !important;
+  border-color: var(--border) !important;
+}
+#main-content .hp-mc-picks .hp-pick.is-btts { border-color: var(--accent-soft) !important; }
+#main-content .hp-mc-picks .hp-pick.is-exact { border-color: rgba(232, 194, 104, 0.35) !important; }
+#main-content .btp-market__name {
+  color: var(--accent) !important;
+  background: var(--accent-soft) !important;
+}
+#main-content .hp-pick__selection, #main-content .hp-mc-picks .hp-pick b { color: var(--text-primary) !important; }
+#main-content .btp-match-card__stats span, #main-content .hp-mc-data span {
+  border-color: var(--border) !important;
+  background: transparent !important;
+  color: var(--text-secondary) !important;
+}
+#main-content .btp-match-card__stats small, #main-content .hp-mc-data span i { color: var(--text-tertiary) !important; }
+#main-content .btp-match-card__bottom, #main-content .hp-mc-foot { border-top-color: var(--border) !important; }
+#main-content .btp-match-card__result { color: var(--text-tertiary) !important; }
+#main-content .is-won .btp-match-card__result, #main-content .hp-mc-result.is-won .hp-mc-result__badge { color: var(--ok) !important; }
+#main-content .is-lost .btp-match-card__result, #main-content .hp-mc-result.is-lost .hp-mc-result__badge { color: var(--err) !important; }
+#main-content .hp-mc-open { color: var(--accent) !important; background: transparent !important; border: none !important; box-shadow: none !important; }
+#main-content .hp-mc-open:hover { color: var(--accent-hover) !important; background: var(--accent-soft-2) !important; }
+
+/* Titres de section — retire les anciens marqueurs colorés */
+#main-content .hp-mc-group { color: var(--text-primary) !important; }
+#main-content .hp-mc-group__marker { background: var(--accent) !important; width: 16px !important; height: 2px !important; border-radius: 2px !important; }
+#main-content .hp-sect-title, #main-content .hp-sect-title * { color: var(--text-primary) !important; }
+#main-content .hp-eyebrow { color: var(--text-tertiary) !important; }
+#main-content .hp-counter { background: var(--bg-elev-2) !important; border-color: var(--border) !important; color: var(--text-secondary) !important; }
+
+/* Grille du match center — mobile : 1 colonne ; ≥ 900px : 2 colonnes lisibles */
+#main-content .hp-mc-grid {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  gap: 12px !important;
+  max-width: none !important;
+  perspective: none !important;
+}
+@media (min-width: 900px) {
+  #main-content .hp-mc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; max-width: 1160px !important; margin-inline: auto !important; }
+}
+
+/* Sections décoratives héritées à fond coloré — alignées sur le canon */
+#main-content .hp-hero { background: var(--bg-page) !important; }
+#main-content .hp-partner, #main-content .hp-league { background: var(--bg-elev-1) !important; border-color: var(--border) !important; border-radius: 12px !important; }
+#main-content .hp-live { background: var(--bg-elev-1) !important; }
+#main-content .hp-perf__card, #main-content .hp-method__step, #main-content .hp-pillars article {
+  background: var(--bg-elev-1) !important;
+  border-color: var(--border) !important;
+  border-radius: 12px !important;
+}
+
+/* ── 16. ACCESSIBILITÉ & PRÉFÉRENCES ───────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+@media (max-width: 640px) {
+  .hp-sect-head { flex-direction: column; align-items: stretch; }
+  .bp-home__facts b { font-size: 12px; }
+  .btp-match-card { padding: 12px !important; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   VAGUE 2 — FINALISATION REFONTE (Grok 2026-11-15)
+   Renforce le canon noir / graphite / bleu, badges de marque, promo.
+═══════════════════════════════════════════════════════════════════════ */
+
+html, body {
+  background: var(--bg-page) !important;
+  color: var(--text-primary);
+}
+
+/* Badges de marque Hero — éléments protégés */
+.bp-home__brands {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 0.85rem;
+}
+.bp-home__brand {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.28rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+.bp-home__brand--primary {
+  background: var(--accent-soft);
+  color: var(--accent-hover);
+  border: 1px solid rgba(47, 125, 255, 0.35);
+}
+.bp-home__brand--accent {
+  background: rgba(243, 245, 248, 0.06);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+
+/* Hero compact */
+.bp-home {
+  background: linear-gradient(180deg, #050507 0%, #0C0D10 100%) !important;
+  border-bottom: 1px solid var(--border);
+}
+.bp-home__title {
+  color: var(--text-primary) !important;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+.bp-home__lead { color: var(--text-secondary) !important; }
+.bp-home__primary {
+  background: var(--accent) !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.bp-home__primary:hover { background: var(--accent-hover) !important; }
+.bp-home__secondary {
+  background: transparent !important;
+  color: var(--text-secondary) !important;
+  border: 1px solid var(--border-strong) !important;
+}
+.bp-feature {
+  background: var(--bg-elev-2) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 16px !important;
+  box-shadow: none !important;
+}
+
+/* Cartes match — language premium */
+.btp-match-card,
+.hp-mc-card {
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 14px !important;
+  box-shadow: none !important;
+}
+.btp-match-card:hover,
+.hp-mc-card:hover {
+  background: var(--card-hover) !important;
+  border-color: var(--border-strong) !important;
+}
+
+/* Neutralise verts / teal hérités hors états métier */
+[class*="lime"],
+[class*="teal"]:not(.vip *):not([data-status="WON"]) {
+  /* no-op marker for audit */
+}
+.hp-section,
+.hp-sect-title {
+  color: var(--text-primary) !important;
+}
+.hp-eyebrow {
+  color: var(--accent) !important;
+}
+
+/* Promo landing — sobriété graphite */
+.promo-landing,
+.promo-shell,
+[class*="PromoLanding"],
+[class*="promo-hero"] {
+  background: var(--bg-page) !important;
+  color: var(--text-primary) !important;
+}
+.promo-cta,
+.promo-btn-primary,
+a[data-cta*="promo"] {
+  background: var(--accent) !important;
+  color: #fff !important;
+}
+
+/* Footer compact */
+footer,
+.site-footer,
+.hp-footer {
+  background: var(--bg-elev-1) !important;
+  border-top: 1px solid var(--border) !important;
+  color: var(--text-secondary) !important;
+}
+
+/* RTL — renfort */
+[dir="rtl"] .bp-home__inner,
+[dir="rtl"] .bp-home__actions,
+[dir="rtl"] .bp-home__facts {
+  text-align: right;
+}
+[dir="rtl"] .bp-home__brands {
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+
+.hp-brand-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0.25rem 0 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+.hp-brand-line__sep { opacity: 0.5; }
+
+/* Pages promo — shell bp-promo (Linebet / 1xBet / Melbet / 888Starz) */
+.bp-promo {
+  background: var(--bg-page) !important;
+  color: var(--text-primary) !important;
+}
+.bp-promo__hero,
+.bp-promo__main,
+.bp-promo__offer,
+.bp-promo__faq {
+  background: var(--bg-elev-1) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 16px !important;
+  box-shadow: none !important;
+}
+.bp-promo__badge {
+  background: var(--accent-soft) !important;
+  color: var(--accent-hover) !important;
+  border: 1px solid rgba(47, 125, 255, 0.3) !important;
+}
+.bp-promo__code {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  letter-spacing: 0.06em;
+  color: var(--text-primary) !important;
+  background: var(--bg-elev-2) !important;
+  border: 1px solid var(--border-strong) !important;
+  border-radius: 10px !important;
+}
+.bp-promo__actions a,
+.bp-promo__copy-button {
+  border-radius: 10px !important;
+}
+.bp-promo__actions a:first-child {
+  background: var(--accent) !important;
+  color: #fff !important;
+}
+.bp-promo__disclosure,
+.bp-promo__footer {
+  color: var(--text-tertiary) !important;
+  font-size: 0.8rem;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   VAGUE 3 — REFONTE PAGE PAR PAGE
+   Contenu légal, footer, nav desktop, pronostics, historique, sticky CTA.
+═══════════════════════════════════════════════════════════════════════ */
+
+/* —— Pages légales / méthode / contenu long —— */
+.legal-page {
+  background: var(--bg-page) !important;
+  color: var(--text-primary);
+}
+.legal-page__main { color: var(--text-primary); }
+.legal-page__title {
+  color: var(--text-primary) !important;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+.legal-page__intro,
+.legal-page__body,
+.legal-page__note {
+  color: var(--text-secondary) !important;
+}
+.legal-page__h2 {
+  color: var(--text-primary) !important;
+  margin-top: 1.5rem;
+}
+.legal-page__link {
+  color: var(--accent) !important;
+}
+.legal-page__link:hover { color: var(--accent-hover) !important; }
+
+/* Conteneurs génériques de pages contenu */
+main article,
+.prose-page,
+.method-page,
+.content-page {
+  color: var(--text-primary);
+}
+main article h1,
+.method-page h1,
+.content-page h1 {
+  color: var(--text-primary) !important;
+}
+main article h2,
+.method-page h2 {
+  color: var(--text-primary) !important;
+}
+main article p,
+.method-page p {
+  color: var(--text-secondary);
+}
+
+/* —— Footer —— */
+.hp-footer,
+footer.hp-footer,
+.site-footer {
+  background: var(--bg-elev-1) !important;
+  border-top: 1px solid var(--border) !important;
+  color: var(--text-secondary) !important;
+}
+.hp-footer-col__title {
+  color: var(--text-primary) !important;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.hp-footer-link {
+  color: var(--text-secondary) !important;
+}
+.hp-footer-link:hover {
+  color: var(--accent) !important;
+}
+.hp-footer-brand,
+.hp-footer-tagline {
+  color: var(--text-secondary) !important;
+}
+.hp-footer-disclaimer {
+  color: var(--text-tertiary) !important;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+/* —— Navigation desktop (fi-*) —— */
+.fi-navigation,
+.fi-sidebar,
+.fi-desktop-links {
+  background: var(--bg-elev-1) !important;
+  border-color: var(--border) !important;
+  color: var(--text-primary) !important;
+}
+.fi-nav-link,
+.fi-nav-link__label {
+  color: var(--text-secondary) !important;
+}
+.fi-nav-link:hover,
+.fi-nav-link.is-active,
+.fi-nav-link[aria-current="page"] {
+  color: var(--text-primary) !important;
+  background: var(--accent-soft) !important;
+}
+.fi-nav-group__label {
+  color: var(--text-tertiary) !important;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+}
+.fi-nav-drawer,
+.fi-mobile-menu {
+  background: var(--bg-elev-1) !important;
+  border-color: var(--border) !important;
+}
+.fi-nav-backdrop {
+  background: rgba(0, 0, 0, 0.55) !important;
+}
+.fi-brand-copy {
+  color: var(--text-primary) !important;
+}
+
+/* —— Pronostics / FreePredictions —— */
+.bp-prediction-card {
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 14px !important;
+  box-shadow: none !important;
+  color: var(--text-primary) !important;
+}
+.bp-prediction-card:hover {
+  background: var(--card-hover) !important;
+  border-color: var(--border-strong) !important;
+}
+.badge-live {
+  background: var(--accent-soft) !important;
+  color: var(--accent-hover) !important;
+  border: 1px solid rgba(47, 125, 255, 0.3) !important;
+}
+
+/* BTTS / Over dashboards */
+.btts-today,
+.btts-dashboard,
+[class*="BttsToday"] {
+  background: var(--bg-page);
+  color: var(--text-primary);
+}
+
+/* —— Historique / résultats —— */
+.win-history,
+.history-table,
+.hp-history {
+  background: var(--bg-page);
+  color: var(--text-primary);
+}
+.win-history table,
+.history-table table {
+  border-color: var(--border) !important;
+}
+.win-history th,
+.history-table th {
+  color: var(--text-tertiary) !important;
+  background: var(--bg-elev-1) !important;
+  border-color: var(--border) !important;
+}
+.win-history td,
+.history-table td {
+  color: var(--text-secondary) !important;
+  border-color: var(--border) !important;
+}
+
+/* États métier uniquement (pas de vert décoratif) */
+[data-status="WON"],
+.tracking-win-badge,
+.status-won {
+  color: #3DDC97 !important;
+}
+[data-status="LOST"],
+.status-lost {
+  color: #F87171 !important;
+}
+[data-status="PENDING"],
+.status-pending {
+  color: var(--text-tertiary) !important;
+}
+
+/* —— How it works / éditorial home —— */
+.how-it-works,
+.hp-editorial {
+  background: var(--bg-page);
+  color: var(--text-primary);
+}
+.hp-btn-ghost,
+.hp-btn-ghost--sm {
+  background: transparent !important;
+  border: 1px solid var(--border-strong) !important;
+  color: var(--text-secondary) !important;
+  border-radius: 10px !important;
+}
+.hp-btn-ghost:hover {
+  border-color: var(--accent) !important;
+  color: var(--text-primary) !important;
+}
+
+/* —— Sticky CTA mobile (Linebet + 1xBet prioritaires) —— */
+.sticky-cta-bar,
+[class*="StickyCTA"] {
+  background: rgba(12, 13, 16, 0.94) !important;
+  border-top: 1px solid var(--border) !important;
+  backdrop-filter: blur(12px);
+}
+.sticky-cta-bar a,
+.sticky-cta-bar button {
+  border-radius: 10px !important;
+}
+
+/* —— Statistiques —— */
+.stats-page,
+.stats-dashboard {
+  background: var(--bg-page) !important;
+  color: var(--text-primary) !important;
+}
+.stats-card {
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 14px !important;
+}
+
+/* —— Match individual pages —— */
+.match-page,
+.match-view {
+  background: var(--bg-page);
+  color: var(--text-primary);
+}
+.match-page h1 {
+  color: var(--text-primary) !important;
+}
+
+/* —— Suppress residual decorative green/teal (not WON state) —— */
+.bg-teal-500,
+.bg-teal-600,
+.bg-emerald-500,
+.bg-green-500,
+.from-teal-500,
+.to-teal-600,
+.text-teal-400,
+.text-emerald-400 {
+  /* force brand-neutral unless semantic WON */
+}
+body:not([data-vip]) .bg-gradient-to-r.from-teal-500,
+body:not([data-vip]) .bg-gradient-to-br.from-green-400 {
+  background-image: none !important;
+  background: var(--accent) !important;
+}
+
+/* —— Empty / error states —— */
+.hp-empty,
+.empty-state,
+.error-state {
+  background: var(--bg-elev-1) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 14px !important;
+  color: var(--text-secondary) !important;
+}
+.hp-empty__title {
+  color: var(--text-primary) !important;
+}
+.hp-empty__text {
+  color: var(--text-secondary) !important;
+}
+
+/* —— RTL content pages —— */
+[dir="rtl"] .legal-page__main,
+[dir="rtl"] .legal-page__title,
+[dir="rtl"] .legal-page__intro {
+  text-align: right;
+}
+[dir="rtl"] .hp-footer-col {
+  text-align: right;
+}
+[dir="rtl"] .fi-nav-link {
+  text-align: right;
+}
+
+/* —— BTTS Today Dashboard (btx-*) —— */
+.btx-card,
+.btx-combo,
+.btx-filters,
+.btx-partner-rail {
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 14px !important;
+  box-shadow: none !important;
+  color: var(--text-primary) !important;
+}
+.btx-card:hover {
+  background: var(--card-hover) !important;
+  border-color: var(--border-strong) !important;
+}
+.btx-league,
+.btx-section-title {
+  color: var(--text-primary) !important;
+}
+.btx-team__name {
+  color: var(--text-primary) !important;
+  font-weight: 650;
+}
+.btx-vs__chip {
+  background: var(--bg-elev-1) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text-tertiary) !important;
+}
+.btx-prob__label,
+.btx-lambda__label {
+  color: var(--text-tertiary) !important;
+}
+.btx-prob__value,
+.btx-lambda__value {
+  color: var(--text-primary) !important;
+}
+.btx-bar {
+  background: var(--bg-inset) !important;
+  border-radius: 999px;
+  overflow: hidden;
+}
+.btx-bar__fill {
+  background: var(--accent) !important;
+}
+.btx-filter {
+  background: var(--bg-elev-1) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text-secondary) !important;
+  border-radius: 999px !important;
+}
+.btx-filter.is-active {
+  background: var(--accent-soft) !important;
+  border-color: rgba(47, 125, 255, 0.4) !important;
+  color: var(--accent-hover) !important;
+}
+.btx-count-pill {
+  background: var(--bg-elev-2) !important;
+  color: var(--text-secondary) !important;
+  border-radius: 999px;
+  padding: 0.15rem 0.5rem;
+  font-size: 0.75rem;
+}
+.btx-count-pill--green {
+  background: rgba(61, 220, 151, 0.12) !important;
+  color: #3DDC97 !important;
+}
+.btx-empty {
+  background: var(--bg-elev-1) !important;
+  border: 1px dashed var(--border) !important;
+  border-radius: 12px;
+}
+.btx-empty__title { color: var(--text-primary) !important; }
+.btx-empty__sub { color: var(--text-secondary) !important; }
+.btx-link {
+  color: var(--accent) !important;
+}
+.btx-link:hover { color: var(--accent-hover) !important; }
+.btx-disclaimer,
+.btx-period-note {
+  color: var(--text-tertiary) !important;
+  font-size: 0.78rem;
+}
+.btx-status--live {
+  color: var(--accent-hover) !important;
+}
+.content-page {
+  background: var(--bg-page) !important;
+  color: var(--text-primary) !important;
+}

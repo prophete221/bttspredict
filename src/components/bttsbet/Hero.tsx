@@ -70,6 +70,12 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
     <section className="bp-home" lang={lang} dir={direction}>
       <div className="bp-home__inner">
         <div className="bp-home__intro">
+          <div className="bp-home__brands" aria-label="Brand">
+            <span className="bp-home__brand bp-home__brand--primary">
+              {lang === 'en' ? 'World’s No.1 platform' : lang === 'ar' ? 'المنصة رقم 1 عالمياً' : 'Plateforme N°1 Mondiale'}
+            </span>
+            <span className="bp-home__brand bp-home__brand--accent">BTTS &amp; Over 2.5 Master</span>
+          </div>
           <p className="bp-home__eyebrow">BTTSPREDICT <span>·</span> {copy.eyebrow}</p>
           <h1 className="bp-home__title">
             <span>{t.home2.heroTitle1.replace(/[\[\]]/g, '')}</span>
