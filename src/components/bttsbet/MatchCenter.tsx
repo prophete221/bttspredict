@@ -369,7 +369,7 @@ function MatchCard({ m, index, lang, results, nowTs }: {
     >
       <div className="btp-match-card__meta">
         <span className="btp-match-card__league">{m.league}</span>
-        <span className={`hp-mc-status ${statusClass} btp-match-card__status`}>
+        <span className={`hp-mc-status ${statusClass}`}>
           {matchStatus === 'live' && !isFinished && <i aria-hidden="true" />}
           {statusText}
         </span>
@@ -383,7 +383,7 @@ function MatchCard({ m, index, lang, results, nowTs }: {
           </span>
           <strong className="hp-mc-team-name">{m.home}</strong>
         </div>
-        <div className="hp-mc-time-row btp-match-card__kickoff">
+        <div className="hp-mc-time-row">
           {isFinished && hasResult ? (
             <strong className="btp-match-card__score">{record?.finalScore}</strong>
           ) : (
@@ -419,7 +419,7 @@ function MatchCard({ m, index, lang, results, nowTs }: {
               <div key={p.type} className="btp-market">
                 <span className="btp-market__name">{marketShort}</span>
                 <strong className="hp-pick__selection">{selectionLabel}</strong>
-                {p.confidence !== undefined && p.confidence > 0 && p.confidence <= 100 && <span className="hp-pick__confidence btp-market__confidence">{p.confidence}%</span>}
+                {p.confidence !== undefined && p.confidence > 0 && p.confidence <= 100 && <span className="hp-pick__confidence">{p.confidence}%</span>}
               </div>
             )
           })}
