@@ -358,148 +358,90 @@ function MatchCard({ m, index, lang, results, nowTs }: {
   const num = (v?: number, digits = 2) =>
     v === undefined ? null : v.toLocaleString(loc, { maximumFractionDigits: digits })
 
+  const statusText = statusLabel
   return (
     <article
       data-match-date={m.date}
       data-match={m.match}
       data-match-league={m.league}
-      className={`hp-mc-card hp-mc-card--refonte hp-mc-card--approved${won ? ' is-won' : ''}${lost ? ' is-lost' : ''}${!isFinished ? ' is-pending' : ''}`}
-      style={{ ['--d' as string]: `${Math.min(index, 6) * 40}ms` }}
+      className={`btp-match-card${won ? ' is-won' : ''}${lost ? ' is-lost' : ''}${matchStatus === 'live' && !isFinished ? ' is-live' : ''}`}
+      style={{ ['--card-order' as string]: index }}
+      lang={lang}
+      dir={lang === 'ar' ? 'rtl' : 'ltr'}
     >
-      {/* Compétition et état du match */}
-      <div className="hp-mc-top">
-        <span className="hp-mc-league">{m.league}</span>
-        <span
-          className={`hp-mc-status ${statusClass}`}
-          title={countdown && matchStatus !== 'live' && !isFinished ? `${KICKOFF_I18N[lang].startsSoon} ${countdown}` : undefined}
-        >
-          {matchStatus === 'live' && !isFinished && <span className="hp-mc-status__dot" aria-hidden="true" />}
-          {statusLabel}
+      <div className="btp-match-card__meta">
+        <span className="btp-match-card__league">{m.league}</span>
+        <span className={`btp-match-card__status ${statusClass}`}>
+          {matchStatus === 'live' && !isFinished && <i aria-hidden="true" />}
+          {statusText}
         </span>
       </div>
 
-      {/* Date et heure restent visibles même sur les écrans étroits. */}
-      <div className="hp-mc-time-row">
-        <span className="hp-mc-time-value">{m.time || '--:--'}</span>
-        <span className="hp-mc-time-zone">{t.home2.mcTz}</span>
-        <span className="hp-mc-time-date">{formatCardDate(m.date, lang)}</span>
-        {countdown && matchStatus !== 'live' && !isFinished && (
-          <span className="hp-mc-countdown">{KICKOFF_I18N[lang].startsSoon} {countdown}</span>
-        )}
-      </div>
-
-      {/* Écussons et équipes */}
-      <div className="hp-mc-teams">
-        <div className="hp-mc-team">
-          <span className="hp-mc-crest">
-            <span className="hp-mc-crest__fallback" aria-hidden="true">{m.home.slice(0, 1).toUpperCase()}</span>
-            {homeLogo && <img src={homeLogo} alt="" width={44} height={44} loading="lazy" decoding="async" onLoad={event => { event.currentTarget.classList.add('is-loaded'); event.currentTarget.previousElementSibling?.classList.add('is-hidden') }} onError={event => { event.currentTarget.style.display = 'none' }} />}
+      <div className="btp-match-card__fixture">
+        <div className="btp-match-card__team">
+          <span className="btp-match-card__crest">
+            <span aria-hidden="true">{m.home.slice(0, 1).toUpperCase()}</span>
+            {homeLogo && <img src={homeLogo} alt="" width={40} height={40} loading="lazy" decoding="async" onLoad={event => { event.currentTarget.classList.add('is-loaded'); event.currentTarget.previousElementSibling?.classList.add('is-hidden') }} onError={event => { event.currentTarget.style.display = 'none' }} />}
           </span>
-          <span className="hp-mc-team-name">{m.home}</span>
+          <strong>{m.home}</strong>
         </div>
-        <span className="hp-mc-vs" aria-hidden="true">VS</span>
-        <div className="hp-mc-team">
-          <span className="hp-mc-crest">
-            <span className="hp-mc-crest__fallback" aria-hidden="true">{m.away.slice(0, 1).toUpperCase()}</span>
-            {awayLogo && <img src={awayLogo} alt="" width={44} height={44} loading="lazy" decoding="async" onLoad={event => { event.currentTarget.classList.add('is-loaded'); event.currentTarget.previousElementSibling?.classList.add('is-hidden') }} onError={event => { event.currentTarget.style.display = 'none' }} />}
-          </span>
-          <span className="hp-mc-team-name">{m.away}</span>
-        </div>
-      </div>
-
-      {/* Résultat final si le match est déjà vérifié */}
-      {isFinished && (
-        <div className={`hp-mc-result${won ? ' is-won' : ''}${lost ? ' is-lost' : ''}`}>
-          {hasResult ? (
-            <>
-              <span className="hp-mc-result__score">{record?.finalScore}</span>
-              <span className={`hp-mc-result__badge${won ? ' tracking-win-badge' : ''}`}>{won ? t.home2.mcWon : lost ? t.home2.mcLost : ''}</span>
-              <span className="hp-mc-result__label">{t.home2.mcFinalScore}</span>
-            </>
+        <div className="btp-match-card__kickoff">
+          {isFinished && hasResult ? (
+            <strong className="btp-match-card__score">{record?.finalScore}</strong>
           ) : (
-            <span className="hp-mc-result__label">{t.home2.mcVerifying}</span>
+            <strong>{m.time || '--:--'}</strong>
           )}
+          <span>{formatCardDate(m.date, lang)} · {t.home2.mcTz}</span>
+          {countdown && matchStatus !== 'live' && !isFinished && <small>{KICKOFF_I18N[lang].startsSoon} {countdown}</small>}
         </div>
-      )}
+        <div className="btp-match-card__team btp-match-card__team--away">
+          <span className="btp-match-card__crest">
+            <span aria-hidden="true">{m.away.slice(0, 1).toUpperCase()}</span>
+            {awayLogo && <img src={awayLogo} alt="" width={40} height={40} loading="lazy" decoding="async" onLoad={event => { event.currentTarget.classList.add('is-loaded'); event.currentTarget.previousElementSibling?.classList.add('is-hidden') }} onError={event => { event.currentTarget.style.display = 'none' }} />}
+          </span>
+          <strong>{m.away}</strong>
+        </div>
+      </div>
 
-      {/* Ligne 3 : picks Gemini uniquement */}
       {picks.length > 0 && (
-        <div className="hp-mc-picks">
+        <div className="btp-match-card__picks" aria-label={lang === 'en' ? 'Predictions' : lang === 'ar' ? 'التوقعات' : 'Pronostics'}>
           {picks.map(p => {
             const typeUp = (p.type || '').toUpperCase()
-            const marketClass =
-              typeUp.includes('BTTS') || typeUp.includes('BOTH')
-                ? ' is-btts'
-                : typeUp.includes('OVER') || typeUp.includes('2.5') || typeUp.includes('O2.5')
-                  ? ' is-over'
-                  : typeUp.includes('EXACT') || typeUp.includes('CS')
-                    ? ' is-exact'
-                    : ''
-            const marketShort =
-              typeUp.includes('BTTS') || typeUp.includes('BOTH')
-                ? 'BTTS'
-                : typeUp.includes('OVER') || typeUp.includes('2.5') || typeUp.includes('O2.5')
-                  ? 'O2.5'
-                  : p.type
+            const marketShort = typeUp.includes('BTTS') || typeUp.includes('BOTH')
+              ? 'BTTS'
+              : typeUp.includes('OVER') || typeUp.includes('2.5') || typeUp.includes('O2.5')
+                ? 'O2.5'
+                : p.type
             const selectionLabel = p.prediction === 'Oui'
               ? t.predictions.bttsYes
               : p.prediction === 'Non'
                 ? t.predictions.bttsNo
                 : p.prediction
             return (
-              <div key={p.type} className={`hp-pick${marketClass}`}>
-                <span className="hp-pick__mark" aria-hidden="true">{marketShort}</span>
-                <span className="hp-pick__copy">
-                  <span className="hp-pick__label">
-                    {lang === 'en' ? 'PICK' : lang === 'ar' ? 'توقع' : 'PRONOSTIC'} · {p.type}
-                  </span>
-                  <span className="hp-pick__selection">{selectionLabel}</span>
-                </span>
-                {p.confidence !== undefined && p.confidence > 0 && p.confidence <= 100 && (
-                  <span className="hp-pick__confidence">
-                    <strong>{p.confidence}%</strong>
-                    <small>{lang === 'en' ? 'confidence' : lang === 'ar' ? 'الثقة' : 'confiance'}</small>
-                  </span>
-                )}
+              <div key={p.type} className="btp-market">
+                <span className="btp-market__name">{marketShort}</span>
+                <strong>{selectionLabel}</strong>
+                {p.confidence !== undefined && p.confidence > 0 && p.confidence <= 100 && <span className="btp-market__confidence">{p.confidence}%</span>}
               </div>
             )
           })}
         </div>
       )}
-      {/* Ligne 3bis : cotes réelles du marché (gratuit — ESPN/bookmaker) */}
-      {m.odds && (m.odds.home || m.odds.away) && (
-        <div className="hp-mc-data" title={m.odds.provider ? (lang === 'en' ? `${m.odds.provider} odds` : lang === 'ar' ? `أودز ${m.odds.provider}` : `Cotes ${m.odds.provider}`) : (lang === 'en' ? 'Market odds' : lang === 'ar' ? 'أودز السوق' : 'Cotes marché')}>
-          {m.odds.home !== null && m.odds.home !== undefined && <span><i>1</i> {m.odds.home}</span>}
-          {m.odds.draw !== null && m.odds.draw !== undefined && <span><i>{lang === 'en' ? 'D' : lang === 'ar' ? 'X' : 'N'}</i> {m.odds.draw}</span>}
-          {m.odds.away !== null && m.odds.away !== undefined && <span><i>2</i> {m.odds.away}</span>}
-          {m.odds.over25 !== null && m.odds.over25 !== undefined && <span><i>O2.5</i> {m.odds.over25}</span>}
+
+      {(m.xgTotal !== undefined || m.formBTTS !== undefined || (m.odds && (m.odds.home || m.odds.away))) && (
+        <div className="btp-match-card__stats">
+          {m.xgTotal !== undefined && <span><small>xG</small>{num(m.xgTotal, 1)}</span>}
+          {m.formBTTS !== undefined && <span><small>BTTS récent</small>{m.formBTTS}%</span>}
+          {m.odds?.over25 !== null && m.odds?.over25 !== undefined && <span><small>O2.5 cote</small>{m.odds.over25}</span>}
+          {m.odds?.provider && <span className="btp-match-card__source">{m.odds.provider}</span>}
         </div>
       )}
 
-      {/* Ligne 4 : synthèse données réelles */}
-      {(m.xgTotal !== undefined || m.formBTTS !== undefined) && (
-        <div className="hp-mc-data">
-          {m.xgHome !== undefined && m.xgAway !== undefined && (
-            <span title={metricLabels.teamGoalsDescription}><i>{metricLabels.teamGoals}</i> {num(m.xgHome)}/{num(m.xgAway)}</span>
-          )}
-          {m.xgTotal !== undefined && <span title={metricLabels.combinedGoalsDescription}><i>{metricLabels.combinedGoals}</i> {num(m.xgTotal, 1)}</span>}
-          {m.formBTTS !== undefined && <span title={metricLabels.recentBttsDescription}><i>{metricLabels.recentBtts}</i> {m.formBTTS}%</span>}
-        </div>
-      )}
-
-
-      {/* Ligne 5 : publication + analyse */}
-      <div className="hp-mc-foot">
-        <span className="hp-mc-pub">
-          <span className="hp-status-dot" aria-hidden="true" />
-          {t.home2.mcPublished}
+      <div className="btp-match-card__bottom">
+        <span className="btp-match-card__result">
+          {isFinished ? (won ? t.home2.mcWon : lost ? t.home2.mcLost : t.home2.mcVerifying) : t.home2.mcPublished}
         </span>
-        {matchHref && (
-          <a href={matchHref} className="hp-mc-open" data-cta={`mc-open-${index}`}>
-            {t.home2.mcOpen}
-            <span aria-hidden="true">→</span>
-          </a>
-        )}
+        {matchHref && <a href={matchHref} data-cta={`mc-open-${index}`}>{t.home2.mcOpen}<span aria-hidden="true">↗</span></a>}
       </div>
     </article>
   )
