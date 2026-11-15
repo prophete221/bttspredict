@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, type CSSProperties } from 'react'
 import { trackAffiliateAction, trackAffiliateCodeCopy } from '@/lib/affiliateTracking'
 import { copyTextToClipboard } from '@/lib/clipboard'
 
@@ -87,7 +87,7 @@ export default function PromoLandingShell(p: PromoLandingProps) {
       lang={p.lang}
       dir={p.lang === 'ar' ? 'rtl' : 'ltr'}
       className="bp-promo"
-      style={{ ['--bp-promo-accent' as string]: p.accent, ['--bp-promo-logo-bg' as string]: p.logoBg }}
+      style={{ '--bp-promo-accent': p.accent, '--bp-promo-logo-bg': p.logoBg } as CSSProperties}
     >
       <div className="bp-promo__main">
         <header className="bp-promo__hero">
@@ -104,7 +104,7 @@ export default function PromoLandingShell(p: PromoLandingProps) {
 
         <section className="bp-promo__code" aria-label={L.codeLabel}>
           <div className="bp-promo__code-label">{L.codeLabel}</div>
-          <button type="button" className="bp-promo__copy" onClick={handleCopy} data-cta={`promo-copy-${p.bookmakerId}`} aria-label={`${p.code} — ${L.copy}`}>
+          <button type="button" className="bp-promo__copy-button" onClick={handleCopy} data-cta={`promo-copy-${p.bookmakerId}`} aria-label={`${p.code} — ${L.copy}`}>
             <bdi dir="ltr">{p.code}</bdi>
             <span>{copied ? L.copied : L.copy}</span>
           </button>
