@@ -37,10 +37,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     openGraph: {
       title,
       description,
-      url: locale === 'ar' ? 'ar' : 'en' === 'ar' ? AR_URL : EN_URL,
+      url: isEnglish ? EN_URL : AR_URL,
       siteName: 'BTTSPredict',
       type: 'article',
-      locale: locale === 'ar' ? 'ar' : 'en' === 'ar' ? 'ar' : 'en_US',
+      locale: isEnglish ? 'en_US' : 'ar',
       images: [{ url: '/og-image.png', width: 1200, height: 630, alt: title }],
     },
     twitter: { card: 'summary_large_image', title, description, images: ['/og-image.png'] },
