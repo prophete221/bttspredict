@@ -289,17 +289,9 @@ describe('ftp-diff forced paths', () => {
     expect(deployList).toContain('^en/code-promo-linebet-senegal\\.txt$')
     expect(deployList).toContain('code-promo-linebet-senegal/page-abc')
     expect(deployList).not.toContain('^code-promo-linebet-senegal\\.html$')
-    expect(deployList).toContain('^ar/code-promo-1xbet\\.html
-  })
-
-})
-)
+    expect(deployList).toContain('^ar/code-promo-1xbet\\.html$')
     expect(deployList).toContain('ar/code-promo-1xbet/__next\\._full\\.txt')
-    expect(deployList).toContain('^en/bonus-888starz\\.html
-  })
-
-})
-)
+    expect(deployList).toContain('^en/bonus-888starz\\.html$')
     expect(deployList).not.toContain('ar/bonus-888starz-btts221')
     expect(deployList).not.toContain('linebet-promo-code')
   })
