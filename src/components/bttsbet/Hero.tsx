@@ -72,8 +72,8 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
         <div className="bp-home__intro">
           <p className="bp-home__eyebrow">BTTSPREDICT <span>·</span> {copy.eyebrow}</p>
           <h1 className="bp-home__title">
-            <span>Plateforme N°1 Mondiale</span>
-            <strong>BTTS &amp; Over 2.5 Master</strong>
+            <span>{t.home2.heroTitle1.replace(/[\[\]]/g, '')}</span>
+            <strong>{t.home2.heroTitle2}</strong>
           </h1>
           <p className="bp-home__description">{copy.description}</p>
           <div className="bp-home__actions">
