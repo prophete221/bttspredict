@@ -929,3 +929,44 @@ footer,
   color: var(--text-tertiary);
 }
 .hp-brand-line__sep { opacity: 0.5; }
+
+/* Pages promo — shell bp-promo (Linebet / 1xBet / Melbet / 888Starz) */
+.bp-promo {
+  background: var(--bg-page) !important;
+  color: var(--text-primary) !important;
+}
+.bp-promo__hero,
+.bp-promo__main,
+.bp-promo__offer,
+.bp-promo__faq {
+  background: var(--bg-elev-1) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 16px !important;
+  box-shadow: none !important;
+}
+.bp-promo__badge {
+  background: var(--accent-soft) !important;
+  color: var(--accent-hover) !important;
+  border: 1px solid rgba(47, 125, 255, 0.3) !important;
+}
+.bp-promo__code {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  letter-spacing: 0.06em;
+  color: var(--text-primary) !important;
+  background: var(--bg-elev-2) !important;
+  border: 1px solid var(--border-strong) !important;
+  border-radius: 10px !important;
+}
+.bp-promo__actions a,
+.bp-promo__copy-button {
+  border-radius: 10px !important;
+}
+.bp-promo__actions a:first-child {
+  background: var(--accent) !important;
+  color: #fff !important;
+}
+.bp-promo__disclosure,
+.bp-promo__footer {
+  color: var(--text-tertiary) !important;
+  font-size: 0.8rem;
+}
