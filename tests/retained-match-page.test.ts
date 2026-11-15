@@ -45,8 +45,8 @@ const PROTECTED_SEO_ROUTES = [
       ]],
       ['src/components/bttsbet/Hero.tsx', [
         '<h1 className="bp-home__title">',
-        '<span>Plateforme N°1 Mondiale</span>',
-        '<strong>BTTS &amp; Over 2.5 Master</strong>',
+        '<span>{t.home2.heroTitle1.replace(/[\\[\\]]/g, \'\')}</span>',
+        '<strong>{t.home2.heroTitle2}</strong>',
       ]],
     ],
   },
@@ -89,8 +89,8 @@ const PROTECTED_SEO_ROUTES = [
       ]],
       ['src/components/bttsbet/Hero.tsx', [
         '<h1 className="bp-home__title">',
-        '<span>Plateforme N°1 Mondiale</span>',
-        '<strong>BTTS &amp; Over 2.5 Master</strong>',
+        '<span>{t.home2.heroTitle1.replace(/[\\[\\]]/g, \'\')}</span>',
+        '<strong>{t.home2.heroTitle2}</strong>',
       ]],
     ],
   },
