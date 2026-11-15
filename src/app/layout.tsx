@@ -5,6 +5,7 @@ import "./globals.css";
 import "./football-intelligence.css";
 import "./bttspredict-design-system.css";
 import "./matchday-ui.css";
+import "./bttspredict-rebuild.css";
 import ApplicationNavigationShell from "@/components/bttsbet/ApplicationNavigationShell";
 import LegacyCredentialCleanup from "@/components/bttsbet/LegacyCredentialCleanup";
 
