@@ -8022,7 +8022,574 @@
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "abstain",
+      "status": "PENDING"
+    },
+    {
+      "id": "cdplaten-vs-atletico-2026-11-15",
+      "match": "C.D. Platense vs Atletico Balboa",
+      "home": "C.D. Platense",
+      "away": "Atletico Balboa",
+      "league": "Salvadoran Primera Division",
+      "date": "2026-11-15",
+      "type": "Over 2.5",
+      "time": "21:00",
+      "matchSemantic": "cdplaten-vs-atletico-2026-11-15",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21092.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7369.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1,
+      "xgAway": 2.67,
+      "xgTotal": 3.67,
+      "formBTTS": 70,
+      "analysis": "C.D. Platense : forme D-D-N-N-V (1V 2N 2D, 5 buts marqués / 7 encaissés sur 5) · Atletico Balboa : forme V-V-V-V-N (4V 1N 0D, 13 buts marqués / 7 encaissés sur 5). Classement : C.D. Platense 6e (27 pts), Atletico Balboa 9e (23 pts). Stats empiriques (forme récente) : buts moy. 3.67, BTTS 70.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.35 / N: 3.1 / 2: 2.85 · Over 2.5: 1.8. Fiabilité 89.38%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.7,
+        "empiricalOver25Rate": 0.6,
+        "homeLambda": 1,
+        "awayLambda": 2.67,
+        "xgTotal": 3.67
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.35,
+        "draw": 3.1,
+        "away": 2.85,
+        "over25": 1.8,
+        "under25": 1.8
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-D-N-N-V",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 5,
+        "goalsAgainst": 7,
+        "bttsRate": 0.6,
+        "over25Rate": 0.4,
+        "cleanSheets": 1,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-V-V-N",
+        "wins": 4,
+        "draws": 1,
+        "losses": 0,
+        "goalsFor": 13,
+        "goalsAgainst": 7,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-11",
+          "opponent": "Isidro Metapán",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Cacahuatique",
+          "venue": "H",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Internacional Santa Tecla",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Luis Ángel Firpo",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "CD FAS",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-12",
+          "opponent": "Inca Aruba",
+          "venue": "H",
+          "score": "4-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-08",
+          "opponent": "CD Municipal Limeño",
+          "venue": "A",
+          "score": "4-3",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Alianza FC",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Fuerte San Francisco",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Águila",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 6,
+        "points": 27,
+        "played": 20,
+        "gf": 26,
+        "ga": 24
+      },
+      "standingsAway": {
+        "rank": 9,
+        "points": 23,
+        "played": 20,
+        "gf": 25,
+        "ga": 32
+      },
+      "empiricalBttsRate": 0.7,
+      "empiricalOver25Rate": 0.6,
+      "homeLambda": 1,
+      "awayLambda": 2.67,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_key_fact": "Atletico Balboa présente un taux Over 2.5 de 80% et une moyenne offensive de 2.67 buts.",
+      "ai_analysis": "La dynamique d'Atletico Balboa, caractérisée par de nombreux buts et un taux Over 2.5 de 80%, pousse l'analyse vers une rencontre ouverte. Couplé aux statistiques générales de la confrontation, le pari Over 2.5 trouve un appui statistique cohérent.",
+      "ai_analysis_en": "Atletico Balboa's dynamic, featuring many goals and an 80% Over 2.5 rate, drives the analysis toward an open match. Combined with general matchup stats, the Over 2.5 bet finds consistent statistical backing.",
+      "ai_form_summary": "C.D. Platense (1W-2D-2L) est en manque de régularité, Atletico Balboa (4W-1D-0L) est en pleine forme offensive.",
+      "ai_form_summary_en": "C.D. Platense (1W-2D-2L) lacks consistency, Atletico Balboa (4W-1D-0L) is in top offensive form.",
+      "ai_reasons": [
+        "Taux Over 2.5 de 80% pour Atletico Balboa sur ses 5 derniers matchs.",
+        "Moyenne de buts marqués par l'équipe visiteuse élevée à 2.67.",
+        "Taux empirique BTTS de 70% et Over global de 60%."
+      ],
+      "ai_risks": [
+        "C.D. Platense a des statistiques offensives plus modestes avec une moyenne de 1 but.",
+        "La défense de Balboa concède également beaucoup de buts (32 sur la saison)."
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 65,
+          "proba": 0.65,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "over25Prob": 0.65
+        }
+      ],
+      "over25Prob": 0.65,
+      "prediction": "Oui",
+      "proba": 0.65,
+      "confidence": 65
+    },
+    {
+      "id": "eldense-vs-cdsabade-2026-11-15",
+      "match": "Eldense vs CD Sabadell",
+      "home": "Eldense",
+      "away": "CD Sabadell",
+      "league": "LaLiga 2",
+      "date": "2026-11-15",
+      "type": "BTTS",
+      "time": "17:30",
+      "matchSemantic": "eldense-vs-cdsabade-2026-11-15",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7320.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/11487.png",
+      "tier": "GOLD",
+      "reliabilityScore": 75.63,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.75,
+      "xgAway": 1,
+      "xgTotal": 2.75,
+      "formBTTS": 50,
+      "analysis": "Eldense : forme D-D-D-V-V (2V 0N 3D, 5 buts marqués / 9 encaissés sur 5) · CD Sabadell : forme N-D-N-D-V (1V 2N 2D, 4 buts marqués / 5 encaissés sur 5). Classement : Eldense 16e (14 pts), CD Sabadell 13e (18 pts). Stats empiriques (forme récente) : buts moy. 2.75, BTTS 50.0%, Over 2.5 40.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.4 / N: 2.95 / 2: 3.35. Fiabilité 75.63%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.5,
+        "empiricalOver25Rate": 0.4,
+        "homeLambda": 1.75,
+        "awayLambda": 1,
+        "xgTotal": 2.75
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.4,
+        "draw": 2.95,
+        "away": 3.35,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-D-D-V-V",
+        "wins": 2,
+        "draws": 0,
+        "losses": 3,
+        "goalsFor": 5,
+        "goalsAgainst": 9,
+        "bttsRate": 0.4,
+        "over25Rate": 0.4,
+        "cleanSheets": 0,
+        "failedToScore": 3,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-D-N-D-V",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 4,
+        "goalsAgainst": 5,
+        "bttsRate": 0.6,
+        "over25Rate": 0.4,
+        "cleanSheets": 1,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-09",
+          "opponent": "Las Palmas",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Granada",
+          "venue": "H",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Albacete",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Real Valladolid",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Córdoba",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-09",
+          "opponent": "Real Sociedad II",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Albacete",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Tenerife",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Burgos",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Ceuta",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 16,
+        "points": 14,
+        "played": 13,
+        "gf": 13,
+        "ga": 19
+      },
+      "standingsAway": {
+        "rank": 13,
+        "points": 18,
+        "played": 13,
+        "gf": 12,
+        "ga": 11
+      },
+      "empiricalBttsRate": 0.5,
+      "empiricalOver25Rate": 0.4,
+      "homeLambda": 1.75,
+      "awayLambda": 1,
+      "statsOnly": true,
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "Eldense et CD Sabadell affichent des bilans récents mitigés avec de faibles marges de buts.",
+      "ai_analysis": "Les indicateurs statistiques de cette rencontre se neutralisent en grande partie. Le taux BTTS de 0.5 et l'Over à 0.4 ne fournissent pas un signal assez net pour recommander un pari sur ces marchés.",
+      "ai_analysis_en": "Statistical indicators for this match largely neutralize each other. The 0.5 BTTS rate and 0.4 Over rate do not provide a clear enough signal to recommend a bet on these markets.",
+      "ai_form_summary": "Eldense : 2V-0N-3D (5 buts pour, 9 contre). CD Sabadell : 1V-2N-2D (4 buts pour, 5 contre).",
+      "ai_form_summary_en": "Eldense: 2W-0D-3L (5 GF, 9 GA). CD Sabadell: 1W-2D-2L (4 GF, 5 GA).",
+      "ai_reasons": [
+        "Taux empiriques trop partagés avec un BTTS à 0.5 et un Over à 0.4.",
+        "Forme récente irrégulière pour les deux équipes."
+      ],
+      "ai_risks": [
+        "CD Sabadell montre un taux BTTS de 0.6 sur ses 5 derniers matchs qui suggère une possible ouverture."
+      ],
+      "ai_confidence": "low",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "abstain",
+      "status": "PENDING"
+    },
+    {
+      "id": "alahli-vs-alnassr-2026-11-20",
+      "match": "Al Ahli vs Al Nassr",
+      "home": "Al Ahli",
+      "away": "Al Nassr",
+      "league": "Saudi Pro League",
+      "date": "2026-11-20",
+      "type": "Over 2.5",
+      "time": "17:30",
+      "matchSemantic": "alahli-vs-alnassr-2026-11-20",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/8346.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/817.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 4,
+      "xgAway": 1.67,
+      "xgTotal": 5.67,
+      "formBTTS": 70,
+      "analysis": "Al Ahli : forme D-V-V-V-V (4V 0N 1D, 15 buts marqués / 10 encaissés sur 5) · Al Nassr : forme V-V-V-V-N (4V 1N 0D, 13 buts marqués / 5 encaissés sur 5). Classement : Al Ahli 6e (21 pts), Al Nassr 3e (28 pts). Stats empiriques (forme récente) : buts moy. 5.67, BTTS 70.0%, Over 2.5 80.0%. Affinage AI ensuite. Fiabilité 89.38%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.7,
+        "empiricalOver25Rate": 0.8,
+        "homeLambda": 4,
+        "awayLambda": 1.67,
+        "xgTotal": 5.67
+      },
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "D-V-V-V-V",
+        "wins": 4,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 15,
+        "goalsAgainst": 10,
+        "bttsRate": 0.8,
+        "over25Rate": 1,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-V-V-N",
+        "wins": 4,
+        "draws": 1,
+        "losses": 0,
+        "goalsFor": 13,
+        "goalsAgainst": 5,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 2,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-30",
+          "opponent": "Al Shabab",
+          "venue": "A",
+          "score": "1-6",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Al Khaleej",
+          "venue": "H",
+          "score": "4-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-19",
+          "opponent": "Al Fayha",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-09",
+          "opponent": "Al Fateh",
+          "venue": "A",
+          "score": "4-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-11",
+          "opponent": "Al Hazem",
+          "venue": "H",
+          "score": "3-1",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-29",
+          "opponent": "Al Kholood",
+          "venue": "H",
+          "score": "5-3",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Al Faisaly",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-20",
+          "opponent": "Neom SC",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-09",
+          "opponent": "Al Diriyah",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "Al Khaleej",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 6,
+        "points": 21,
+        "played": 11,
+        "gf": 28,
+        "ga": 19
+      },
+      "standingsAway": {
+        "rank": 3,
+        "points": 28,
+        "played": 11,
+        "gf": 28,
+        "ga": 11
+      },
+      "empiricalBttsRate": 0.7,
+      "empiricalOver25Rate": 0.8,
+      "homeLambda": 4,
+      "awayLambda": 1.67,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_key_fact": "Al Ahli affiche une moyenne de 4 buts marqués et un taux Over 2.5 de 100% sur ses 5 derniers matchs.",
+      "ai_analysis": "Ce match de Saudi Pro League oppose deux équipes du haut de tableau aux bilans offensifs productifs, notamment Al Ahli qui tourne à une impressionnante moyenne de 4 buts par match. Avec un taux empirique Over 2.5 de 80% et une dynamique récente très portée vers l'offensive pour les locaux, les conditions statistiques sont réunies pour voir plus de 2.5 buts.",
+      "ai_analysis_en": "This Saudi Pro League match features two top-table teams with productive offensive records, notably Al Ahli who average an impressive 4 goals per match. With an 80% empirical Over 2.5 rate and a very offensive recent dynamic for the hosts, statistical conditions are met to see over 2.5 goals.",
+      "ai_form_summary": "Al Ahli : 4V-0D-1L sur les 5 derniers, 15 buts pour, 10 contre (Over 100%). Al Nassr : 4V-1D-0N sur les 5 derniers, 13 buts pour, 5 contre (Over 60%).",
+      "ai_form_summary_en": "Al Ahli: 4W-0D-1L in last 5, 15 goals for, 10 against (Over 100%). Al Nassr: 4W-1D-0N in last 5, 13 goals for, 5 against (Over 60%).",
+      "ai_reasons": [
+        "Taux Over 2.5 empirique fort à 80%.",
+        "Moyenne de buts de l'équipe à domicile très élevée à 4 par match.",
+        "Taux Over 2.5 sur les 5 derniers matchs à 100% pour Al Ahli."
+      ],
+      "ai_risks": [
+        "Al Nassr possède une défense solide avec seulement 11 buts encaissés en 11 matchs.",
+        "Le taux Over 2.5 récent d'Al Nassr est modéré à 60%."
+      ],
+      "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 78,
+          "proba": 0.78,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "over25Prob": 0.78
+        }
+      ],
+      "over25Prob": 0.78,
+      "prediction": "Oui",
+      "proba": 0.78,
+      "confidence": 78
     }
   ],
   "fixtures": [
@@ -10495,7 +11062,9 @@
       "prediction": "Oui",
       "proba": 0.72,
       "confidence": 72,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-11-15T14:59:47.596Z"
     },
     {
       "id": "eibar-vs-cdiz-2026-11-15",
@@ -17766,6 +18335,574 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
+      "status": "PENDING"
+    },
+    {
+      "id": "cdplaten-vs-atletico-2026-11-15",
+      "match": "C.D. Platense vs Atletico Balboa",
+      "home": "C.D. Platense",
+      "away": "Atletico Balboa",
+      "league": "Salvadoran Primera Division",
+      "date": "2026-11-15",
+      "type": "Over 2.5",
+      "time": "21:00",
+      "matchSemantic": "cdplaten-vs-atletico-2026-11-15",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21092.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7369.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1,
+      "xgAway": 2.67,
+      "xgTotal": 3.67,
+      "formBTTS": 70,
+      "analysis": "C.D. Platense : forme D-D-N-N-V (1V 2N 2D, 5 buts marqués / 7 encaissés sur 5) · Atletico Balboa : forme V-V-V-V-N (4V 1N 0D, 13 buts marqués / 7 encaissés sur 5). Classement : C.D. Platense 6e (27 pts), Atletico Balboa 9e (23 pts). Stats empiriques (forme récente) : buts moy. 3.67, BTTS 70.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.35 / N: 3.1 / 2: 2.85 · Over 2.5: 1.8. Fiabilité 89.38%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.7,
+        "empiricalOver25Rate": 0.6,
+        "homeLambda": 1,
+        "awayLambda": 2.67,
+        "xgTotal": 3.67
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.35,
+        "draw": 3.1,
+        "away": 2.85,
+        "over25": 1.8,
+        "under25": 1.8
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-D-N-N-V",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 5,
+        "goalsAgainst": 7,
+        "bttsRate": 0.6,
+        "over25Rate": 0.4,
+        "cleanSheets": 1,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-V-V-N",
+        "wins": 4,
+        "draws": 1,
+        "losses": 0,
+        "goalsFor": 13,
+        "goalsAgainst": 7,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-11",
+          "opponent": "Isidro Metapán",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Cacahuatique",
+          "venue": "H",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Internacional Santa Tecla",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Luis Ángel Firpo",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "CD FAS",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-12",
+          "opponent": "Inca Aruba",
+          "venue": "H",
+          "score": "4-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-08",
+          "opponent": "CD Municipal Limeño",
+          "venue": "A",
+          "score": "4-3",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Alianza FC",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Fuerte San Francisco",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Águila",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 6,
+        "points": 27,
+        "played": 20,
+        "gf": 26,
+        "ga": 24
+      },
+      "standingsAway": {
+        "rank": 9,
+        "points": 23,
+        "played": 20,
+        "gf": 25,
+        "ga": 32
+      },
+      "empiricalBttsRate": 0.7,
+      "empiricalOver25Rate": 0.6,
+      "homeLambda": 1,
+      "awayLambda": 2.67,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_key_fact": "Atletico Balboa présente un taux Over 2.5 de 80% et une moyenne offensive de 2.67 buts.",
+      "ai_analysis": "La dynamique d'Atletico Balboa, caractérisée par de nombreux buts et un taux Over 2.5 de 80%, pousse l'analyse vers une rencontre ouverte. Couplé aux statistiques générales de la confrontation, le pari Over 2.5 trouve un appui statistique cohérent.",
+      "ai_analysis_en": "Atletico Balboa's dynamic, featuring many goals and an 80% Over 2.5 rate, drives the analysis toward an open match. Combined with general matchup stats, the Over 2.5 bet finds consistent statistical backing.",
+      "ai_form_summary": "C.D. Platense (1W-2D-2L) est en manque de régularité, Atletico Balboa (4W-1D-0L) est en pleine forme offensive.",
+      "ai_form_summary_en": "C.D. Platense (1W-2D-2L) lacks consistency, Atletico Balboa (4W-1D-0L) is in top offensive form.",
+      "ai_reasons": [
+        "Taux Over 2.5 de 80% pour Atletico Balboa sur ses 5 derniers matchs.",
+        "Moyenne de buts marqués par l'équipe visiteuse élevée à 2.67.",
+        "Taux empirique BTTS de 70% et Over global de 60%."
+      ],
+      "ai_risks": [
+        "C.D. Platense a des statistiques offensives plus modestes avec une moyenne de 1 but.",
+        "La défense de Balboa concède également beaucoup de buts (32 sur la saison)."
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 65,
+          "proba": 0.65,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "over25Prob": 0.65
+        }
+      ],
+      "over25Prob": 0.65,
+      "prediction": "Oui",
+      "proba": 0.65,
+      "confidence": 65,
+      "status": "PENDING"
+    },
+    {
+      "id": "eldense-vs-cdsabade-2026-11-15",
+      "match": "Eldense vs CD Sabadell",
+      "home": "Eldense",
+      "away": "CD Sabadell",
+      "league": "LaLiga 2",
+      "date": "2026-11-15",
+      "type": "BTTS",
+      "time": "17:30",
+      "matchSemantic": "eldense-vs-cdsabade-2026-11-15",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7320.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/11487.png",
+      "tier": "GOLD",
+      "reliabilityScore": 75.63,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.75,
+      "xgAway": 1,
+      "xgTotal": 2.75,
+      "formBTTS": 50,
+      "analysis": "Eldense : forme D-D-D-V-V (2V 0N 3D, 5 buts marqués / 9 encaissés sur 5) · CD Sabadell : forme N-D-N-D-V (1V 2N 2D, 4 buts marqués / 5 encaissés sur 5). Classement : Eldense 16e (14 pts), CD Sabadell 13e (18 pts). Stats empiriques (forme récente) : buts moy. 2.75, BTTS 50.0%, Over 2.5 40.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.4 / N: 2.95 / 2: 3.35. Fiabilité 75.63%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.5,
+        "empiricalOver25Rate": 0.4,
+        "homeLambda": 1.75,
+        "awayLambda": 1,
+        "xgTotal": 2.75
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.4,
+        "draw": 2.95,
+        "away": 3.35,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-D-D-V-V",
+        "wins": 2,
+        "draws": 0,
+        "losses": 3,
+        "goalsFor": 5,
+        "goalsAgainst": 9,
+        "bttsRate": 0.4,
+        "over25Rate": 0.4,
+        "cleanSheets": 0,
+        "failedToScore": 3,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-D-N-D-V",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 4,
+        "goalsAgainst": 5,
+        "bttsRate": 0.6,
+        "over25Rate": 0.4,
+        "cleanSheets": 1,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-09",
+          "opponent": "Las Palmas",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Granada",
+          "venue": "H",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Albacete",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Real Valladolid",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Córdoba",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-09",
+          "opponent": "Real Sociedad II",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Albacete",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Tenerife",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Burgos",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Ceuta",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 16,
+        "points": 14,
+        "played": 13,
+        "gf": 13,
+        "ga": 19
+      },
+      "standingsAway": {
+        "rank": 13,
+        "points": 18,
+        "played": 13,
+        "gf": 12,
+        "ga": 11
+      },
+      "empiricalBttsRate": 0.5,
+      "empiricalOver25Rate": 0.4,
+      "homeLambda": 1.75,
+      "awayLambda": 1,
+      "statsOnly": true,
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "Eldense et CD Sabadell affichent des bilans récents mitigés avec de faibles marges de buts.",
+      "ai_analysis": "Les indicateurs statistiques de cette rencontre se neutralisent en grande partie. Le taux BTTS de 0.5 et l'Over à 0.4 ne fournissent pas un signal assez net pour recommander un pari sur ces marchés.",
+      "ai_analysis_en": "Statistical indicators for this match largely neutralize each other. The 0.5 BTTS rate and 0.4 Over rate do not provide a clear enough signal to recommend a bet on these markets.",
+      "ai_form_summary": "Eldense : 2V-0N-3D (5 buts pour, 9 contre). CD Sabadell : 1V-2N-2D (4 buts pour, 5 contre).",
+      "ai_form_summary_en": "Eldense: 2W-0D-3L (5 GF, 9 GA). CD Sabadell: 1W-2D-2L (4 GF, 5 GA).",
+      "ai_reasons": [
+        "Taux empiriques trop partagés avec un BTTS à 0.5 et un Over à 0.4.",
+        "Forme récente irrégulière pour les deux équipes."
+      ],
+      "ai_risks": [
+        "CD Sabadell montre un taux BTTS de 0.6 sur ses 5 derniers matchs qui suggère une possible ouverture."
+      ],
+      "ai_confidence": "low",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "abstain",
+      "status": "PENDING"
+    },
+    {
+      "id": "alahli-vs-alnassr-2026-11-20",
+      "match": "Al Ahli vs Al Nassr",
+      "home": "Al Ahli",
+      "away": "Al Nassr",
+      "league": "Saudi Pro League",
+      "date": "2026-11-20",
+      "type": "Over 2.5",
+      "time": "17:30",
+      "matchSemantic": "alahli-vs-alnassr-2026-11-20",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/8346.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/817.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 4,
+      "xgAway": 1.67,
+      "xgTotal": 5.67,
+      "formBTTS": 70,
+      "analysis": "Al Ahli : forme D-V-V-V-V (4V 0N 1D, 15 buts marqués / 10 encaissés sur 5) · Al Nassr : forme V-V-V-V-N (4V 1N 0D, 13 buts marqués / 5 encaissés sur 5). Classement : Al Ahli 6e (21 pts), Al Nassr 3e (28 pts). Stats empiriques (forme récente) : buts moy. 5.67, BTTS 70.0%, Over 2.5 80.0%. Affinage AI ensuite. Fiabilité 89.38%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.7,
+        "empiricalOver25Rate": 0.8,
+        "homeLambda": 4,
+        "awayLambda": 1.67,
+        "xgTotal": 5.67
+      },
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "D-V-V-V-V",
+        "wins": 4,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 15,
+        "goalsAgainst": 10,
+        "bttsRate": 0.8,
+        "over25Rate": 1,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-V-V-N",
+        "wins": 4,
+        "draws": 1,
+        "losses": 0,
+        "goalsFor": 13,
+        "goalsAgainst": 5,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 2,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-30",
+          "opponent": "Al Shabab",
+          "venue": "A",
+          "score": "1-6",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Al Khaleej",
+          "venue": "H",
+          "score": "4-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-19",
+          "opponent": "Al Fayha",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-09",
+          "opponent": "Al Fateh",
+          "venue": "A",
+          "score": "4-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-11",
+          "opponent": "Al Hazem",
+          "venue": "H",
+          "score": "3-1",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-29",
+          "opponent": "Al Kholood",
+          "venue": "H",
+          "score": "5-3",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Al Faisaly",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-20",
+          "opponent": "Neom SC",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-09",
+          "opponent": "Al Diriyah",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "Al Khaleej",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 6,
+        "points": 21,
+        "played": 11,
+        "gf": 28,
+        "ga": 19
+      },
+      "standingsAway": {
+        "rank": 3,
+        "points": 28,
+        "played": 11,
+        "gf": 28,
+        "ga": 11
+      },
+      "empiricalBttsRate": 0.7,
+      "empiricalOver25Rate": 0.8,
+      "homeLambda": 4,
+      "awayLambda": 1.67,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_key_fact": "Al Ahli affiche une moyenne de 4 buts marqués et un taux Over 2.5 de 100% sur ses 5 derniers matchs.",
+      "ai_analysis": "Ce match de Saudi Pro League oppose deux équipes du haut de tableau aux bilans offensifs productifs, notamment Al Ahli qui tourne à une impressionnante moyenne de 4 buts par match. Avec un taux empirique Over 2.5 de 80% et une dynamique récente très portée vers l'offensive pour les locaux, les conditions statistiques sont réunies pour voir plus de 2.5 buts.",
+      "ai_analysis_en": "This Saudi Pro League match features two top-table teams with productive offensive records, notably Al Ahli who average an impressive 4 goals per match. With an 80% empirical Over 2.5 rate and a very offensive recent dynamic for the hosts, statistical conditions are met to see over 2.5 goals.",
+      "ai_form_summary": "Al Ahli : 4V-0D-1L sur les 5 derniers, 15 buts pour, 10 contre (Over 100%). Al Nassr : 4V-1D-0N sur les 5 derniers, 13 buts pour, 5 contre (Over 60%).",
+      "ai_form_summary_en": "Al Ahli: 4W-0D-1L in last 5, 15 goals for, 10 against (Over 100%). Al Nassr: 4W-1D-0N in last 5, 13 goals for, 5 against (Over 60%).",
+      "ai_reasons": [
+        "Taux Over 2.5 empirique fort à 80%.",
+        "Moyenne de buts de l'équipe à domicile très élevée à 4 par match.",
+        "Taux Over 2.5 sur les 5 derniers matchs à 100% pour Al Ahli."
+      ],
+      "ai_risks": [
+        "Al Nassr possède une défense solide avec seulement 11 buts encaissés en 11 matchs.",
+        "Le taux Over 2.5 récent d'Al Nassr est modéré à 60%."
+      ],
+      "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 78,
+          "proba": 0.78,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "over25Prob": 0.78
+        }
+      ],
+      "over25Prob": 0.78,
+      "prediction": "Oui",
+      "proba": 0.78,
+      "confidence": 78,
       "status": "PENDING"
     }
   ],

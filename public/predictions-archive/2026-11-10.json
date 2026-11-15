@@ -6584,7 +6584,9 @@
       "prediction": "Oui",
       "proba": 0.72,
       "confidence": 72,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-11-15T14:59:47.596Z"
     },
     {
       "id": "eibar-vs-cdiz-2026-11-15",

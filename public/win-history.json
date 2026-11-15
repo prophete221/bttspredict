@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-11-15T10:16:42.054Z",
+  "generatedAt": "2026-11-15T15:02:06.807Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,18 +15,18 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 540,
+    "total": 541,
     "won": 429,
-    "lost": 111,
-    "pending": 90,
-    "unverifiable": 216,
-    "archivedTotal": 846,
-    "rate": 79.4,
+    "lost": 112,
+    "pending": 88,
+    "unverifiable": 218,
+    "archivedTotal": 847,
+    "rate": 79.3,
     "gold": {
-      "total": 422,
+      "total": 423,
       "won": 341,
-      "lost": 81,
-      "rate": 80.8
+      "lost": 82,
+      "rate": 80.6
     },
     "standard": {
       "total": 118,
@@ -36,10 +36,10 @@
     },
     "byType": {
       "btts": {
-        "total": 440,
+        "total": 441,
         "won": 357,
-        "lost": 83,
-        "rate": 81.1
+        "lost": 84,
+        "rate": 81
       },
       "over25": {
         "total": 100,
@@ -49,13 +49,6 @@
       }
     },
     "trend14": [
-      {
-        "date": "2026-10-30",
-        "total": 13,
-        "won": 11,
-        "lost": 2,
-        "rate": 84.6
-      },
       {
         "date": "2026-10-31",
         "total": 22,
@@ -146,6 +139,13 @@
         "won": 2,
         "lost": 2,
         "rate": 50
+      },
+      {
+        "date": "2026-11-15",
+        "total": 1,
+        "won": 0,
+        "lost": 1,
+        "rate": 0
       }
     ],
     "period": {
@@ -155,6 +155,19 @@
     }
   },
   "history": [
+    {
+      "date": "2026-11-15",
+      "match": "Tenerife vs Ceuta",
+      "league": "LaLiga 2",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.72,
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-11-15T14:59:47.596Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
     {
       "date": "2026-11-14",
       "match": "Real Oviedo vs Girona",
@@ -6630,19 +6643,6 @@
       "proba": 0.5748,
       "status": "WON",
       "finalScore": "2-1",
-      "verifiedAt": "2026-10-23T05:46:14.653Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-08-23",
-      "match": "Go Ahead Eagles vs ADO Den Haag",
-      "league": "Eredivisie",
-      "market": "btts",
-      "tier": "STANDARD",
-      "proba": 0.6424,
-      "status": "WON",
-      "finalScore": "3-1",
       "verifiedAt": "2026-10-23T05:46:14.653Z",
       "source": "ESPN public",
       "prediction": "Oui"
