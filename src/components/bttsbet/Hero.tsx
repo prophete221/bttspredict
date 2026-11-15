@@ -55,27 +55,37 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
 
   const direction = lang === 'ar' ? 'rtl' : 'ltr'
   const picks = fixture?.predictions?.length
-    ? fixture.predictions.slice(0, 2)
-    : fixture?.type ? [{ type: fixture.type, prediction: fixture.prediction ?? '', confidence: fixture.confidence }].slice(0, 2) : []
+    ? fixture.predictions.slice(0, 3)
+    : fixture?.type
+      ? [{ type: fixture.type, prediction: fixture.prediction || '', confidence: fixture.confidence }]
+      : []
+
+  const copy = {
+    history: lang === 'en' ? 'History' : lang === 'ar' ? 'السجل' : 'Historique',
+    method: lang === 'en' ? 'Methodology' : lang === 'ar' ? 'المنهجية' : 'Méthode',
+    featured: lang === 'en' ? 'Featured match' : lang === 'ar' ? 'المباراة المميزة' : 'Match à la une',
+    today: lang === 'en' ? 'Today' : lang === 'ar' ? 'اليوم' : 'Aujourd’hui',
+    noMatch: lang === 'en' ? 'No upcoming match' : lang === 'ar' ? 'لا توجد مباراة قادمة' : 'Aucun match à venir',
+    view: lang === 'en' ? 'Open analysis' : lang === 'ar' ? 'فتح التحليل' : 'Voir l’analyse',
+    brand1: lang === 'en' ? 'World’s No.1 platform' : lang === 'ar' ? 'المنصة رقم 1 عالمياً' : 'Plateforme N°1 Mondiale',
+    brand2: 'BTTS & Over 2.5 Master',
+  }
+
   const href = fixture
     ? localizedPath(`/match/${generateMatchSlug(fixture.home, fixture.away, fixture.date)}`, lang)
-    : localizedPath('/matchs', lang)
-  const copy = lang === 'en'
-    ? { eyebrow: 'FOOTBALL ANALYTICS', description: 'Clear match analysis, published selections and a verifiable results history.', featured: 'FEATURED MATCH', noMatch: 'No upcoming selection is available right now.', view: 'View match analysis', matches: 'Explore matches', history: 'Results history', method: 'Methodology', kickoff: 'KICK-OFF', today: 'MATCH DATA' }
-    : lang === 'ar'
-      ? { eyebrow: 'تحليل كرة القدم', description: 'تحليل واضح للمباريات واختيارات منشورة وسجل نتائج قابل للتحقق.', featured: 'المباراة المختارة', noMatch: 'لا توجد اختيارات قادمة متاحة حالياً.', view: 'عرض تحليل المباراة', matches: 'استكشف المباريات', history: 'سجل النتائج', method: 'المنهجية', kickoff: 'موعد البداية', today: 'بيانات المباراة' }
-      : { eyebrow: 'ANALYSE FOOTBALL', description: 'Des analyses de matchs lisibles, des sélections publiées et un historique de résultats vérifiable.', featured: 'MATCH À LA UNE', noMatch: 'Aucune sélection à venir disponible pour le moment.', view: 'Voir l’analyse du match', matches: 'Voir les matchs', history: 'Historique des résultats', method: 'Méthodologie', kickoff: 'COUP D’ENVOI', today: 'DONNÉES DU MATCH' }
+    : localizedPath('/btts/predictions/today', lang)
 
   return (
-    <section className="bp-home" lang={lang} dir={direction}>
+    <section className="bp-home" dir={direction} aria-label="Hero">
       <div className="bp-home__inner">
-        <div className="bp-home__intro">
-          <p className="bp-home__eyebrow">BTTSPREDICT <span>·</span> {copy.eyebrow}</p>
-          <h1 className="bp-home__title">
-            <span>{t.home2.heroTitle1.replace(/[\[\]]/g, '')}</span>
-            <strong>{t.home2.heroTitle2}</strong>
-          </h1>
-          <p className="bp-home__description">{copy.description}</p>
+        <div className="bp-home__copy">
+          <div className="bp-home__brands" aria-label="Brand">
+            <span className="bp-home__brand bp-home__brand--primary">{copy.brand1}</span>
+            <span className="bp-home__brand bp-home__brand--accent">{copy.brand2}</span>
+          </div>
+          <p className="bp-home__eyebrow">{t.home2.heroEyebrow}</p>
+          <h1 className="bp-home__title">{t.home2.heroTitle}</h1>
+          <p className="bp-home__lead">{t.home2.heroLead}</p>
           <div className="bp-home__actions">
             <a className="bp-home__primary" href="#matchs">{t.home2.heroCtaPrimary}<span aria-hidden="true">→</span></a>
             <a className="bp-home__secondary" href={localizedPath('/historique', lang)}>{copy.history}</a>
@@ -96,12 +106,22 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
             <>
               <p className="bp-feature__league">{fixture.league}</p>
               <div className="bp-feature__teams">
-                <div>{fixture.homeLogo ? <img src={fixture.homeLogo} alt="" width={42} height={42} /> : <span className="bp-feature__initial">{fixture.home.slice(0,1)}</span>}<b>{fixture.home}</b></div>
+                <div>{fixture.homeLogo ? <img src={fixture.homeLogo} alt="" width={42} height={42} /> : <span className="bp-feature__initial">{fixture.home.slice(0, 1)}</span>}<b>{fixture.home}</b></div>
                 <em>VS</em>
-                <div>{fixture.awayLogo ? <img src={fixture.awayLogo} alt="" width={42} height={42} /> : <span className="bp-feature__initial">{fixture.away.slice(0,1)}</span>}<b>{fixture.away}</b></div>
+                <div>{fixture.awayLogo ? <img src={fixture.awayLogo} alt="" width={42} height={42} /> : <span className="bp-feature__initial">{fixture.away.slice(0, 1)}</span>}<b>{fixture.away}</b></div>
               </div>
               <div className="bp-feature__time"><b>{fixture.time || '—'}</b><span>{dateLabel(fixture.date, lang)} · GMT</span></div>
-              {picks.length > 0 && <div className="bp-feature__picks">{picks.map(p => <div key={p.type}><small>{p.type}</small><b>{p.prediction === 'Oui' ? t.predictions.bttsYes : p.prediction === 'Non' ? t.predictions.bttsNo : p.prediction}</b>{typeof p.confidence === 'number' && p.confidence > 0 && p.confidence <= 100 && <strong>{p.confidence}%</strong>}</div>)}</div>}
+              {picks.length > 0 && (
+                <div className="bp-feature__picks">
+                  {picks.map(p => (
+                    <div key={p.type}>
+                      <small>{p.type}</small>
+                      <b>{p.prediction === 'Oui' ? t.predictions.bttsYes : p.prediction === 'Non' ? t.predictions.bttsNo : p.prediction}</b>
+                      {typeof p.confidence === 'number' && p.confidence > 0 && p.confidence <= 100 && <strong>{p.confidence}%</strong>}
+                    </div>
+                  ))}
+                </div>
+              )}
             </>
           ) : <div className="bp-feature__empty">{copy.noMatch}</div>}
           {fixture && <div className="bp-feature__partners"><BookmakerCardLinks locale={lang} placement="home-featured-match-card" compact /></div>}
