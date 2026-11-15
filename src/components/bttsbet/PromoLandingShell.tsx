@@ -124,6 +124,8 @@ export default function PromoLandingShell(p: PromoLandingProps) {
     <div
       data-promo-shell
       data-bookmaker={p.bookmakerId}
+      lang={p.lang}
+      dir={p.lang === 'ar' ? 'rtl' : 'ltr'}
       className={`relative min-h-screen overflow-x-hidden text-[#F5F5F5] promo-shell promo-shell--${p.bookmakerId}`}
       style={{ backgroundColor: '#090909' }}
     >
