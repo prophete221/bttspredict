@@ -7108,7 +7108,8 @@
       "over25Prob": 0.78,
       "prediction": "Oui",
       "proba": 0.78,
-      "confidence": 78
+      "confidence": 78,
+      "status": "PENDING"
     },
     {
       "id": "jordan-vs-australi-2026-11-17",
@@ -7660,7 +7661,8 @@
       "over25Prob": 0.58,
       "prediction": "Oui",
       "proba": 0.58,
-      "confidence": 58
+      "confidence": 58,
+      "status": "PENDING"
     },
     {
       "id": "arminiab-vs-fcmagdeb-2026-11-20",
@@ -7856,7 +7858,171 @@
       "over25Prob": 0.6,
       "prediction": "Oui",
       "proba": 0.6,
-      "confidence": 60
+      "confidence": 60,
+      "status": "PENDING"
+    },
+    {
+      "id": "ecuador-vs-bolivia-2026-11-17",
+      "match": "Ecuador vs Bolivia",
+      "home": "Ecuador",
+      "away": "Bolivia",
+      "league": "International Friendly",
+      "date": "2026-11-17",
+      "type": "BTTS",
+      "time": "23:30",
+      "matchSemantic": "ecuador-vs-bolivia-2026-11-17",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/ecu.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/bol.png",
+      "tier": "STANDARD",
+      "reliabilityScore": 49.75,
+      "dataQuality": "MEDIUM",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 6,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.33,
+      "xgAway": 0,
+      "xgTotal": 2.33,
+      "formBTTS": 20,
+      "analysis": "Ecuador : forme V-D-V-V-N (3V 1N 1D, 8 buts marqués / 5 encaissés sur 5) · Bolivia : forme D-D-D-D-D (0V 0N 5D, 0 buts marqués / 16 encaissés sur 5). Stats empiriques (forme récente) : buts moy. 2.33, BTTS 20.0%, Over 2.5 60.0%. Affinage AI ensuite. Fiabilité 49.75%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.2,
+        "empiricalOver25Rate": 0.6,
+        "homeLambda": 2.33,
+        "awayLambda": 0,
+        "xgTotal": 2.33
+      },
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "V-D-V-V-N",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 8,
+        "goalsAgainst": 5,
+        "bttsRate": 0.4,
+        "over25Rate": 0.6,
+        "cleanSheets": 2,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-D-D-D-D",
+        "wins": 0,
+        "draws": 0,
+        "losses": 5,
+        "goalsFor": 0,
+        "goalsAgainst": 16,
+        "bttsRate": 0,
+        "over25Rate": 0.6,
+        "cleanSheets": 0,
+        "failedToScore": 5,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-14",
+          "opponent": "Costa Rica",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-24",
+          "opponent": "South Korea",
+          "venue": "A",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-06-07",
+          "opponent": "Guatemala",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-05-30",
+          "opponent": "Saudi Arabia",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-03-31",
+          "opponent": "Netherlands",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-14",
+          "opponent": "Peru",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-01",
+          "opponent": "Argentina",
+          "venue": "A",
+          "score": "0-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-27",
+          "opponent": "Paraguay",
+          "venue": "H",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-06-11",
+          "opponent": "Algeria",
+          "venue": "H",
+          "score": "0-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-06-06",
+          "opponent": "Scotland",
+          "venue": "H",
+          "score": "0-4",
+          "result": "L"
+        }
+      ],
+      "standingsHome": null,
+      "standingsAway": null,
+      "empiricalBttsRate": 0.2,
+      "empiricalOver25Rate": 0.6,
+      "homeLambda": 2.33,
+      "awayLambda": 0,
+      "statsOnly": true,
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "La Bolivie affiche une moyenne de 0 buts marqués et un taux BTTS de 0% sur ses derniers matchs.",
+      "ai_analysis": "Les données statistiques montrent un déséquilibre total, la Bolivie n'ayant inscrit le moindre but sur ses dernières rencontres tout en concédant 16 réalisations. L'Équateur présente des statistiques correctes mais insuffisantes pour engager un pari sur l'Over 2.5 ou le BTTS avec un taux de 20% seulement. Par conséquent, l'abstention est recommandée face au manque de fiabilité offensive de l'équipe visiteuse.",
+      "ai_analysis_en": "Statistical data show a total imbalance, with Bolivia failing to score in recent fixtures while conceding 16 goals. Ecuador displays decent statistics but not enough to safely back Over 2.5 or BTTS, given an empirical BTTS rate of only 20%. Consequently, abstention is recommended due to the visiting team's lack of offensive reliability.",
+      "ai_form_summary": "Équateur : 3V-1D-1D, 8 buts pour, 5 contre. Bolivie : 0V-0D-5D, 0 but pour, 16 contre.",
+      "ai_form_summary_en": "Ecuador: 3W-1D-1L, 8 goals for, 5 against. Bolivia: 0W-0D-5L, 0 goals for, 16 against.",
+      "ai_reasons": [
+        "Taux BTTS empirique très bas à 20%, ce qui contredit un pari sur les deux équipes marquent.",
+        "Moyenne de buts de la Bolivie à l'extérieur s'établit à 0 sur l'échantillon fourni.",
+        "Taux Over 2.5 modéré à 60% avec une performance offensive bolivienne inexistante."
+      ],
+      "ai_risks": [
+        "La Bolivie n'a inscrit aucun but lors de ses derniers matchs (0 buts pour, 16 contre).",
+        "Absence de signaux fiables pour sécuriser une sélection unilatérale claire en dehors d'une victoire sèche."
+      ],
+      "ai_confidence": "low",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "abstain"
     }
   ],
   "fixtures": [
@@ -17436,6 +17602,170 @@
       "prediction": "Oui",
       "proba": 0.6,
       "confidence": 60,
+      "status": "PENDING"
+    },
+    {
+      "id": "ecuador-vs-bolivia-2026-11-17",
+      "match": "Ecuador vs Bolivia",
+      "home": "Ecuador",
+      "away": "Bolivia",
+      "league": "International Friendly",
+      "date": "2026-11-17",
+      "type": "BTTS",
+      "time": "23:30",
+      "matchSemantic": "ecuador-vs-bolivia-2026-11-17",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/ecu.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/bol.png",
+      "tier": "STANDARD",
+      "reliabilityScore": 49.75,
+      "dataQuality": "MEDIUM",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 6,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.33,
+      "xgAway": 0,
+      "xgTotal": 2.33,
+      "formBTTS": 20,
+      "analysis": "Ecuador : forme V-D-V-V-N (3V 1N 1D, 8 buts marqués / 5 encaissés sur 5) · Bolivia : forme D-D-D-D-D (0V 0N 5D, 0 buts marqués / 16 encaissés sur 5). Stats empiriques (forme récente) : buts moy. 2.33, BTTS 20.0%, Over 2.5 60.0%. Affinage AI ensuite. Fiabilité 49.75%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.2,
+        "empiricalOver25Rate": 0.6,
+        "homeLambda": 2.33,
+        "awayLambda": 0,
+        "xgTotal": 2.33
+      },
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "V-D-V-V-N",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 8,
+        "goalsAgainst": 5,
+        "bttsRate": 0.4,
+        "over25Rate": 0.6,
+        "cleanSheets": 2,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-D-D-D-D",
+        "wins": 0,
+        "draws": 0,
+        "losses": 5,
+        "goalsFor": 0,
+        "goalsAgainst": 16,
+        "bttsRate": 0,
+        "over25Rate": 0.6,
+        "cleanSheets": 0,
+        "failedToScore": 5,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-14",
+          "opponent": "Costa Rica",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-24",
+          "opponent": "South Korea",
+          "venue": "A",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-06-07",
+          "opponent": "Guatemala",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-05-30",
+          "opponent": "Saudi Arabia",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-03-31",
+          "opponent": "Netherlands",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-14",
+          "opponent": "Peru",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-01",
+          "opponent": "Argentina",
+          "venue": "A",
+          "score": "0-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-27",
+          "opponent": "Paraguay",
+          "venue": "H",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-06-11",
+          "opponent": "Algeria",
+          "venue": "H",
+          "score": "0-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-06-06",
+          "opponent": "Scotland",
+          "venue": "H",
+          "score": "0-4",
+          "result": "L"
+        }
+      ],
+      "standingsHome": null,
+      "standingsAway": null,
+      "empiricalBttsRate": 0.2,
+      "empiricalOver25Rate": 0.6,
+      "homeLambda": 2.33,
+      "awayLambda": 0,
+      "statsOnly": true,
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "La Bolivie affiche une moyenne de 0 buts marqués et un taux BTTS de 0% sur ses derniers matchs.",
+      "ai_analysis": "Les données statistiques montrent un déséquilibre total, la Bolivie n'ayant inscrit le moindre but sur ses dernières rencontres tout en concédant 16 réalisations. L'Équateur présente des statistiques correctes mais insuffisantes pour engager un pari sur l'Over 2.5 ou le BTTS avec un taux de 20% seulement. Par conséquent, l'abstention est recommandée face au manque de fiabilité offensive de l'équipe visiteuse.",
+      "ai_analysis_en": "Statistical data show a total imbalance, with Bolivia failing to score in recent fixtures while conceding 16 goals. Ecuador displays decent statistics but not enough to safely back Over 2.5 or BTTS, given an empirical BTTS rate of only 20%. Consequently, abstention is recommended due to the visiting team's lack of offensive reliability.",
+      "ai_form_summary": "Équateur : 3V-1D-1D, 8 buts pour, 5 contre. Bolivie : 0V-0D-5D, 0 but pour, 16 contre.",
+      "ai_form_summary_en": "Ecuador: 3W-1D-1L, 8 goals for, 5 against. Bolivia: 0W-0D-5L, 0 goals for, 16 against.",
+      "ai_reasons": [
+        "Taux BTTS empirique très bas à 20%, ce qui contredit un pari sur les deux équipes marquent.",
+        "Moyenne de buts de la Bolivie à l'extérieur s'établit à 0 sur l'échantillon fourni.",
+        "Taux Over 2.5 modéré à 60% avec une performance offensive bolivienne inexistante."
+      ],
+      "ai_risks": [
+        "La Bolivie n'a inscrit aucun but lors de ses derniers matchs (0 buts pour, 16 contre).",
+        "Absence de signaux fiables pour sécuriser une sélection unilatérale claire en dehors d'une victoire sèche."
+      ],
+      "ai_confidence": "low",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "abstain",
       "status": "PENDING"
     }
   ],
