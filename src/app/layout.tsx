@@ -6,6 +6,9 @@ import "./football-intelligence.css";
 import "./bttspredict-design-system.css";
 import "./matchday-ui.css";
 import "./bttspredict-rebuild.css";
+/* REFONTE 2026 — design system canonique, chargé EN DERNIER :
+   redéfinit les tokens et restyle les familles de composants. */
+import "./refonte-2026.css";
 import ApplicationNavigationShell from "@/components/bttsbet/ApplicationNavigationShell";
 import LegacyCredentialCleanup from "@/components/bttsbet/LegacyCredentialCleanup";
 

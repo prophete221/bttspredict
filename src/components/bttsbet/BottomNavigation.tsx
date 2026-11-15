@@ -16,31 +16,54 @@ interface Tab {
   matchPath: (pathname: string) => boolean
 }
 
-/** Logos fournis par le propriétaire, détourés en assets PNG transparents. */
-function NavLogo({ src, alt }: { src: string; alt: string }) {
+/** REFONTE 2026 — famille d'icônes SVG unique, trait 1.5, colorée via currentColor
+    (suit l'état actif de l'onglet). Remplace les anciens PNG emoji hétérogènes. */
+function NavIcon({ children }: { children: React.ReactNode }) {
   return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src={src}
-      alt={alt}
-      width={30}
-      height={30}
+    <svg
       className="bottomnav-logo"
-      style={{ width: 30, height: 30, objectFit: 'contain', display: 'block' }}
-    />
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      {children}
+    </svg>
   )
 }
 
 function IconHome() {
-  return <NavLogo src="/logos/nav-home.png" alt="" />
+  return (
+    <NavIcon>
+      <path d="M3 10.5 12 3l9 7.5" />
+      <path d="M5 9.5V21h5v-6h4v6h5V9.5" />
+    </NavIcon>
+  )
 }
 
 function IconBall() {
-  return <NavLogo src="/logos/nav-predictions.png" alt="" />
+  return (
+    <NavIcon>
+      {/* Ballon : cercle + pentagone central + rayons */}
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 8.5 15.4 11l-1.3 4h-4.2L8.6 11z" />
+      <path d="M12 3v5.5M15.4 11l5.2-1.7M14.1 15l3.2 4.4M9.9 15l-3.2 4.4M8.6 11 3.4 9.3" />
+    </NavIcon>
+  )
 }
 
 function IconCrown() {
-  return <NavLogo src="/logos/nav-vip.png" alt="" />
+  return (
+    <NavIcon>
+      <path d="M3.5 8.5 6.5 17h11l3-8.5-4.4 2.2L12 5l-4.1 5.7z" />
+      <path d="M6.5 20.5h11" />
+    </NavIcon>
+  )
 }
 
 const TABS: Tab[] = [
@@ -113,7 +136,7 @@ export default function BottomNavigation() {
                   width: '32px',
                   height: '3px',
                   borderRadius: '2px',
-                  background: '#5B9CF0',
+                  background: 'var(--accent, #2F7DFF)',
                   boxShadow: 'none',
                 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 30 }}
