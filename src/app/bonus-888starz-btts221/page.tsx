@@ -32,6 +32,7 @@ export const metadata: Metadata = {
   },
   robots: { index: true, follow: true },
   openGraph: { title: OPEN_GRAPH_TITLE, description: OPEN_GRAPH_DESCRIPTION, url: PAGE_URL, siteName: 'BTTSPredict', type: 'article', locale: 'fr_FR', images: [{ url: '/og-image.png', width: 1200, height: 630, alt: OPEN_GRAPH_TITLE }] },
+  twitter: { card: 'summary_large_image', title: OPEN_GRAPH_TITLE, description: OPEN_GRAPH_DESCRIPTION, images: ['/og-image.png'] },
 }
 
 function articleJsonLd() {

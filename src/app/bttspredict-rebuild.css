@@ -1,0 +1,386 @@
+/* BTTSPredict 2026 rebuild — independent presentation layer.
+   Product identity and football data remain owned by the existing application. */
+:root {
+  --btp-bg: #080d16;
+  --btp-surface: #101927;
+  --btp-surface-2: #152235;
+  --btp-line: rgba(160,180,205,.15);
+  --btp-text: #f4f7fb;
+  --btp-muted: #9aa9bb;
+  --btp-accent: #4c9aff;
+  --btp-green: #35c78a;
+}
+html, body { background: var(--btp-bg) !important; color: var(--btp-text); }
+body { font-family: var(--font-body), Inter, Arial, sans-serif; }
+.page-design, .page-design--home { background: var(--btp-bg) !important; color: var(--btp-text); }
+.page-design :is(h1,h2,h3,h4) { color: var(--btp-text); letter-spacing: -.035em; }
+.page-design :is(p,small) { color: var(--btp-muted); }
+.page-design :is(.rounded-2xl,.rounded-3xl) { border-radius: 12px !important; box-shadow: none !important; }
+.page-design--home main { max-width: 1440px; margin-inline: auto; }
+.page-design--home .hp-hero {
+  background: linear-gradient(135deg,#0d1929 0%,#09111e 58%,#0c1726 100%) !important;
+  border: 1px solid var(--btp-line) !important; border-radius: 18px !important;
+  margin: 18px auto 0; max-width: 1380px; overflow: hidden;
+}
+.page-design--home .hp-hero__inner { padding-block: clamp(28px,5vw,64px) !important; }
+.page-design--home .hp-hero__title { font-size: clamp(2rem,5vw,3.7rem) !important; line-height: 1.04 !important; font-weight: 800 !important; letter-spacing: -.055em !important; }
+.page-design--home .hp-hero__title-line2 { color: var(--btp-accent) !important; }
+.page-design--home .hp-hero__text { color: #b2bfd0 !important; max-width: 38rem; }
+.page-design--home .hp-hero__glow, .page-design--home .hp-hero__gridbg, .page-design--home .hp-clubs { display:none !important; }
+.page-design--home .hp-live { background: rgba(16,25,39,.92) !important; border: 1px solid var(--btp-line) !important; border-radius: 14px !important; box-shadow:none !important; }
+.page-design--home .hp-live__head { border-color:var(--btp-line) !important; }
+.page-design--home .hp-cta-primary { background:var(--btp-accent) !important; color:#07111f !important; border-radius:9px !important; box-shadow:none !important; font-weight:750 !important; }
+.page-design--home .hp-btn-ghost { background:transparent !important; border:1px solid var(--btp-line) !important; color:var(--btp-text) !important; border-radius:9px !important; }
+.page-design--home .hp-section { padding-block:clamp(24px,4vw,48px) !important; }
+.page-design--home .hp-eyebrow { color:var(--btp-accent) !important; letter-spacing:.12em !important; font-weight:750 !important; }
+.page-design--home .hp-sect-title { font-size:clamp(1.25rem,3vw,1.8rem) !important; font-weight:760 !important; }
+.page-design--home .hp-mc-grid { display:grid !important; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px !important; }
+.page-design--home .hp-mc-group { grid-column:1/-1; margin:18px 0 0 !important; padding:0 0 8px !important; border-bottom:1px solid var(--btp-line); }
+.btp-match-card {
+  min-width:0; padding:15px !important; border:1px solid var(--btp-line) !important;
+  border-radius:13px !important; background:linear-gradient(180deg,#111c2b,#0d1623) !important;
+  box-shadow:none !important; color:var(--btp-text) !important; transition:border-color .18s ease,background .18s ease;
+}
+.btp-match-card:hover { border-color:rgba(76,154,255,.48) !important; background:#121f30 !important; }
+.btp-match-card__meta,.btp-match-card__bottom { display:flex; align-items:center; justify-content:space-between; gap:10px; }
+.btp-match-card__league { min-width:0; overflow:hidden; color:#a9b8ca; font-size:11px; font-weight:650; text-overflow:ellipsis; white-space:nowrap; }
+.btp-match-card__status,.hp-mc-status { display:inline-flex; align-items:center; gap:6px; flex:none; padding:4px 7px; border-radius:5px; background:#17263a; color:#a9cfff; font-size:9px; font-weight:800; letter-spacing:.045em; }
+.btp-match-card__status.is-live,.hp-mc-status.is-live { color:#fca5a5; background:rgba(239,68,68,.12); }
+.btp-match-card__status.is-won,.hp-mc-status.is-won { color:#6ee7b7; background:rgba(16,185,129,.12); }
+.btp-match-card__status.is-lost,.hp-mc-status.is-lost { color:#fca5a5; background:rgba(239,68,68,.12); }
+.btp-match-card__status i,.hp-mc-status i { width:6px; height:6px; border-radius:50%; background:#ef6464; }
+.btp-match-card__fixture { display:grid; grid-template-columns:minmax(0,1fr) auto minmax(0,1fr); align-items:center; gap:8px; padding:19px 0 15px; }
+.btp-match-card__team { display:flex; min-width:0; flex-direction:column; align-items:center; gap:8px; text-align:center; }
+.btp-match-card__team strong { max-width:100%; overflow:hidden; color:#f2f6fb; font-size:13px; font-weight:700; text-overflow:ellipsis; white-space:nowrap; }
+.btp-match-card__team--away { text-align:center; }
+.btp-match-card__crest { position:relative; display:grid; width:42px; height:42px; place-items:center; border:1px solid var(--btp-line); border-radius:50%; background:#172438; color:#bcd4f4; font-weight:800; }
+.btp-match-card__crest img { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; padding:5px; }
+.btp-match-card__crest img.is-loaded { background:#172438; }
+.btp-match-card__crest .is-hidden { visibility:hidden; }
+.btp-match-card__kickoff,.hp-mc-time-row { display:flex; min-width:76px; flex-direction:column; align-items:center; gap:4px; text-align:center; }
+.btp-match-card__kickoff strong,.hp-mc-time-row strong { color:#f5f8fc; font-size:17px; font-variant-numeric:tabular-nums; font-weight:800; }
+.btp-match-card__kickoff span,.btp-match-card__kickoff small,.hp-mc-time-row span,.hp-mc-time-row small { color:#91a2b7; font-size:10px; }
+.btp-match-card__kickoff .btp-match-card__score,.hp-mc-time-row .btp-match-card__score { color:var(--btp-green); font-size:21px; }
+.btp-match-card__picks { display:flex; flex-wrap:wrap; gap:7px; padding:10px 0; border-top:1px solid var(--btp-line); }
+.btp-market { display:flex; min-width:0; align-items:center; gap:7px; padding:7px 9px; border:1px solid rgba(76,154,255,.2); border-radius:7px; background:rgba(76,154,255,.07); }
+.btp-market__name { color:#82baff; font-size:10px; font-weight:800; }
+.btp-market strong { color:#edf5ff; font-size:11px; }
+.btp-market__confidence,.hp-pick__confidence { color:#8fe0bd; font-size:10px; font-weight:750; }
+.btp-match-card__stats { display:flex; flex-wrap:wrap; gap:12px; padding:8px 0; border-top:1px solid var(--btp-line); }
+.btp-match-card__stats span { color:#d7e0eb; font-size:11px; font-variant-numeric:tabular-nums; }
+.btp-match-card__stats small { margin-inline-end:5px; color:#8192a8; font-size:9px; }
+.btp-match-card__source { margin-inline-start:auto; color:#74869d !important; }
+.btp-match-card__bottom { margin-top:8px; padding-top:10px; border-top:1px solid var(--btp-line); }
+.btp-match-card__result { color:#8293a8; font-size:10px; }
+.btp-match-card__bottom a { display:inline-flex; align-items:center; gap:8px; color:#7db8ff; font-size:11px; font-weight:750; text-decoration:none; }
+.btp-match-card__bottom a:hover { color:#fff; }
+.fi-sidebar { background:#0d1623 !important; border-color:var(--btp-line) !important; }
+.fi-topbar { background:rgba(8,13,22,.96) !important; border-color:var(--btp-line) !important; }
+.fi-nav-link { min-height:40px !important; border-radius:8px !important; color:#9aa9bb !important; }
+.fi-nav-link[aria-current=page] { background:rgba(76,154,255,.12) !important; color:#8fc2ff !important; border-color:transparent !important; }
+.fi-nav-link[aria-current=page]::before { background:var(--btp-accent) !important; }
+.fi-nav-group__label,.fi-sidebar__foot { color:#71839a !important; }
+.fi-topbar__vip,.fi-topbar__promo { border-color:var(--btp-line) !important; background:#142238 !important; color:#b8d8ff !important; }
+.fi-nav-drawer { background:#0d1623 !important; }
+.bottomnav-shell { background:#0d1623 !important; border-color:var(--btp-line) !important; }
+.bottomnav-tab { color:#7f90a7 !important; }
+.bottomnav-tab.is-active { color:#83bcff !important; }
+[data-promo-shell] { background:var(--btp-bg) !important; color:var(--btp-text) !important; }
+[data-promo-shell] .promo-main { max-width:760px !important; }
+[data-promo-shell] .promo-story__title { color:var(--btp-text) !important; }
+[data-promo-shell] .promo-story__actions a[data-cta^=promo-signup] { background:var(--btp-accent) !important; color:#07111f !important; }
+[dir=rtl] .btp-match-card__meta,[dir=rtl] .btp-match-card__bottom { direction:rtl; }
+@media(max-width:760px) {
+  .page-design--home { padding-inline:0 !important; }
+  .page-design--home .hp-hero { margin:8px 10px 0; border-radius:12px !important; }
+  .page-design--home .hp-hero__inner { padding:26px 18px !important; }
+  .page-design--home .hp-mc-grid { grid-template-columns:minmax(0,1fr) !important; gap:9px !important; }
+  .btp-match-card { padding:13px !important; border-radius:11px !important; }
+  .btp-match-card__fixture { padding:15px 0 12px; }
+  .btp-match-card__team strong { font-size:12px; }
+  .btp-match-card__crest { width:36px; height:36px; }
+  .btp-match-card__kickoff strong { font-size:16px; }
+  .page-design--home .hp-sect-head { align-items:flex-start !important; }
+}
+@media(prefers-reduced-motion:reduce) { .btp-match-card { transition:none; } }
+
+/* Prediction workspaces — unify the detailed BTTS and combined-pick surfaces. */
+.page-design--btts,.page-design--combo,.fi-today-dashboard { background:var(--btp-bg) !important; color:var(--btp-text) !important; }
+.fi-today-dashboard { max-width:1180px !important; padding-top:24px !important; }
+.btx-hero,.btx-combo,.btx-partner-rail,.btx-filters,.btx-card,.btx-empty,.prediction-match-card {
+  border:1px solid var(--btp-line) !important; border-radius:12px !important; background:#101927 !important; box-shadow:none !important;
+}
+.btx-hero { background:linear-gradient(135deg,#12233a,#0e1827) !important; }
+.btx-eyebrow,.btx-combo__kicker { color:#83baff !important; }
+.btx-title { color:#f4f7fb !important; font-size:clamp(1.45rem,4vw,2.1rem) !important; letter-spacing:-.04em !important; }
+.btx-sub,.btx-period-note,.btx-disclaimer { color:#9aa9bb !important; }
+.btx-stat__value { color:#f4f7fb !important; font-variant-numeric:tabular-nums; }
+.btx-card { overflow:hidden; padding:0 !important; }
+.btx-card__edge { display:none !important; }
+.btx-card__inner { padding:15px !important; background:transparent !important; }
+.btx-card__top { border-bottom:1px solid var(--btp-line) !important; padding-bottom:10px !important; }
+.btx-league,.btx-meta,.btx-lambda__label,.btx-score__label { color:#9aa9bb !important; }
+.btx-team__name,.btx-combo__title,.btx-combo-row__match { color:#f4f7fb !important; }
+.btx-vs__chip { background:#192a40 !important; border:1px solid var(--btp-line) !important; color:#9ecbff !important; }
+.btx-prob,.btx-ai__view,.btx-chip,.btx-market-chip { border-color:var(--btp-line) !important; background:#142238 !important; }
+.btx-prob__label,.btx-ai__text,.btx-combo-row__meta { color:#9aa9bb !important; }
+.btx-prob__value,.btx-score__value,.btx-combo-row__prob { color:#8fc2ff !important; }
+.btx-bar { background:#26364b !important; }
+.btx-bar__fill { background:linear-gradient(90deg,#347fd3,#65b2ff) !important; }
+.btx-ai { border-color:var(--btp-line) !important; background:#0d1725 !important; }
+.btx-ai__head { border-color:var(--btp-line) !important; }
+.btx-actions a,.btx-link { border-radius:8px !important; }
+.btx-actions a:first-child,.btx-link--primary { background:var(--btp-accent) !important; color:#07111f !important; }
+.btx-section-title,.prediction-section-heading__title { color:#f4f7fb !important; }
+.prediction-match-card { overflow:hidden !important; border-radius:12px !important; }
+.prediction-match-card__accent { height:2px !important; background:linear-gradient(90deg,transparent,#4c9aff,transparent) !important; }
+.prediction-match-card__body { padding:15px !important; }
+.prediction-match-card__analysis { background:#0d1725 !important; border-color:var(--btp-line) !important; border-radius:9px !important; }
+.prediction-match-card__meta { color:#9aa9bb !important; }
+.prediction-match-card__team { color:#f4f7fb !important; }
+.prediction-section-heading__eyebrow { color:#83baff !important; letter-spacing:.1em !important; }
+.prediction-section-heading__title { font-size:clamp(1.25rem,3vw,1.8rem) !important; letter-spacing:-.035em !important; }
+.page-design--combo main > section:first-child { padding-top:28px !important; }
+.page-design--combo main > section:first-child h1 { font-size:clamp(1.8rem,4.8vw,3rem) !important; letter-spacing:-.045em !important; }
+.page-design--combo main > section:nth-child(2) > div { background:#101927 !important; border-color:var(--btp-line) !important; border-radius:12px !important; }
+.page-design--combo a { text-underline-offset:3px; }
+.page-design--btts [class*="rounded-xl"],.page-design--combo [class*="rounded-xl"] { border-color:var(--btp-line) !important; }
+[dir=rtl] .fi-today-dashboard,[dir=rtl] .page-design--combo { text-align:start; }
+[dir=rtl] .btx-card__top,[dir=rtl] .btx-card__inner { direction:rtl; }
+@media(max-width:700px) {
+  .fi-today-dashboard { padding-inline:12px !important; }
+  .btx-dashboard-grid { grid-template-columns:minmax(0,1fr) !important; }
+  .btx-card__inner,.prediction-match-card__body { padding:12px !important; }
+  .btx-title { font-size:1.55rem !important; }
+  .page-design--combo main > section:first-child { padding-top:22px !important; }
+}
+
+/* VIP and bookmaker journeys — preserve all existing eligibility, access and affiliate actions. */
+.vipx { background:var(--btp-bg) !important; color:var(--btp-text) !important; }
+.vipx :is(h1,h2,h3,h4) { color:var(--btp-text) !important; letter-spacing:-.035em; }
+.vipx :is(p,li,span) { text-wrap:pretty; }
+.vipx-shell { max-width:1160px !important; }
+.vipx-hero { background:linear-gradient(135deg,#10223a,#0a1422 70%) !important; border-block:1px solid var(--btp-line) !important; }
+.vipx-hero__aura,.vipx-hero__grid::before { display:none !important; }
+.vipx-hero__copy { max-width:640px; }
+.vipx-hero__card,.vipx-flow--card,.vipx-flow__panel,.vipx-trust__card,.vipx-faq__list details,.vipx-benefits__grid article,.vipx-final__card {
+  background:#101927 !important; border:1px solid var(--btp-line) !important; border-radius:12px !important; box-shadow:none !important;
+}
+.vipx-eyebrow { color:#8fc2ff !important; }
+.vipx-btn--gold { background:var(--btp-accent) !important; border:1px solid var(--btp-accent) !important; color:#07111f !important; box-shadow:none !important; border-radius:8px !important; }
+.vipx-btn--ghost { background:transparent !important; border:1px solid var(--btp-line) !important; color:var(--btp-text) !important; border-radius:8px !important; }
+.vipx-flow__status { background:#142238 !important; border-color:var(--btp-line) !important; }
+.vipx-flow__step { border-color:var(--btp-line) !important; }
+.vipx-flow__num,.vipx-benefits__icon { background:rgba(76,154,255,.12) !important; color:#8fc2ff !important; }
+.vipx-flow__guide { background:#142238 !important; border-color:var(--btp-line) !important; border-radius:8px !important; }
+.vipx-faq__list details { margin-bottom:8px; padding:14px 16px !important; }
+.vipx-final { background:transparent !important; }
+.vipx-final__card { padding:clamp(22px,4vw,42px) !important; }
+.promo-shell { min-height:100vh; background:var(--btp-bg) !important; color:var(--btp-text) !important; }
+.promo-shell [class*="bg-[#090909]"],.promo-shell [class*="bg-[#0B0F14]"] { background:transparent !important; }
+.promo-shell .promo-main { max-width:760px !important; padding-top:26px !important; }
+.promo-shell .promo-main__story { text-align:start !important; }
+.promo-shell .promo-story__badge { border-radius:5px !important; }
+.promo-shell .promo-story__title { color:var(--btp-text) !important; font-family:var(--font-body),Inter,sans-serif !important; font-size:clamp(1.8rem,5vw,2.65rem) !important; letter-spacing:-.045em !important; line-height:1.1 !important; }
+.promo-shell .promo-story__intro { color:#a8b6c8 !important; font-size:14px !important; line-height:1.7 !important; }
+.promo-shell .promo-story__logo { background:#142238 !important; border:1px solid var(--btp-line) !important; border-radius:9px !important; box-shadow:none !important; }
+.promo-shell .promo-main__offer,.promo-shell .promo-main__benefits,.promo-shell .promo-main__trust,.promo-shell .promo-main__steps,.promo-shell .promo-main__faq,.promo-shell .promo-main__crosslinks { text-align:start !important; }
+.promo-shell .promo-main__offer > div,.promo-shell .promo-main__steps > div > div,.promo-shell .promo-main__faq > div > div { background:#101927 !important; border:1px solid var(--btp-line) !important; border-radius:9px !important; box-shadow:none !important; }
+.promo-shell .promo-main__offer > div p,.promo-shell .promo-main__steps p,.promo-shell .promo-main__faq p { color:#9aa9bb !important; }
+.promo-shell .promo-main__steps h2,.promo-shell .promo-main__faq h2,.promo-shell .promo-main__crosslinks h2 { color:var(--btp-text) !important; font-size:17px !important; }
+.promo-shell [data-cta^="promo-signup"] { background:var(--btp-accent) !important; color:#07111f !important; border-radius:8px !important; box-shadow:none !important; }
+.promo-shell [data-affiliate-disclosure] { color:#7f90a7 !important; }
+@media(max-width:700px) {
+  .vipx-hero__grid { gap:18px !important; }
+  .vipx-hero__card { border-radius:10px !important; }
+  .vipx-content-grid { display:block !important; }
+  .promo-shell .promo-main { padding-inline:14px !important; }
+}
+
+
+/* Promo pages — editorial product art direction, with original SEO copy and URLs untouched. */
+[data-promo-shell][data-bookmaker][lang][dir].promo-shell {
+  --promo-accent: #4c9aff;
+  --promo-accent-soft: rgba(76,154,255,.12);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 85% 0%, var(--promo-accent-soft), transparent 34%),
+    #080d16 !important;
+}
+[data-promo-shell][data-bookmaker][lang][dir].promo-shell[data-bookmaker="1xbet"] { --promo-accent:#438dff; --promo-accent-soft:rgba(67,141,255,.16); }
+[data-promo-shell][data-bookmaker][lang][dir].promo-shell[data-bookmaker="linebet"] { --promo-accent:#38a1ff; --promo-accent-soft:rgba(56,161,255,.15); }
+[data-promo-shell][data-bookmaker][lang][dir].promo-shell[data-bookmaker="melbet"] { --promo-accent:#e9ad3d; --promo-accent-soft:rgba(233,173,61,.13); }
+[data-promo-shell][data-bookmaker][lang][dir].promo-shell[data-bookmaker="888starz"] { --promo-accent:#ed4169; --promo-accent-soft:rgba(237,65,105,.14); }
+[data-promo-shell][data-bookmaker][lang][dir].promo-shell::before {
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:0 0 auto;
+  height:420px;
+  pointer-events:none;
+  background:linear-gradient(180deg,var(--promo-accent-soft),transparent 78%);
+}
+[data-promo-shell][data-bookmaker][lang][dir].promo-shell .promo-main {
+  max-width:900px !important;
+  padding:clamp(18px,3vw,34px) 18px 56px !important;
+}
+[data-promo-shell][data-bookmaker][lang][dir].promo-shell .promo-main__story {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(220px,.72fr);
+  align-items:center;
+  gap:12px 30px;
+  padding:clamp(20px,4vw,38px) !important;
+  text-align:start !important;
+  border:1px solid rgba(180,201,229,.14) !important;
+  border-radius:18px !important;
+  background:linear-gradient(145deg,#111d2d,#0c1522 72%) !important;
+  box-shadow:0 24px 70px rgba(0,0,0,.24) !important;
+}
+[data-promo-shell][data-bookmaker][lang][dir].promo-shell .promo-story__badge { grid-column:1/-1; width:max-content; border-radius:5px !important; }
+[data-promo-shell][data-bookmaker][lang][dir].promo-shell .promo-story__title {
+  grid-column:1/-1;
+  max-width:780px;
+  margin-top:4px !important;
+  font-size:clamp(2rem,5.4vw,3.35rem) !important;
+  line-height:1.04 !important;
+  letter-spacing:-.055em !important;
+  text-wrap:balance;
+}
+[data-promo-shell][data-bookmaker][lang][dir].promo-shell .promo-story__logo {
+  grid-column:1;
+  grid-row:3;
+  justify-self:start;
+  width:min(100%,260px);
+  min-height:76px !important;
+  margin:0 !important;
+  border-radius:10px !important;
+  background:#f4f7fb !important;
+  border:1px solid rgba(255,255,255,.16) !important;
+}
+[data-promo-shell][data-bookmaker][lang][dir].promo-shell .promo-story__intro {
+  grid-column:1/-1;
+  max-width:740px !important;
+  margin:6px 0 0 !important;
+  color:#b5c3d4 !important;
+  font-size:14px !important;
+  line-height:1.75 !important;
+}
+[data-promo-shell][data-bookmaker][lang][dir].promo-shell .promo-story__actions {
+  grid-column:1/-1;
+  width:min(100%,640px);
+  max-width:640px !important;
+  margin:12px 0 0 !important;
+  padding:16px !important;
+  border:1px solid rgba(180,201,229,.16) !important;
+  border-radius:12px !important;
+  background:#0a1320 !important;
+  box-shadow:none !important;
+}
+[data-promo-shell][data-bookmaker][lang][dir].promo-shell .promo-story__actions button[data-cta^="promo-copy-"] {
+  min-height:82px;
+  border:1px solid color-mix(in srgb,var(--promo-accent) 65%,white 5%) !important;
+  border-radius:9px !important;
+  background:linear-gradient(135deg,color-mix(in srgb,var(--promo-accent) 24%,#101927),#101927) !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08) !important;
+}
+[data-promo-shell][data-bookmaker][lang][dir].promo-shell .promo-story__actions button[data-cta^="promo-copy-"] span:first-child {
+  font-size:clamp(1.65rem,5vw,2.2rem) !important;
+  letter-spacing:.2em !important;
+}
+[data-promo-shell][data-bookmaker][lang][dir].promo-shell a[data-cta^="promo-signup-"] {
+  min-height:48px;
+  border-radius:8px !important;
+  background:var(--promo-accent) !important;
+  color:#07111f !important;
+  font-weight:800 !important;
+  box-shadow:none !important;
+}
+[data-promo-shell][data-bookmaker][lang][dir].promo-shell a[data-cta^="promo-apk-"] {
+  min-height:48px;
+  border-radius:8px !important;
+  border:1px solid rgba(180,201,229,.22) !important;
+  background:#142033 !important;
+}
+[data-promo-shell][data-bookmaker][lang][dir].promo-shell .promo-main__offer { margin-top:18px !important; }
+[data-promo-shell][data-bookmaker][lang][dir].promo-shell .promo-main__offer > div {
+  padding:clamp(20px,4vw,30px) !important;
+  text-align:start !important;
+  border:1px solid rgba(180,201,229,.14) !important;
+  border-inline-start:3px solid var(--promo-accent) !important;
+  border-radius:12px !important;
+  background:#101927 !important;
+  box-shadow:none !important;
+}
+[data-promo-shell][data-bookmaker][lang][dir].promo-shell .promo-main__offer > div p:first-child {
+  color:var(--promo-accent) !important;
+  font-size:clamp(1.25rem,3vw,1.7rem) !important;
+}
+[data-promo-shell][data-bookmaker][lang][dir].promo-shell .promo-main__steps,
+[data-promo-shell][data-bookmaker][lang][dir].promo-shell .promo-main__faq,
+[data-promo-shell][data-bookmaker][lang][dir].promo-shell .promo-main__crosslinks { margin-top:30px !important; }
+[data-promo-shell][data-bookmaker][lang][dir].promo-shell .promo-main__steps > div > div,
+[data-promo-shell][data-bookmaker][lang][dir].promo-shell .promo-main__faq > div > div {
+  border:1px solid rgba(180,201,229,.13) !important;
+  border-radius:10px !important;
+  background:#101927 !important;
+  box-shadow:none !important;
+}
+[data-promo-shell][data-bookmaker][lang][dir].promo-shell .promo-main__steps > div > div > span { color:var(--promo-accent) !important; }
+[data-promo-shell][data-bookmaker][lang][dir].promo-shell .promo-main__steps p,
+[data-promo-shell][data-bookmaker][lang][dir].promo-shell .promo-main__faq p { color:#aab9cc !important; }
+[data-promo-shell][data-bookmaker][lang][dir].promo-shell .promo-main__steps h2,
+[data-promo-shell][data-bookmaker][lang][dir].promo-shell .promo-main__faq h2,
+[data-promo-shell][data-bookmaker][lang][dir].promo-shell .promo-main__crosslinks h2 { font-size:18px !important; }
+[data-promo-shell][data-bookmaker][lang][dir].promo-shell [data-affiliate-disclosure] { color:#8192a8 !important; }
+[data-promo-shell][data-bookmaker][lang][dir].promo-shell :focus-visible,
+main[data-888starz-promo][lang][dir] :focus-visible { outline:2px solid var(--promo-accent,#ed4169); outline-offset:3px; }
+main[data-888starz-promo][lang][dir] {
+  --promo-accent:#ed4169;
+  max-width:none !important;
+  background:
+    radial-gradient(ellipse at 88% 0%,rgba(237,65,105,.13),transparent 34%),
+    #080d16 !important;
+}
+main[data-888starz-promo][lang][dir] > section {
+  border:1px solid rgba(180,201,229,.14) !important;
+  border-radius:16px !important;
+  background:#101927 !important;
+  box-shadow:none !important;
+}
+main[data-888starz-promo][lang][dir] > section:first-of-type > div > div:first-child {
+  background:linear-gradient(145deg,#121f30,#0d1725) !important;
+}
+main[data-888starz-promo][lang][dir] [data-promo-highlights] > div,
+main[data-888starz-promo][lang][dir] [data-promo-steps] > div > div,
+main[data-888starz-promo][lang][dir] [data-promo-faq] > div > div {
+  border:1px solid rgba(180,201,229,.13) !important;
+  border-radius:10px !important;
+  background:#0d1725 !important;
+  box-shadow:none !important;
+}
+main[data-888starz-promo][lang][dir] [data-promo-highlights] span,
+main[data-888starz-promo][lang][dir] [data-promo-steps] span { color:#ff829e !important; }
+main[data-888starz-promo][lang][dir] [data-promo-signup],
+main[data-888starz-promo][lang][dir] a[data-cta^="promo-signup-"] {
+  border-radius:8px !important;
+  background:#ed4169 !important;
+  box-shadow:none !important;
+}
+@media(max-width:700px) {
+  [data-promo-shell][data-bookmaker][lang][dir].promo-shell .promo-main__story { grid-template-columns:minmax(0,1fr); gap:14px; padding:18px !important; }
+  [data-promo-shell][data-bookmaker][lang][dir].promo-shell .promo-story__badge,
+  [data-promo-shell][data-bookmaker][lang][dir].promo-shell .promo-story__title,
+  [data-promo-shell][data-bookmaker][lang][dir].promo-shell .promo-story__logo,
+  [data-promo-shell][data-bookmaker][lang][dir].promo-shell .promo-story__intro,
+  [data-promo-shell][data-bookmaker][lang][dir].promo-shell .promo-story__actions { grid-column:1; grid-row:auto; }
+  [data-promo-shell][data-bookmaker][lang][dir].promo-shell .promo-story__logo { justify-self:start; }
+  [data-promo-shell][data-bookmaker][lang][dir].promo-shell .promo-story__actions { width:100%; padding:12px !important; }
+  [data-promo-shell][data-bookmaker][lang][dir].promo-shell .promo-main__steps > div { grid-template-columns:minmax(0,1fr) !important; }
+  main[data-888starz-promo][lang][dir] { padding-inline:12px !important; }
+  main[data-888starz-promo][lang][dir] > section { border-radius:12px !important; }
+}
+@media(prefers-reduced-motion:reduce) {
+  [data-promo-shell][data-bookmaker][lang][dir].promo-shell *,main[data-888starz-promo][lang][dir] * { animation-duration:.01ms !important; transition-duration:.01ms !important; }
+}

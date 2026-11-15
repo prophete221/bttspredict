@@ -792,7 +792,7 @@ export default function BttsTodayDashboard({
 
   // ─── Render ───────────────────────────────────────────────────────────
   return (
-    <section id="btts-today-dashboard" ref={sectionRef} className="fi-today-dashboard max-w-[1200px] mx-auto px-3 sm:px-4 py-4 sm:py-6">
+    <section id="btts-today-dashboard" ref={sectionRef} lang={lang} dir={lang === 'ar' ? 'rtl' : 'ltr'} className="fi-today-dashboard max-w-[1200px] mx-auto px-3 sm:px-4 py-4 sm:py-6">
 
       {/* ─── HERO ─── */}
       <div className="btx-hero btx-rev p-4 sm:p-5 mb-4" style={{ ['--d' as string]: '0ms' }}>
