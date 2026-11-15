@@ -44,11 +44,11 @@ body { font-family: var(--font-body), Inter, Arial, sans-serif; }
 .btp-match-card:hover { border-color:rgba(76,154,255,.48) !important; background:#121f30 !important; }
 .btp-match-card__meta,.btp-match-card__bottom { display:flex; align-items:center; justify-content:space-between; gap:10px; }
 .btp-match-card__league { min-width:0; overflow:hidden; color:#a9b8ca; font-size:11px; font-weight:650; text-overflow:ellipsis; white-space:nowrap; }
-.btp-match-card__status { display:inline-flex; align-items:center; gap:6px; flex:none; padding:4px 7px; border-radius:5px; background:#17263a; color:#a9cfff; font-size:9px; font-weight:800; letter-spacing:.045em; }
-.btp-match-card__status.is-live { color:#fca5a5; background:rgba(239,68,68,.12); }
-.btp-match-card__status.is-won { color:#6ee7b7; background:rgba(16,185,129,.12); }
-.btp-match-card__status.is-lost { color:#fca5a5; background:rgba(239,68,68,.12); }
-.btp-match-card__status i { width:6px; height:6px; border-radius:50%; background:#ef6464; }
+.btp-match-card__status,.hp-mc-status { display:inline-flex; align-items:center; gap:6px; flex:none; padding:4px 7px; border-radius:5px; background:#17263a; color:#a9cfff; font-size:9px; font-weight:800; letter-spacing:.045em; }
+.btp-match-card__status.is-live,.hp-mc-status.is-live { color:#fca5a5; background:rgba(239,68,68,.12); }
+.btp-match-card__status.is-won,.hp-mc-status.is-won { color:#6ee7b7; background:rgba(16,185,129,.12); }
+.btp-match-card__status.is-lost,.hp-mc-status.is-lost { color:#fca5a5; background:rgba(239,68,68,.12); }
+.btp-match-card__status i,.hp-mc-status i { width:6px; height:6px; border-radius:50%; background:#ef6464; }
 .btp-match-card__fixture { display:grid; grid-template-columns:minmax(0,1fr) auto minmax(0,1fr); align-items:center; gap:8px; padding:19px 0 15px; }
 .btp-match-card__team { display:flex; min-width:0; flex-direction:column; align-items:center; gap:8px; text-align:center; }
 .btp-match-card__team strong { max-width:100%; overflow:hidden; color:#f2f6fb; font-size:13px; font-weight:700; text-overflow:ellipsis; white-space:nowrap; }
@@ -57,15 +57,15 @@ body { font-family: var(--font-body), Inter, Arial, sans-serif; }
 .btp-match-card__crest img { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; padding:5px; }
 .btp-match-card__crest img.is-loaded { background:#172438; }
 .btp-match-card__crest .is-hidden { visibility:hidden; }
-.btp-match-card__kickoff { display:flex; min-width:76px; flex-direction:column; align-items:center; gap:4px; text-align:center; }
-.btp-match-card__kickoff strong { color:#f5f8fc; font-size:17px; font-variant-numeric:tabular-nums; font-weight:800; }
-.btp-match-card__kickoff span,.btp-match-card__kickoff small { color:#91a2b7; font-size:10px; }
-.btp-match-card__kickoff .btp-match-card__score { color:var(--btp-green); font-size:21px; }
+.btp-match-card__kickoff,.hp-mc-time-row { display:flex; min-width:76px; flex-direction:column; align-items:center; gap:4px; text-align:center; }
+.btp-match-card__kickoff strong,.hp-mc-time-row strong { color:#f5f8fc; font-size:17px; font-variant-numeric:tabular-nums; font-weight:800; }
+.btp-match-card__kickoff span,.btp-match-card__kickoff small,.hp-mc-time-row span,.hp-mc-time-row small { color:#91a2b7; font-size:10px; }
+.btp-match-card__kickoff .btp-match-card__score,.hp-mc-time-row .btp-match-card__score { color:var(--btp-green); font-size:21px; }
 .btp-match-card__picks { display:flex; flex-wrap:wrap; gap:7px; padding:10px 0; border-top:1px solid var(--btp-line); }
 .btp-market { display:flex; min-width:0; align-items:center; gap:7px; padding:7px 9px; border:1px solid rgba(76,154,255,.2); border-radius:7px; background:rgba(76,154,255,.07); }
 .btp-market__name { color:#82baff; font-size:10px; font-weight:800; }
 .btp-market strong { color:#edf5ff; font-size:11px; }
-.btp-market__confidence { color:#8fe0bd; font-size:10px; font-weight:750; }
+.btp-market__confidence,.hp-pick__confidence { color:#8fe0bd; font-size:10px; font-weight:750; }
 .btp-match-card__stats { display:flex; flex-wrap:wrap; gap:12px; padding:8px 0; border-top:1px solid var(--btp-line); }
 .btp-match-card__stats span { color:#d7e0eb; font-size:11px; font-variant-numeric:tabular-nums; }
 .btp-match-card__stats small { margin-inline-end:5px; color:#8192a8; font-size:9px; }
