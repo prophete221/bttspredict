@@ -31,15 +31,15 @@ export default async function LocalizedHomePage({ params }: { params: Promise<{ 
   const { locale: value } = await params
   const locale = isLocale(value) && value !== 'fr' ? value as Locale : 'en'
   return (
-    <div className="page-design page-design--home min-h-screen bg-dark-800 relative">
+    <div className="bp-site-page page-design page-design--home relative">
       <main id="main-content" className="relative z-10" style={{ paddingBottom: 'calc(80px + env(safe-area-inset-bottom, 0px))' }}>
         <Navbar />
         <Hero initialLocale={locale} />
         <MatchCenter initialLocale={locale} />
         <PerformanceDashboard initialLocale={locale} />
-        <section className="mx-auto max-w-[980px] px-4 py-6 sm:px-6" lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
-          <div className="rounded-xl border border-[#303030] bg-[#191919] p-4">
-            <p className="text-sm text-[#A4A4A4]">
+        <section className="bp-responsible" lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} aria-label={locale === 'ar' ? 'اللعب المسؤول' : 'Responsible play'}>
+          <div>
+            <p>
               {locale === 'ar'
                 ? '18+ · المراهنات الرياضية تنطوي على مخاطر الخسارة. لا تراهن بأكثر مما يمكنك تحمّل خسارته.'
                 : '18+ · Sports betting involves the risk of loss. Never bet more than you can afford to lose.'}
