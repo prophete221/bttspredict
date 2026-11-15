@@ -37,7 +37,8 @@ permissions:
 concurrency:
   group: ${{ (github.event_name == 'workflow_dispatch' && inputs.mode == 'vip' || (github.event_name == 'schedule' && (github.event.schedule == '30 23 * * *' || github.event.schedule == '30 6 * * *' || github.event.schedule == '30 15 * * *'))) && 'vip-candidates-only' || format('deploy-{0}', github.ref) }}
   # Do not cancel active or pending deployments; serialize them safely.
-  cancel-in-progress: false
+  # One-time recovery: only an owner-pushed code-only commit with this marker may release the stale main queue.
+  cancel-in-progress: ${{ github.event_name == 'push' && github.actor == github.repository_owner && contains(github.event.head_commit.message || '', '[code-only]') && contains(github.event.head_commit.message || '', '[recover-stuck-queue]') }}
 
 jobs:
   pull-request-checks:
