@@ -47,10 +47,6 @@ function dayLabel(date: string, lang: Locale, today: string, tomorrow: string): 
   }
 }
 
-function cleanTitle(value: string): string {
-  return value.replace(/[\[\]]/g, '')
-}
-
 export default function Hero({ initialLocale }: { initialLocale?: Locale } = {}) {
   const { lang: detectedLang } = useLanguage()
   const lang = initialLocale ?? detectedLang
