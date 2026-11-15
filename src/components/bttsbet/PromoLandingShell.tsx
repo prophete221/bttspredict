@@ -114,7 +114,7 @@ export default function PromoLandingShell(p: PromoLandingProps) {
               <img src={p.logo} alt="" width={22} height={22} />{L.signup}<span aria-hidden="true">↗</span>
             </a>
             <a href={p.downloadUrl} target="_blank" rel="sponsored nofollow noopener noreferrer" onClick={() => trackAffiliateAction(p.bookmakerId, 'download_click', `promo-apk-${p.lang}`)} data-cta={`promo-apk-${p.bookmakerId}`}>
-              {L.download}<span aria-hidden="true">↓</span>
+              <img src="/logos/google-play.svg" alt="" width={20} height={20} />{L.download}<span aria-hidden="true">↓</span>
             </a>
           </div>
           <p className="bp-promo__disclosure" data-affiliate-disclosure>{L.affiliateDisclosure}</p>
