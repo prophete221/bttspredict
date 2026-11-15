@@ -10163,7 +10163,9 @@
       "prediction": "Oui",
       "proba": 0.52,
       "confidence": 52,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-15T18:14:59.112Z"
     },
     {
       "id": "godoycru-vs-tristnsu-2026-11-15",
