@@ -24,27 +24,27 @@
   --bg-tertiary: #121419;
   color-scheme: dark;
 
-  /* Surfaces & cartes */
-  --card: #121419;
-  --card-hover: #171A20;
-  --surface-card: #121419;
-  --surface-card-hover: #171A20;
-  --surface-premium: #171A20;
+  /* Surfaces & cartes — plus claires que le fond page pour lisibilité */
+  --card: #1C2028;
+  --card-hover: #242933;
+  --surface-card: #1C2028;
+  --surface-card-hover: #242933;
+  --surface-premium: #222733;
 
-  /* Lignes */
-  --border: #1F2228;
-  --border-strong: #2C3037;
-  --line: #1F2228;
-  --line-strong: #2C3037;
+  /* Lignes — contrastées pour séparer les cartes du fond */
+  --border: #323844;
+  --border-strong: #454B5A;
+  --line: #323844;
+  --line-strong: #454B5A;
 
-  /* Texte */
-  --text-primary: #F3F5F8;
-  --text-secondary: #9AA3AE;
-  --text-tertiary: #6B7480;
-  --text-muted: #6B7480;
-  --text-hi: #F3F5F8;
-  --text-mid: #9AA3AE;
-  --text-low: #6B7480;
+  /* Texte — hiérarchie lisible sur surfaces élevées */
+  --text-primary: #F7F9FC;
+  --text-secondary: #B4BCC8;
+  --text-tertiary: #8B95A3;
+  --text-muted: #8B95A3;
+  --text-hi: #F7F9FC;
+  --text-mid: #B4BCC8;
+  --text-low: #8B95A3;
   --color-papier: var(--text-primary);
   --color-cendre: var(--text-secondary);
   --color-text-primary: var(--text-primary);
@@ -1339,4 +1339,116 @@ body:not([data-vip]) .bg-gradient-to-br.from-green-400 {
 .content-page {
   background: var(--bg-page) !important;
   color: var(--text-primary) !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   LISIBILITE CARTES PRONOSTICS — fonds relevés, texte clair, bordures nettes
+═══════════════════════════════════════════════════════════════════════ */
+.btp-match-card,
+.hp-mc-card,
+.bp-prediction-card,
+.btx-card,
+.btx-combo,
+.btx-filters,
+.btx-partner-rail,
+.bp-feature,
+.stats-card {
+  background: #1C2028 !important;
+  border: 1px solid #3A4150 !important;
+  color: #F7F9FC !important;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset !important;
+}
+
+.btp-match-card:hover,
+.hp-mc-card:hover,
+.bp-prediction-card:hover,
+.btx-card:hover {
+  background: #242933 !important;
+  border-color: #525A6B !important;
+}
+
+/* Textes dans les cartes */
+.btp-match-card__team,
+.btp-match-card__league,
+.btx-team__name,
+.btx-league,
+.btx-section-title,
+.hp-sect-title,
+.bp-feature__league,
+.bp-home__title {
+  color: #F7F9FC !important;
+}
+
+.btp-match-card__meta,
+.btp-match-card__stats,
+.btx-prob__label,
+.btx-lambda__label,
+.btx-disclaimer,
+.btx-period-note,
+.hp-empty__text,
+.bp-home__lead,
+.bp-home__description {
+  color: #B4BCC8 !important;
+}
+
+.hp-pick__selection,
+.btx-prob__value,
+.btx-lambda__value,
+.btp-market__name {
+  color: #F7F9FC !important;
+}
+
+.hp-pick__confidence,
+.btx-count-pill {
+  color: #D0D6E0 !important;
+}
+
+/* Marchés / picks dans la carte */
+.btp-market,
+.bp-feature__picks > div,
+.btx-prob {
+  background: #151922 !important;
+  border: 1px solid #323844 !important;
+  border-radius: 10px;
+}
+
+/* Grille et groupes */
+.hp-mc-group,
+.btx-dashboard-grid,
+.btx-grid {
+  color: #F7F9FC;
+}
+
+/* Empty states lisibles */
+.hp-empty,
+.btx-empty,
+.empty-state {
+  background: #1C2028 !important;
+  border: 1px solid #3A4150 !important;
+  color: #B4BCC8 !important;
+}
+.hp-empty__title,
+.btx-empty__title {
+  color: #F7F9FC !important;
+}
+
+/* Barres de proba visibles */
+.btx-bar {
+  background: #0E1117 !important;
+}
+.btx-bar__fill {
+  background: #3B86FF !important;
+}
+
+/* Filtres lisibles */
+.btx-filter {
+  background: #1C2028 !important;
+  border-color: #3A4150 !important;
+  color: #D0D6E0 !important;
+}
+.btx-filter.is-active {
+  background: rgba(47, 125, 255, 0.18) !important;
+  border-color: rgba(47, 125, 255, 0.55) !important;
+  color: #E8F0FF !important;
 }
