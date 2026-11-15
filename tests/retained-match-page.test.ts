@@ -82,7 +82,7 @@ const PROTECTED_SEO_ROUTES = [
         "'x-default': 'https://bttspredict.com/'",
         'twitter: {',
         "card: 'summary_large_image'",
-        '<h2>Plateforme de sélections BTTS, Over 2.5 et score exact</h2>',
+        '<h2 id="home-platform-summary">Plateforme de sélections BTTS, Over 2.5 et score exact</h2>',
         'BTTSPredict aide les parieurs africains à lire des sélections de matchs internationaux :',
         'BTTS, Over 2.5 et projection de score exact. Les données sont publiées avant le match,',
         'les résultats gagnés et perdus sont archivés, et aucun gain futur n&apos;est garanti.',
