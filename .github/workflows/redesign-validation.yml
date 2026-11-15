@@ -1,0 +1,49 @@
+name: Redesign branch validation
+
+on:
+  push:
+    branches:
+      - redesign/bttspredict-rebuild-final-2026-11-15
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bttspredict-redesign-validation
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - name: Checkout redesign branch
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+        env:
+          PUPPETEER_SKIP_DOWNLOAD: 'true'
+      - name: Run Node tests
+        run: npm test
+      - name: Run Python regression tests
+        run: python3 -m unittest discover -s tests -p '*_test.py' -v
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+      - name: Run lint
+        run: npm run lint
+      - name: Run TypeScript
+        run: npx tsc --noEmit
+      - name: Build production static export
+        run: npm run build -- --webpack
+        env:
+          NODE_OPTIONS: --max-old-space-size=4096
+          NEXT_PUBLIC_GA_ID: ${{ vars.NEXT_PUBLIC_GA_ID }}

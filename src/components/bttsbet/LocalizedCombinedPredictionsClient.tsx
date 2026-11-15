@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import { Navbar, Footer, FreePredictions } from '@/components/bttsbet'
 import { useLanguage } from './LanguageSwitcher'
-import AnimatedTitle from './HeroWordmark'
 import VipButtons from './VipButtons'
 
 export default function LocalizedCombinedPredictionsClient() {
@@ -42,41 +41,42 @@ export default function LocalizedCombinedPredictionsClient() {
   const path = (p: string) => lang === 'fr' ? p : `/${lang}${p}`
 
   return (
-    <div lang={lang} dir={lang === 'ar' ? 'rtl' : 'ltr'} className="min-h-screen bg-[#0B0F14] flex flex-col text-[#F2F6FA]">
+    <div lang={lang} dir={lang === 'ar' ? 'rtl' : 'ltr'} className="bp-content-page">
       <Navbar />
-      <main id="main-content" className="flex-1" style={{ paddingBottom: 'calc(140px + env(safe-area-inset-bottom, 0px))' }}>
-        <section className="max-w-5xl mx-auto px-4 pt-12 pb-6">
-          <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-4 text-[#2F7DFF] border border-[#2F7DFF55]">{c.badge}</span>
-          <AnimatedTitle as="h1" text={c.title} className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" />
-          <p className="text-base text-[#9DABBB] leading-relaxed mb-3 max-w-3xl">{c.intro}</p>
-          <p className="text-sm text-[#9DABBB]">{c.update}</p>
-          <div className="mt-5"><VipButtons /></div>
-        </section>
+      <main id="main-content" className="bp-content-page__main">
+        <header className="bp-content-page__header">
+          <p className="bp-content-page__eyebrow">{c.badge}</p>
+          <h1>{c.title}</h1>
+          <p className="bp-content-page__intro">{c.intro}</p>
+          <p className="bp-content-page__note">{c.update}</p>
+          <div className="bp-content-page__vip"><VipButtons /></div>
+        </header>
 
-        <section className="max-w-5xl mx-auto px-4 pb-8">
-          <div className="rounded-xl p-5 bg-[#141C25] border border-[#6B7A8C]">
-            <h2 className="text-lg font-bold mb-3">{c.what}</h2>
-            <p className="text-sm text-[#9DABBB] leading-relaxed mb-3">{c.btts}</p>
-            <p className="text-sm text-[#9DABBB] leading-relaxed">{c.why} <Link href={path('/methodologie')} className="text-[#2F7DFF] underline">{c.methodology}</Link></p>
+        <section className="bp-definition" aria-labelledby="bp-definition-title">
+          <div>
+            <p className="bp-definition__eyebrow">{lang === 'en' ? 'THE MARKET' : lang === 'ar' ? 'السوق' : 'LE MARCHÉ'}</p>
+            <h2 id="bp-definition-title">{c.what}</h2>
+          </div>
+          <div className="bp-definition__copy">
+            <p>{c.btts}</p>
+            <p>{c.why} <Link href={path('/methodologie')}>{c.methodology}</Link></p>
           </div>
         </section>
 
-        <section className="max-w-5xl mx-auto px-4 pb-12">
+        <section className="bp-content-page__feed" aria-label={lang === 'en' ? 'Today’s match predictions' : lang === 'ar' ? 'توقعات مباريات اليوم' : 'Pronostics des matchs'}>
           <FreePredictions />
         </section>
 
-        <section className="max-w-3xl mx-auto px-4 pb-12">
-          <h2 className="text-2xl font-bold mb-3">{c.links}</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <nav className="bp-content-page__links" aria-label={c.links}>
+          <h2>{c.links}</h2>
+          <div>
             {[
               [path('/btts/predictions/today'), lang === 'en' ? 'BTTS Predictions Today' : lang === 'ar' ? 'توقعات BTTS اليوم' : 'Prédictions BTTS du jour'],
               [path('/over-2-5/predictions/today'), lang === 'en' ? 'Over 2.5 Predictions Today' : lang === 'ar' ? 'توقعات أكثر من 2.5 اليوم' : 'Prédictions Over 2.5 du jour'],
               [path('/ai-correct-score-predictions'), lang === 'en' ? 'AI Correct Score' : lang === 'ar' ? 'النتيجة الدقيقة بالذكاء الاصطناعي' : 'Score exact IA'],
-            ].map(([href, label]) => (
-              <Link key={href} href={href} className="p-4 rounded-xl bg-[#141C25] border border-[#6B7A8C] text-sm font-bold">{label} →</Link>
-            ))}
+            ].map(([href, label]) => <Link key={href} href={href}>{label}<span aria-hidden="true">→</span></Link>)}
           </div>
-        </section>
+        </nav>
       </main>
       <Footer />
     </div>

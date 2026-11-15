@@ -115,7 +115,7 @@ function NavigationContent() {
 
   const groups = useMemo<NavGroup[]>(() => [
     {
-      id: 'main', label: { fr: 'Menu', en: 'Menu', ar: 'القائمة' }, links: [
+      id: 'main', label: { fr: 'BTTSPredict', en: 'BTTSPredict', ar: 'BTTSPredict' }, links: [
         { id: 'home', label: { fr: 'Accueil', en: 'Home', ar: 'الرئيسية' }, href: paths.home, icon: 'home' },
         { id: 'matches', label: { fr: 'Matchs', en: 'Matches', ar: 'المباريات' }, href: `${paths.home}#matchs`, icon: 'btts' },
         { id: 'predictions', label: { fr: 'Pronostics', en: 'Predictions', ar: 'التوقعات' }, href: paths.btts, icon: 'over' },
@@ -124,7 +124,7 @@ function NavigationContent() {
       ],
     },
     {
-      id: 'partners', label: { fr: 'Plus', en: 'More', ar: 'المزيد' }, links: [
+      id: 'partners', label: { fr: 'Explorer & partenaires', en: 'Explore & partners', ar: 'استكشف والشركاء' }, links: [
         { id: 'stats', label: { fr: 'Statistiques', en: 'Statistics', ar: 'الإحصائيات' }, href: paths.stats, icon: 'stats' },
         { id: 'history', label: { fr: 'Historique', en: 'History', ar: 'السجل' }, href: paths.history, icon: 'history' },
         { id: 'method', label: { fr: 'Méthode', en: 'Method', ar: 'المنهجية' }, href: paths.method, icon: 'method' },
