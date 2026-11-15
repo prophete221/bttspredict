@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-11-14T21:51:29.111Z",
+  "generatedAt": "2026-11-15T00:39:04.564Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,16 +15,16 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 539,
-    "won": 428,
+    "total": 540,
+    "won": 429,
     "lost": 111,
-    "pending": 84,
-    "unverifiable": 215,
-    "archivedTotal": 838,
+    "pending": 86,
+    "unverifiable": 216,
+    "archivedTotal": 842,
     "rate": 79.4,
     "gold": {
-      "total": 421,
-      "won": 340,
+      "total": 422,
+      "won": 341,
       "lost": 81,
       "rate": 80.8
     },
@@ -36,8 +36,8 @@
     },
     "byType": {
       "btts": {
-        "total": 439,
-        "won": 356,
+        "total": 440,
+        "won": 357,
         "lost": 83,
         "rate": 81.1
       },
@@ -142,19 +142,32 @@
       },
       {
         "date": "2026-11-14",
-        "total": 3,
-        "won": 1,
+        "total": 4,
+        "won": 2,
         "lost": 2,
-        "rate": 33.3
+        "rate": 50
       }
     ],
     "period": {
-      "from": "2026-08-17",
-      "to": "2026-11-14",
+      "from": "2026-08-18",
+      "to": "2026-11-15",
       "days": 90
     }
   },
   "history": [
+    {
+      "date": "2026-11-14",
+      "match": "Real Oviedo vs Girona",
+      "league": "LaLiga 2",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.65,
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-15T00:38:11.648Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
     {
       "date": "2026-11-14",
       "match": "Fortaleza vs Vila Nova",
@@ -6630,19 +6643,6 @@
       "proba": 0.6424,
       "status": "WON",
       "finalScore": "3-1",
-      "verifiedAt": "2026-10-23T05:46:14.653Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-08-23",
-      "match": "New England Revolution vs New York City FC",
-      "league": "MLS",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.5183,
-      "status": "WON",
-      "finalScore": "1-1",
       "verifiedAt": "2026-10-23T05:46:14.653Z",
       "source": "ESPN public",
       "prediction": "Oui"
