@@ -17,11 +17,11 @@ export const metadata: Metadata = {
 
 export default function MethodologiePage() {
   return (
-    <div className="min-h-screen bg-[#0B0F14] flex flex-col text-[#F2F6FA]">
+    <div className="content-page method-page min-h-screen flex flex-col">
       <Navbar />
 
       <main id="main-content" className="flex-1">
-        <article className="max-w-3xl mx-auto px-4 py-12 sm:py-16">
+        <article className="legal-page__main max-w-3xl mx-auto px-4 py-12 sm:py-16">
           <header className="mb-10">
             <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-4"
               style={{ backgroundColor: 'rgba(127, 162, 198, 0.16)', color: '#2F7DFF', border: '1px solid rgba(127, 162, 198, 0.30)' }}>
