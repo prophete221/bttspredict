@@ -2469,3 +2469,56 @@
   .vipx-section-head h2 { margin-top: 8px !important; font-size: 22px !important; }
   .vipx-section-head p { font-size: 13px !important; line-height: 1.5 !important; }
 }
+
+
+/* Final VIP art direction: deep navy, muted champagne and neutral surfaces. */
+.vipx {
+  --vipx-gold: #d6b66f !important;
+  --vipx-gold-hi: #ead8a5 !important;
+  --vipx-gold-deep: #a98b4c !important;
+  --vipx-gold-soft: rgba(214,182,111,.10) !important;
+  --vipx-red: #d6b66f !important;
+  --vipx-shadow-gold: none !important;
+  background: #080d16 !important;
+  color: #edf3fb !important;
+}
+.vipx .vipx-hero { background:#080d16 !important; }
+.vipx .vipx-hero__aura { opacity:.08 !important; filter:blur(70px) !important; }
+.vipx .vipx-hero__copy h1,
+.vipx .vipx-hero__title {
+  background:none !important;
+  color:#f1f5fa !important;
+  -webkit-text-fill-color:#f1f5fa !important;
+  font-size:clamp(2.1rem,4.5vw,3.4rem) !important;
+  font-weight:830 !important;
+  letter-spacing:-.05em !important;
+  line-height:1.05 !important;
+}
+.vipx .vipx-hero__copy h1 .aw-w--em,
+.vipx .vipx-hero__copy h1 * {
+  background:none !important;
+  color:#d6b66f !important;
+  -webkit-text-fill-color:#d6b66f !important;
+}
+.vipx .vipx-eyebrow,
+.vipx .vipx-page-topline__label { color:#d6b66f !important; }
+.vipx .vipx-eyebrow i,
+.vipx .vipx-page-topline__label i { background:#d6b66f !important; }
+.vipx .vipx-btn--gold,
+.vipx .vipx-btn--gold:hover {
+  background:#d6b66f !important;
+  border-color:#d6b66f !important;
+  color:#111827 !important;
+  box-shadow:none !important;
+  transform:none !important;
+}
+.vipx .vipx-flow__guide:hover { border-color:rgba(214,182,111,.42) !important; }
+.vipx .vipx-flow__priority { color:#d6b66f !important; }
+.vipx .vipx-faq__list details { border-color:rgba(167,190,216,.14) !important; background:#101a29 !important; }
+.vipx .vipx-faq__list summary { color:#edf3fb !important; }
+.vipx .vipx-faq__list summary::after,
+.vipx .vipx-faq__list summary > span { color:#d6b66f !important; }
+.vipx .vipx-faq__list p { color:#a2b1c3 !important; }
+@media(max-width:760px) {
+  .vipx .vipx-hero__grid { grid-template-columns:minmax(0,1fr) !important; }
+}
