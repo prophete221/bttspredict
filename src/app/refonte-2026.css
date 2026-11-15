@@ -915,3 +915,17 @@ footer,
   flex-direction: row-reverse;
   justify-content: flex-start;
 }
+
+.hp-brand-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0.25rem 0 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+.hp-brand-line__sep { opacity: 0.5; }
