@@ -643,3 +643,30 @@ a { text-underline-offset: 3px; }
 .vipx .vipx-faq__list details { border-color:var(--bp-line) !important; background:#101a29 !important; }
 .vipx .vipx-faq__list summary { color:#edf3fb !important; }
 .vipx .vipx-faq__list p { color:#a2b1c3 !important; }
+
+
+/* Separate the hero copy block from the copy-code control. */
+.bp-promo__copy { min-width:0; }
+
+/* 888Starz: preserve its own restrained crimson accent within the shared navy system. */
+[data-888starz-promo] { min-height:100vh; padding:24px 16px; background:#080d16 !important; color:#edf3fb !important; }
+[data-888starz-promo] > section { max-width:940px; margin-inline:auto; border:1px solid var(--bp-line) !important; border-radius:14px !important; background:#0d1725 !important; box-shadow:none !important; }
+[data-888starz-promo] > section:first-of-type > div { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(280px,.95fr); }
+[data-888starz-promo] > section:first-of-type > div > div { padding:clamp(18px,3vw,30px) !important; border-color:var(--bp-line) !important; }
+[data-888starz-promo] h1 { margin-top:20px !important; color:#f2f6fb !important; font-size:clamp(1.8rem,4vw,2.8rem) !important; letter-spacing:-.045em !important; line-height:1.08 !important; }
+[data-888starz-promo] h2 { color:#edf3fb !important; font-size:18px !important; }
+[data-888starz-promo] h3 { color:#e8eff7 !important; }
+[data-888starz-promo] p { color:#a2b1c3 !important; line-height:1.7 !important; }
+[data-888starz-promo] [data-promo-highlights] > div,
+[data-888starz-promo] [data-promo-steps] > div > div,
+[data-888starz-promo] [data-promo-faq] > div > div {
+  border:1px solid var(--bp-line) !important; border-radius:9px !important; background:#101a29 !important;
+}
+[data-888starz-promo] code { color:#f0a0a6 !important; font-family:var(--font-mono),monospace; }
+[data-888starz-promo] [data-cta^="promo-signup-888starz"] { min-height:48px; border-radius:8px !important; background:#c94d60 !important; box-shadow:none !important; }
+[data-888starz-promo] button { border-radius:8px !important; border-color:rgba(201,77,96,.45) !important; }
+@media(max-width:760px) {
+  [data-888starz-promo] { padding:14px 10px; }
+  [data-888starz-promo] > section:first-of-type > div { grid-template-columns:minmax(0,1fr); }
+  [data-888starz-promo] > section:first-of-type > div > div { padding:17px !important; }
+}
