@@ -673,3 +673,18 @@ a { text-underline-offset: 3px; }
 
 
 /* [code-only] [recover-stuck-queue] one-time release for the stale FTP queue; no runtime effect. */
+
+/* Featured fixture partner actions: compact, aligned with the card rather than a banner. */
+.bp-feature__partners { margin-top:12px; padding-top:10px; border-top:1px solid rgba(167,190,216,.1); }
+.bp-feature__partners .fi-bookmaker-links { display:flex; flex-wrap:wrap; justify-content:center; gap:7px; }
+.bp-feature__partners .fi-bookmaker-link { display:grid; min-width:74px; min-height:34px; place-items:center; padding:5px 8px; border:1px solid var(--bp-line); border-radius:7px; background:#0b1320; }
+.bp-feature__partners .fi-bookmaker-link img { max-width:74px; max-height:22px; object-fit:contain; }
+.bp-home[dir="rtl"]::before { inset-inline:0 auto; }
+.bp-home[dir="rtl"] .bp-home__intro { text-align:right; }
+.bp-home[dir="rtl"] .bp-home__actions { justify-content:flex-start; }
+@media(max-width:760px) {
+  .bp-home__inner { grid-template-columns:minmax(0,1fr); gap:18px; }
+  .bp-home { padding:24px 14px; }
+  .bp-home__title { font-size:clamp(2rem,9vw,3rem); }
+  .bp-feature { padding:15px; }
+}
