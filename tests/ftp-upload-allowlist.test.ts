@@ -208,14 +208,15 @@ describe('validated FTP upload allowlist', () => {
     expect(failure.explicitRootFiles.map(file => file.result)).toEqual(['not-confirmed', 'not-confirmed'])
   })
 
-  it('uploads only the approved English Linebet route and preserves other protected promos', () => {
+  it('uploads refreshed localized promo shells and preserves remaining protected promos', () => {
     const protectedPaths = [
-      'ar/code-promo-1xbet/__next._full.txt',
-      'en/bonus-888starz.html',
       'ar/bonus-888starz-btts221.txt',
       'linebet-promo-code.html',
     ]
     const allowedPaths = [
+      'ar/code-promo-1xbet.html',
+      'ar/code-promo-1xbet/__next._full.txt',
+      'en/bonus-888starz.html',
       'en/code-promo-linebet-senegal.html',
       'en/code-promo-linebet-senegal.txt',
       '_next/static/chunks/app/[locale]/code-promo-linebet-senegal/page-abc.js',
@@ -226,9 +227,13 @@ describe('validated FTP upload allowlist', () => {
 
     expect(plan.uploadPaths).toEqual(allowedPaths.slice().sort())
     expect(plan.excludedProtectedPaths.slice().sort()).toEqual(['.htaccess', ...protectedPaths].sort())
-    expect(plan.commands.join('\n')).toContain('en/code-promo-linebet-senegal.html')
-    expect(plan.commands.join('\n')).not.toContain('ar/code-promo-1xbet')
-    expect(plan.commands.join('\n')).not.toContain('linebet-promo-code')
+    expect(plan.commands.join('\\n')).toContain('ar/code-promo-1xbet.html')
+    expect(plan.commands.join('\\n')).toContain('en/bonus-888starz.html')
+    expect(plan.commands.join('\\n')).not.toContain('ar/bonus-888starz-btts221')
+    expect(plan.commands.join('\\n')).not.toContain('linebet-promo-code')
+    expect(plan.uploadPaths).toContain('ar/code-promo-1xbet.html')
+    expect(plan.uploadPaths).toContain('ar/code-promo-1xbet/__next._full.txt')
+    expect(plan.uploadPaths).toContain('en/bonus-888starz.html')
     expect(plan.uploadPaths).toContain('en/code-promo-linebet-senegal.html')
     expect(plan.uploadPaths).toContain('en/code-promo-linebet-senegal.txt')
     expect(plan.uploadPaths).toContain('_next/static/chunks/app/[locale]/code-promo-linebet-senegal/page-abc.js')
