@@ -27,7 +27,7 @@ const PROTECTED_SEO_ROUTES = [
       ['src/components/bttsbet/LocalizedCombinedPredictionsClient.tsx', [
         "title: 'BTTS and Over 2.5 Predictions Today'",
         "title: 'توقعات BTTS وأكثر من 2.5 اليوم'",
-        '<AnimatedTitle as="h1" text={c.title}',
+        '<h1>{c.title}</h1>',
         "intro: 'Combined predictions where both teams score and total goals exceed 2.5. Matches must meet both criteria simultaneously.'",
         "intro: 'توقعات مجمعة حيث يسجل الفريقان ويتجاوز إجمالي الأهداف 2.5. يجب أن تحقق المباراة الشرطين معاً.'",
       ]],
@@ -44,10 +44,9 @@ const PROTECTED_SEO_ROUTES = [
         "openGraph: { title, description, url, siteName: 'BTTSPredict', type: 'website', locale: LOCALE_META[locale].htmlLang.replace('-', '_') }",
       ]],
       ['src/components/bttsbet/Hero.tsx', [
-        '<h1 className="hp-hero__title">',
-        'plainTitle(t.home2.heroTitle1)',
-        'plainTitle(t.home2.heroTitle2)',
-        '{t.home2.heroText}',
+        '<h1 className="bp-home__title">',
+        '<span>Plateforme N°1 Mondiale</span>',
+        '<strong>BTTS &amp; Over 2.5 Master</strong>',
       ]],
     ],
   },
