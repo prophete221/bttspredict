@@ -970,3 +970,373 @@ footer,
   color: var(--text-tertiary) !important;
   font-size: 0.8rem;
 }
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   VAGUE 3 — REFONTE PAGE PAR PAGE
+   Contenu légal, footer, nav desktop, pronostics, historique, sticky CTA.
+═══════════════════════════════════════════════════════════════════════ */
+
+/* —— Pages légales / méthode / contenu long —— */
+.legal-page {
+  background: var(--bg-page) !important;
+  color: var(--text-primary);
+}
+.legal-page__main { color: var(--text-primary); }
+.legal-page__title {
+  color: var(--text-primary) !important;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+.legal-page__intro,
+.legal-page__body,
+.legal-page__note {
+  color: var(--text-secondary) !important;
+}
+.legal-page__h2 {
+  color: var(--text-primary) !important;
+  margin-top: 1.5rem;
+}
+.legal-page__link {
+  color: var(--accent) !important;
+}
+.legal-page__link:hover { color: var(--accent-hover) !important; }
+
+/* Conteneurs génériques de pages contenu */
+main article,
+.prose-page,
+.method-page,
+.content-page {
+  color: var(--text-primary);
+}
+main article h1,
+.method-page h1,
+.content-page h1 {
+  color: var(--text-primary) !important;
+}
+main article h2,
+.method-page h2 {
+  color: var(--text-primary) !important;
+}
+main article p,
+.method-page p {
+  color: var(--text-secondary);
+}
+
+/* —— Footer —— */
+.hp-footer,
+footer.hp-footer,
+.site-footer {
+  background: var(--bg-elev-1) !important;
+  border-top: 1px solid var(--border) !important;
+  color: var(--text-secondary) !important;
+}
+.hp-footer-col__title {
+  color: var(--text-primary) !important;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.hp-footer-link {
+  color: var(--text-secondary) !important;
+}
+.hp-footer-link:hover {
+  color: var(--accent) !important;
+}
+.hp-footer-brand,
+.hp-footer-tagline {
+  color: var(--text-secondary) !important;
+}
+.hp-footer-disclaimer {
+  color: var(--text-tertiary) !important;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+/* —— Navigation desktop (fi-*) —— */
+.fi-navigation,
+.fi-sidebar,
+.fi-desktop-links {
+  background: var(--bg-elev-1) !important;
+  border-color: var(--border) !important;
+  color: var(--text-primary) !important;
+}
+.fi-nav-link,
+.fi-nav-link__label {
+  color: var(--text-secondary) !important;
+}
+.fi-nav-link:hover,
+.fi-nav-link.is-active,
+.fi-nav-link[aria-current="page"] {
+  color: var(--text-primary) !important;
+  background: var(--accent-soft) !important;
+}
+.fi-nav-group__label {
+  color: var(--text-tertiary) !important;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+}
+.fi-nav-drawer,
+.fi-mobile-menu {
+  background: var(--bg-elev-1) !important;
+  border-color: var(--border) !important;
+}
+.fi-nav-backdrop {
+  background: rgba(0, 0, 0, 0.55) !important;
+}
+.fi-brand-copy {
+  color: var(--text-primary) !important;
+}
+
+/* —— Pronostics / FreePredictions —— */
+.bp-prediction-card {
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 14px !important;
+  box-shadow: none !important;
+  color: var(--text-primary) !important;
+}
+.bp-prediction-card:hover {
+  background: var(--card-hover) !important;
+  border-color: var(--border-strong) !important;
+}
+.badge-live {
+  background: var(--accent-soft) !important;
+  color: var(--accent-hover) !important;
+  border: 1px solid rgba(47, 125, 255, 0.3) !important;
+}
+
+/* BTTS / Over dashboards */
+.btts-today,
+.btts-dashboard,
+[class*="BttsToday"] {
+  background: var(--bg-page);
+  color: var(--text-primary);
+}
+
+/* —— Historique / résultats —— */
+.win-history,
+.history-table,
+.hp-history {
+  background: var(--bg-page);
+  color: var(--text-primary);
+}
+.win-history table,
+.history-table table {
+  border-color: var(--border) !important;
+}
+.win-history th,
+.history-table th {
+  color: var(--text-tertiary) !important;
+  background: var(--bg-elev-1) !important;
+  border-color: var(--border) !important;
+}
+.win-history td,
+.history-table td {
+  color: var(--text-secondary) !important;
+  border-color: var(--border) !important;
+}
+
+/* États métier uniquement (pas de vert décoratif) */
+[data-status="WON"],
+.tracking-win-badge,
+.status-won {
+  color: #3DDC97 !important;
+}
+[data-status="LOST"],
+.status-lost {
+  color: #F87171 !important;
+}
+[data-status="PENDING"],
+.status-pending {
+  color: var(--text-tertiary) !important;
+}
+
+/* —— How it works / éditorial home —— */
+.how-it-works,
+.hp-editorial {
+  background: var(--bg-page);
+  color: var(--text-primary);
+}
+.hp-btn-ghost,
+.hp-btn-ghost--sm {
+  background: transparent !important;
+  border: 1px solid var(--border-strong) !important;
+  color: var(--text-secondary) !important;
+  border-radius: 10px !important;
+}
+.hp-btn-ghost:hover {
+  border-color: var(--accent) !important;
+  color: var(--text-primary) !important;
+}
+
+/* —— Sticky CTA mobile (Linebet + 1xBet prioritaires) —— */
+.sticky-cta-bar,
+[class*="StickyCTA"] {
+  background: rgba(12, 13, 16, 0.94) !important;
+  border-top: 1px solid var(--border) !important;
+  backdrop-filter: blur(12px);
+}
+.sticky-cta-bar a,
+.sticky-cta-bar button {
+  border-radius: 10px !important;
+}
+
+/* —— Statistiques —— */
+.stats-page,
+.stats-dashboard {
+  background: var(--bg-page) !important;
+  color: var(--text-primary) !important;
+}
+.stats-card {
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 14px !important;
+}
+
+/* —— Match individual pages —— */
+.match-page,
+.match-view {
+  background: var(--bg-page);
+  color: var(--text-primary);
+}
+.match-page h1 {
+  color: var(--text-primary) !important;
+}
+
+/* —— Suppress residual decorative green/teal (not WON state) —— */
+.bg-teal-500,
+.bg-teal-600,
+.bg-emerald-500,
+.bg-green-500,
+.from-teal-500,
+.to-teal-600,
+.text-teal-400,
+.text-emerald-400 {
+  /* force brand-neutral unless semantic WON */
+}
+body:not([data-vip]) .bg-gradient-to-r.from-teal-500,
+body:not([data-vip]) .bg-gradient-to-br.from-green-400 {
+  background-image: none !important;
+  background: var(--accent) !important;
+}
+
+/* —— Empty / error states —— */
+.hp-empty,
+.empty-state,
+.error-state {
+  background: var(--bg-elev-1) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 14px !important;
+  color: var(--text-secondary) !important;
+}
+.hp-empty__title {
+  color: var(--text-primary) !important;
+}
+.hp-empty__text {
+  color: var(--text-secondary) !important;
+}
+
+/* —— RTL content pages —— */
+[dir="rtl"] .legal-page__main,
+[dir="rtl"] .legal-page__title,
+[dir="rtl"] .legal-page__intro {
+  text-align: right;
+}
+[dir="rtl"] .hp-footer-col {
+  text-align: right;
+}
+[dir="rtl"] .fi-nav-link {
+  text-align: right;
+}
+
+/* —— BTTS Today Dashboard (btx-*) —— */
+.btx-card,
+.btx-combo,
+.btx-filters,
+.btx-partner-rail {
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 14px !important;
+  box-shadow: none !important;
+  color: var(--text-primary) !important;
+}
+.btx-card:hover {
+  background: var(--card-hover) !important;
+  border-color: var(--border-strong) !important;
+}
+.btx-league,
+.btx-section-title {
+  color: var(--text-primary) !important;
+}
+.btx-team__name {
+  color: var(--text-primary) !important;
+  font-weight: 650;
+}
+.btx-vs__chip {
+  background: var(--bg-elev-1) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text-tertiary) !important;
+}
+.btx-prob__label,
+.btx-lambda__label {
+  color: var(--text-tertiary) !important;
+}
+.btx-prob__value,
+.btx-lambda__value {
+  color: var(--text-primary) !important;
+}
+.btx-bar {
+  background: var(--bg-inset) !important;
+  border-radius: 999px;
+  overflow: hidden;
+}
+.btx-bar__fill {
+  background: var(--accent) !important;
+}
+.btx-filter {
+  background: var(--bg-elev-1) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text-secondary) !important;
+  border-radius: 999px !important;
+}
+.btx-filter.is-active {
+  background: var(--accent-soft) !important;
+  border-color: rgba(47, 125, 255, 0.4) !important;
+  color: var(--accent-hover) !important;
+}
+.btx-count-pill {
+  background: var(--bg-elev-2) !important;
+  color: var(--text-secondary) !important;
+  border-radius: 999px;
+  padding: 0.15rem 0.5rem;
+  font-size: 0.75rem;
+}
+.btx-count-pill--green {
+  background: rgba(61, 220, 151, 0.12) !important;
+  color: #3DDC97 !important;
+}
+.btx-empty {
+  background: var(--bg-elev-1) !important;
+  border: 1px dashed var(--border) !important;
+  border-radius: 12px;
+}
+.btx-empty__title { color: var(--text-primary) !important; }
+.btx-empty__sub { color: var(--text-secondary) !important; }
+.btx-link {
+  color: var(--accent) !important;
+}
+.btx-link:hover { color: var(--accent-hover) !important; }
+.btx-disclaimer,
+.btx-period-note {
+  color: var(--text-tertiary) !important;
+  font-size: 0.78rem;
+}
+.btx-status--live {
+  color: var(--accent-hover) !important;
+}
+.content-page {
+  background: var(--bg-page) !important;
+  color: var(--text-primary) !important;
+}
