@@ -1,9 +1,7 @@
-// Routes promo non autorisées : conserver exactement les hashes déjà publiés.
-// `en/code-promo-linebet-senegal` est l'exception approuvée pour corriger le
-// body copy; title, canonical et keywords restent gelés par les tests SEO.
+// Routes promo encore gelées : conserver exactement les hashes déjà publiés.
+// Les pages AR 1xBet et EN 888Starz sont désormais servies par les layouts
+// localisés communs ; leurs métadonnées title/canonical restent inchangées.
 export const PRESERVED_PROMO_ROUTE_PREFIXES = Object.freeze([
-  'ar/code-promo-1xbet',
-  'en/bonus-888starz',
   'ar/bonus-888starz-btts221',
   'linebet-promo-code',
 ])
