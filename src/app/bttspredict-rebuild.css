@@ -103,3 +103,54 @@ body { font-family: var(--font-body), Inter, Arial, sans-serif; }
   .page-design--home .hp-sect-head { align-items:flex-start !important; }
 }
 @media(prefers-reduced-motion:reduce) { .btp-match-card { transition:none; } }
+
+/* Prediction workspaces — unify the detailed BTTS and combined-pick surfaces. */
+.page-design--btts,.page-design--combo,.fi-today-dashboard { background:var(--btp-bg) !important; color:var(--btp-text) !important; }
+.fi-today-dashboard { max-width:1180px !important; padding-top:24px !important; }
+.btx-hero,.btx-combo,.btx-partner-rail,.btx-filters,.btx-card,.btx-empty,.prediction-match-card {
+  border:1px solid var(--btp-line) !important; border-radius:12px !important; background:#101927 !important; box-shadow:none !important;
+}
+.btx-hero { background:linear-gradient(135deg,#12233a,#0e1827) !important; }
+.btx-eyebrow,.btx-combo__kicker { color:#83baff !important; }
+.btx-title { color:#f4f7fb !important; font-size:clamp(1.45rem,4vw,2.1rem) !important; letter-spacing:-.04em !important; }
+.btx-sub,.btx-period-note,.btx-disclaimer { color:#9aa9bb !important; }
+.btx-stat__value { color:#f4f7fb !important; font-variant-numeric:tabular-nums; }
+.btx-card { overflow:hidden; padding:0 !important; }
+.btx-card__edge { display:none !important; }
+.btx-card__inner { padding:15px !important; background:transparent !important; }
+.btx-card__top { border-bottom:1px solid var(--btp-line) !important; padding-bottom:10px !important; }
+.btx-league,.btx-meta,.btx-lambda__label,.btx-score__label { color:#9aa9bb !important; }
+.btx-team__name,.btx-combo__title,.btx-combo-row__match { color:#f4f7fb !important; }
+.btx-vs__chip { background:#192a40 !important; border:1px solid var(--btp-line) !important; color:#9ecbff !important; }
+.btx-prob,.btx-ai__view,.btx-chip,.btx-market-chip { border-color:var(--btp-line) !important; background:#142238 !important; }
+.btx-prob__label,.btx-ai__text,.btx-combo-row__meta { color:#9aa9bb !important; }
+.btx-prob__value,.btx-score__value,.btx-combo-row__prob { color:#8fc2ff !important; }
+.btx-bar { background:#26364b !important; }
+.btx-bar__fill { background:linear-gradient(90deg,#347fd3,#65b2ff) !important; }
+.btx-ai { border-color:var(--btp-line) !important; background:#0d1725 !important; }
+.btx-ai__head { border-color:var(--btp-line) !important; }
+.btx-actions a,.btx-link { border-radius:8px !important; }
+.btx-actions a:first-child,.btx-link--primary { background:var(--btp-accent) !important; color:#07111f !important; }
+.btx-section-title,.prediction-section-heading__title { color:#f4f7fb !important; }
+.prediction-match-card { overflow:hidden !important; border-radius:12px !important; }
+.prediction-match-card__accent { height:2px !important; background:linear-gradient(90deg,transparent,#4c9aff,transparent) !important; }
+.prediction-match-card__body { padding:15px !important; }
+.prediction-match-card__analysis { background:#0d1725 !important; border-color:var(--btp-line) !important; border-radius:9px !important; }
+.prediction-match-card__meta { color:#9aa9bb !important; }
+.prediction-match-card__team { color:#f4f7fb !important; }
+.prediction-section-heading__eyebrow { color:#83baff !important; letter-spacing:.1em !important; }
+.prediction-section-heading__title { font-size:clamp(1.25rem,3vw,1.8rem) !important; letter-spacing:-.035em !important; }
+.page-design--combo main > section:first-child { padding-top:28px !important; }
+.page-design--combo main > section:first-child h1 { font-size:clamp(1.8rem,4.8vw,3rem) !important; letter-spacing:-.045em !important; }
+.page-design--combo main > section:nth-child(2) > div { background:#101927 !important; border-color:var(--btp-line) !important; border-radius:12px !important; }
+.page-design--combo a { text-underline-offset:3px; }
+.page-design--btts [class*="rounded-xl"],.page-design--combo [class*="rounded-xl"] { border-color:var(--btp-line) !important; }
+[dir=rtl] .fi-today-dashboard,[dir=rtl] .page-design--combo { text-align:start; }
+[dir=rtl] .btx-card__top,[dir=rtl] .btx-card__inner { direction:rtl; }
+@media(max-width:700px) {
+  .fi-today-dashboard { padding-inline:12px !important; }
+  .btx-dashboard-grid { grid-template-columns:minmax(0,1fr) !important; }
+  .btx-card__inner,.prediction-match-card__body { padding:12px !important; }
+  .btx-title { font-size:1.55rem !important; }
+  .page-design--combo main > section:first-child { padding-top:22px !important; }
+}
