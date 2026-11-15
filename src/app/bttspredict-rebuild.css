@@ -154,3 +154,45 @@ body { font-family: var(--font-body), Inter, Arial, sans-serif; }
   .btx-title { font-size:1.55rem !important; }
   .page-design--combo main > section:first-child { padding-top:22px !important; }
 }
+
+/* VIP and bookmaker journeys — preserve all existing eligibility, access and affiliate actions. */
+.vipx { background:var(--btp-bg) !important; color:var(--btp-text) !important; }
+.vipx :is(h1,h2,h3,h4) { color:var(--btp-text) !important; letter-spacing:-.035em; }
+.vipx :is(p,li,span) { text-wrap:pretty; }
+.vipx-shell { max-width:1160px !important; }
+.vipx-hero { background:linear-gradient(135deg,#10223a,#0a1422 70%) !important; border-block:1px solid var(--btp-line) !important; }
+.vipx-hero__aura,.vipx-hero__grid::before { display:none !important; }
+.vipx-hero__copy { max-width:640px; }
+.vipx-hero__card,.vipx-flow--card,.vipx-flow__panel,.vipx-trust__card,.vipx-faq__list details,.vipx-benefits__grid article,.vipx-final__card {
+  background:#101927 !important; border:1px solid var(--btp-line) !important; border-radius:12px !important; box-shadow:none !important;
+}
+.vipx-eyebrow { color:#8fc2ff !important; }
+.vipx-btn--gold { background:var(--btp-accent) !important; border:1px solid var(--btp-accent) !important; color:#07111f !important; box-shadow:none !important; border-radius:8px !important; }
+.vipx-btn--ghost { background:transparent !important; border:1px solid var(--btp-line) !important; color:var(--btp-text) !important; border-radius:8px !important; }
+.vipx-flow__status { background:#142238 !important; border-color:var(--btp-line) !important; }
+.vipx-flow__step { border-color:var(--btp-line) !important; }
+.vipx-flow__num,.vipx-benefits__icon { background:rgba(76,154,255,.12) !important; color:#8fc2ff !important; }
+.vipx-flow__guide { background:#142238 !important; border-color:var(--btp-line) !important; border-radius:8px !important; }
+.vipx-faq__list details { margin-bottom:8px; padding:14px 16px !important; }
+.vipx-final { background:transparent !important; }
+.vipx-final__card { padding:clamp(22px,4vw,42px) !important; }
+.promo-shell { min-height:100vh; background:var(--btp-bg) !important; color:var(--btp-text) !important; }
+.promo-shell [class*="bg-[#090909]"],.promo-shell [class*="bg-[#0B0F14]"] { background:transparent !important; }
+.promo-shell .promo-main { max-width:760px !important; padding-top:26px !important; }
+.promo-shell .promo-main__story { text-align:start !important; }
+.promo-shell .promo-story__badge { border-radius:5px !important; }
+.promo-shell .promo-story__title { color:var(--btp-text) !important; font-family:var(--font-body),Inter,sans-serif !important; font-size:clamp(1.8rem,5vw,2.65rem) !important; letter-spacing:-.045em !important; line-height:1.1 !important; }
+.promo-shell .promo-story__intro { color:#a8b6c8 !important; font-size:14px !important; line-height:1.7 !important; }
+.promo-shell .promo-story__logo { background:#142238 !important; border:1px solid var(--btp-line) !important; border-radius:9px !important; box-shadow:none !important; }
+.promo-shell .promo-main__offer,.promo-shell .promo-main__benefits,.promo-shell .promo-main__trust,.promo-shell .promo-main__steps,.promo-shell .promo-main__faq,.promo-shell .promo-main__crosslinks { text-align:start !important; }
+.promo-shell .promo-main__offer > div,.promo-shell .promo-main__steps > div > div,.promo-shell .promo-main__faq > div > div { background:#101927 !important; border:1px solid var(--btp-line) !important; border-radius:9px !important; box-shadow:none !important; }
+.promo-shell .promo-main__offer > div p,.promo-shell .promo-main__steps p,.promo-shell .promo-main__faq p { color:#9aa9bb !important; }
+.promo-shell .promo-main__steps h2,.promo-shell .promo-main__faq h2,.promo-shell .promo-main__crosslinks h2 { color:var(--btp-text) !important; font-size:17px !important; }
+.promo-shell [data-cta^="promo-signup"] { background:var(--btp-accent) !important; color:#07111f !important; border-radius:8px !important; box-shadow:none !important; }
+.promo-shell [data-affiliate-disclosure] { color:#7f90a7 !important; }
+@media(max-width:700px) {
+  .vipx-hero__grid { gap:18px !important; }
+  .vipx-hero__card { border-radius:10px !important; }
+  .vipx-content-grid { display:block !important; }
+  .promo-shell .promo-main { padding-inline:14px !important; }
+}
