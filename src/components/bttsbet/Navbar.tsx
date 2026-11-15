@@ -135,6 +135,7 @@ function NavigationContent() {
 
   const partnerRoutes = useMemo(() => ({ '1xbet': paths.promo1xbet, linebet: paths.promolinebet, melbet: paths.promomelbet, '888starz': paths.promo888 }), [paths])
   const flatLinks = groups.flatMap(group => group.links)
+  const desktopLinks = flatLinks.filter(link => ['home', 'matches', 'predictions', 'results', 'history', 'method'].includes(link.id))
   const activePage = flatLinks.find(link => isActive(link.href))
   const pageTitle = activePage?.label[lang] ?? (lang === 'ar' ? 'الرئيسية' : lang === 'en' ? 'Home' : 'Accueil')
 
@@ -226,6 +227,13 @@ function NavigationContent() {
             <span className="fi-topbar__page">{pageTitle}</span>
           </div>
         </div>
+        <nav className="fi-desktop-links" aria-label={menuLabel}>
+          {desktopLinks.map(link => (
+            <a key={link.id} href={link.href} aria-current={isActive(link.href) ? 'page' : undefined} title={link.label[lang]}>
+              <span>{link.label[lang]}</span>
+            </a>
+          ))}
+        </nav>
         <div className="fi-topbar__actions">
           {dataToday && <span className="fi-topbar__fresh"><span className="fi-status-dot" aria-hidden="true" />{copy(lang, 'Données actualisées', 'Data updated', 'تم تحديث البيانات')}</span>}
           {currentPartner && <button type="button" onClick={copyCode} className="fi-topbar__promo" aria-label={copyCodeLabel}>{copied ? copiedText : currentPartner.promoCode}</button>}
