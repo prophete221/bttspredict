@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-11-15T18:16:35.750Z",
+  "generatedAt": "2026-11-16T00:41:29.344Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,18 +15,18 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 543,
-    "won": 429,
-    "lost": 114,
-    "pending": 85,
-    "unverifiable": 219,
-    "archivedTotal": 847,
-    "rate": 79,
+    "total": 538,
+    "won": 426,
+    "lost": 112,
+    "pending": 91,
+    "unverifiable": 220,
+    "archivedTotal": 849,
+    "rate": 79.2,
     "gold": {
-      "total": 425,
-      "won": 341,
-      "lost": 84,
-      "rate": 80.2
+      "total": 420,
+      "won": 338,
+      "lost": 82,
+      "rate": 80.5
     },
     "standard": {
       "total": 118,
@@ -36,10 +36,10 @@
     },
     "byType": {
       "btts": {
-        "total": 442,
-        "won": 357,
-        "lost": 85,
-        "rate": 80.8
+        "total": 437,
+        "won": 354,
+        "lost": 83,
+        "rate": 81
       },
       "over25": {
         "total": 101,
@@ -142,19 +142,44 @@
       },
       {
         "date": "2026-11-15",
-        "total": 3,
-        "won": 0,
+        "total": 5,
+        "won": 2,
         "lost": 3,
-        "rate": 0
+        "rate": 40
       }
     ],
     "period": {
-      "from": "2026-08-18",
-      "to": "2026-11-15",
+      "from": "2026-08-19",
+      "to": "2026-11-16",
       "days": 90
     }
   },
   "history": [
+    {
+      "date": "2026-11-15",
+      "match": "Eldense vs CD Sabadell",
+      "league": "LaLiga 2",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.62,
+      "status": "WON",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-11-16T00:40:11.156Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-11-15",
+      "match": "Eibar vs Cádiz",
+      "league": "LaLiga 2",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.65,
+      "status": "WON",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-11-16T00:40:11.155Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
     {
       "date": "2026-11-15",
       "match": "Granada vs Las Palmas",
@@ -6617,32 +6642,6 @@
       "status": "LOST",
       "finalScore": "0-1",
       "verifiedAt": "2026-10-23T05:46:00.722Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-08-28",
-      "match": "Wrexham vs Birmingham City",
-      "league": "Championship",
-      "market": "btts",
-      "tier": "STANDARD",
-      "proba": 0.5625,
-      "status": "WON",
-      "finalScore": "1-2",
-      "verifiedAt": "2026-10-23T05:46:00.722Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-08-24",
-      "match": "Fulham vs Chelsea",
-      "league": "Premier League",
-      "market": "btts",
-      "tier": "STANDARD",
-      "proba": 0.5877,
-      "status": "WON",
-      "finalScore": "2-3",
-      "verifiedAt": "2026-10-23T05:46:08.004Z",
       "source": "ESPN public",
       "prediction": "Oui"
     }
