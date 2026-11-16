@@ -8,7 +8,7 @@ const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: (
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
 
 const TITLE = 'Pronostics BTTS du jour — Sélections gratuites'
-const DESCRIPTION = 'Pronostics BTTS du jour sur des matchs internationaux : sélections statistiques, données horodatées et méthode documentée. 18+.'
+const DESCRIPTION = 'Sélections BTTS publiques affichées après validation pour les matchs à venir. Aucun résultat futur n’est garanti. 18+.'
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -18,11 +18,12 @@ export const metadata: Metadata = {
     languages: {
       fr: 'https://bttspredict.com/btts/predictions/today',
       en: 'https://bttspredict.com/en/btts/predictions/today',
-      ar: 'https://bttspredict.com/ar/btts/predictions/today',
       'x-default': 'https://bttspredict.com/btts/predictions/today',
     },
   },
-  robots: { index: true, follow: true },
+  robots: process.env.NODE_ENV === 'development'
+    ? { index: false, follow: false }
+    : { index: true, follow: true },
   openGraph: {
     title: TITLE,
     description: DESCRIPTION,

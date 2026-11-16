@@ -11,7 +11,6 @@ import MatchViewTracker from '@/components/bttsbet/MatchViewTracker'
 import TeamContext from '@/components/bttsbet/TeamContext'
 import { localizedPath, type Locale } from '@/lib/i18n'
 import { getFrenchMatchStaticParams } from '@/lib/match-page-ssg'
-import { matchMetricLabels } from '@/lib/matchMetricLabels'
 import { resolveMatchPageLogos } from '@/lib/matchPageLogos'
 
 interface PageProps {
@@ -97,9 +96,9 @@ const MATCH_COPY: Record<Locale, {
   formMatches: string; standingsLabel: string; ptsUnit: string; playedUnit: string;
   oddsSection: string; oddsNote: string; oddsHome: string; oddsDraw: string; oddsAway: string; oddsOver: string; oddsUnder: string;
 }> = {
-  fr: { home: 'Accueil', predictions: 'Pronostics', breadcrumb: 'Fil d’Ariane', finalScore: 'Score réel vérifié', predictedScore: 'Score estimé', report: 'Pronostics du modèle', published: 'Données publiées', bttsSubtitle: 'Les deux équipes marquent', overSubtitle: 'Total de buts ≥ 3', won: 'Gagné', lost: 'Perdu', pending: 'En attente', noFuture: 'Aucun résultat futur n’est garanti. 18+.', keyFact: 'À retenir', analysis: 'Analyse statistique', verification: 'Vérification', verifiedAt: 'Vérifié le', source: 'Source : ESPN et TheSportsDB.', intelligence: 'Analyse du match', further: 'Aller plus loin', today: 'Voir les pronostics du jour →', todayDesc: 'Tous les matchs analysés par notre modèle statistique', premium: 'Pronostics premium →', vipDesc: 'Programme VIP BTTSPredict', disclaimer: '18+ · Les paris sportifs comportent un risque de perte. Aucun résultat futur n’est garanti. BTTSPredict ne prend pas de paris et ne collecte pas de fonds. Pronostic publié à titre informatif, ne constitue pas une incitation à parier.', dataUsed: 'Données utilisées', dataUsedDesc: 'Informations disponibles pour cette analyse.', matchesAnalyzed: 'Matchs pris en compte', perTeam: 'par équipe', lambdaLabel: 'Buts estimés par le modèle', lambdaHint: 'Estimations calculées à partir des buts récents disponibles ; ce ne sont pas des scores de match.', xgTotalLabel: 'Total de buts estimé', modelSource: 'Modèle statistique', recentForm: 'Forme récente', formBttsLabel: 'BTTS sur les matchs récents', conclusion: 'Conclusion', qualityNote: 'La qualité des données décrit les informations disponibles, pas les chances de gagner.', publishedOn: 'Données publiées le', readOfMatch: 'notre lecture du match', riskLevel: 'Niveau de prudence', notAvailable: 'Non disponible', lastMinute: 'Dernière minute', lastMinuteSub: 'Historique des 5 derniers matchs de chaque équipe — source ESPN, mise à jour avant le coup d’envoi.', letterWin: 'V', letterDraw: 'N', letterLoss: 'D', venueHome: 'D', venueAway: 'E', noRecent: 'Aucun match récent enregistré pour cette équipe.', newsSection: 'Actualités & infos clés', newsSub: 'Analyses et points clés issus de nos données, actualisés avant le coup d’envoi.', absencesLabel: 'Absents & indisponibles', oddsInsightLabel: 'Lecture des cotes', formSection: 'Forme des équipes', formSub: 'Bilan des derniers matchs (source ESPN) : résultats, buts et tendances BTTS / Over 2.5.', statGoalsFor: 'Buts marqués', statGoalsAgainst: 'Buts encaissés', statCleanSheets: 'Sans encaisser', statFailedToScore: 'Sans marquer', statBtts: 'BTTS', statOver: 'Over 2.5', formMatches: 'derniers matchs', standingsLabel: 'Classement', ptsUnit: 'pts', playedUnit: 'MJ', oddsSection: 'Cotes du marché', oddsNote: 'Cotes indicatives du marché, susceptibles de varier. 18+.', oddsHome: '1', oddsDraw: 'N', oddsAway: '2', oddsOver: 'Over 2.5', oddsUnder: 'Under 2.5' },
-  en: { home: 'Home', predictions: 'Predictions', breadcrumb: 'Breadcrumb', finalScore: 'Verified result', predictedScore: 'Model score estimate', report: 'Model predictions', published: 'Published data', bttsSubtitle: 'Both teams to score', overSubtitle: 'Total goals ≥ 3', won: 'Won', lost: 'Lost', pending: 'Pending', noFuture: 'No future result is guaranteed. 18+.', keyFact: 'À retenir', analysis: 'Statistical analysis', verification: 'Verification', verifiedAt: 'Verified on', source: 'Source: ESPN and TheSportsDB.', intelligence: 'Match analysis', further: 'Explore further', today: 'View today’s predictions →', todayDesc: 'All matches analyzed by our statistical model', premium: 'Premium predictions →', vipDesc: 'BTTSPredict VIP programme', disclaimer: '18+ · Sports betting carries a risk of loss. No future result is guaranteed. BTTSPredict does not take bets or hold funds. This prediction is informational and is not an invitation to bet.', dataUsed: 'Data used', dataUsedDesc: 'Information available for this analysis.', matchesAnalyzed: 'Matches included', perTeam: 'per team', lambdaLabel: 'Model-estimated goals', lambdaHint: 'Estimates based on available recent goals; they are not match scores.', xgTotalLabel: 'Estimated total goals', modelSource: 'Statistical model', recentForm: 'Recent form', formBttsLabel: 'BTTS in recent matches', conclusion: 'Conclusion', qualityNote: 'Data quality describes the information available, not the chance of winning.', publishedOn: 'Data published on', readOfMatch: 'our read of the match', riskLevel: 'Prudence level', notAvailable: 'Not available', lastMinute: 'Last-minute insights', lastMinuteSub: 'Each team’s last 5 matches — ESPN data, refreshed before kick-off.', letterWin: 'W', letterDraw: 'D', letterLoss: 'L', venueHome: 'H', venueAway: 'A', noRecent: 'No recent match recorded for this team.', newsSection: 'Team news & key insights', newsSub: 'What our data says about this match — refreshed before kick-off.', absencesLabel: 'Absences & unavailability', oddsInsightLabel: 'Odds read', formSection: 'Team form', formSub: 'Recent matches breakdown (ESPN source): results, goals and BTTS / Over 2.5 trends.', statGoalsFor: 'Goals scored', statGoalsAgainst: 'Goals conceded', statCleanSheets: 'Clean sheets', statFailedToScore: 'Failed to score', statBtts: 'BTTS', statOver: 'Over 2.5', formMatches: 'recent games', standingsLabel: 'Standing', ptsUnit: 'pts', playedUnit: 'MP', oddsSection: 'Market odds', oddsNote: 'Indicative market odds, subject to change. 18+.', oddsHome: '1', oddsDraw: 'X', oddsAway: '2', oddsOver: 'Over 2.5', oddsUnder: 'Under 2.5' },
-  ar: { home: 'الرئيسية', predictions: 'التوقعات', breadcrumb: 'مسار التنقل', finalScore: 'النتيجة الفعلية المؤكدة', predictedScore: 'نتيجة تقديرية', report: 'توقعات النموذج', published: 'بيانات منشورة', bttsSubtitle: 'كلا الفريقين يسجلان', overSubtitle: 'إجمالي الأهداف ≥ 3', won: 'فوز', lost: 'خسارة', pending: 'قيد الانتظار', noFuture: 'لا توجد ضمانات لأي نتيجة مستقبلية. 18+.', keyFact: 'الخلاصة', analysis: 'تحليل إحصائي', verification: 'التحقق', verifiedAt: 'تم التحقق في', source: 'المصدر: ESPN وTheSportsDB.', intelligence: 'تحليل المباراة', further: 'استكشف المزيد', today: 'عرض توقعات اليوم ←', todayDesc: 'جميع المباريات التي حللها نموذجنا الإحصائي', premium: 'التوقعات المميزة ←', vipDesc: 'برنامج VIP من BTTSPredict', disclaimer: '18+ · المراهنات الرياضية تنطوي على خطر الخسارة. لا توجد ضمانات لأي نتيجة مستقبلية. BTTSPredict لا يقبل الرهانات ولا يحتفظ بالأموال. هذا التوقع إعلامي وليس دعوة للمراهنة.', dataUsed: 'البيانات المستخدمة', dataUsedDesc: 'البيانات المتاحة لهذا التحليل.', matchesAnalyzed: 'المباريات المشمولة', perTeam: 'لكل فريق', lambdaLabel: 'أهداف يقدّرها النموذج', lambdaHint: 'تقديرات مبنية على الأهداف الحديثة المتاحة، وليست نتيجة المباراة.', xgTotalLabel: 'إجمالي الأهداف المقدّر', modelSource: 'نموذج إحصائي', recentForm: 'الأداء الأخير', formBttsLabel: 'BTTS في المباريات الأخيرة', conclusion: 'الخاتمة', qualityNote: 'جودة البيانات تصف المعلومات المتاحة، ولا تعني فرصة الفوز.', publishedOn: 'نُشرت البيانات في', readOfMatch: 'قراءتنا للمباراة', riskLevel: 'مستوى الحذر', notAvailable: 'غير متوفر', lastMinute: 'آخر اللحظات', lastMinuteSub: 'آخر 5 مباريات لكل فريق — بيانات ESPN، تُحدّث قبل انطلاق المباراة.', letterWin: 'ف', letterDraw: 'ت', letterLoss: 'خ', venueHome: 'د', venueAway: 'خ', noRecent: 'لا توجد مباريات حديثة مسجّلة لهذا الفريق.', newsSection: 'أخبار الفريقين ومعلومات أساسية', newsSub: 'ما تقوله بياناتنا عن هذه المباراة — تُحدّث قبل انطلاق المباراة.', absencesLabel: 'الغائبون وغير المتاحين', oddsInsightLabel: 'قراءة الأسواق', formSection: 'أداء الفريقين', formSub: 'حصيلة المباريات الأخيرة (مصدر ESPN): النتائج والأهداف واتجاهات BTTS وOver 2.5.', statGoalsFor: 'أهداف مسجّلة', statGoalsAgainst: 'أهداف مستقبلة', statCleanSheets: 'شباك نظيفة', statFailedToScore: 'دون تسجيل', statBtts: 'BTTS', statOver: 'Over 2.5', formMatches: 'مباريات أخيرة', standingsLabel: 'الترتيب', ptsUnit: 'نقطة', playedUnit: 'مباراة', oddsSection: 'أسواق المراهنات', oddsNote: 'أسعار السوق إرشادية وقابلة للتغيير. 18+.', oddsHome: '1', oddsDraw: 'X', oddsAway: '2', oddsOver: 'Over 2.5', oddsUnder: 'Under 2.5' },
+  fr: { home: 'Accueil', predictions: 'Pronostics', breadcrumb: 'Fil d’Ariane', finalScore: 'Score réel vérifié', predictedScore: 'Score exact non publié', report: 'Pronostics publiés', published: 'Données publiées', bttsSubtitle: 'Les deux équipes marquent', overSubtitle: 'Total de buts ≥ 3', won: 'Gagné', lost: 'Perdu', pending: 'En attente', noFuture: 'Aucun résultat futur n’est garanti. 18+.', keyFact: 'À retenir', analysis: 'Analyse du match', verification: 'Vérification', verifiedAt: 'Vérifié le', source: 'Source : ESPN et TheSportsDB.', intelligence: 'Analyse du match', further: 'Aller plus loin', today: 'Voir les pronostics du jour →', todayDesc: 'Tous les picks publics validés', premium: 'Pronostics premium →', vipDesc: 'Programme VIP BTTSPredict', disclaimer: '18+ · Les paris sportifs comportent un risque de perte. Aucun résultat futur n’est garanti. BTTSPredict ne prend pas de paris et ne collecte pas de fonds. Pronostic publié à titre informatif, ne constitue pas une incitation à parier.', dataUsed: 'Données utilisées', dataUsedDesc: 'Informations disponibles pour cette analyse.', matchesAnalyzed: 'Matchs pris en compte', perTeam: 'par équipe', lambdaLabel: 'Buts estimés par le modèle', lambdaHint: 'Estimations calculées à partir des buts récents disponibles ; ce ne sont pas des scores de match.', xgTotalLabel: 'Total de buts estimé', modelSource: 'Modèle statistique', recentForm: 'Forme récente', formBttsLabel: 'BTTS sur les matchs récents', conclusion: 'Conclusion', qualityNote: 'La qualité des données décrit les informations disponibles, pas les chances de gagner.', publishedOn: 'Données publiées le', readOfMatch: 'notre lecture du match', riskLevel: 'Niveau de prudence', notAvailable: 'Non disponible', lastMinute: 'Dernière minute', lastMinuteSub: 'Historique des 5 derniers matchs de chaque équipe — source ESPN, mise à jour avant le coup d’envoi.', letterWin: 'V', letterDraw: 'N', letterLoss: 'D', venueHome: 'D', venueAway: 'E', noRecent: 'Aucun match récent enregistré pour cette équipe.', newsSection: 'Actualités & infos clés', newsSub: 'Analyses et points clés issus de nos données, actualisés avant le coup d’envoi.', absencesLabel: 'Absents & indisponibles', oddsInsightLabel: 'Lecture des cotes', formSection: 'Forme des équipes', formSub: 'Bilan des derniers matchs (source ESPN) : résultats, buts et tendances BTTS / Over 2.5.', statGoalsFor: 'Buts marqués', statGoalsAgainst: 'Buts encaissés', statCleanSheets: 'Sans encaisser', statFailedToScore: 'Sans marquer', statBtts: 'BTTS', statOver: 'Over 2.5', formMatches: 'derniers matchs', standingsLabel: 'Classement', ptsUnit: 'pts', playedUnit: 'MJ', oddsSection: 'Cotes du marché', oddsNote: 'Cotes indicatives du marché, susceptibles de varier. 18+.', oddsHome: '1', oddsDraw: 'N', oddsAway: '2', oddsOver: 'Over 2.5', oddsUnder: 'Under 2.5' },
+  en: { home: 'Home', predictions: 'Predictions', breadcrumb: 'Breadcrumb', finalScore: 'Verified result', predictedScore: 'Exact score not published', report: 'Published picks', published: 'Published data', bttsSubtitle: 'Both teams to score', overSubtitle: 'Total goals ≥ 3', won: 'Won', lost: 'Lost', pending: 'Pending', noFuture: 'No future result is guaranteed. 18+.', keyFact: 'À retenir', analysis: 'Match analysis', verification: 'Verification', verifiedAt: 'Verified on', source: 'Source: ESPN and TheSportsDB.', intelligence: 'Match analysis', further: 'Explore further', today: 'View today’s predictions →', todayDesc: 'All validated public picks', premium: 'Premium predictions →', vipDesc: 'BTTSPredict VIP programme', disclaimer: '18+ · Sports betting carries a risk of loss. No future result is guaranteed. BTTSPredict does not take bets or hold funds. This prediction is informational and is not an invitation to bet.', dataUsed: 'Data used', dataUsedDesc: 'Information available for this analysis.', matchesAnalyzed: 'Matches included', perTeam: 'per team', lambdaLabel: 'Model-estimated goals', lambdaHint: 'Estimates based on available recent goals; they are not match scores.', xgTotalLabel: 'Estimated total goals', modelSource: 'Statistical model', recentForm: 'Recent form', formBttsLabel: 'BTTS in recent matches', conclusion: 'Conclusion', qualityNote: 'Data quality describes the information available, not the chance of winning.', publishedOn: 'Data published on', readOfMatch: 'our read of the match', riskLevel: 'Prudence level', notAvailable: 'Not available', lastMinute: 'Last-minute insights', lastMinuteSub: 'Each team’s last 5 matches — ESPN data, refreshed before kick-off.', letterWin: 'W', letterDraw: 'D', letterLoss: 'L', venueHome: 'H', venueAway: 'A', noRecent: 'No recent match recorded for this team.', newsSection: 'Team news & key insights', newsSub: 'What our data says about this match — refreshed before kick-off.', absencesLabel: 'Absences & unavailability', oddsInsightLabel: 'Odds read', formSection: 'Team form', formSub: 'Recent matches breakdown (ESPN source): results, goals and BTTS / Over 2.5 trends.', statGoalsFor: 'Goals scored', statGoalsAgainst: 'Goals conceded', statCleanSheets: 'Clean sheets', statFailedToScore: 'Failed to score', statBtts: 'BTTS', statOver: 'Over 2.5', formMatches: 'recent games', standingsLabel: 'Standing', ptsUnit: 'pts', playedUnit: 'MP', oddsSection: 'Market odds', oddsNote: 'Indicative market odds, subject to change. 18+.', oddsHome: '1', oddsDraw: 'X', oddsAway: '2', oddsOver: 'Over 2.5', oddsUnder: 'Under 2.5' },
+  ar: { home: 'الرئيسية', predictions: 'التوقعات', breadcrumb: 'مسار التنقل', finalScore: 'النتيجة الفعلية المؤكدة', predictedScore: 'النتيجة الدقيقة غير منشورة', report: 'الاختيارات المنشورة', published: 'بيانات منشورة', bttsSubtitle: 'كلا الفريقين يسجلان', overSubtitle: 'إجمالي الأهداف ≥ 3', won: 'فوز', lost: 'خسارة', pending: 'قيد الانتظار', noFuture: 'لا توجد ضمانات لأي نتيجة مستقبلية. 18+.', keyFact: 'الخلاصة', analysis: 'تحليل المباراة', verification: 'التحقق', verifiedAt: 'تم التحقق في', source: 'المصدر: ESPN وTheSportsDB.', intelligence: 'تحليل المباراة', further: 'استكشف المزيد', today: 'عرض توقعات اليوم ←', todayDesc: 'جميع الاختيارات العامة الموثّقة', premium: 'التوقعات المميزة ←', vipDesc: 'برنامج VIP من BTTSPredict', disclaimer: '18+ · المراهنات الرياضية تنطوي على خطر الخسارة. لا توجد ضمانات لأي نتيجة مستقبلية. BTTSPredict لا يقبل الرهانات ولا يحتفظ بالأموال. هذا التوقع إعلامي وليس دعوة للمراهنة.', dataUsed: 'البيانات المستخدمة', dataUsedDesc: 'البيانات المتاحة لهذا التحليل.', matchesAnalyzed: 'المباريات المشمولة', perTeam: 'لكل فريق', lambdaLabel: 'أهداف يقدّرها النموذج', lambdaHint: 'تقديرات مبنية على الأهداف الحديثة المتاحة، وليست نتيجة المباراة.', xgTotalLabel: 'إجمالي الأهداف المقدّر', modelSource: 'نموذج إحصائي', recentForm: 'الأداء الأخير', formBttsLabel: 'BTTS في المباريات الأخيرة', conclusion: 'الخاتمة', qualityNote: 'جودة البيانات تصف المعلومات المتاحة، ولا تعني فرصة الفوز.', publishedOn: 'نُشرت البيانات في', readOfMatch: 'قراءتنا للمباراة', riskLevel: 'مستوى الحذر', notAvailable: 'غير متوفر', lastMinute: 'آخر اللحظات', lastMinuteSub: 'آخر 5 مباريات لكل فريق — بيانات ESPN، تُحدّث قبل انطلاق المباراة.', letterWin: 'ف', letterDraw: 'ت', letterLoss: 'خ', venueHome: 'د', venueAway: 'خ', noRecent: 'لا توجد مباريات حديثة مسجّلة لهذا الفريق.', newsSection: 'أخبار الفريقين ومعلومات أساسية', newsSub: 'ما تقوله بياناتنا عن هذه المباراة — تُحدّث قبل انطلاق المباراة.', absencesLabel: 'الغائبون وغير المتاحين', oddsInsightLabel: 'قراءة الأسواق', formSection: 'أداء الفريقين', formSub: 'حصيلة المباريات الأخيرة (مصدر ESPN): النتائج والأهداف واتجاهات BTTS وOver 2.5.', statGoalsFor: 'أهداف مسجّلة', statGoalsAgainst: 'أهداف مستقبلة', statCleanSheets: 'شباك نظيفة', statFailedToScore: 'دون تسجيل', statBtts: 'BTTS', statOver: 'Over 2.5', formMatches: 'مباريات أخيرة', standingsLabel: 'الترتيب', ptsUnit: 'نقطة', playedUnit: 'مباراة', oddsSection: 'أسواق المراهنات', oddsNote: 'أسعار السوق إرشادية وقابلة للتغيير. 18+.', oddsHome: '1', oddsDraw: 'X', oddsAway: '2', oddsOver: 'Over 2.5', oddsUnder: 'Under 2.5' },
 }
 
 const FORM_LETTERS: Record<string, 'W' | 'D' | 'L'> = { V: 'W', N: 'D', D: 'L', W: 'W' }
@@ -125,8 +124,8 @@ const DASHBOARD_COPY: Record<Locale, {
     title: 'Dashboard interactif',
     source: 'Données publiées du match',
     aria: 'Onglets du dashboard du match',
-    btts: 'BTTS estimé',
-    over: 'Over 2,5 estimé',
+    btts: 'Pick BTTS publié',
+    over: 'Pick Over 2,5 publié',
     goals: 'Total de buts estimé',
     sample: 'Matchs analysés',
     reliability: 'Fiabilité des données',
@@ -137,8 +136,8 @@ const DASHBOARD_COPY: Record<Locale, {
     title: 'Interactive dashboard',
     source: 'Published match data',
     aria: 'Match dashboard tabs',
-    btts: 'Estimated BTTS',
-    over: 'Estimated Over 2.5',
+    btts: 'Published BTTS pick',
+    over: 'Published Over 2.5 pick',
     goals: 'Estimated total goals',
     sample: 'Matches analysed',
     reliability: 'Data reliability',
@@ -149,8 +148,8 @@ const DASHBOARD_COPY: Record<Locale, {
     title: 'لوحة تفاعلية',
     source: 'بيانات المباراة المنشورة',
     aria: 'علامات تبويب لوحة المباراة',
-    btts: 'احتمال BTTS',
-    over: 'احتمال Over 2.5',
+    btts: 'اختيار BTTS المنشور',
+    over: 'اختيار Over 2.5 المنشور',
     goals: 'إجمالي الأهداف المقدّر',
     sample: 'المباريات المحللة',
     reliability: 'موثوقية البيانات',
@@ -298,9 +297,7 @@ export default async function MatchPage({ params }: PageProps) {
 
   if (!match) notFound()
   const copy = MATCH_COPY[locale]
-  const metricCopy = matchMetricLabels(locale)
   const numberLocale = locale === 'en' ? 'en-GB' : locale === 'ar' ? 'ar' : 'fr-FR'
-  const formatGoals = (value: number) => new Intl.NumberFormat(numberLocale, { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(value)
   const formatPercent = (value: number) => new Intl.NumberFormat(numberLocale, { style: 'percent', minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(value)
 
   const { home, away, league, date, time, homeLogo, awayLogo, predictions } = match
@@ -344,8 +341,7 @@ export default async function MatchPage({ params }: PageProps) {
   const finalScore = verifiedResult?.finalScore || verifiedResult?.score || null
 
   // Données réelles disponibles (aucune invention : section affichée seulement si présentes)
-  const hasUsageData = match.dataQuality || match.dataSource || match.matchCountHome != null || match.aiRisk
-  const hasLambda = match.homeLambda != null || match.awayLambda != null || match.xgTotal != null
+  const hasUsageData = match.dataSource || match.matchCountHome != null || match.matchCountAway != null
 
   // Forme détaillée : stats du pipeline (formHome/formAway) sinon dérivées des derniers matchs.
   const homeFormView = buildFormView(match.last5Home, match.formHome)
@@ -480,6 +476,10 @@ export default async function MatchPage({ params }: PageProps) {
                 const isBtts = market.includes('btts')
                 const isOver = market.includes('over') || market.includes('o2.5') || market.includes('o25')
                 const label = isBtts ? 'BTTS' : isOver ? 'Over 2.5' : (p.type || p.market || 'Prediction')
+                const marketKey = isBtts ? 'BTTS' : isOver ? 'O2.5' : 'other'
+                const marketColor = isBtts ? '#34D399' : isOver ? '#FBBF24' : '#2F7DFF'
+                const marketColorSoft = isBtts ? 'rgba(52, 211, 153, 0.12)' : isOver ? 'rgba(251, 191, 36, 0.12)' : 'rgba(47, 125, 255, 0.12)'
+                const marketBorder = isBtts ? 'rgba(52, 211, 153, 0.32)' : isOver ? 'rgba(251, 191, 36, 0.32)' : '#223041'
                 const isWon = p.status === 'WON'
                 const isLost = p.status === 'LOST'
                 const isPending = !p.status || p.status === 'PENDING'
@@ -487,17 +487,17 @@ export default async function MatchPage({ params }: PageProps) {
                 const probPercent = probability == null ? null : formatPercent(probability)
 
                 return (
-                  <div key={i} className="rounded-2xl border border-[#223041] bg-[#141C25] p-4 sm:p-5">
+                  <div key={i} data-market={marketKey} className="rounded-2xl border border-[#223041] bg-[#141C25] p-4 sm:p-5" style={{ borderColor: marketBorder }}>
                     <div className="mb-3 flex items-center justify-between">
-                      <span className="text-xs font-bold uppercase tracking-wider text-[#2F7DFF]">{label}</span>
+                      <span className="text-xs font-bold uppercase tracking-wider" style={{ color: marketColor }}>{label}</span>
                       {probPercent != null && (
-                        <span className="rounded px-2 py-0.5 font-mono text-xs font-bold" style={{ backgroundColor: 'rgba(47, 125, 255, 0.12)', color: '#2F7DFF' }}>
+                        <span className="rounded px-2 py-0.5 font-mono text-xs font-bold" style={{ backgroundColor: marketColorSoft, color: marketColor }}>
                           {probPercent}
                         </span>
                       )}
                     </div>
 
-                    <div className="mb-1 text-3xl font-black" style={{ color: p.prediction === 'Oui' ? '#F2F6FA' : '#9DABBB' }}>
+                    <div className="mb-1 text-3xl font-black" style={{ color: p.prediction === 'Oui' ? marketColor : '#9DABBB' }}>
                       {p.prediction === 'Oui' ? (locale === 'ar' ? 'نعم' : locale === 'en' ? 'Yes' : 'Oui') : p.prediction === 'Non' ? (locale === 'ar' ? 'لا' : locale === 'en' ? 'No' : 'Non') : p.prediction}
                     </div>
 
@@ -507,7 +507,7 @@ export default async function MatchPage({ params }: PageProps) {
 
                     {probPercent != null && (
                       <div className="mb-4 h-2 w-full overflow-hidden rounded-full border border-[#223041] bg-[#10161D]" role="img" aria-label={`${label} : ${probPercent}`}>
-                        <div className="h-full rounded-full" style={{ width: `${probability == null ? 0 : Math.min(100, Math.max(0, probability * 100))}%`, background: 'linear-gradient(90deg, #1B4DBF, #2F7DFF)' }} />
+                        <div className="h-full rounded-full" style={{ width: `${probability == null ? 0 : Math.min(100, Math.max(0, probability * 100))}%`, backgroundColor: marketColor }} />
                       </div>
                     )}
 
@@ -543,22 +543,10 @@ export default async function MatchPage({ params }: PageProps) {
                   <span>{dash.over}</span>
                 </div>
               )}
-              {typeof match.xgTotal === 'number' && (
-                <div className="match-dash__kpi">
-                  <b>{formatGoals(match.xgTotal)}</b>
-                  <span>{dash.goals}</span>
-                </div>
-              )}
               {match.matchCountHome != null && match.matchCountAway != null && (
                 <div className="match-dash__kpi">
                   <b>{match.matchCountHome} + {match.matchCountAway}</b>
                   <span>{dash.sample}</span>
-                </div>
-              )}
-              {typeof match.reliabilityScore === 'number' && (
-                <div className="match-dash__kpi">
-                  <b>{formatGoals(match.reliabilityScore)} %</b>
-                  <span>{dash.reliability}</span>
                 </div>
               )}
             </div>
@@ -740,9 +728,6 @@ export default async function MatchPage({ params }: PageProps) {
                 <MatchAnalyticsCharts
                   bttsProb={match.bttsProb}
                   over25Prob={match.over25Prob}
-                  homeLambda={match.homeLambda}
-                  awayLambda={match.awayLambda}
-                  xgTotal={match.xgTotal}
                   lang={locale}
                 />
               </section>
@@ -768,28 +753,11 @@ export default async function MatchPage({ params }: PageProps) {
                     </dd>
                     <dd className="text-xs text-[#6B7A8C]">{copy.perTeam}</dd>
                   </div>
-                  {hasLambda && (
-                    <div className="rounded-xl bg-[#10161D] border border-[#223041] p-3">
-                      <dt className="text-xs uppercase tracking-wider text-[#9DABBB] font-bold">{metricCopy.teamGoals}</dt>
-                      <dd className="text-lg font-bold text-[#F2F6FA] font-mono mt-1">
-                        {match.homeLambda != null && match.awayLambda != null
-                          ? `${formatGoals(match.homeLambda)} / ${formatGoals(match.awayLambda)}`
-                          : '—'}
-                      </dd>
-                    </div>
-                  )}
-                  {match.xgTotal != null && (
-                    <div className="rounded-xl bg-[#10161D] border border-[#223041] p-3">
-                      <dt className="text-xs uppercase tracking-wider text-[#9DABBB] font-bold">{metricCopy.combinedGoals}</dt>
-                      <dd className="text-lg font-bold text-[#F2F6FA] font-mono mt-1">{formatGoals(match.xgTotal)}</dd>
-                    </div>
-                  )}
                   <div className="rounded-xl bg-[#10161D] border border-[#223041] p-3">
                     <dt className="text-xs uppercase tracking-wider text-[#9DABBB] font-bold">{locale === 'en' ? 'Data source' : locale === 'ar' ? 'مصدر البيانات' : 'Source des données'}</dt>
                     <dd className="text-sm font-bold text-[#F2F6FA] mt-1 break-words">{match.dataSource || 'ESPN'}</dd>
                   </div>
                 </dl>
-                <p className="text-xs text-[#9DABBB] mt-3 leading-relaxed">{metricCopy.teamGoalsDescription}</p>
               </div>
               </section>
               </div>

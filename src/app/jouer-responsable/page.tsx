@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { frEnAlternates } from '@/lib/seo'
 import {Navbar, Footer,
   FreePredictionsWidget,
   VipCardWidget,
@@ -16,9 +17,7 @@ const DESCRIPTION =
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  alternates: {
-    canonical: PAGE_URL,
-  },
+  alternates: frEnAlternates('/jouer-responsable', 'fr'),
   openGraph: {
     title: TITLE,
     description: DESCRIPTION,
@@ -91,21 +90,21 @@ const helpResources = [
     country: '🇫🇷 France',
     name: 'Joueurs Info Service',
     phone: '09-74-75-13-13',
-    description: 'Service gratuit, anonyme et confidentiel, disponible de 8h à 2h.',
+    description: 'Coordonnées conservées ici; confirmez les horaires et modalités directement auprès du service.',
     website: 'https://www.joueurs-info-service.fr',
   },
   {
     country: '🇸🇳 Sénégal',
     name: 'Ligne d\'écoute nationale',
     phone: '33 867 22 22',
-    description: 'Service d\'écoute et d\'orientation pour les joueurs en difficulté.',
+    description: 'Coordonnées conservées ici; confirmez la disponibilité et la nature du service auprès de la source.',
     website: '',
   },
   {
     country: '🇨🇲 Cameroun',
-    name: 'MINSANT',
-    phone: 'Ministère de la Santé Publique',
-    description: 'Ressources et orientations pour les personnes confrontées à l\'addiction aux jeux.',
+    name: 'MINSANT — Ministère de la Santé Publique',
+    phone: '',
+    description: 'Organisme mentionné à titre informatif; aucun numéro ni service d’aide n’est confirmé sur cette page.',
     website: '',
   },
 ]
@@ -195,10 +194,10 @@ export default function JouerResponsablePage() {
           <div className="max-w-4xl mx-auto px-4 sm:px-6">
             <div className="bg-lose/10 border border-lose/30 rounded-xl p-4 text-center">
               <p className="text-lose font-bold text-base mb-1" style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}>
-                INTERDIT AUX MOINS DE 18 ANS
+                RÉSERVÉ AUX ADULTES
               </p>
               <p className="text-cendre text-xs">
-                Les jeux d&apos;argent sont interdits aux mineurs. BTTSPredict est strictement réservé aux personnes de 18 ans ou plus.
+                Cette page n&apos;est pas destinée aux mineurs. Les règles d&apos;âge applicables dépendent du lieu où vous vous trouvez; vérifiez les règles locales.
               </p>
             </div>
           </div>
@@ -215,13 +214,13 @@ export default function JouerResponsablePage() {
                   1. Les risques
                 </h2>
                 <p className="text-cendre text-sm leading-relaxed mb-3">
-                  Les paris sportifs comportent des risques réels. Le modèle des bookmakers est conçu pour que la maison gagne sur le long terme. Même avec les meilleurs pronostics, le risque de perte est toujours présent.
+                  Les paris sportifs comportent un risque de perte financière. Aucune sélection ni analyse ne garantit un gain; les sommes engagées peuvent être perdues.
                 </p>
                 <ul className="list-disc list-inside space-y-1.5 ml-2 text-cendre text-sm">
-                  <li><strong className="text-cendre">Pertes financières</strong> etendettement possible.</li>
-                  <li><strong className="text-cendre">Addiction</strong> : les jeux activent le circuit de la récompense, comme les substances addictives.</li>
-                  <li><strong className="text-cendre">Impact psychologique</strong> : stress, anxiété, culpabilité.</li>
-                  <li><strong className="text-cendre">Conséquences sociales</strong> : conflits familiaux, isolement.</li>
+                  <li><strong className="text-cendre">Perte d&apos;argent :</strong> les montants engagés peuvent être perdus.</li>
+                  <li><strong className="text-cendre">Difficulté à s&apos;arrêter :</strong> si vous avez du mal à interrompre le jeu, faites une pause et demandez de l&apos;aide.</li>
+                  <li><strong className="text-cendre">Stress ou inquiétude :</strong> les paris peuvent affecter le bien-être de certaines personnes.</li>
+                  <li><strong className="text-cendre">Vie quotidienne :</strong> surveillez l&apos;effet des paris sur votre temps, votre budget et vos relations.</li>
                 </ul>
                 <p className="text-cendre text-sm leading-relaxed mt-3">
                   Nos taux de précision (voir <a href="/historique" className="text-emerald underline">/historique</a>) sont basés sur des données passées et ne garantissent aucun résultat futur.
@@ -288,7 +287,7 @@ export default function JouerResponsablePage() {
                   5. Ressources d&apos;aide
                 </h2>
                 <p className="text-cendre text-sm leading-relaxed mb-3">
-                  Aide gratuite, anonyme et confidentielle :
+                  Coordonnées et organisme mentionnés sur cette page. Vérifiez auprès de chaque source les horaires, la disponibilité et les services proposés.
                 </p>
                 <div className="space-y-3">
                   {helpResources.map((resource, i) => (
@@ -301,10 +300,12 @@ export default function JouerResponsablePage() {
                         <h3 className="text-papier font-semibold text-sm">{resource.name}</h3>
                       </div>
                       <div className="text-cendre text-sm space-y-0.5">
-                        <p>
-                          <strong className="text-gold">Téléphone :</strong>{' '}
-                          <span className="text-emerald font-mono">{resource.phone}</span>
-                        </p>
+                        {resource.phone && (
+                          <p>
+                            <strong className="text-gold">Téléphone :</strong>{' '}
+                            <span className="text-emerald font-mono">{resource.phone}</span>
+                          </p>
+                        )}
                         <p className="text-xs">{resource.description}</p>
                         {resource.website && (
                           <p>

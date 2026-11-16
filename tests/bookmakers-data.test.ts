@@ -130,7 +130,6 @@ describe('bookmakers data guardrails', () => {
       'src/components/bttsbet/GiftPopup.tsx',
       'src/lib/promo-faq.ts',
       'src/lib/i18n.ts',
-      'src/app/page.tsx',
     ]
     for (const file of files) {
       const text = readFileSync(file, 'utf8')

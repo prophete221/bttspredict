@@ -53,24 +53,27 @@ export function RateBar({ label, rate, won, lost, lang, color = '#2F7DFF', note 
 }
 
 /** Barre de composition unique (WIN / LOST — segments optionnels masqués si vides). */
-export function CompositionBar({ won, lost, pending = 0, unverifiable = 0, labels, lang = 'fr' }: {
+ export function CompositionBar({ won, lost, pending = 0, unverifiable = 0, labels, lang = 'fr', countKind = 'verified' }: {
   won: number
   lost: number
   pending?: number
   unverifiable?: number
   labels: { won: string; lost: string; pending?: string; unverifiable?: string }
   lang?: string
+  countKind?: 'verified' | 'recorded'
 }) {
   const total = won + lost + pending + unverifiable
   if (total === 0) return null
   const seg = (v: number) => `${(v / total) * 100}%`
-  const verifiedWord = lang === 'fr' ? 'vérifiés' : lang === 'ar' ? 'موثقة' : 'verified'
+  const countWord = countKind === 'recorded'
+    ? (lang === 'fr' ? 'enregistrés' : lang === 'ar' ? 'مسجلة' : 'recorded')
+    : (lang === 'fr' ? 'vérifiés' : lang === 'ar' ? 'موثقة' : 'verified')
   const pendingWord = lang === 'fr' ? 'en attente' : lang === 'ar' ? 'قيد الانتظار' : 'pending'
   const unverifiableWord = lang === 'fr' ? 'non vérifiables' : lang === 'ar' ? 'غير قابلة للتحقق' : 'unverifiable'
   return (
     <div>
       <div className="h-4 rounded-full overflow-hidden flex border border-[#223041]" role="img"
-        aria-label={`${won} WIN, ${lost} LOST${pending > 0 ? `, ${pending} ${pendingWord}` : ''}${unverifiable > 0 ? `, ${unverifiable} ${unverifiableWord}` : ''} / ${total} ${verifiedWord}`}>
+        aria-label={`${won} WIN, ${lost} LOST${pending > 0 ? `, ${pending} ${pendingWord}` : ''}${unverifiable > 0 ? `, ${unverifiable} ${unverifiableWord}` : ''} / ${total} ${countWord}`}>
         <div className="tracking-win-fill" style={{ width: seg(won), backgroundColor: '#34D399' }} />
         <div style={{ width: seg(lost), backgroundColor: '#F87171' }} />
         {pending > 0 && <div style={{ width: seg(pending), backgroundColor: '#FBBF24' }} />}
@@ -85,7 +88,7 @@ export function CompositionBar({ won, lost, pending = 0, unverifiable = 0, label
         {unverifiable > 0 && labels.unverifiable && (
           <span><span className="inline-block w-2 h-2 rounded-full mr-1 align-middle" style={{ backgroundColor: '#55637A' }} />{labels.unverifiable} : {unverifiable}</span>
         )}
-        <span className="text-[#6B7A8C]">/ {total} {verifiedWord}</span>
+        <span className="text-[#6B7A8C]">/ {total} {countWord}</span>
       </div>
     </div>
   )

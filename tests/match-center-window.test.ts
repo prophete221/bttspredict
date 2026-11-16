@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { getMatchCenterCompetitionRank, prioritizeMatchCenterItems } from '@/lib/match-center-window'
+import { getMatchCenterCompetitionRank, prioritizeMatchCenterItems, selectUpcomingGeminiItems } from '@/lib/match-center-window'
 
 const today = '2026-11-12'
 
@@ -31,5 +31,18 @@ describe('Match Center competition priority', () => {
       'Friendly Clubs',
       'Tomorrow UCL',
     ])
+  })
+
+  it('merges distinct markets only for the same fixture and excludes a conflicted market', () => {
+    const items = selectUpcomingGeminiItems([
+      { date: today, time: '18:00', match: 'Alpha vs Beta', league: 'League', predictions: [{ type: 'BTTS', prediction: 'Oui', proba: 0.64 }] },
+      { date: today, time: '18:00', match: 'Alpha vs Beta', league: 'League', predictions: [{ type: 'Over 2.5', prediction: 'Oui', proba: 0.61 }] },
+      { date: today, time: '18:00', match: 'Alpha vs Beta', league: 'League', predictions: [{ type: 'BTTS', prediction: 'Non', proba: 0.64 }] },
+      { date: today, time: '19:00', match: 'Alpha vs Beta', league: 'League', predictions: [{ type: 'BTTS', prediction: 'Oui', proba: 0.64 }] },
+    ], () => 0)
+
+    expect(items).toHaveLength(2)
+    expect(items[0].predictions).toEqual([{ type: 'Over 2.5', prediction: 'Oui', proba: 0.61 }])
+    expect(items[1].predictions).toEqual([{ type: 'BTTS', prediction: 'Oui', proba: 0.64 }])
   })
 })

@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
-import VipMarketTeaser from './VipMarketTeaser'
 import { localizedPath, type Locale } from '@/lib/i18n'
+import VipMarketTeaser from './VipMarketTeaser'
 import { getGeminiPicks } from '@/lib/gemini-predictions'
 
 interface Prediction {
@@ -183,11 +183,11 @@ function PredictionCard({ pred, locale }: { pred: Prediction; locale: Locale }) 
       {/* Teams + logos */}
       <div className="flex items-center gap-2 mb-2.5">
         <TeamLogoMini src={pred.homeLogo} alt={home} />
-        <span className="text-xs font-semibold truncate flex-1" style={{ color: 'var(--text-primary)' }}>
+        <span className="text-xs font-semibold min-w-0 flex-1 break-words [overflow-wrap:anywhere]" style={{ color: 'var(--text-primary)' }}>
           {home}
         </span>
         <span className="text-[9px] flex-shrink-0" style={{ color: 'var(--text-tertiary)' }}>vs</span>
-        <span className="text-xs font-semibold truncate flex-1 text-right" style={{ color: 'var(--text-primary)' }}>
+        <span className="text-xs font-semibold min-w-0 flex-1 text-right break-words [overflow-wrap:anywhere]" style={{ color: 'var(--text-primary)' }}>
           {away}
         </span>
         <TeamLogoMini src={pred.awayLogo} alt={away} />

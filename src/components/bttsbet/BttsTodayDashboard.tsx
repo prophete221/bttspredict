@@ -3,28 +3,22 @@
 /**
  * BttsTodayDashboard — premium predictions dashboard for /btts/predictions/today
  *
- * Visual identity V3 — « plateforme mondiale » : dark glass, liserés animés,
- * barres de probabilité animées au scroll, reveal en cascade (IntersectionObserver),
- * combo IA vedette à bordure conique animée, sheen au survol des cartes.
+ * Dashboard public mobile-first : marchés Gemini validés, filtres explicites,
+ * cartes compactes et reveal progressif respectant reduced-motion.
  * Motion design 100% CSS/IO — reduced-motion : tout est désactivé et visible.
  * NOT a blog article.
  *
  * Data sources (read-only):
- *   - public/predictions.json (fields already produced by the engine)
+ *   - public/predictions.json (validated Gemini picks and fixture context)
  *
  * Current picks are read only from rows tagged as Gemini; empirical form data
  * remains context and is never turned into a frontend selection.
  * Fields consumed:
  *   match, league, date, time, homeLogo, awayLogo,
  *   home, away,
- *   bttsProb, over25Prob,                  ← published market probabilities (0..1)
- *   homeLambda, awayLambda,                ← recent goals-scored averages (legacy field names)
- *   xgHome, xgAway, xgTotal,               ← fallback fields for those averages
- *   reliabilityScore,                      ← 0..100 data confidence (NOT a win chance)
- *   dataSource, dataQuality,               ← ESPN_TEAM_SCHEDULE | LEAGUE_FALLBACK ; HIGH|MEDIUM|LOW
- *   matchCountHome, matchCountAway,        ← real ESPN matches analysed per team
- *   ai_exact_score, exact_score_prob,      ← Gemini exact score view
- *   ai_btts_view, ai_over25_view,          ← Gemini views (displayed, not overriding Poisson)
+ *   bttsProb, over25Prob,                  ← validated Gemini market probabilities (0..1)
+ *   dataSource,                            ← source label for match context
+ *   matchCountHome, matchCountAway,        ← descriptive counts of observed matches per team
  *   ai_key_fact, ai_analysis               ← Gemini short text
  */
 
@@ -37,6 +31,7 @@ import { translationsFor, type Locale, localizedPath } from '@/lib/i18n'
 import { getDakarDateString, getDakarMatchStatus, getDakarDayDiff } from '@/lib/dakar-date'
 import { buildBttsTodayDashboardData, type BttsTodayDashboardData, type BttsTodayMatchData as MatchData, type BttsTodayScheduleFixture as ScheduleFixture } from '@/lib/btts-today-dashboard-data'
 import { summarizeVisibleBttsPredictions } from '@/lib/btts-today-dashboard-stats'
+import { selectLocalizedAnalysis } from '@/lib/localized-analysis'
 import BookmakerCardLinks from './BookmakerCardLinks'
 import ShareAnalysisButton from './ShareAnalysisButton'
 import VipMarketTeaser from './VipMarketTeaser'
@@ -61,36 +56,17 @@ const C = {
 
 // ─── Types ──────────────────────────────────────────────────────────────
 interface DashboardLabels {
-  exactScore: string
   source: string
   matches: string
   aiAnalysis: string
-  score: string
-  goalsHome: string
-  goalsAway: string
-  goalsTotal: string
   openMatch: string
 }
 
-type FilterType = 'all' | 'BTTS' | 'O2.5' | 'HIGH' | 'VIP'
+type FilterType = 'all' | 'BTTS' | 'O2.5'
 
-type QuickFilter = 'all' | 'today' | 'btts60' | 'over60'
+type QuickFilter = 'all' | 'today'
 
 type CardStatus = 'live' | 'scheduled' | 'finished'
-
-// ─── AI Combo of the Day — selection type ───────────────────────────────
-// A ComboPick is a deterministic selection derived ONLY from data already
-// present in predictions.json. The frontend never recalculates probabilities;
-// it only filters, ranks, and chooses the higher qualifying market per match.
-interface ComboPick {
-  match: MatchData
-  market: 'BTTS' | 'OVER 2.5'
-  selection: 'Oui' | 'Non'
-  probability: number        // Real value from predictions.json (0..1) — untouched
-  reliabilityScore: number   // Real value from predictions.json (0..100)
-  dataQuality: string         // Real value from predictions.json (HIGH | MEDIUM | LOW)
-  matchCountTotal: number    // Real sum of matchCountHome + matchCountAway
-}
 
 // ─── Helpers ────────────────────────────────────────────────────────────
 function fmtPct(p: number | undefined, locale: Locale = 'fr'): string {
@@ -102,29 +78,9 @@ function fmtPct(p: number | undefined, locale: Locale = 'fr'): string {
   }).format(p)
 }
 
-function fmtNum(n: number | undefined, locale: Locale, digits = 2): string {
-  if (n == null || !Number.isFinite(n)) return '—'
-  return new Intl.NumberFormat(locale === 'en' ? 'en-GB' : locale === 'ar' ? 'ar' : 'fr-FR', {
-    minimumFractionDigits: digits,
-    maximumFractionDigits: digits,
-  }).format(n)
-}
-
 function fmtInt(n?: number): string {
   if (n == null || !Number.isFinite(n)) return '—'
   return String(Math.round(n))
-}
-
-function fmtDate(dateStr?: string): string {
-  if (!dateStr) return '—'
-  try {
-    const d = new Date(dateStr + 'T12:00:00')
-    const day = d.getDate().toString().padStart(2, '0')
-    const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC']
-    return `${day} ${months[d.getMonth()]} ${d.getFullYear()}`
-  } catch {
-    return dateStr
-  }
 }
 
 function fmtFixtureDate(dateStr: string, locale: Locale, now = new Date()): string {
@@ -140,7 +96,6 @@ function fmtFixtureDate(dateStr: string, locale: Locale, now = new Date()): stri
 function passesFilter(match: MatchData, activeFilter: FilterType): boolean {
   if (activeFilter === 'BTTS') return match.aiPicks.some(pick => pick.market === 'BTTS')
   if (activeFilter === 'O2.5') return match.aiPicks.some(pick => pick.market === 'O2.5')
-  if (activeFilter === 'HIGH') return (match.reliabilityScore ?? 0) >= 80
   return true
 }
 
@@ -149,12 +104,6 @@ function normalizeDataSource(s: string | undefined, locale: Locale): string {
   if (s === 'ESPN_TEAM_SCHEDULE') return 'ESPN'
   if (s === 'LEAGUE_FALLBACK') return locale === 'en' ? 'League data' : locale === 'ar' ? 'بيانات البطولة' : 'Données de la ligue'
   return s
-}
-
-function hasSufficientData(match: MatchData): boolean {
-  const quality = (match.dataQuality || '').toUpperCase()
-  const sampleSize = (match.matchCountHome ?? 0) + (match.matchCountAway ?? 0)
-  return quality !== 'LOW' && sampleSize >= 2
 }
 
 // Largeur de barre de probabilité (0..100%) — clampée, jamais recalculée.
@@ -202,10 +151,10 @@ function useCountUp(target: number, active: boolean, duration = 900): number {
 }
 
 // ─── ProbBar — barre de probabilité animée (marché BTTS / Over 2.5) ─────
-function ProbBar({ label, value, color, dim, locale, missingMarket }: { label: string; value?: number; color: string; dim?: boolean; locale: Locale; missingMarket?: 'BTTS' | 'Over 2.5' }) {
-  const noData = value == null || !Number.isFinite(value) || dim
+function ProbBar({ label, value, color, market, locale, missingMarket }: { label: string; value?: number; color: string; market: 'BTTS' | 'O2.5'; locale: Locale; missingMarket?: 'BTTS' | 'Over 2.5' }) {
+  const noData = value == null || !Number.isFinite(value)
   return (
-    <div className="btx-prob">
+    <div className="btx-prob" data-market={market}>
       <div className="btx-prob__head">
         <span className="btx-prob__label">{label}</span>
         <span className="btx-prob__value" style={{ ['--pc' as string]: color, opacity: noData && !missingMarket ? 0.45 : 1 }}>
@@ -265,12 +214,15 @@ function MatchCard({ match, index, status, lang, labels, now }: {
 }) {
   const [expanded, setExpanded] = useState(false)
 
-  // Textes d'analyse : version EN du pipeline si disponible, sinon FR.
-  const vKeyFact = lang === 'en' ? match.aiKeyFactEn || match.aiKeyFact : match.aiKeyFact
-  const vAnalysis = lang === 'en' ? match.aiAnalysisEn || match.aiAnalysis : match.aiAnalysis
-  const vFormSummary = lang === 'en' ? match.aiFormSummaryEn || match.aiFormSummary : match.aiFormSummary
-  const vAbsences = lang === 'en' ? match.aiAbsencesEn || match.aiAbsences : match.aiAbsences
-  const vOddsInsight = lang === 'en' ? match.aiOddsInsightEn || match.aiOddsInsight : match.aiOddsInsight
+  // N’afficher que les textes disponibles dans la langue de l’interface.
+  const localized = (fr?: string, en?: string) => selectLocalizedAnalysis(fr, en, lang)
+  const vKeyFact = localized(match.aiKeyFact, match.aiKeyFactEn)
+  const vAnalysis = localized(match.aiAnalysis, match.aiAnalysisEn)
+  const vFormSummary = localized(match.aiFormSummary, match.aiFormSummaryEn)
+  const vAbsences = localized(match.aiAbsences, match.aiAbsencesEn)
+  const vOddsInsight = localized(match.aiOddsInsight, match.aiOddsInsightEn)
+  const hasLocalizedAnalysis = Boolean(vKeyFact || vAnalysis || vFormSummary || vAbsences || vOddsInsight)
+  const hasSourceAnalysis = Boolean(match.aiKeyFact || match.aiAnalysis || match.aiFormSummary || match.aiAbsences || match.aiOddsInsight || match.aiKeyFactEn || match.aiAnalysisEn || match.aiFormSummaryEn || match.aiAbsencesEn || match.aiOddsInsightEn)
 
   // Statut fin pour les cartes « programmées » d'aujourd'hui : un match dont
   // l'heure est passée bascule en live/terminé via getDakarMatchStatus.
@@ -288,7 +240,6 @@ function MatchCard({ match, index, status, lang, labels, now }: {
     : 'rgba(47, 125, 255, 0.8)'
 
   const dataSourceLabel = normalizeDataSource(match.dataSource, lang)
-  const sufficientData = hasSufficientData(match)
   const bttsPick = match.aiPicks.find(pick => pick.market === 'BTTS')
   const over25Pick = match.aiPicks.find(pick => pick.market === 'O2.5')
 
@@ -330,8 +281,8 @@ function MatchCard({ match, index, status, lang, labels, now }: {
           <ProbBar
             label={`BTTS${bttsPick ? ` · ${bttsPick.prediction === 'Oui' ? (lang === 'en' ? 'Yes' : lang === 'ar' ? 'نعم' : 'Oui') : (lang === 'en' ? 'No' : lang === 'ar' ? 'لا' : 'Non')}` : ''}`}
             value={bttsPick?.proba}
-            color="#5B9CF0"
-            dim={!sufficientData || !bttsPick}
+            color="#34D399"
+            market="BTTS"
             locale={lang}
             missingMarket={!bttsPick ? 'BTTS' : undefined}
           />
@@ -339,39 +290,11 @@ function MatchCard({ match, index, status, lang, labels, now }: {
             label={`Over 2.5${over25Pick ? ` · ${over25Pick.prediction === 'Oui' ? (lang === 'en' ? 'Yes' : lang === 'ar' ? 'نعم' : 'Oui') : (lang === 'en' ? 'No' : lang === 'ar' ? 'لا' : 'Non')}` : ''}`}
             value={over25Pick?.proba}
             color="#FBBF24"
-            dim={!sufficientData || !over25Pick}
+            market="O2.5"
             locale={lang}
             missingMarket={!over25Pick ? 'Over 2.5' : undefined}
           />
         </div>
-        {/* ─── Moyennes récentes de buts marqués ─── */}
-        <div className="btx-lambdas">
-          <div className="btx-lambda">
-            <span className="btx-lambda__label">{labels.goalsHome}</span>
-            <span className="btx-lambda__value">{sufficientData ? fmtNum(match.homeLambda ?? match.xgHome, lang) : '—'}</span>
-          </div>
-          <div className="btx-lambda">
-            <span className="btx-lambda__label">{labels.goalsAway}</span>
-            <span className="btx-lambda__value">{sufficientData ? fmtNum(match.awayLambda ?? match.xgAway, lang) : '—'}</span>
-          </div>
-          <div className="btx-lambda">
-            <span className="btx-lambda__label">{labels.goalsTotal}</span>
-            <span className="btx-lambda__value">
-              {sufficientData ? fmtNum(match.xgTotal ?? ((match.homeLambda ?? match.xgHome ?? 0) + (match.awayLambda ?? match.xgAway ?? 0)), lang) : '—'}
-            </span>
-          </div>
-        </div>
-        {/* ─── SCORE EXACT ─── */}
-        {(match.aiExactScore || match.exactScoreProb) && <div className="btx-score">
-          <div className="btx-score__head">
-            <span className="btx-score__label">{labels.exactScore}</span>
-            {match.exactScoreProb && <span className="btx-score__prob">{match.exactScoreProb}</span>}
-          </div>
-          <div className="btx-score__value">
-            {match.aiExactScore ? match.aiExactScore : '— —'}
-          </div>
-        </div>}
-
         {/* ─── MÉTA : source / matchs pris en compte ─── */}
         <div className="btx-meta">
           <span className="btx-chip">
@@ -383,35 +306,16 @@ function MatchCard({ match, index, status, lang, labels, now }: {
         </div>
 
         {/* ─── ANALYSE IA GEMINI ─── */}
-        {(match.aiAnalysis || match.aiKeyFact || match.aiBttsView || match.aiOver25View) && (
+        {hasLocalizedAnalysis && (
           <div className="btx-ai">
             <div className="btx-ai__head">
               <span className="btx-ai__dot" aria-hidden="true" />
               <span className="btx-ai__label">{labels.aiAnalysis}</span>
-              {match.aiExactScore && (
-                <span className="btx-score__prob" style={{ marginLeft: 'auto' }}>
-                  {labels.score}: {match.aiExactScore}{match.exactScoreProb ? ` (${match.exactScoreProb})` : ''}
-                </span>
-              )}
             </div>
-            {match.aiBttsView && (
-              <div className="btx-ai__views">
-                <div className="btx-ai__view">
-                  <div className="btx-ai__view-label">{lang === 'en' ? 'BTTS' : lang === 'ar' ? 'BTTS' : 'BTTS'}</div>
-                  <div className="btx-ai__view-value" style={{ ['--vc' as string]: '#34D399' }}>{match.aiBttsView}</div>
-                </div>
-                {match.aiOver25View && (
-                  <div className="btx-ai__view btx-ai__view--amber">
-                    <div className="btx-ai__view-label">{lang === 'en' ? 'Over 2.5' : lang === 'ar' ? 'Over 2.5' : 'Over 2.5'}</div>
-                    <div className="btx-ai__view-value" style={{ ['--vc' as string]: '#FBBF24' }}>{match.aiOver25View}</div>
-                  </div>
-                )}
-              </div>
-            )}
             {vKeyFact && <p className="btx-ai__fact">{vKeyFact}</p>}
 
             {/* Forme récente des deux équipes */}
-            {match.aiFormSummary && (
+            {vFormSummary && (
               <div style={{ margin: '0.45rem 0', padding: '0.55rem 0.65rem', borderRadius: 10, background: 'rgba(255,255,255,0.035)', border: '1px solid rgba(255,255,255,0.06)' }}>
                 <div style={{ fontSize: 10, letterSpacing: '0.12em', textTransform: 'uppercase', opacity: 0.6, marginBottom: 3 }}>
                   {lang === 'fr' ? 'Forme récente (5 derniers matchs)' : lang === 'en' ? 'Recent form' : 'الفورمة الأخيرة'}
@@ -490,8 +394,6 @@ function MatchCard({ match, index, status, lang, labels, now }: {
                 time={match.time}
                 bttsProbability={fmtPct(match.bttsProb, lang)}
                 over25Probability={fmtPct(match.over25Prob, lang)}
-                exactScore={match.aiExactScore}
-                exactScoreProbability={match.exactScoreProb}
                 path={matchPath}
                 locale={lang}
               />
@@ -500,7 +402,11 @@ function MatchCard({ match, index, status, lang, labels, now }: {
         )}
 
         {/* Lien page match pour les cartes sans analyse IA */}
-        {!(match.aiAnalysis || match.aiKeyFact || match.aiBttsView || match.aiOver25View) && (
+      {!hasLocalizedAnalysis && hasSourceAnalysis && lang !== 'fr' && (
+        <p className="btx-ai__text">{lang === 'en' ? 'Analysis text is not available in English for this match yet.' : 'تحليل المباراة غير متاح بهذه اللغة حالياً.'}</p>
+      )}
+
+      {!hasLocalizedAnalysis && (
           <div className="btx-actions">
             <Link
               href={matchPath}
@@ -516,8 +422,6 @@ function MatchCard({ match, index, status, lang, labels, now }: {
               time={match.time}
               bttsProbability={fmtPct(match.bttsProb, lang)}
               over25Probability={fmtPct(match.over25Prob, lang)}
-              exactScore={match.aiExactScore}
-              exactScoreProbability={match.exactScoreProb}
               path={matchPath}
               locale={lang}
             />
@@ -526,32 +430,6 @@ function MatchCard({ match, index, status, lang, labels, now }: {
         <VipMarketTeaser locale={lang} />
       </div>
     </article>
-  )
-}
-
-// ─── ComboPickRow — vedette « Combo IA du jour » ────────────────────────
-function ComboPickRow({ pick, index, lang }: { pick: ComboPick; index: number; lang: Locale }) {
-  const num = String(index + 1).padStart(2, '0')
-  const marketColor = pick.market === 'BTTS' ? '#34D399' : '#FBBF24'
-  const rank = index === 0 ? (lang === 'fr' ? 'N°1' : '#1') : index === 1 ? (lang === 'fr' ? 'N°2' : '#2') : (lang === 'fr' ? 'N°3' : '#3')
-
-  return (
-    <div className="btx-combo-row">
-      <span className="btx-combo-row__rank" aria-hidden="true">{num}</span>
-      <div className="btx-combo-row__body">
-        <div className="btx-combo-row__match">
-          {pick.match.home} <span style={{ color: C.textSec }}>vs</span> {pick.match.away}
-        </div>
-        <div className="btx-combo-row__meta">
-          {pick.match.league} · {pick.match.time || '--:--'}
-          {lang === 'fr' ? ` · choix ${rank}` : lang === 'en' ? ` · pick ${rank}` : ` · اختيار ${rank}`}
-        </div>
-      </div>
-      <span className="btx-market-chip" style={{ ['--mc' as string]: marketColor }}>{pick.market} · {pick.selection}</span>
-      <span className="btx-combo-row__prob" style={{ ['--mc' as string]: marketColor }}>
-        {(pick.probability * 100).toFixed(1)}%
-      </span>
-    </div>
   )
 }
 
@@ -575,7 +453,7 @@ export default function BttsTodayDashboard({
   const [dashboardData, setDashboardData] = useState<BttsTodayDashboardData>(() => initialDashboard ?? {
     matches: [], todayMatches: [], upcomingMatches: [], scheduleFixtures: [], generationDate: null,
   })
-  const { matches, todayMatches, upcomingMatches, scheduleFixtures, generationDate } = dashboardData
+  const { matches, todayMatches, upcomingMatches, scheduleFixtures } = dashboardData
   const [loading, setLoading] = useState(!initialDashboard)
   const [activeFilter, setActiveFilter] = useState<FilterType>('all')
   const [quickFilter, setQuickFilter] = useState<QuickFilter>('all')
@@ -589,11 +467,6 @@ export default function BttsTodayDashboard({
       target.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start' })
     })
   }
-  useEffect(() => {
-    if (window.location.hash !== '#opportunities') return
-    const frame = window.requestAnimationFrame(() => setActiveFilter('HIGH'))
-    return () => window.cancelAnimationFrame(frame)
-  }, [])
   const [now, setNow] = useState<number>(() => initialNow ?? Date.now())
 
   useEffect(() => {
@@ -629,82 +502,14 @@ export default function BttsTodayDashboard({
     [todayMatches, now],
   )
 
-
-  // ─── AI COMBO OF THE DAY — deterministic selection from Gemini picks ───
-  // Eligibility filter:
-  //   1. dataQuality !== 'LOW' (and must be a known value)
-  //   2. reliabilityScore >= 70
-  //   3. An explicit Gemini pick with proba >= 0.65 exists.
-  // At most one Gemini market per match is selected (highest Gemini probability).
-  // Sort order (deterministic, stable):
-  //   1. reliabilityScore DESC
-  //   2. selected probability DESC
-  //   3. dataQuality HIGH > MEDIUM
-  //   4. matchCountTotal (real ESPN matches) DESC
-  //   5. alphabetical (home vs away) — stable tiebreak
-  const combo = useMemo<ComboPick[]>(() => {
-    if (loading || matches.length === 0) return []
-
-    const candidates: ComboPick[] = []
-
-    for (const m of [...liveTodayMatches, ...scheduledTodayMatches]) {
-      const dq = (m.dataQuality || '').toUpperCase()
-      if (dq === 'LOW' || dq === '') continue
-
-      const sampleSize = (m.matchCountHome ?? 0) + (m.matchCountAway ?? 0)
-      if (sampleSize < 2) continue
-
-      const rs = m.reliabilityScore ?? 0
-      if (!Number.isFinite(rs) || rs < 70) continue
-
-      const selected = m.aiPicks
-        .filter(pick => Number.isFinite(pick.proba) && pick.proba >= 0.65)
-        .sort((a, b) => b.proba - a.proba)[0]
-      if (!selected) continue
-      const market: 'BTTS' | 'OVER 2.5' = selected.market === 'BTTS' ? 'BTTS' : 'OVER 2.5'
-
-      candidates.push({
-        match: m,
-        market,
-        selection: selected.prediction,
-        probability: selected.proba,
-        reliabilityScore: rs,
-        dataQuality: dq,
-        matchCountTotal: (m.matchCountHome ?? 0) + (m.matchCountAway ?? 0),
-      })
-    }
-
-    const dataQualityRank = (dq: string) => dq === 'HIGH' ? 2 : dq === 'MEDIUM' ? 1 : 0
-
-    candidates.sort((a, b) => {
-      if (a.reliabilityScore !== b.reliabilityScore) return b.reliabilityScore - a.reliabilityScore
-      if (a.probability !== b.probability) return b.probability - a.probability
-      const dqA = dataQualityRank(a.dataQuality)
-      const dqB = dataQualityRank(b.dataQuality)
-      if (dqA !== dqB) return dqB - dqA
-      if (a.matchCountTotal !== b.matchCountTotal) return b.matchCountTotal - a.matchCountTotal
-      const keyA = `${a.match.home} vs ${a.match.away}`
-      const keyB = `${b.match.home} vs ${b.match.away}`
-      return keyA.localeCompare(keyB)
-    })
-
-    return candidates.slice(0, 3)
-  }, [liveTodayMatches, scheduledTodayMatches, loading])
-
   // ─── Filtres ──────────────────────────────────────────────────────────
   const filters: { id: FilterType; label: string }[] = [
     { id: 'all', label: t.predictions.all },
     { id: 'BTTS', label: 'BTTS' },
     { id: 'O2.5', label: 'Over 2.5' },
-    { id: 'HIGH', label: lang === 'fr' ? 'Données mieux étayées' : lang === 'en' ? 'Better-supported data' : 'بيانات أكثر توثيقاً' },
   ]
 
-  const passesMetricFilter = (match: MatchData) => {
-    if (quickFilter === 'btts60') return (match.bttsProb ?? 0) >= 0.6
-    if (quickFilter === 'over60') return (match.over25Prob ?? 0) >= 0.6
-    return true
-  }
-  const passesDashboardFilters = (match: MatchData) => passesFilter(match, activeFilter) && passesMetricFilter(match)
+  const passesDashboardFilters = (match: MatchData) => passesFilter(match, activeFilter)
   const visibleTodayMatches = [...liveTodayMatches, ...scheduledTodayMatches].filter(passesDashboardFilters)
   const visibleFinishedMatches = quickFilter === 'today' ? [] : finishedTodayMatches.filter(passesDashboardFilters)
   const visibleUpcomingMatches = quickFilter === 'today' ? [] : upcomingMatches.filter(passesDashboardFilters)
@@ -721,10 +526,10 @@ export default function BttsTodayDashboard({
   const filteredMatches = useMemo(() => matches.filter(m => passesFilter(m, activeFilter)), [matches, activeFilter])
 
   const labels: DashboardLabels = lang === 'fr'
-    ? { exactScore: 'Score exact proposé', source: 'Source', matches: 'matchs récents', aiAnalysis: 'Notre analyse du match', score: 'Score', goalsHome: 'Buts/match · domicile', goalsAway: 'Buts/match · extérieur', goalsTotal: 'Total des moyennes', openMatch: 'Ouvrir la page du match' }
+    ? { source: 'Source', matches: 'matchs récents', aiAnalysis: 'Analyse du match', openMatch: 'Ouvrir la page du match' }
     : lang === 'en'
-      ? { exactScore: 'Proposed exact score', source: 'Source', matches: 'recent matches', aiAnalysis: 'Our match analysis', score: 'Score', goalsHome: 'Goals/game · home team', goalsAway: 'Goals/game · away team', goalsTotal: 'Combined average', openMatch: 'Open match page' }
-      : { exactScore: 'النتيجة المقترحة', source: 'المصدر', matches: 'مباريات حديثة', aiAnalysis: 'تحليل المباراة', score: 'النتيجة', goalsHome: 'أهداف/مباراة · المضيف', goalsAway: 'أهداف/مباراة · الضيف', goalsTotal: 'مجموع المتوسطين', openMatch: 'فتح صفحة المباراة' }
+      ? { source: 'Source', matches: 'recent matches', aiAnalysis: 'Match analysis', openMatch: 'Open match page' }
+      : { source: 'المصدر', matches: 'مباريات حديثة', aiAnalysis: 'تحليل المباراة', openMatch: 'فتح صفحة المباراة' }
 
   // ─── Révélation au scroll (IntersectionObserver, gate .btx3d) ─────────
   // Sans JS : cartes toujours visibles (progressive enhancement).
@@ -771,8 +576,6 @@ export default function BttsTodayDashboard({
 
   // ─── Compteurs animés du header ────────────────────────────────────────
   const animCount = useCountUp(stats.total, !loading)
-  const animBtts = useCountUp(stats.bttsHigh, !loading)
-  const animOver = useCountUp(stats.overHigh, !loading)
   const countLabel = quickFilter === 'today'
     ? lang === 'fr' ? 'Matchs du jour' : lang === 'en' ? 'Matches today' : 'مباريات اليوم'
     : quickFilter === 'all' && activeFilter === 'all'
@@ -803,98 +606,38 @@ export default function BttsTodayDashboard({
               BTTSPredict
             </span>
             <h2 className="btx-title">
-              {lang === 'fr' ? <>Pronostics <em>du jour</em></> : lang === 'en' ? <>Today’s <em>predictions</em></> : <>توقعات <em>اليوم</em></>}
+              {lang === 'fr' ? <>Pronostics <em>du jour</em></> : lang === 'en' ? <>Today’s <em>picks</em></> : <>توقعات <em>اليوم</em></>}
             </h2>
             <p className="btx-sub">
               {lang === 'fr'
-                ? 'BTTS · Over 2.5 · Score exact'
+                ? 'BTTS · Over 2.5'
                 : lang === 'en'
-                  ? 'BTTS · Over 2.5 · Correct score'
-                  : 'BTTS · Over 2.5 · النتيجة الصحيحة'}
+                  ? 'BTTS · Over 2.5'
+                  : 'BTTS · Over 2.5'}
             </p>
           </div>
-          {generationDate && (
-            <span className="btx-datechip">
-              {lang === 'fr' ? 'Mis à jour' : lang === 'en' ? 'Updated' : 'آخر تحديث'} · {fmtDate(generationDate)}
-            </span>
-          )}
         </div>
 
         {/* ─── Stats réelles ─── */}
-        <div className="btx-stats mt-4" role="group" aria-label={lang === 'fr' ? 'Filtres rapides des pronostics' : lang === 'en' ? 'Quick prediction filters' : 'مرشحات سريعة للتوقعات'}>
+        <div className="btx-stats mt-4" role="group" aria-label={lang === 'fr' ? 'Nombre de pronostics affichés' : lang === 'en' ? 'Displayed prediction count' : 'عدد التوقعات المعروضة'}>
           <button type="button" className={`btx-stat${quickFilter === 'today' ? ' is-selected' : ''}`} aria-pressed={quickFilter === 'today'} aria-controls="btx-dashboard-grid" aria-describedby="btx-metric-help" aria-label={countAriaLabel} onClick={() => selectMetric('today')}>
             <div className="btx-stat__label">{countLabel}</div>
             <div className="btx-stat__value" style={{ ['--accent' as string]: '#F2F6FA' }}>{animCount}</div>
-          </button>
-          <button type="button" className={`btx-stat${quickFilter === 'btts60' ? ' is-selected' : ''}`} aria-pressed={quickFilter === 'btts60'} aria-controls="btx-dashboard-grid" aria-describedby="btx-metric-help" aria-label={lang === 'fr' ? `Filtrer les matchs avec BTTS à 60 % ou plus : ${animBtts}` : lang === 'en' ? `Filter matches with BTTS at 60 percent or higher: ${animBtts}` : `تصفية المباريات ذات BTTS بنسبة 60٪ أو أكثر: ${animBtts}`} onClick={() => selectMetric('btts60')}>
-            <div className="btx-stat__label">
-              {lang === 'fr' ? 'Matchs BTTS ≥ 60%' : lang === 'en' ? 'Matches with BTTS ≥ 60%' : 'مباريات BTTS ≥ 60%'}
-            </div>
-            <div className="btx-stat__value" style={{ ['--accent' as string]: '#34D399' }}>{animBtts}</div>
-          </button>
-          <button type="button" className={`btx-stat${quickFilter === 'over60' ? ' is-selected' : ''}`} aria-pressed={quickFilter === 'over60'} aria-controls="btx-dashboard-grid" aria-describedby="btx-metric-help" aria-label={lang === 'fr' ? `Filtrer les matchs Over 2.5 à 60 % ou plus : ${animOver}` : lang === 'en' ? `Filter matches with Over 2.5 at 60 percent or higher: ${animOver}` : `تصفية مباريات Over 2.5 بنسبة 60٪ أو أكثر: ${animOver}`} onClick={() => selectMetric('over60')}>
-            <div className="btx-stat__label">
-              {lang === 'fr' ? 'Matchs Over 2.5 ≥ 60%' : lang === 'en' ? 'Matches with Over 2.5 ≥ 60%' : 'مباريات Over 2.5 ≥ 60%'}
-            </div>
-            <div className="btx-stat__value" style={{ ['--accent' as string]: '#FBBF24' }}>{animOver}</div>
           </button>
         </div>
 
         <p id="btx-metric-help" className="btx-period-note">
           {lang === 'fr'
-            ? 'Les compteurs suivent les matchs avec pronostic actuellement affichés; chaque filtre met à jour les trois valeurs.'
+            ? 'Le compteur suit les matchs avec pronostic affichés; touchez-le pour basculer entre les matchs du jour et tous les matchs disponibles.'
             : lang === 'en'
-              ? 'Counts follow the prediction matches currently shown; every filter updates all three values.'
-              : 'تعكس العدادات مباريات التوقعات المعروضة حالياً؛ يؤدي كل مرشح إلى تحديث القيم الثلاث.'}
+              ? 'The count follows the prediction matches shown; tap it to switch between today’s matches and all available matches.'
+              : 'يعرض العداد مباريات التوقعات؛ اضغط للتبديل بين مباريات اليوم وجميع المباريات المتاحة.'}
         </p>
 
       </div>
 
       <div id="btx-dashboard-grid" className="btx-dashboard-grid">
         <aside className="btx-dashboard-insights">
-      {/* ─── AI COMBO OF THE DAY ─── */}
-      {/* Deterministic selection — NO Gemini call from client, NO recalculation. */}
-
-      {/* Source: /predictions.json fields only (bttsProb, over25Prob, reliabilityScore, dataQuality, dataSource). */}
-      {!loading && (liveTodayMatches.length > 0 || scheduledTodayMatches.length > 0) && (
-        <div className="btx-combo btx-rev mb-4" style={{ ['--d' as string]: '60ms' }}>
-          <div className="btx-combo__head">
-            <span className="btx-combo__icon" aria-hidden="true">✦</span>
-            <div className="flex-1 min-w-0">
-              <div className="btx-combo__title">
-                {lang === 'fr' ? 'Sélections du jour' : lang === 'en' ? "Today's picks" : 'اختيارات اليوم'}
-              </div>
-            </div>
-          </div>
-
-          {/* Picks — exactly 3 required, otherwise neutral empty state. Legacy copy: No combo available today. */}
-          {combo.length < 3 ? (
-            <div className="btx-empty" style={{ padding: '1.4rem 1rem' }}>
-              <p className="btx-empty__title">{t.predictions.noCombo}</p>
-            </div>
-          ) : (
-            <div>
-              {combo.map((pick, i) => (
-                <ComboPickRow
-                  key={`${pick.match.key}-${pick.market}`}
-                  pick={pick}
-                  index={i}
-                  lang={lang}
-                />
-              ))}
-            </div>
-          )}
-
-          <p className="btx-disclaimer" style={{ marginTop: '0.8rem' }}>
-            {lang === 'fr'
-              ? 'Aucun résultat n’est garanti.'
-              : lang === 'en'
-                ? 'No result is guaranteed.'
-              : 'لا توجد ضمانات لأي نتيجة.'}
-          </p>
-        </div>
-      )}
-
       <section
         className="btx-partner-rail btx-rev mb-4"
         aria-label={lang === 'fr' ? 'Partenaires' : lang === 'en' ? 'Partners' : 'الشركاء'}
@@ -1054,7 +797,7 @@ export default function BttsTodayDashboard({
 
       {/* ─── Footer disclaimer ─── */}
       <p className="btx-disclaimer">
-        {lang === 'fr' ? 'Prédictions statistiques basées sur des buts attendus modélisés (λ) issus des buts récents réels (ESPN) et notre modèle statistique. Aucun résultat futur garanti. 18+' : lang === 'en' ? 'Statistical predictions based on modeled expected goals (λ) from recent real goals (ESPN) and our statistical model. No future result guaranteed. 18+.' : 'توقعات إحصائية مبنية على أهداف متوقعة نمذجة (λ) من أهداف حقيقية حديثة (ESPN) ونموذجنا الإحصائي. لا توجد ضمانات لنتيجة مستقبلية. 18+'}
+        {lang === 'fr' ? 'Les sélections publiques affichées passent les contrôles de validation avant publication. Aucun résultat futur n’est garanti. 18+.' : lang === 'en' ? 'The public picks shown here pass the publication checks. No future outcome is guaranteed. 18+.' : 'الاختيارات العامة المعروضة هنا تجتاز ضوابط التحقق قبل النشر. لا توجد نتيجة مستقبلية مضمونة. 18+'}
       </p>
     </section>
   )

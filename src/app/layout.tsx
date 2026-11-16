@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     default: "BTTSPredict — Pronostics BTTS, Over 2,5 et Score exact",
     template: "%s | BTTSPredict",
   },
-  description: "Pronostics BTTS, Over 2,5 et score exact sur des matchs internationaux. Données horodatées, historique public et méthode documentée. 18+.",
+  description: "Pronostics BTTS et Over 2,5 sur des matchs internationaux. Sélections vérifiées, historique public et méthode documentée. 18+.",
   authors: [
     { name: "BTTSPredict", url: "https://bttspredict.com" },
   ],
@@ -68,7 +68,6 @@ export const metadata: Metadata = {
     languages: {
       'fr': 'https://bttspredict.com/',
       'en': 'https://bttspredict.com/en',
-      'ar': 'https://bttspredict.com/ar',
       'x-default': 'https://bttspredict.com/',
     },
   },
@@ -96,7 +95,7 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
   openGraph: {
     title: "BTTSPredict — Pronostics BTTS du jour et Over 2,5",
-    description: "Sélections BTTS, Over 2,5 et score exact sur des matchs internationaux, avec données horodatées et méthode documentée. 18+.",
+    description: "Sélections publiques BTTS et Over 2,5 vérifiées avant publication, avec historique public vérifiable. 18+.",
     url: "https://bttspredict.com",
     siteName: "BTTSPredict",
     type: "website",
@@ -106,7 +105,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "BTTSPredict — Pronostics BTTS du jour et Over 2,5",
-    description: "Sélections BTTS, Over 2,5 et score exact sur des matchs internationaux, avec données horodatées et méthode documentée. 18+.",
+    description: "Sélections publiques BTTS et Over 2,5 vérifiées avant publication, avec historique public vérifiable. 18+.",
     images: ["/og-image.png"],
   },
   category: "sports",

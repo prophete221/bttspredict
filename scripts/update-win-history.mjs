@@ -433,7 +433,7 @@ function resolveOutPath() {
   return process.env.WIN_HISTORY_OUT || OUT;
 }
 
-function run({ write, dir = DIR, now = Date.now() }) {
+function run({ write, dir = DIR, now = Date.now(), includeFullHistory = false }) {
   if (!fs.existsSync(dir)) {
     console.warn(`[update-win-history] ${dir} introuvable`);
     return;
@@ -499,13 +499,16 @@ function run({ write, dir = DIR, now = Date.now() }) {
 
   const newStats = buildStats(newBucket, newPeriodFrom, newPeriodTo, newDaysCount);
   const legacyStats = buildStats(legacyBucket, legacyPeriodFrom, legacyPeriodTo, legacyDaysCount);
+  const auditFullHistory = includeFullHistory && !write ? sortHistory([...newBucket.all]) : null;
 
   // Historique trié par VRAIE date de match (desc), puis vérification récente
   // d'abord — « les derniers résultats » = les derniers matchs joués.
-  const sortHistory = (arr) => arr.sort((a, b) =>
-    String(b.date).localeCompare(String(a.date)) ||
-    String(b.verifiedAt || '').localeCompare(String(a.verifiedAt || '')) ||
-    String(a.match).localeCompare(String(b.match)));
+  function sortHistory(arr) {
+    return arr.sort((a, b) =>
+      String(b.date).localeCompare(String(a.date)) ||
+      String(b.verifiedAt || '').localeCompare(String(a.verifiedAt || '')) ||
+      String(a.match).localeCompare(String(b.match)));
+  }
 
   const out = {
     schemaVersion: SCHEMA_VERSION,
@@ -559,7 +562,7 @@ function run({ write, dir = DIR, now = Date.now() }) {
 
   if (!write) {
     console.log(`[update-win-history] --dry-run : schéma v${SCHEMA_VERSION} valide, AUCUNE écriture effectuée (${outPath})`);
-    return out;
+    return auditFullHistory ? { ...out, auditFullHistory } : out;
   }
 
   fs.writeFileSync(outPath, JSON.stringify(out, null, 2));

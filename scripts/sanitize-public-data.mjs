@@ -2,8 +2,10 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { publicPredictionPayload } from './public-predictions.mjs'
+import { buildStrictGeminiHistoryProjection } from './gemini-history-export.mjs'
+import { runWinHistory } from './update-win-history.mjs'
 
-export function sanitizePublicData(root) {
+export function sanitizePublicData(root, { staticExport = false, sourcePublicDir = path.resolve('public') } = {}) {
   let changed = 0
   const files = ['predictions.json']
   const archiveDir = path.join(root, 'predictions-archive')
@@ -31,11 +33,44 @@ export function sanitizePublicData(root) {
       changed++
     }
   }
+  if (staticExport) {
+    const sourceHistoryPath = path.join(sourcePublicDir, 'win-history.json')
+    const sourceArchiveDir = path.join(sourcePublicDir, 'predictions-archive')
+    const exportHistoryPath = path.join(root, 'win-history.json')
+    if (fs.existsSync(sourceHistoryPath) && fs.existsSync(sourceArchiveDir) && fs.existsSync(exportHistoryPath)) {
+      const payload = JSON.parse(fs.readFileSync(sourceHistoryPath, 'utf8'))
+      const archiveFiles = fs.readdirSync(sourceArchiveDir).filter(file => file.endsWith('.json')).sort().slice(-90)
+      const archiveRows = archiveFiles.flatMap(file => {
+        try {
+          const archived = JSON.parse(fs.readFileSync(path.join(sourceArchiveDir, file), 'utf8'))
+          return Array.isArray(archived.predictions) ? archived.predictions : []
+        } catch {
+          return []
+        }
+      })
+      const generatedAt = Date.parse(payload.generatedAt || '')
+      const now = Number.isFinite(generatedAt) ? generatedAt : Date.now()
+      const fullRun = runWinHistory({ write: false, dir: sourceArchiveDir, now, includeFullHistory: true })
+      const safe = buildStrictGeminiHistoryProjection({
+        payload,
+        fullHistory: Array.isArray(fullRun?.auditFullHistory) ? fullRun.auditFullHistory : (payload.history || []),
+        archiveRows,
+        archivesRead: archiveFiles.length,
+        sourceStats: fullRun?.stats || payload.stats || {},
+      })
+      const current = JSON.parse(fs.readFileSync(exportHistoryPath, 'utf8'))
+      if (JSON.stringify(current) !== JSON.stringify(safe)) {
+        fs.writeFileSync(exportHistoryPath, JSON.stringify(safe, null, 2) + '\n')
+        changed++
+      }
+    }
+  }
   return changed
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
   const root = path.resolve(process.argv[2] || 'public')
   if (!fs.existsSync(root)) throw new Error(`Répertoire absent : ${root}`)
-  console.log(`Protection publique : ${sanitizePublicData(root)} fichier(s) nettoyé(s) dans ${root}`)
+  const staticExport = process.argv.includes('--static-export')
+  console.log(`Protection publique : ${sanitizePublicData(root, { staticExport })} fichier(s) nettoyé(s) dans ${root}`)
 }

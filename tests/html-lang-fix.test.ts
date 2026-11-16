@@ -1,5 +1,5 @@
 /**
- * Tests de scripts/fix-html-lang.mjs — correction <html lang> post-export.
+ * Tests de scripts/fix-html-lang.mjs — correction <html lang> sur l’export local.
  *
  * Garanties vérifiées :
  *  1. out/en/**  passe de lang="fr" à lang="en", rien d'autre ne change ;

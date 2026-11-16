@@ -100,7 +100,6 @@ export function aviatorMeta(locale: Locale) {
       languages: {
         fr: 'https://bttspredict.com/aviator',
         en: 'https://bttspredict.com/en/aviator',
-        ar: 'https://bttspredict.com/ar/aviator',
         'x-default': 'https://bttspredict.com/aviator',
       },
     },

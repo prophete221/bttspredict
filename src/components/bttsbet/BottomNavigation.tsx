@@ -107,10 +107,14 @@ export default function BottomNavigation() {
     queueMicrotask(() => setActive(matched ? matched.id : 'home'))
   }, [normalizedPathname])
 
+  // L’arabe est conservé uniquement sur les pages promo; les trois onglets
+  // globaux n’ont donc pas de destinations arabes publiées.
+  if (lang === 'ar') return null
+
   return (
     <nav
       className="bottomnav-shell fixed bottom-0 left-0 right-0 z-50 flex lg:hidden"
-      dir={lang === 'ar' ? 'rtl' : 'ltr'}
+      dir="ltr"
       style={{
         paddingBottom: 'env(safe-area-inset-bottom, 0px)',
         height: 'calc(68px + env(safe-area-inset-bottom, 0px))',

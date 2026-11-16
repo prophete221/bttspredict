@@ -1,12 +1,14 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
-import { readCurrentCompetitionFeed } from '@/lib/competition-pages'
+import { readCurrentCompetitionFeed, type CompetitionFeedSnapshot } from '@/lib/competition-pages'
 
-export function useCompetitionFeed() {
+const EMPTY_FEED: CompetitionFeedSnapshot = { lastUpdated: null, matches: {} }
+
+export function useCompetitionFeed(initialFeed?: CompetitionFeedSnapshot) {
   const [payload, setPayload] = useState<unknown>(null)
   const [now, setNow] = useState<Date | null>(null)
-  const [status, setStatus] = useState<'loading' | 'ready' | 'error'>('loading')
+  const [status, setStatus] = useState<'loading' | 'ready' | 'error'>(initialFeed ? 'ready' : 'loading')
   useEffect(() => {
     let active = true
     const controller = new AbortController()
@@ -23,6 +25,9 @@ export function useCompetitionFeed() {
     const timer = window.setInterval(() => setNow(new Date()), 60_000)
     return () => { active = false; controller.abort(); window.clearInterval(timer) }
   }, [])
-  const feed = useMemo(() => readCurrentCompetitionFeed(payload, now || new Date(0)), [payload, now])
+  const feed = useMemo(() => {
+    if (payload !== null) return readCurrentCompetitionFeed(payload, now || new Date())
+    return initialFeed || EMPTY_FEED
+  }, [payload, now, initialFeed])
   return { ...feed, status }
 }

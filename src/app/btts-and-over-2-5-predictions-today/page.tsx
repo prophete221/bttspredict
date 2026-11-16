@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import AnimatedTitle from '@/components/bttsbet/HeroWordmark'
+import { englishOnlyAlternates } from '@/lib/seo'
 
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
@@ -9,12 +10,12 @@ const FreePredictions = dynamic(() => import('@/components/bttsbet/FreePredictio
 
 export const metadata: Metadata = {
   title: 'BTTS + Over 2.5 Predictions Today',
-  description: "Today's best BTTS + Over 2.5 combined predictions. AI-powered football tips where both teams score AND total goals exceed 2.5. Free, updated 4x daily. 18+.",
-  alternates: { canonical: 'https://bttspredict.com/btts-and-over-2-5-predictions-today' },
+  description: "Looking for BTTS and Over 2.5 picks today? See upcoming matches with validated picks for both markets. No future outcome is guaranteed. 18+.",
+  alternates: englishOnlyAlternates('/btts-and-over-2-5-predictions-today'),
   robots: { index: true, follow: true },
   openGraph: {
     title: 'BTTS + Over 2.5 Predictions Today | BTTSPredict',
-    description: "Today's best BTTS + Over 2.5 combined predictions. AI-powered football tips. 18+.",
+    description: "Upcoming matches with validated picks for both BTTS and Over 2.5. No future outcome is guaranteed. 18+.",
     url: 'https://bttspredict.com/btts-and-over-2-5-predictions-today',
     type: 'website',
   },
@@ -43,11 +44,15 @@ export default function BttsAndOver25Page() {
             style={{ fontFamily: 'Poppins, sans-serif' }}
           />
           <p className="text-base sm:text-lg text-[#9DABBB] leading-relaxed mb-3 max-w-3xl mx-auto">
-            Combined predictions where <strong>both teams score</strong> (BTTS) AND <strong>total goals exceed 2.5</strong>. These high-confidence matches meet both criteria simultaneously — the most offensive games of the day.
+            Browse upcoming matches only when a validated public pick is available for <strong>both teams to score</strong> (BTTS) and <strong>Over 2.5</strong>. A match with only one of the two picks is not listed here.
           </p>
           <p className="text-sm text-[#9DABBB] leading-relaxed max-w-3xl mx-auto">
-            Updated 4x daily. Aucun gain n&apos;est garanti. 18+.
+            A pick is shown only when both market selections pass validation. No future result is guaranteed. 18+.
           </p>
+        </section>
+
+        <section className="max-w-5xl mx-auto px-4 pb-8">
+          <FreePredictions marketFilter="combined" />
         </section>
 
         <section className="max-w-5xl mx-auto px-4 pb-8">
@@ -59,16 +64,12 @@ export default function BttsAndOver25Page() {
               <strong>BTTS (Both Teams To Score)</strong> means both teams score at least one goal. <strong>Over 2.5</strong> means at least 3 goals total in the match. When <strong>both conditions are met</strong>, the match ends with a score like 2-1, 1-2, 2-2, 3-1, 1-3, etc.
             </p>
             <p className="text-sm text-[#9DABBB] leading-relaxed mb-3">
-              <strong>Why combine them?</strong> Matches where both BTTS and Over 2.5 hit are the most offensive, high-scoring games. Our statistical model identifies these by checking that both teams have high modeled expected goals (lambda derived from recent real goals) individually, and the total lambda exceeds 2.5.
+              <strong>Why combine them?</strong> This page requires a separate, validated pick for each market. It does not calculate or infer a missing market locally.
             </p>
             <p className="text-sm text-[#9DABBB] leading-relaxed">
               For the methodology, see our <Link href="/methodologie" className="text-[#2F7DFF] underline">methodology page</Link>.
             </p>
           </div>
-        </section>
-
-        <section className="max-w-5xl mx-auto px-4 pb-12">
-          <FreePredictions />
         </section>
 
         {/* Quick Links — internal linking */}
@@ -90,7 +91,7 @@ export default function BttsAndOver25Page() {
             <Link href="/ai-correct-score-predictions" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2F7DFF]"
               style={{ backgroundColor: '#141C25', border: '1px solid #6B7A8C' }}>
               <div className="text-sm font-bold text-[#F2F6FA]">AI Correct Score Predictions →</div>
-              <div className="text-xs text-[#9DABBB] mt-1">Exact score probabilities</div>
+              <div className="text-xs text-[#9DABBB] mt-1">Shown only after validation</div>
             </Link>
             <Link href="/resultats-verifies" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2F7DFF]"
               style={{ backgroundColor: '#141C25', border: '1px solid #6B7A8C' }}>

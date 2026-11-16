@@ -4,9 +4,8 @@ import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { useLanguage } from './LanguageSwitcher'
 import { translationsFor, type Locale, localizedPath } from '@/lib/i18n'
 import { generateMatchSlug } from '@/lib/match-slug'
-import { getDakarDateString, getDakarDayDiff, getDakarMatchStatus, parseDakarDateTime } from '@/lib/dakar-date'
+import { getDakarDateString, getDakarDayDiff, getDakarMatchStatus, isDakarKickoffUpcomingOrUnscheduled, parseDakarDateTime } from '@/lib/dakar-date'
 import { KICKOFF_I18N } from '@/lib/i18n-extras'
-import ComboBuilder from './ComboBuilder'
 import BookmakerCardLinks from './BookmakerCardLinks'
 import { getGeminiPicks } from '@/lib/gemini-predictions'
 import { groupGeminiItemsByDakarDay, prioritizeMatchCenterItems, selectUpcomingGeminiItems } from '@/lib/match-center-window'
@@ -31,6 +30,7 @@ const useIsoLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : use
 
 interface MarketPick {
   type: string
+  market?: 'BTTS' | 'O2.5'
   prediction: string
   confidence?: number
   proba?: number
@@ -45,22 +45,11 @@ interface FeedItem {
   time: string
   homeLogo?: string
   awayLogo?: string
-  confidence?: number
-  reliabilityScore?: number
-  xgHome?: number
-  xgAway?: number
-  xgTotal?: number
   formBTTS?: number
-  ai_exact_score?: string
-  exact_score_prob?: string
   odds?: { provider?: string; home?: number | null; draw?: number | null; away?: number | null; over25?: number | null; under25?: number | null } | null
   predictions?: MarketPick[]
   type?: string
   prediction?: string
-  bttsProb?: number
-  over25Prob?: number
-  estimatedCoteBTTS?: number
-  estimatedCoteOver?: number
   ai_source?: string
   ai_abstain?: boolean
 }
@@ -75,10 +64,6 @@ interface HistoryRecord {
 
 const hasFinalResult = (record?: HistoryRecord) =>
   Boolean(record?.finalScore || record?.status === 'WON' || record?.status === 'LOST')
-
-function dayDiff(dateStr: string): number {
-  return getDakarDayDiff(dateStr)
-}
 
 /** Unités locales du compte à rebours (jours / heures / minutes). */
 const CD_UNITS: Record<Locale, [string, string, string]> = {
@@ -129,8 +114,10 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
       fetch('/win-history.json').then(r => (r.ok ? r.json() : null)).catch(() => null),
     ]).then(([pred, hist]) => {
       if (cancelled) return
-      const raw: FeedItem[] = Array.isArray(pred?.free) ? pred.free
-        : Array.isArray(pred?.predictions) ? pred.predictions : []
+      const raw: FeedItem[] = [
+        ...(Array.isArray(pred?.free) ? pred.free : []),
+        ...(Array.isArray(pred?.predictions) ? pred.predictions : []),
+      ]
       const normalizedItems: FeedItem[] = raw.map(item => ({
         ...item,
         predictions: getGeminiPicks(item),
@@ -138,7 +125,7 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
       setItems(normalizedItems)
       if (pred?.lastUpdated) setDataDate(String(pred.lastUpdated).slice(0, 10))
       const map = new Map<string, HistoryRecord>()
-      const recs: HistoryRecord[] = hist?.history || []
+      const recs: HistoryRecord[] = hist?.geminiOnly === true ? hist.history || [] : []
       for (const rec of recs) map.set(`${rec.match}|${rec.date}`, rec)
       setResults(map)
       setLoading(false)
@@ -154,10 +141,10 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
 
   // Tous les picks Gemini à venir restent visibles; la date Dakar retire les
   // matches expirés au passage du jour local, sans limite de dates futures.
-  const filteredPicks = useMemo(
-    () => selectUpcomingGeminiItems(items, dayDiff),
-    [items, dakarToday],
-  )
+  const filteredPicks = useMemo(() => {
+    const validated = selectUpcomingGeminiItems(items, date => getDakarDayDiff(date, new Date(nowTs)))
+    return validated.filter(item => isDakarKickoffUpcomingOrUnscheduled(item.date, item.time, new Date(nowTs)))
+  }, [items, nowTs])
   const filtered = useMemo(() => {
     if (lang !== 'fr' && lang !== 'en') return filteredPicks
     return prioritizeMatchCenterItems(filteredPicks, dakarToday)
@@ -166,7 +153,14 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
     () => groupGeminiItemsByDakarDay(filtered, dakarToday),
     [filtered, dakarToday],
   )
-  const matchWord = lang === 'en' ? 'matches' : lang === 'ar' ? 'مباريات' : 'matchs'
+  const matchWord = (count: number) => lang === 'en'
+    ? count === 1 ? 'match' : 'matches'
+    : lang === 'ar'
+      ? count === 1 ? 'مباراة' : 'مباريات'
+      : count === 1 ? 'match' : 'matchs'
+  const matchCountSuffix = filtered.length === 1
+    ? lang === 'en' ? 'match shown' : lang === 'ar' ? 'مباراة معروضة' : 'match affiché'
+    : t.home2.mcCountSuffix
 
   // ═══ Révélation 3D au scroll ═══
   // Gate JS (.mc3d) : sans JS les cartes restent visibles (progressive enhancement).
@@ -224,9 +218,7 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
           <div>
             <p className="hp-eyebrow">{t.home2.mcEyebrow}</p>
             <p className="hp-brand-line" aria-label="Brand">
-              <span>BTTS &amp; Over 2.5 Master</span>
-              <span className="hp-brand-line__sep" aria-hidden="true">·</span>
-              <span>{lang === 'en' ? 'World’s No.1 platform' : lang === 'ar' ? 'المنصة رقم 1 عالمياً' : 'Plateforme N°1 Mondiale'}</span>
+              {lang === 'en' ? 'PUBLIC PICKS · VERIFIED RESULTS' : lang === 'ar' ? 'اختيارات عامة · نتائج قابلة للتحقق' : 'SÉLECTIONS PUBLIQUES · RÉSULTATS VÉRIFIÉS'}
             </p>
             <h2 className="hp-sect-title">
               {lang === 'en' ? 'Today’s picks and upcoming matches' : lang === 'ar' ? 'توقعات اليوم والمباريات القادمة' : 'Pronostics du jour et matchs à venir'}
@@ -234,18 +226,21 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
           </div>
           <div className="hp-sect-meta">
             <span className="hp-counter" role="status">
-              <strong>{loading ? '…' : filtered.length}</strong> {t.home2.mcCountSuffix}
+              <strong>{loading ? '…' : filtered.length}</strong> {matchCountSuffix}
             </span>
             {dataDate && (
-              <span className="hp-data-date">{t.home2.mcUpdated} {dataDate}</span>
+              <span className="hp-data-date">{t.home2.mcUpdated} {formatCardDate(dataDate, lang)}</span>
             )}
           </div>
         </div>
 
-        {/* Générateur de Combiné Intelligente — en tête du Match Center */}
-        {items.length > 0 && (
-          <ComboBuilder items={items} lang={lang} />
-        )}
+        <p className="hp-mc-note">
+          {lang === 'en'
+            ? 'Pick percentages come from validated selections; recent form and odds are context data, not guarantees.'
+            : lang === 'ar'
+              ? 'نسب الاختيارات مصدرها الاختيارات المعتمدة؛ الأداء الحديث والأسعار بيانات سياقية وليست ضماناً.'
+              : 'Les pourcentages proviennent des picks validés ; la forme récente et les cotes sont des indicateurs de contexte, pas des garanties.'}
+        </p>
 
         {/* Contenu */}
         {loading ? (
@@ -273,7 +268,7 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
                   {lang === 'en' ? 'Today' : lang === 'ar' ? 'اليوم' : 'Aujourd’hui'}
                 </span>
                 <span className="hp-mc-group__count">
-                  {todayItems.length} {matchWord}
+                  {todayItems.length} {matchWord(todayItems.length)}
                 </span>
               </h3>
             )}
@@ -287,7 +282,7 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
                   {lang === 'en' ? 'Upcoming' : lang === 'ar' ? 'قادمة' : 'À venir'}
                 </span>
                 <span className="hp-mc-group__count">
-                  {upcomingItems.length} {matchWord}
+                  {upcomingItems.length} {matchWord(upcomingItems.length)}
                 </span>
               </h3>
             )}
@@ -357,10 +352,6 @@ function MatchCard({ m, index, lang, results, nowTs }: {
         ? 'is-review'
         : 'is-upcoming'
 
-  const loc = lang === 'en' ? 'en-GB' : lang === 'ar' ? 'ar' : 'fr-FR'
-  const num = (v?: number, digits = 2) =>
-    v === undefined ? null : v.toLocaleString(loc, { maximumFractionDigits: digits })
-
   const statusText = statusLabel
   return (
     <article
@@ -395,7 +386,6 @@ function MatchCard({ m, index, lang, results, nowTs }: {
             <strong>{m.time || '--:--'}</strong>
           )}
           <span>{formatCardDate(m.date, lang)} · {t.home2.mcTz}</span>
-          {countdown && matchStatus !== 'live' && !isFinished && <small>{KICKOFF_I18N[lang].startsSoon} {countdown}</small>}
         </div>
         <div className="btp-match-card__team btp-match-card__team--away">
           <span className="btp-match-card__crest">
@@ -406,36 +396,45 @@ function MatchCard({ m, index, lang, results, nowTs }: {
         </div>
       </div>
 
+      {countdown && matchStatus !== 'live' && !isFinished && (
+        <small className="btp-match-card__countdown">
+          {KICKOFF_I18N[lang].startsSoon} {countdown}
+        </small>
+      )}
+
       {picks.length > 0 && (
         <div className="btp-match-card__picks" aria-label={lang === 'en' ? 'Predictions' : lang === 'ar' ? 'التوقعات' : 'Pronostics'}>
           {picks.map(p => {
             const typeUp = (p.type || '').toUpperCase()
-            const marketShort = typeUp.includes('BTTS') || typeUp.includes('BOTH')
+            const isBtts = p.market === 'BTTS' || typeUp.includes('BTTS') || typeUp.includes('BOTH')
+            const marketShort = isBtts
               ? 'BTTS'
               : typeUp.includes('OVER') || typeUp.includes('2.5') || typeUp.includes('O2.5')
-                ? 'O2.5'
+                ? (lang === 'en' ? 'Over 2.5' : lang === 'ar' ? 'أكثر من 2.5' : 'Over 2,5')
                 : p.type
             const selectionLabel = p.prediction === 'Oui'
-              ? t.predictions.bttsYes
+              ? (lang === 'en' ? 'Yes' : lang === 'ar' ? 'نعم' : 'Oui')
               : p.prediction === 'Non'
-                ? t.predictions.bttsNo
+                ? (lang === 'en' ? 'No' : lang === 'ar' ? 'لا' : 'Non')
                 : p.prediction
+            const probability = typeof p.proba === 'number' && p.proba >= 0 && p.proba <= 1
+              ? Math.round(p.proba * 100)
+              : null
             return (
-              <div key={p.type} className="btp-market">
+              <div key={p.market ?? p.type} className={`btp-market ${isBtts ? 'btp-market--btts' : 'btp-market--over25'}`} data-market={isBtts ? 'BTTS' : 'O2.5'}>
                 <span className="btp-market__name">{marketShort}</span>
-                <strong className="hp-pick__selection">{selectionLabel}</strong>
-                {p.confidence !== undefined && p.confidence > 0 && p.confidence <= 100 && <span className="hp-pick__confidence">{p.confidence}%</span>}
+                <strong className="hp-pick__selection" data-prediction={p.prediction === 'Oui' ? 'yes' : p.prediction === 'Non' ? 'no' : 'unknown'}>{selectionLabel}</strong>
+                {probability !== null && <span className="hp-pick__confidence" title={lang === 'en' ? 'Estimated probability for this pick' : lang === 'ar' ? 'الاحتمال التقديري لهذا الاختيار' : 'Probabilité estimée de cette sélection'}>{lang === 'en' ? 'Est.' : lang === 'ar' ? 'تقدير' : 'Est.'} {probability}%</span>}
               </div>
             )
           })}
         </div>
       )}
 
-      {(m.xgTotal !== undefined || m.formBTTS !== undefined || (m.odds && (m.odds.home || m.odds.away))) && (
+      {(m.formBTTS !== undefined || (m.odds && (m.odds.home || m.odds.away || m.odds.over25))) && (
         <div className="btp-match-card__stats">
-          {m.xgTotal !== undefined && <span><small>xG</small>{num(m.xgTotal, 1)}</span>}
-          {m.formBTTS !== undefined && <span><small>BTTS récent</small>{m.formBTTS}%</span>}
-          {m.odds?.over25 !== null && m.odds?.over25 !== undefined && <span><small>O2.5 cote</small>{m.odds.over25}</span>}
+          {m.formBTTS !== undefined && <span><small>{lang === 'en' ? 'Recent BTTS (sample size not provided)' : lang === 'ar' ? 'BTTS الأخيرة (حجم العينة غير متاح)' : 'BTTS récent (échantillon non précisé)'}</small>{m.formBTTS}%</span>}
+          {m.odds?.over25 !== null && m.odds?.over25 !== undefined && <span><small>{lang === 'en' ? 'Over 2.5 odds' : lang === 'ar' ? 'سعر أكثر من 2.5' : 'Cote Over 2,5'}</small>{m.odds.over25}</span>}
           {m.odds?.provider && <span className="btp-match-card__source">{m.odds.provider}</span>}
         </div>
       )}

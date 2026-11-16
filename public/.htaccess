@@ -29,17 +29,21 @@ RewriteRule ^presse/?$ / [R=301,L]
 RewriteRule ^equipe/?$ / [R=301,L]
 RewriteRule ^over-2-5/?$ / [R=301,L]
 
+# Même si un ancien fichier existe encore sur le serveur, ne publier que les cinq promos arabes.
+RewriteCond %{REQUEST_URI} !^/ar/(code-promo-1xbet|code-promo-linebet-senegal|code-promo-melbet|bonus-888starz|bonus-888starz-btts221)(\.html)?/?$
+RewriteRule ^ar/.+ - [L,R=404]
+
 # ─── Routing HTML statique ───
 DirectorySlash Off
 DirectoryIndex index.html
 Options -Indexes
-# Toutes les anciennes fiches Match AR datées utilisent la page partagée.
-# Règle interne seulement : les URL visibles restent inchangées, EN/FR intactes.
-RewriteRule ^ar/match/[^/]+-[0-9]{4}-[0-9]{2}-[0-9]{2}/?$ /ar/match.html [L]
 RewriteRule \.html$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^(.+)/?$ /$1.html [L]
+
+# La racine arabe n'est pas publiée; seules les cinq routes promotionnelles existent.
+RewriteRule ^ar/?$ /404.html [L,R=404]
 
 # ─── 404 spécifique pour /match/[slug] non généré ───
 # Les pages match sont pré-générées en SSG dans out/match/[slug]/index.html.

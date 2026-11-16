@@ -1,48 +1,43 @@
-import type { Prediction } from './predictions'
+export type MatchDataAvailability = 'sufficient' | 'limited' | 'insufficient'
 
-type PredictionPayload = Prediction & Record<string, unknown> & {
-  analysisData?: Record<string, unknown>
-  xgHome?: number
-  xgAway?: number
-  dataQuality?: string
-  dataSource?: string
-  matchCountHome?: number
-  matchCountAway?: number
-}
-
-/** Public-facing quality rules. Missing evidence is never converted into a made-up percentage. */
-export type PredictionQuality = 'reliable' | 'limited' | 'insufficient'
-
-export function predictionQuality(input: PredictionPayload): PredictionQuality {
-  const analysis = input.analysis && typeof input.analysis === 'object' ? input.analysis : undefined
-  const nested = input.analysisData && typeof input.analysisData === 'object' ? input.analysisData : undefined
-  const homeLambda = analysis?.homeLambda ?? nested?.homeLambda ?? input.xgHome
-  const awayLambda = analysis?.awayLambda ?? nested?.awayLambda ?? input.xgAway
-  const hasLambdas = Number.isFinite(homeLambda) && Number.isFinite(awayLambda)
-  const hasForm = Boolean(analysis?.homeForm && analysis?.awayForm)
-  const hasSource = analysis?.hasRealData === true
-    || Boolean(input.source || input.verifiedSource || input.dataSource)
-  const sampleSize = Math.min(input.matchCountHome ?? 0, input.matchCountAway ?? 0)
-  const hasEnoughMatches = sampleSize >= 6
-  const quality = String(input.dataQuality || '').toUpperCase()
-
-  if (hasLambdas && hasSource && (hasForm || hasEnoughMatches || quality === 'HIGH')) return 'reliable'
-  if (hasLambdas || (input.proba && input.proba > 0) || (input.probability && input.probability > 0)) return 'limited'
+/** Describe the recorded match sample only; this never accepts, ranks or creates a prediction. */
+export function matchDataAvailability(input: unknown): MatchDataAvailability {
+  if (!input || typeof input !== 'object' || Array.isArray(input)) return 'insufficient'
+  const row = input as Record<string, unknown>
+  const home = row.matchCountHome
+  const away = row.matchCountAway
+  if (
+    typeof home !== 'number' || !Number.isInteger(home) || home < 0 ||
+    typeof away !== 'number' || !Number.isInteger(away) || away < 0
+  ) return 'insufficient'
+  const sampleSize = Math.min(home, away)
+  if (sampleSize >= 6) return 'sufficient'
+  if (sampleSize >= 4) return 'limited'
   return 'insufficient'
 }
 
-export function shouldPublishPrediction(input: PredictionPayload): boolean {
-  return predictionQuality(input) !== 'insufficient'
-}
-
-export function humanMethodLabel(quality: PredictionQuality, locale: 'fr' | 'en' | 'ar' = 'fr'): string {
-  if (locale === 'en') return quality === 'reliable' ? 'Based on recent data' : quality === 'limited' ? 'Limited data' : 'Not enough data'
-  if (locale === 'ar') return quality === 'reliable' ? 'مبني على بيانات حديثة' : quality === 'limited' ? 'بيانات محدودة' : 'بيانات غير كافية'
-  return quality === 'reliable' ? 'Basé sur les données récentes' : quality === 'limited' ? 'Données limitées' : 'Données insuffisantes'
-}
-
-export function humanAnalysisLabel(locale: 'fr' | 'en' | 'ar' = 'fr'): string {
-  if (locale === 'en') return 'Our match reading'
-  if (locale === 'ar') return 'قراءتنا للمباراة'
-  return 'Notre lecture du match'
+/** User-facing wording about sample availability, not pick confidence or likelihood. */
+export function humanMatchDataAvailabilityLabel(
+  availability: MatchDataAvailability,
+  locale: 'fr' | 'en' | 'ar' = 'fr',
+): string {
+  if (locale === 'en') {
+    return availability === 'sufficient'
+      ? 'Recent match data available'
+      : availability === 'limited'
+        ? 'Limited match sample'
+        : 'Not enough historical matches'
+  }
+  if (locale === 'ar') {
+    return availability === 'sufficient'
+      ? 'تتوفر بيانات مباريات حديثة'
+      : availability === 'limited'
+        ? 'عينة المباريات محدودة'
+        : 'لا تتوفر مباريات تاريخية كافية'
+  }
+  return availability === 'sufficient'
+    ? 'Données de matchs récentes disponibles'
+    : availability === 'limited'
+      ? 'Échantillon de matchs limité'
+      : 'Historique de matchs insuffisant'
 }

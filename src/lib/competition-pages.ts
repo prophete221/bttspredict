@@ -20,6 +20,10 @@ export type CompetitionMatch = {
   kickoffAt: string
   predictions: GeminiPrediction[]
 }
+export type CompetitionFeedSnapshot = {
+  lastUpdated: string | null
+  matches: Record<string, CompetitionMatch[]>
+}
 
 const DEFINITIONS = [
   { slug: 'serie-a', name: 'Serie A', displayName: { fr: 'Serie A', en: 'Serie A', ar: 'الدوري الإيطالي' }, espnLeague: 'ita.1' },
@@ -55,15 +59,15 @@ export function getCompetitionSlug(league: string): string | undefined {
 }
 
 /** Read published ESPN-sourced fixtures and validated Gemini outputs only. No prediction calculation. */
-export function readCurrentCompetitionFeed(payload: unknown, now = new Date()): {
-  lastUpdated: string | null
-  matches: Record<string, CompetitionMatch[]>
-} {
+export function readCurrentCompetitionFeed(payload: unknown, now = new Date()): CompetitionFeedSnapshot {
   const matches: Record<string, CompetitionMatch[]> = Object.fromEntries(COMPETITION_SLUGS.map(slug => [slug, []]))
   if (!payload || typeof payload !== 'object' || Array.isArray(payload) || !Number.isFinite(now.getTime())) return { lastUpdated: null, matches }
   const feed = payload as Record<string, unknown>
   const lastUpdated = typeof feed.lastUpdated === 'string' && Number.isFinite(Date.parse(feed.lastUpdated)) ? feed.lastUpdated : null
-  const raw = Array.isArray(feed.free) ? feed.free : Array.isArray(feed.predictions) ? feed.predictions : []
+  const raw = [
+    ...(Array.isArray(feed.free) ? feed.free : []),
+    ...(Array.isArray(feed.predictions) ? feed.predictions : []),
+  ]
   const candidates: CompetitionMatch[] = []
   for (const value of raw) {
     if (!value || typeof value !== 'object') continue
@@ -102,7 +106,6 @@ function metadata(path: string, locale: Locale, title: string, description: stri
     alternates: { canonical, languages: {
       fr: `https://bttspredict.com${localizedPath(path, 'fr')}`,
       en: `https://bttspredict.com${localizedPath(path, 'en')}`,
-      ar: `https://bttspredict.com${localizedPath(path, 'ar')}`,
       'x-default': `https://bttspredict.com${localizedPath(path, 'fr')}`,
     } },
     openGraph: { title, description, url: canonical, siteName: 'BTTSPredict', type: 'website' as const },

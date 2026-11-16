@@ -12,8 +12,6 @@ type ShareAnalysisButtonProps = {
   time: string
   bttsProbability: string
   over25Probability: string
-  exactScore?: string
-  exactScoreProbability?: string
   path: string
   locale: Locale
 }
@@ -33,19 +31,15 @@ export default function ShareAnalysisButton(props: ShareAnalysisButtonProps) {
       : props.locale === 'ar'
         ? [`احتمال BTTS: ${props.bttsProbability}`, `احتمال Over 2.5: ${props.over25Probability}`]
         : [`Probabilité BTTS : ${props.bttsProbability}`, `Probabilité Over 2,5 : ${props.over25Probability}`]
-    const score = props.exactScore
-      ? `${props.locale === 'en' ? 'Projected exact score' : props.locale === 'ar' ? 'النتيجة الدقيقة المتوقعة' : 'Score exact proposé'}: ${props.exactScore}${props.exactScoreProbability ? ` (${props.exactScoreProbability})` : ''}`
-      : ''
     const disclaimer = props.locale === 'en'
-      ? 'Statistical analysis only. No result is guaranteed. 18+.'
+      ? 'Published pick information only. Picks are uncertain; no result is guaranteed. 18+.'
       : props.locale === 'ar'
-        ? 'تحليل إحصائي فقط. لا توجد نتيجة مضمونة. 18+.'
-        : 'Analyse statistique uniquement. Aucun résultat n’est garanti. 18+.'
+        ? 'معلومات الاختيارات المنشورة فقط. الاختيارات غير مؤكدة ولا توجد نتيجة مضمونة. 18+.'
+        : 'Informations des sélections publiées uniquement. Elles restent incertaines; aucun résultat n’est garanti. 18+.'
     const text = [
       `${props.home} vs ${props.away} — BTTSPredict`,
       `${props.league} · ${props.date} · ${props.time} GMT`,
       ...metrics,
-      score,
       disclaimer,
       url,
     ].filter(Boolean).join('\n')

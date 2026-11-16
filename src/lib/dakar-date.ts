@@ -73,6 +73,15 @@ export function hasDakarKickoffPassed(date: string, time?: string, now = new Dat
   return kickoff !== null && kickoff.getTime() < now.getTime()
 }
 
+/** True when a published kickoff is still ahead, or its time is not available. */
+export function isDakarKickoffUpcomingOrUnscheduled(date: string, time?: string, now = new Date()): boolean {
+  const normalizedTime = String(time ?? '').trim()
+  if (!normalizedTime || normalizedTime === '--:--') return true
+  if (!/^\d{2}:\d{2}$/.test(normalizedTime)) return false
+  const kickoff = parseDakarDateTime(date, normalizedTime)
+  return kickoff !== null && kickoff.getTime() > now.getTime()
+}
+
 export function formatDakarDateLabel(date: string, now = new Date()): string {
   const today = getDakarDateString(now)
   const match = parseDakarDateTime(date)

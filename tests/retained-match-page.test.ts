@@ -9,6 +9,7 @@ import {
   getFrenchMatchStaticParams,
   getLocalizedMatchStaticParams,
 } from '@/lib/match-page-ssg'
+import { getStaticLocalesForPath } from '@/lib/locale-route-policy'
 import { getDakarDateString, getDakarMatchStatus } from '@/lib/dakar-date'
 import { MatchVerificationRegistrySchema } from '@/lib/match-verification-registry'
 import { generateMatchSlug, getMatchBySlug, loadAllMatches } from '@/lib/matches'
@@ -21,15 +22,19 @@ const PROTECTED_SEO_ROUTES = [
       ['src/app/[locale]/btts-and-over-2-5-predictions-today/page.tsx', [
         "title: 'BTTS and Over 2.5 Predictions Today'",
         "description: 'Combined BTTS and Over 2.5 predictions for international matches.'",
-        "canonical: 'https://bttspredict.com/en/btts-and-over-2-5-predictions-today'",
-        "if (locale === 'ar') return { title: 'توقعات BTTS وأكثر من 2.5 اليوم', description: 'توقعات مجمعة للمباريات الدولية.'",
+        "alternates: englishOnlyAlternates('/btts-and-over-2-5-predictions-today')",
+        "if (locale === 'en') return { title: 'BTTS and Over 2.5 Predictions Today', description: 'Combined BTTS and Over 2.5 predictions for international matches.', alternates: englishOnlyAlternates('/btts-and-over-2-5-predictions-today') }",
+        "if (locale !== 'en') notFound()",
       ]],
       ['src/components/bttsbet/LocalizedCombinedPredictionsClient.tsx', [
         "title: 'BTTS and Over 2.5 Predictions Today'",
         "title: 'توقعات BTTS وأكثر من 2.5 اليوم'",
         '<h1>{c.title}</h1>',
-        "intro: 'Combined predictions where both teams score and total goals exceed 2.5. Matches must meet both criteria simultaneously.'",
-        "intro: 'توقعات مجمعة حيث يسجل الفريقان ويتجاوز إجمالي الأهداف 2.5. يجب أن تحقق المباراة الشرطين معاً.'",
+        "intro: 'Only matches with a validated public pick for BTTS and another for Over 2.5 are shown. A match with just one of the two picks is excluded.'",
+        "intro: 'تظهر فقط المباريات التي لديها اختيار عام موثّق لسوق BTTS واختيار آخر لسوق Over 2.5. تُستبعد المباراة إذا توفر اختيار واحد فقط.'",
+      ]],
+      ['src/app/btts-and-over-2-5-predictions-today/page.tsx', [
+        'A pick is shown only when both market selections pass validation.',
       ]],
     ],
   },
@@ -38,15 +43,15 @@ const PROTECTED_SEO_ROUTES = [
     files: [
       ['src/app/[locale]/page.tsx', [
         "const url = `https://bttspredict.com/${locale}`",
-        "const title = locale === 'ar' ? 'توقعات BTTS اليوم وأكثر من 2.5' : 'BTTS Predictions Today & Over 2.5'",
+        "const title = 'BTTS Predictions Today & Over 2.5'",
         'const description = t.hero.subtitle',
-        "languages: { fr: 'https://bttspredict.com/', en: 'https://bttspredict.com/en', ar: 'https://bttspredict.com/ar', 'x-default': 'https://bttspredict.com/' }",
+        "languages: { fr: 'https://bttspredict.com/', en: 'https://bttspredict.com/en', 'x-default': 'https://bttspredict.com/' }",
         "openGraph: { title, description, url, siteName: 'BTTSPredict', type: 'website', locale: LOCALE_META[locale].htmlLang.replace('-', '_') }",
       ]],
       ['src/components/bttsbet/Hero.tsx', [
         '<h1 className="bp-home__title">',
-        '<span>{t.home2.heroTitle1.replace(/[\\[\\]]/g, \'\')}</span>',
-        '<strong>{t.home2.heroTitle2}</strong>',
+        "title: 'BTTS predictions'",
+        "titleAccent: 'and Over 2.5 today'",
       ]],
     ],
   },
@@ -55,17 +60,15 @@ const PROTECTED_SEO_ROUTES = [
     files: [
       ['src/app/[locale]/over-2-5/predictions/today/page.tsx', [
         "const url = `https://bttspredict.com/${locale}/over-2-5/predictions/today`",
-        "const title = locale === 'ar' ? 'توقعات Over 2.5 اليوم' : 'Over 2.5 Predictions Today — Goal Analysis'",
-        "description = locale === 'ar' ? 'توقعات أكثر من 2.5 هدف للمباريات الدولية، مع تحليل إحصائي وتحديثات يومية. لا توجد ضمانات للنتائج. 18+.' : 'Over 2.5 goals predictions for international football matches, with statistical analysis and daily updates. No future result is guaranteed. 18+.'",
+        "const title = 'Over 2.5 Predictions Today — Goal Analysis'",
+        "const description = 'Upcoming Over 2.5 picks are shown only after passing the publication checks. No future outcome is guaranteed. 18+.'",
         "fr: 'https://bttspredict.com/over-2-5/predictions/today'",
         "en: 'https://bttspredict.com/en/over-2-5/predictions/today'",
-        "ar: 'https://bttspredict.com/ar/over-2-5/predictions/today'",
         "'x-default': 'https://bttspredict.com/over-2-5/predictions/today'",
         'alternates: { canonical: url, languages:',
         "openGraph: { title, description, url, siteName: 'BTTSPredict', type: 'website', locale: LOCALE_META[locale].htmlLang }",
         "<AnimatedTitle as=\"h1\" text={isAr ? 'توقعات Over 2.5 اليوم' : 'Over 2.5 Predictions Today'}",
-        "Today's Over 2.5 predictions: matches where total goals are expected to exceed 2.5, meaning at least 3 goals. Updated and checked after the match.",
-        'مباريات يُتوقع أن يتجاوز فيها إجمالي الأهداف 2.5، أي ثلاثة أهداف على الأقل. يتم التحديث والتحقق من النتائج بعد المباراة.',
+        "Upcoming matches with a validated Over 2.5 pick. Matches without a pick for this market are excluded.",
       ]],
     ],
   },
@@ -78,19 +81,18 @@ const PROTECTED_SEO_ROUTES = [
         "canonical: 'https://bttspredict.com/'",
         "fr: 'https://bttspredict.com/'",
         "en: 'https://bttspredict.com/en'",
-        "ar: 'https://bttspredict.com/ar'",
         "'x-default': 'https://bttspredict.com/'",
         'twitter: {',
         "card: 'summary_large_image'",
-        '<h2 id="home-platform-summary">Plateforme de sélections BTTS, Over 2.5 et score exact</h2>',
-        'BTTSPredict aide les parieurs africains à lire des sélections de matchs internationaux :',
-        'BTTS, Over 2.5 et projection de score exact. Les données sont publiées avant le match,',
-        'les résultats gagnés et perdus sont archivés, et aucun gain futur n&apos;est garanti.',
+        '<h2 id="home-platform-summary">Sélections publiques BTTS et Over 2,5, avec résultats vérifiés</h2>',
+        'BTTSPredict présente des sélections publiques pour des rencontres internationales.',
+        'Les résultats gagnés et perdus sont archivés; les pages d’analyse séparent les pronostics des données',
+        'sportives et de la vérification des scores. Aucun résultat futur n&apos;est garanti.',
       ]],
       ['src/components/bttsbet/Hero.tsx', [
         '<h1 className="bp-home__title">',
-        '<span>{t.home2.heroTitle1.replace(/[\\[\\]]/g, \'\')}</span>',
-        '<strong>{t.home2.heroTitle2}</strong>',
+        "title: 'Pronostics BTTS'",
+        "titleAccent: 'et Over 2,5 aujourd’hui'",
       ]],
     ],
   },
@@ -99,21 +101,24 @@ const PROTECTED_SEO_ROUTES = [
     files: [
       ['src/app/[locale]/ai-correct-score-predictions/page.tsx', [
         "const url = `https://bttspredict.com/${locale}/ai-correct-score-predictions`",
-        "const title = locale === 'ar' ? 'توقعات النتيجة الدقيقة بالذكاء الاصطناعي ' : 'AI Correct Score Predictions — Exact Scores'",
-        "description = locale === 'ar' ? 'احتمالات النتائج الدقيقة المحسوبة بنموذج بواسون. تقديرات إحصائية وليست ضمانات. 18+.' : 'Exact-score probabilities calculated with a Poisson model. Statistical estimates, not guarantees. 18+.'",
-        "'fr-SN': 'https://bttspredict.com/ai-correct-score-predictions'",
+        "const title = 'AI Correct Score Predictions — Exact Scores'",
+        "const description = 'Correct-score picks appear only after passing the publication checks. No local calculation or Poisson model is used. 18+.'",
+        "fr: 'https://bttspredict.com/ai-correct-score-predictions'",
         "en: 'https://bttspredict.com/en/ai-correct-score-predictions'",
-        "ar: 'https://bttspredict.com/ar/ai-correct-score-predictions'",
         "'x-default': 'https://bttspredict.com/ai-correct-score-predictions'",
         'alternates: { canonical: url, languages:',
         "openGraph: { title, description, url, siteName: 'BTTSPredict', type: 'website', locale: LOCALE_META[locale].htmlLang }",
       ]],
+      ['src/app/ai-correct-score-predictions/layout.tsx', [
+        "title: 'Pronostics de score exact par IA | BTTSPredict'",
+        "description: 'Les scores exacts ne sont publiés que si une sélection passe les contrôles de validation.",
+        "canonical: 'https://bttspredict.com/ai-correct-score-predictions'",
+      ]],
       ['src/app/ai-correct-score-predictions/page.tsx', [
-        "text={lang === 'fr' ? 'Prédictions de score exact par IA' : lang === 'en' ? 'AI Correct Score Predictions'",
-        "'AI Correct Score Predictions' : 'توقعات النتيجة الدقيقة بالذكاء الاصطناعي'",
-        'text={lang === \'fr\' ? \'Prédictions de score exact par IA\' : lang === \'en\' ? \'AI Correct Score Predictions\' : \'توقعات النتيجة الدقيقة بالذكاء الاصطناعي\'}',
-        'Most likely exact scores computed by our statistical model from each team’s expected goals (xG). The top 5 scorelines are shown per match, ranked by probability.',
-        'يحسب نموذجنا الإحصائي النتائج الدقيقة الأكثر احتمالاً من الأهداف المتوقعة لكل فريق. نعرض أفضل خمسة نتائج مرتبة حسب الاحتمال.',
+        "title: 'Prédictions de score exact par IA'",
+        "title: 'AI Correct Score Predictions'",
+        "message: 'Aucune sélection de score exact validée n’est actuellement publiée. BTTSPredict ne complète pas ce marché avec un calcul local ou un modèle de Poisson.",
+        'There is currently no validated correct-score pick in the public selections. BTTSPredict does not fill this market with a local calculation or a Poisson model.',
       ]],
     ],
   },
@@ -157,10 +162,13 @@ describe('Match static export cleanup', () => {
       .map(match => match.slug))
     expect(() => getDynamicMatchSlugs([...sourceMatches, sourceMatches[0]], TEST_NOW)).toThrow(/Duplicate match slug/)
 
-    const localized = getLocalizedMatchStaticParams(sourceMatches, ['fr', 'en', 'ar'], TEST_NOW)
+    const locales = getStaticLocalesForPath('/match')
+    expect(locales).toEqual(['en'])
+    const localized = getLocalizedMatchStaticParams(sourceMatches, locales, TEST_NOW)
     expect(localized.some(param => param.locale === 'fr')).toBe(false)
+    expect(localized.every(param => param.locale === 'en')).toBe(true)
     expect(new Set(localized.map(param => `${param.locale}:${param.slug}`)).size).toBe(localized.length)
-    expect(localized).toEqual(['en', 'ar'].flatMap(locale =>
+    expect(localized).toEqual(locales.flatMap(locale =>
       dynamicSlugs.map(slug => ({ locale, slug })),
     ))
   })
@@ -180,12 +188,12 @@ describe('Match static export cleanup', () => {
 
     const retainedData = loadAllMatches(0, true)
     const frenchParams = getFrenchMatchStaticParams(sourceMatches, retainedSlugs, TEST_NOW)
-    const localizedParams = getLocalizedMatchStaticParams(sourceMatches, ['en', 'ar'], TEST_NOW)
+    const localizedParams = getLocalizedMatchStaticParams(sourceMatches, getStaticLocalesForPath('/match'), TEST_NOW)
     for (const entry of retainedClickedFrMatchPages.matches) {
       const match = retainedData.get(entry.slug)
       expect(entry.sourceArchiveFiles).toContain(entry.recordArchiveFile)
       expect(match).toBeDefined()
-      expect(match?.predictions.length).toBeGreaterThan(0)
+      expect(match?.predictions).toEqual([])
       expect(generateMatchSlug(match!.home, match!.away, match!.date)).toBe(entry.slug)
       expect(getMatchBySlug(entry.slug)?.slug).toBe(entry.slug)
       expect(frenchParams).toContainEqual({ slug: entry.slug })
@@ -230,7 +238,7 @@ describe('five protected SEO routes', () => {
     expect(english.home2.heroTitle1).toBe('The [World’s No.1]')
     expect(english.home2.heroTitle2).toBe('BTTS & Over 2.5 Master Platform')
     expect(english.home2.heroText).toBe('Best BTTS, Over 2.5 and surebets picks | Reliable football analysis')
-    expect(english.hero.subtitle).toBe('BTTS, Over 2.5 and correct-score analysis, published before kick-off and tracked to the verified result.')
+    expect(english.hero.subtitle).toBe('BTTS and Over 2.5 picks for upcoming matches, tracked to the verified result.')
 
     const french = translationsFor('fr')
     expect(french.home2.heroTitle1).toBe('Plateforme [N°1 Mondiale]')
@@ -241,6 +249,6 @@ describe('five protected SEO routes', () => {
     expect(arabic.home2.heroTitle1).toBe('المنصة [الأولى عالمياً]')
     expect(arabic.home2.heroTitle2).toBe('BTTS و Over 2.5 Master')
     expect(arabic.home2.heroText).toBe('أفضل توقعات BTTS و Over 2.5 والسيربيت | تحليلات كرة قدم موثوقة')
-    expect(arabic.hero.subtitle).toBe('تحليلات BTTS وOver 2.5 والنتيجة الدقيقة، تُنشر قبل المباراة وتُتابع حتى النتيجة الموثّقة.')
+    expect(arabic.hero.subtitle).toBe('اختيارات BTTS وOver 2.5 لمباريات قادمة، وتُتابع حتى النتيجة الموثّقة.')
   })
 })

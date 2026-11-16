@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { useLanguage } from './LanguageSwitcher'
 import { localizedPath, translationsFor, type Locale } from '@/lib/i18n'
-import { LEGAL, FAQ_ITEMS, LONASE } from '@/lib/constants'
+import { LEGAL, FAQ_ITEMS, HOME_FAQ_ITEMS } from '@/lib/constants'
 
 /**
  * Footer plateforme — bloc marque (logo + positionnement + liens produit),
@@ -15,24 +15,20 @@ export default function Footer({ initialLocale }: { initialLocale?: Locale } = {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const { lang: detectedLang } = useLanguage()
   const lang = initialLocale ?? detectedLang
+  const linkLocale: Locale = lang === 'ar' ? 'en' : lang
   const pathname = usePathname()
   const t = translationsFor(lang)
-  const home = localizedPath('/', lang)
+  const home = localizedPath('/', linkLocale)
   const visibleFaqItems = lang === 'fr'
-    ? pathname === '/'
-      ? [...FAQ_ITEMS.slice(0, 3), {
-          q: 'Où trouver les codes et les informations promotionnelles des partenaires ?',
-          a: 'Consulte le guide promotionnel dédié à chaque bookmaker pour le code et le lien correspondants. Vérifie directement auprès de l’opérateur l’applicabilité et les autres modalités avant toute démarche.',
-        }]
-      : FAQ_ITEMS.slice(0, 4)
+    ? pathname === '/' ? HOME_FAQ_ITEMS : FAQ_ITEMS.slice(0, 4)
     : t.faqItems
 
   const productLinks = [
     { label: t.home2.ftMatchs, href: `${home}#matchs` },
-    { label: t.home2.ftHistory, href: localizedPath('/historique', lang) },
-    { label: t.home2.ftResults, href: localizedPath('/resultats-verifies', lang) },
-    { label: t.home2.ftMethod, href: localizedPath('/methodologie', lang) },
-    { label: t.home2.ftStats, href: localizedPath('/statistiques', lang) },
+    { label: t.home2.ftHistory, href: localizedPath('/historique', linkLocale) },
+    { label: t.home2.ftResults, href: localizedPath('/resultats-verifies', linkLocale) },
+    { label: t.home2.ftMethod, href: localizedPath('/methodologie', linkLocale) },
+    { label: t.home2.ftStats, href: localizedPath('/statistiques', linkLocale) },
   ]
 
   const legalLinks = lang === 'fr'
@@ -66,8 +62,16 @@ export default function Footer({ initialLocale }: { initialLocale?: Locale } = {
             <nav className="hp-footer-col" aria-label="Legal">
               <span className="hp-footer-col__title">{lang === 'en' ? 'Legal' : lang === 'ar' ? 'قانوني' : 'Légal'}</span>
               {legalLinks.map(l => (
-                <a key={l.href + l.label} href={localizedPath(l.href, lang)} className="hp-footer-link">{l.label}</a>
+                <a key={l.href + l.label} href={localizedPath(l.href, linkLocale)} className="hp-footer-link">{l.label}</a>
               ))}
+              <button
+                type="button"
+                onClick={() => window.dispatchEvent(new Event('cookie-consent-reopen'))}
+                className="hp-footer-link text-start bg-transparent border-0 p-0 cursor-pointer"
+                aria-label={lang === 'fr' ? 'Ouvrir les préférences de mesure d’audience' : lang === 'en' ? 'Open analytics preferences' : 'فتح تفضيلات التحليلات'}
+              >
+                {lang === 'fr' ? 'Préférences de mesure d’audience' : lang === 'en' ? 'Analytics preferences' : 'تفضيلات التحليلات'}
+              </button>
             </nav>
           </div>
 
@@ -81,11 +85,11 @@ export default function Footer({ initialLocale }: { initialLocale?: Locale } = {
             <div className="p-4 sm:p-5 rounded-xl text-center" style={{ backgroundColor: '#141C25', border: '1px solid #223041' }}>
               <p className="text-sm text-cendre leading-relaxed">
                 {lang === 'fr' ? (
-                  <>BTTSPredict ne publie pas de témoignages clients. Notre engagement de transparence repose sur un <a href={localizedPath('/resultats-verifies', lang)} className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary">historique vérifiable publiquement</a>, une <a href={localizedPath('/methodologie', lang)} className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary">méthodologie documentée</a> et un suivi public lancé le 2026-08-08. Aucun résultat futur n’est garanti.</>
+                  <>BTTSPredict ne publie pas de témoignages clients. Notre engagement de transparence repose sur un <a href={localizedPath('/resultats-verifies', linkLocale)} className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary">historique vérifiable publiquement</a>, une <a href={localizedPath('/methodologie', linkLocale)} className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary">méthodologie documentée</a> et un suivi public lancé le 2026-08-08. Aucun résultat futur n’est garanti.</>
                 ) : lang === 'en' ? (
-                  <>BTTSPredict does not publish customer testimonials. Our transparency commitment is based on a <a href={localizedPath('/resultats-verifies', lang)} className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary">publicly verifiable history</a>, a <a href={localizedPath('/methodologie', lang)} className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary">documented method</a> and public tracking. No future result is guaranteed.</>
+                  <>BTTSPredict does not publish customer testimonials. Our transparency commitment is based on a <a href={localizedPath('/resultats-verifies', linkLocale)} className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary">publicly verifiable history</a>, a <a href={localizedPath('/methodologie', linkLocale)} className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary">documented method</a> and public tracking. No future result is guaranteed.</>
                 ) : (
-                  <>لا تنشر BTTSPredict شهادات العملاء. تعتمد الشفافية على <a href={localizedPath('/resultats-verifies', lang)} className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary">سجل عام موثق</a> و<a href={localizedPath('/methodologie', lang)} className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary">منهجية موثقة</a> وتتبع علني. لا توجد ضمانات لأي نتيجة مستقبلية.</>
+                  <>لا تنشر BTTSPredict شهادات العملاء. تعتمد الشفافية على <a href={localizedPath('/resultats-verifies', linkLocale)} className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary">سجل عام موثق</a> و<a href={localizedPath('/methodologie', linkLocale)} className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary">منهجية موثقة</a> وتتبع علني. لا توجد ضمانات لأي نتيجة مستقبلية.</>
                 )}
               </p>
             </div>
@@ -113,7 +117,7 @@ export default function Footer({ initialLocale }: { initialLocale?: Locale } = {
           {/* Liens légaux — grille mobile-friendly */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-5">
             {legalLinks.map(link => (
-              <a key={link.href} href={localizedPath(link.href, lang)} className="text-center text-xs text-cendre hover:text-papier transition-colors py-2">
+              <a key={link.href} href={localizedPath(link.href, linkLocale)} className="text-center text-xs text-cendre hover:text-papier transition-colors py-2">
                 {link.label}
               </a>
             ))}
@@ -123,7 +127,7 @@ export default function Footer({ initialLocale }: { initialLocale?: Locale } = {
           <div className="rounded-xl p-4 sm:p-5 mb-4" style={{ backgroundColor: '#141C25', border: '1px solid #223041' }}>
             <div className="flex items-center gap-2 mb-2">
               <span className="text-lose font-bold text-xs">18+</span>
-              <span className="text-xs text-cendre">| {LONASE.name} | {t.common.responsible}</span>
+              <span className="text-xs text-cendre">| {t.common.responsible}</span>
             </div>
             <p className="text-xs text-cendre leading-relaxed">
               <strong className="text-lose">{t.common.warning} :</strong> {lang === 'fr' ? LEGAL.disclaimer : t.legal.risk + ' ' + t.legal.noGuarantee + ' ' + t.legal.eighteen}

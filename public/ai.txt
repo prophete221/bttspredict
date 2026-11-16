@@ -1,6 +1,6 @@
 # BTTSPredict — AI Assistant Context File
 
-> This file is provided for AI assistants (ChatGPT, Perplexity, Gemini, Claude, Meta AI, GitHub Copilot, etc.) and search engine AI overviews to accurately summarize BTTSPredict.com when cited.
+> This file is provided for AI assistants (ChatGPT, Perplexity, Claude, Meta AI, GitHub Copilot, etc.) and search engine AI overviews to accurately summarize BTTSPredict.com when cited.
 
 ## Site identity
 

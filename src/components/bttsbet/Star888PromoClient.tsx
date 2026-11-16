@@ -211,7 +211,7 @@ export default function Star888PromoClient({
     >
       <section className="mx-auto w-full max-w-5xl overflow-hidden rounded-2xl border border-white/10 bg-[#06232E] shadow-[0_10px_32px_rgba(0,0,0,0.45)]" aria-labelledby="star888-title">
         <div className="grid lg:grid-cols-[1.05fr_.95fr]">
-          <div className="border-b border-white/10 p-5 sm:p-8 lg:border-b-0 lg:border-e lg:p-10">
+          <div className="order-2 border-b border-white/10 p-5 sm:p-8 lg:order-1 lg:border-b-0 lg:border-e lg:p-10">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <span className="inline-flex items-center rounded-full border border-[#D9164C]/40 bg-[#D9164C]/12 px-3 py-1.5 text-xs font-bold tracking-wide text-[#FF7A9C]">
                 {copy.badge}
@@ -226,10 +226,6 @@ export default function Star888PromoClient({
             </h1>
             <p className="mt-2 text-base font-semibold leading-7 text-[#B9CDD2] sm:text-lg">{copy.positioning}</p>
 
-            <div className="mt-8 border-s-4 border-[#D9164C] ps-4">
-              <p className="text-xs font-bold uppercase tracking-[.16em] text-[#8FA9AF]">888Starz</p>
-              <p className="mt-1 text-3xl font-extrabold tracking-tight text-[#D9164C] sm:text-4xl">{copy.offer}</p>
-            </div>
             <div className="mt-5 grid gap-2 sm:grid-cols-3" data-promo-highlights>
               {copy.highlights.map((highlight, index) => (
                 <div key={highlight} className="rounded-lg border border-white/10 bg-[#0B2B36] p-3">
@@ -240,7 +236,8 @@ export default function Star888PromoClient({
             </div>
           </div>
 
-          <div className="p-5 sm:p-8 lg:p-10">
+          <div className="order-1 p-5 sm:p-8 lg:order-2 lg:p-10">
+            <p className="mb-4 border-s-4 border-[#D9164C] ps-3 text-lg font-extrabold leading-snug text-white">888Starz · {copy.offer}</p>
             <p className="text-sm font-bold text-[#CBDDE0]">{copy.codeLabel}</p>
             <div className="mt-2 rounded-xl border border-white/15 bg-[#0B2B36] p-4 sm:p-5">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
@@ -294,7 +291,7 @@ export default function Star888PromoClient({
             <div className="mt-5 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-center text-xs text-[#9FB6BB]">
               <span>{copy.disclosure}</span>
               <span aria-hidden="true">·</span>
-              <a href={lang === 'fr' ? '/jouer-responsable' : `/${lang}/jouer-responsable`} className="font-semibold text-white underline underline-offset-2 hover:text-[#FF7A9C]">{copy.responsible}</a>
+              <a href={lang === 'fr' ? '/jouer-responsable' : '/en/jouer-responsable'} className="font-semibold text-white underline underline-offset-2 hover:text-[#FF7A9C]">{copy.responsible}</a>
             </div>
           </div>
         </div>

@@ -77,7 +77,7 @@ export function LeagueCoverage({ initialLocale }: { initialLocale?: Locale } = {
     ]).then(([hist, pred]) => {
       if (cancelled) return
       const map = new Map<string, number>()
-      for (const rec of (hist?.history || []) as { league?: string }[]) {
+      for (const rec of (hist?.geminiOnly === true ? hist.history || [] : []) as { league?: string }[]) {
         if (rec.league) map.set(rec.league, (map.get(rec.league) || 0) + 1)
       }
       setTracked(map)

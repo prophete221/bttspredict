@@ -2,17 +2,91 @@
 
 import { useEffect, useState } from 'react'
 import { useLanguage } from './LanguageSwitcher'
-import { translationsFor, type Locale, localizedPath } from '@/lib/i18n'
-import { generateMatchSlug } from '@/lib/match-slug'
-import { getDakarDayDiff, hasDakarKickoffPassed } from '@/lib/dakar-date'
 import BookmakerCardLinks from './BookmakerCardLinks'
+import { type Locale, localizedPath } from '@/lib/i18n'
+import { generateMatchSlug } from '@/lib/match-slug'
+import { getDakarDayDiff } from '@/lib/dakar-date'
+import { getNextGeminiFixture, type FeaturedFixture } from '@/lib/home-featured-match'
+import type { GeminiPrediction } from '@/lib/gemini-predictions'
 
-interface Pick { type: string; prediction: string; confidence?: number }
-interface Fixture {
-  home: string; away: string; league: string; date: string; time: string
-  homeLogo?: string; awayLogo?: string; predictions?: Pick[]
-  type?: string; prediction?: string; confidence?: number
-  xgTotal?: number; reliabilityScore?: number
+type Copy = {
+  eyebrow: string
+  title: string
+  titleAccent: string
+  description: string
+  primary: string
+  history: string
+  featured: string
+  today: string
+  noMatch: string
+  view: string
+  timezone: string
+  source: string
+  probability: string
+  risk: string
+  vs: string
+  btts: string
+  over: string
+}
+
+const COPY: Record<Locale, Copy> = {
+  fr: {
+    eyebrow: 'TABLEAU DU JOUR',
+    title: 'Pronostics BTTS',
+    titleAccent: 'et Over 2,5 aujourd’hui',
+    description: 'Rencontres à venir, sélections publiques et historique de résultats vérifiables.',
+    primary: 'Voir les matchs analysés',
+    history: 'Historique des résultats',
+    featured: 'PROCHAIN MATCH AVEC SÉLECTION',
+    today: 'À VENIR',
+    noMatch: 'Aucune sélection à venir n’est disponible pour le moment.',
+    view: 'Ouvrir l’analyse du match',
+    timezone: 'Coup d’envoi · GMT',
+    source: 'Sélection publique',
+    probability: 'Probabilité estimée',
+    risk: '18+ · aucun résultat garanti',
+    vs: 'CONTRE',
+    btts: 'Les deux équipes marquent',
+    over: 'Au moins 3 buts',
+  },
+  en: {
+    eyebrow: 'MATCHDAY BOARD',
+    title: 'BTTS predictions',
+    titleAccent: 'and Over 2.5 today',
+    description: 'Upcoming fixtures, public selections and a verifiable results history.',
+    primary: 'Explore analysed matches',
+    history: 'Results history',
+    featured: 'NEXT MATCH WITH A PICK',
+    today: 'UPCOMING',
+    noMatch: 'No upcoming selection is available right now.',
+    view: 'Open match analysis',
+    timezone: 'Kick-off · GMT',
+    source: 'Public selection',
+    probability: 'Estimated probability',
+    risk: '18+ · no outcome is guaranteed',
+    vs: 'VS',
+    btts: 'Both teams to score',
+    over: 'At least 3 goals',
+  },
+  ar: {
+    eyebrow: 'لوحة مباريات اليوم',
+    title: 'توقعات BTTS',
+    titleAccent: 'و Over 2.5 اليوم',
+    description: 'المباريات القادمة والاختيارات العامة وسجل نتائج قابل للتحقق.',
+    primary: 'استكشف المباريات المحللة',
+    history: 'سجل النتائج',
+    featured: 'المباراة القادمة مع اختيار',
+    today: 'قادمة',
+    noMatch: 'لا يتوفر حالياً اختيار قادم.',
+    view: 'افتح تحليل المباراة',
+    timezone: 'موعد البداية · GMT',
+    source: 'اختيار عام',
+    probability: 'الاحتمال المقدّر',
+    risk: '18+ · لا توجد نتيجة مضمونة',
+    vs: 'ضد',
+    btts: 'كلا الفريقين يسجلان',
+    over: '3 أهداف على الأقل',
+  },
 }
 
 function dateLabel(date: string, lang: Locale) {
@@ -26,92 +100,101 @@ function dateLabel(date: string, lang: Locale) {
   } catch { return date }
 }
 
+function marketLabel(pick: GeminiPrediction, copy: Copy) {
+  return pick.market === 'BTTS' ? copy.btts : copy.over
+}
+
+function selectionLabel(value: GeminiPrediction['prediction'], lang: Locale) {
+  if (value === 'Oui') return lang === 'en' ? 'Yes' : lang === 'ar' ? 'نعم' : 'Oui'
+  return lang === 'en' ? 'No' : lang === 'ar' ? 'لا' : 'Non'
+}
+
 export default function Hero({ initialLocale }: { initialLocale?: Locale } = {}) {
   const { lang: detectedLang } = useLanguage()
   const lang = initialLocale ?? detectedLang
-  const t = translationsFor(lang)
-  const [fixture, setFixture] = useState<Fixture | null>(null)
+  const copy = COPY[lang] ?? COPY.fr
+  const [fixture, setFixture] = useState<FeaturedFixture | null>(null)
   const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
     let active = true
     fetch('/predictions.json')
-      .then(r => r.ok ? r.json() : null)
+      .then(response => response.ok ? response.json() : null)
       .catch(() => null)
       .then(data => {
         if (!active) return
-        const rows: Fixture[] = Array.isArray(data?.free) ? data.free : Array.isArray(data?.predictions) ? data.predictions : []
-        const next = rows
-          .filter(row => row.home && row.away && row.date && !hasDakarKickoffPassed(row.date, row.time))
-          .sort((a, b) => {
-            const score = (x: Fixture) => (x.predictions?.length ? 4 : 0) + (x.xgTotal !== undefined ? 2 : 0) + (x.reliabilityScore !== undefined ? 1 : 0)
-            return score(b) - score(a) || (a.date + a.time).localeCompare(b.date + b.time)
-          })[0] ?? null
-        setFixture(next)
+        setFixture(getNextGeminiFixture(data))
         setLoaded(true)
       })
     return () => { active = false }
   }, [])
 
   const direction = lang === 'ar' ? 'rtl' : 'ltr'
-  const picks = fixture?.predictions?.length
-    ? fixture.predictions.slice(0, 2)
-    : fixture?.type ? [{ type: fixture.type, prediction: fixture.prediction ?? '', confidence: fixture.confidence }].slice(0, 2) : []
   const href = fixture
     ? localizedPath(`/match/${generateMatchSlug(fixture.home, fixture.away, fixture.date)}`, lang)
-    : localizedPath('/matchs', lang)
-  const copy = lang === 'en'
-    ? { eyebrow: 'FOOTBALL ANALYTICS', description: 'Clear match analysis, published selections and a verifiable results history.', featured: 'FEATURED MATCH', noMatch: 'No upcoming selection is available right now.', view: 'View match analysis', matches: 'Explore matches', history: 'Results history', method: 'Methodology', kickoff: 'KICK-OFF', today: 'MATCH DATA' }
-    : lang === 'ar'
-      ? { eyebrow: 'تحليل كرة القدم', description: 'تحليل واضح للمباريات واختيارات منشورة وسجل نتائج قابل للتحقق.', featured: 'المباراة المختارة', noMatch: 'لا توجد اختيارات قادمة متاحة حالياً.', view: 'عرض تحليل المباراة', matches: 'استكشف المباريات', history: 'سجل النتائج', method: 'المنهجية', kickoff: 'موعد البداية', today: 'بيانات المباراة' }
-      : { eyebrow: 'ANALYSE FOOTBALL', description: 'Des analyses de matchs lisibles, des sélections publiées et un historique de résultats vérifiable.', featured: 'MATCH À LA UNE', noMatch: 'Aucune sélection à venir disponible pour le moment.', view: 'Voir l’analyse du match', matches: 'Voir les matchs', history: 'Historique des résultats', method: 'Méthodologie', kickoff: 'COUP D’ENVOI', today: 'DONNÉES DU MATCH' }
+    : '#matchs'
+  const featureLinkLabel = fixture ? copy.view : copy.primary
 
   return (
     <section className="bp-home" lang={lang} dir={direction}>
       <div className="bp-home__inner">
         <div className="bp-home__intro">
-          <div className="bp-home__brands" aria-label="Brand">
-            <span className="bp-home__brand bp-home__brand--primary">
-              {lang === 'en' ? 'World’s No.1 platform' : lang === 'ar' ? 'المنصة رقم 1 عالمياً' : 'Plateforme N°1 Mondiale'}
-            </span>
-            <span className="bp-home__brand bp-home__brand--accent">BTTS &amp; Over 2.5 Master</span>
-          </div>
-          <p className="bp-home__eyebrow">BTTSPREDICT <span>·</span> {copy.eyebrow}</p>
+          <p className="bp-home__eyebrow"><span aria-hidden="true">◈</span> {copy.eyebrow}</p>
           <h1 className="bp-home__title">
-            <span>{t.home2.heroTitle1.replace(/[\[\]]/g, '')}</span>
-            <strong>{t.home2.heroTitle2}</strong>
+            <span>{copy.title}</span>
+            <strong>{copy.titleAccent}</strong>
           </h1>
           <p className="bp-home__description">{copy.description}</p>
           <div className="bp-home__actions">
-            <a className="bp-home__primary" href="#matchs">{t.home2.heroCtaPrimary}<span aria-hidden="true">→</span></a>
+            <a className="bp-home__primary" href="#matchs">{copy.primary}<span aria-hidden="true">→</span></a>
             <a className="bp-home__secondary" href={localizedPath('/historique', lang)}>{copy.history}</a>
           </div>
           <div className="bp-home__facts">
-            <span><b>BTTS</b><small>{lang === 'ar' ? 'الفريقان يسجلان' : lang === 'en' ? 'Both teams score' : 'Les deux équipes marquent'}</small></span>
-            <span><b>OVER 2.5</b><small>{lang === 'ar' ? '3 أهداف أو أكثر' : lang === 'en' ? '3 goals or more' : '3 buts ou plus'}</small></span>
-            <span><b>18+</b><small>{copy.method}</small></span>
+            <span><b>BTTS</b><small>{copy.btts}</small></span>
+            <span><b>OVER 2.5</b><small>{copy.over}</small></span>
+            <span><b>18+</b><small>{copy.risk.replace('18+ · ', '')}</small></span>
           </div>
         </div>
 
-        <article className="bp-feature">
+        <article className="bp-feature" aria-labelledby="bp-feature-heading">
           <header className="bp-feature__header">
-            <span><i />{copy.featured}</span>
+            <span id="bp-feature-heading"><i />{copy.featured}</span>
             <small>{copy.today}</small>
           </header>
           {!loaded ? <div className="bp-feature__loading" aria-hidden="true" /> : fixture ? (
             <>
-              <p className="bp-feature__league">{fixture.league}</p>
+              {fixture.league && <p className="bp-feature__league">{fixture.league}</p>}
               <div className="bp-feature__teams">
-                <div>{fixture.homeLogo ? <img src={fixture.homeLogo} alt="" width={42} height={42} /> : <span className="bp-feature__initial">{fixture.home.slice(0,1)}</span>}<b>{fixture.home}</b></div>
-                <em>VS</em>
-                <div>{fixture.awayLogo ? <img src={fixture.awayLogo} alt="" width={42} height={42} /> : <span className="bp-feature__initial">{fixture.away.slice(0,1)}</span>}<b>{fixture.away}</b></div>
+                <div>
+                  {fixture.homeLogo ? <img src={fixture.homeLogo} alt="" width={42} height={42} loading="lazy" /> : <span className="bp-feature__initial">{fixture.home.slice(0, 1)}</span>}
+                  <b>{fixture.home}</b>
+                </div>
+                <em>{copy.vs}</em>
+                <div>
+                  {fixture.awayLogo ? <img src={fixture.awayLogo} alt="" width={42} height={42} loading="lazy" /> : <span className="bp-feature__initial">{fixture.away.slice(0, 1)}</span>}
+                  <b>{fixture.away}</b>
+                </div>
               </div>
-              <div className="bp-feature__time"><b>{fixture.time || '—'}</b><span>{dateLabel(fixture.date, lang)} · GMT</span></div>
-              {picks.length > 0 && <div className="bp-feature__picks">{picks.map(p => <div key={p.type}><small>{p.type}</small><b>{p.prediction === 'Oui' ? t.predictions.bttsYes : p.prediction === 'Non' ? t.predictions.bttsNo : p.prediction}</b>{typeof p.confidence === 'number' && p.confidence > 0 && p.confidence <= 100 && <strong>{p.confidence}%</strong>}</div>)}</div>}
+              <div className="bp-feature__time">
+                <b>{fixture.time}</b>
+                <span>{dateLabel(fixture.date, lang)} · {copy.timezone}</span>
+              </div>
+              <div className="bp-feature__picks" aria-label={copy.source}>
+                {fixture.predictions.map(pick => (
+                  <div key={pick.market} className={`bp-feature__pick ${pick.market === 'BTTS' ? 'is-btts' : 'is-over'}`} data-market={pick.market}>
+                    <small>{marketLabel(pick, copy)}</small>
+                    <b>{selectionLabel(pick.prediction, lang)}</b>
+                    <strong title={copy.probability} aria-label={`${copy.probability} ${Math.round(pick.proba * 100)}%`}>{Math.round(pick.proba * 100)}%</strong>
+                  </div>
+                ))}
+              </div>
+              <p className="bp-feature__source">{copy.source}</p>
+              <div className="bp-feature__partners">
+                <BookmakerCardLinks locale={lang} placement="home-featured-match-card" compact />
+              </div>
             </>
           ) : <div className="bp-feature__empty">{copy.noMatch}</div>}
-          {fixture && <div className="bp-feature__partners"><BookmakerCardLinks locale={lang} placement="home-featured-match-card" compact /></div>}
-          <a className="bp-feature__link" href={href}>{copy.view}<span aria-hidden="true">→</span></a>
+          <a className="bp-feature__link" href={href}>{featureLinkLabel}<span aria-hidden="true">→</span></a>
         </article>
       </div>
     </section>

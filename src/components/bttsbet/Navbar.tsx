@@ -5,6 +5,8 @@ import { usePathname } from 'next/navigation'
 import { BOOKMAKERS } from '@/lib/constants'
 import LanguageSwitcher, { useLanguage } from './LanguageSwitcher'
 import { localizedPath, translationsFor, type Locale } from '@/lib/i18n'
+import { isArabicPromoPath } from '@/lib/arabic-promo-routes'
+import { isVipAvailable } from '@/lib/locale-route-policy'
 import { trackAffiliateCodeCopy } from '@/lib/affiliateTracking'
 import { copyTextToClipboard } from '@/lib/clipboard'
 import { GlobalNavigationContext } from './NavigationContext'
@@ -90,28 +92,30 @@ function NavigationContent() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [collapsed, setCollapsed] = useState(false)
   const [dataToday, setDataToday] = useState(false)
+  const nonPromoLocale: Locale = lang === 'ar' ? 'en' : lang
+  const promoLocale: Locale = lang === 'ar' && isArabicPromoPath(pathname) ? 'ar' : nonPromoLocale
 
   const paths = useMemo(() => ({
-    home: localizedPath('/', lang),
-    btts: localizedPath('/btts/predictions/today', lang),
-    over: localizedPath('/over-2-5/predictions/today', lang),
-    combined: localizedPath('/btts-and-over-2-5-predictions-today', lang),
-    score: localizedPath('/ai-correct-score-predictions', lang),
-    results: localizedPath('/resultats-verifies', lang),
-    stats: localizedPath('/statistiques', lang),
-    history: localizedPath('/historique', lang),
-    method: localizedPath('/methodologie', lang),
-    vip: localizedPath('/vip', lang),
-    promo1xbet: localizedPath('/code-promo-1xbet', lang),
-    promolinebet: localizedPath('/code-promo-linebet-senegal', lang),
-    promomelbet: localizedPath('/code-promo-melbet', lang),
-    promo888: localizedPath('/bonus-888starz', lang),
-    guide: localizedPath('/btts-c-est-quoi', lang),
-    responsible: localizedPath('/jouer-responsable', lang),
-    terms: localizedPath('/cgu', lang),
-    privacy: localizedPath('/politique-confidentialite', lang),
-    legal: localizedPath('/mentions-legales', lang),
-  }), [lang])
+    home: localizedPath('/', nonPromoLocale),
+    btts: localizedPath('/btts/predictions/today', nonPromoLocale),
+    over: localizedPath('/over-2-5/predictions/today', nonPromoLocale),
+    combined: localizedPath('/btts-and-over-2-5-predictions-today', nonPromoLocale),
+    score: localizedPath('/ai-correct-score-predictions', nonPromoLocale),
+    results: localizedPath('/resultats-verifies', nonPromoLocale),
+    stats: localizedPath('/statistiques', nonPromoLocale),
+    history: localizedPath('/historique', nonPromoLocale),
+    method: localizedPath('/methodologie', nonPromoLocale),
+    vip: localizedPath('/vip', nonPromoLocale),
+    promo1xbet: localizedPath('/code-promo-1xbet', promoLocale),
+    promolinebet: localizedPath('/code-promo-linebet-senegal', promoLocale),
+    promomelbet: localizedPath('/code-promo-melbet', promoLocale),
+    promo888: localizedPath('/bonus-888starz', promoLocale),
+    guide: localizedPath('/btts-c-est-quoi', nonPromoLocale),
+    responsible: localizedPath('/jouer-responsable', nonPromoLocale),
+    terms: localizedPath('/cgu', nonPromoLocale),
+    privacy: localizedPath('/politique-confidentialite', nonPromoLocale),
+    legal: localizedPath('/mentions-legales', nonPromoLocale),
+  }), [nonPromoLocale, promoLocale])
 
   const groups = useMemo<NavGroup[]>(() => [
     {
@@ -134,7 +138,10 @@ function NavigationContent() {
   ], [paths])
 
   const partnerRoutes = useMemo(() => ({ '1xbet': paths.promo1xbet, linebet: paths.promolinebet, melbet: paths.promomelbet, '888starz': paths.promo888 }), [paths])
-  const flatLinks = groups.flatMap(group => group.links)
+  const visibleGroups = useMemo(() => !isVipAvailable(lang)
+    ? groups.map(group => ({ ...group, links: group.links.filter(link => link.id !== 'vip') }))
+    : groups, [groups, lang])
+  const flatLinks = visibleGroups.flatMap(group => group.links)
   const desktopLinks = flatLinks.filter(link => ['home', 'matches', 'predictions', 'results', 'history', 'method'].includes(link.id))
   const activePage = flatLinks.find(link => isActive(link.href))
   const pageTitle = activePage?.label[lang] ?? (lang === 'ar' ? 'الرئيسية' : lang === 'en' ? 'Home' : 'Accueil')
@@ -199,7 +206,7 @@ function NavigationContent() {
           <span className="fi-brand-copy"><strong>{appName}</strong></span>
         </a>
         <nav className="fi-sidebar__scroll" aria-label={menuLabel}>
-          <NavItems groups={groups} lang={lang} isActive={isActive} partnerRoutes={partnerRoutes} />
+          <NavItems groups={visibleGroups} lang={lang} isActive={isActive} partnerRoutes={partnerRoutes} />
         </nav>
         <div className="fi-sidebar__foot" title={footerLabel}>
           <span className={`fi-status-dot${dataToday ? ' is-fresh' : ''}`} aria-hidden="true" />
@@ -238,9 +245,11 @@ function NavigationContent() {
           {dataToday && <span className="fi-topbar__fresh"><span className="fi-status-dot" aria-hidden="true" />{copy(lang, 'Données actualisées', 'Data updated', 'تم تحديث البيانات')}</span>}
           {currentPartner && <button type="button" onClick={copyCode} className="fi-topbar__promo" aria-label={copyCodeLabel}>{copied ? copiedText : currentPartner.promoCode}</button>}
           <LanguageSwitcher compact />
-          <a className="fi-topbar__vip" href={paths.vip} aria-label={copy(lang, 'Ouvrir l’accès VIP', 'Open VIP access', 'فتح دخول VIP')}>
-            <NavIcon kind="vip" /><span>{t.nav.vip}</span>
-          </a>
+          {isVipAvailable(lang) && (
+            <a className="fi-topbar__vip" href={paths.vip} aria-label={lang === 'fr' ? 'Ouvrir l’accès VIP' : 'Open VIP access'}>
+              <NavIcon kind="vip" /><span>{t.nav.vip}</span>
+            </a>
+          )}
           <button
             type="button"
             className="fi-icon-button fi-collapse-toggle"
@@ -264,7 +273,7 @@ function NavigationContent() {
             <div className="fi-topbar__actions"><LanguageSwitcher compact /><button type="button" className="fi-icon-button" aria-label={mobileCloseLabel} onClick={() => setMenuOpen(false)}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg></button></div>
           </div>
           <nav className="fi-nav-drawer__scroll" aria-label={menuLabel}>
-            <NavItems groups={groups} lang={lang} isActive={isActive} onNavigate={() => setMenuOpen(false)} partnerRoutes={partnerRoutes} />
+            <NavItems groups={visibleGroups} lang={lang} isActive={isActive} onNavigate={() => setMenuOpen(false)} partnerRoutes={partnerRoutes} />
           </nav>
           <div className="fi-nav-drawer__foot"><div className="fi-sidebar__foot"><span className={`fi-status-dot${dataToday ? ' is-fresh' : ''}`} aria-hidden="true"/><span className="fi-sidebar__foot-note">{footerLabel}</span><span className="fi-sidebar__foot-age">{dataToday ? copy(lang, 'À JOUR', 'UPDATED', 'محدّث') : '18+'}</span></div></div>
         </aside>

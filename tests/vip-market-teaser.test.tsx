@@ -7,6 +7,7 @@ import sitemap from '@/app/sitemap'
 import { GET as getPublicPredictions } from '@/app/predictions.json/route'
 import MissingMarketVipLink from '@/components/bttsbet/MissingMarketVipLink'
 import VipMarketTeaser from '@/components/bttsbet/VipMarketTeaser'
+import VipButtons from '@/components/bttsbet/VipButtons'
 
 vi.mock('next/navigation', () => ({ usePathname: () => '/' }))
 
@@ -16,7 +17,7 @@ describe('CTA VIP pour un marché sans décision Gemini', () => {
   it.each([
     ['fr', 'Débloquer VIP', '/vip'],
     ['en', 'Unlock VIP', '/en/vip'],
-    ['ar', 'افتح VIP', '/ar/vip'],
+    ['ar', 'Unlock VIP', '/en/vip'],
   ] as const)('remplace le tiret par un lien localisé en %s, sans créer de marché verrouillé supplémentaire', (locale, label, href) => {
     const { container } = render(
       <>
@@ -50,7 +51,7 @@ describe('teaser VIP verrouillé dans les cartes gratuites', () => {
   it.each([
     ['fr', 'BTTS avancé', 'Score exact', 'Débloquer'],
     ['en', 'Advanced BTTS', 'Exact score', 'Unlock'],
-    ['ar', 'BTTS متقدم', 'النتيجة الدقيقة', 'افتح VIP'],
+    ['ar', 'Advanced BTTS', 'Exact score', 'Unlock'],
   ] as const)('affiche les deux marchés VIP en %s et le lien VIP localisé', (locale, first, second, unlock) => {
     const { container } = render(<VipMarketTeaser locale={locale} />)
     const markets = [...container.querySelectorAll<HTMLElement>('[data-vip-market]')]
@@ -59,23 +60,30 @@ describe('teaser VIP verrouillé dans les cartes gratuites', () => {
     expect(container.querySelector('[data-testid="vip-market-teaser"]')?.classList.contains('prediction-match-card__vip-teaser')).toBe(true)
     expect(markets.map((market) => market.textContent?.trim())).toEqual([first, second])
     const vipLink = screen.getByRole('link', { name: unlock })
-    expect(vipLink.getAttribute('href')).toBe(locale === 'fr' ? '/vip' : `/${locale}/vip`)
+    expect(vipLink.getAttribute('href')).toBe(locale === 'fr' ? '/vip' : '/en/vip')
     expect(screen.queryByRole('dialog')).toBeNull()
     expect(container.textContent).not.toMatch(/\d+(?:[.,]\d+)?\s*%/)
     expect(container.innerHTML).not.toMatch(/generic preview|no picks or odds|aperçu générique|sans choix ni cote|معاينة عامة|دون اختيارات أو احتمالات/i)
   })
 
-  it('sépare les marchés VIP du pied d’analyse dans la grille Over 2.5', () => {
+  it('replie les CTA d’une locale arabe vers les parcours VIP anglais autorisés', () => {
+    const { container } = render(<VipButtons locale="ar" />)
+    const links = [...container.querySelectorAll<HTMLAnchorElement>('a[data-cta]')]
+    expect(links.map((link) => link.getAttribute('href'))).toEqual(['/en/vip', '/en/vip#historique-vip'])
+  })
+
+  it('conserve la rangée du teaser dans la grille Over 2.5', () => {
     const freePredictionsSource = readFileSync(resolve(__dirname, '..', 'src/components/bttsbet/FreePredictions.tsx'), 'utf8')
     const globalCss = readFileSync(resolve(__dirname, '..', 'src/app/globals.css'), 'utf8')
 
     expect(freePredictionsSource).toContain('prediction-match-card__footer')
-    expect(globalCss).toContain('"vip vip" "details details" "actions actions"')
-    expect(globalCss).toContain('.prediction-match-card__body > .prediction-match-card__vip-teaser { grid-area: vip;')
-    expect(globalCss).toContain('.prediction-match-card__body > .prediction-match-card__footer { grid-area: actions;')
+    expect(freePredictionsSource).toContain('VipMarketTeaser')
+    expect(globalCss).toContain('.page-design--over25 .prediction-match-card__body > .prediction-match-card__vip-teaser')
+    expect(globalCss).toContain('"vip vip"')
+    expect(globalCss).toContain('"vip"')
   })
 
-  it('est présent dans les variantes de cartes gratuites utilisées sur le site', () => {
+  it('préserve le teaser historique dans les variantes de cartes gratuites', () => {
     const files = [
       'src/components/bttsbet/BttsTodayDashboard.tsx',
       'src/components/bttsbet/FreePredictions.tsx',
@@ -93,59 +101,34 @@ describe('teaser VIP verrouillé dans les cartes gratuites', () => {
     expect(teaserSource).not.toContain('ai_exact_score')
   })
 
-  it('relie les CTA de la page VIP au parcours VipJourneyModal intégré au même écran', () => {
+  it('conserve l’ancienne page VIP live et exclut le mockup local', () => {
     const vipPageSource = readFileSync(resolve(__dirname, '..', 'src/app/vip/page.tsx'), 'utf8')
-    expect(vipPageSource).toContain("import VipJourneyModal from './VipJourneyModal'")
-    expect(vipPageSource).toContain('const [vipFlowOpen, setVipFlowOpen] = useState(false)')
-    expect(vipPageSource).toContain('const openVipFlow = (event?: MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => {')
-    expect(vipPageSource).toContain('setVipFlowOpen(true)')
-    expect(vipPageSource).toContain('<VipJourneyModal isOpen={vipFlowOpen} onClose={() => setVipFlowOpen(false)} />')
-    expect(vipPageSource).toMatch(/href="#vip-application"[^>]*onClick=\{openVipFlow\}/)
-    expect(vipPageSource).toContain("heroCta: 'Débloquer le VIP'")
-    expect(vipPageSource).toContain("heroCta: 'Unlock VIP'")
-    expect(vipPageSource).toContain("heroCta: 'افتح VIP'")
-    expect(vipPageSource).not.toContain('Start the process')
-    expect(vipPageSource).not.toContain('juste avant l’étape WhatsApp')
+    const modalSource = readFileSync(resolve(__dirname, '..', 'src/app/vip/VipJourneyModal.tsx'), 'utf8')
+    const localizedSource = readFileSync(resolve(__dirname, '..', 'src/app/[locale]/vip/page.tsx'), 'utf8')
 
-    const flowStart = vipPageSource.indexOf('const VIP_FLOW')
-    const flowEnd = vipPageSource.indexOf('const FLOW_HEADING')
-    const flowSource = vipPageSource.slice(flowStart, flowEnd)
-    expect(flowSource).toContain("wizardStart: 'Ouvrir la procédure en 4 étapes'")
-    expect(flowSource).toContain("wizardStart: 'Open the 4-step process'")
-    expect(flowSource).toContain("wizardStart: 'افتح الإجراءات في 4 خطوات'")
-    for (const [locale, nextLocale] of [['fr', 'en'], ['en', 'ar']] as const) {
-      const localeStart = flowSource.indexOf(`  ${locale}: {`)
-      const localeEnd = flowSource.indexOf(`  ${nextLocale}: {`, localeStart + 1)
-      const localeFlow = flowSource.slice(localeStart, localeEnd)
-      expect([...localeFlow.matchAll(/\{ title: '[1-4]\./g)], locale).toHaveLength(4)
-    }
-    const arabicFlowStart = flowSource.indexOf('  ar: {')
-    const arabicFlow = flowSource.slice(arabicFlowStart, flowSource.lastIndexOf('\n}'))
-    expect([...arabicFlow.matchAll(/\{ title: '[1-4]\./g)], 'ar').toHaveLength(4)
+    expect(vipPageSource).toContain("import VipJourneyModal from './VipJourneyModal'")
+    expect(vipPageSource).toContain('VIP_PARTNERS')
+    expect(vipPageSource).not.toContain('Aperçu local non connecté')
+    expect(vipPageSource).not.toContain('Essai Gold')
+    expect(vipPageSource).not.toContain('trialPrice')
+    expect(modalSource).toContain('const API =')
+    expect(modalSource).toContain('Demande d’accès VIP')
+    expect(modalSource).not.toContain('aucun envoi')
+    expect(localizedSource).toContain("getStaticLocaleParams('/vip')")
+    expect(localizedSource).toContain("if (locale !== 'en') notFound()")
   })
 
-  it('place la vidéo à la place du panneau hero, avant l’aperçu VIP, sans copie dans le parcours', () => {
-    const pageSource = readFileSync(resolve(__dirname, '..', 'src/app/vip/page.tsx'), 'utf8')
-    const cssSource = readFileSync(resolve(__dirname, '..', 'src/app/vip/vip.css'), 'utf8')
-    const heroCardStart = pageSource.indexOf('<div className="vipx-hero__card">')
-    const videoStart = pageSource.indexOf('<video\n                className="vipx-hero__video"')
-    const heroCardEnd = pageSource.indexOf('</div>', videoStart)
-    const previewStart = pageSource.indexOf('<VipLockedPicks')
-    const trustBadgesStart = pageSource.indexOf('className="vipx-hero__trust"')
-
-    expect(heroCardStart).toBeGreaterThanOrEqual(0)
-    expect(trustBadgesStart).toBeLessThan(videoStart)
-    expect(heroCardStart).toBeLessThan(videoStart)
-    expect(videoStart).toBeLessThan(heroCardEnd)
-    expect(videoStart).toBeLessThan(previewStart)
-    expect(pageSource.match(/<video\b/g)).toHaveLength(1)
-    expect(pageSource).not.toContain('vipx-hero__art')
-    expect(pageSource).not.toContain('vipx-flow__video')
-    expect(pageSource).toContain('poster="/videos/vip-parcours-poster.jpg"')
-    expect(pageSource).toContain('<source src="/videos/vip-parcours.mp4" type="video/mp4" />')
-    expect(cssSource).toContain('.vipx .vipx-hero__video')
-    expect(cssSource).toContain('aspect-ratio: 1.36')
-    expect(cssSource).toContain('min-block-size: 210px')
+  it('ne publie aucune URL VIP arabe', () => {
+    const entries = sitemap()
+    expect(entries.some((entry) => entry.url === 'https://bttspredict.com/ar/vip')).toBe(false)
+    const arabic = entries.filter((entry) => entry.url.startsWith('https://bttspredict.com/ar/')).map((entry) => entry.url).sort()
+    expect(arabic).toEqual([
+      'https://bttspredict.com/ar/bonus-888starz',
+      'https://bttspredict.com/ar/code-promo-1xbet',
+      'https://bttspredict.com/ar/code-promo-linebet-senegal',
+      'https://bttspredict.com/ar/code-promo-melbet',
+      'https://bttspredict.com/ar/bonus-888starz-btts221',
+    ].sort())
   })
 
   it('ne montre plus les messages de diagnostic Gemini sans supprimer la provenance positive', () => {
@@ -163,7 +146,8 @@ describe('teaser VIP verrouillé dans les cartes gratuites', () => {
     }
 
     const freePredictionsSource = readFileSync(resolve(__dirname, '..', 'src/components/bttsbet/FreePredictions.tsx'), 'utf8')
-    expect(freePredictionsSource).toContain('{humanMethodLabel(dataQuality, lang)}')
+    expect(freePredictionsSource).toContain('{observedMatchCountLabel(match.matchCountHome, match.matchCountAway, lang)}')
+    expect(freePredictionsSource).not.toContain('humanMatchDataAvailabilityLabel')
   })
 
   it('n’expose aucune clé VIP dans la réponse JSON publique', async () => {
@@ -179,7 +163,7 @@ describe('teaser VIP verrouillé dans les cartes gratuites', () => {
 })
 
 describe('sitemap et robots — préservation des URL de production', () => {
-  it('garde les routes anglaises protégées dans le sitemap avec leurs variantes localisées', () => {
+  it('garde les routes anglaises protégées sans variante arabe hors promotions', () => {
     const entries = sitemap()
     const byUrl = new Map(entries.map((entry) => [entry.url, entry]))
     const protectedUrls = [
@@ -194,7 +178,7 @@ describe('sitemap et robots — préservation des URL de production', () => {
     const englishEntry = byUrl.get('https://bttspredict.com/en/over-2-5/predictions/today')
     expect(englishEntry?.alternates?.languages?.en).toBe('https://bttspredict.com/en/over-2-5/predictions/today')
     expect(englishEntry?.alternates?.languages?.fr).toBe('https://bttspredict.com/over-2-5/predictions/today')
-    expect(englishEntry?.alternates?.languages?.ar).toBe('https://bttspredict.com/ar/over-2-5/predictions/today')
+    expect(englishEntry?.alternates?.languages?.ar).toBeUndefined()
   })
 
   it('conserve le sitemap, les ressources de rendu et les seules exclusions système de robots.txt', () => {

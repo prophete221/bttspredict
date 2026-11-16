@@ -28,6 +28,8 @@ beforeAll(() => {
     makePrediction('unknown', { status: 'IN_PROGRESS', isWon: true }),
     // Boolean-only legacy records remain compatible.
     makePrediction('legacy-loser', { isWon: false, finalScore: '0-0' }),
+    // Existing W/L status is retained in source totals even when no pick was recorded.
+    makePrediction('no-pick-winner', { status: 'WON', prediction: '', finalScore: '2-0' }),
   ] }))
 })
 afterAll(() => {
@@ -38,16 +40,25 @@ describe('verified results and rate denominator', () => {
   it('counts explicit WON/LOST statuses, preserves losses, and excludes unresolved records', () => {
     const data = runWinHistory({ write: false, dir: archiveDir, now: NOW })!
     expect(data.stats).toMatchObject({
-      total: 3,
-      won: 1,
+      total: 4,
+      won: 2,
       lost: 2,
       pending: 2,
       unverifiable: 0,
-      archivedTotal: 5,
-      rate: 33.3,
+      archivedTotal: 6,
+      rate: 50,
     })
     expect(data.stats.total).toBe(data.stats.won + data.stats.lost)
-    expect(data.history.map((row: any) => row.status).sort()).toEqual(['LOST', 'LOST', 'WON'])
+    expect(data.history.map((row: any) => row.status).sort()).toEqual(['LOST', 'LOST', 'WON', 'WON'])
+  })
+
+  it('returns all deduplicated W/L rows only for an explicit dry-run audit, without writing files', () => {
+    const data = runWinHistory({ write: false, dir: archiveDir, now: NOW, includeFullHistory: true })!
+    expect(data.auditFullHistory).toHaveLength(4)
+    expect(data.auditFullHistory.filter((row: any) => !row.prediction)).toHaveLength(1)
+    expect(data.stats.total).toBe(data.auditFullHistory.length)
+    expect(data.history).toHaveLength(4)
+    expect(fs.readdirSync(archiveDir)).toEqual(['2026-10-24.json'])
   })
 
   it('rejects a nonzero rate when no verified outcomes exist', () => {
@@ -62,5 +73,4 @@ describe('verified results and rate denominator', () => {
     payload.stats.unverifiable = payload.stats.archivedTotal
     expect(() => validateWinHistoryPayload(payload)).toThrow(/stats.rate/)
   })
-
 })

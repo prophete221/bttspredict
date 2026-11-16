@@ -6985,23 +6985,15 @@ body::before {
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
-   GIFT POPUP — paquet cadeau « Bonus 300% » (accueil, fermable, Linebet)
-   Mobile : au-dessus de MobileTabBar + StickyCTABar · Desktop : bas droite
+   GIFT PARTNER CARD — stays in document flow; never covers content or controls
    ════════════════════════════════════════════════════════════════════════════ */
 .hp-gift {
-  position: fixed;
-  z-index: 50;
-  left: 0.75rem;
-  right: 0.75rem;
-  bottom: calc(148px + env(safe-area-inset-bottom, 0px));
-  pointer-events: none; /* le conteneur pleine largeur ne bloque pas les clics */
-}
-@media (min-width: 768px) {
-  .hp-gift {
-    left: auto;
-    right: 1.5rem;
-    bottom: 1.5rem;
-  }
+  position: static;
+  z-index: auto;
+  width: min(100%, 1280px);
+  margin: 1rem auto 1.5rem;
+  padding-inline: 1rem;
+  pointer-events: auto;
 }
 .hp-gift-card {
   position: relative;
@@ -10678,7 +10670,7 @@ body { background-color: #0a111a; }
 /* Small screens: preserve hierarchy, prevent overflow, keep the VIP tab distinct in neon gold. */
 @media (max-width: 960px) {
   #btts-today-dashboard { padding: 20px 16px 42px !important; }
-  .btx-dashboard-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "filters" "insights" "feed"; gap: 14px; }
+  .btx-dashboard-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "filters" "feed" "insights"; gap: 14px; }
   .btx-dashboard-filters,
   .btx-dashboard-insights { position: static; }
   .btx-dashboard-grid .btx-filters { display: flex !important; flex-direction: row; overflow-x: auto !important; padding: 0 0 3px !important; }
@@ -10700,7 +10692,7 @@ body { background-color: #0a111a; }
   .btx-probs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .btx-lambdas { gap: 4px; }
   .btx-lambda { padding: 6px 5px; }
-  .btx-lambda__label { font-size: 9px !important; }
+  .btx-lambda__label { font-size: 11px !important; }
   .btx-combo-row { gap: 8px !important; }
   .btx-partner-rail__actions { grid-template-columns: 1fr; }
   .page-design--over25 .over25-intro-section,

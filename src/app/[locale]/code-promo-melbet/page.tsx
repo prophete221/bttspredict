@@ -1,3 +1,4 @@
+import { getStaticLocaleParams } from '@/lib/locale-route-policy'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import LocalizedPromoClient from '@/components/bttsbet/LocalizedPromoClient'
@@ -11,8 +12,10 @@ const FR_URL = `${SITE_URL}/${SLUG}`
 const EN_URL = `${SITE_URL}/en/${SLUG}`
 const AR_URL = `${SITE_URL}/ar/${SLUG}`
 
+export const dynamicParams = false
+
 export function generateStaticParams() {
-  return SUPPORTED_LOCALES.filter((locale) => locale !== 'fr').map((locale) => ({ locale }))
+  return getStaticLocaleParams('/code-promo-melbet')
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {

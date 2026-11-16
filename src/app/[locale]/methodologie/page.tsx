@@ -1,21 +1,24 @@
+import { getStaticLocaleParams } from '@/lib/locale-route-policy'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import { frEnAlternates } from '@/lib/seo'
 import LocalizedMethodologieClient from '@/app/methodologie/LocalizedMethodologieClient'
 import { SUPPORTED_LOCALES, type Locale } from '@/lib/i18n'
 
+export const dynamicParams = false
+
 export function generateStaticParams() {
-  return SUPPORTED_LOCALES.filter(locale => locale !== 'fr').map(locale => ({ locale }))
+  return getStaticLocaleParams('/methodologie')
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  if (locale === 'en') return { title: 'Methodology', description: 'Transparent BTTS and Over 2.5 methodology, data sources and limitations.', alternates: { canonical: 'https://bttspredict.com/en/methodologie' } }
-  if (locale === 'ar') return { title: 'منهجية BTTSPredict', description: 'منهجية شفافة لتوقعات BTTS وOver 2.5 ومصادر البيانات والحدود.', alternates: { canonical: 'https://bttspredict.com/ar/methodologie' } }
+  if (locale === 'en') return { title: 'Methodology', description: 'Transparent BTTS and Over 2.5 methodology, data sources and limitations.', alternates: frEnAlternates('/methodologie', 'en') }
   return {}
 }
 
 export default async function LocalizedMethodologiePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
-  if (!SUPPORTED_LOCALES.includes(locale as Locale) || locale === 'fr') notFound()
+  if (locale !== 'en') notFound()
   return <LocalizedMethodologieClient />
 }

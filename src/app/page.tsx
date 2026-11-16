@@ -1,6 +1,8 @@
 import dynamic from 'next/dynamic'
 import type { Metadata } from 'next'
 import { checkSeo } from '@/lib/seo'
+import { HOME_FAQ_ITEMS } from '@/lib/constants'
+import { getArchiveSummary } from './historique/getArchiveSummary'
 
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
 const Hero = dynamic(() => import('@/components/bttsbet/Hero'), { loading: () => null })
@@ -8,9 +10,7 @@ const MatchCenter = dynamic(() => import('@/components/bttsbet/MatchCenter'), { 
 const PerformanceDashboard = dynamic(() => import('@/components/bttsbet/PerformanceDashboard'), { loading: () => null })
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
 const ErrorBoundary = dynamic(() => import('@/components/bttsbet/ErrorBoundary'), { loading: () => null })
-// Tâche 002 — Title et description SEO alignés sur le Prompt Maître.
-// Title : 49 chars (limite soft 60) — description : 139 chars (limite soft 150).
-// Anti-récidive: checkSeo() lance une erreur build-time si title > 60 ou desc > 150.
+
 const TITLE = "BTTSPredict — Pronostics BTTS du jour et Over 2,5"
 const DESCRIPTION = "Pronostics BTTS du jour sur des matchs internationaux, avec sélections horodatées, historique public et méthode documentée. 18+."
 checkSeo('homepage', TITLE, DESCRIPTION)
@@ -23,7 +23,6 @@ export const metadata: Metadata = {
     languages: {
       fr: 'https://bttspredict.com/',
       en: 'https://bttspredict.com/en',
-      ar: 'https://bttspredict.com/ar',
       'x-default': 'https://bttspredict.com/',
     },
   },
@@ -34,7 +33,7 @@ export const metadata: Metadata = {
     siteName: 'BTTSPredict',
     type: 'website',
     locale: 'fr_FR',
-    alternateLocale: ['en_US', 'ar_SA'],
+    alternateLocale: ['en_US'],
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: TITLE }],
   },
   twitter: {
@@ -45,34 +44,29 @@ export const metadata: Metadata = {
   },
 }
 
-// JSON-LD WebSite — SearchAction for Google SERP
-const jsonLd = {
+const websiteJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'BTTSPredict',
   url: 'https://bttspredict.com',
-  description: "Plateforme de sélections football BTTS, Over 2,5 et score exact pour les parieurs africains. Matchs internationaux, données publiques et historique vérifiable.",
+  description: 'Sélections publiques de football BTTS et Over 2,5, historique des résultats vérifiés et méthode documentée.',
   inLanguage: 'fr',
   publisher: {
     '@type': 'Organization',
     name: 'BTTSPredict',
     url: 'https://bttspredict.com',
-    logo: {
-      '@type': 'ImageObject',
-      url: 'https://bttspredict.com/icon-512.png',
-    },
+    logo: { '@type': 'ImageObject', url: 'https://bttspredict.com/icon-512.png' },
   },
 }
 
-// JSON-LD Organization — identité éditoriale vérifiable, sans récompense ni autorité auto-déclarée.
 const organizationJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'BTTSPredict',
   url: 'https://bttspredict.com',
   logo: 'https://bttspredict.com/icon-512.png',
-  description: 'Site informatif consacré aux sélections BTTS, Over 2.5 et score exact sur des matchs internationaux.',
-  knowsAbout: ['BTTS', 'Over 2.5', 'football', 'modèle statistique Poisson'],
+  description: 'Site informatif consacré aux sélections BTTS et Over 2,5, aux analyses de matchs et aux résultats vérifiés.',
+  knowsAbout: ['BTTS', 'Over 2.5', 'football', 'analyse des données de football'],
   sameAs: [
     'https://twitter.com/bttspredict',
     'https://www.facebook.com/bttspredict',
@@ -83,112 +77,65 @@ const organizationJsonLd = {
 const faqJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: "Qu'est-ce que le BTTS ?",
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: "BTTS signifie Both Teams To Score (les deux équipes marquent). C'est un type de pari où vous pariez que les deux équipes marqueront au moins un but durant le match, quelle que soit l'issue finale.",
-      },
-    },
-    {
-      '@type': 'Question',
-      name: "Comment fonctionne l'analyse de BTTSPredict ?",
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: "BTTSPredict publie des pronostics BTTS et Over 2.5 basés sur un modèle statistique. Le nouveau suivi public a été lancé le 2026-08-08 — voir /historique pour les chiffres réels. Aucun résultat futur n'est garanti.",
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Quel code partenaire et quelle offre sont confirmés pour Linebet ?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'L’offre partenaire confirmée pour Linebet est de 300 % worldwide et le code exact est VISION221 (voir le guide dédié). Vérifiez directement auprès de Linebet les autres modalités et l’applicabilité.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Les pronostics gratuits sont-ils fiables ?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: "Nos pronostics gratuits sont produits par le même modèle statistique que nos pronostics premium. Ils couvrent les matchs les plus populaires du jour avec une analyse complète. Aucun résultat n'est garanti.",
-      },
-    },
-  ],
+  mainEntity: HOME_FAQ_ITEMS.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
 }
-
-// JSON-LD Organization — identité éditoriale vérifiable, sans récompense ni autorité auto-déclarée.
 
 const webPageJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
-  name: 'BTTSPredict — Prédictions BTTS par modèle statistique',
+  name: 'BTTSPredict — Pronostics BTTS et Over 2,5 du jour',
   url: 'https://bttspredict.com',
-  description: 'Plateforme de pronostics football BTTS et Over 2.5 par analyse statistique probabiliste. Ligues sélectionnées pour leur fort taux de BTTS. Taux de réussite transparent et vérifié publiquement. Aucun gain garanti. 18+.',
+  description: 'Sélections publiques BTTS et Over 2,5, historique des résultats vérifiés et méthode documentée. Aucun résultat futur garanti. 18+.',
   isPartOf: { '@type': 'WebSite', name: 'BTTSPredict', url: 'https://bttspredict.com' },
   about: [
     { '@type': 'Thing', name: 'BTTS — Both Teams To Score' },
     { '@type': 'Thing', name: 'Over 2.5 Goals' },
-    { '@type': 'Thing', name: 'Pronostics football par modèle statistique' },
-    { '@type': 'Thing', name: 'Modèles Poisson calibrés' },
+    { '@type': 'Thing', name: 'Sélections publiques de football vérifiées' },
   ],
   author: { '@type': 'Organization', name: 'BTTSPredict', url: 'https://bttspredict.com' },
   publisher: { '@type': 'Organization', name: 'BTTSPredict', url: 'https://bttspredict.com' },
-  inLanguage: 'fr',
   datePublished: '2026-01-01',
   dateModified: new Date().toISOString().slice(0, 10),
-  keywords: 'BTTS, Over 2.5, pronostics btts aujourd\'hui, analyse statistique football, modèles Poisson, code promo VISION221, Linebet, 888starz, pronostics football gratuits, pronostics Sénégal, both teams to score',
+  keywords: 'BTTS, Over 2.5, pronostics btts aujourd’hui, analyse de football, code promo VISION221, Linebet, 888starz, pronostics football gratuits, pronostics Sénégal, both teams to score',
+  inLanguage: 'fr',
 }
-
-// JSON-LD Dataset — Transparency & credibility
 
 const datasetJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Dataset',
-  name: 'BTTSPredict — Historique des pronostics BTTS & Over 2.5',
-  description: 'Historique complet des pronostics publiés par BTTSPredict, incluant les résultats gagnés ET perdus. Taux de réussite calculé sur les pronostics réellement publiés. Transparence totale.',
+  name: 'BTTSPredict — Archive publique des pronostics BTTS et Over 2,5',
+  description: 'Archive des sélections publiées et de leurs résultats vérifiés, gagnés comme perdus. Les taux indiquent leur période et leur dénominateur; aucun résultat futur n’est garanti.',
   url: 'https://bttspredict.com/win-history.json',
   creator: { '@type': 'Organization', name: 'BTTSPredict', url: 'https://bttspredict.com' },
   license: 'https://creativecommons.org/licenses/by/4.0/',
   isAccessibleForFree: true,
-  distribution: [
-    {
-      '@type': 'DataDownload',
-      encodingFormat: 'application/json',
-      contentUrl: 'https://bttspredict.com/win-history.json',
-    },
-  ],
-  keywords: 'pronostics BTTS, historique résultats, taux de réussite, transparence, gagnés perdus',
+  keywords: 'pronostics BTTS, historique résultats, taux de réussite, transparence, gagnés perdus, sélections vérifiées',
+  distribution: [{
+    '@type': 'DataDownload',
+    encodingFormat: 'application/json',
+    contentUrl: 'https://bttspredict.com/win-history.json',
+  }],
   variableMeasured: [
-    { '@type': 'PropertyValue', name: 'Taux de réussite', value: 'Calculé en temps réel depuis /historique' },
-    { '@type': 'PropertyValue', name: 'Ligues couvertes', value: 'Sélection de ligues à fort taux de BTTS' },
+    { '@type': 'PropertyValue', name: 'Taux de réussite', value: 'Calculé à partir du registre public /historique' },
     { '@type': 'PropertyValue', name: 'Source de vérification', value: 'ESPN et TheSportsDB' },
-    { '@type': 'PropertyValue', name: 'Modèle', value: 'Approche statistique probabiliste' },
-    { '@type': 'PropertyValue', name: 'Suivi public', value: 'Lancé le 2026-08-08, voir /historique' },
+    { '@type': 'PropertyValue', name: 'Contrôle des pronostics publics', value: 'Sélections vérifiées avant publication' },
+    { '@type': 'PropertyValue', name: 'Suivi public', value: 'Voir /historique pour la période et la date des données' },
   ],
 }
-
-// JSON-LD Review/Trust — SUPPRIMÉ (avis fictifs supprimés pour conformité Google Structured Data)
-// La plateforme n'a pas de système d'avis vérifiable. Inventer des reviews serait une violation.
-// Seules les métriques objectives (pronostics publiés, vérifiés, taux calculé depuis l'archive) sont affichées.
 
 export default function Home() {
   return (
     <div className="bp-site-page page-design page-design--home relative">
-
-      {/* JSON-LD Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(datasetJsonLd) }} />
 
-      {/* Skip to content — accessibility */}
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-gold focus:text-midnight focus:font-bold focus:rounded-lg"
@@ -196,29 +143,23 @@ export default function Home() {
         Aller au contenu principal
       </a>
 
-      {/* Main Content — Plateforme football intelligence
-          Structure : Header produit → Hero + Signal en vedette →
-          Matchs du jour (MatchCenter) → Piliers → Performance/Historique →
-          Méthode → Compétitions → Partenaire VISION221 → Jeu responsable →
-          Footer. Bloc partenaire placé APRÈS la valeur produit. */}
       <main id="main-content" className="relative z-10" style={{ paddingBottom: 'calc(80px + env(safe-area-inset-bottom, 0px))' }}>
         <ErrorBoundary><Navbar /></ErrorBoundary>
         <ErrorBoundary><Hero /></ErrorBoundary>
         <ErrorBoundary><MatchCenter /></ErrorBoundary>
-        <ErrorBoundary><PerformanceDashboard /></ErrorBoundary>
+        <ErrorBoundary><PerformanceDashboard archiveSummary={getArchiveSummary()} /></ErrorBoundary>
 
         <section className="bp-home-summary" aria-labelledby="home-platform-summary">
           <div>
-            <h2 id="home-platform-summary">Plateforme de sélections BTTS, Over 2.5 et score exact</h2>
+            <h2 id="home-platform-summary">Sélections publiques BTTS et Over 2,5, avec résultats vérifiés</h2>
             <p>
-              BTTSPredict aide les parieurs africains à lire des sélections de matchs internationaux :
-              BTTS, Over 2.5 et projection de score exact. Les données sont publiées avant le match,
-              les résultats gagnés et perdus sont archivés, et aucun gain futur n&apos;est garanti.
+              BTTSPredict présente des sélections publiques pour des rencontres internationales.
+              Les résultats gagnés et perdus sont archivés; les pages d’analyse séparent les pronostics des données
+              sportives et de la vérification des scores. Aucun résultat futur n&apos;est garanti.
             </p>
           </div>
         </section>
 
-        {/* Jeu responsable — compact et moderne */}
         <section className="bp-responsible" aria-label="Jeu responsable">
           <div>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8dbbfa" strokeWidth="2" className="flex-shrink-0 mt-0.5">
@@ -230,25 +171,21 @@ export default function Home() {
               <p className="text-sm text-[#A4A4A4] leading-relaxed mb-1">
                 <strong>18+</strong> · Les paris sportifs comportent un risque de perte. Ne pariez jamais plus que ce que vous pouvez perdre.
               </p>
-              <a href="/jouer-responsable">
-                En savoir plus →
-              </a>
+              <a href="/jouer-responsable">En savoir plus →</a>
             </div>
           </div>
         </section>
 
-        {/* Liens internes SEO */}
         <section className="bp-internal-links" aria-label="Guides et offres">
-            <a href="/bonus-888starz" className="text-[#9DABBB] hover:text-[#2F7DFF] transition-colors">Bonus 888Starz</a>
-            <span className="text-[#223041]">·</span>
-            <a href="/code-promo-linebet-senegal" className="text-[#9DABBB] hover:text-[#2F7DFF] transition-colors">Code Promo Linebet</a>
-            <span className="text-[#223041]">·</span>
-            <a href="/btts-c-est-quoi" className="text-[#9DABBB] hover:text-[#2F7DFF] transition-colors">BTTS signification</a>
+          <a href="/bonus-888starz" className="text-[#9DABBB] hover:text-[#2F7DFF] transition-colors">Bonus 888Starz</a>
+          <span className="text-[#223041]">·</span>
+          <a href="/code-promo-linebet-senegal" className="text-[#9DABBB] hover:text-[#2F7DFF] transition-colors">Code Promo Linebet</a>
+          <span className="text-[#223041]">·</span>
+          <a href="/btts-c-est-quoi" className="text-[#9DABBB] hover:text-[#2F7DFF] transition-colors">BTTS signification</a>
         </section>
 
         <ErrorBoundary><Footer /></ErrorBoundary>
       </main>
-
     </div>
   )
 }

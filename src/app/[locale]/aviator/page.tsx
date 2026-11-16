@@ -1,10 +1,13 @@
+import { getStaticLocaleParams } from '@/lib/locale-route-policy'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import AviatorPageContent, { aviatorMeta } from '@/components/bttsbet/AviatorPageContent'
 import { isLocale, SUPPORTED_LOCALES, type Locale } from '@/lib/i18n'
 
+export const dynamicParams = false
+
 export function generateStaticParams() {
-  return SUPPORTED_LOCALES.filter((locale) => locale !== 'fr').map((locale) => ({ locale }))
+  return getStaticLocaleParams('/aviator')
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {

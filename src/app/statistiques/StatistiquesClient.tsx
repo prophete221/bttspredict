@@ -15,13 +15,17 @@ import Link from 'next/link'
 import { Navbar, Footer } from '@/components/bttsbet'
 import { useLanguage } from '@/components/bttsbet/LanguageSwitcher'
 import AnimatedTitle from '@/components/bttsbet/HeroWordmark'
+import ArchiveSummaryCards from '@/components/bttsbet/ArchiveSummaryCards'
+import type { ArchiveSummary } from '@/lib/archive-summary'
 import { RateBar, CompositionBar, CumulativeLine, DailyBars, fmtPct } from '@/components/bttsbet/SimpleCharts'
+import { partitionRecordedPickHistory, summarizeRecordedPickHistory, validateRecordedResult } from '@/lib/historyDisplay'
 
 interface HistoryEntry {
   date: string
   match: string
   league: string
   market: string
+  prediction?: string
   tier: string
   proba: number
   status: string
@@ -31,6 +35,7 @@ interface HistoryEntry {
 }
 
 interface WinHistory {
+  geminiOnly?: boolean
   generatedAt: string
   trackingPeriod: { startDate: string; isPublicPeriod: boolean; disclaimer: string; insufficientVolume: boolean }
   stats: {
@@ -51,6 +56,15 @@ interface WinHistory {
     period: { from: string; to: string; days: number }
   }
   history: HistoryEntry[]
+  pickStats?: ReturnType<typeof summarizeRecordedPickHistory>
+  historyAudit?: {
+    archivesRead: number; sourceRows: number; sourceWon: number; sourceLost: number; sourceTotal: number
+    sourceNoPick: number; sourceNoPickWon: number; sourceNoPickLost: number
+    sourceRecordedPickRows: number; geminiRecordedPickRows: number; nonGeminiOrUnknownSourcePickRows: number; sourceNeedsReviewRows: number
+    fullPickRows: number; fullPickWon: number; fullPickLost: number; fullPickUnverifiedRows: number
+    detailLimit: number; detailRows: number; detailSourceRecordedPickRows: number; detailGeminiRows: number; detailPickRows: number; detailNoPick: number
+    outsideDetailRows: number; outsideDetailGeminiRows: number; outsideDetailPickRows: number; sourceMatchesPublished: boolean
+  }
 }
 
 type Copy = ReturnType<typeof makeCopy>
@@ -58,74 +72,69 @@ type Copy = ReturnType<typeof makeCopy>
 function makeCopy(lang: 'fr' | 'en' | 'ar') {
   if (lang === 'en') {
     return {
-      title: 'Verified statistics', subtitle: 'All figures below come from the public verified tracking — every rate is shown with its denominator. No projection, no fabricated data.',
-      scopeTitle: 'Scope',
-      scope: (ver: number, won: number, lost: number, from: string) =>
-        `${ver} predictions verified against official results (ESPN) since ${from} (public tracking): ${won} won, ${lost} lost. Pre-${from} archives are private and excluded.`,
+      title: 'Results statistics', subtitle: 'Archive summary and verified results by competition.',
+      eyebrow: 'STATISTICS',
+      lowVolume: 'The sample is still limited.',
       kpiOverall: 'Overall success rate', kpiGold: 'Gold picks rate', kpiVerified: 'Verified predictions',
-      composition: 'Outcome composition', compositionDesc: (p: number) => `The ${p} verified predictions since the tracking start — losses included, nothing hidden.`,
-      evolution: 'Cumulative verified results', daily: 'Daily verifications', dailyDesc: 'Last 30 days with at least one verification (days without verification are not invented).',
-      markets: 'By market', tiers: 'By selection tier', leagues: 'By competition',
-      leaguesNote: (l: number, t: number) => `Competitions come from verified entries only (${t} entries across ${l} competitions). Counts below are real — uneven coverage reflects actual data, not a ranking of competitions.`,
+      composition: 'Outcome composition', compositionDesc: (_p: number) => 'Wins and losses from verified match results.',
+      evolution: 'Cumulative verified results', daily: 'Daily verifications', dailyDesc: 'Match results verified over the last 30 days.',
+      markets: 'By market', tiers: 'Verified results by selection tier', leagues: 'Verified results by competition',
       tableLeague: 'Competition', tableWin: 'WIN', tableLost: 'LOST', tableRate: 'Rate', tableSample: 'Sample',
-      verifiedOn: 'Verified predictions only — every rate is based on won or lost results.', updated: 'Last data update', method: 'Methodology', results: 'Verified results →', today: 'Today’s predictions →',
+      verifiedOn: 'Verified match results only.', updated: 'Last data update', method: 'Methodology', results: 'Verified results →', today: 'Today’s predictions →',
       loading: 'Loading statistics…', error: 'Unable to load statistics data.', retry: 'Retry',
       disclaimer: '18+ · Sports betting carries a risk of loss. No future result is guaranteed. BTTSPredict does not take bets or hold funds.',
     }
   }
   if (lang === 'ar') {
     return {
-      title: 'إحصائيات موثقة', subtitle: 'جميع الأرقام أدناه من التتبع العام الموثق — كل معدل يظهر مع مقامه. لا توجد توقعات مستقبلية ولا بيانات مؤلفة.',
-      scopeTitle: 'النطاق',
-      scope: (ver: number, won: number, lost: number, from: string) =>
-        `${ver} توقعاً موثقاً مقابل النتائج الرسمية (ESPN) منذ ${from} (تتبع عام): ${won} فوزاً و${lost} خسارة. أرشيف ما قبل ${from} خاص ومستبعد.`,
+      title: 'إحصائيات موثقة', subtitle: 'نتائج التوقعات الموثقة، مرتبة حسب السوق والمسابقة.',
+      eyebrow: 'الإحصائيات',
+      lowVolume: 'العينة ما زالت محدودة.',
       kpiOverall: 'معدل النجاح الإجمالي', kpiGold: 'معدل اختيارات Gold', kpiVerified: 'توقعات موثقة',
-      composition: 'توزيع النتائج', compositionDesc: (p: number) => `التوقعات الموثقة (${p}) منذ بداية التتبع — الخسائر مشمولة، لا شيء مخفي.`,
-      evolution: 'النتائج الموثقة التراكمية', daily: 'التحققات اليومية', dailyDesc: 'آخر 30 يوماً بتحقق واحد على الأقل (الأيام بدون تحقق غير مؤلفة).',
+      composition: 'توزيع النتائج', compositionDesc: (_p: number) => 'النتائج تتضمن المباريات الرابحة والخاسرة.',
+      evolution: 'النتائج الموثقة التراكمية', daily: 'التحققات اليومية', dailyDesc: 'نتائج المباريات التي تم التحقق منها خلال آخر 30 يوماً.',
       markets: 'حسب السوق', tiers: 'حسب مستوى الاختيار', leagues: 'حسب المسابقة',
-      leaguesNote: (l: number, t: number) => `المسابقات من الإدخالات الموثقة فقط (${t} إدخالاً عبر ${l} مسابقة). الأعداد حقيقية — التغطية غير المتكافئة تعكس البيانات الفعلية وليست ترتيباً للمسابقات.`,
       tableLeague: 'المسابقة', tableWin: 'فوز', tableLost: 'خسارة', tableRate: 'المعدل', tableSample: 'العينة',
-      verifiedOn: 'التوقعات الموثقة فقط — كل معدل يعتمد على نتائج فوز أو خسارة.', updated: 'آخر تحديث للبيانات', method: 'المنهجية', results: 'النتائج الموثقة ←', today: 'توقعات اليوم ←',
+      verifiedOn: 'النتائج الموثقة فقط.', updated: 'آخر تحديث للبيانات', method: 'المنهجية', results: 'النتائج الموثقة ←', today: 'توقعات اليوم ←',
       loading: 'جار تحميل الإحصائيات…', error: 'تعذر تحميل بيانات الإحصائيات.', retry: 'إعادة المحاولة',
       disclaimer: '18+ · المراهنات الرياضية تنطوي على خطر الخسارة. لا توجد ضمانات لأي نتيجة مستقبلية. BTTSPredict لا يقبل الرهانات ولا يحتفظ بالأموال.',
     }
   }
   return {
-    title: 'Statistiques vérifiées', subtitle: 'Tous les chiffres ci-dessous proviennent du suivi public vérifié — chaque taux est affiché avec son dénominateur. Aucune projection, aucune donnée inventée.',
-    scopeTitle: 'Périmètre',
-    scope: (ver: number, won: number, lost: number, from: string) =>
-      `${ver} pronostics vérifiés contre les résultats officiels (ESPN) depuis le ${from} (suivi public) : ${won} gagnés, ${lost} perdus. Les archives antérieures au ${from} sont privées et exclues.`,
+    title: 'Statistiques des résultats', subtitle: 'Bilan des archives et détail des résultats vérifiés par compétition.',
+    eyebrow: 'STATISTIQUES',
+    lowVolume: 'Échantillon encore limité.',
     kpiOverall: 'Taux de réussite global', kpiGold: 'Taux Sélections Gold', kpiVerified: 'Pronostics vérifiés',
-    composition: 'Composition des résultats', compositionDesc: (p: number) => `Les ${p} pronostics vérifiés depuis le lancement du suivi — pertes incluses, rien n'est masqué.`,
-    evolution: 'Évolution des résultats vérifiés', daily: 'Vérifications par jour', dailyDesc: 'Les 30 derniers jours comptant au moins une vérification (les jours sans vérification ne sont pas inventés).',
-    markets: 'Par marché', tiers: 'Par niveau de sélection', leagues: 'Par compétition',
-    leaguesNote: (l: number, t: number) => `Compétitions issues des seules entrées vérifiées (${t} entrées réparties sur ${l} compétitions). Les effectifs ci-dessous sont réels — la couverture inégale reflète les données, ce n'est pas un classement des compétitions.`,
+    composition: 'Composition des résultats', compositionDesc: (_p: number) => 'Résultats gagnants et perdants des matchs vérifiés.',
+    evolution: 'Évolution des résultats vérifiés', daily: 'Vérifications par jour', dailyDesc: 'Résultats vérifiés au cours des 30 derniers jours.',
+    markets: 'Par marché', tiers: 'Résultats vérifiés par niveau de sélection', leagues: 'Résultats vérifiés par compétition',
     tableLeague: 'Compétition', tableWin: 'WIN', tableLost: 'LOST', tableRate: 'Taux', tableSample: 'Échantillon',
-    verifiedOn: 'Pronostics vérifiés uniquement — chaque taux repose sur des résultats gagnés ou perdus.', updated: 'Dernière mise à jour des données', method: 'Méthodologie', results: 'Résultats vérifiés →', today: 'Pronostics du jour →',
+    verifiedOn: 'Résultats de matchs vérifiés.', updated: 'Dernière mise à jour des données', method: 'Méthodologie', results: 'Résultats vérifiés →', today: 'Pronostics du jour →',
     loading: 'Chargement des statistiques…', error: 'Impossible de charger les données de statistiques.', retry: 'Réessayer',
     disclaimer: '18+ · Les paris sportifs comportent un risque de perte. Aucun résultat futur n\'est garanti. BTTSPredict ne prend pas de paris et ne collecte pas de fonds.',
   }
 }
 
-export default function StatistiquesClient() {
+export default function StatistiquesClient({ initialData, archiveSummary }: { initialData: WinHistory | null; archiveSummary: ArchiveSummary | null }) {
   const { lang } = useLanguage()
   const copy = makeCopy(lang)
-  const [data, setData] = useState<WinHistory | null>(null)
+  const [data, setData] = useState<WinHistory | null>(initialData)
   const [failed, setFailed] = useState(false)
 
   useEffect(() => {
+    if (initialData) return
     fetch('/win-history.json')
       .then(r => { if (!r.ok) throw new Error('HTTP error'); return r.json() })
-      .then(d => setData(d))
+      .then(d => { if (d?.geminiOnly !== true) throw new Error('Verified history is unavailable'); setData(d) })
       .catch(() => setFailed(true))
-  }, [])
+  }, [initialData])
 
   if (failed) {
     return (
       <Shell>
         <div className="max-w-4xl mx-auto px-4 py-20 text-center">
           <p className="text-sm text-[#F87171] mb-3">{copy.error}</p>
-          <button onClick={() => { setFailed(false); fetch('/win-history.json').then(r => r.json()).then(d => setData(d)).catch(() => setFailed(true)) }}
+          <button onClick={() => { setFailed(false); fetch('/win-history.json').then(r => r.json()).then(d => { if (d?.geminiOnly !== true) throw new Error('Verified history is unavailable'); setData(d) }).catch(() => setFailed(true)) }}
             className="mt-4 px-4 py-2 rounded-[10px] text-sm font-bold" style={{ backgroundColor: '#2F7DFF', color: '#FFFFFF' }}>
             {copy.retry}
           </button>
@@ -145,34 +154,34 @@ export default function StatistiquesClient() {
     )
   }
 
-  const { stats, history, trackingPeriod, generatedAt } = data
-  const from = trackingPeriod.startDate
-  const lowVolume = trackingPeriod.insufficientVolume || stats.total < 30
+  const { history, trackingPeriod, generatedAt } = data
+  const stats = data.pickStats ?? summarizeRecordedPickHistory(history, {
+    asOf: generatedAt ? Date.parse(generatedAt) : undefined,
+    trackingStart: trackingPeriod.startDate,
+  })
 
-  // ── Données réelles calculées côté client (aucune invention) ──
+  // ── Les compétitions utilisent uniquement les picks enregistrés présents dans le détail (≤500 lignes). ──
+  const { withPick: detailPicks } = partitionRecordedPickHistory(history)
+  const verifiedDetail = detailPicks.filter(h => (h.status === 'WON' || h.status === 'LOST') && validateRecordedResult(h) === 'verified')
   const byLeagueMap = new Map<string, { won: number; lost: number }>()
-  const dailyMap = new Map<string, { won: number; lost: number }>()
-  for (const h of history) {
+  for (const h of verifiedDetail) {
     const lg = h.league || '—'
     const cur = byLeagueMap.get(lg) || { won: 0, lost: 0 }
     if (h.status === 'WON') { cur.won++; byLeagueMap.set(lg, cur) }
     else if (h.status === 'LOST') { cur.lost++; byLeagueMap.set(lg, cur) }
-    const d = dailyMap.get(h.date) || { won: 0, lost: 0 }
-    if (h.status === 'WON') { d.won++; dailyMap.set(h.date, d) }
-    else if (h.status === 'LOST') { d.lost++; dailyMap.set(h.date, d) }
   }
   const leagues = Array.from(byLeagueMap.entries())
     .map(([league, v]) => ({ league, ...v, total: v.won + v.lost, rate: v.won + v.lost > 0 ? +(v.won / (v.won + v.lost) * 100).toFixed(1) : null }))
     .sort((a, b) => b.total - a.total)
-  const dailyAll = Array.from(dailyMap.entries()).sort(([a], [b]) => a.localeCompare(b)).map(([date, v]) => ({ date, ...v }))
+  const dailyAll = stats.daily.map(({ date, won, lost }) => ({ date, won, lost }))
   const daily30 = dailyAll.slice(-30)
   const cumulative = dailyAll.reduce<Array<{ date: string; cumWon: number; cumLost: number }>>((acc, d) => {
     const prev = acc[acc.length - 1]
     acc.push({ date: d.date, cumWon: (prev?.cumWon || 0) + d.won, cumLost: (prev?.cumLost || 0) + d.lost })
     return acc
   }, [])
-  const tierGold = { won: history.filter(h => (h.tier || '').toUpperCase() === 'GOLD' && h.status === 'WON').length, lost: history.filter(h => (h.tier || '').toUpperCase() === 'GOLD' && h.status === 'LOST').length }
-  const tierStd = { won: history.filter(h => (h.tier || '').toUpperCase() !== 'GOLD' && h.status === 'WON').length, lost: history.filter(h => (h.tier || '').toUpperCase() !== 'GOLD' && h.status === 'LOST').length }
+  const tierGold = stats.gold
+  const tierStd = stats.standard
   const updatedLabel = new Date(generatedAt).toLocaleString(lang === 'ar' ? 'ar' : lang === 'en' ? 'en-GB' : 'fr-FR', { dateStyle: 'medium', timeStyle: 'short' })
 
   return (
@@ -180,52 +189,20 @@ export default function StatistiquesClient() {
       <div className="max-w-5xl mx-auto px-4 py-10">
       {/* En-tête */}
       <header className="mb-6">
-        <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#2F7DFF] mb-2">BTTSPredict · {copy.scopeTitle}</p>
+        <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#2F7DFF] mb-2">BTTSPredict · {copy.eyebrow}</p>
         <AnimatedTitle as="h1" text={copy.title} className="text-2xl sm:text-3xl font-bold text-[var(--text-primary)]" style={{ fontFamily: 'Poppins, sans-serif' }} />
         <p className="mt-2 text-sm text-[var(--text-secondary)] leading-relaxed max-w-3xl">{copy.subtitle}</p>
       </header>
 
-      {/* Périmètre explicite */}
-      <section className="rounded-2xl border border-[var(--border)] bg-[var(--bg-elev-1)] p-4 sm:p-5 mb-8" aria-label={copy.scopeTitle}>
-        <h2 className="text-sm font-bold text-[var(--text-primary)] mb-2 flex items-center gap-2">
-          <span className="inline-block w-1.5 h-4 rounded-full bg-[var(--accent)]" aria-hidden="true" />{copy.scopeTitle}
-        </h2>
-        <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
-          {copy.scope(stats.total, stats.won, stats.lost, from)}
-        </p>
-        {lowVolume && (
-          <p className="mt-2 text-xs text-[#FBBF24] leading-relaxed">
-            {trackingPeriod.disclaimer}
-          </p>
-        )}
-      </section>
+      <ArchiveSummaryCards summary={archiveSummary} lang={lang} />
 
-      {/* KPI — chaque taux avec son dénominateur */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-8">
-        <div className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5">
-          <div className="text-xs uppercase tracking-wider text-[var(--text-secondary)] font-bold">{copy.kpiOverall}</div>
-          <div className="mt-1 text-3xl font-bold text-[var(--text-primary)] font-mono">{fmtPct(stats.rate.toFixed(1), lang)} %</div>
-          <div className="mt-1 text-xs text-[var(--text-secondary)]"><span className="tracking-win-text">{stats.won} WIN</span> / {stats.lost} LOST — {stats.total} {copy.kpiVerified.toLowerCase()}</div>
-        </div>
-        <div className="rounded-2xl border border-[rgba(47,125,255,0.4)] bg-[var(--card)] p-5">
-          <div className="text-xs uppercase tracking-wider text-[#2F7DFF] font-bold">{copy.kpiGold}</div>
-          <div className="mt-1 text-3xl font-bold text-[var(--text-primary)] font-mono">{fmtPct(stats.gold.rate.toFixed(1), lang)} %</div>
-          <div className="mt-1 text-xs text-[var(--text-secondary)]"><span className="tracking-win-text">{stats.gold.won} WIN</span> / {stats.gold.lost} LOST — {stats.gold.total} {lang === 'fr' ? `vérifié${stats.gold.total > 1 ? 's' : ''}` : lang === 'ar' ? 'موثقة' : 'verified'}</div>
-        </div>
-        <div className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5">
-          <div className="text-xs uppercase tracking-wider text-[var(--text-secondary)] font-bold">{copy.kpiVerified}</div>
-          <div className="mt-1 text-3xl font-bold text-[var(--text-primary)] font-mono">{stats.total}</div>
-          <div className="mt-1 text-xs text-[var(--text-secondary)]">{copy.verifiedOn}</div>
-        </div>
-      </div>
-
-      {/* Composition WIN / LOST (résultats vérifiés uniquement) */}
-      <section className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-4 sm:p-6 mb-8" aria-labelledby="st-composition">
+      {/* Composition of recorded archive outcomes. */}
+      {archiveSummary && <section className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-4 sm:p-6 mb-8" aria-labelledby="st-composition">
         <h2 id="st-composition" className="text-base font-bold text-[var(--text-primary)] mb-1" style={{ fontFamily: 'Poppins, sans-serif' }}>{copy.composition}</h2>
-        <p className="text-xs text-[var(--text-secondary)] mb-4">{copy.compositionDesc(stats.total)}</p>
-        <CompositionBar won={stats.won} lost={stats.lost} lang={lang}
+        <p className="text-xs text-[var(--text-secondary)] mb-4">{lang === 'fr' ? 'Résultats enregistrés dans les archives.' : lang === 'en' ? 'Results recorded in the archive.' : 'النتائج المسجلة في الأرشيف.'}</p>
+        <CompositionBar won={archiveSummary.won} lost={archiveSummary.lost} lang={lang} countKind="recorded"
           labels={{ won: 'WIN', lost: 'LOST' }} />
-      </section>
+      </section>}
 
       {/* Évolution cumulée */}
       <section className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-4 sm:p-6 mb-8" aria-labelledby="st-evolution">
@@ -238,15 +215,6 @@ export default function StatistiquesClient() {
         <h2 id="st-daily" className="text-base font-bold text-[var(--text-primary)] mb-1" style={{ fontFamily: 'Poppins, sans-serif' }}>{copy.daily}</h2>
         <p className="text-xs text-[var(--text-secondary)] mb-4">{copy.dailyDesc}</p>
         <DailyBars days={daily30} lang={lang} />
-      </section>
-
-      {/* Par marché */}
-      <section className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-4 sm:p-6 mb-8" aria-labelledby="st-markets">
-        <h2 id="st-markets" className="text-base font-bold text-[var(--text-primary)] mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>{copy.markets}</h2>
-        <div className="space-y-5">
-          <RateBar label="BTTS" rate={stats.byType.btts.rate} won={stats.byType.btts.won} lost={stats.byType.btts.lost} lang={lang} />
-          <RateBar label="Over 2.5" rate={stats.byType.over25.rate} won={stats.byType.over25.won} lost={stats.byType.over25.lost} lang={lang} />
-        </div>
       </section>
 
       {/* Par niveau de sélection */}
@@ -265,7 +233,6 @@ export default function StatistiquesClient() {
       {/* Par compétition */}
       <section className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-4 sm:p-6 mb-8" aria-labelledby="st-leagues">
         <h2 id="st-leagues" className="text-base font-bold text-[var(--text-primary)] mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>{copy.leagues}</h2>
-        <p className="text-xs text-[var(--text-secondary)] mb-4 leading-relaxed">{copy.leaguesNote(leagues.length, stats.total)}</p>
         {leagues.length === 0 ? (
           <p className="text-sm text-[var(--text-secondary)]">—</p>
         ) : (

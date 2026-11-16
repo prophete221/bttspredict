@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { frEnAlternates } from '@/lib/seo'
 import {Navbar, Footer,
   FreePredictionsWidget,
   VipCardWidget,
@@ -11,14 +12,12 @@ const SITE_URL = 'https://bttspredict.com'
 const PAGE_URL = `${SITE_URL}/mentions-legales`
 const TITLE = 'Mentions Légales '
 const DESCRIPTION =
-  'Mentions légales BTTSPredict : éditeur, hébergement, propriété intellectuelle, responsabilité et droit applicable.'
+  'Informations générales sur BTTSPredict, les coordonnées de contact, la disponibilité du site et l’utilisation des contenus.'
 
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  alternates: {
-    canonical: PAGE_URL,
-  },
+  alternates: frEnAlternates('/mentions-legales', 'fr'),
   openGraph: {
     title: TITLE,
     description: DESCRIPTION,
@@ -135,7 +134,7 @@ export default function MentionsLegalesPage() {
               MENTIONS <span className="text-emerald neon-glow">LÉGALES</span>
             </h1>
             <p className="text-cendre text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-              Informations légales relatives au site BTTSPredict conformément aux réglementations en vigueur.
+              Informations générales sur l’éditeur, le contenu et les limites du site BTTSPredict.
             </p>
             <div className="accent-line-emerald max-w-xs mx-auto mt-8" />
           </div>
@@ -185,10 +184,10 @@ export default function MentionsLegalesPage() {
                 </h2>
                 <div className="space-y-3 text-cendre text-sm leading-relaxed">
                   <p>
-                    Le site BTTSPredict est hébergé par <strong className="text-papier">LWS (LWS SAS)</strong>, prestataire d&apos;hébergement professionnel français assurant la disponibilité, la sécurité et la performance du service. Serveurs localisés en France.
+                    Le site peut faire appel à des prestataires techniques pour son hébergement. Cette page ne confirme pas l&apos;identité du prestataire ni la localisation des serveurs; ces détails ne sont pas présentés comme vérifiés ici.
                   </p>
                   <p>
-                    L&apos;hébergeur assure la continuité de son service conformément aux obligations légales en vigueur. En cas d&apos;indisponibilité temporaire du site, due notamment à des opérations de maintenance, de mise à jour ou à des circonstances indépendantes de la volonté de l&apos;éditeur, BTTSPredict ne pourra être tenu responsable des conséquences directes ou indirectes liées à cette indisponibilité.
+                    Le site peut connaître des interruptions liées à la maintenance, à des mises à jour ou à des difficultés techniques. La disponibilité continue du site n&apos;est pas garantie; cette page ne détermine pas la responsabilité juridique applicable à une interruption.
                   </p>
                 </div>
               </article>
@@ -203,13 +202,13 @@ export default function MentionsLegalesPage() {
                 </h2>
                 <div className="space-y-3 text-cendre text-sm leading-relaxed">
                   <p>
-                    L&apos;ensemble des contenus présents sur le site BTTSPredict — incluant, de manière non exhaustive, les textes, articles, graphismes, logos, icônes, images, vidéos, sons, logiciels, algorithmes, pronostics, analyses statistiques et mises en page — est protégé par les lois relatives à la propriété intellectuelle et appartient à BTTSPredict ou fait l&apos;objet d&apos;une autorisation d&apos;utilisation.
+                    Les contenus publiés sur BTTSPredict — notamment les textes, graphismes, images, vidéos, pronostics, analyses et mises en page — sont produits par BTTSPredict ou utilisés avec l&apos;autorisation correspondante lorsqu&apos;elle est requise. Cette page ne revendique pas les marques ou contenus de tiers.
                   </p>
                   <p>
-                    Toute reproduction, représentation, modification, publication, adaptation, totale ou partielle, des éléments du site, par quelque moyen que ce soit, est interdite sans l&apos;autorisation écrite préalable de BTTSPredict, conformément aux dispositions du Code de la Propriété Intellectuelle et des conventions internationales applicables, notamment la Convention de Berne et les accords ADPIC.
+                    Pour toute demande de réutilisation d&apos;un contenu propre à BTTSPredict, contactez-nous à l&apos;adresse indiquée sur cette page. Les conditions applicables aux contenus de tiers relèvent de leurs titulaires respectifs.
                   </p>
                   <p>
-                    Toute exploitation non autorisée du site ou de l&apos;un quelconque des éléments qu&apos;il contient sera considérée comme constitutive d&apos;une contrefaçon et poursuivie conformément aux dispositions des articles L.335-2 et suivants du Code de la Propriété Intellectuelle.
+                    Cette notice n&apos;attribue pas de qualification juridique à un usage particulier et ne désigne aucune loi nationale ou juridiction.
                   </p>
                   <p>
                     Les marques commerciales citées sur le site, notamment « Linebet », appartiennent à leurs propriétaires respectifs et sont utilisées à des fins informatives et d&apos;affiliation uniquement.
@@ -247,17 +246,11 @@ export default function MentionsLegalesPage() {
                   className="text-2xl text-papier mb-4"
                   style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em' }}
                 >
-                  5. Droit applicable
+                  5. Droit applicable et juridiction (non vérifiés)
                 </h2>
                 <div className="space-y-3 text-cendre text-sm leading-relaxed">
                   <p>
-                    Les présentes mentions légales sont régies par le droit sénégalais (lieu d&apos;établissement de l&apos;éditeur) et, de manière générale, par les dispositions applicables au Sénégal et au Maroc (marchés cibles principaux). L&apos;éditeur respecte également les réglementations locales des pays africains couverts : Sénégal, Mali, Côte d&apos;Ivoire, Guinée, Congo et Maroc.
-                  </p>
-                  <p>
-                    En cas de litige relatif à l&apos;interprétation ou à l&apos;exécution des présentes, les parties s&apos;efforceront de trouver une solution amiable. À défaut d&apos;accord amiable dans un délai de trente (30) jours, le litige sera soumis aux juridictions compétentes de Dakar (Sénégal), lieu d&apos;établissement de l&apos;éditeur.
-                  </p>
-                  <p>
-                    Les conventions internationales applicables en matière de propriété intellectuelle, de protection des données à caractère personnel et de commerce électronique s&apos;appliquent également dans la mesure où elles ont été ratifiées par le Sénégal ou le Maroc.
+                    Le droit applicable, la juridiction compétente et les obligations juridiques propres à une juridiction n&apos;ont pas été vérifiés pour cette page. Aucune loi nationale ou régionale, procédure de résolution de litige ni juridiction particulière n&apos;est désignée ici.
                   </p>
                 </div>
               </article>
@@ -305,14 +298,14 @@ export default function MentionsLegalesPage() {
                     </li>
                   </ul>
                   <p>
-                    Nous nous engageons à répondre à toute demande d&apos;information ou de réclamation dans un délai raisonnable de trente (30) jours ouvrables.
+                    Les demandes peuvent être envoyées par les coordonnées ci-dessus. Aucun délai particulier de réponse n&apos;est garanti; toute obligation légale de délai est non vérifiée.
                   </p>
                 </div>
               </article>
 
               {/* Last updated */}
               <p className="text-center text-xs text-cendre pt-4">
-                Dernière mise à jour : Juin 2026
+                Dernière mise à jour : 16 novembre 2026
               </p>
             </div>
           </div>

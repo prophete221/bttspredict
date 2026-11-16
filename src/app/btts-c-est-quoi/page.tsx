@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { frEnAlternates } from '@/lib/seo'
 import {Navbar, Footer,
   FreePredictionsWidget,
   VipCardWidget,
@@ -17,9 +18,7 @@ export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
   keywords: ['btts c est quoi', 'both teams to score', 'pari btts', 'comment parier btts', 'guide btts', 'stratégie btts', 'explication btts', 'paris sportifs btts', 'over 2.5 guide', 'football pari but'],
-  alternates: {
-    canonical: PAGE_URL,
-  },
+  alternates: frEnAlternates('/btts-c-est-quoi', 'fr'),
   openGraph: {
     title: TITLE,
     description: DESCRIPTION,
@@ -28,7 +27,7 @@ export const metadata: Metadata = {
     type: 'article',
     locale: 'fr_SN',
     publishedTime: '2026-07-06',
-    modifiedTime: '2026-07-06',
+    modifiedTime: '2026-11-16',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'BTTS (Both Teams To Score) – Guide complet 2026' }],
   },
   twitter: {
@@ -50,7 +49,7 @@ function buildArticleJsonLd() {
     description: DESCRIPTION,
     url: PAGE_URL,
     datePublished: '2026-07-06',
-    dateModified: '2026-07-06',
+    dateModified: '2026-11-16',
     author: {
       '@type': 'Organization',
       name: 'BTTSPredict',
@@ -109,7 +108,7 @@ function buildFaqJsonLd() {
         name: 'Quels championnats sont les meilleurs pour le BTTS ?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: "Les championnats où le BTTS est le plus fréquent sont : Eredivisie (Hollande), Bundesliga (Allemagne), Liga MX (Mexique), Jupiler Pro League (Belgique), et la Premier League (Angleterre). Ces ligues ont des taux de BTTS supérieurs à 55% en moyenne.",
+          text: 'Les fréquences BTTS varient selon la compétition et la période observée. BTTSPredict ne publie pas de classement ni de pourcentages par championnat sans source vérifiable; consultez les sélections vérifiées et les résultats archivés.',
         },
       },
       {
@@ -117,7 +116,7 @@ function buildFaqJsonLd() {
         name: "Comment BTTSPredict calcule-t-il le BTTS ?",
         acceptedAnswer: {
           '@type': 'Answer',
-          text: "BTTSPredict estime la probabilité que les deux équipes marquent au moins un but à partir des données disponibles dans son modèle statistique. Selon les données disponibles, l'analyse peut notamment utiliser les buts, les expected goals (xG), les paramètres lambda, les probabilités calculées par le modèle et les indicateurs de qualité des données. Les données non disponibles ne sont pas inventées pour compléter une analyse. Aucun résultat futur n'est garanti.",
+          text: 'Les sélections BTTS publiques sont affichées après leurs contrôles de validation. BTTSPredict ne crée pas de pick avec un calcul Poisson ou une heuristique locale; les autres informations de match ne constituent pas une prédiction indépendante. Aucun résultat futur n’est garanti.',
         },
       },
       {
@@ -255,21 +254,9 @@ export default function BttsGuidePage() {
                 >
                   3. Les meilleurs championnats pour le BTTS
                 </h2>
-                <div className="grid gap-3 sm:grid-cols-2">
-                  {[
-                    { league: 'Eredivisie (Hollande)', rate: '~58%' },
-                    { league: 'Bundesliga (Allemagne)', rate: '~56%' },
-                    { league: 'Liga MX (Mexique)', rate: '~55%' },
-                    { league: 'Jupiler Pro League (Belgique)', rate: '~54%' },
-                    { league: 'Premier League (Angleterre)', rate: '~53%' },
-                    { league: 'Serie A (Italie)', rate: '~48%' },
-                  ].map((item, i) => (
-                    <div key={i} className="bg-panel/40 border border-edge/30 rounded-xl p-3 flex items-center justify-between">
-                      <h3 className="text-papier font-semibold text-sm">{item.league}</h3>
-                      <span className="text-gold font-mono text-xs">{item.rate}</span>
-                    </div>
-                  ))}
-                </div>
+                <p className="text-cendre text-sm leading-relaxed">
+                  Les taux BTTS varient selon la compétition et la période observée. BTTSPredict ne publie pas de classement ni de pourcentages par championnat sans source vérifiable. Consultez les sélections vérifiées et les résultats archivés plutôt qu’un taux général non étayé.
+                </p>
               </article>
 
               {/* 4. Comment l'IA prédit le BTTS */}
@@ -278,11 +265,11 @@ export default function BttsGuidePage() {
                   className="text-2xl text-papier mb-4"
                   style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em' }}
                 >
-                  4. Comment BTTSPredict calcule le BTTS
+                  4. Comment BTTSPredict publie les sélections BTTS
                 </h2>
                 <div className="space-y-3 text-cendre text-sm leading-relaxed">
                   <p>
-                    Le modèle statistique de BTTSPredict estime la probabilité que les deux équipes marquent à partir des données disponibles, notamment les buts, les expected goals (xG), les paramètres lambda et les indicateurs de qualité des données. Les données non disponibles ne sont pas inventées.
+                    Les sélections BTTS publiques sont affichées après leurs contrôles de validation. BTTSPredict ne crée pas de pick avec un calcul Poisson ou une heuristique locale; les autres informations de match ne constituent pas une prédiction indépendante.
                   </p>
                   <p>
                     Détails complets sur notre <a href="/methodologie" className="text-emerald underline underline-offset-2">page Méthodologie</a>. Aucun résultat futur n&apos;est garanti.
