@@ -92,7 +92,7 @@ describe('legacy Arabic route live verification retries', () => {
     expect(report).toMatchObject({ outcome: 'blocked', cleanupSafe: false, exitCode: 1, hardFailureCount: 1 })
   })
 
-  it('turns persistent transport failures without an HTTP status into a warning that skips cleanup without failing the run', async () => {
+  it('keeps legacy transport warnings isolated while deployment uses the fail-closed promo allowlist verifier', async () => {
     const fetchImpl = vi.fn().mockRejectedValue(new TypeError('fetch failed'))
     const result = await verifyLegacyArRoute('example-vs-team-2026-11-22', {
       ...options,
@@ -114,8 +114,8 @@ describe('legacy Arabic route live verification retries', () => {
     expect(githubOutput(report.outcome)).toBe('result=warning\n')
 
     const workflow = readFileSync('.github/workflows/deploy.yml', 'utf8')
-    expect(workflow).toContain("steps.ar-route-check.outputs.result == 'verified'")
-    expect(workflow).toContain("steps.ar-route-check.outputs.result == 'warning'")
+    expect(workflow).toContain('scripts/verify-arabic-promo-allowlist-live.mjs')
+    expect(workflow).not.toContain('steps.ar-route-check.outputs.result')
   })
 
   it('writes only the fixed workflow outcome enum', () => {

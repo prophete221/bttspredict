@@ -623,7 +623,7 @@ jobs:
           set -euo pipefail
           lftp -u "$FTP_USERNAME,$FTP_PASSWORD" -e "set ssl:verify no; set net:timeout 60; set net:max-retries 2; set cmd:fail-exit yes; put out/predeploy-backups/robots.txt -o robots.txt; put out/predeploy-backups/sitemap.xml -o sitemap.xml; bye" "ftp://${FTP_SERVER}"
 
-      - name: Deploy .htaccess with historical temporary rename
+      - name: Deploy .htaccess by direct STOR (no remote deletion)
         id: ftp-htaccess
         if: ${{ success() && steps.ftp-upload.outcome == 'success' }}
         timeout-minutes: 5
@@ -645,10 +645,6 @@ jobs:
         if: ${{ success() && steps.ftp-upload.outcome == 'success' && steps.ftp-htaccess.outcome == 'success' }}
         timeout-minutes: 7
         run: node scripts/verify-arabic-promo-allowlist-live.mjs --report=out/ar-promo-allowlist-live-check.json
-
-      - name: Keep Arabic static files after unresolved route-check transport errors
-        if: ${{ success() && steps.ar-route-check.outcome == 'success' && steps.ar-route-check.outputs.result == 'warning' }}
-        run: echo "::warning::AR live-route verification was inconclusive after bounded retries; Arabic static files remain in place and cleanup was skipped."
 
       - name: Confirm exact AR candidate presence after route check
         id: ar-presence
