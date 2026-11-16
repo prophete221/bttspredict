@@ -2,7 +2,10 @@ import fs from 'node:fs'
 import { describe, expect, it } from 'vitest'
 
 const workflow = fs.readFileSync('.github/workflows/deploy.yml', 'utf8')
-const deploy = workflow.split('\n  deploy:')[1] ?? ''
+function jobSection(name: string) {
+  return workflow.split(`\n  ${name}:\n`)[1]?.split(/\n  [A-Za-z0-9_-]+:\n/)[0] ?? ''
+}
+const deploy = jobSection('deploy')
 const preflight = fs.readFileSync('scripts/ftp-safe-preflight.lftp', 'utf8')
 const planner = fs.readFileSync('scripts/prepare-stale-match-deletions.mjs', 'utf8')
 const sitemapFilter = fs.readFileSync('scripts/filter-sitemap-match-urls.mjs', 'utf8')
@@ -101,7 +104,7 @@ describe('deployment safety gates', () => {
       const step = deploy.split(`- name: ${stepName}`)[1]?.split('- name: ')[0] ?? ''
       expect(step).toContain("!contains(github.event.head_commit.message, '[public-gemini-only]')")
     }
-    const vipJob = workflow.split('\n  vip-candidates-only:')[1] ?? ''
+    const vipJob = jobSection('vip-candidates-only')
     expect(vipJob).toContain("!contains(github.event.head_commit.message, '[public-gemini-only]')")
   })
 
@@ -177,62 +180,47 @@ describe('deployment safety gates', () => {
     expect(ftpUploadPlan).toContain("const REQUIRED_ROOT_FILES = ['.htaccess', ...EXPLICIT_ROOT_UPLOADS]")
   })
 
-  it('limits AR cleanup to local candidates and exact post-route SIZE checks, never EN/FR or unrelated files', () => {
-    expect(deploy).toContain('scripts/ftp-safe-preflight.lftp')
-    const liveFindCommands = preflight.split('\n').map(line => line.trim()).filter(line => line.startsWith('find '))
-    expect(liveFindCommands).toEqual([])
-    expect(preflight).not.toContain('find en/match')
-    expect(preflight).not.toContain('source out/stale-match-delete.lftp')
-    expect(deploy).toContain('scripts/prepare-ar-match-popup-cleanup.mjs presence-commands')
-    expect(deploy).toContain('scripts/prepare-ar-match-popup-cleanup.mjs confirm-presence')
-    expect(deploy).toContain('scripts/prepare-ar-match-popup-cleanup.mjs post-cleanup-commands')
-    expect(deploy).toContain('scripts/prepare-ar-match-popup-cleanup.mjs verify-absent')
-    expect(deploy).toContain('source out/ar-match-popup-cleanup.lftp')
-    expect(deploy).toContain('steps.ar-presence.outcome == \'success\'')
-    const htaccessDeploy = deploy.indexOf('name: Deploy .htaccess with historical temporary rename')
-    const routeCheck = deploy.indexOf('name: Verify all legacy AR URLs before removing static pages')
-    const presenceCheck = deploy.indexOf('name: Confirm exact AR candidate presence after route check')
-    const cleanup = deploy.indexOf('name: Remove exact AR static Match files after the popup is live')
+  it('blocks Arabic roots and non-promo routes before static fallback without deleting files', () => {
+    const htaccess = fs.readFileSync('public/.htaccess', 'utf8')
+    const root404 = htaccess.indexOf('RewriteRule ^ar/?$ /404.html [L,R=404]')
+    const flatRoot404 = htaccess.indexOf('RewriteRule ^ar\\.html/?$ /404.html [L,R=404]')
+    const staticFallback = htaccess.indexOf('RewriteRule ^(.+)/?$ /$1.html [L]')
+    const allowlist = '(code-promo-1xbet|code-promo-linebet-senegal|code-promo-melbet|bonus-888starz|bonus-888starz-btts221)'
+    expect(root404).toBeGreaterThanOrEqual(0)
+    expect(flatRoot404).toBeGreaterThanOrEqual(0)
+    expect(root404).toBeLessThan(staticFallback)
+    expect(flatRoot404).toBeLessThan(staticFallback)
+    expect(htaccess).toContain(allowlist)
+    expect(htaccess).toContain('RewriteRule ^ar/.+ - [L,R=404]')
+    expect(htaccess).toContain('Options -Indexes')
+
+    const htaccessDeploy = deploy.indexOf('name: Deploy .htaccess by direct STOR (no remote deletion)')
+    const routeCheck = deploy.indexOf('name: Verify the Arabic promo allowlist after upload')
+    const htaccessStep = deploy.split('name: Deploy .htaccess by direct STOR (no remote deletion)')[1]?.split('      - name: ')[0] ?? ''
     expect(htaccessDeploy).toBeGreaterThan(0)
     expect(routeCheck).toBeGreaterThan(htaccessDeploy)
-    expect(presenceCheck).toBeGreaterThan(routeCheck)
-    expect(cleanup).toBeGreaterThan(presenceCheck)
-    const htaccessStep = deploy.split('name: Deploy .htaccess with historical temporary rename')[1]?.split('      - name: ')[0] ?? ''
-    expect(htaccessStep).not.toContain('continue-on-error: true')
-    expect(deploy).toContain('aucune ancienne page AR ne sera supprimée')
-    expect(planner).toContain("category: 'ar-match-popup-cleanup-after-route-verification'")
-    expect(planner).toContain("category: 'localized-match-preserved'")
-    expect(planner).not.toContain('assertNoFinishedMatchFiles')
-    expect(planner).toContain("category: 'non-match-unverified'")
-    expect(planner).not.toContain('ftp.delete(')
-    const exactCleanup = fs.readFileSync('scripts/prepare-ar-match-popup-cleanup.mjs', 'utf8')
-    expect(exactCleanup).toContain('presenceVerified')
-    expect(exactCleanup).toContain('knownSlugs')
-    expect(exactCleanup).toContain('quote SIZE')
-    expect(exactCleanup).toContain('quote NOOP')
-    expect(exactCleanup).toContain('validateRouteReport')
-    expect(exactCleanup).toContain('validateFtpNoop')
-    expect(exactCleanup).toContain('rm -f')
-    expect(exactCleanup).not.toContain('find ar/match')
-    expect(exactCleanup).not.toContain('rm -r')
-    expect(exactCleanup).toContain("/^__next\\..+\\.txt$/u")
-    const presenceStep = deploy.split('name: Confirm exact AR candidate presence after route check')[1]?.split('      - name: ')[0] ?? ''
-    expect(presenceStep).toContain('--route-report=out/ar-match-live-check-before-cleanup.json')
-    expect(presenceStep).toContain('--ftp-exit-code="$FTP_EXIT_CODE"')
-    expect(presenceStep).toContain('scripts/assert-ar-match-popup-deploy.mjs')
-    expect(presenceStep).not.toContain('if (!count ||')
-    const cleanupStep = deploy.split('name: Remove exact AR static Match files after the popup is live')[1]?.split('      - name: ')[0] ?? ''
-    expect(cleanupStep).toContain('presenceFtpNoopVerified')
-    expect(cleanupStep).toContain('route.routeCount !== 36')
-    expect(cleanupStep).toContain('presenceNoOpVerified')
-    expect(arDeployGuard).toContain('presenceFtpNoopVerified !== true')
-    expect(arDeployGuard).toContain('presenceNoOpVerified === true')
-    expect(arDeployGuard).toContain('zéro candidat')
-    expect(sitemapFilter).toContain('/^(?:en|ar)\\/match\\/')
-    expect(sitemapFilter).not.toContain('(?:(?:en|ar)\\/)?match')
+    expect(htaccessStep).toContain('put out/.htaccess -o ./.htaccess')
+    expect(htaccessStep).not.toMatch(/\\b(rm|mv)\\b/u)
+    expect(deploy).toContain('scripts/verify-arabic-promo-allowlist-live.mjs')
+    expect(deploy).not.toContain('steps.ar-route-check.outputs.result')
+
+    for (const stepName of [
+      'Confirm exact AR candidate presence after route check',
+      'Remove exact AR static Match files after the popup is live',
+      'Verify exact AR static cleanup and recheck all legacy URLs',
+    ]) {
+      const step = deploy.split(`- name: ${stepName}`)[1]?.split('      - name: ')[0] ?? ''
+      expect(step, stepName).toContain('if: ${{ false }}')
+    }
+    expect(preflight).not.toContain('find en/match')
+    expect(preflight).not.toContain('source out/stale-match-delete.lftp')
     expect(preflight).not.toContain('get .htaccess')
     expect(preflight).toContain('get robots.txt -o out/predeploy-backups/robots.txt')
     expect(preflight).toContain('get sitemap.xml -o out/predeploy-backups/sitemap.xml')
+    expect(planner).not.toContain('ftp.delete(')
+    expect(arDeployGuard).toContain('presenceFtpNoopVerified !== true')
+    expect(sitemapFilter).toContain('/^(?:en|ar)\\/match\\/')
+    expect(sitemapFilter).not.toContain('(?:(?:en|ar)\\/)?match')
   })
 
   it('keeps deployment evidence out of the allowlist and preserves protected root state', () => {
@@ -255,7 +243,7 @@ describe('deployment safety gates', () => {
     }
   })
 
-  it('retains historical sitemap URLs and makes the new AR route a prerequisite for targeted cleanup', () => {
+  it('retains historical sitemap URLs and publishes routing configuration by STOR only', () => {
     expect(preflight).toContain('node scripts/prepare-ftp-deploy-plan.mjs')
     expect(statePlanner).toContain('scripts/prepare-stale-match-deletions.mjs')
     expect(statePlanner).toContain('scripts/prepare-ar-match-popup-cleanup.mjs')
@@ -271,9 +259,17 @@ describe('deployment safety gates', () => {
     expect(deploy).toContain('put out/predeploy-backups/robots.txt -o robots.txt')
     expect(deploy).toContain('put out/predeploy-backups/sitemap.xml -o sitemap.xml')
     expect(deploy).toContain('set ssl:verify no; set net:timeout 60; set net:max-retries 2; set cmd:fail-exit yes; put out/predeploy-backups/robots.txt')
-    expect(deploy).toContain('Deploy .htaccess with historical temporary rename')
-    expect(deploy).toContain('rm -f ./.htaccess.deploy; put out/.htaccess -o ./.htaccess.deploy; rm -f ./.htaccess; mv ./.htaccess.deploy ./.htaccess')
-    expect(deploy).toContain('⚠️ rm+rename refusé — tentative STOR direct')
+    const configOnly = workflow.split('\n  deploy-routing-config-only:\n')[1]?.split('\n  deploy:\n')[0] ?? ''
+    expect(configOnly).toContain("contains(github.event.head_commit.message || '', '[routing-config-only]')")
+    expect(configOnly).toContain('verify-arabic-promo-allowlist-live.mjs')
+    const configWrites = configOnly.split('\n').filter(line => line.includes('put '))
+    expect(configWrites).toHaveLength(1)
+    expect(configWrites[0]).toContain('put public/.htaccess -o ./.htaccess')
+    expect(configOnly).not.toMatch(/\\b(rm|mv)\\b/u)
+    expect(configOnly).not.toContain('npm run build')
+    expect(configOnly).not.toContain('quick-update-predictions.mjs')
+    expect(configOnly).not.toContain('prune-archives.mjs')
+    expect(deploy).toContain("!contains(github.event.head_commit.message || '', '[routing-config-only]')")
     expect(deploy).toContain('[ar-popup-deploy]')
     expect(deploy).toContain('[lws-files=N]')
     expect(deploy).toContain('[LWS quota]')
@@ -326,7 +322,7 @@ describe('deployment safety gates', () => {
   })
 
   it('keeps manual VIP generation private and separate from public deployment', () => {
-    const vipJob = workflow.split('\n  vip-candidates-only:')[1]?.split('\n  deploy:')[0] ?? ''
+    const vipJob = jobSection('vip-candidates-only')
     expect(workflow).toContain('          - vip')
     expect(workflow).toContain("group: ${{ (github.event_name == 'workflow_dispatch' && inputs.mode == 'vip' || (github.event_name == 'schedule' && (github.event.schedule == '30 23 * * *' || github.event.schedule == '30 6 * * *' || github.event.schedule == '30 15 * * *'))) && 'vip-candidates-only' || format('deploy-{0}', github.ref) }}")
     expect(workflow).toContain("cron: '30 23 * * *'")

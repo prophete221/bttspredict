@@ -60,13 +60,18 @@ describe('suppression des routes arabes non promotionnelles', () => {
     expect(fs.readFileSync(path.join(root, 'en/code-promo-1xbet.html'), 'utf8')).toContain('hreflang="ar"')
   })
 
-  it('retourne une vraie 404 sur /ar et /ar/ sans bloquer les cinq routes promo', () => {
+  it('retourne une vraie 404 sur la racine arabe et son ancien fichier plat avant le routage statique', () => {
     const rules = fs.readFileSync(path.resolve(process.cwd(), 'public/.htaccess'), 'utf8')
     expect(rules).toMatch(/^RewriteRule \^ar\/\?\$ \/404\.html \[L,R=404\]$/m)
+    expect(rules).toContain(String.raw`RewriteRule ^ar\.html/?$ /404.html [L,R=404]`)
     expect(rules).toContain('Options -Indexes')
     const rootOnly = /^ar\/?$/
     expect(['ar', 'ar/'].every(route => rootOnly.test(route))).toBe(true)
     expect([...ARABIC_PROMO_PATHS].every(route => !rootOnly.test(`ar${route}`))).toBe(true)
+    const staticRewrite = rules.indexOf('RewriteRule ^(.+)/?$ /$1.html [L]')
+    expect(staticRewrite).toBeGreaterThan(-1)
+    expect(rules.indexOf('RewriteRule ^ar/?$ /404.html [L,R=404]')).toBeLessThan(staticRewrite)
+    expect(rules.indexOf(String.raw`RewriteRule ^ar\.html/?$ /404.html [L,R=404]`)).toBeLessThan(staticRewrite)
   })
 
   it('bloque les anciennes routes arabes même si leurs fichiers sont encore présents', () => {
