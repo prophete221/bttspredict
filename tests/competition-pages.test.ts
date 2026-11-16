@@ -62,7 +62,7 @@ describe('compétitions alimentées par le flux public courant', () => {
     expect(readCurrentCompetitionFeed({ free: [realRow, conflict] }, now).matches.bundesliga).toEqual([])
   })
   it('préserve canonical et hreflang tout en retirant les mentions techniques des métadonnées', () => {
-    for (const locale of ['fr', 'en', 'ar'] as const) {
+    for (const locale of ['fr', 'en'] as const) {
       const competition = competitionMeta('serie-a', locale)!
       const index = competitionIndexMeta(locale)
       const expectedCompetition = {
@@ -82,7 +82,7 @@ describe('compétitions alimentées par le flux public courant', () => {
       expect(competition.alternates.canonical).toBe(`https://bttspredict.com${locale === 'fr' ? '' : `/${locale}`}/competitions/serie-a`)
       expect(competition.alternates.languages.fr).toBe('https://bttspredict.com/competitions/serie-a')
       expect(competition.alternates.languages.en).toBe('https://bttspredict.com/en/competitions/serie-a')
-      expect(competition.alternates.languages.ar).toBe('https://bttspredict.com/ar/competitions/serie-a')
+      expect(competition.alternates.languages).not.toHaveProperty('ar')
       expect(competition.alternates.languages['x-default']).toBe('https://bttspredict.com/competitions/serie-a')
       expect(`${competition.title} ${competition.description} ${index.title} ${index.description}`).not.toMatch(/Gemini|Dakar|داكار/i)
     }

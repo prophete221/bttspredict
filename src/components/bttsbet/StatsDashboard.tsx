@@ -20,6 +20,7 @@ type WinEntry = {
 }
 
 type WinHistory = {
+  geminiOnly?: boolean
   date: string
   stats: {
     total: number
@@ -57,7 +58,7 @@ export default function StatsDashboard() {
   useEffect(() => {
     fetch('/win-history.json')
       .then(r => r.json())
-      .then(d => { setData(d); setLoading(false) })
+      .then(d => { if (d?.geminiOnly === true) setData(d); setLoading(false) })
       .catch(() => setLoading(false))
   }, [])
 

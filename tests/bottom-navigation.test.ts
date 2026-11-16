@@ -18,8 +18,9 @@ describe('responsive bottom navigation', () => {
     expect(component).toContain('aria-current={isActive ?')
   })
 
-  it('sets Arabic RTL and keeps text crisp against the dark-and-green background', () => {
-    expect(component).toContain("dir={lang === 'ar' ? 'rtl' : 'ltr'}")
+  it('omits global navigation from Arabic promo pages and keeps shared tabs LTR', () => {
+    expect(component).toContain("if (lang === 'ar') return null")
+    expect(component).toContain('dir="ltr"')
     expect(component).toContain('text-[12px] font-semibold')
     expect(styles).toContain('.bottomnav-shell')
     expect(styles).toContain('color: var(--bp-accent) !important')

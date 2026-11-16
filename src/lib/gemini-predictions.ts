@@ -34,7 +34,7 @@ function normalizeSelection(value: unknown): 'yes' | 'no' | null {
 }
 
 function numericProbability(value: unknown): number | null {
-  return typeof value === 'number' && Number.isFinite(value) && value >= 0.48 && value <= 0.78
+  return typeof value === 'number' && Number.isFinite(value) && value >= 0 && value <= 1
     ? value
     : null
 }
@@ -90,6 +90,25 @@ export function getGeminiPicks(value: unknown): GeminiPrediction[] {
     ...(typeof (pick.verifiedAt ?? row.verifiedAt) === 'string' ? { verifiedAt: String(pick.verifiedAt ?? row.verifiedAt) } : {}),
     ...(typeof (pick.source ?? row.source) === 'string' ? { source: String(pick.source ?? row.source) } : {}),
   }]
+}
+
+/** Merge validated outputs for one fixture; any conflicting selection or probability withdraws that market. */
+export function mergeGeminiMarketPicks(...groups: readonly (readonly GeminiPrediction[])[]): GeminiPrediction[] {
+  const selected = new Map<GeminiMarket, GeminiPrediction>()
+  const conflicts = new Set<GeminiMarket>()
+  for (const picks of groups) {
+    for (const pick of picks) {
+      if (conflicts.has(pick.market)) continue
+      const previous = selected.get(pick.market)
+      if (!previous) {
+        selected.set(pick.market, pick)
+      } else if (previous.prediction !== pick.prediction || Math.abs(previous.proba - pick.proba) >= 1e-9) {
+        selected.delete(pick.market)
+        conflicts.add(pick.market)
+      }
+    }
+  }
+  return (['BTTS', 'O2.5'] as const).flatMap(market => selected.has(market) ? [selected.get(market)!] : [])
 }
 
 export function getGeminiProbability(picks: GeminiPrediction[], market: GeminiMarket): number | undefined {

@@ -1,3 +1,4 @@
+import { getStaticLocaleParams } from '@/lib/locale-route-policy'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import LocalizedPromoClient from '@/components/bttsbet/LocalizedPromoClient'
@@ -11,8 +12,10 @@ const FR_URL = `${SITE_URL}/${SLUG}`
 const EN_URL = `${SITE_URL}/en/${SLUG}`
 const AR_URL = `${SITE_URL}/ar/${SLUG}`
 
+export const dynamicParams = false
+
 export function generateStaticParams() {
-  return SUPPORTED_LOCALES.filter((locale) => locale !== 'fr').map((locale) => ({ locale }))
+  return getStaticLocaleParams('/code-promo-linebet-senegal')
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -33,6 +36,16 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       canonical: isEnglish ? EN_URL : AR_URL,
       languages: { fr: FR_URL, en: EN_URL, ar: AR_URL, 'x-default': FR_URL },
     },
+    openGraph: {
+      title,
+      description,
+      url: isEnglish ? EN_URL : AR_URL,
+      siteName: 'BTTSPredict',
+      type: 'article',
+      locale: isEnglish ? 'en_US' : 'ar',
+      images: [{ url: '/og-image.png', width: 1200, height: 630, alt: title }],
+    },
+    twitter: { card: 'summary_large_image', title, description, images: ['/og-image.png'] },
     robots: { index: true, follow: true },
   }
 }

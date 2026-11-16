@@ -1,14 +1,16 @@
+import { getStaticLocalesForPath } from '@/lib/locale-route-policy'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import CompetitionPageContent from '@/components/bttsbet/CompetitionPageContent'
 import { COMPETITION_SLUGS, competitionMeta, getCompetitionPage } from '@/lib/competition-pages'
 import { isLocale, type Locale } from '@/lib/i18n'
+import { getInitialCompetitionPageFeed } from '@/lib/competition-static-feed'
 
 export const dynamic = 'force-static'
 export const dynamicParams = false
 
 export function generateStaticParams() {
-  return (['en', 'ar'] as const).flatMap((locale) => COMPETITION_SLUGS.map((slug) => ({ locale, slug })))
+  return getStaticLocalesForPath('/competitions').flatMap((locale) => COMPETITION_SLUGS.map((slug) => ({ locale, slug })))
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string }> }): Promise<Metadata> {
@@ -22,5 +24,5 @@ export default async function LocalizedCompetitionPage({ params }: { params: Pro
   if (!isLocale(locale) || locale === 'fr') notFound()
   const competition = getCompetitionPage(slug)
   if (!competition) notFound()
-  return <CompetitionPageContent competition={competition} locale={locale as Locale} />
+  return <CompetitionPageContent competition={competition} locale={locale as Locale} initialFeed={getInitialCompetitionPageFeed(slug)} />
 }

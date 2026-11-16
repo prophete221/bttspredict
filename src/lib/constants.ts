@@ -5,7 +5,7 @@
 export const SITE = {
   name: 'BTTSPredict',
   url: 'https://bttspredict.com',
-  tagline: "Pronostics football BTTS & Over 2,5 calculés par un modèle statistique transparent pour parieurs sérieux",
+  tagline: 'Sélections football BTTS & Over 2,5 vérifiées, avec historique public consultable',
   promoCode: 'VISION221',
   accuracy: 'Calculé en temps réel depuis l\'archive publique',
   vipAccuracy: 'Calculé en temps réel depuis l\'archive publique',
@@ -78,33 +78,35 @@ export const NAV_LINKS = [
 ]
 
 export const HOW_IT_WORKS = [
-  { step: '01', title: "Notre analyse passe chaque match au crible", desc: "Notre modèle statistique estime des buts attendus modélisés (lambda) à partir des buts réels des 8 derniers matchs de chaque équipe. Sources : ESPN et TheSportsDB." },
-  { step: '02', title: 'On sélectionne les meilleurs', desc: "Seuls les pronostics BTTS et Over 2,5 avec le plus haut indice de confiance sont retenus et publiés sur la plateforme." },
+  { step: '01', title: 'Les sélections sont contrôlées', desc: 'Les picks publics passent des contrôles de validation; le site ne les recalcule pas localement.' },
+  { step: '02', title: 'Les sélections validées sont publiées', desc: 'Les picks BTTS et Over 2,5 sont affichés uniquement après validation; la disponibilité varie selon les données publiées.' },
   { step: '03', title: 'Consulte les informations partenaires', desc: 'Les codes et offres confirmées figurent dans les guides dédiés; vérifie directement auprès de chaque opérateur les autres modalités et l’applicabilité.' },
 ]
 
 export const HERO_STATS = [
   { value: 'Voir /historique', label: 'Taux de réussite réel', icon: 'target' },
   { value: '—', label: 'Pronostics archivés (voir /historique)', icon: 'chart' },
-  { value: '50+', label: 'Championnats couverts', icon: 'globe' },
+  { value: 'Voir la liste', label: 'Compétitions configurées', icon: 'globe' },
 ]
 
 export const FAQ_ITEMS = [
-  { q: "Qu'est-ce que le BTTS ?", a: "BTTS signifie \"Both Teams To Score\" (les deux équipes marquent). C'est un type de pari où vous pariez que les deux équipes marqueront au moins un but durant le match, quelle que soit l'issue finale. Ce marché est très populaire car il ne dépend pas du résultat final du match, mais uniquement de la capacité des deux équipes à trouver le chemin des filets. Notre équipe analyse les statistiques offensives et défensives pour identifier les matchs où les deux équipes ont une forte probabilité de marquer." },
-  { q: "Comment fonctionne l'analyse de BTTSPredict ?", a: "Notre modèle statistique est calibré sur la forme récente des équipes (8 derniers matchs réels) et des buts attendus modélisés (lambda). Sources : ESPN et TheSportsDB (données publiques). Le taux de réussite réel est calculé dynamiquement depuis l'archive publique des pronostics (predictions-archive/) et affiché sans filtrage sur /historique. Chaque pronostic est accompagné d'un indice de confiance calculé par le modèle. Les performances passées ne garantissent pas les résultats futurs." },
+  { q: "Qu'est-ce que le BTTS ?", a: `BTTS signifie "Both Teams To Score" (les deux équipes marquent) : chaque équipe inscrit au moins un but. Sur BTTSPredict, un pick BTTS public n'est affiché que s'il fait partie des sélections publiques et passe les contrôles de validation; aucun résultat futur n'est garanti.` },
+  { q: "Comment fonctionne l'analyse de BTTSPredict ?", a: 'Les sélections publiques BTTS et Over 2,5 sont publiées après avoir passé les contrôles de validation; le site ne les recalcule pas avec Poisson ou une heuristique locale. Les résultats historiques sont consultables dans l’archive publique; les performances passées ne garantissent pas les résultats futurs.' },
   { q: 'Où consulter les informations promotionnelles des partenaires ?', a: 'Les informations et éventuelles conditions promotionnelles figurent sur les guides dédiés à chaque partenaire. Vérifiez toujours les conditions affichées par l’opérateur avant toute inscription ou dépôt.' },
-  { q: 'Les pronostics gratuits sont-ils fiables ?', a: "Nos pronostics gratuits sont calculés par le même modèle statistique que nos pronostics premium. Ils couvrent les matchs les plus populaires du jour avec une analyse complète. La différence avec les pronostics premium réside dans le nombre de matchs analysés et l'accès à des marchés supplémentaires. Comme pour tout pronostic, aucun résultat n'est garanti — les performances historiques ne préjugent pas les résultats futurs." },
-  { q: 'Quels championnats sont couverts ?', a: "Moteur entraîné sur 50+ championnats internationaux, prédictions appliquées en priorité Afrique de l'Ouest (Sénégal, Mali, CIV, Guinée, Congo) & Maroc + top ligues Europe pour volume. Ligues prioritaires : Ligue 1 Sénégal, Botola Pro (Maroc), Bundesliga, Eredivisie, Jupiler Pro League, Championship, Liga Portugal." },
+  { q: 'Les pronostics gratuits sont-ils fiables ?', a: 'Les pronostics affichés sont publiés uniquement après les contrôles de validation. Leur disponibilité varie selon les matchs et les marchés; aucun résultat futur n’est garanti. Consultez l’historique pour les résultats archivés.' },
+  { q: 'Quels championnats sont couverts ?', a: 'Onze compétitions sont configurées pour les pages dédiées. Le flux public n’est pas un calendrier exhaustif et les matchs disponibles varient; seuls les picks validés sont affichés.' },
   { q: 'Comment utiliser les pronostics BTTSPredict ?', a: "Nos pronostics sont des outils d'aide à la décision, pas des garanties de gain. Pour les utiliser au mieux, consultez nos pronostics gratuits chaque jour, vérifiez l'indice de confiance associé, et croisez avec votre propre analyse. Nous vous recommandons de toujours respecter votre gestion de bankroll et de ne jamais miser plus que ce que vous pouvez vous permettre de perdre. Les résultats passés ne garantissent pas les résultats futurs." },
   { q: 'Peut-on prédire Aviator ou une faille de cotes FIFA ?', a: "Non. Aviator est un jeu 100% aléatoire basé sur un générateur certifié 'provably fair' — aucun outil au monde ne peut prédire le multiplicateur d'un round futur. Nos statistiques Aviator permettent d'observer l'historique des rounds et les tendances passées, mais ne constituent en aucun cas des prédictions. Concernant les 'Analyses de valeur FIFA (expérimental)', il s'agit d'estimations statistiques comparant les cotes des bookmakers à nos probabilités calculées — ce sont des outils d'analyse, pas des garanties de gain. Tout pari comporte un risque de perte." },
 ]
+
+export const HOME_FAQ_ITEMS = [FAQ_ITEMS[0], FAQ_ITEMS[1], FAQ_ITEMS[3], FAQ_ITEMS[2]]
 
 export const VIP_DESCRIPTION = 'Accès VIP verrouillé jusqu’à confirmation manuelle du propriétaire.'
 export const LONASE = { name: 'LONASE', description: 'Loterie Nationale du Sénégal' }
 
 export const LEGAL = {
-  disclaimer: "Les paris sportifs comportent des risques financiers. Ne misez jamais plus que ce que vous pouvez vous permettre de perdre. Nos résultats sont vérifiés 6 fois par jour depuis l'archive publique des pronostics (predictions-archive/), avec scores finaux vérifiés via ESPN et TheSportsDB. Aucun filtrage — gagnés ET perdus affichés sur /historique. Aucun résultat futur n'est garanti. BTTSPredict est un site informatif et d'affiliation : nous ne prenons pas de paris et ne collectons pas de fonds. Ce site ne publie pas de témoignages de clients ni de statistiques non sourcées. Jouez de manière responsable (18+).",
-  responsible: "Si vous ou un proche avez un problème lié aux jeux d'argent, contactez la ligne d'écoute nationale de votre pays. En France : 09-74-75-13-13 (Joueurs Info Service). Au Cameroun : contactez le MINSANT. Au Sénégal : 33 867 22 22. Ressource internationale : https://www.begambleaware.org/",
+  disclaimer: "Les paris sportifs comportent des risques financiers. Ne misez jamais plus que ce que vous pouvez vous permettre de perdre. Les picks publics passent des contrôles de validation avant publication. Les données historiques affichées distinguent les picks enregistrés des résultats source sans sélection; les performances passées ne garantissent aucun résultat futur. BTTSPredict fournit des informations et des liens d’affiliation; ce site ne permet pas de placer un pari. Jouez de manière responsable (18+).",
+  responsible: "Si vous ou un proche êtes affecté par les jeux d’argent, contactez un service d’aide qualifié disponible dans votre région. Les ressources et numéros d’assistance varient selon le pays.",
   copyright: `© ${new Date().getFullYear()} BTTSPredict. Tous droits réservés.`,
   links: [
     { label: 'Mentions Légales', href: '/mentions-legales' }, { label: 'Politique de Confidentialité', href: '/politique-confidentialite' },

@@ -1,21 +1,21 @@
 import type { MetadataRoute } from 'next'
 import { getDakarDateString } from '@/lib/dakar-date'
 import { COMPETITION_SLUGS } from '@/lib/competition-pages'
+import { ARABIC_PROMO_PATHS } from '@/lib/arabic-promo-routes'
 
 /**
- * Sitemap complet FR + EN + AR
- * Chaque page localisée a 3 entrées <url> distinctes (fr / en / ar)
- * avec hreflang croisés.
+ * Sitemap FR + EN, avec l’arabe conservé uniquement sur les pages promotionnelles.
  */
 
 export const dynamic = 'force-static'
 
 const SITE_URL = 'https://bttspredict.com'
 const TODAY = getDakarDateString()
+const ARABIC_PROMO_PATH_SET = new Set<string>(ARABIC_PROMO_PATHS)
 
 type Freq = MetadataRoute.Sitemap[number]['changeFrequency']
 
-/** Chemins disponibles en FR + EN + AR (tests + hreflang). */
+/** Chemins disponibles en français et en anglais (tests + hreflang). */
 const LOCALIZED_PATHS = new Set([
   '/',
   '/btts/predictions/today',
@@ -25,6 +25,7 @@ const LOCALIZED_PATHS = new Set([
   '/statistiques',
   '/resultats-verifies',
   '/methodologie',
+  '/btts-c-est-quoi',
   '/btts-and-over-2-5-predictions-today',
   '/code-promo-linebet-senegal',
   '/code-promo-1xbet',
@@ -98,7 +99,7 @@ function url(
   const self = absolute(path, locale)
 
   const languages: Record<string, string> = localized
-    ? { fr, en, ar, 'x-default': fr }
+    ? { fr, en, ...(ARABIC_PROMO_PATH_SET.has(path) ? { ar } : {}), 'x-default': fr }
     : { fr, 'x-default': fr }
 
   return {
@@ -116,7 +117,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     out.push(url(page.path, 'fr', page.priority, page.changeFrequency))
     if (LOCALIZED_PATHS.has(page.path)) {
       out.push(url(page.path, 'en', page.priority, page.changeFrequency))
-      out.push(url(page.path, 'ar', page.priority, page.changeFrequency))
+      if (ARABIC_PROMO_PATH_SET.has(page.path)) {
+        out.push(url(page.path, 'ar', page.priority, page.changeFrequency))
+      }
     }
   }
   return out

@@ -25,12 +25,25 @@ function normalize(value: unknown): string {
   return String(value ?? '').trim().normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/\s+/g, ' ')
 }
 
-function fixtureKey(row: PublicCalendarItem): string | null {
+export function publicFixtureKey(row: PublicCalendarItem): string | null {
   const date = validDate(row.date) ? row.date : ''
   const home = normalize(row.home)
   const away = normalize(row.away)
   const league = normalize(row.league)
-  return date && home && away && league ? `${date}|${league}|${home}|${away}` : null
+  const match = normalize(row.match)
+  const time = String(row.time ?? '').trim()
+  const fixture = home && away ? `${home}|${away}` : match
+  return date && fixture ? `${date}|${time}|${league}|${fixture}` : null
+}
+
+function publicFixtureBaseKey(row: PublicCalendarItem): string | null {
+  const date = validDate(row.date) ? row.date : ''
+  const home = normalize(row.home)
+  const away = normalize(row.away)
+  const league = normalize(row.league)
+  const match = normalize(row.match)
+  const fixture = home && away ? `${home}|${away}` : match
+  return date && fixture ? `${date}|${league}|${fixture}` : null
 }
 
 function hasPick(row: PublicCalendarItem): boolean {
@@ -81,13 +94,19 @@ export function selectFixtureOnlyItems<T extends PublicCalendarItem>(
   if (!Number.isFinite(now.getTime())) return []
   const today = getDakarDateString(now)
   const firstDate = validDate(startDate) ? startDate : today
-  const pickedKeys = new Set(picks.filter(hasPick).map(fixtureKey).filter((key): key is string => Boolean(key)))
+  const picked = picks.filter(hasPick).flatMap(row => {
+    const key = publicFixtureBaseKey(row)
+    return key ? [{ key, time: String(row.time ?? '').trim() }] : []
+  })
   const selected = new Map<string, T>()
 
   for (const fixture of fixtures) {
     if (!validDate(fixture.date) || fixture.date < firstDate || hasPick(fixture)) continue
-    const key = fixtureKey(fixture)
-    if (!key || pickedKeys.has(key) || selected.has(key)) continue
+    const key = publicFixtureKey(fixture)
+    const baseKey = publicFixtureBaseKey(fixture)
+    const time = String(fixture.time ?? '').trim()
+    const hasValidatedPick = picked.some(item => item.key === baseKey && (!item.time || !time || item.time === time))
+    if (!key || hasValidatedPick || selected.has(key)) continue
     selected.set(key, fixture)
   }
 

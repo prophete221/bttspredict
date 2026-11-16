@@ -93,7 +93,7 @@ export function groupGeminiItemsByDakarDay<T extends MatchCenterWindowItem>(
 function fixtureIdentity(item: MatchCenterWindowItem): string | null {
   const match = normalizeIdentity(item.match) || [item.home, item.away].map(normalizeIdentity).filter(Boolean).join(' | ')
   if (!match) return null
-  return `${item.date}|${match}|${normalizeIdentity(item.league)}`
+  return `${item.date}|${normalizeIdentity(item.time)}|${match}|${normalizeIdentity(item.league)}`
 }
 
 function validPick(value: unknown): PickRecord | null {

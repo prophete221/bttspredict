@@ -4,7 +4,10 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useLanguage } from '@/components/bttsbet/LanguageSwitcher'
 import AnimatedTitle from '@/components/bttsbet/HeroWordmark'
-import { selectBttsHistory } from '@/lib/historyDisplay'
+import ArchiveSummaryCards from '@/components/bttsbet/ArchiveSummaryCards'
+import type { ArchiveSummary } from '@/lib/archive-summary'
+import { partitionRecordedPickHistory, selectBttsHistory, summarizeRecordedPickHistory } from '@/lib/historyDisplay'
+import { validateRecordedResult } from '@/lib/historyDisplay'
 
 interface TrackingPeriod {
   startDate: string
@@ -56,37 +59,58 @@ interface HistoryEntry {
   source: string
 }
 
+interface HistoryReviewRow {
+  date: string
+  match: string
+  market?: string
+  prediction?: string
+  provenanceVerified?: boolean
+  status?: string
+  finalScore?: string
+}
+
 export interface WinHistory {
+  geminiOnly?: boolean
   generatedAt: string
   trackingPeriod: TrackingPeriod
   stats: Stats
   history: HistoryEntry[]
+  historyReviewRows?: HistoryReviewRow[]
+  pickStats?: ReturnType<typeof summarizeRecordedPickHistory>
+  historyAudit?: {
+    archivesRead: number; sourceRows: number; sourceWon: number; sourceLost: number; sourceTotal: number
+    sourceNoPick: number; sourceNoPickWon: number; sourceNoPickLost: number
+    sourceRecordedPickRows: number; geminiRecordedPickRows: number; nonGeminiOrUnknownSourcePickRows: number; sourceNeedsReviewRows: number
+    fullPickRows: number; fullPickWon: number; fullPickLost: number; fullPickUnverifiedRows: number
+    detailLimit: number; detailRows: number; detailSourceRecordedPickRows: number; detailGeminiRows: number; detailRecordedPickRows: number; detailPickRows: number; detailNeedsReviewRows: number; detailNoPick: number
+    outsideDetailRows: number; outsideDetailSourceRecordedPickRows: number; outsideDetailGeminiRows: number; outsideDetailRecordedPickRows: number; outsideDetailPickRows: number; outsideDetailNeedsReviewRows: number; outsideDetailNoPick: number; sourceMatchesPublished: boolean
+  }
 }
 
-export default function HistoriqueClient({ initialData }: { initialData: WinHistory | null }) {
+export default function HistoriqueClient({ initialData, archiveSummary }: { initialData: WinHistory | null; archiveSummary: ArchiveSummary | null }) {
   const { lang } = useLanguage()
-  const copy = lang === 'fr' ? { loading: 'Chargement de l’historique vérifié…', error: 'Erreur de récupération des données', retry: 'Réessayer', newTracking: 'Nouveau suivi public', title: 'Historique vérifié', intro: 'BTTSPredict lance une nouvelle période de suivi vérifié. Chaque pronostic publié est enregistré, horodaté et évalué après le résultat officiel du match. Les performances seront publiées progressivement, sans modification rétroactive.', launch: 'Nouvelle période de suivi publique' } : lang === 'en' ? { loading: 'Loading verified history…', error: 'Unable to retrieve the data', retry: 'Try again', newTracking: 'New public tracking period', title: 'Verified history', intro: 'BTTSPredict is starting a new verified tracking period. Every published prediction is recorded, time-stamped and assessed after the official match result. Performance will be published progressively, without retroactive changes.', launch: 'New public tracking period' } : { loading: 'جار تحميل السجل الموثق…', error: 'تعذر استرجاع البيانات', retry: 'إعادة المحاولة', newTracking: 'فترة تتبع عامة جديدة', title: 'السجل الموثق', intro: 'تبدأ BTTSPredict فترة جديدة لتتبع التوقعات الموثقة. يتم تسجيل كل توقع منشور وتأريخه وتقييمه بعد النتيجة الرسمية للمباراة. سيتم نشر الأداء تدريجياً دون تعديلات بأثر رجعي.', launch: 'فترة تتبع عامة جديدة' }
+  const copy = lang === 'fr' ? { loading: 'Chargement de l’historique vérifié…', error: 'Erreur de récupération des données', retry: 'Réessayer', newTracking: 'Nouveau suivi public', title: 'Historique vérifié', intro: 'Consultez les résultats officiels des pronostics BTTS publiés.', launch: 'Nouvelle période de suivi publique' } : lang === 'en' ? { loading: 'Loading verified history…', error: 'Unable to retrieve the data', retry: 'Try again', newTracking: 'New public tracking period', title: 'Verified history', intro: 'Browse the official results for published BTTS predictions.', launch: 'New public tracking period' } : { loading: 'جار تحميل السجل الموثق…', error: 'تعذر استرجاع البيانات', retry: 'إعادة المحاولة', newTracking: 'فترة تتبع عامة جديدة', title: 'السجل الموثق', intro: 'اطّلع على النتائج الرسمية لتوقعات BTTS المنشورة.', launch: 'فترة تتبع عامة جديدة' }
   const [data, setData] = useState<WinHistory | null>(initialData)
   const [loading, setLoading] = useState(!initialData)
   const [error, setError] = useState<string | null>(null)
 
   // Chaînes complémentaires (historiquement codées en dur en FR — corrigé Vague 2)
   const t = lang === 'fr' ? {
-    trendTitle: 'Tendance 14 jours', tableTitle: 'Pronostics vérifiés du nouveau suivi', methodLink: 'Méthodologie du modèle →',
+    trendTitle: 'Tendance des résultats vérifiés sur 14 jours', tableTitle: 'Historique des pronostics BTTS', methodLink: 'Méthodologie du modèle →',
     thDate: 'Date', thMatch: 'Match', thMarket: 'Marché', thPred: 'Prévision', thScore: 'Score', thResult: 'Résultat',
     rateGlobal: 'Taux global', winShort: 'W', loseShort: 'L', verifiedWord: 'vérifiés', goldRateLabel: 'Taux Gold',
     wonBadge: 'Gagné', lostBadge: 'Perdu', pendingBadge: 'En attente', emptyTable: 'Aucun pronostic vérifié pour le moment.',
     emptyTableHint: (d: string) => `Les pronostics publiés à partir du ${d} seront vérifiés après le résultat officiel des matchs.`,
     verifiedCountLabel: (n: number) => `${n} vérifiés`, todayLink: 'Voir les pronostics du jour →',
   } : lang === 'en' ? {
-    trendTitle: '14-day trend', tableTitle: 'Verified predictions of the new tracking', methodLink: 'Model methodology →',
+    trendTitle: '14-day verified-results trend', tableTitle: 'BTTS prediction history', methodLink: 'Model methodology →',
     thDate: 'Date', thMatch: 'Match', thMarket: 'Market', thPred: 'Prediction', thScore: 'Score', thResult: 'Result',
     rateGlobal: 'Overall rate', winShort: 'W', loseShort: 'L', verifiedWord: 'verified', goldRateLabel: 'Gold rate',
     wonBadge: 'Won', lostBadge: 'Lost', pendingBadge: 'Pending', emptyTable: 'No verified prediction yet.',
     emptyTableHint: (d: string) => `Predictions published from ${d} will be verified after the official match result.`,
     verifiedCountLabel: (n: number) => `${n} verified`, todayLink: 'View today’s predictions →',
   } : {
-    trendTitle: 'اتجاه 14 يوماً', tableTitle: 'توقعات موثقة من التتبع الجديد', methodLink: 'منهجية النموذج ←',
+    trendTitle: 'اتجاه 14 يوماً', tableTitle: 'سجل توقعات BTTS', methodLink: 'منهجية النموذج ←',
     thDate: 'التاريخ', thMatch: 'المباراة', thMarket: 'السوق', thPred: 'التوقع', thScore: 'النتيجة', thResult: 'الحالة',
     rateGlobal: 'المعدل الإجمالي', winShort: 'ف', loseShort: 'خ', verifiedWord: 'موثق', goldRateLabel: 'معدل Gold',
     wonBadge: 'فاز', lostBadge: 'خسر', pendingBadge: 'قيد الانتظار', emptyTable: 'لا توجد توقعات موثقة بعد.',
@@ -101,7 +125,7 @@ export default function HistoriqueClient({ initialData }: { initialData: WinHist
         if (!r.ok) throw new Error('Impossible de charger les données')
         return r.json()
       })
-      .then(d => { setData(d); setLoading(false) })
+      .then(d => { if (d?.geminiOnly !== true) throw new Error('Verified history is unavailable'); setData(d); setLoading(false) })
       .catch((e) => {
         const message = e instanceof Error ? e.message : String(e)
         setError(lang === 'fr' ? message : lang === 'en' ? 'Unable to load the history data. Please try again.' : 'تعذر تحميل بيانات السجل. يرجى المحاولة مجدداً.')
@@ -134,14 +158,20 @@ export default function HistoriqueClient({ initialData }: { initialData: WinHist
 
   if (!data) return null
 
-  const { trackingPeriod, stats, history } = data
+  const { trackingPeriod, history } = data
+  const stats = data.pickStats ?? summarizeRecordedPickHistory(history, {
+    asOf: data.generatedAt ? Date.parse(data.generatedAt) : undefined,
+    trackingStart: trackingPeriod.startDate,
+  })
   const bttsHistory = selectBttsHistory(history)
-  const insufficient = trackingPeriod.insufficientVolume || stats.total < 30
+  const { withPick: recordedBttsHistory } = partitionRecordedPickHistory(bttsHistory)
+  const tableHistory = recordedBttsHistory.filter(row => validateRecordedResult(row) === 'verified').slice(0, 100)
+  const insufficient = stats.total < 30
   const trackingNotice = lang === 'fr'
-    ? `Suivi public lancé le ${trackingPeriod.startDate}. Chaque pronostic est enregistré, horodaté et vérifié après le résultat officiel du match. Les performances sont publiées progressivement, sans modification rétroactive. Aucun résultat futur n'est garanti.`
+    ? 'Les résultats passés ne garantissent pas les résultats futurs.'
     : lang === 'en'
-      ? `Public tracking started on ${trackingPeriod.startDate}. Every prediction is recorded, time-stamped and checked against the official match result. Results are published progressively, without retroactive changes. No future result is guaranteed.`
-      : `بدأ التتبع العام في ${trackingPeriod.startDate}. يتم تسجيل كل توقع وتأريخه والتحقق منه بعد النتيجة الرسمية للمباراة. تُنشر النتائج تدريجياً دون تعديلات بأثر رجعي. لا توجد ضمانات لأي نتيجة مستقبلية.`
+      ? 'Past results do not guarantee future results.'
+      : 'النتائج السابقة لا تضمن النتائج المستقبلية.'
   const responsibleNotice = lang === 'fr'
     ? "18+ · Les paris sportifs comportent un risque de perte. Aucun gain n'est garanti. BTTSPredict ne prend pas de paris et ne collecte pas de fonds. Jouez de manière responsable."
     : lang === 'en'
@@ -183,44 +213,7 @@ export default function HistoriqueClient({ initialData }: { initialData: WinHist
         )}
       </section>
 
-      {/* Fraîcheur des données — les compteurs détaillés sont dans la section
-          « Taux de réussite » ci-dessous (retrait des compteurs redondants). */}
-      <section className="max-w-5xl mx-auto px-4 pb-8">
-        <p className="text-xs text-[#9DABBB] text-center mt-4 leading-relaxed">
-          {lang === 'fr' ? 'Dernière mise à jour' : lang === 'en' ? 'Last data update' : 'آخر تحديث'} : {new Date(data.generatedAt).toLocaleString(lang === 'ar' ? 'ar' : lang === 'en' ? 'en-GB' : 'fr-FR', { dateStyle: 'short', timeStyle: 'short' })}
-          {stats.period.from && (lang === 'fr' ? ` · Période : ${stats.period.from} → ${stats.period.to || 'en cours'}` : lang === 'en' ? ` · Period: ${stats.period.from} → ${stats.period.to || 'ongoing'}` : ` · الفترة: ${stats.period.from} → ${stats.period.to || 'جارية'}`)}
-        </p>
-      </section>
-
-      {/* Taux de réussite — affiché uniquement si volume suffisant */}
-      {!insufficient && stats.total > 0 && (
-        <section className="max-w-5xl mx-auto px-4 pb-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="p-5 rounded-2xl" style={{ backgroundColor: '#141C25', border: '1px solid #223041' }}>
-              <div className="text-xs uppercase tracking-wider text-[#9DABBB] font-bold mb-2">{t.rateGlobal}</div>
-              <div className="text-3xl font-bold text-[#F2F6FA] mb-1">{stats.rate}%</div>
-              <div className="text-xs text-[#9DABBB]"><span className="tracking-win-text">{stats.won} {t.winShort}</span> · {stats.lost} {t.loseShort} · {stats.total} {t.verifiedWord}</div>
-            </div>
-            <div className="p-5 rounded-2xl" style={{ backgroundColor: '#141C25', border: '1px solid #223041' }}>
-              <div className="text-xs uppercase tracking-wider text-[#9DABBB] font-bold mb-2">BTTS</div>
-              <div className="text-3xl font-bold text-[#2F7DFF] mb-1">{stats.byType.btts.rate}%</div>
-              <div className="text-xs text-[#9DABBB]"><span className="tracking-win-text">{stats.byType.btts.won} {t.winShort}</span> · {stats.byType.btts.lost} {t.loseShort} · {stats.byType.btts.total} {t.verifiedWord}</div>
-            </div>
-            <div className="p-5 rounded-2xl" style={{ backgroundColor: '#141C25', border: '1px solid #223041' }}>
-              <div className="text-xs uppercase tracking-wider text-[#9DABBB] font-bold mb-2">Over 2.5</div>
-              <div className="text-3xl font-bold text-[#2F7DFF] mb-1">{stats.byType.over25.rate}%</div>
-              <div className="text-xs text-[#9DABBB]">
-                <span className="tracking-win-text">{stats.byType.over25.won} {t.winShort}</span> · {stats.byType.over25.lost} {t.loseShort} · {stats.byType.over25.total} {t.verifiedWord}
-                {stats.byType.over25.total > 0 && stats.byType.over25.total < 30 && (
-                  <span className="ml-2 px-1.5 py-0.5 rounded text-[12px]" style={{ backgroundColor: 'rgba(251,191,36,0.12)', color: '#FBBF24' }}>
-                    {lang === 'fr' ? 'échantillon faible' : lang === 'en' ? 'small sample' : 'عينة صغيرة'}
-                  </span>
-                )}
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
+      <ArchiveSummaryCards summary={archiveSummary} lang={lang} />
 
       {/* Trend 14j — affiché uniquement si volume suffisant */}
       {!insufficient && stats.trend14 && stats.trend14.length > 0 && (
@@ -250,7 +243,7 @@ export default function HistoriqueClient({ initialData }: { initialData: WinHist
           {t.tableTitle}
         </h2>
 
-        {bttsHistory.length === 0 ? (
+        {tableHistory.length === 0 ? (
           <div className="p-6 rounded-xl text-center" style={{ backgroundColor: '#141C25', border: '1px solid #223041' }}>
             <p className="text-sm text-[#9DABBB] mb-2">{t.emptyTable}</p>
             <p className="text-xs text-[#9DABBB]">
@@ -258,8 +251,8 @@ export default function HistoriqueClient({ initialData }: { initialData: WinHist
             </p>
           </div>
         ) : (
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm" style={{ borderCollapse: 'collapse' }}>
+          <div className="history-table-wrap overflow-x-auto">
+            <table className="history-table w-full text-sm" style={{ borderCollapse: 'collapse' }}>
               <thead>
                 <tr style={{ borderBottom: '2px solid #223041' }}>
                   <th className="text-left py-3 px-3 font-bold text-[#9DABBB]">{t.thDate}</th>
@@ -271,9 +264,8 @@ export default function HistoriqueClient({ initialData }: { initialData: WinHist
                 </tr>
               </thead>
               <tbody>
-                {bttsHistory.slice(0, 100).map((h, i) => {
+                {tableHistory.map((h, i) => {
                   const isWon = h.status === 'WON'
-                  const isLost = h.status === 'LOST'
                   return (
                     <tr key={i} style={{ borderBottom: '1px solid #223041' }}>
                       <td className="py-2 px-3 text-[#9DABBB] text-xs whitespace-nowrap">{h.date}</td>
@@ -299,17 +291,11 @@ export default function HistoriqueClient({ initialData }: { initialData: WinHist
                             <span className="inline-block w-1.5 h-1.5 rounded-full tracking-win-dot" style={{ backgroundColor: '#34D399' }} aria-hidden="true" />
                             {t.wonBadge}
                           </span>
-                        ) : isLost ? (
+                        ) : (
                           <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-full text-xs font-bold"
                             style={{ backgroundColor: 'rgba(248, 113, 113, 0.13)', color: '#F87171' }}>
                             <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ backgroundColor: '#F87171' }} aria-hidden="true" />
                             {t.lostBadge}
-                          </span>
-                        ) : (
-                          <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-full text-xs font-bold"
-                            style={{ backgroundColor: 'rgba(251, 191, 36, 0.12)', color: '#FBBF24' }}>
-                            <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ backgroundColor: '#FBBF24' }} aria-hidden="true" />
-                            {t.pendingBadge}
                           </span>
                         )}
                       </td>

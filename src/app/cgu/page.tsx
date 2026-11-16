@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { frEnAlternates } from '@/lib/seo'
 import {Navbar, Footer,
   FreePredictionsWidget,
   VipCardWidget,
@@ -16,9 +17,7 @@ const DESCRIPTION =
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  alternates: {
-    canonical: PAGE_URL,
-  },
+  alternates: frEnAlternates('/cgu', 'fr'),
   openGraph: {
     title: TITLE,
     description: DESCRIPTION,
@@ -156,11 +155,11 @@ export default function CGUPage() {
                 </h2>
                 <div className="space-y-3 text-cendre text-sm leading-relaxed">
                   <p>
-                    En accédant au site BTTSPredict accessible à l&apos;adresse{' '}
+                    Les présentes CGU décrivent les règles d&apos;utilisation publiées pour le site BTTSPredict accessible à l&apos;adresse{' '}
                     <a href={SITE_URL} className="text-emerald hover:text-emerald-soft transition-colors underline underline-offset-2">
                       {SITE_URL}
                     </a>
-                    , vous reconnaissez avoir lu, compris et accepté sans réserve les présentes Conditions Générales d&apos;Utilisation (ci-après « CGU »). Si vous n&apos;acceptez pas l&apos;une quelconque de ces conditions, vous devez cesser immédiatement toute utilisation du site.
+                    . Elles sont fournies à titre d&apos;information sur le fonctionnement du site et ne constituent pas un avis juridique individualisé. Si vous ne souhaitez pas continuer selon ces règles, cessez d&apos;utiliser le site.
                   </p>
                   <p>
                     Les présentes CGU s&apos;appliquent à tous les visiteurs, utilisateurs et toute autre personne accédant au site. Elles complètent nos{' '}
@@ -174,7 +173,7 @@ export default function CGUPage() {
                     , qui font partie intégrante des présentes conditions par renvoi.
                   </p>
                   <p>
-                    BTTSPredict se réserve le droit de modifier les présentes CGU à tout moment. Les modifications prennent effet dès leur publication sur le site. L&apos;utilisation continue du site après la publication de modifications constitue votre acceptation de ces dernières. Nous vous recommandons de consulter régulièrement cette page.
+                    Cette page peut être mise à jour. Consultez le texte actuellement affiché pour connaître son contenu. L&apos;effet juridique d&apos;une modification ou de l&apos;utilisation continue du site n&apos;est pas vérifié ici.
                   </p>
                 </div>
               </article>
@@ -363,13 +362,13 @@ export default function CGUPage() {
                 </h2>
                 <div className="space-y-3 text-cendre text-sm leading-relaxed">
                   <p>
-                    BTTSPredict se réserve le droit de modifier, mettre à jour ou remplacer tout ou partie des présentes CGU à tout moment et sans préavis. Les modifications prennent effet dès leur publication sur le site.
+                    Le texte de cette page peut être révisé. La version et la date de mise à jour affichées sur le site indiquent le contenu actuellement publié; elles ne déterminent pas, à elles seules, l&apos;effet juridique d&apos;une modification.
                   </p>
                   <p>
-                    Il incombe à l&apos;utilisateur de consulter régulièrement les présentes CGU pour prendre connaissance des éventuelles modifications. L&apos;utilisation continue du site après la publication de CGU modifiées vaut acceptation sans réserve des nouvelles conditions.
+                    L&apos;effet juridique de l&apos;utilisation continue du site après une modification dépend des circonstances applicables et n&apos;est pas déterminé par cette page.
                   </p>
                   <p>
-                    En cas de modification substantielle des conditions, BTTSPredict s&apos;efforcera d&apos;informer les utilisateurs par un avis visible sur le site. Toutefois, l&apos;absence de notification ne saurait invalider les modifications apportées.
+                    Les informations publiées ici ne désignent aucune procédure de notification ni aucun effet automatique découlant de l&apos;absence d&apos;avis.
                   </p>
                 </div>
               </article>
@@ -384,13 +383,7 @@ export default function CGUPage() {
                 </h2>
                 <div className="space-y-3 text-cendre text-sm leading-relaxed">
                   <p>
-                    Les présentes CGU sont régies par le droit camerounais et les dispositions applicables au sein de la Communauté Économique et Monétaire de l&apos;Afrique Centrale (CEMAC), et notamment l&apos;Acte Uniforme révisé de l&apos;OHADA relatif au droit commercial général.
-                  </p>
-                  <p>
-                    En cas de litige relatif à l&apos;interprétation ou à l&apos;exécution des présentes CGU, les parties s&apos;efforceront de résoudre le différend à l&apos;amiable dans un délai de trente (30) jours à compter de la notification du litige par l&apos;une des parties.
-                  </p>
-                  <p>
-                    À défaut de résolution amiable, le litige sera soumis aux juridictions compétentes du Cameroun. L&apos;utilisation du site à partir d&apos;autres juridictions se fait à l&apos;initiative de l&apos;utilisateur, qui est seul responsable du respect des lois locales applicables.
+                    Le droit applicable et la juridiction compétente pour BTTSPredict n&apos;ont pas été établis dans cette page. Toute obligation juridique spécifique à une juridiction est non vérifiée; aucune loi nationale ou régionale ni aucun tribunal particulier n&apos;est désigné ici.
                   </p>
                 </div>
               </article>
@@ -438,14 +431,14 @@ export default function CGUPage() {
                     </li>
                   </ul>
                   <p>
-                    Nous nous engageons à répondre à toute demande dans un délai raisonnable de trente (30) jours ouvrables.
+                    Nous ferons notre possible pour répondre aux demandes. Aucun délai particulier de réponse n&apos;est garanti par cette page; les obligations éventuelles propres à une juridiction ne sont pas établies ici.
                   </p>
                 </div>
               </article>
 
               {/* Last updated */}
               <p className="text-center text-xs text-cendre pt-4">
-                Dernière mise à jour : Juin 2026
+                Dernière mise à jour : 16 novembre 2026
               </p>
             </div>
           </div>

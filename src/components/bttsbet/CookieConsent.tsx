@@ -7,24 +7,18 @@ import { useLanguage } from './LanguageSwitcher'
 const STORAGE_KEY = 'bttsbet_cookie_consent'
 
 const COOKIE_TYPES = [
-  { id: 'essential', label: 'Cookies essentiels', description: 'Nécessaires au fonctionnement du site. Ne peuvent pas être désactivés.', required: true },
-  { id: 'analytics', label: 'Cookies analytiques', description: 'Nous aident à comprendre comment les visiteurs utilisent le site.', required: false },
-  { id: 'advertising', label: 'Cookies publicitaires', description: 'Utilisés pour afficher des publicités pertinentes et mesurer leur efficacité.', required: false },
+  { id: 'analytics', label: 'Mesure d’audience (Google Analytics)', description: 'Chargée uniquement si configurée et après votre accord.' },
 ]
 
 export default function CookieConsent() {
   const [show, setShow] = useState(false)
   const [customize, setCustomize] = useState(false)
-  const [preferences, setPreferences] = useState({ essential: true, analytics: false, advertising: false })
+  const [preferences, setPreferences] = useState({ analytics: false })
   const { lang } = useLanguage()
   const cookieTypes = lang === 'fr' ? COOKIE_TYPES : lang === 'en' ? [
-    { id: 'essential', label: 'Essential cookies', description: 'Required for the site to work. Cannot be disabled.', required: true },
-    { id: 'analytics', label: 'Analytics cookies', description: 'Help us understand how visitors use the site.', required: false },
-    { id: 'advertising', label: 'Advertising cookies', description: 'Used to show relevant advertising and measure its effectiveness.', required: false },
+    { id: 'analytics', label: 'Audience measurement (Google Analytics)', description: 'Loaded only when configured and after you consent.' },
   ] : [
-    { id: 'essential', label: 'ملفات تعريف الارتباط الأساسية', description: 'ضرورية لعمل الموقع ولا يمكن تعطيلها.', required: true },
-    { id: 'analytics', label: 'ملفات تعريف الارتباط التحليلية', description: 'تساعدنا على فهم كيفية استخدام الزوار للموقع.', required: false },
-    { id: 'advertising', label: 'ملفات تعريف الارتباط الإعلانية', description: 'تستخدم لعرض إعلانات مناسبة وقياس فعاليتها.', required: false },
+    { id: 'analytics', label: 'قياس الجمهور (Google Analytics)', description: 'لا يتم التحميل إلا عند التهيئة وبعد موافقتك.' },
   ]
 
   useEffect(() => {
@@ -38,9 +32,7 @@ export default function CookieConsent() {
           return false
         }
         setPreferences({
-          essential: true,
           analytics: parsed.preferences.analytics === true,
-          advertising: parsed.preferences.advertising === true,
         })
         return true
       } catch {
@@ -69,16 +61,16 @@ export default function CookieConsent() {
   }
 
   const handleAccept = () => {
-    persistConsent('accepted', { essential: true, analytics: true, advertising: true })
+    persistConsent('accepted', { analytics: true })
   }
   const handleRefuse = () => {
-    persistConsent('refused', { essential: true, analytics: false, advertising: false })
+    persistConsent('refused', { analytics: false })
   }
   const handleSavePreferences = () => {
-    persistConsent(preferences.analytics || preferences.advertising ? 'customized' : 'refused', preferences)
+    persistConsent(preferences.analytics ? 'customized' : 'refused', preferences)
   }
   const togglePreference = (id: string) => {
-    if (id === 'essential') return
+    if (id !== 'analytics') return
     setPreferences((prev) => ({ ...prev, [id]: !prev[id as keyof typeof prev] }))
   }
 
@@ -90,10 +82,9 @@ export default function CookieConsent() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
           transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="fixed left-0 right-0 z-[60] p-3 sm:p-6"
-          style={{ bottom: 'calc(64px + env(safe-area-inset-bottom, 0px))', backgroundColor: 'rgba(7, 16, 24, 0.97)', backdropFilter: 'blur(18px)', borderTop: '1px solid rgba(91, 169, 255, 0.28)', maxHeight: 'calc(100dvh - 5rem)', overflowY: 'auto' }}
+          className="cookie-consent-panel fixed z-[11000] p-3 sm:p-5"
+          style={{ backgroundColor: 'rgba(7, 16, 24, 0.97)', backdropFilter: 'blur(18px)', borderTop: '1px solid rgba(91, 169, 255, 0.28)' }}
           role="dialog"
-          aria-modal="true"
           aria-labelledby="cookie-consent-title"
           aria-describedby="cookie-consent-description"
         >
@@ -106,8 +97,8 @@ export default function CookieConsent() {
                   </svg>
                 </div>
                 <div>
-                  <h3 id="cookie-consent-title" className="text-papier font-bold text-sm sm:text-base mb-0.5 sm:mb-1">{lang === 'fr' ? 'Consentement aux cookies' : lang === 'en' ? 'Cookie consent' : 'الموافقة على ملفات تعريف الارتباط'}</h3>
-                  <p id="cookie-consent-description" className="text-xs sm:text-sm text-papier leading-snug sm:leading-relaxed">{lang === 'fr' ? 'Choisissez vos préférences. Les cookies analytiques et publicitaires ne sont activés qu’après votre accord.' : lang === 'en' ? 'Choose your preferences. Analytics and advertising cookies are enabled only with your consent.' : 'اختر تفضيلاتك. لا يتم تفعيل ملفات تعريف الارتباط التحليلية والإعلانية إلا بموافقتك.'}</p>
+                  <h3 id="cookie-consent-title" className="text-papier font-bold text-sm sm:text-base mb-0.5 sm:mb-1">{lang === 'fr' ? 'Préférences de mesure d’audience' : lang === 'en' ? 'Analytics preferences' : 'تفضيلات التحليلات'}</h3>
+                  <p id="cookie-consent-description" className="text-xs sm:text-sm text-papier leading-snug sm:leading-relaxed">{lang === 'fr' ? 'Google Analytics est chargé uniquement si l’outil est configuré et après votre accord. Votre choix est enregistré localement dans ce navigateur.' : lang === 'en' ? 'Google Analytics loads only when configured and after your consent. Your choice is stored locally in this browser.' : 'لا يتم تحميل Google Analytics إلا عند تهيئته وبعد موافقتك. يُحفظ اختيارك محليًا في هذا المتصفح.'}</p>
                 </div>
               </div>
             </div>
@@ -119,12 +110,12 @@ export default function CookieConsent() {
                     {cookieTypes.map((cookie) => (
                       <label key={cookie.id} className="flex items-start gap-3 cursor-pointer group">
                         <div className="pt-0.5">
-                          <input type="checkbox" checked={preferences[cookie.id as keyof typeof preferences]} onChange={() => togglePreference(cookie.id)} disabled={cookie.required} className="sr-only peer" />
+                          <input type="checkbox" checked={preferences[cookie.id as keyof typeof preferences]} onChange={() => togglePreference(cookie.id)} className="sr-only peer" />
                           <div className="w-5 h-5 rounded-md border-2 flex items-center justify-center transition-all"
                             style={{
                               backgroundColor: preferences[cookie.id as keyof typeof preferences] ? '#2F7DFF' : 'transparent',
                               borderColor: preferences[cookie.id as keyof typeof preferences] ? '#2F7DFF' : 'rgba(244, 247, 251,0.2)',
-                              opacity: cookie.required ? 0.7 : 1,
+                              opacity: 1,
                             }}>
                             {preferences[cookie.id as keyof typeof preferences] && (
                               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
@@ -134,9 +125,6 @@ export default function CookieConsent() {
                         <div className="flex-1">
                           <div className="flex items-center gap-2">
                             <span className="text-sm text-papier font-medium">{cookie.label}</span>
-                            {cookie.required && (
-                              <span className="text-xs px-2 py-0.5 rounded-full font-medium" style={{ backgroundColor: 'rgba(47, 125, 255, 0.14)', color: '#4A90FF' }}>{lang === 'fr' ? 'Obligatoire' : lang === 'en' ? 'Required' : 'مطلوب'}</span>
-                            )}
                           </div>
                           <p className="text-xs text-cendre mt-0.5">{cookie.description}</p>
                         </div>

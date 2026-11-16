@@ -1,28 +1,28 @@
 import { describe, expect, it } from 'vitest'
-import { humanMethodLabel, predictionQuality, shouldPublishPrediction } from '@/lib/predictionQuality'
+import { humanMatchDataAvailabilityLabel, matchDataAvailability } from '@/lib/predictionQuality'
 
-describe('prediction quality guard', () => {
-  it('rejects a prediction with no evidence instead of inventing confidence', () => {
-    const prediction = { match: 'Unknown FC', date: '2026-10-20', market: 'BTTS' }
-    expect(predictionQuality(prediction)).toBe('insufficient')
-    expect(shouldPublishPrediction(prediction)).toBe(false)
-    expect(humanMethodLabel('insufficient')).toBe('Données insuffisantes')
-  })
-
-  it('recognizes the real nested ESPN payload used by predictions.json', () => {
-    expect(predictionQuality({
-      match: 'Real FC', proba: 0.68, source: 'poisson-v92-real-data', dataSource: 'ESPN_TEAM_SCHEDULE',
-      dataQuality: 'HIGH', matchCountHome: 8, matchCountAway: 8,
-      xgHome: 1.8, xgAway: 1.4,
+describe('public match-context data availability', () => {
+  it('ignores xG, lambdas, local probabilities and model labels', () => {
+    expect(matchDataAvailability({
+      proba: 0.68,
+      xgHome: 1.8,
+      xgAway: 1.4,
       analysisData: { homeLambda: 1.8, awayLambda: 1.4 },
-    })).toBe('reliable')
+      dataQuality: 'HIGH',
+      source: 'poisson-v92-real-data',
+    })).toBe('insufficient')
   })
 
-  it('distinguishes limited data from a fully supported signal', () => {
-    expect(predictionQuality({ match: 'Limited FC', proba: 0.64 })).toBe('limited')
-    expect(predictionQuality({
-      match: 'Supported FC', proba: 0.68, source: 'ESPN',
-      analysis: { homeLambda: 1.2, awayLambda: 1.1, homeForm: { scoredIn: 4 }, awayForm: { scoredIn: 4 }, hasRealData: true },
-    })).toBe('reliable')
+  it('uses only the smaller recorded match sample for both teams', () => {
+    expect(matchDataAvailability({ matchCountHome: 8, matchCountAway: 6 })).toBe('sufficient')
+    expect(matchDataAvailability({ matchCountHome: 8, matchCountAway: 4 })).toBe('limited')
+    expect(matchDataAvailability({ matchCountHome: 8, matchCountAway: 3 })).toBe('insufficient')
+    expect(matchDataAvailability({ matchCountHome: 8 })).toBe('insufficient')
+  })
+
+  it('describes context availability, not a pick confidence or probability', () => {
+    expect(humanMatchDataAvailabilityLabel('sufficient')).toBe('Données de matchs récentes disponibles')
+    expect(humanMatchDataAvailabilityLabel('limited', 'en')).toBe('Limited match sample')
+    expect(humanMatchDataAvailabilityLabel('insufficient', 'ar')).toBe('لا تتوفر مباريات تاريخية كافية')
   })
 })

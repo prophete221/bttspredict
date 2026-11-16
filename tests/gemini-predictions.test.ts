@@ -37,7 +37,15 @@ describe('Gemini-only market picks', () => {
       ai_source: 'local-empirical-v1', ai_abstain: false,
     })).toEqual([])
     expect(getGeminiPicks({ type: 'BTTS', prediction: 'Oui', proba: 0.64, bttsProb: 0.64 })).toEqual([])
-    expect(getGeminiPicks(verifiedRow('BTTS', 'Oui', 0.82))).toEqual([])
+  })
+
+  it('accepts every finite Gemini probability in 0–1 without a numeric cutoff', () => {
+    for (const probability of [0, 0.01, 0.47, 0.79, 0.99, 1]) {
+      expect(getGeminiPicks(verifiedRow('BTTS', 'Oui', probability))).toHaveLength(1)
+    }
+    for (const probability of [-0.01, 1.01, Number.NaN, Number.POSITIVE_INFINITY]) {
+      expect(getGeminiPicks(verifiedRow('BTTS', 'Oui', probability))).toEqual([])
+    }
   })
 
   it('rejects legacy hybrid tags, multiple markets, mismatched picks, and unsupported models', () => {

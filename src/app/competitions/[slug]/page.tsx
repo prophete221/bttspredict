@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import CompetitionPageContent from '@/components/bttsbet/CompetitionPageContent'
 import { COMPETITION_SLUGS, competitionMeta, getCompetitionPage } from '@/lib/competition-pages'
+import { getInitialCompetitionPageFeed } from '@/lib/competition-static-feed'
 
 export const dynamic = 'force-static'
 export const dynamicParams = false
@@ -19,5 +20,5 @@ export default async function CompetitionPage({ params }: { params: Promise<{ sl
   const { slug } = await params
   const competition = getCompetitionPage(slug)
   if (!competition) notFound()
-  return <CompetitionPageContent competition={competition} locale="fr" />
+  return <CompetitionPageContent competition={competition} locale="fr" initialFeed={getInitialCompetitionPageFeed(slug)} />
 }

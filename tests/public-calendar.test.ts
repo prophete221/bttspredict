@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { selectCalendarItemsForDakarDay, selectFixtureOnlyItems, selectTodayCalendarItems } from '@/lib/public-calendar'
+import { publicFixtureKey, selectCalendarItemsForDakarDay, selectFixtureOnlyItems, selectTodayCalendarItems } from '@/lib/public-calendar'
 
 const NOW = new Date('2026-11-10T12:00:00.000Z')
 
@@ -51,5 +51,11 @@ describe('public match calendar separation', () => {
       { id: 'later', date: '2026-11-12' },
     ]
     expect(selectCalendarItemsForDakarDay(rows, 1, NOW).map(row => row.id)).toEqual(['tomorrow'])
+  })
+
+  it('keeps fixtures with different kick-off times distinct', () => {
+    const first = { home: 'Alpha', away: 'Beta', league: 'League', date: '2026-11-11', time: '18:00' }
+    const second = { ...first, time: '19:00' }
+    expect(publicFixtureKey(first)).not.toBe(publicFixtureKey(second))
   })
 })

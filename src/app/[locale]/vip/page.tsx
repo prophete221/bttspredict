@@ -1,22 +1,23 @@
+import { getStaticLocaleParams } from '@/lib/locale-route-policy'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import { frEnAlternates } from '@/lib/seo'
 import VipPage from '@/app/vip/page'
-import { SUPPORTED_LOCALES, type Locale } from '@/lib/i18n'
+
+export const dynamicParams = false
 
 export function generateStaticParams() {
-  return SUPPORTED_LOCALES.filter(locale => locale !== 'fr').map(locale => ({ locale }))
+  return getStaticLocaleParams('/vip')
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  if (locale !== 'en' && locale !== 'ar') return {}
-  return locale === 'en'
-    ? { title: 'VIP BTTS Analysis Desk', description: 'Private BTTS, Over 2.5 and exact-score analysis for international matches.', alternates: { canonical: 'https://bttspredict.com/en/vip' } }
-    : { title: 'مكتب تحليل VIP لتوقعات BTTS', description: 'تحليل خاص لتوقعات BTTS وأكثر من 2.5 والنتيجة الدقيقة للمباريات الدولية.', alternates: { canonical: 'https://bttspredict.com/ar/vip' } }
+  if (locale !== 'en') return {}
+  return { title: 'VIP BTTS Analysis Desk', description: 'Private BTTS, Over 2.5 and exact-score analysis for international matches.', alternates: frEnAlternates('/vip', 'en') }
 }
 
 export default async function LocalizedVipPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
-  if (!SUPPORTED_LOCALES.includes(locale as Locale) || locale === 'fr') notFound()
+  if (locale !== 'en') notFound()
   return <VipPage />
 }

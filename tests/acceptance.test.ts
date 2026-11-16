@@ -211,15 +211,21 @@ describe('Meta descriptions 25-160 caractères', () => {
   })
 })
 
-describe('AI Combo of the Day — sélection temporelle', () => {
-  test('utilise exclusivement les matchs actifs du jour et reste masqué sans match à venir', () => {
-    const content = fs.readFileSync(
+describe('Public Gemini picks — no local combo generation', () => {
+  test('keeps every validated market visible and does not rank a local three-pick combo', () => {
+    const dashboard = fs.readFileSync(
       path.join(ROOT, 'src/components/bttsbet/BttsTodayDashboard.tsx'),
       'utf8',
     )
-    expect(content).toContain('for (const m of [...liveTodayMatches, ...scheduledTodayMatches])')
-    expect(content).toContain('{!loading && (liveTodayMatches.length > 0 || scheduledTodayMatches.length > 0) && (')
-    expect(content).toContain("'Terminés aujourd’hui'")
-    expect(content).toContain('No combo available today.')
+    const matchCenter = fs.readFileSync(
+      path.join(ROOT, 'src/components/bttsbet/MatchCenter.tsx'),
+      'utf8',
+    )
+    expect(dashboard).not.toContain('ComboPick')
+    expect(dashboard).not.toContain('AI COMBO OF THE DAY')
+    expect(dashboard).not.toContain('reliabilityScore >= 70')
+    expect(dashboard).not.toContain('aiExactScore')
+    expect(dashboard).not.toContain('btx-datechip')
+    expect(matchCenter).not.toContain("import ComboBuilder")
   })
 })

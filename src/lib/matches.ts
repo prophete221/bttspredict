@@ -15,16 +15,20 @@ import path from 'path'
 import retainedClickedFrMatchPages from '../data/retained-clicked-fr-match-pages.json'
 import { generateMatchSlug } from './match-slug'
 import { isVipRow, observedFormBtts } from '../../scripts/public-predictions.mjs'
-import { getProba, getConfidence } from './predictions'
-import { getGeminiPicks, getGeminiProbability } from './gemini-predictions'
+import { projectGeminiKeyFact } from './match-fact-projection'
+import { getGeminiPicks, getGeminiProbability, type GeminiPrediction } from './gemini-predictions'
+import { getWinHistory } from '../app/historique/getWinHistory'
 
 export { generateMatchSlug } from './match-slug'
 
 export interface VerifiedHistoryEntry {
   match?: string
   date?: string
+  league?: string
   market?: string
   type?: string
+  prediction?: string
+  tier?: string
   status?: string
   isWon?: boolean
   finalScore?: string
@@ -44,53 +48,43 @@ function marketKey(value: string | undefined): string {
   return normalized
 }
 
-/** Preserve only the source markets already published for explicitly retained historical pages. */
-function getRetainedPublishedPicks(row: any): ReturnType<typeof getGeminiPicks> {
-  if (!Array.isArray(row.predictions)) return []
-  return row.predictions.flatMap((pick: any) => {
-    if (!pick || typeof pick !== 'object') return []
-    const market = marketKey(pick.type || pick.market)
-    if (market !== 'btts' && market !== 'over25') return []
-    if (pick.prediction !== 'Oui' && pick.prediction !== 'Non') return []
-    const probability = typeof pick.proba === 'number'
-      ? pick.proba
-      : market === 'btts' ? pick.bttsProb : pick.over25Prob
-    if (typeof probability !== 'number' || !Number.isFinite(probability) || probability < 0 || probability > 1) return []
-    const confidence = pick.confidence ?? row.confidence
-    if (typeof confidence !== 'number' || !Number.isFinite(confidence) || confidence < 0 || confidence > 100) return []
-    return [{
-      type: market === 'btts' ? 'BTTS' as const : 'Over 2.5' as const,
-      market: market === 'btts' ? 'BTTS' as const : 'O2.5' as const,
-      prediction: pick.prediction as 'Oui' | 'Non',
-      confidence,
-      proba: probability,
-      ...(market === 'btts' ? { bttsProb: probability } : { over25Prob: probability }),
-      ...(typeof (pick.tier ?? row.tier) === 'string' ? { tier: String(pick.tier ?? row.tier) } : {}),
-      ...(typeof (pick.status ?? row.status) === 'string' ? { status: String(pick.status ?? row.status) } : {}),
-      ...(typeof (pick.isWon ?? row.isWon) === 'boolean' ? { isWon: Boolean(pick.isWon ?? row.isWon) } : {}),
-      ...(typeof (pick.finalScore ?? row.finalScore) === 'string' ? { finalScore: String(pick.finalScore ?? row.finalScore) } : {}),
-      ...(typeof (pick.verifiedAt ?? row.verifiedAt) === 'string' ? { verifiedAt: String(pick.verifiedAt ?? row.verifiedAt) } : {}),
-      ...(typeof (pick.source ?? row.source) === 'string' ? { source: String(pick.source ?? row.source) } : {}),
-    }]
-  })
+/** Merge only validated picks; once a market conflicts for a fixture, keep it withheld. */
+export function addValidatedMatchPicks(
+  selected: Map<GeminiPrediction['market'], GeminiPrediction>,
+  conflicts: Set<GeminiPrediction['market']>,
+  incoming: readonly GeminiPrediction[],
+): void {
+  for (const pick of incoming) {
+    if (conflicts.has(pick.market)) continue
+    const existing = selected.get(pick.market)
+    if (!existing) {
+      selected.set(pick.market, pick)
+    } else if (existing.prediction !== pick.prediction || Math.abs(existing.proba - pick.proba) >= 1e-9) {
+      selected.delete(pick.market)
+      conflicts.add(pick.market)
+    } else {
+      // Same pick repeated with fresher publication/status metadata.
+      selected.set(pick.market, pick)
+    }
+  }
 }
 
-/** Read only the public verified history for a specific match. */
+/** Retained archives may publish picks only when they pass the same strict Gemini validator as the live feed. */
+function getRetainedPublishedPicks(row: any): ReturnType<typeof getGeminiPicks> {
+  return getGeminiPicks(row)
+}
+
+/** Read only score-consistent, strictly Gemini-proven history for a specific match. */
 export function getVerifiedHistoryForMatch(home: string, away: string, date?: string): VerifiedHistoryEntry[] {
-  const historyPath = path.join(process.cwd(), 'public', 'win-history.json')
-  if (!fs.existsSync(historyPath)) return []
-  try {
-    const payload = JSON.parse(fs.readFileSync(historyPath, 'utf8')) as { history?: VerifiedHistoryEntry[] }
-    const expected = `${normalizeMatchName(home)} vs ${normalizeMatchName(away)}`
-    return (payload.history || []).filter(entry => {
-      const match = normalizeMatchName(entry.match || '')
-      const sameTeams = match === expected
-      const sameDate = !date || !entry.date || entry.date.slice(0, 10) === date.slice(0, 10)
-      return sameTeams && sameDate
-    })
-  } catch {
-    return []
-  }
+  const payload = getWinHistory() as { geminiOnly?: boolean; history?: VerifiedHistoryEntry[] } | null
+  if (payload?.geminiOnly !== true) return []
+  const expected = `${normalizeMatchName(home)} vs ${normalizeMatchName(away)}`
+  return (payload.history || []).filter(entry => {
+    const match = normalizeMatchName(entry.match || '')
+    const sameTeams = match === expected
+    const sameDate = !date || !entry.date || entry.date.slice(0, 10) === date.slice(0, 10)
+    return sameTeams && sameDate
+  })
 }
 
 export function verifiedMarketKey(value: string | undefined): string {
@@ -146,7 +140,7 @@ export interface MatchData {
     market: string
     prediction: string
     proba: number
-    confidence: number
+    confidence?: number
     tier: string
     status?: string
     isWon?: boolean
@@ -154,25 +148,15 @@ export interface MatchData {
     verifiedAt?: string
     source?: string
   }>
-  aiExactScore?: string
   aiSource?: string
-  aiAbstain?: boolean
-  exactScoreProb?: string
-  aiBttsProb?: string
-  aiOver25Prob?: string
   aiKeyFact?: string
   aiAnalysis?: string
   bttsProb?: number
   over25Prob?: number
-  homeLambda?: number
-  awayLambda?: number
-  xgTotal?: number
-  // Qualité / provenance des données (mission : page match transparente)
-  dataQuality?: string
+  // Provenance factuelle et taille de l’échantillon, sans métriques de modèle local.
   dataSource?: string
   matchCountHome?: number
   matchCountAway?: number
-  aiRisk?: string
   formBtts?: string | number
   // Historique détaillé des 5 derniers matchs de chaque équipe (ESPN, publié
   // par le pipeline pour la section « Dernière minute » des pages /match/).
@@ -194,7 +178,6 @@ export interface MatchData {
   aiAnalysisEn?: string
   aiAbsencesEn?: string
   aiOddsInsightEn?: string
-  reliabilityScore?: number
   // Date de publication réelle du snapshot de données (predictions.json / archives).
   // Remplace toute date de source codée en dur dans l'UI.
   lastUpdated?: string
@@ -217,6 +200,8 @@ export function parseMatchSlug(slug: string): { home: string; away: string; date
 export function loadAllMatches(archiveLimit = 14, includeRetainedClickedFrPages = false): Map<string, MatchData> {
   const archiveDir = path.join(process.cwd(), 'public', 'predictions-archive')
   const matches = new Map<string, MatchData>()
+  const selectedGeminiPicks = new Map<string, Map<GeminiPrediction['market'], GeminiPrediction>>()
+  const conflictingGeminiMarkets = new Map<string, Set<GeminiPrediction['market']>>()
   const ingest = (data: any, fallbackDate: string, current = false, retainedArchive = false) => {
     const rows = Array.isArray(data) ? data : (data.free || data.predictions || [])
     if (!Array.isArray(rows)) return
@@ -233,20 +218,22 @@ export function loadAllMatches(archiveLimit = 14, includeRetainedClickedFrPages 
       // Le flux actuel est prioritaire pour TOUS les champs, pas seulement les champs vides.
       // Il est lui-même restauré depuis la première publication par le finaliseur d'archives.
       if (!matches.has(slug) || (current && !refreshed.has(slug))) {
+        if (current) {
+          selectedGeminiPicks.set(slug, new Map())
+          conflictingGeminiMarkets.set(slug, new Set())
+        }
         matches.set(slug, {
           slug, home, away, date, league: p.league || '', time: p.time || '',
           homeLogo: p.homeLogo, awayLogo: p.awayLogo, predictions: [],
           // Empirical rates are context, never published market probabilities.
           aiSource: isGeminiResponse ? p.ai_source : undefined,
-          aiAbstain: p.ai_abstain === true,
-          aiKeyFact: isGeminiResponse ? p.ai_key_fact : undefined,
+          aiKeyFact: isGeminiResponse ? projectGeminiKeyFact(p, 'fr') : undefined,
           aiAnalysis: isGeminiResponse ? p.ai_analysis : undefined,
           bttsProb: getGeminiProbability(acceptedPicks, 'BTTS'),
           over25Prob: getGeminiProbability(acceptedPicks, 'O2.5'),
-          homeLambda: p.homeLambda, awayLambda: p.awayLambda, xgTotal: p.xgTotal,
-          dataQuality: p.dataQuality, dataSource: p.dataSource,
+          dataSource: p.dataSource,
           matchCountHome: p.matchCountHome, matchCountAway: p.matchCountAway,
-          aiRisk: p.ai_risk, formBtts: observedFormBtts(p) ?? undefined, lastUpdated: snapshotPublishedAt,
+          formBtts: observedFormBtts(p) ?? undefined, lastUpdated: snapshotPublishedAt,
           last5Home: Array.isArray(p.last5Home) ? p.last5Home.slice(0, 5) : undefined,
           last5Away: Array.isArray(p.last5Away) ? p.last5Away.slice(0, 5) : undefined,
           formHome: p.formHome || undefined,
@@ -256,30 +243,50 @@ export function loadAllMatches(archiveLimit = 14, includeRetainedClickedFrPages 
           odds: p.odds || undefined,
           aiAbsences: isGeminiResponse ? p.ai_absences || undefined : undefined,
           aiOddsInsight: isGeminiResponse ? p.ai_odds_insight || undefined : undefined,
-          aiKeyFactEn: isGeminiResponse ? p.ai_key_fact_en || undefined : undefined,
+          aiKeyFactEn: isGeminiResponse ? projectGeminiKeyFact(p, 'en') : undefined,
           aiAnalysisEn: isGeminiResponse ? p.ai_analysis_en || undefined : undefined,
           aiAbsencesEn: isGeminiResponse ? p.ai_absences_en || undefined : undefined,
           aiOddsInsightEn: isGeminiResponse ? p.ai_odds_insight_en || undefined : undefined,
-          reliabilityScore: p.reliabilityScore || undefined,
         })
         refreshed.add(slug)
       }
       const match = matches.get(slug)!
       if (current) {
         if (isGeminiResponse) match.aiSource = p.ai_source
-        match.aiAbstain = acceptedPicks.length ? false : p.ai_abstain === true
       }
       const markets = acceptedPicks
+      if (!retainedArchive && currentPicks.length > 0) {
+        const selected = selectedGeminiPicks.get(slug) || new Map<GeminiPrediction['market'], GeminiPrediction>()
+        const conflicts = conflictingGeminiMarkets.get(slug) || new Set<GeminiPrediction['market']>()
+        selectedGeminiPicks.set(slug, selected)
+        conflictingGeminiMarkets.set(slug, conflicts)
+        addValidatedMatchPicks(selected, conflicts, currentPicks)
+        const picks = [...selected.values()]
+        match.predictions = picks.map(pick => ({
+          type: pick.type,
+          market: pick.market,
+          prediction: pick.prediction,
+          proba: pick.proba,
+          confidence: pick.confidence,
+          tier: pick.tier || 'STANDARD',
+          status: pick.status,
+          isWon: pick.isWon,
+          finalScore: pick.finalScore,
+          verifiedAt: pick.verifiedAt,
+          source: pick.source || '',
+        }))
+        match.bttsProb = getGeminiProbability(picks, 'BTTS')
+        match.over25Prob = getGeminiProbability(picks, 'O2.5')
+        continue
+      }
       for (const market of markets) {
         if (isVipRow(market)) continue
         const type = market.type || market.market || p.type || p.market || ''
         const existing = match.predictions.findIndex(row => marketKey(row.type) === marketKey(type))
-        const probability = market.proba ?? (marketKey(type) === 'btts' ? market.bttsProb : market.over25Prob)
-        const combined = { ...p, ...market, type, proba: probability ?? p.proba }
         const row = {
           type, market: type, prediction: market.prediction || p.prediction || '',
-          proba: current ? (typeof market.proba === 'number' ? market.proba : getProba(combined)) : getProba(combined),
-          confidence: current ? (typeof market.confidence === 'number' ? market.confidence : Math.round((market.proba || 0) * 100)) : getConfidence(combined),
+          proba: market.proba,
+          confidence: market.confidence,
           tier: market.tier || p.tier || 'STANDARD', status: market.status || p.status,
           isWon: market.isWon ?? p.isWon, finalScore: market.finalScore || p.finalScore,
           verifiedAt: market.verifiedAt || p.verifiedAt, source: market.source || p.source || '',

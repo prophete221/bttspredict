@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { ArrowUpRight, CalendarDays, Clock3, Trophy } from 'lucide-react'
 import { localizedPath, type Locale } from '@/lib/i18n'
-import { formatCompetitionDate, type CompetitionMatch, type CompetitionPageData } from '@/lib/competition-pages'
+import { formatCompetitionDate, type CompetitionFeedSnapshot, type CompetitionMatch, type CompetitionPageData } from '@/lib/competition-pages'
 import { useCompetitionFeed } from './useCompetitionFeed'
 
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
@@ -13,29 +13,29 @@ const COPY = {
   fr: {
     eyebrow: 'Prochains matchs · Flux public', subtitle: 'Les prochaines rencontres disponibles sur BTTSPredict pour cette compétition.',
     updated: 'Données publiées le', count: (n: number) => `${n} rencontre${n > 1 ? 's' : ''} à venir`, time: 'GMT', scheduled: 'À venir', source: 'Calendrier complet ESPN',
-    note: 'Cette liste reprend le flux public actuel, pas l’intégralité du calendrier de la ligue. Les coups d’envoi passés et les analyses non validées sont retirés. Aucun pronostic n’est calculé sur cette page.',
+    note: 'Cette liste reprend le flux public actuel, pas l’intégralité du calendrier de la ligue. Les coups d’envoi passés et les analyses non validées sont retirés. Les sélections affichées viennent du flux public validé; aucun pronostic n’est calculé localement sur cette page.',
     index: 'Toutes les compétitions', center: 'Voir les pronostics', loading: 'Chargement du flux public…', error: 'Le flux public est temporairement indisponible. Aucun ancien calendrier n’est affiché à sa place.',
-    empty: 'Aucune prochaine rencontre avec pronostic disponible dans le flux public pour cette compétition. Consulte le calendrier ESPN pour les autres rencontres.', unavailable: 'Date indisponible', yes: 'Oui', no: 'Non',
+    empty: 'Aucune prochaine rencontre avec pronostic disponible dans le flux public pour cette compétition. Consulte le calendrier ESPN pour les autres rencontres.', yes: 'Oui', no: 'Non',
   },
   en: {
     eyebrow: 'Upcoming matches · Public feed', subtitle: 'Upcoming matches available on BTTSPredict for this competition.',
     updated: 'Data published on', count: (n: number) => `${n} upcoming ${n === 1 ? 'match' : 'matches'}`, time: 'GMT', scheduled: 'Upcoming', source: 'Full ESPN schedule',
-    note: 'This list reads the current public feed, not the complete league schedule. Past kickoffs and unvalidated analyses are removed. No prediction is calculated on this page.',
+    note: 'This list reads the current public feed, not the complete league schedule. Past kickoffs and unvalidated analyses are removed. Picks shown here come from the validated public feed; none are calculated locally on this page.',
     index: 'All competitions', center: 'View predictions', loading: 'Loading the public feed…', error: 'The public feed is temporarily unavailable. No old schedule is displayed in its place.',
-    empty: 'No upcoming match with a prediction is available in the public feed for this competition. See ESPN for other fixtures.', unavailable: 'Date unavailable', yes: 'Yes', no: 'No',
+    empty: 'No upcoming match with a prediction is available in the public feed for this competition. See ESPN for other fixtures.', yes: 'Yes', no: 'No',
   },
   ar: {
     eyebrow: 'المباريات المقبلة · البيانات العامة', subtitle: 'المباريات المقبلة المتاحة على BTTSPredict لهذه البطولة.',
     updated: 'نُشرت البيانات في', count: (n: number) => `${n} مباريات مقبلة`, time: 'GMT', scheduled: 'مقبلة', source: 'جدول ESPN الكامل',
-    note: 'تعرض القائمة البيانات العامة الحالية وليس الجدول الكامل للبطولة. تُحذف المباريات التي مر موعدها والتحليلات غير المعتمدة. لا تُحسب أي توقعات في هذه الصفحة.',
+    note: 'تعرض القائمة البيانات العامة الحالية وليس الجدول الكامل للبطولة. تُحذف المباريات التي مر موعدها والتحليلات غير المعتمدة. الاختيارات المعروضة تأتي من التدفق العام المعتمد، ولا تُحسب التوقعات محلياً في هذه الصفحة.',
     index: 'جميع البطولات', center: 'عرض التوقعات', loading: 'جار تحميل البيانات العامة…', error: 'البيانات العامة غير متاحة مؤقتاً. لن يُعرض جدول قديم بدلاً منها.',
-    empty: 'لا توجد مباراة مقبلة مع توقع متاح في البيانات العامة لهذه البطولة. راجع ESPN للمباريات الأخرى.', unavailable: 'التاريخ غير متاح', yes: 'نعم', no: 'لا',
+    empty: 'لا توجد مباراة مقبلة مع توقع متاح في البيانات العامة لهذه البطولة. راجع ESPN للمباريات الأخرى.', yes: 'نعم', no: 'لا',
   },
 }
 
-export default function CompetitionPageContent({ competition, locale }: { competition: CompetitionPageData; locale: Locale }) {
+export default function CompetitionPageContent({ competition, locale, initialFeed }: { competition: CompetitionPageData; locale: Locale; initialFeed?: CompetitionFeedSnapshot }) {
   const copy = COPY[locale]
-  const feed = useCompetitionFeed()
+  const feed = useCompetitionFeed(initialFeed)
   const matches = feed.matches[competition.slug] || []
   const updated = feed.lastUpdated ? formatCompetitionDate(feed.lastUpdated.slice(0, 10), locale) : null
   const name = competition.displayName[locale]
@@ -52,7 +52,7 @@ export default function CompetitionPageContent({ competition, locale }: { compet
             <h1 className="mt-5 text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">{name}</h1>
             <p className="mt-3 text-sm sm:text-base leading-7 text-[#B7C4D3]">{copy.subtitle}</p>
             <div className="mt-6 flex flex-wrap items-center gap-3 text-xs text-[#DAE4EF]">
-              <span className="inline-flex items-center gap-2"><CalendarDays size={14} aria-hidden="true" />{copy.updated}: <time dateTime={feed.lastUpdated || undefined}>{updated || copy.unavailable}</time></span>
+              {updated && <span className="inline-flex items-center gap-2"><CalendarDays size={14} aria-hidden="true" />{copy.updated}: <time dateTime={feed.lastUpdated || undefined}>{updated}</time></span>}
               {feed.status === 'ready' && <span role="status">{copy.count(matches.length)}</span>}
             </div>
           </section>

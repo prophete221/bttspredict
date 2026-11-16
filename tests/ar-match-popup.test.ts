@@ -1,11 +1,12 @@
 import { execFileSync } from 'node:child_process'
-import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import path from 'node:path'
 import { afterEach, describe, expect, it } from 'vitest'
 import legacyArMatchSlugs from '@/data/legacy-ar-match-slugs.json'
 import { loadAllMatches } from '@/lib/matches'
 import { getLocalizedMatchStaticParams } from '@/lib/match-page-ssg'
+import { getStaticLocalesForPath } from '@/lib/locale-route-policy'
 
 const roots: string[] = []
 const cleanupScript = path.resolve('scripts/prepare-ar-match-popup-cleanup.mjs')
@@ -68,7 +69,7 @@ afterEach(() => {
   for (const root of roots.splice(0)) rmSync(root, { recursive: true, force: true })
 })
 
-describe('shared Arabic Match route', () => {
+describe('Arabic match route retirement', () => {
   it('retains every unique dated legacy URL and identifies only the exact unavailable record', () => {
     const matches = loadAllMatches(90)
     expect(new Set(slugs).size).toBe(slugs.length)
@@ -77,34 +78,28 @@ describe('shared Arabic Match route', () => {
     expect(slugs.filter(slug => !matches.has(slug))).toEqual(['st-louis-city-sc-vs-lafc-2026-11-20'])
   })
 
-  it('exports localized static match pages only in English and preserves the Arabic rewrite before fallbacks', () => {
+  it('exports localized match pages only in English and does not rewrite Arabic match URLs', () => {
     const candidates = [...loadAllMatches(90).values()]
-    const params = getLocalizedMatchStaticParams(candidates, ['en'], new Date('2026-11-10T12:00:00.000Z'))
+    const locales = getStaticLocalesForPath('/match')
+    expect(locales).toEqual(['en'])
+    const params = getLocalizedMatchStaticParams(candidates, locales, new Date('2026-11-10T12:00:00.000Z'))
     expect(params.every(param => param.locale === 'en')).toBe(true)
     expect(params.length).toBeGreaterThan(0)
 
     const localizedPage = readFileSync('src/app/[locale]/match/[slug]/page.tsx', 'utf8')
-    expect(localizedPage).toContain("getLocalizedMatchStaticParams([...loadAllMatches().values()], ['en'])")
+    expect(localizedPage).toContain("getLocalizedMatchStaticParams([...loadAllMatches().values()], getStaticLocalesForPath('/match'))")
     const htaccess = readFileSync('public/.htaccess', 'utf8')
-    const arabicRewrite = htaccess.indexOf('RewriteRule ^ar/match/[^/]+-[0-9]{4}-[0-9]{2}-[0-9]{2}/?$ /ar/match.html [L]')
-    const staticHtml = htaccess.indexOf('RewriteRule \\.html$ - [L]')
-    expect(arabicRewrite).toBeGreaterThan(0)
-    expect(arabicRewrite).toBeLessThan(staticHtml)
+    expect(htaccess).not.toContain('ar/match')
+    expect(htaccess).not.toContain('/ar/match.html')
+    expect(htaccess).toContain('RewriteRule \\.html$ - [L]')
     expect(htaccess).not.toContain('RewriteRule ^en/match/')
     expect(htaccess).not.toMatch(/^RewriteRule \^match\/[^ ]+ \/match\.html/m)
   })
 
-  it('loads published histories and team context without fabricating unavailable fields', () => {
-    const route = readFileSync('src/app/ar/match/page.tsx', 'utf8')
-    const component = readFileSync('src/components/bttsbet/ArabicMatchPopup.tsx', 'utf8')
-    expect(route).toContain('getVerifiedHistoryForMatch')
-    expect(route).toContain('loadTeamContext()')
-    expect(route).toContain('...legacyArMatchSlugs')
-    expect(route).not.toContain('Données publiques manquantes')
-    expect(component).toContain('data-ar-match-shared-popup="true"')
-    expect(component).toContain('بيانات المباراة غير متاحة')
-    expect(component).toContain('لا توجد معلومات منشورة لهذا الرابط حالياً. لم تتم إضافة بيانات بديلة.')
-    expect(component).not.toContain('dangerouslySetInnerHTML')
+  it('does not generate a non-promo Arabic match route or popup', () => {
+    expect(existsSync('src/app/ar/match/page.tsx')).toBe(false)
+    expect(existsSync('src/components/bttsbet/ArabicMatchPopup.tsx')).toBe(false)
+    expect(existsSync('out/ar/match.html')).toBe(false)
   })
 })
 

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
-import { humanMethodLabel } from '@/lib/predictionQuality'
+import { humanMatchDataAvailabilityLabel, matchDataAvailability } from '@/lib/predictionQuality'
 import { statusLabel, confidenceLabel } from '@/lib/predictionPresentation'
 
 /**
@@ -35,9 +35,14 @@ describe('no invented data — fallbacks interdits', () => {
     expect(source).toMatch(/over25Pred \? \(over25Pred\.prediction/)
     expect(source).toContain('<MissingMarketVipLink locale={lang} market="BTTS" />')
     expect(source).toContain('<MissingMarketVipLink locale={lang} market="Over 2.5" />')
-    // Libellés humains branchés
-    expect(source).toContain('humanMethodLabel')
-    expect(source).toContain('predictionQuality')
+    // Compteurs bruts descriptifs : aucun seuil ne classe ni ne filtre le pick.
+    expect(source).toContain('observedMatchCountLabel')
+    expect(source).toContain('matchCountHome: typeof p.matchCountHome')
+    expect(source).toContain('matchCountAway: typeof p.matchCountAway')
+    expect(source).not.toContain('humanMatchDataAvailabilityLabel')
+    expect(source).not.toContain('matchDataAvailability')
+    expect(source).not.toMatch(/predictionQuality\s*\(|homeLambda|awayLambda|xgHome|xgAway|reliabilityScore/)
+    expect(source).toContain('if (preds.length === 0) continue')
     expect(source).toContain('analysisHeading')
     // Anciens libellés robotiques absents
     expect(source).not.toContain('Pronostic IA')
@@ -52,30 +57,22 @@ describe('no invented data — fallbacks interdits', () => {
     expect(partnerLinks).toContain("trackAffiliateAction(id, 'signup_cta_click', placement")
   })
 
-  it('la page VIP ne lit pas le flux public et conserve les cartes et contrôles d’accès', () => {
-    const source = readSource('src/app/vip/page.tsx')
-    const lockedPicks = readSource('src/app/vip/VipLockedPicks.tsx')
-    const unlockModal = readSource('src/components/bttsbet/VipUnlockModal.tsx')
+  it('conserve le parcours VIP live de référence sans le mockup local', () => {
+    const page = readSource('src/app/vip/page.tsx')
+    const journey = readSource('src/app/vip/VipJourneyModal.tsx')
+    const localized = readSource('src/app/[locale]/vip/page.tsx')
 
-    expect(source).not.toContain("fetch('/predictions.json'")
-    expect(source).not.toContain('onlyVipFixtures')
-    expect(source).not.toContain('vipPreview')
-    expect(source).toContain('<VipLockedPicks')
-    expect(lockedPicks).not.toContain('Ces cartes sont des exemples visuels génériques. Aucun match, choix, cote ou signal réel n’est affiché ici.')
-    expect(lockedPicks).not.toContain('These cards are generic visual examples. No real fixture, pick, odds or signal is shown here.')
-    expect(lockedPicks).not.toContain('هذه البطاقات أمثلة مرئية عامة فقط. لا تُعرض هنا أي مباراة أو اختيار أو احتمالات أو إشارات حقيقية.')
-    expect(lockedPicks).toContain('L’accès est activé après validation de votre demande.')
-    expect(lockedPicks).toContain('Access is activated after your request is reviewed.')
-    expect(lockedPicks).toContain('يتم تفعيل الوصول بعد مراجعة طلبك.')
-    expect(lockedPicks).toContain('L’accès n’est pas automatique.')
-    expect(lockedPicks).toContain('Access is not automatic.')
-    expect(lockedPicks).toContain('الوصول غير تلقائي.')
-    expect(unlockModal).toContain('role="dialog"')
-    expect(unlockModal).toContain('L’accès VIP à vie est activé après examen de votre demande.')
-    expect(unlockModal).toContain('Lifetime VIP access is activated after your request has been reviewed.')
-    expect(unlockModal).toContain('يتم تفعيل الوصول مدى الحياة إلى VIP بعد مراجعة طلبك.')
-    expect(unlockModal).toContain('It is not sent automatically')
-    expect(unlockModal).toContain('لا تُرسل تلقائياً')
+    expect(page).toContain("import VipJourneyModal from './VipJourneyModal'")
+    expect(page).toContain('<VipJourneyModal')
+    expect(page).toContain('VIP_PARTNERS')
+    expect(page).not.toContain('Aperçu local non connecté')
+    expect(page).not.toContain('Essai Gold')
+    expect(page).not.toContain('trialPrice')
+    expect(journey).toContain('const API =')
+    expect(journey).toContain('Demande d’accès VIP')
+    expect(journey).not.toContain('aucun envoi')
+    expect(localized).toContain("getStaticLocaleParams('/vip')")
+    expect(localized).toContain("if (locale !== 'en') notFound()")
   })
 
   it('match/[slug]/page.tsx n\'affiche plus de date de source codée en dur ni d\'anglicismes', () => {
@@ -86,6 +83,8 @@ describe('no invented data — fallbacks interdits', () => {
     expect(source).not.toMatch(/'unavailable'/)
     expect(source).not.toContain('moteur IA')
     expect(source).not.toMatch(/— BTTSPredict AI/)
+    expect(source).not.toMatch(/copy\.(?:lambdaLabel|lambdaHint|xgTotalLabel|modelSource)\b/)
+    expect(source).not.toMatch(/match\.(?:homeLambda|awayLambda|xgHome|xgAway|xgTotal)\b/)
     // Vraie date de publication branchée depuis les données
     expect(source).toContain('match.lastUpdated')
     expect(source).toContain('verified[0]?.verifiedAt || match.lastUpdated')
@@ -99,12 +98,7 @@ describe('no invented data — fallbacks interdits', () => {
     const dashboard = readSource('src/components/bttsbet/PerformanceDashboard.tsx')
     const translations = readSource('src/lib/i18n.ts')
 
-    expect(dashboard).toContain("fetch('/win-history.json')")
-    expect(dashboard).toContain('global.total')
-    expect(dashboard).toContain('global.won')
-    expect(dashboard).toContain('global.lost')
-    expect(dashboard).toContain('global.rate')
-    expect(dashboard).toContain('trackingPeriod?.startDate')
+    expect(dashboard).toContain('<ArchiveSummaryCards summary={archiveSummary} lang={lang} />')
     expect(dashboard).toContain("localizedPath('/historique', lang)")
     expect(translations).toContain('perfProof:')
     expect(translations).toContain('Aucun résultat Score exact vérifié à ce jour')
@@ -112,16 +106,42 @@ describe('no invented data — fallbacks interdits', () => {
     expect(translations).toContain('لم تُوثّق أي نتائج للنتيجة الدقيقة حتى الآن')
   })
 
-  it('la méthodologie clarifie les coupes UEFA et les exclusions en FR/EN/AR', () => {
+  it('la méthodologie indique que la couverture publique n’est pas exhaustive en FR/EN/AR', () => {
     const french = readSource('src/app/methodologie/page.tsx')
     const localized = readSource('src/app/methodologie/LocalizedMethodologieClient.tsx')
 
-    expect(french).toContain('Ligue des champions, Ligue Europa, Ligue Conference')
-    expect(french).toContain('compétitions de sélections nationales et les matchs amicaux')
-    expect(localized).toContain('UEFA club competitions (Champions League, Europa League and Conference League)')
-    expect(localized).toContain('National-team competitions and friendlies are excluded')
-    expect(localized).toContain('مسابقات الأندية التابعة للاتحاد الأوروبي')
-    expect(localized).toContain('تُستبعد مسابقات المنتخبات الوطنية والمباريات الودية')
+    expect(french).toContain('Le flux public ne représente pas le calendrier complet des championnats.')
+    expect(french).toContain('Une rencontre n&apos;apparaît comme pronostic que si un pick valide existe')
+    expect(french).not.toMatch(/Gemini/i)
+    expect(french).not.toMatch(/\bxG\b/i)
+    expect(localized).toContain('The public feed is not a complete fixture schedule.')
+    expect(localized).toContain('لا تمثل البيانات العامة جدولاً كاملاً للمباريات.')
+    expect(localized).not.toMatch(/Gemini/i)
+    expect(localized).not.toContain('National-team competitions and friendlies are excluded')
+    expect(localized).not.toContain('تُستبعد مسابقات المنتخبات الوطنية والمباريات الودية')
+  })
+
+  it('les copies publiques n’affirment plus un modèle local ni une couverture 50+ non démontrée', () => {
+    const constants = readSource('src/lib/constants.ts')
+    const guide = readSource('src/app/btts-c-est-quoi/page.tsx')
+    const tomorrow = readSource('src/app/btts/predictions/tomorrow/page.tsx')
+    const translations = readSource('src/lib/i18n.ts')
+
+    expect(constants).not.toContain('50+')
+    expect(constants).not.toContain('modèle statistique est calibré')
+    expect(constants).toContain('Onze compétitions sont configurées')
+    expect(guide).not.toContain('lambda')
+    expect(guide).not.toContain('expected goals (xG)')
+    expect(guide).not.toContain("rate: '~58%'")
+    expect(guide).toContain('Les sélections BTTS publiques sont affichées après leurs contrôles de validation.')
+    expect(guide).not.toMatch(/Gemini/i)
+    expect(tomorrow).not.toContain('modèle statistique')
+    expect(tomorrow).toContain('picks publics disponibles')
+    expect(tomorrow).toContain('Pronostics BTTS de demain')
+    expect(tomorrow).toContain('initialLocale="fr" dayOffset={1} marketFilter="btts"')
+    expect(tomorrow).not.toContain('BTTS Predictions Tomorrow')
+    expect(translations).not.toContain('expected goals (λ) modelled from available data')
+    expect(translations).not.toContain('Statistical model + ESPN data')
   })
 
   it('matches.ts expose la date de publication réelle du snapshot', () => {
@@ -151,10 +171,11 @@ describe('no invented data — fallbacks interdits', () => {
 })
 
 describe('no invented data — libellés humains (runtime)', () => {
-  it('les niveaux de qualité parlent en langage humain, sans pourcentage', () => {
-    expect(humanMethodLabel('reliable')).toBe('Basé sur les données récentes')
-    expect(humanMethodLabel('limited')).toBe('Données limitées')
-    expect(humanMethodLabel('insufficient')).toBe('Données insuffisantes')
+  it('les labels décrivent uniquement les données de contexte, sans qualifier la confiance du pick', () => {
+    expect(humanMatchDataAvailabilityLabel('sufficient')).toBe('Données de matchs récentes disponibles')
+    expect(humanMatchDataAvailabilityLabel('limited')).toBe('Échantillon de matchs limité')
+    expect(humanMatchDataAvailabilityLabel('insufficient')).toBe('Historique de matchs insuffisant')
+    expect(matchDataAvailability({ xgHome: 1.6, awayLambda: 1.2, proba: 0.71 })).toBe('insufficient')
   })
 
   it('les statuts gagné/perdu/en attente restent honnêtes', () => {

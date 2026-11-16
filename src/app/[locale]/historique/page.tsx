@@ -1,22 +1,26 @@
+import { getStaticLocaleParams } from '@/lib/locale-route-policy'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import HistoriquePageContent from '@/app/historique/HistoriquePageContent'
 import { getWinHistory } from '@/app/historique/getWinHistory'
+import { getArchiveSummary } from '@/app/historique/getArchiveSummary'
 import { SUPPORTED_LOCALES, type Locale } from '@/lib/i18n'
+import { frEnAlternates } from '@/lib/seo'
+
+export const dynamicParams = false
 
 export function generateStaticParams() {
-  return SUPPORTED_LOCALES.filter(locale => locale !== 'fr').map(locale => ({ locale }))
+  return getStaticLocaleParams('/historique')
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  if (locale === 'en') return { title: 'Verified history — New public tracking', description: 'BTTSPredict verified history: every prediction recorded, time-stamped and assessed after the official result. 18+.', alternates: { canonical: 'https://bttspredict.com/en/historique' } }
-  if (locale === 'ar') return { title: 'السجل الموثق — فترة تتبع عامة جديدة', description: 'السجل الموثق من BTTSPredict: كل توقع مسجّل ومؤرّخ ومقيّم بعد النتيجة الرسمية. 18+.', alternates: { canonical: 'https://bttspredict.com/ar/historique' } }
+  if (locale === 'en') return { title: 'Verified history — New public tracking', description: 'BTTSPredict public history: recorded picks and results checked after matches. No future result is guaranteed. 18+.', alternates: frEnAlternates('/historique', 'en') }
   return {}
 }
 
 export default async function LocalizedHistoriquePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
-  if (!SUPPORTED_LOCALES.includes(locale as Locale) || locale === 'fr') notFound()
-  return <HistoriquePageContent h1={locale === 'ar' ? 'السجل الموثق — BTTSPredict' : 'Verified history — BTTSPredict'} initialData={getWinHistory()} />
+  if (locale !== 'en') notFound()
+  return <HistoriquePageContent initialData={getWinHistory()} archiveSummary={getArchiveSummary()} />
 }

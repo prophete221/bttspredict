@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { ArrowUpRight, CalendarDays, Trophy } from 'lucide-react'
 import { localizedPath, type Locale } from '@/lib/i18n'
-import { COMPETITION_PAGES, formatCompetitionDate } from '@/lib/competition-pages'
+import { COMPETITION_PAGES, formatCompetitionDate, type CompetitionFeedSnapshot } from '@/lib/competition-pages'
 import { useCompetitionFeed } from './useCompetitionFeed'
 
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
@@ -15,26 +15,26 @@ const COPY = {
     intro: 'Parcours les prochaines rencontres disponibles dans le flux public BTTSPredict.',
     count: (n: number) => `${n} rencontre${n > 1 ? 's' : ''} à venir`, updated: 'Données publiées le', open: 'Voir les matchs',
     note: 'Ce n’est pas le calendrier exhaustif des ligues. Une compétition sans rencontre disponible est signalée comme telle. Les coups d’envoi passés sont retirés automatiquement.',
-    loading: 'Chargement…', error: 'Flux public indisponible', unavailable: 'Date indisponible',
+    loading: 'Chargement…', error: 'Flux public indisponible',
   },
   en: {
     eyebrow: 'Matches grouped by competition', title: 'Upcoming matches by competition',
     intro: 'Browse upcoming matches available in BTTSPredict’s current public feed.',
     count: (n: number) => `${n} upcoming ${n === 1 ? 'match' : 'matches'}`, updated: 'Data published on', open: 'View matches',
     note: 'This is not a complete league schedule. Competitions with no available match are identified honestly. Past kickoffs are removed automatically.',
-    loading: 'Loading…', error: 'Public feed unavailable', unavailable: 'Date unavailable',
+    loading: 'Loading…', error: 'Public feed unavailable',
   },
   ar: {
     eyebrow: 'المباريات حسب البطولة', title: 'المباريات المقبلة حسب البطولة',
     intro: 'تصفح المباريات المقبلة المتاحة في بيانات BTTSPredict العامة الحالية.',
     count: (n: number) => `${n} مباريات مقبلة`, updated: 'نُشرت البيانات في', open: 'عرض المباريات',
     note: 'هذا ليس الجدول الكامل للبطولات. يُوضح عدم توفر مباراة عند غيابها، وتُحذف المباريات التي مر موعدها تلقائياً.',
-    loading: 'جار التحميل…', error: 'البيانات العامة غير متاحة', unavailable: 'التاريخ غير متاح',
+    loading: 'جار التحميل…', error: 'البيانات العامة غير متاحة',
   },
 }
-export default function CompetitionIndexContent({ locale }: { locale: Locale }) {
+export default function CompetitionIndexContent({ locale, initialFeed }: { locale: Locale; initialFeed?: CompetitionFeedSnapshot }) {
   const copy = COPY[locale]
-  const feed = useCompetitionFeed()
+  const feed = useCompetitionFeed(initialFeed)
   const updated = feed.lastUpdated ? formatCompetitionDate(feed.lastUpdated.slice(0, 10), locale) : null
   return (
     <div className="min-h-screen flex flex-col bg-[#0B0F14] text-[#F2F6FA]" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
@@ -45,7 +45,7 @@ export default function CompetitionIndexContent({ locale }: { locale: Locale }) 
             <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-[#7FB2FF]"><Trophy size={14} aria-hidden="true" />{copy.eyebrow}</p>
             <h1 className="mt-5 text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">{copy.title}</h1>
             <p className="mt-3 max-w-2xl text-sm sm:text-base leading-7 text-[#B7C4D3]">{copy.intro}</p>
-            <p className="mt-5 inline-flex flex-wrap items-center gap-2 text-xs text-[#DAE4EF]"><CalendarDays size={14} aria-hidden="true" />{copy.updated}: <time dateTime={feed.lastUpdated || undefined}>{updated || copy.unavailable}</time></p>
+            {updated && <p className="mt-5 inline-flex flex-wrap items-center gap-2 text-xs text-[#DAE4EF]"><CalendarDays size={14} aria-hidden="true" />{copy.updated}: <time dateTime={feed.lastUpdated || undefined}>{updated}</time></p>}
           </section>
           <p className="mt-4 rounded-2xl border px-4 py-3 text-xs leading-6 text-[#9DABBB]" style={{ borderColor: '#223041', backgroundColor: '#101720' }}>{copy.note}</p>
           <section className="mt-7 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3" aria-label={copy.eyebrow}>

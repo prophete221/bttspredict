@@ -43,3 +43,21 @@ export function checkSeo(page: string, title: string, desc: string): void {
     )
   }
 }
+
+/** Canonical and language links for an English-only route without a French translation. */
+export function englishOnlyAlternates(path: string) {
+  const suffix = path.startsWith('/') ? path : `/${path}`
+  const en = `https://bttspredict.com/en${suffix}`
+  return { canonical: en, languages: { en, 'x-default': en } }
+}
+
+/** Hreflang FR/EN uniquement; les routes sans traduction ne doivent pas inventer d’alternate. */
+export function frEnAlternates(path: string, locale: 'fr' | 'en') {
+  const suffix = path === '/' ? '' : path.startsWith('/') ? path : `/${path}`
+  const fr = `https://bttspredict.com${suffix || '/'}`
+  const en = `https://bttspredict.com/en${suffix}`
+  return {
+    canonical: locale === 'fr' ? fr : en,
+    languages: { fr, en, 'x-default': fr },
+  }
+}

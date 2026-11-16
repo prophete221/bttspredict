@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
 import { Navbar, Footer, FreePredictions } from '@/components/bttsbet'
 import AnimatedTitle from '@/components/bttsbet/HeroWordmark'
+import { frEnAlternates } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: 'Méthodologie',
   description: "Découvrez les données, filtres et limites utilisés pour analyser BTTS et Over 2,5. Méthode transparente, résultats vérifiables et aucune garantie.",
-  alternates: { canonical: 'https://bttspredict.com/methodologie' },
+  alternates: frEnAlternates('/methodologie', 'fr'),
   robots: { index: true, follow: true },
   openGraph: {
     title: 'Méthodologie | BTTSPredict',
@@ -34,20 +35,20 @@ export default function MethodologiePage() {
               style={{ fontFamily: 'Poppins, sans-serif' }}
             />
             <p className="text-base text-[#9DABBB] leading-relaxed">
-              BTTSPredict publie des pronostics BTTS (Both Teams To Score) et Over 2.5 sur le football, générés par un modèle statistique. Cette page présente l&apos;approche, les marchés couverts, les sources de données et la gestion qualité — dans une approche transparente et crédible.
+              BTTSPredict publie des sélections BTTS (Both Teams To Score) et Over 2.5 publiées uniquement après validation par le flux public. Cette page présente les marchés, les contrôles de publication, les sources de données et leurs limites.
             </p>
           </header>
 
           {/* Section 1 — Approche générale */}
           <section className="mb-10">
             <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-              1. Approche statistique
+              1. Source des pronostics
             </h2>
             <p className="text-sm text-[#9DABBB] leading-relaxed mb-3">
-              BTTSPredict utilise un modèle statistique pour analyser les matchs de football à partir des données disponibles dans son système de prédiction. Les prédictions BTTS et Over 2.5 reposent sur les buts marqués et encaissés lors des matchs récents disponibles, les paramètres lambda et le modèle de Poisson. Ces estimations ne sont pas des xG fournis par un tiers.
+              Chaque sélection publique BTTS ou Over 2.5 passe les contrôles du flux public avant publication. Les valeurs affichées sont celles du pick validé ; la page ne les recalcule pas avec Poisson ni avec une heuristique locale.
             </p>
             <p className="text-sm text-[#9DABBB] leading-relaxed">
-              Pour chaque match, le modèle estime les intensités offensives attendues (lambdas) de chaque équipe à partir de ces variables, puis calcule la probabilité de chaque marché (BTTS, Over 2.5) via la distribution de Poisson. Cette approche est largement documentée dans la littérature scientifique sur la modélisation sportive.
+              Le calendrier et les résultats servent à identifier les rencontres et à vérifier ensuite leur issue. Ils ne sont pas transformés localement en nouveaux pronostics ; en l&apos;absence d&apos;un pick valide, aucun pick n&apos;est fabriqué.
             </p>
           </section>
 
@@ -74,7 +75,7 @@ export default function MethodologiePage() {
               </div>
             </div>
             <p className="text-xs text-[#9DABBB] mt-4 leading-relaxed">
-              Les chiffres des pronostics reposent sur les données sportives mentionnées ci-dessus. Les actualités et photos de contexte utilisent des sources distinctes, avec leurs dates et attributions ; elles ne modifient pas les probabilités du modèle.
+              Ces sources fournissent du contexte de calendrier et de vérification. Les actualités et photos de contexte utilisent des sources distinctes, avec leurs dates et attributions ; elles ne créent ni ne remplacent les sélections publiées.
             </p>
           </section>
 
@@ -108,7 +109,7 @@ export default function MethodologiePage() {
               </div>
             </div>
             <p className="text-xs text-[#9DABBB] mt-3 leading-relaxed">
-              Un score estimé peut être affiché à titre indicatif lorsqu’il est calculé par le modèle : ce n’est ni un score réel ni une garantie. Les sélections suivies concernent le BTTS et l’Over 2.5 ; les marchés double chance, handicap asiatique, mi-temps/fin de match et buteurs ne sont pas couverts.
+              Le flux public validé ne publie actuellement que les marchés BTTS et Over 2.5. Aucun score exact ni combiné calculé localement n&apos;est ajouté à ces sélections.
             </p>
           </section>
 
@@ -118,10 +119,10 @@ export default function MethodologiePage() {
               4. Ligues couvertes
             </h2>
             <p className="text-sm text-[#9DABBB] leading-relaxed mb-3">
-              Les variables réellement disponibles dans les données de prédiction peuvent notamment inclure : buts marqués et encaissés ; paramètres lambda (buts attendus modélisés) ; probabilités BTTS ; probabilités Over 2.5 ; score de fiabilité ; qualité des données ; nombre de matchs disponibles pour l&apos;analyse. Les données non disponibles ne sont pas remplacées par des statistiques fictives.
+              Le flux peut fournir des éléments de contexte comme la forme récente, les cotes, la compétition ou le nombre de matchs disponibles. Ces champs ne sont pas des sélections et ne remplacent jamais un marché validé. Les informations absentes ne sont pas inventées.
             </p>
             <p className="text-sm text-[#9DABBB] leading-relaxed">
-              Ligues prioritaires Afrique : Ligue 1 Sénégal, Botola Pro (Maroc). Ligues européennes de volume : Bundesliga, Eredivisie, Jupiler Pro League, Championship, Liga Portugal. La liste exacte peut évoluer sans préavis.
+              Le flux public ne représente pas le calendrier complet des championnats. Une rencontre n&apos;apparaît comme pronostic que si un pick valide existe ; les dates et marchés visibles dépendent donc des données effectivement publiées.
             </p>
           </section>
 
@@ -131,14 +132,14 @@ export default function MethodologiePage() {
               5. Calibration et contrôle qualité
             </h2>
             <p className="text-sm text-[#9DABBB] leading-relaxed mb-3">
-              Le contrôle qualité est entièrement automatisé :
+              Les contrôles du flux public portent notamment sur :
             </p>
             <ul className="space-y-2 text-sm text-[#9DABBB]">
-              <li className="flex items-start gap-2"><span className="text-[#2F7DFF]">✓</span> <span>Vérification automatique des critères de publication avant chaque pronostic.</span></li>
-              <li className="flex items-start gap-2"><span className="text-[#2F7DFF]">✓</span> <span>Nombre limité de pronostics publiés par jour (sélection des meilleures probabilités).</span></li>
-              <li className="flex items-start gap-2"><span className="text-[#2F7DFF]">✓</span> <span>Archive quotidienne horodatée et immuable (un pronostic publié n'est jamais modifié rétroactivement).</span></li>
-              <li className="flex items-start gap-2"><span className="text-[#2F7DFF]">✓</span> <span>Vérification post-match via les sources publiques.</span></li>
-              <li className="flex items-start gap-2"><span className="text-[#2F7DFF]">✓</span> <span>Gestion automatique des données manquantes (voir section 7).</span></li>
+              <li className="flex items-start gap-2"><span className="text-[#2F7DFF]">✓</span> <span>Contrôle de validation et marché pris en charge (BTTS ou Over 2.5).</span></li>
+              <li className="flex items-start gap-2"><span className="text-[#2F7DFF]">✓</span> <span>Identité du match, date et heure de coup d&apos;envoi vérifiables.</span></li>
+              <li className="flex items-start gap-2"><span className="text-[#2F7DFF]">✓</span> <span>Doublons et marchés contradictoires écartés lors de la fusion des flux.</span></li>
+              <li className="flex items-start gap-2"><span className="text-[#2F7DFF]">✓</span> <span>Rencontres déjà commencées retirées des listes de pronostics à venir.</span></li>
+              <li className="flex items-start gap-2"><span className="text-[#2F7DFF]">✓</span> <span>Tous les picks valides à venir sont affichés, sans coupure fixe à J+7.</span></li>
             </ul>
           </section>
 
@@ -149,32 +150,27 @@ export default function MethodologiePage() {
             </h2>
             <div className="p-4 rounded-xl" style={{ backgroundColor: 'rgba(47, 125, 255, 0.06)', border: '1px solid rgba(47, 125, 255, 0.2)' }}>
               <ul className="space-y-2 text-sm text-[#9DABBB]">
-                <li>• Le moteur couvre les compétitions disponibles dans les données de prédiction.</li>
-                <li>• Chaque match est analysé à partir de la dynamique offensive et défensive récente des deux équipes, sur leurs derniers matchs.</li>
-                <li>• Le moteur s&apos;appuie sur les données disponibles des équipes pour produire ses estimations.</li>
-                <li>• Les coupes européennes de clubs (Ligue des champions, Ligue Europa, Ligue Conference) sont incluses lorsque les données des deux équipes sont suffisantes.</li>
-                <li>• Les compétitions de sélections nationales et les matchs amicaux sont volontairement exclus, de même que les coupes nationales aux formats atypiques, pour préserver la qualité des pronostics.</li>
-                <li>• Chaque pronostic est accompagné d'un indice de confiance transparent, basé sur la qualité des données disponibles.</li>
+                <li>• La liste publiée contient les sélections validées, pas un calendrier exhaustif des ligues.</li>
+                <li>• Les statistiques d&apos;équipe, les cotes et la forme récente restent des données de contexte.</li>
+                <li>• Un score de qualité des données n&apos;est pas une probabilité de gain.</li>
+                <li>• Les marchés non pris en charge et les matchs sans pick valide ne sont pas complétés par un calcul local.</li>
               </ul>
             </div>
           </section>
 
-          {/* Section 7 - Critères de qualité (combo of the day) */}
+          {/* Section 7 - Sélections publiques */}
           <section className="mb-10">
             <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-              7. Critères de qualité
+              7. Sélections publiques
             </h2>
             <p className="text-sm text-[#9DABBB] leading-relaxed mb-3">
-              BTTSPredict applique les critères de qualité suivants pour le AI Combo of the Day :
+              Par défaut, la page affiche tous les picks valides du flux public, marché par marché : elle ne choisit pas un « top 3 » et ne calcule pas de combiné. Les filtres facultatifs peuvent réduire la liste affichée, mais ils ne créent ni ne modifient les picks.
             </p>
             <ul className="space-y-2 text-sm text-[#9DABBB]">
-              <li>• qualité des données différente de LOW ;</li>
-              <li>• score de fiabilité d&apos;au moins 70 ;</li>
-              <li>• probabilité BTTS d&apos;au moins 65 % ou probabilité Over 2.5 d&apos;au moins 65 %.</li>
+              <li>• Les sélections BTTS et Over 2.5 sont affichées séparément.</li>
+              <li>• Les valeurs visibles proviennent des sélections publiées ; le site ne crée pas de sélection à partir des statistiques de contexte.</li>
+              <li>• Les coups d&apos;envoi passés, doublons et marchés contradictoires ne sont pas affichés comme picks à venir.</li>
             </ul>
-            <p className="text-sm text-[#9DABBB] leading-relaxed mt-3">
-              Si moins de trois matchs satisfont ces critères, aucun combo complet de trois sélections n&apos;est affiché. Cette règle empêche le système de forcer artificiellement des sélections lorsque les données disponibles sont insuffisantes.
-            </p>
           </section>
 
           {/* Section 8 — Suivi public */}
@@ -200,7 +196,7 @@ export default function MethodologiePage() {
             </h2>
             <div className="p-4 rounded-xl" style={{ backgroundColor: 'rgba(47, 125, 255, 0.06)', border: '1px solid rgba(47, 125, 255, 0.2)' }}>
               <p className="text-sm text-[#9DABBB] leading-relaxed mb-3">
-                Une probabilité élevée signifie que, sur un échantillon de matchs aux caractéristiques similaires, le modèle s'attend à ce qu'une majorité se termine par le résultat prédit. BTTSPredict publie ces probabilités en toute transparence pour aider à la décision.
+                La probabilité affichée est l&apos;estimation associée au marché concerné. Elle ne constitue ni une fréquence historique, ni une certitude ; BTTSPredict ne la recalcule pas avec un modèle local.
               </p>
               <p className="text-sm text-[#9DABBB] leading-relaxed">
                 <strong className="text-[#2F7DFF]">Aucun résultat futur n'est garanti.</strong> Les paris sportifs comportent un risque de perte. Ne pariez jamais plus que ce que vous pouvez vous permettre de perdre. 18+.

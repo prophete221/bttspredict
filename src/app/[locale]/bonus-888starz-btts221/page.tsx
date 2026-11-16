@@ -1,3 +1,4 @@
+import { getStaticLocaleParams } from '@/lib/locale-route-policy'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Btts221PromoClient from '@/components/bttsbet/Btts221PromoClient'
@@ -12,8 +13,10 @@ const EN_URL = `${SITE_URL}/en/${SLUG}`
 const AR_URL = `${SITE_URL}/ar/${SLUG}`
 type LocalizedLang = 'en' | 'ar'
 
+export const dynamicParams = false
+
 export function generateStaticParams() {
-  return SUPPORTED_LOCALES.filter((locale) => locale !== 'fr').map((locale) => ({ locale }))
+  return getStaticLocaleParams('/bonus-888starz-btts221')
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {

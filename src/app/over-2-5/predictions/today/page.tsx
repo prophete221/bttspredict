@@ -10,7 +10,7 @@ const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: (
 const FreePredictions = dynamic(() => import('@/components/bttsbet/FreePredictions'), { loading: () => null })
 
 const TITLE = 'Pronostics Over 2,5 du jour'
-const DESCRIPTION = 'Pronostics Over 2,5 du jour sur des matchs internationaux : sélection statistique, dates de match et méthode documentée. 18+.'
+const DESCRIPTION = 'Sélections Over 2,5 à venir affichées après validation. Aucun résultat futur n’est garanti. 18+.'
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -20,7 +20,6 @@ export const metadata: Metadata = {
     languages: {
       fr: 'https://bttspredict.com/over-2-5/predictions/today',
       en: 'https://bttspredict.com/en/over-2-5/predictions/today',
-      ar: 'https://bttspredict.com/ar/over-2-5/predictions/today',
       'x-default': 'https://bttspredict.com/over-2-5/predictions/today',
     },
   },
@@ -70,7 +69,7 @@ export default function Over25PredictionsTodayPage() {
               style={{ fontFamily: 'Poppins, sans-serif' }}
             />
             <p className="over25-intro text-base sm:text-lg text-[#9DABBB] leading-relaxed max-w-3xl">
-              Les matchs sélectionnés aujourd&apos;hui selon la probabilité d&apos;au moins 3 buts.
+              Les matchs à venir pour lesquels un pick Over 2,5 validé est disponible : au moins trois buts au total. Les matchs sans pick Over sont exclus.
             </p>
             <div className="over25-actions mt-5 flex flex-wrap items-center gap-3">
               <a href="#over25-dashboard" className="inline-flex min-h-11 items-center justify-center rounded-xl px-5 py-3 text-sm font-bold transition hover:brightness-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2F7DFF]" style={{ backgroundColor: '#2F7DFF', color: '#FFFFFF' }}>
@@ -88,7 +87,7 @@ export default function Over25PredictionsTodayPage() {
         </section>
 
         <section id="over25-dashboard" aria-label="Pronostics Over 2.5 du jour" className="over25-results-section max-w-5xl mx-auto px-4 pb-10 scroll-mt-6">
-          <FreePredictions />
+          <FreePredictions marketFilter="over25" />
         </section>
 
         <section className="over25-info-section max-w-3xl mx-auto px-4 pb-10">

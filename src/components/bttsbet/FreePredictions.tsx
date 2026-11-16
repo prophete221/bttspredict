@@ -9,17 +9,19 @@ import { useLanguage } from './LanguageSwitcher'
 import { translationsFor, type Locale, localizedPath } from '@/lib/i18n'
 import { generateMatchSlug } from '@/lib/match-slug'
 import { trackAffiliateAction } from '@/lib/affiliateTracking'
-import { humanMethodLabel, predictionQuality, type PredictionQuality as DataQuality } from '@/lib/predictionQuality'
 import { analysisHeading } from '@/lib/predictionPresentation'
 import { getDakarDayDiff, getDakarMatchStatus, parseDakarDateTime } from '@/lib/dakar-date'
-import { getDakarDateOffset, selectCalendarItemsForDakarDay, selectFixtureOnlyItems, type PublicCalendarItem } from '@/lib/public-calendar'
-import VipMarketTeaser from './VipMarketTeaser'
+import { getDakarDateOffset, publicFixtureKey, selectCalendarItemsForDakarDay, selectFixtureOnlyItems, type PublicCalendarItem } from '@/lib/public-calendar'
 import MissingMarketVipLink from './MissingMarketVipLink'
-import { getGeminiPicks } from '@/lib/gemini-predictions'
+import VipMarketTeaser from './VipMarketTeaser'
+import { getGeminiPicks, mergeGeminiMarketPicks, type GeminiPrediction } from '@/lib/gemini-predictions'
+import { filterPredictionsByMarket, type PredictionMarketFilter } from '@/lib/prediction-market-filter'
+import { projectGeminiKeyFact } from '@/lib/match-fact-projection'
+import { selectLocalizedAnalysis } from '@/lib/localized-analysis'
 
 // ─── Helpers ────────────────────────────────────────────────────────────
-function getMatchStatus(date: string, time?: string): 'live' | 'upcoming' | 'past' {
-  const status = getDakarMatchStatus(date, time)
+function getMatchStatus(date: string, time?: string, now = new Date()): 'live' | 'upcoming' | 'past' {
+  const status = getDakarMatchStatus(date, time, now)
   return status === 'finished' ? 'past' : status
 }
 
@@ -53,14 +55,23 @@ function formatDateShort(dateStr: string, lang: 'fr' | 'en' | 'ar' = 'fr') {
   } catch { return dateStr }
 }
 
+function observedMatchCountLabel(homeCount: number | undefined, awayCount: number | undefined, lang: Locale): string {
+  const locale = lang === 'en' ? 'en-GB' : lang === 'ar' ? 'ar' : 'fr-FR'
+  const format = (count: number | undefined) => typeof count === 'number' && Number.isInteger(count) && count >= 0
+    ? new Intl.NumberFormat(locale, { maximumFractionDigits: 0 }).format(count)
+    : '—'
+  const counts = `${format(homeCount)} + ${format(awayCount)}`
+  return lang === 'en' ? `Observed matches: ${counts}`
+    : lang === 'ar' ? `المباريات المرصودة: ${counts}`
+      : `Matchs observés : ${counts}`
+}
+
 interface Prediction {
   type: string
+  market?: 'BTTS' | 'O2.5'
   prediction: string
+  proba?: number
   confidence?: number
-  bttsProb?: number
-  over25Prob?: number
-  homeLambda?: number
-  awayLambda?: number
 }
 
 interface MatchData {
@@ -71,26 +82,20 @@ interface MatchData {
   homeLogo: string
   awayLogo: string
   predictions: Prediction[]
-  reliabilityScore?: number
-  xgTotal?: number
-  analysis?: string
-  aiExactScore?: string
-  exactScoreProb?: string
-  aiBttsProb?: string
-  aiOver25Prob?: string
   aiKeyFact?: string
   aiAnalysis?: string
   aiFormSummary?: string
   aiAbsences?: string
   aiOddsInsight?: string
-  // Traductions anglaises générées par le pipeline (fallback : champ français)
+  // Traductions anglaises générées par le pipeline; ne pas afficher le français à défaut.
   aiKeyFactEn?: string
   aiAnalysisEn?: string
   aiFormSummaryEn?: string
   aiAbsencesEn?: string
   aiOddsInsightEn?: string
   odds?: { provider?: string; home?: number | null; draw?: number | null; away?: number | null; over25?: number | null; under25?: number | null } | null
-  quality?: DataQuality
+  matchCountHome?: number
+  matchCountAway?: number
 }
 
 interface FixtureData {
@@ -105,49 +110,50 @@ interface FixtureData {
 import buildTimePredictions from '../../../public/predictions.json'
 
 /** Parse payload → MatchData[] (shared by SSR seed + client refresh). */
-function parseMatchesPayload(data: { free?: unknown[]; predictions?: unknown[]; date?: string; fixtures?: unknown[] } | null | undefined, now = new Date(), dayOffset = 0): MatchData[] {
-  const rawPredictions = (data?.free || data?.predictions || []) as Array<Record<string, unknown>>
-  const hasSeparatedFixtures = Array.isArray(data?.fixtures) && data.fixtures.length > 0
+export function parseMatchesPayload(data: { free?: unknown[]; predictions?: unknown[]; date?: string; fixtures?: unknown[] } | null | undefined, now = new Date(), dayOffset = 0): MatchData[] {
+  const rawPredictions = [
+    ...(Array.isArray(data?.free) ? data.free : []),
+    ...(Array.isArray(data?.predictions) ? data.predictions : []),
+  ] as Array<Record<string, unknown>>
   if (!rawPredictions.length) return []
   const matchMap = new Map<string, MatchData>()
   for (const p of rawPredictions) {
-    const rowQuality: DataQuality = predictionQuality(p as never)
     const preds = getGeminiPicks(p)
-    if (hasSeparatedFixtures && preds.length === 0) continue
+    if (preds.length === 0) continue
     const isGeminiResponse = p.ai_source === 'gemini-stats-v1'
-    const key = String(p.match || '')
-    if (!key || matchMap.has(key)) continue
+    const key = publicFixtureKey({ match: p.match, home: p.home, away: p.away, league: p.league, date: p.date, time: p.time })
+    if (!key) continue
+    const existing = matchMap.get(key)
+    if (existing) {
+      existing.predictions = mergeGeminiMarketPicks(existing.predictions as GeminiPrediction[], preds)
+      continue
+    }
+    const matchLabel = String(p.match || `${p.home || ''} vs ${p.away || ''}`).trim()
+    if (!matchLabel) continue
     matchMap.set(key, {
-      match: key,
+      match: matchLabel,
       league: String(p.league || ''),
       date: String(p.date || ''),
       time: String(p.time || '--:--'),
       homeLogo: String(p.homeLogo || ''),
       awayLogo: String(p.awayLogo || ''),
       predictions: preds,
-      quality: rowQuality,
-      reliabilityScore: p.reliabilityScore as number | undefined,
-      xgTotal: p.xgTotal as number | undefined,
-      analysis: p.analysis as string | undefined,
-      aiKeyFact: isGeminiResponse ? p.ai_key_fact as string | undefined : undefined,
+      matchCountHome: typeof p.matchCountHome === 'number' ? p.matchCountHome : undefined,
+      matchCountAway: typeof p.matchCountAway === 'number' ? p.matchCountAway : undefined,
+      aiKeyFact: isGeminiResponse ? projectGeminiKeyFact(p, 'fr') : undefined,
       aiAnalysis: isGeminiResponse ? p.ai_analysis as string | undefined : undefined,
       aiFormSummary: isGeminiResponse ? p.ai_form_summary as string | undefined : undefined,
       aiAbsences: isGeminiResponse ? p.ai_absences as string | undefined : undefined,
       aiOddsInsight: isGeminiResponse ? p.ai_odds_insight as string | undefined : undefined,
-      aiKeyFactEn: isGeminiResponse ? p.ai_key_fact_en as string | undefined : undefined,
+      aiKeyFactEn: isGeminiResponse ? projectGeminiKeyFact(p, 'en') : undefined,
       aiAnalysisEn: isGeminiResponse ? p.ai_analysis_en as string | undefined : undefined,
       aiFormSummaryEn: isGeminiResponse ? p.ai_form_summary_en as string | undefined : undefined,
       aiAbsencesEn: isGeminiResponse ? p.ai_absences_en as string | undefined : undefined,
       aiOddsInsightEn: isGeminiResponse ? p.ai_odds_insight_en as string | undefined : undefined,
       odds: (p.odds as MatchData['odds']) || null,
-      // The current Gemini schema does not publish exact-score picks.
-      aiExactScore: undefined,
-      exactScoreProb: undefined,
-      aiBttsProb: undefined,
-      aiOver25Prob: undefined,
     })
   }
-  const all = [...matchMap.values()].sort((a, b) => {
+  const all = [...matchMap.values()].filter(match => match.predictions.length > 0).sort((a, b) => {
     const sa = getMatchStatus(a.date, a.time)
     const sb = getMatchStatus(b.date, b.time)
     if (sa === 'live' && sb !== 'live') return -1
@@ -155,22 +161,23 @@ function parseMatchesPayload(data: { free?: unknown[]; predictions?: unknown[]; 
     return `${a.date}T${a.time || '23:59'}`.localeCompare(`${b.date}T${b.time || '23:59'}`)
   })
   if (dayOffset !== 0) return selectCalendarItemsForDakarDay(all, dayOffset, now)
-  const todayMatches = selectCalendarItemsForDakarDay(all, 0, now)
   const today = getDakarDateOffset(0, now)
-  // Keep the established upcoming-pick fallback so protected today pages retain
-  // their static ItemList and visible selections; the tomorrow route is isolated above.
-  const upcomingFill = todayMatches.length < 6 && today
-    ? all.filter(match => match.date > today).slice(0, 12)
-    : []
-  return [...todayMatches, ...upcomingFill]
+  if (!today) return []
+  const todayMatches = selectCalendarItemsForDakarDay(all, 0, now).filter(match => {
+    const kickoff = parseDakarDateTime(match.date, match.time)
+    return kickoff !== null && kickoff.getTime() > now.getTime()
+  })
+  return [...todayMatches, ...all.filter(match => match.date > today)]
 }
 
 type PublicFeedPayload = { free?: unknown[]; predictions?: unknown[]; fixtures?: unknown[] }
 
 function parseFixturesPayload(data: PublicFeedPayload | null | undefined, now = new Date(), dayOffset = 0): FixtureData[] {
   const rawFixtures = Array.isArray(data?.fixtures) ? data.fixtures as PublicCalendarItem[] : []
-  const rawPicks = Array.isArray(data?.free) ? data.free as PublicCalendarItem[]
-    : Array.isArray(data?.predictions) ? data.predictions as PublicCalendarItem[] : []
+  const rawPicks = [
+    ...(Array.isArray(data?.free) ? data.free : []),
+    ...(Array.isArray(data?.predictions) ? data.predictions : []),
+  ].filter(row => getGeminiPicks(row).length > 0) as PublicCalendarItem[]
   const startDate = getDakarDateOffset(dayOffset, now) || undefined
   return selectFixtureOnlyItems(rawFixtures, rawPicks, now, startDate).flatMap(row => {
     const home = String(row.home || '').trim()
@@ -199,7 +206,7 @@ function seedFixturesFromBuild(dayOffset = 0): FixtureData[] {
 }
 
 
-// ─── Probability Bar — visual representation of Poisson model ────────────
+// ─── Probability Bar — Gemini probability attached to a validated pick ───
 function ProbabilityBar({ value, prediction, color = 'green' }: { value: number; prediction: string; color?: 'green' | 'gold' }) {
   const percentage = Math.round(value * 100)
   const isPositive = prediction === 'Oui'
@@ -275,14 +282,15 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
   const matchDate = (match.date || '').slice(0, 10)
   const matchHref = home && away && matchDate ? localizedPath(`/match/${generateMatchSlug(home, away, matchDate)}`, lang) : ''
 
-  // Sur les pages EN, le pipeline fournit désormais des analyses anglaises
-  // (champs *_en) — repli sur le champ français si absent.
-  const pick = (fr?: string, en?: string) => (lang === 'en' && en ? en : fr)
+  // N’afficher que le texte disponible dans la langue de l’interface.
+  const pick = (fr?: string, en?: string) => selectLocalizedAnalysis(fr, en, lang)
   const vKeyFact = pick(match.aiKeyFact, match.aiKeyFactEn)
   const vAnalysis = pick(match.aiAnalysis, match.aiAnalysisEn)
   const vFormSummary = pick(match.aiFormSummary, match.aiFormSummaryEn)
   const vAbsences = pick(match.aiAbsences, match.aiAbsencesEn)
   const vOddsInsight = pick(match.aiOddsInsight, match.aiOddsInsightEn)
+  const hasLocalizedDetails = Boolean(vKeyFact || vAnalysis || vFormSummary || vAbsences || vOddsInsight)
+  const hasSourceDetails = Boolean(match.aiKeyFact || match.aiAnalysis || match.aiFormSummary || match.aiAbsences || match.aiOddsInsight || match.aiKeyFactEn || match.aiAnalysisEn || match.aiFormSummaryEn || match.aiAbsencesEn || match.aiOddsInsightEn)
 
   const status = getMatchStatus(match.date, match.time)
   const timeUntil = getTimeUntil(match.date, match.time)
@@ -294,9 +302,6 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
   const bttsPred = rawBtts ?? null
   const over25Pred = rawOver25 ?? null
   const hasGeminiPick = Boolean(bttsPred || over25Pred)
-
-  // Qualité des données — libellé humain, jamais un pourcentage inventé
-  const dataQuality: DataQuality = match.quality ?? (hasGeminiPick ? 'limited' : 'insufficient')
 
   return (
     <motion.div
@@ -323,7 +328,7 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
             {status === 'past' && (
               <span className="text-xs text-cendre mono tabular-nums">{match.time || '--:--'}</span>
             )}
-            <span className="text-xs text-cendre uppercase tracking-widest font-semibold truncate">
+            <span className="text-xs text-cendre uppercase tracking-widest font-semibold break-words">
               {match.league}
             </span>
           </div>
@@ -331,11 +336,11 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
         </div>
 
         {/* Teams */}
-        <div className="prediction-match-card__teams grid grid-cols-[1fr_auto_1fr] items-center gap-2 mb-4">
+        <div className="prediction-match-card__teams grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-2 mb-4">
           {/* Home */}
           <div className="prediction-match-card__team flex flex-col items-center text-center gap-2">
             <TeamLogo src={homeLogo} name={home} size={40} />
-            <span className="text-sm font-semibold text-papier truncate max-w-full leading-tight">{home}</span>
+            <span className="text-sm font-semibold text-papier max-w-full leading-tight break-words [overflow-wrap:anywhere]">{home}</span>
           </div>
 
           {/* VS */}
@@ -346,7 +351,7 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
           {/* Away */}
           <div className="prediction-match-card__team flex flex-col items-center text-center gap-2">
             <TeamLogo src={awayLogo} name={away} size={40} />
-            <span className="text-sm font-semibold text-papier truncate max-w-full leading-tight">{away}</span>
+            <span className="text-sm font-semibold text-papier max-w-full leading-tight break-words [overflow-wrap:anywhere]">{away}</span>
           </div>
         </div>
 
@@ -371,17 +376,17 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
           {/* Two markets side by side — Oui/Non only */}
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
             {/* BTTS column */}
-            <div className="space-y-2 text-center">
-              <div className="text-xs uppercase tracking-widest font-semibold text-primary">BTTS</div>
-              <div className="text-2xl sm:text-3xl font-bold" style={{ color: bttsPred?.prediction === 'Oui' ? '#2F7DFF' : '#9DABBB' }}>
+            <div className="prediction-market space-y-2 text-center" data-market="BTTS">
+              <div className="prediction-market__label text-xs uppercase tracking-widest font-semibold text-primary">BTTS</div>
+              <div className="prediction-market__selection text-2xl sm:text-3xl font-bold" data-prediction={bttsPred?.prediction === 'Oui' ? 'yes' : bttsPred ? 'no' : 'missing'} style={{ color: bttsPred?.prediction === 'Oui' ? '#34D399' : '#9DABBB' }}>
                 {bttsPred ? (bttsPred.prediction === 'Oui' ? t.predictions.bttsYes : t.predictions.bttsNo) : <MissingMarketVipLink locale={lang} market="BTTS" />}
               </div>
             </div>
 
             {/* Over 2.5 column */}
-            <div className="space-y-2 text-center border-l border-[#223041] pl-3 sm:pl-4">
-              <div className="text-xs uppercase tracking-widest font-semibold text-primary">Over 2.5</div>
-              <div className="text-2xl sm:text-3xl font-bold" style={{ color: over25Pred?.prediction === 'Oui' ? '#2F7DFF' : '#9DABBB' }}>
+            <div className="prediction-market space-y-2 text-center border-l border-[#223041] pl-3 sm:pl-4" data-market="O2.5">
+              <div className="prediction-market__label text-xs uppercase tracking-widest font-semibold text-primary">Over 2.5</div>
+              <div className="prediction-market__selection text-2xl sm:text-3xl font-bold" data-prediction={over25Pred?.prediction === 'Oui' ? 'yes' : over25Pred ? 'no' : 'missing'} style={{ color: over25Pred?.prediction === 'Oui' ? '#FBBF24' : '#9DABBB' }}>
                 {over25Pred ? (over25Pred.prediction === 'Oui' ? t.predictions.bttsYes : t.predictions.bttsNo) : <MissingMarketVipLink locale={lang} market="Over 2.5" />}
               </div>
             </div>
@@ -389,12 +394,11 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
 
           {hasGeminiPick && (
             <p className="text-[11px] text-cendre mt-2 text-center">
-              {humanMethodLabel(dataQuality, lang)}
+              {observedMatchCountLabel(match.matchCountHome, match.matchCountAway, lang)}
             </p>
           )}
         </div>
         <VipMarketTeaser locale={lang} />
-
         {/* Expandable analysis section */}
         <AnimatePresence>
           {expanded && (
@@ -407,7 +411,7 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
             >
               <div className="mt-4 pt-4 border-t border-edge space-y-3">
                 {/* Enrichissement — libellé humain */}
-                {(vKeyFact || match.aiExactScore) && (
+                {hasLocalizedDetails && (
                   <div className="bg-[#2F7DFF]/5 rounded-lg p-3 border border-[#2F7DFF]/20">
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-1.5">
@@ -417,39 +421,7 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
                         </svg>
                         <span className="text-xs uppercase tracking-widest font-semibold text-[#4A90FF]">{lang === 'en' ? 'Match analysis' : lang === 'ar' ? 'تحليل المباراة' : 'Analyse du match'}</span>
                       </div>
-                      {match.aiExactScore && (
-                        <div className="flex items-center gap-1">
-                          <span className="text-xs uppercase tracking-wider text-cendre">{t.predictions.predictedScore}</span>
-                          <span className="text-sm font-black font-mono text-[#2F7DFF] px-2 py-0.5 rounded" style={{ backgroundColor: 'rgba(199,244,100,0.12)' }}>
-                            {match.aiExactScore}
-                          </span>
-                        </div>
-                      )}
                     </div>
-
-                    {/* Probability row */}
-                    {(match.aiExactScore || match.aiBttsProb || match.aiOver25Prob) && (
-                      <div className="grid grid-cols-3 gap-1.5 mb-2">
-                        {match.aiExactScore && match.exactScoreProb && (
-                          <div className="text-center rounded p-1.5" style={{ backgroundColor: 'rgba(199,244,100,0.08)' }}>
-                            <div className="text-xs uppercase text-cendre">Score</div>
-                            <div className="text-sm font-bold text-[#2F7DFF]">{match.exactScoreProb}</div>
-                          </div>
-                        )}
-                        {match.aiBttsProb && (
-                          <div className="text-center rounded p-1.5" style={{ backgroundColor: 'rgba(52, 211, 153,0.08)' }}>
-                            <div className="text-xs uppercase text-cendre">BTTS</div>
-                            <div className="text-sm font-bold text-[#2F7DFF]">{match.aiBttsProb}</div>
-                          </div>
-                        )}
-                        {match.aiOver25Prob && (
-                          <div className="text-center rounded p-1.5" style={{ backgroundColor: 'rgba(91, 169, 255,0.08)' }}>
-                            <div className="text-xs uppercase text-cendre">Over 2.5</div>
-                            <div className="text-sm font-bold text-[#2F7DFF]">{match.aiOver25Prob}</div>
-                          </div>
-                        )}
-                      </div>
-                    )}
 
                     {vKeyFact && (
                       <p className="text-sm text-[#F2F6FA] font-semibold mb-2">📊 {vKeyFact}</p>
@@ -507,6 +479,11 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
                     )}
                   </div>
                 )}
+                {!hasLocalizedDetails && hasSourceDetails && (
+                  <p className="rounded-lg border border-white/10 bg-white/[0.03] p-3 text-xs leading-relaxed text-[#C8D2DC]">
+                    {lang === 'en' ? 'Match analysis text is not available in English for this fixture yet.' : lang === 'ar' ? 'تحليل المباراة غير متاح بهذه اللغة حالياً.' : 'Le texte d’analyse n’est pas disponible pour ce match.'}
+                  </p>
+                )}
 
               </div>
             </motion.div>
@@ -534,7 +511,7 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
             {expanded ? (
               <>{t.predictions.analysis} <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="18 15 12 9 6 15" /></svg></>
             ) : (
-              <>{t.predictions.analysis} <span className="truncate max-w-[140px]">{home} – {away}</span> <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="6 9 12 15 18 9" /></svg></>
+              <>{t.predictions.analysis} <span className="max-w-[140px] whitespace-normal break-words">{home} – {away}</span> <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="6 9 12 15 18 9" /></svg></>
             )}
           </button>
           {/* Lien vers la page d'analyse détaillée du match (tunnel PRÉDICTION → ANALYSE) */}
@@ -554,7 +531,7 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
 }
 
 // ─── Main Component ─────────────────────────────────────────────────────
-export default function FreePredictions({ initialLocale, dayOffset = 0 }: { initialLocale?: Locale; dayOffset?: number } = {}) {
+export default function FreePredictions({ initialLocale, dayOffset = 0, marketFilter = 'all' }: { initialLocale?: Locale; dayOffset?: number; marketFilter?: PredictionMarketFilter } = {}) {
   const [ref, isVisible] = useScrollAnimation()
   const { lang: detectedLang } = useLanguage()
   const lang = initialLocale ?? detectedLang
@@ -565,10 +542,22 @@ export default function FreePredictions({ initialLocale, dayOffset = 0 }: { init
     trackAffiliateAction('platform', 'prediction_view', `feed:${window.location.pathname}`, { lang })
   }, [lang])
   const t = translationsFor(lang)
-  const intelligenceTitle = dayOffset === 1
-    ? lang === 'en' ? "Tomorrow's intelligence" : lang === 'ar' ? 'ذكاء الغد' : 'Intelligence de demain'
-    : lang === 'en' ? "Today's intelligence" : lang === 'ar' ? 'ذكاء اليوم' : 'Intelligence du jour'
-  const intelligenceSubtitle = lang === 'en' ? 'Live selections, market signals and match analysis' : lang === 'ar' ? 'اختيارات مباشرة وإشارات السوق وتحليل المباريات' : 'Sélections en direct, signaux de marché et analyse des matchs'
+  const intelligenceTitle = marketFilter === 'combined'
+    ? lang === 'en' ? 'BTTS + Over 2.5 picks' : lang === 'ar' ? 'اختيارات BTTS وOver 2.5 معاً' : 'Sélections BTTS + Over 2,5'
+    : marketFilter === 'btts'
+      ? lang === 'en' ? 'BTTS picks' : lang === 'ar' ? 'اختيارات BTTS' : 'Sélections BTTS'
+      : marketFilter === 'over25'
+        ? lang === 'en' ? 'Over 2.5 picks' : lang === 'ar' ? 'اختيارات Over 2.5' : 'Sélections Over 2,5'
+        : dayOffset === 1
+          ? lang === 'en' ? "Tomorrow's picks" : lang === 'ar' ? 'اختيارات الغد' : 'Sélections de demain'
+          : lang === 'en' ? "Today's and upcoming picks" : lang === 'ar' ? 'اختيارات اليوم والمباريات القادمة' : 'Sélections du jour et à venir'
+  const intelligenceSubtitle = marketFilter === 'combined'
+    ? lang === 'en' ? 'Only matches with a validated pick for both markets.' : lang === 'ar' ? 'تظهر فقط المباريات التي لديها اختيار موثّق في السوقين.' : 'Uniquement les matchs avec des sélections validées sur les deux marchés.'
+    : marketFilter === 'btts'
+      ? lang === 'en' ? 'Upcoming BTTS picks that passed the public validation checks.' : lang === 'ar' ? 'اختيارات BTTS القادمة بعد اجتياز ضوابط التحقق.' : 'Picks BTTS à venir, vérifiés avant publication.'
+      : marketFilter === 'over25'
+        ? lang === 'en' ? 'Upcoming Over 2.5 picks that passed the public validation checks.' : lang === 'ar' ? 'اختيارات Over 2.5 القادمة بعد اجتياز ضوابط التحقق.' : 'Picks Over 2,5 à venir, vérifiés avant publication.'
+        : lang === 'en' ? 'Public picks and match analysis; no future outcome is guaranteed.' : lang === 'ar' ? 'الاختيارات العامة وتحليل المباريات؛ لا توجد نتيجة مستقبلية مضمونة.' : 'Sélections publiques et analyses de matchs ; aucun résultat futur n’est garanti.'
   const fixturesTitle = lang === 'en' ? 'Schedule — fixtures without a pick' : lang === 'ar' ? 'الجدول — مباريات بلا توقع' : 'Calendrier — matchs sans pronostic'
   const fixturesNote = lang === 'en' ? 'These are scheduled matches only; no prediction is available.' : lang === 'ar' ? 'هذه مباريات مجدولة فقط؛ لا يوجد توقع متاح.' : 'Ce sont des rencontres programmées : aucun pronostic n’est disponible.'
   // Seed build-time: le HTML statique contient déjà les matchs (crawlers / IA).
@@ -576,6 +565,8 @@ export default function FreePredictions({ initialLocale, dayOffset = 0 }: { init
   const [matches, setMatches] = useState<MatchData[]>(() => seedMatchesFromBuild(dayOffset))
   const [fixtures, setFixtures] = useState<FixtureData[]>(() => seedFixturesFromBuild(dayOffset))
   const [loading, setLoading] = useState(() => seedMatchesFromBuild(dayOffset).length === 0)
+  const filteredMatches = useMemo(() => filterPredictionsByMarket(matches, marketFilter), [matches, marketFilter])
+  const visibleFixtures = marketFilter === 'all' ? fixtures : []
 
   useEffect(() => {
     fetch('/predictions.json')
@@ -590,16 +581,16 @@ export default function FreePredictions({ initialLocale, dayOffset = 0 }: { init
   }, [dayOffset])
 
   const stats = useMemo(() => ({
-    total: matches.length,
-    btts: matches.filter(m => m.predictions.some(p => p.type === 'BTTS')).length,
-    o25: matches.filter(m => m.predictions.some(p => p.type.includes('Over'))).length,
-    live: matches.filter(m => getMatchStatus(m.date, m.time) === 'live').length,
-  }), [matches])
+    total: filteredMatches.length,
+    btts: filteredMatches.filter(m => m.predictions.some(p => p.type === 'BTTS')).length,
+    o25: filteredMatches.filter(m => m.predictions.some(p => p.type.includes('Over'))).length,
+    live: filteredMatches.filter(m => getMatchStatus(m.date, m.time) === 'live').length,
+  }), [filteredMatches])
 
   return (
     <>
       {/* JSON-LD + liste lisible machines : les IA voient les matchs sans exécuter JS */}
-      {matches.length > 0 && (
+      {filteredMatches.length > 0 && (
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -607,8 +598,8 @@ export default function FreePredictions({ initialLocale, dayOffset = 0 }: { init
               '@context': 'https://schema.org',
               '@type': 'ItemList',
               name: intelligenceTitle,
-              numberOfItems: matches.length,
-              itemListElement: matches.slice(0, 20).map((m, i) => ({
+              numberOfItems: filteredMatches.length,
+              itemListElement: filteredMatches.map((m, i) => ({
                 '@type': 'ListItem',
                 position: i + 1,
                 name: m.match,
@@ -621,7 +612,7 @@ export default function FreePredictions({ initialLocale, dayOffset = 0 }: { init
       <div className="sr-only" data-ai-match-list aria-hidden="false">
         <h2>{intelligenceTitle}</h2>
         <ul>
-          {matches.map((m) => (
+          {filteredMatches.map((m) => (
             <li key={`ai-${m.match}-${m.date}`}>
               {m.match} — {m.league} — {m.date} {m.time} — BTTS: {m.predictions.find(p => p.type === 'BTTS')?.prediction || '—'} — Over 2.5: {m.predictions.find(p => p.type.includes('Over'))?.prediction || '—'}
             </li>
@@ -646,7 +637,7 @@ export default function FreePredictions({ initialLocale, dayOffset = 0 }: { init
               <div key={i} className="squircle-lg h-72 animate-pulse" />
             ))}
           </div>
-        ) : matches.length === 0 ? (
+        ) : filteredMatches.length === 0 ? (
           <div className="squircle-xl p-10 text-center">
             <div className="w-14 h-14 bg-dark-800 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-edge">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2F7DFF" strokeWidth="1.5">
@@ -654,25 +645,31 @@ export default function FreePredictions({ initialLocale, dayOffset = 0 }: { init
                 <circle cx="12" cy="12" r="10" />
               </svg>
             </div>
-            <p className="text-papier text-sm font-bold mb-2">{t.predictions.noMatches}</p>
+            <p className="text-papier text-sm font-bold mb-2">{marketFilter === 'combined'
+              ? lang === 'en' ? 'No upcoming match has validated picks for both markets yet.' : lang === 'ar' ? 'لا توجد حالياً مباراة قادمة باختيارات موثّقة في السوقين.' : 'Aucun match à venir n’a encore de picks validés sur les deux marchés.'
+              : marketFilter === 'over25'
+                ? lang === 'en' ? 'No upcoming Over 2.5 pick is available right now.' : lang === 'ar' ? 'لا يتوفر حالياً اختيار Over 2.5 قادم.' : 'Aucun pick Over 2,5 à venir n’est disponible pour le moment.'
+                : marketFilter === 'btts'
+                  ? lang === 'en' ? 'No upcoming BTTS pick is available right now.' : lang === 'ar' ? 'لا يتوفر حالياً اختيار BTTS قادم.' : 'Aucun pick BTTS à venir n’est disponible pour le moment.'
+                  : t.predictions.noMatches}</p>
             <p className="text-cendre text-xs">{lang === 'ar' ? 'جرّب فلترًا آخر أو عد لاحقاً.' : lang === 'en' ? 'Try another filter or come back later.' : 'Essaie un autre filtre ou reviens plus tard.'}</p>
           </div>
         ) : (
           <div className="grid gap-3 md:gap-4 md:grid-cols-2">
-            {matches.map((m, i) => (
+            {filteredMatches.map((m, i) => (
               <PredictionCard key={`${m.match}-${m.date}-${m.time}`} match={m} index={i} initialLocale={lang} />
             ))}
           </div>
         )}
 
-        {fixtures.length > 0 && (
+        {visibleFixtures.length > 0 && (
           <section className="mt-8" aria-labelledby="calendar-fixtures-heading">
             <div className="mb-3">
               <h3 id="calendar-fixtures-heading" className="text-lg font-bold text-papier">{fixturesTitle}</h3>
               <p className="mt-1 text-xs leading-relaxed text-cendre">{fixturesNote}</p>
             </div>
             <ul className="grid gap-2 sm:grid-cols-2">
-              {fixtures.map(fixture => (
+              {visibleFixtures.map(fixture => (
                 <li key={`${fixture.date}|${fixture.league}|${fixture.home}|${fixture.away}`} className="flex items-center justify-between gap-3 rounded-xl border border-edge bg-dark-900 px-4 py-3">
                   <div className="min-w-0">
                     <p className="truncate text-sm font-semibold text-papier">{fixture.home} <span className="text-cendre">vs</span> {fixture.away}</p>
@@ -688,7 +685,7 @@ export default function FreePredictions({ initialLocale, dayOffset = 0 }: { init
         )}
 
         <p className="text-center text-sm text-cendre mt-6">
-          {lang === 'ar' ? 'توقع إحصائي مبني على البيانات الأخيرة ونموذجنا الإحصائي. لا توجد ضمانات مستقبلية. 18+' : lang === 'en' ? 'Statistical prediction based on recent data and our statistical model. No future guarantee. 18+.' : 'Prévision statistique basée sur les données récentes et notre modèle statistique. Aucune garantie future. 18+'}
+          {lang === 'ar' ? 'الاختيارات العامة لا تُعرض إلا بعد التحقق منها. لا توجد نتيجة مستقبلية مضمونة. 18+' : lang === 'en' ? 'Public picks are shown only after validation. No future outcome is guaranteed. 18+.' : 'Les sélections publiques ne sont affichées qu’après validation. Aucun résultat futur n’est garanti. 18+'}
         </p>
 
         {/* CTA — Voir tous les pronostics du jour (page dédiée) */}

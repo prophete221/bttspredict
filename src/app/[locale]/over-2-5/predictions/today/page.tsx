@@ -1,3 +1,4 @@
+import { getStaticLocaleParams } from '@/lib/locale-route-policy'
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
@@ -10,25 +11,30 @@ const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: (
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
 const FreePredictions = dynamic(() => import('@/components/bttsbet/FreePredictions'), { loading: () => null })
 
+export const dynamicParams = false
+export function generateStaticParams() {
+  return getStaticLocaleParams('/over-2-5/predictions/today')
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale: value } = await params
-  if (!isLocale(value) || value === 'fr') return {}
+  if (!isLocale(value) || value !== 'en') return {}
   const locale = value as Locale
   const url = `https://bttspredict.com/${locale}/over-2-5/predictions/today`
-  const title = locale === 'ar' ? 'توقعات Over 2.5 اليوم' : 'Over 2.5 Predictions Today — Goal Analysis'
-  const description = locale === 'ar' ? 'توقعات أكثر من 2.5 هدف للمباريات الدولية، مع تحليل إحصائي وتحديثات يومية. لا توجد ضمانات للنتائج. 18+.' : 'Over 2.5 goals predictions for international football matches, with statistical analysis and daily updates. No future result is guaranteed. 18+.'
+  const title = 'Over 2.5 Predictions Today — Goal Analysis'
+  const description = 'Upcoming Over 2.5 picks are shown only after passing the publication checks. No future outcome is guaranteed. 18+.'
   return {
     title, description,
-    alternates: { canonical: url, languages: { fr: 'https://bttspredict.com/over-2-5/predictions/today', en: 'https://bttspredict.com/en/over-2-5/predictions/today', ar: 'https://bttspredict.com/ar/over-2-5/predictions/today', 'x-default': 'https://bttspredict.com/over-2-5/predictions/today' } },
+    alternates: { canonical: url, languages: { fr: 'https://bttspredict.com/over-2-5/predictions/today', en: 'https://bttspredict.com/en/over-2-5/predictions/today', 'x-default': 'https://bttspredict.com/over-2-5/predictions/today' } },
     openGraph: { title, description, url, siteName: 'BTTSPredict', type: 'website', locale: LOCALE_META[locale].htmlLang },
   }
 }
 
 export default async function LocalizedOver25TodayPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: value } = await params
-  if (!isLocale(value) || value === 'fr') notFound()
+  if (!isLocale(value) || value !== 'en') notFound()
   const t = translationsFor(value)
-  const isAr = value === 'ar'
+  const isAr = false
   return (
     <div className="page-design page-design--over25 min-h-screen bg-[#0B0F14] flex flex-col text-[#F2F6FA]">
       <Navbar />
@@ -39,7 +45,7 @@ export default async function LocalizedOver25TodayPage({ params }: { params: Pro
         <section className="over25-intro-section page-design__hero-wrap max-w-5xl mx-auto px-4 pt-4 pb-6">
           <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-4" style={{ backgroundColor: 'rgba(91, 169, 255, 0.12)', color: '#2F7DFF', border: '1px solid rgba(91, 169, 255, 0.25)' }}>Over 2.5 · Total goals</span>
           <AnimatedTitle as="h1" text={isAr ? 'توقعات Over 2.5 اليوم' : 'Over 2.5 Predictions Today'} className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }} />
-          <p className="text-base sm:text-lg text-[#9DABBB] leading-relaxed mb-3 max-w-3xl mx-auto">{isAr ? 'مباريات يُتوقع أن يتجاوز فيها إجمالي الأهداف 2.5، أي ثلاثة أهداف على الأقل. يتم التحديث والتحقق من النتائج بعد المباراة.' : "Today's Over 2.5 predictions: matches where total goals are expected to exceed 2.5, meaning at least 3 goals. Updated and checked after the match."}</p>
+          <p className="text-base sm:text-lg text-[#9DABBB] leading-relaxed mb-3 max-w-3xl mx-auto">{isAr ? 'المباريات القادمة التي يتوفر لها اختيار Over 2.5 اجتاز التحقق؛ أي ثلاثة أهداف على الأقل. لا نعرض مباراة بلا اختيار لهذا السوق.' : 'Upcoming matches with a validated Over 2.5 pick. Matches without a pick for this market are excluded.'}</p>
           <p className="text-sm text-[#9DABBB] leading-relaxed max-w-3xl mx-auto">{t.legal.noGuarantee} {t.legal.eighteen}</p>
           <div className="mt-5 flex justify-center">
             <VipButtons locale={value as Locale} />
@@ -47,7 +53,7 @@ export default async function LocalizedOver25TodayPage({ params }: { params: Pro
         </section>
 
         <section className="over25-results-section page-design__feed max-w-5xl mx-auto px-4 pb-12">
-          <FreePredictions />
+          <FreePredictions initialLocale={value as Locale} marketFilter="over25" />
         </section>
       </main>
       <Footer />

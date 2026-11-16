@@ -3,7 +3,8 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { usePathname } from 'next/navigation'
-import { isLocale, localizedPath, LOCALE_META, SUPPORTED_LOCALES, type Locale } from '@/lib/i18n'
+import { isLocale, localizedPath, LOCALE_META, type Locale } from '@/lib/i18n'
+import { getAvailableLocales } from '@/lib/locale-route-policy'
 
 const STORAGE_KEY = 'bttsbet-lang'
 
@@ -36,6 +37,7 @@ export default function LanguageSwitcher({ compact = false }: { compact?: boolea
   const pathname = usePathname() || '/'
   const { lang, change } = useLanguage()
   const [open, setOpen] = useState(false)
+  const availableLocales = getAvailableLocales(pathname)
 
   return (
     <div className="relative" dir="ltr">
@@ -63,7 +65,7 @@ export default function LanguageSwitcher({ compact = false }: { compact?: boolea
               className="absolute right-0 mt-1 z-50 glass-card rounded-lg overflow-hidden min-w-[160px]"
               role="menu"
             >
-              {SUPPORTED_LOCALES.map(code => (
+              {availableLocales.map(code => (
                 <button
                   type="button"
                   key={code}

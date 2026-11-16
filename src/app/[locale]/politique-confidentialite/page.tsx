@@ -1,7 +1,12 @@
+import { getStaticLocaleParams } from '@/lib/locale-route-policy'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import { frEnAlternates } from '@/lib/seo'
 import LocalizedLegalPage from '@/components/bttsbet/LocalizedLegalPage'
-import { SUPPORTED_LOCALES, type Locale } from '@/lib/i18n'
-export function generateStaticParams() { return SUPPORTED_LOCALES.filter(locale => locale !== 'fr').map(locale => ({ locale })) }
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> { const { locale } = await params; if (locale === 'en') return { title: 'Privacy policy', description: 'Privacy policy for BTTSPredict.', alternates: { canonical: 'https://bttspredict.com/en/politique-confidentialite' } }; if (locale === 'ar') return { title: 'سياسة الخصوصية', description: 'سياسة الخصوصية في BTTSPredict.', alternates: { canonical: 'https://bttspredict.com/ar/politique-confidentialite' } }; return {} }
-export default async function LocalizedPrivacyPage({ params }: { params: Promise<{ locale: string }> }) { const { locale } = await params; if (!SUPPORTED_LOCALES.includes(locale as Locale) || locale === 'fr') notFound(); return <LocalizedLegalPage kind="privacy" /> }
+export const dynamicParams = false
+
+export function generateStaticParams() {
+  return getStaticLocaleParams('/politique-confidentialite')
+}
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> { const { locale } = await params; if (locale !== 'en') return {}; return { title: 'Privacy policy', description: 'Privacy policy for BTTSPredict.', alternates: frEnAlternates('/politique-confidentialite', 'en') } }
+export default async function LocalizedPrivacyPage({ params }: { params: Promise<{ locale: string }> }) { const { locale } = await params; if (locale !== 'en') notFound(); return <LocalizedLegalPage kind="privacy" /> }

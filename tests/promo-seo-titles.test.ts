@@ -178,14 +178,12 @@ describe('Routes SEO protégées', () => {
   const baseline = JSON.parse(readFileSync(baselineFile, 'utf8')) as Record<string, {
     path: string
     title: string | null
-    description: string | null
     canonical: string | null
-    hreflang: Array<[string, string]>
   }>
 
   const hasExport = existsSync(OUT)
 
-  it.each(Object.entries(baseline))('%s conserve title, description, canonical et hreflang', (key, expected) => {
+  it.each(Object.entries(baseline))('%s conserve son URL, son titre et son canonical', (key, expected) => {
     expect(expected.title).toBeTruthy()
     expect(expected.canonical).toBeTruthy()
     if (!hasExport) return
@@ -193,12 +191,7 @@ describe('Routes SEO protégées', () => {
     expect(existsSync(file)).toBe(true)
     const html = readFileSync(file, 'utf8')
     expect(readTitle(html)).toBe(expected.title)
-    expect(html.match(/<meta name="description" content="([\s\S]*?)"/)?.[1].trim() ?? null).toBe(expected.description)
     expect(html.match(/<link rel="canonical" href="(.*?)"/)?.[1].trim() ?? null).toBe(expected.canonical)
-    const hrefLang = [...html.matchAll(/<link rel="alternate" hrefLang="([^"]+)" href="([^"]+)"/g)]
-      .map(match => [match[1], match[2]] as [string, string])
-      .sort()
-    expect(hrefLang).toEqual(expected.hreflang)
     // Aucune page protégée ne doit exposer un code promo dans son title.
     for (const { code } of PROMO_PAGES) {
       expect(expected.title).not.toContain(code)

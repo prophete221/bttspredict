@@ -1,39 +1,112 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, follow">
-<title>Archives des pronostics — BTTSPredict</title>
-<style>
-body{background:#131314;color:#f0f4f9;font-family:system-ui,sans-serif;max-width:600px;margin:0 auto;padding:2rem}
-h1{color:#22c55e;font-size:1.5rem}
-a{color:#06b6d4;text-decoration:none;display:block;padding:0.5rem 0;border-bottom:1px solid #2d2f31}
-a:hover{color:#22c55e}
-p{color:#9ca3af;font-size:0.875rem}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, follow">
+  <title>Archives de données — BTTSPredict</title>
+  <style>
+    :root{color-scheme:dark}body{background:#0b0f14;color:#f2f6fa;font:16px/1.5 system-ui,sans-serif;max-width:760px;margin:0 auto;padding:24px 16px}h1{font-size:1.5rem}p{color:#b4bcc8}a{color:#8fc2ff;text-decoration:none}a:hover{text-decoration:underline}ul{list-style:none;padding:0;margin:24px 0}li{padding:9px 12px;border-bottom:1px solid #2c3744}.note{border:1px solid #3a4150;border-radius:12px;padding:14px}
+  </style>
 </head>
 <body>
-<h1>📊 Archives publiques des pronostics</h1>
-<p>Chaque fichier JSON contient les pronostics publiés ce jour-là, avec horodatage.</p>
-<p style="margin-bottom:1rem">Source : ESPN Soccer API · Suivi public depuis le 2026-08-08</p>
-<div id="archives"></div>
-<script>
-// Auto-list available archive files
-const archives = [
-  "2026-08-11.json",
-  "2026-08-10.json",
-  "2026-08-09.json",
-  "2026-08-08.json",
-  "2026-06-07.json",
-];
-const container = document.getElementById("archives");
-archives.forEach(function(f) {
-  const a = document.createElement("a");
-  a.href = f;
-  a.textContent = "📅 " + f;
-  container.appendChild(a);
-});
-</script>
+  <main>
+    <h1>Archives de données publiques</h1>
+    <p>91 fichiers JSON actuellement présents. Cette liste est générée à partir des fichiers disponibles; elle ne modifie pas les archives.</p>
+    <p class="note">Les JSON sont des données brutes. Pour consulter les résultats dans une interface lisible, ouvrez <a href="/historique">l’historique public des pronostics</a>.</p>
+    <ul aria-label="Fichiers d’archive disponibles">
+      <li><a href="2026-11-16.json">2026-11-16 — fichier JSON</a></li>
+      <li><a href="2026-11-15.json">2026-11-15 — fichier JSON</a></li>
+      <li><a href="2026-11-14.json">2026-11-14 — fichier JSON</a></li>
+      <li><a href="2026-11-13.json">2026-11-13 — fichier JSON</a></li>
+      <li><a href="2026-11-12.json">2026-11-12 — fichier JSON</a></li>
+      <li><a href="2026-11-11.json">2026-11-11 — fichier JSON</a></li>
+      <li><a href="2026-11-10.json">2026-11-10 — fichier JSON</a></li>
+      <li><a href="2026-11-09.json">2026-11-09 — fichier JSON</a></li>
+      <li><a href="2026-11-08.json">2026-11-08 — fichier JSON</a></li>
+      <li><a href="2026-11-07.json">2026-11-07 — fichier JSON</a></li>
+      <li><a href="2026-11-06.json">2026-11-06 — fichier JSON</a></li>
+      <li><a href="2026-11-05.json">2026-11-05 — fichier JSON</a></li>
+      <li><a href="2026-11-04.json">2026-11-04 — fichier JSON</a></li>
+      <li><a href="2026-11-03.json">2026-11-03 — fichier JSON</a></li>
+      <li><a href="2026-11-02.json">2026-11-02 — fichier JSON</a></li>
+      <li><a href="2026-11-01.json">2026-11-01 — fichier JSON</a></li>
+      <li><a href="2026-10-31.json">2026-10-31 — fichier JSON</a></li>
+      <li><a href="2026-10-30.json">2026-10-30 — fichier JSON</a></li>
+      <li><a href="2026-10-29.json">2026-10-29 — fichier JSON</a></li>
+      <li><a href="2026-10-28.json">2026-10-28 — fichier JSON</a></li>
+      <li><a href="2026-10-27.json">2026-10-27 — fichier JSON</a></li>
+      <li><a href="2026-10-26.json">2026-10-26 — fichier JSON</a></li>
+      <li><a href="2026-10-25.json">2026-10-25 — fichier JSON</a></li>
+      <li><a href="2026-10-24.json">2026-10-24 — fichier JSON</a></li>
+      <li><a href="2026-10-23.json">2026-10-23 — fichier JSON</a></li>
+      <li><a href="2026-10-22.json">2026-10-22 — fichier JSON</a></li>
+      <li><a href="2026-10-21.json">2026-10-21 — fichier JSON</a></li>
+      <li><a href="2026-10-20.json">2026-10-20 — fichier JSON</a></li>
+      <li><a href="2026-10-19.json">2026-10-19 — fichier JSON</a></li>
+      <li><a href="2026-10-18.json">2026-10-18 — fichier JSON</a></li>
+      <li><a href="2026-10-17.json">2026-10-17 — fichier JSON</a></li>
+      <li><a href="2026-10-16.json">2026-10-16 — fichier JSON</a></li>
+      <li><a href="2026-10-15.json">2026-10-15 — fichier JSON</a></li>
+      <li><a href="2026-10-14.json">2026-10-14 — fichier JSON</a></li>
+      <li><a href="2026-10-13.json">2026-10-13 — fichier JSON</a></li>
+      <li><a href="2026-10-12.json">2026-10-12 — fichier JSON</a></li>
+      <li><a href="2026-10-11.json">2026-10-11 — fichier JSON</a></li>
+      <li><a href="2026-10-10.json">2026-10-10 — fichier JSON</a></li>
+      <li><a href="2026-10-09.json">2026-10-09 — fichier JSON</a></li>
+      <li><a href="2026-10-08.json">2026-10-08 — fichier JSON</a></li>
+      <li><a href="2026-10-07.json">2026-10-07 — fichier JSON</a></li>
+      <li><a href="2026-10-06.json">2026-10-06 — fichier JSON</a></li>
+      <li><a href="2026-10-05.json">2026-10-05 — fichier JSON</a></li>
+      <li><a href="2026-10-04.json">2026-10-04 — fichier JSON</a></li>
+      <li><a href="2026-10-03.json">2026-10-03 — fichier JSON</a></li>
+      <li><a href="2026-10-02.json">2026-10-02 — fichier JSON</a></li>
+      <li><a href="2026-10-01.json">2026-10-01 — fichier JSON</a></li>
+      <li><a href="2026-09-30.json">2026-09-30 — fichier JSON</a></li>
+      <li><a href="2026-09-29.json">2026-09-29 — fichier JSON</a></li>
+      <li><a href="2026-09-28.json">2026-09-28 — fichier JSON</a></li>
+      <li><a href="2026-09-27.json">2026-09-27 — fichier JSON</a></li>
+      <li><a href="2026-09-26.json">2026-09-26 — fichier JSON</a></li>
+      <li><a href="2026-09-25.json">2026-09-25 — fichier JSON</a></li>
+      <li><a href="2026-09-24.json">2026-09-24 — fichier JSON</a></li>
+      <li><a href="2026-09-23.json">2026-09-23 — fichier JSON</a></li>
+      <li><a href="2026-09-22.json">2026-09-22 — fichier JSON</a></li>
+      <li><a href="2026-09-21.json">2026-09-21 — fichier JSON</a></li>
+      <li><a href="2026-09-20.json">2026-09-20 — fichier JSON</a></li>
+      <li><a href="2026-09-19.json">2026-09-19 — fichier JSON</a></li>
+      <li><a href="2026-09-18.json">2026-09-18 — fichier JSON</a></li>
+      <li><a href="2026-09-17.json">2026-09-17 — fichier JSON</a></li>
+      <li><a href="2026-09-16.json">2026-09-16 — fichier JSON</a></li>
+      <li><a href="2026-09-15.json">2026-09-15 — fichier JSON</a></li>
+      <li><a href="2026-09-14.json">2026-09-14 — fichier JSON</a></li>
+      <li><a href="2026-09-13.json">2026-09-13 — fichier JSON</a></li>
+      <li><a href="2026-09-12.json">2026-09-12 — fichier JSON</a></li>
+      <li><a href="2026-09-11.json">2026-09-11 — fichier JSON</a></li>
+      <li><a href="2026-09-10.json">2026-09-10 — fichier JSON</a></li>
+      <li><a href="2026-09-09.json">2026-09-09 — fichier JSON</a></li>
+      <li><a href="2026-09-08.json">2026-09-08 — fichier JSON</a></li>
+      <li><a href="2026-09-07.json">2026-09-07 — fichier JSON</a></li>
+      <li><a href="2026-09-06.json">2026-09-06 — fichier JSON</a></li>
+      <li><a href="2026-09-05.json">2026-09-05 — fichier JSON</a></li>
+      <li><a href="2026-09-04.json">2026-09-04 — fichier JSON</a></li>
+      <li><a href="2026-09-03.json">2026-09-03 — fichier JSON</a></li>
+      <li><a href="2026-09-02.json">2026-09-02 — fichier JSON</a></li>
+      <li><a href="2026-09-01.json">2026-09-01 — fichier JSON</a></li>
+      <li><a href="2026-08-31.json">2026-08-31 — fichier JSON</a></li>
+      <li><a href="2026-08-30.json">2026-08-30 — fichier JSON</a></li>
+      <li><a href="2026-08-29.json">2026-08-29 — fichier JSON</a></li>
+      <li><a href="2026-08-28.json">2026-08-28 — fichier JSON</a></li>
+      <li><a href="2026-08-27.json">2026-08-27 — fichier JSON</a></li>
+      <li><a href="2026-08-26.json">2026-08-26 — fichier JSON</a></li>
+      <li><a href="2026-08-25.json">2026-08-25 — fichier JSON</a></li>
+      <li><a href="2026-08-24.json">2026-08-24 — fichier JSON</a></li>
+      <li><a href="2026-08-23.json">2026-08-23 — fichier JSON</a></li>
+      <li><a href="2026-08-22.json">2026-08-22 — fichier JSON</a></li>
+      <li><a href="2026-08-21.json">2026-08-21 — fichier JSON</a></li>
+      <li><a href="2026-08-20.json">2026-08-20 — fichier JSON</a></li>
+      <li><a href="2026-08-19.json">2026-08-19 — fichier JSON</a></li>
+      <li><a href="2026-08-18.json">2026-08-18 — fichier JSON</a></li>
+    </ul>
+  </main>
 </body>
 </html>

@@ -19,23 +19,24 @@ import { localizedPath, type Locale } from '@/lib/i18n'
  * (useLanguage lit le préfixe /en, /ar) ; la prop `locale` permet de la
  * fixer explicitement depuis une page serveur (pattern initialLocale).
  */
-const LABELS: Record<Locale, { join: string; history: string; aria: string }> = {
+const LABELS: Record<'fr' | 'en', { join: string; history: string; aria: string }> = {
   fr: { join: 'Rejoindre le VIP', history: 'Historique VIP', aria: 'Accès VIP' },
   en: { join: 'Join VIP', history: 'VIP History', aria: 'VIP access' },
-  ar: { join: 'انضم إلى VIP', history: 'سجل VIP', aria: 'الوصول إلى VIP' },
 }
 
 export default function VipButtons({ locale }: { locale?: Locale } = {}) {
   const { lang: detected } = useLanguage()
-  const lang = locale ?? detected
-  const labels = LABELS[lang] ?? LABELS.fr
+  const candidate = locale ?? detected
+  const lang: 'fr' | 'en' = candidate === 'fr' ? 'fr' : 'en'
+  const labels = LABELS[lang]
+  const vipLocale = lang
 
   return (
     <div className="flex flex-wrap items-center gap-3 vip-buttons" role="group" aria-label={labels.aria}>
-      <Link href={localizedPath('/vip', lang)} className="btn btn-gold" data-cta="vip-join">
+      <Link href={localizedPath('/vip', vipLocale)} className="btn btn-gold" data-cta="vip-join">
         {labels.join}<span aria-hidden="true">→</span>
       </Link>
-      <Link href={`${localizedPath('/vip', lang)}#historique-vip`} className="btn btn-ghost" data-cta="vip-history">
+      <Link href={`${localizedPath('/vip', vipLocale)}#historique-vip`} className="btn btn-ghost" data-cta="vip-history">
         {labels.history}<span aria-hidden="true">→</span>
       </Link>
     </div>

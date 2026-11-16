@@ -11,7 +11,7 @@ type TeaserCopy = {
   marketsAria: string
 }
 
-const COPY: Record<Locale, TeaserCopy> = {
+const COPY: Record<'fr' | 'en', TeaserCopy> = {
   fr: {
     title: '2 marchés VIP verrouillés',
     markets: ['BTTS avancé', 'Score exact'],
@@ -26,23 +26,18 @@ const COPY: Record<Locale, TeaserCopy> = {
     aria: 'Two VIP markets are locked.',
     marketsAria: 'Two locked VIP market types',
   },
-  ar: {
-    title: 'سوقان من VIP مقفلان',
-    markets: ['BTTS متقدم', 'النتيجة الدقيقة'],
-    unlock: 'افتح VIP',
-    aria: 'سوقان من VIP مقفلان.',
-    marketsAria: 'نوعان من أسواق VIP المقفلة',
-  },
 }
 
 export default function VipMarketTeaser({ locale }: { locale: Locale }) {
-  const copy = COPY[locale]
+  const lang: 'fr' | 'en' = locale === 'fr' ? 'fr' : 'en'
+  const copy = COPY[lang]
+  const vipLocale = lang
 
   return (
     <section
       data-testid="vip-market-teaser"
       aria-label={copy.aria}
-      dir={locale === 'ar' ? 'rtl' : 'ltr'}
+      dir="ltr"
       className="prediction-match-card__vip-teaser mt-3 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-2 rounded-lg border border-[#E8C268]/15 bg-[#E8C268]/[0.035] px-2.5 py-2"
     >
       <div className="min-w-0">
@@ -70,7 +65,7 @@ export default function VipMarketTeaser({ locale }: { locale: Locale }) {
         </div>
       </div>
       <Link
-        href={localizedPath('/vip', locale)}
+        href={localizedPath('/vip', vipLocale)}
         className="shrink-0 rounded-md border border-[#E8C268]/25 px-2 py-1 text-[10px] font-semibold text-[#E8C268] transition-colors hover:bg-[#E8C268]/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8C268]"
       >
         {copy.unlock}
