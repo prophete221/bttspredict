@@ -1506,6 +1506,13 @@
       ],
       "last5Away": [
         {
+          "date": "2026-11-15",
+          "opponent": "Nacional Potosí",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
           "date": "2026-11-12",
           "opponent": "Nacional Potosí",
           "venue": "H",
@@ -1532,13 +1539,6 @@
           "venue": "H",
           "score": "4-2",
           "result": "W"
-        },
-        {
-          "date": "2026-10-03",
-          "opponent": "Aurora",
-          "venue": "H",
-          "score": "1-1",
-          "result": "D"
         }
       ],
       "standingsHome": {
@@ -1594,7 +1594,8 @@
       "bttsProb": 0.65,
       "prediction": "Oui",
       "proba": 0.65,
-      "confidence": 65
+      "confidence": 65,
+      "status": "PENDING"
     },
     {
       "id": "bkhcken-vs-manchest-2026-11-18",
@@ -1754,7 +1755,8 @@
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "abstain",
+      "status": "PENDING"
     },
     {
       "id": "realmadr-vs-internaz-2026-11-18",
@@ -3159,7 +3161,8 @@
       "over25Prob": 0.58,
       "prediction": "Oui",
       "proba": 0.58,
-      "confidence": 58
+      "confidence": 58,
+      "status": "PENDING"
     },
     {
       "id": "benfica-vs-roma-2026-11-19",
@@ -4485,7 +4488,8 @@
       "bttsProb": 0.58,
       "prediction": "Oui",
       "proba": 0.58,
-      "confidence": 58
+      "confidence": 58,
+      "status": "PENDING"
     },
     {
       "id": "arminiab-vs-fcmagdeb-2026-11-20",
@@ -5052,7 +5056,8 @@
       "bttsProb": 0.75,
       "prediction": "Oui",
       "proba": 0.75,
-      "confidence": 75
+      "confidence": 75,
+      "status": "PENDING"
     },
     {
       "id": "catanzar-vs-palermo-2026-11-21",
@@ -5248,7 +5253,8 @@
       "bttsProb": 0.65,
       "prediction": "Oui",
       "proba": 0.65,
-      "confidence": 65
+      "confidence": 65,
+      "status": "PENDING"
     },
     {
       "id": "fcutrech-vs-sccambuu-2026-11-21",
@@ -5443,7 +5449,8 @@
       "over25Prob": 0.72,
       "prediction": "Oui",
       "proba": 0.72,
-      "confidence": 72
+      "confidence": 72,
+      "status": "PENDING"
     },
     {
       "id": "telstar-vs-peczwoll-2026-11-21",
@@ -5631,7 +5638,8 @@
       "bttsProb": 0.7,
       "prediction": "Oui",
       "proba": 0.7,
-      "confidence": 70
+      "confidence": 70,
+      "status": "PENDING"
     },
     {
       "id": "dundee-vs-heartofm-2026-11-21",
@@ -5826,7 +5834,8 @@
       "over25Prob": 0.75,
       "prediction": "Oui",
       "proba": 0.75,
-      "confidence": 75
+      "confidence": 75,
+      "status": "PENDING"
     },
     {
       "id": "guila-vs-cdplaten-2026-11-21",
@@ -6014,7 +6023,8 @@
       "bttsProb": 0.72,
       "prediction": "Oui",
       "proba": 0.72,
-      "confidence": 72
+      "confidence": 72,
+      "status": "PENDING"
     },
     {
       "id": "atletico-vs-luisngel-2026-11-21",
@@ -6202,7 +6212,8 @@
       "bttsProb": 0.7,
       "prediction": "Oui",
       "proba": 0.7,
-      "confidence": 70
+      "confidence": 70,
+      "status": "PENDING"
     },
     {
       "id": "newportc-vs-swindont-2026-11-21",
@@ -6380,6 +6391,532 @@
         "Swindon Town a une moyenne de buts à l'extérieur plus limitée (1.0) sur l'échantillon fourni."
       ],
       "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 72,
+          "proba": 0.72,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.72
+        }
+      ],
+      "bttsProb": 0.72,
+      "prediction": "Oui",
+      "proba": 0.72,
+      "confidence": 72,
+      "status": "PENDING"
+    },
+    {
+      "id": "bkhcken-vs-manchest-2026-11-18",
+      "match": "BK Häcken vs Manchester City",
+      "home": "BK Häcken",
+      "away": "Manchester City",
+      "league": "UEFA Women's Champions League",
+      "date": "2026-11-18",
+      "type": "BTTS",
+      "time": "17:45",
+      "matchSemantic": "bkhcken-vs-manchest-2026-11-18",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21124.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/19257.png",
+      "tier": "SILVER",
+      "reliabilityScore": 74.59,
+      "dataQuality": "MEDIUM",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 4,
+      "matchCountAway": 4,
+      "h2hAvailable": false,
+      "xgHome": 0,
+      "xgAway": 3,
+      "xgTotal": 3,
+      "formBTTS": 63,
+      "analysis": "BK Häcken : forme N-N-D-D (0V 2N 2D, 1 buts marqués / 5 encaissés sur 5) · Manchester City : forme V-N-N-N (1V 3N 0D, 8 buts marqués / 5 encaissés sur 5). Classement : BK Häcken 15e (2 pts), Manchester City 6e (6 pts). Stats empiriques (forme récente) : buts moy. 3, BTTS 62.5%, Over 2.5 37.5%. Affinage AI ensuite. Fiabilité 74.59%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.625,
+        "empiricalOver25Rate": 0.375,
+        "homeLambda": 0,
+        "awayLambda": 3,
+        "xgTotal": 3
+      },
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "N-N-D-D",
+        "wins": 0,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 1,
+        "goalsAgainst": 5,
+        "bttsRate": 0.25,
+        "over25Rate": 0.25,
+        "cleanSheets": 1,
+        "failedToScore": 3,
+        "count": 4
+      },
+      "formAway": {
+        "last5String": "V-N-N-N",
+        "wins": 1,
+        "draws": 3,
+        "losses": 0,
+        "goalsFor": 8,
+        "goalsAgainst": 5,
+        "bttsRate": 1,
+        "over25Rate": 0.5,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 4
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-10",
+          "opponent": "Chelsea",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-29",
+          "opponent": "Paris FC",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-30",
+          "opponent": "Juventus",
+          "venue": "H",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-22",
+          "opponent": "Internazionale",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-10",
+          "opponent": "Internazionale",
+          "venue": "A",
+          "score": "4-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-29",
+          "opponent": "Paris Saint-Germain",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-01",
+          "opponent": "Real Madrid",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-22",
+          "opponent": "Bayern Munich",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 15,
+        "points": 2,
+        "played": 4,
+        "gf": 1,
+        "ga": 5
+      },
+      "standingsAway": {
+        "rank": 6,
+        "points": 6,
+        "played": 4,
+        "gf": 8,
+        "ga": 5
+      },
+      "empiricalBttsRate": 0.625,
+      "empiricalOver25Rate": 0.375,
+      "homeLambda": 0,
+      "awayLambda": 3,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Manchester City affiche un taux BTTS de 100% lors de ses 4 derniers matchs.",
+      "ai_analysis": "Pour cette affiche de Ligue des Champions féminine, le taux empirique BTTS s'établit à 62.5% avec un indicateur formBTTS de 63. Bien que BK Häcken montre des stats offensives faibles sur l'échantillon, la dynamique de Manchester City (100% BTTS, 8 buts marqués et 5 encaissés) soutient l'option que les deux équipes marquent.",
+      "ai_analysis_en": "For this UEFA Women's Champions League fixture, the empirical BTTS rate sits at 62.5% with a formBTTS indicator of 63. Although BK Häcken shows low scoring stats in the sample, Manchester City's recent dynamic (100% BTTS, 8 goals for and 5 against) supports the selection for both teams to score.",
+      "ai_form_summary": "BK Häcken : 0V-2N-2D, 1 but pour, 5 contre. Manchester City : 1V-3N-0D, 8 buts pour, 5 contre.",
+      "ai_form_summary_en": "BK Häcken: 0W-2D-2L, 1 goal for, 5 against. Manchester City: 1W-3D-0L, 8 goals for, 5 against.",
+      "ai_reasons": [
+        "Taux empirique BTTS observé à 62.5%",
+        "Indice formBTTS évalué à 63",
+        "Manchester City affiche un taux BTTS de 100% sur sa période récente"
+      ],
+      "ai_risks": [
+        "BK Häcken affiche une moyenne de 0 but marqué sur ses données récentes",
+        "Taux Over 2.5 relativement bas à 37.5%"
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 60,
+          "proba": 0.6,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.6
+        }
+      ],
+      "bttsProb": 0.6,
+      "prediction": "Oui",
+      "proba": 0.6,
+      "confidence": 60,
+      "status": "PENDING"
+    },
+    {
+      "id": "arsenal-vs-ollyonne-2026-11-19",
+      "match": "Arsenal vs OL Lyonnes",
+      "home": "Arsenal",
+      "away": "OL Lyonnes",
+      "league": "UEFA Women's Champions League",
+      "date": "2026-11-19",
+      "type": "BTTS",
+      "time": "20:00",
+      "matchSemantic": "arsenal-vs-ollyonne-2026-11-19",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/19973.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/19256.png",
+      "tier": "SILVER",
+      "reliabilityScore": 60.69,
+      "dataQuality": "MEDIUM",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 4,
+      "matchCountAway": 4,
+      "h2hAvailable": false,
+      "xgHome": 2,
+      "xgAway": 7,
+      "xgTotal": 9,
+      "formBTTS": 25,
+      "analysis": "Arsenal : forme N-V-N-V (2V 2N 0D, 7 buts marqués / 3 encaissés sur 5) · OL Lyonnes : forme V-V-N-V (3V 1N 0D, 20 buts marqués / 0 encaissés sur 5). Classement : Arsenal 4e (8 pts), OL Lyonnes 1e (10 pts). Stats empiriques (forme récente) : buts moy. 9, BTTS 25.0%, Over 2.5 62.5%. Affinage AI ensuite. Fiabilité 60.69%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.25,
+        "empiricalOver25Rate": 0.625,
+        "homeLambda": 2,
+        "awayLambda": 7,
+        "xgTotal": 9
+      },
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "N-V-N-V",
+        "wins": 2,
+        "draws": 2,
+        "losses": 0,
+        "goalsFor": 7,
+        "goalsAgainst": 3,
+        "bttsRate": 0.5,
+        "over25Rate": 0.5,
+        "cleanSheets": 2,
+        "failedToScore": 0,
+        "count": 4
+      },
+      "formAway": {
+        "last5String": "V-V-N-V",
+        "wins": 3,
+        "draws": 1,
+        "losses": 0,
+        "goalsFor": 20,
+        "goalsAgainst": 0,
+        "bttsRate": 0,
+        "over25Rate": 0.75,
+        "cleanSheets": 4,
+        "failedToScore": 1,
+        "count": 4
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-12",
+          "opponent": "Barcelona",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-28",
+          "opponent": "Benfica",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-30",
+          "opponent": "Paris FC",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-22",
+          "opponent": "HB Køge",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-11",
+          "opponent": "Juventus",
+          "venue": "A",
+          "score": "6-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-28",
+          "opponent": "Internazionale",
+          "venue": "H",
+          "score": "6-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-30",
+          "opponent": "Chelsea",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-23",
+          "opponent": "Servette",
+          "venue": "A",
+          "score": "8-0",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 4,
+        "points": 8,
+        "played": 4,
+        "gf": 7,
+        "ga": 3
+      },
+      "standingsAway": {
+        "rank": 1,
+        "points": 10,
+        "played": 4,
+        "gf": 20,
+        "ga": null
+      },
+      "empiricalBttsRate": 0.25,
+      "empiricalOver25Rate": 0.625,
+      "homeLambda": 2,
+      "awayLambda": 7,
+      "statsOnly": true,
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "OL Lyonnes a inscrit 20 buts sans en encaisser le moindre lors de ses 4 derniers matchs.",
+      "ai_analysis": "Malgré un taux d'Over 2.5 correct à 62.5%, le marché du BTTS est fortement compromis par la défense imperméable de l'OL Lyonnes (0 but encaissé et 0% de BTTS). L'absence de garanties d'un match ouvert des deux côtés nous pousse à l'abstention.",
+      "ai_analysis_en": "Despite a decent Over 2.5 rate at 62.5%, the BTTS market is heavily compromised by OL Lyonnes' watertight defense (0 goals conceded and 0% BTTS). The lack of guarantees for an open game from both sides leads us to abstain.",
+      "ai_form_summary": "Arsenal : 2V-2D-0L, 7 buts pour, 3 contre, 50% BTTS. OL Lyonnes : 3V-1D-0L, 20 buts pour, 0 contre, 0% BTTS.",
+      "ai_form_summary_en": "Arsenal: 2W-2D-0L, 7 GF, 3 GA, 50% BTTS. OL Lyonnes: 3W-1D-0L, 20 GF, 0 GA, 0% BTTS.",
+      "ai_reasons": [
+        "OL Lyonnes présente un taux BTTS de 0% sur ses 4 derniers matchs avec 20 buts marqués et 0 encaissé.",
+        "Taux BTTS empirique faible à 25% pour cette affiche."
+      ],
+      "ai_risks": [
+        "La solidité extrême de Lyon (0 but encaissé) contredit totalement une sélection BTTS Yes."
+      ],
+      "ai_confidence": "low",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "abstain",
+      "status": "PENDING"
+    },
+    {
+      "id": "asmonaco-vs-ajauxerr-2026-11-21",
+      "match": "AS Monaco vs AJ Auxerre",
+      "home": "AS Monaco",
+      "away": "AJ Auxerre",
+      "league": "Ligue 1",
+      "date": "2026-11-21",
+      "type": "BTTS",
+      "time": "19:45",
+      "matchSemantic": "asmonaco-vs-ajauxerr-2026-11-21",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/174.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/172.png",
+      "tier": "GOLD",
+      "reliabilityScore": 91.25,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.67,
+      "xgAway": 1.5,
+      "xgTotal": 3.17,
+      "formBTTS": 80,
+      "analysis": "AS Monaco : forme N-D-N-D-N (0V 3N 2D, 5 buts marqués / 8 encaissés sur 5) · AJ Auxerre : forme D-D-N-V-D (1V 1N 3D, 6 buts marqués / 12 encaissés sur 5). Classement : AS Monaco 7e (16 pts), AJ Auxerre 14e (10 pts). Stats empiriques (forme récente) : buts moy. 3.17, BTTS 80.0%, Over 2.5 50.0%. Affinage AI ensuite. Fiabilité 91.25%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.8,
+        "empiricalOver25Rate": 0.5,
+        "homeLambda": 1.67,
+        "awayLambda": 1.5,
+        "xgTotal": 3.17
+      },
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "N-D-N-D-N",
+        "wins": 0,
+        "draws": 3,
+        "losses": 2,
+        "goalsFor": 5,
+        "goalsAgainst": 8,
+        "bttsRate": 0.8,
+        "over25Rate": 0.4,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-D-N-V-D",
+        "wins": 1,
+        "draws": 1,
+        "losses": 3,
+        "goalsFor": 6,
+        "goalsAgainst": 12,
+        "bttsRate": 0.8,
+        "over25Rate": 0.6,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-08",
+          "opponent": "Le Mans",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Paris FC",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Lille",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Lorient",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Toulouse",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-07",
+          "opponent": "Paris FC",
+          "venue": "H",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Strasbourg",
+          "venue": "A",
+          "score": "1-5",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Le Mans",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Le Havre AC",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Stade Rennais",
+          "venue": "A",
+          "score": "1-4",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 7,
+        "points": 16,
+        "played": 10,
+        "gf": 13,
+        "ga": 11
+      },
+      "standingsAway": {
+        "rank": 14,
+        "points": 10,
+        "played": 10,
+        "gf": 13,
+        "ga": 24
+      },
+      "empiricalBttsRate": 0.8,
+      "empiricalOver25Rate": 0.5,
+      "homeLambda": 1.67,
+      "awayLambda": 1.5,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "AS Monaco et AJ Auxerre affichent toutes deux un taux de BTTS de 80% sur leurs 5 derniers matchs.",
+      "ai_analysis": "Malgré des difficultés de forme pour Monaco et une position délicate pour Auxerre, les indicateurs de buts croisés soutiennent l'option BTTS. Les deux formations affichent un taux de 80% de matchs avec des buts des deux côtés sur leurs cinq dernières sorties. La fragilité défensive d'Auxerre (24 buts encaissés en 10 matchs) couplée aux statistiques empiriques rend cette option cohérente.",
+      "ai_analysis_en": "Despite recent form struggles for Monaco and a delicate position for Auxerre, the crossed goal indicators support the BTTS option. Both sides show an 80% rate of matches with goals from both teams over their last five outings. Auxerre's defensive frailty (24 goals conceded in 10 matches) combined with empirical statistics makes this option coherent.",
+      "ai_form_summary": "AS Monaco : 0V-3N-2D (5 BP, 8 BC, BTTS 80%). AJ Auxerre : 1V-1N-3D (6 BP, 12 BC, BTTS 80%).",
+      "ai_form_summary_en": "AS Monaco: 0W-3D-2L (5 GF, 8 GA, BTTS 80%). AJ Auxerre: 1W-1D-3L (6 GF, 12 GA, BTTS 80%).",
+      "ai_reasons": [
+        "Taux empirique BTTS élevé fixé à 80% pour cette rencontre.",
+        "Les deux équipes affichent un taux de 80% de BTTS sur leurs 5 derniers matchs respectifs.",
+        "Auxerre présente une défense en difficulté avec 24 buts encaissés en 10 matchs, favorisant les buts adverses."
+      ],
+      "ai_risks": [
+        "Monaco a un taux Over 2.5 plus faible (40%), ce qui indique des matchs parfois fermés.",
+        "La forme récente de Monaco montre des difficultés à s'imposer (0 victoire en 5 matchs)."
+      ],
+      "ai_confidence": "medium",
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
@@ -9904,6 +10441,13 @@
       ],
       "last5Away": [
         {
+          "date": "2026-11-15",
+          "opponent": "Nacional Potosí",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
           "date": "2026-11-12",
           "opponent": "Nacional Potosí",
           "venue": "H",
@@ -9930,13 +10474,6 @@
           "venue": "H",
           "score": "4-2",
           "result": "W"
-        },
-        {
-          "date": "2026-10-03",
-          "opponent": "Aurora",
-          "venue": "H",
-          "score": "1-1",
-          "result": "D"
         }
       ],
       "standingsHome": {
@@ -14789,6 +15326,532 @@
         "Swindon Town a une moyenne de buts à l'extérieur plus limitée (1.0) sur l'échantillon fourni."
       ],
       "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 72,
+          "proba": 0.72,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.72
+        }
+      ],
+      "bttsProb": 0.72,
+      "prediction": "Oui",
+      "proba": 0.72,
+      "confidence": 72,
+      "status": "PENDING"
+    },
+    {
+      "id": "bkhcken-vs-manchest-2026-11-18",
+      "match": "BK Häcken vs Manchester City",
+      "home": "BK Häcken",
+      "away": "Manchester City",
+      "league": "UEFA Women's Champions League",
+      "date": "2026-11-18",
+      "type": "BTTS",
+      "time": "17:45",
+      "matchSemantic": "bkhcken-vs-manchest-2026-11-18",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21124.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/19257.png",
+      "tier": "SILVER",
+      "reliabilityScore": 74.59,
+      "dataQuality": "MEDIUM",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 4,
+      "matchCountAway": 4,
+      "h2hAvailable": false,
+      "xgHome": 0,
+      "xgAway": 3,
+      "xgTotal": 3,
+      "formBTTS": 63,
+      "analysis": "BK Häcken : forme N-N-D-D (0V 2N 2D, 1 buts marqués / 5 encaissés sur 5) · Manchester City : forme V-N-N-N (1V 3N 0D, 8 buts marqués / 5 encaissés sur 5). Classement : BK Häcken 15e (2 pts), Manchester City 6e (6 pts). Stats empiriques (forme récente) : buts moy. 3, BTTS 62.5%, Over 2.5 37.5%. Affinage AI ensuite. Fiabilité 74.59%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.625,
+        "empiricalOver25Rate": 0.375,
+        "homeLambda": 0,
+        "awayLambda": 3,
+        "xgTotal": 3
+      },
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "N-N-D-D",
+        "wins": 0,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 1,
+        "goalsAgainst": 5,
+        "bttsRate": 0.25,
+        "over25Rate": 0.25,
+        "cleanSheets": 1,
+        "failedToScore": 3,
+        "count": 4
+      },
+      "formAway": {
+        "last5String": "V-N-N-N",
+        "wins": 1,
+        "draws": 3,
+        "losses": 0,
+        "goalsFor": 8,
+        "goalsAgainst": 5,
+        "bttsRate": 1,
+        "over25Rate": 0.5,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 4
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-10",
+          "opponent": "Chelsea",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-29",
+          "opponent": "Paris FC",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-30",
+          "opponent": "Juventus",
+          "venue": "H",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-22",
+          "opponent": "Internazionale",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-10",
+          "opponent": "Internazionale",
+          "venue": "A",
+          "score": "4-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-29",
+          "opponent": "Paris Saint-Germain",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-01",
+          "opponent": "Real Madrid",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-22",
+          "opponent": "Bayern Munich",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 15,
+        "points": 2,
+        "played": 4,
+        "gf": 1,
+        "ga": 5
+      },
+      "standingsAway": {
+        "rank": 6,
+        "points": 6,
+        "played": 4,
+        "gf": 8,
+        "ga": 5
+      },
+      "empiricalBttsRate": 0.625,
+      "empiricalOver25Rate": 0.375,
+      "homeLambda": 0,
+      "awayLambda": 3,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Manchester City affiche un taux BTTS de 100% lors de ses 4 derniers matchs.",
+      "ai_analysis": "Pour cette affiche de Ligue des Champions féminine, le taux empirique BTTS s'établit à 62.5% avec un indicateur formBTTS de 63. Bien que BK Häcken montre des stats offensives faibles sur l'échantillon, la dynamique de Manchester City (100% BTTS, 8 buts marqués et 5 encaissés) soutient l'option que les deux équipes marquent.",
+      "ai_analysis_en": "For this UEFA Women's Champions League fixture, the empirical BTTS rate sits at 62.5% with a formBTTS indicator of 63. Although BK Häcken shows low scoring stats in the sample, Manchester City's recent dynamic (100% BTTS, 8 goals for and 5 against) supports the selection for both teams to score.",
+      "ai_form_summary": "BK Häcken : 0V-2N-2D, 1 but pour, 5 contre. Manchester City : 1V-3N-0D, 8 buts pour, 5 contre.",
+      "ai_form_summary_en": "BK Häcken: 0W-2D-2L, 1 goal for, 5 against. Manchester City: 1W-3D-0L, 8 goals for, 5 against.",
+      "ai_reasons": [
+        "Taux empirique BTTS observé à 62.5%",
+        "Indice formBTTS évalué à 63",
+        "Manchester City affiche un taux BTTS de 100% sur sa période récente"
+      ],
+      "ai_risks": [
+        "BK Häcken affiche une moyenne de 0 but marqué sur ses données récentes",
+        "Taux Over 2.5 relativement bas à 37.5%"
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 60,
+          "proba": 0.6,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.6
+        }
+      ],
+      "bttsProb": 0.6,
+      "prediction": "Oui",
+      "proba": 0.6,
+      "confidence": 60,
+      "status": "PENDING"
+    },
+    {
+      "id": "arsenal-vs-ollyonne-2026-11-19",
+      "match": "Arsenal vs OL Lyonnes",
+      "home": "Arsenal",
+      "away": "OL Lyonnes",
+      "league": "UEFA Women's Champions League",
+      "date": "2026-11-19",
+      "type": "BTTS",
+      "time": "20:00",
+      "matchSemantic": "arsenal-vs-ollyonne-2026-11-19",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/19973.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/19256.png",
+      "tier": "SILVER",
+      "reliabilityScore": 60.69,
+      "dataQuality": "MEDIUM",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 4,
+      "matchCountAway": 4,
+      "h2hAvailable": false,
+      "xgHome": 2,
+      "xgAway": 7,
+      "xgTotal": 9,
+      "formBTTS": 25,
+      "analysis": "Arsenal : forme N-V-N-V (2V 2N 0D, 7 buts marqués / 3 encaissés sur 5) · OL Lyonnes : forme V-V-N-V (3V 1N 0D, 20 buts marqués / 0 encaissés sur 5). Classement : Arsenal 4e (8 pts), OL Lyonnes 1e (10 pts). Stats empiriques (forme récente) : buts moy. 9, BTTS 25.0%, Over 2.5 62.5%. Affinage AI ensuite. Fiabilité 60.69%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.25,
+        "empiricalOver25Rate": 0.625,
+        "homeLambda": 2,
+        "awayLambda": 7,
+        "xgTotal": 9
+      },
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "N-V-N-V",
+        "wins": 2,
+        "draws": 2,
+        "losses": 0,
+        "goalsFor": 7,
+        "goalsAgainst": 3,
+        "bttsRate": 0.5,
+        "over25Rate": 0.5,
+        "cleanSheets": 2,
+        "failedToScore": 0,
+        "count": 4
+      },
+      "formAway": {
+        "last5String": "V-V-N-V",
+        "wins": 3,
+        "draws": 1,
+        "losses": 0,
+        "goalsFor": 20,
+        "goalsAgainst": 0,
+        "bttsRate": 0,
+        "over25Rate": 0.75,
+        "cleanSheets": 4,
+        "failedToScore": 1,
+        "count": 4
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-12",
+          "opponent": "Barcelona",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-28",
+          "opponent": "Benfica",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-30",
+          "opponent": "Paris FC",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-22",
+          "opponent": "HB Køge",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-11",
+          "opponent": "Juventus",
+          "venue": "A",
+          "score": "6-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-28",
+          "opponent": "Internazionale",
+          "venue": "H",
+          "score": "6-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-30",
+          "opponent": "Chelsea",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-23",
+          "opponent": "Servette",
+          "venue": "A",
+          "score": "8-0",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 4,
+        "points": 8,
+        "played": 4,
+        "gf": 7,
+        "ga": 3
+      },
+      "standingsAway": {
+        "rank": 1,
+        "points": 10,
+        "played": 4,
+        "gf": 20,
+        "ga": null
+      },
+      "empiricalBttsRate": 0.25,
+      "empiricalOver25Rate": 0.625,
+      "homeLambda": 2,
+      "awayLambda": 7,
+      "statsOnly": true,
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "OL Lyonnes a inscrit 20 buts sans en encaisser le moindre lors de ses 4 derniers matchs.",
+      "ai_analysis": "Malgré un taux d'Over 2.5 correct à 62.5%, le marché du BTTS est fortement compromis par la défense imperméable de l'OL Lyonnes (0 but encaissé et 0% de BTTS). L'absence de garanties d'un match ouvert des deux côtés nous pousse à l'abstention.",
+      "ai_analysis_en": "Despite a decent Over 2.5 rate at 62.5%, the BTTS market is heavily compromised by OL Lyonnes' watertight defense (0 goals conceded and 0% BTTS). The lack of guarantees for an open game from both sides leads us to abstain.",
+      "ai_form_summary": "Arsenal : 2V-2D-0L, 7 buts pour, 3 contre, 50% BTTS. OL Lyonnes : 3V-1D-0L, 20 buts pour, 0 contre, 0% BTTS.",
+      "ai_form_summary_en": "Arsenal: 2W-2D-0L, 7 GF, 3 GA, 50% BTTS. OL Lyonnes: 3W-1D-0L, 20 GF, 0 GA, 0% BTTS.",
+      "ai_reasons": [
+        "OL Lyonnes présente un taux BTTS de 0% sur ses 4 derniers matchs avec 20 buts marqués et 0 encaissé.",
+        "Taux BTTS empirique faible à 25% pour cette affiche."
+      ],
+      "ai_risks": [
+        "La solidité extrême de Lyon (0 but encaissé) contredit totalement une sélection BTTS Yes."
+      ],
+      "ai_confidence": "low",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "abstain",
+      "status": "PENDING"
+    },
+    {
+      "id": "asmonaco-vs-ajauxerr-2026-11-21",
+      "match": "AS Monaco vs AJ Auxerre",
+      "home": "AS Monaco",
+      "away": "AJ Auxerre",
+      "league": "Ligue 1",
+      "date": "2026-11-21",
+      "type": "BTTS",
+      "time": "19:45",
+      "matchSemantic": "asmonaco-vs-ajauxerr-2026-11-21",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/174.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/172.png",
+      "tier": "GOLD",
+      "reliabilityScore": 91.25,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.67,
+      "xgAway": 1.5,
+      "xgTotal": 3.17,
+      "formBTTS": 80,
+      "analysis": "AS Monaco : forme N-D-N-D-N (0V 3N 2D, 5 buts marqués / 8 encaissés sur 5) · AJ Auxerre : forme D-D-N-V-D (1V 1N 3D, 6 buts marqués / 12 encaissés sur 5). Classement : AS Monaco 7e (16 pts), AJ Auxerre 14e (10 pts). Stats empiriques (forme récente) : buts moy. 3.17, BTTS 80.0%, Over 2.5 50.0%. Affinage AI ensuite. Fiabilité 91.25%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.8,
+        "empiricalOver25Rate": 0.5,
+        "homeLambda": 1.67,
+        "awayLambda": 1.5,
+        "xgTotal": 3.17
+      },
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "N-D-N-D-N",
+        "wins": 0,
+        "draws": 3,
+        "losses": 2,
+        "goalsFor": 5,
+        "goalsAgainst": 8,
+        "bttsRate": 0.8,
+        "over25Rate": 0.4,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-D-N-V-D",
+        "wins": 1,
+        "draws": 1,
+        "losses": 3,
+        "goalsFor": 6,
+        "goalsAgainst": 12,
+        "bttsRate": 0.8,
+        "over25Rate": 0.6,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-08",
+          "opponent": "Le Mans",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Paris FC",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Lille",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Lorient",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Toulouse",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-07",
+          "opponent": "Paris FC",
+          "venue": "H",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Strasbourg",
+          "venue": "A",
+          "score": "1-5",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Le Mans",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Le Havre AC",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Stade Rennais",
+          "venue": "A",
+          "score": "1-4",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 7,
+        "points": 16,
+        "played": 10,
+        "gf": 13,
+        "ga": 11
+      },
+      "standingsAway": {
+        "rank": 14,
+        "points": 10,
+        "played": 10,
+        "gf": 13,
+        "ga": 24
+      },
+      "empiricalBttsRate": 0.8,
+      "empiricalOver25Rate": 0.5,
+      "homeLambda": 1.67,
+      "awayLambda": 1.5,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "AS Monaco et AJ Auxerre affichent toutes deux un taux de BTTS de 80% sur leurs 5 derniers matchs.",
+      "ai_analysis": "Malgré des difficultés de forme pour Monaco et une position délicate pour Auxerre, les indicateurs de buts croisés soutiennent l'option BTTS. Les deux formations affichent un taux de 80% de matchs avec des buts des deux côtés sur leurs cinq dernières sorties. La fragilité défensive d'Auxerre (24 buts encaissés en 10 matchs) couplée aux statistiques empiriques rend cette option cohérente.",
+      "ai_analysis_en": "Despite recent form struggles for Monaco and a delicate position for Auxerre, the crossed goal indicators support the BTTS option. Both sides show an 80% rate of matches with goals from both teams over their last five outings. Auxerre's defensive frailty (24 goals conceded in 10 matches) combined with empirical statistics makes this option coherent.",
+      "ai_form_summary": "AS Monaco : 0V-3N-2D (5 BP, 8 BC, BTTS 80%). AJ Auxerre : 1V-1N-3D (6 BP, 12 BC, BTTS 80%).",
+      "ai_form_summary_en": "AS Monaco: 0W-3D-2L (5 GF, 8 GA, BTTS 80%). AJ Auxerre: 1W-1D-3L (6 GF, 12 GA, BTTS 80%).",
+      "ai_reasons": [
+        "Taux empirique BTTS élevé fixé à 80% pour cette rencontre.",
+        "Les deux équipes affichent un taux de 80% de BTTS sur leurs 5 derniers matchs respectifs.",
+        "Auxerre présente une défense en difficulté avec 24 buts encaissés en 10 matchs, favorisant les buts adverses."
+      ],
+      "ai_risks": [
+        "Monaco a un taux Over 2.5 plus faible (40%), ce qui indique des matchs parfois fermés.",
+        "La forme récente de Monaco montre des difficultés à s'imposer (0 victoire en 5 matchs)."
+      ],
+      "ai_confidence": "medium",
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
