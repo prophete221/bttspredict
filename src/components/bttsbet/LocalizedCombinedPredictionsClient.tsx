@@ -8,33 +8,33 @@ import VipButtons from './VipButtons'
 export default function LocalizedCombinedPredictionsClient() {
   const { lang } = useLanguage()
   const c = lang === 'fr' ? {
-    badge: 'BTTS + Over 2.5 · Combiné',
+    badge: 'BTTS + Over 2.5 · Pronostics',
     title: 'Prédictions BTTS et Over 2.5 du jour',
-    intro: 'Seuls les matchs avec un pick public validé sur BTTS et un autre sur Over 2.5 sont affichés. Un match avec un seul des deux picks reste exclu.',
-    update: 'Aucun pronostic n’est calculé localement pour compléter un marché manquant. Aucun résultat futur n’est garanti. 18+.',
+    intro: 'Les matchs à venir avec un pick validé sur BTTS ou Over 2.5 sont affichés. Chaque sélection reste liée à son marché.',
+    update: 'Seules les sélections validées sont affichées. Aucun résultat futur n’est garanti. 18+.',
     what: 'Qu’est-ce que BTTS + Over 2.5 ?',
     btts: 'BTTS signifie que les deux équipes marquent au moins un but. Over 2.5 signifie au moins trois buts au total.',
-    why: 'La page exige deux sélections distinctes et validées. Elle n’infère pas localement le marché manquant.',
+    why: 'Un match peut apparaître dès qu’un pick est validé sur l’un des marchés. Aucun pick n’est ajouté pour un marché sans sélection disponible.',
     links: 'Liens rapides',
     methodology: 'Voir la méthodologie →',
   } : lang === 'en' ? {
-    badge: 'BTTS + Over 2.5 · Combined',
+    badge: 'BTTS + Over 2.5 · Picks',
     title: 'BTTS and Over 2.5 Predictions Today',
-    intro: 'Only matches with a validated public pick for BTTS and another for Over 2.5 are shown. A match with just one of the two picks is excluded.',
-    update: 'No local prediction is calculated to fill a missing market. No future outcome is guaranteed. 18+.',
+    intro: 'Upcoming matches with a validated pick for BTTS or Over 2.5 are shown. Each selection is listed for its own market.',
+    update: 'Only validated selections are shown. No future outcome is guaranteed. 18+.',
     what: 'What is BTTS + Over 2.5?',
     btts: 'BTTS means both teams score at least one goal. Over 2.5 means at least three total goals.',
-    why: 'This page requires two separate validated selections. It does not infer the missing market locally.',
+    why: 'A match may appear with a pick for either market. No selection is added when a pick is unavailable.',
     links: 'Quick links',
     methodology: 'View methodology →',
   } : {
-    badge: 'BTTS + Over 2.5 · معاً',
+    badge: 'BTTS + Over 2.5 · التوقعات',
     title: 'توقعات BTTS وأكثر من 2.5 اليوم',
-    intro: 'تظهر فقط المباريات التي لديها اختيار عام موثّق لسوق BTTS واختيار آخر لسوق Over 2.5. تُستبعد المباراة إذا توفر اختيار واحد فقط.',
-    update: 'لا نحسب محلياً توقعاً لإكمال سوق مفقود. لا توجد نتيجة مستقبلية مضمونة. 18+.',
+    intro: 'تظهر المباريات القادمة التي لديها اختيار موثّق لسوق BTTS أو Over 2.5. ويُعرض كل اختيار ضمن سوقه فقط.',
+    update: 'تُعرض الاختيارات الموثّقة فقط. لا توجد نتيجة مستقبلية مضمونة. 18+.',
     what: 'ما هو BTTS وأكثر من 2.5؟',
     btts: 'يعني BTTS أن يسجل كلا الفريقين هدفاً واحداً على الأقل. أكثر من 2.5 يعني ثلاثة أهداف على الأقل.',
-    why: 'تتطلب هذه الصفحة اختيارين منفصلين وموثقين، ولا تستنتج محلياً السوق المفقود.',
+    why: 'يمكن أن تظهر المباراة عند توفر اختيار موثّق لأحد السوقين. لا يُضاف اختيار عند عدم توفره.',
     links: 'روابط سريعة',
     methodology: 'عرض المنهجية ←',
   }
@@ -64,7 +64,7 @@ export default function LocalizedCombinedPredictionsClient() {
         </section>
 
         <section className="bp-content-page__feed" aria-label={lang === 'en' ? 'Today’s match predictions' : lang === 'ar' ? 'توقعات مباريات اليوم' : 'Pronostics des matchs'}>
-          <FreePredictions marketFilter="combined" />
+          <FreePredictions marketFilter="all" />
         </section>
 
         <nav className="bp-content-page__links" aria-label={c.links}>
