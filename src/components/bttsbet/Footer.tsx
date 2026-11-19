@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation'
 import { useLanguage } from './LanguageSwitcher'
 import { localizedPath, translationsFor, type Locale } from '@/lib/i18n'
 import { LEGAL, FAQ_ITEMS, HOME_FAQ_ITEMS } from '@/lib/constants'
+import BrandMark from './BrandMark'
 
 /**
  * Footer plateforme — bloc marque (logo + positionnement + liens produit),
@@ -45,7 +46,7 @@ export default function Footer({ initialLocale }: { initialLocale?: Locale } = {
           <div className="hp-footer-brand">
             <div className="hp-footer-brand__id">
               <a href={home} className="flex items-center gap-2.5" aria-label={lang === 'en' ? 'BTTSPredict Match Intelligence — home' : lang === 'ar' ? 'BTTSPredict Match Intelligence — الرئيسية' : 'BTTSPredict Match Intelligence — accueil'}>
-              <img src="/brand/bttspredict-fireball-transparent.png" alt="" width={31} height={31} className="bp-brand-icon rounded" />
+              <BrandMark size={31} />
               <span>
                 <span className="nav-brand-name block text-sm font-bold text-papier tracking-tight">BTTSPredict</span>
                 <span className="nav-brand-sub block">Match Intelligence</span>
