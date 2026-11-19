@@ -11,6 +11,7 @@ import { getGeminiPicks } from '@/lib/gemini-predictions'
 import { groupGeminiItemsByDakarDay, prioritizeMatchCenterItems, selectUpcomingGeminiItems } from '@/lib/match-center-window'
 import { resolveMatchPageLogos } from '@/lib/matchPageLogos'
 import { resolveTeamLogoSrc } from '@/lib/teamLogoOverrides'
+import { attachStadiumTilt } from './stadium-tilt'
 // useLayoutEffect isomorphe (évite le warning SSR React)
 const useIsoLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect
 
@@ -208,6 +209,17 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
       if (!c.classList.contains('is-revealed')) io.observe(c)
     })
     return () => io.disconnect()
+  }, [loading, filtered])
+
+  // ═══ Tilt 3D piloté par le pointeur (décoratif, desktop, reduced-motion off) ═══
+  // Délégation sur la grille : un seul listener pour toutes les cartes,
+  // compatible re-rendus React. Le CSS identity-2026 applique la rotation
+  // et le reflet via --rx/--ry/--gx/--gy.
+  useEffect(() => {
+    if (loading) return
+    const grid = gridRef.current
+    if (!grid) return
+    return attachStadiumTilt(grid)
   }, [loading, filtered])
 
   return (
@@ -425,6 +437,11 @@ function MatchCard({ m, index, lang, results, nowTs }: {
                 <span className="btp-market__name">{marketShort}</span>
                 <strong className="hp-pick__selection" data-prediction={p.prediction === 'Oui' ? 'yes' : p.prediction === 'Non' ? 'no' : 'unknown'}>{selectionLabel}</strong>
                 {probability !== null && <span className="hp-pick__confidence" title={lang === 'en' ? 'Estimated probability for this pick' : lang === 'ar' ? 'الاحتمال التقديري لهذا الاختيار' : 'Probabilité estimée de cette sélection'}>{lang === 'en' ? 'Est.' : lang === 'ar' ? 'تقدير' : 'Est.'} {probability}%</span>}
+                {probability !== null && (
+                  <span className="btp-meter" aria-hidden="true">
+                    <i style={{ ['--w' as string]: `${probability}%` }} />
+                  </span>
+                )}
               </div>
             )
           })}
