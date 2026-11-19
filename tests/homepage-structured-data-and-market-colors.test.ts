@@ -40,7 +40,8 @@ describe('homepage SEO structure and market styling', () => {
   })
 
   it('styles BTTS and Over picks by their Gemini market, not their array position', () => {
-    expect(hero).toContain("pick.market === 'BTTS' ? 'is-btts' : 'is-over'")
+    // Hero marque (maquette validée) : classes par marché, jamais par position.
+    expect(hero).toContain("p.type === 'BTTS' ? ' is-btts' : p.type.includes('Over')")
     expect(matchCenter).toContain("isBtts ? 'btp-market--btts' : 'btp-market--over25'")
     expect(redesignCss).toContain('.bp-feature__pick.is-btts strong')
     expect(redesignCss).toContain('.bp-feature__pick.is-over strong')

@@ -32,12 +32,15 @@ describe('neutral public editorial copy', () => {
     expect(freePredictions).toContain('aucun pronostic n’est disponible')
     expect(competitionPage).toContain("time: 'GMT'")
     expect(competitionPage).not.toMatch(/Gemini|Dakar|داكار/i)
-    expect(hero).toContain('<h1 className="bp-home__title">')
-    expect(hero).toContain("title: 'Pronostics BTTS'")
-    expect(hero).toContain("titleAccent: 'and Over 2.5 today'")
-    expect(hero).toContain("timezone: 'Kick-off · GMT'")
+    // Hero marque validé par le propriétaire (maquette 19-11) : le titre
+    // provient des traductions de marque protégées home2 (clés verrouillées
+    // par retained-match-page.test.ts) — aucun label d'implémentation.
+    expect(hero).toContain('<h1 className="hp-hero__title">')
+    expect(hero).toContain('t.home2.heroTitle1')
+    expect(hero).toContain('t.home2.heroTitle2')
+    expect(hero).toContain('t.home2.heroText')
     expect(hero).not.toContain(' · Gemini')
-    expect(hero).not.toContain('hp-hero__trust-v')
+    expect(hero).not.toContain('Gemini')
     expect(share).toContain('${props.time} GMT`')
   })
 

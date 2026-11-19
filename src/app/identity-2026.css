@@ -2377,3 +2377,106 @@ footer#faq a[style*='47, 125, 255'] {
     transition: none !important;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   22. HERO HOME2 « SIGNAL » — SKIN SOVEREIGN BLUE (V5.1)
+   Hero marque restauré (maquette validée par le propriétaire, 19-11) :
+   rail clubs, titre « Plateforme N°1 Mondiale », chips, carte Signal en
+   vedette avec données réelles + partenaires. Remap de la couche phase3 de
+   globals (volt #c5f36a / cyan #45C7F7) vers les tokens Sovereign Blue :
+   royal #3E7BFA = données/signal, or #F0B23A = score exact (conversion),
+   encre #070B14. Ce fichier charge APRÈS globals.css → gagne les égalités ;
+   !important calqué là où la couche phase3 en pose.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── 22.0 Réactivation des éléments du hero masqués par les couches 15-11 ──
+   (design-system/matchday-ui/rebuild avaient display:none sur le rail, les
+   chips, l'ambiance et la photo de stade — la maquette validée les affiche) */
+.page-design--home .hp-hero--refonte .hp-clubs { display: block !important; }
+.page-design--home .hp-hero--refonte .hp-hero__trust { display: grid !important; }
+.page-design--home .hp-hero--refonte .hp-hero__glow,
+.page-design--home .hp-hero--refonte .hp-hero__gridbg,
+.page-design--home .hp-hero--refonte .hp-live-halo,
+.page-design--home .hp-hero--refonte .hp-live__lab-scene { display: block !important; }
+
+/* ── 22.1 Accent du titre — dégradé royal (N°1 Mondiale) ─────────────────── */
+/* Sélecteur calqué sur globals 9721 (0,3,0) — identity charge en dernier. */
+.page-design--home .hp-hero__title .aw-w--em,
+.hp-hero .aw-w--em,
+.hp-hero .hp-title-em {
+  background-image: linear-gradient(115deg, #3E7BFA 0%, #6FA5FF 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+}
+.hp-hero .hp-title-em {
+  background: linear-gradient(115deg, #3E7BFA 0%, #6FA5FF 100%) !important;
+}
+
+/* ── 22.2 Carte Signal — surface verre marine + ligne de crête royale ────── */
+.hp-hero--refonte .hp-live {
+  background: linear-gradient(150deg, rgba(16, 26, 46, 0.96), rgba(7, 11, 20, 0.99)) !important;
+  border-color: rgba(111, 143, 218, 0.22) !important;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+}
+.hp-hero--refonte .hp-live::before {
+  background: linear-gradient(90deg, transparent, rgba(62, 123, 250, 0.75), rgba(111, 165, 255, 0.5), transparent) !important;
+}
+
+/* ── 22.3 Badge « Données réelles » + pulsations + ligue → royal ─────────── */
+.hp-hero--refonte .hp-live__badge,
+.page-design--home .hp-hero--refonte .hp-live__badge {
+  color: #9DBAFF !important;
+  background: rgba(62, 123, 250, 0.10) !important;
+  border-color: rgba(62, 123, 250, 0.32) !important;
+}
+.hp-hero--refonte .hp-live__pulse,
+.hp-hero--refonte .hp-live .hp-status-dot {
+  background: #3E7BFA !important;
+  box-shadow: 0 0 10px rgba(62, 123, 250, 0.55) !important;
+}
+.hp-hero--refonte .hp-live__league {
+  color: #9DBAFF !important;
+}
+
+/* ── 22.4 Pills de sélection — BTTS royal, Over royal clair, Exact or ────── */
+.hp-hero--refonte .hp-live__pick.is-btts {
+  color: #9DBAFF !important;
+  background: rgba(62, 123, 250, 0.10) !important;
+  border-color: rgba(62, 123, 250, 0.32) !important;
+}
+.hp-hero--refonte .hp-live__pick.is-btts b { color: #9DBAFF !important; }
+.hp-hero--refonte .hp-live__pick.is-over {
+  color: #C7D8FF !important;
+  background: rgba(111, 165, 255, 0.10) !important;
+  border-color: rgba(111, 165, 255, 0.32) !important;
+}
+.hp-hero--refonte .hp-live__pick.is-over b { color: #C7D8FF !important; }
+.hp-hero--refonte .hp-live__pick.is-exact {
+  color: #F0B23A !important;
+  background: rgba(240, 178, 58, 0.08) !important;
+  border-color: rgba(240, 178, 58, 0.32) !important;
+}
+.hp-hero--refonte .hp-live__pick.is-exact b { color: #F0B23A !important; }
+
+/* ── 22.5 CTA « Ouvrir l'analyse » — pilule blanche, texte royal ─────────── */
+.hp-hero--refonte .hp-live__open,
+.page-design--home .hp-hero--refonte .hp-live__open {
+  color: #3E7BFA !important;
+  background: #F4F6FB !important;
+  border-color: #F4F6FB !important;
+}
+
+/* ── 22.6 Chips Marchés/Méthode/Fuseau — verre encre, hairline bleu-gris ─── */
+.page-design--home .hp-hero--refonte .hp-hero__trust li {
+  background: rgba(13, 20, 34, 0.78) !important;
+  border-color: rgba(111, 143, 218, 0.16) !important;
+}
+
+/* ── 22.7 Rail des clubs — halo survol royal ─────────────────────────────── */
+.hp-clubs__track img:hover {
+  filter: drop-shadow(0 0 10px rgba(62, 123, 250, 0.45)) !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hp-clubs__track { animation: none !important; }
+  .hp-live__pulse, .hp-live .hp-status-dot { animation: none !important; }
+}
