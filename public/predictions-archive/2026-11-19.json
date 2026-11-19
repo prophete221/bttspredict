@@ -8276,7 +8276,8 @@
       "over25Prob": 0.58,
       "prediction": "Oui",
       "proba": 0.58,
-      "confidence": 58
+      "confidence": 58,
+      "status": "PENDING"
     },
     {
       "id": "benfica-vs-roma-2026-11-19",
@@ -8436,7 +8437,8 @@
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "abstain",
+      "status": "PENDING"
     },
     {
       "id": "ajaxamst-vs-adodenha-2026-11-22",
@@ -8625,7 +8627,8 @@
       "bttsProb": 0.68,
       "prediction": "Oui",
       "proba": 0.68,
-      "confidence": 68
+      "confidence": 68,
+      "status": "PENDING"
     },
     {
       "id": "chicagof-vs-charlott-2026-11-22",
@@ -8821,7 +8824,8 @@
       "bttsProb": 0.68,
       "prediction": "Oui",
       "proba": 0.68,
-      "confidence": 68
+      "confidence": 68,
+      "status": "PENDING"
     },
     {
       "id": "monza-vs-fiorenti-2026-11-23",
@@ -9017,7 +9021,573 @@
       "over25Prob": 0.72,
       "prediction": "Oui",
       "proba": 0.72,
-      "confidence": 72
+      "confidence": 72,
+      "status": "PENDING"
+    },
+    {
+      "id": "dundee-vs-heartofm-2026-11-21",
+      "match": "Dundee vs Heart of Midlothian",
+      "home": "Dundee",
+      "away": "Heart of Midlothian",
+      "league": "Scottish Premiership",
+      "date": "2026-11-21",
+      "type": "BTTS",
+      "time": "17:45",
+      "matchSemantic": "dundee-vs-heartofm-2026-11-21",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/261.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/262.png",
+      "tier": "GOLD",
+      "reliabilityScore": 93.75,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2,
+      "xgAway": 1.25,
+      "xgTotal": 3.25,
+      "formBTTS": 80,
+      "analysis": "Dundee : forme D-V-D-N-V (2V 1N 2D, 9 buts marqués / 8 encaissés sur 5) · Heart of Midlothian : forme D-N-V-D-V (2V 1N 2D, 12 buts marqués / 14 encaissés sur 5). Classement : Dundee 5e (17 pts), Heart of Midlothian 4e (20 pts). Stats empiriques (forme récente) : buts moy. 3.25, BTTS 80.0%, Over 2.5 90.0%. Affinage AI ensuite. Fiabilité 93.75%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.8,
+        "empiricalOver25Rate": 0.9,
+        "homeLambda": 2,
+        "awayLambda": 1.25,
+        "xgTotal": 3.25
+      },
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "D-V-D-N-V",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 9,
+        "goalsAgainst": 8,
+        "bttsRate": 1,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-N-V-D-V",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 12,
+        "goalsAgainst": 14,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 2,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-07",
+          "opponent": "St Johnstone",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-28",
+          "opponent": "Kilmarnock",
+          "venue": "H",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "St Mirren",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Rangers",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Falkirk",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-08",
+          "opponent": "Falkirk",
+          "venue": "H",
+          "score": "2-5",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-28",
+          "opponent": "Rangers",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Motherwell",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Celtic",
+          "venue": "A",
+          "score": "1-7",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "St Mirren",
+          "venue": "H",
+          "score": "5-0",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 5,
+        "points": 17,
+        "played": 12,
+        "gf": 18,
+        "ga": 15
+      },
+      "standingsAway": {
+        "rank": 4,
+        "points": 20,
+        "played": 12,
+        "gf": 26,
+        "ga": 22
+      },
+      "empiricalBttsRate": 0.8,
+      "empiricalOver25Rate": 0.9,
+      "homeLambda": 2,
+      "awayLambda": 1.25,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Dundee affiche un taux BTTS de 100% sur ses 5 derniers matchs avec un taux empirique global de 80%.",
+      "ai_analysis": "Les statistiques observées révèlent une forte propension des deux équipes à marquer et à concéder des buts. Dundee possède un taux BTTS de 100% sur ses 5 derniers matchs, tandis que Hearts présente un bilan offensif solide mais perméable avec 26 buts marqués et 22 encaissés en 12 rencontres. Le taux empirique BTTS de 80% justifie amplement la sélection d'un pronostic positif sur ce marché.",
+      "ai_analysis_en": "Observed statistics reveal a strong tendency for both teams to score and concede. Dundee holds a 100% BTTS rate over their last 5 matches, while Hearts shows a solid yet leaky offensive and defensive record with 26 goals scored and 22 conceded in 12 games. The empirical BTTS rate of 80% fully justifies selecting a positive outcome on this market.",
+      "ai_form_summary": "Dundee : 2V-1N-2D (9 BP, 8 BC, BTTS 100%). Heart of Midlothian : 2V-1N-2D (12 BP, 14 BC, BTTS 60%).",
+      "ai_form_summary_en": "Dundee: 2W-1D-2L (9 GF, 8 GA, BTTS 100%). Heart of Midlothian: 2W-1D-2L (12 GF, 14 GA, BTTS 60%).",
+      "ai_reasons": [
+        "Taux empirique BTTS très élevé à 80% pour ce match.",
+        "Dundee présente un taux BTTS de 100% sur ses 5 derniers matchs.",
+        "Les deux équipes affichent des moyennes de buts encaissés notables (15 buts encaissés en 12 matchs pour Dundee, 22 pour Hearts)."
+      ],
+      "ai_risks": [
+        "La défense de Dundee a montré de la solidité par moments malgré son taux de BTTS élevé.",
+        "Le taux Over 2.5 est également très haut, ce qui pourrait concentrer la valeur sur d'autres marchés."
+      ],
+      "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 75,
+          "proba": 0.75,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.75
+        }
+      ],
+      "bttsProb": 0.75,
+      "prediction": "Oui",
+      "proba": 0.75,
+      "confidence": 75
+    },
+    {
+      "id": "crdoba-vs-realovie-2026-11-22",
+      "match": "Córdoba vs Real Oviedo",
+      "home": "Córdoba",
+      "away": "Real Oviedo",
+      "league": "LaLiga 2",
+      "date": "2026-11-22",
+      "type": "BTTS",
+      "time": "13:00",
+      "matchSemantic": "crdoba-vs-realovie-2026-11-22",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/8447.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/92.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.67,
+      "xgAway": 1.75,
+      "xgTotal": 4.42,
+      "formBTTS": 70,
+      "analysis": "Córdoba : forme N-V-N-V-V (3V 2N 0D, 11 buts marqués / 5 encaissés sur 5) · Real Oviedo : forme D-V-D-N-V (2V 1N 2D, 9 buts marqués / 9 encaissés sur 5). Classement : Córdoba 10e (20 pts), Real Oviedo 9e (21 pts). Stats empiriques (forme récente) : buts moy. 4.42, BTTS 70.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.91 / N: 3.8 / 2: 3.6 · Over 2.5: 1.61. Fiabilité 89.38%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.7,
+        "empiricalOver25Rate": 0.8,
+        "homeLambda": 2.67,
+        "awayLambda": 1.75,
+        "xgTotal": 4.42
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.91,
+        "draw": 3.8,
+        "away": 3.6,
+        "over25": 1.61,
+        "under25": 2.2
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "N-V-N-V-V",
+        "wins": 3,
+        "draws": 2,
+        "losses": 0,
+        "goalsFor": 11,
+        "goalsAgainst": 5,
+        "bttsRate": 0.4,
+        "over25Rate": 0.6,
+        "cleanSheets": 3,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-V-D-N-V",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 9,
+        "goalsAgainst": 9,
+        "bttsRate": 1,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-14",
+          "opponent": "Mallorca",
+          "venue": "A",
+          "score": "3-3",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Ceuta",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "RC Celta Fortuna",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Eibar",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-16",
+          "opponent": "Leganés",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-14",
+          "opponent": "Girona",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Cádiz",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-02",
+          "opponent": "Las Palmas",
+          "venue": "H",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Almería",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Ceuta",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 10,
+        "points": 20,
+        "played": 14,
+        "gf": 25,
+        "ga": 25
+      },
+      "standingsAway": {
+        "rank": 9,
+        "points": 21,
+        "played": 14,
+        "gf": 20,
+        "ga": 18
+      },
+      "empiricalBttsRate": 0.7,
+      "empiricalOver25Rate": 0.8,
+      "homeLambda": 2.67,
+      "awayLambda": 1.75,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Real Oviedo présente un taux BTTS de 100% sur sa période récente.",
+      "ai_analysis": "L'analyse des statistiques observées met en évidence un profil très offensif pour Real Oviedo avec un taux BTTS de 100% et un over 2.5 également à 100%. Bien que Córdoba montre un taux BTTS de 40% dans ses récentes sorties, la moyenne de buts globale et le taux empirique de 70% justifient une sélection positive sur le marché des deux équipes marquent.",
+      "ai_analysis_en": "Analysis of observed statistics highlights a very offensive profile for Real Oviedo with a 100% BTTS rate and a 100% over 2.5 rate. Although Córdoba shows a 40% BTTS rate in recent outings, the overall goal average and 70% empirical rate justify a positive selection on the BTTS market.",
+      "ai_form_summary": "Córdoba : 3W-2D-0L (11 buts pour, 5 contre). Real Oviedo : 2W-1D-2L (9 buts pour, 9 contre).",
+      "ai_form_summary_en": "Córdoba: 3W-2D-0L (11 goals for, 5 against). Real Oviedo: 2W-1D-2L (9 goals for, 9 against).",
+      "ai_reasons": [
+        "Real Oviedo affiche un taux BTTS empirique de 100% sur ses derniers matchs",
+        "Le taux BTTS empirique global du match atteint 70%",
+        "Les moyennes de buts de Córdoba (2.67) et Oviedo (1.75) soutiennent des offensives productives"
+      ],
+      "ai_risks": [
+        "Le taux BTTS de Córdoba à domicile est plus modéré à 40%"
+      ],
+      "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 68,
+          "proba": 0.68,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.68
+        }
+      ],
+      "bttsProb": 0.68,
+      "prediction": "Oui",
+      "proba": 0.68,
+      "confidence": 68
+    },
+    {
+      "id": "sochaux-vs-dunkerqu-2026-11-23",
+      "match": "Sochaux vs Dunkerque",
+      "home": "Sochaux",
+      "away": "Dunkerque",
+      "league": "Ligue 2",
+      "date": "2026-11-23",
+      "type": "BTTS",
+      "time": "19:45",
+      "matchSemantic": "sochaux-vs-dunkerqu-2026-11-23",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/272.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7732.png",
+      "tier": "SILVER",
+      "reliabilityScore": 71.88,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1,
+      "xgAway": 1,
+      "xgTotal": 2,
+      "formBTTS": 50,
+      "analysis": "Sochaux : forme D-D-D-D-N (0V 1N 4D, 4 buts marqués / 10 encaissés sur 5) · Dunkerque : forme V-D-N-V-D (2V 1N 2D, 7 buts marqués / 5 encaissés sur 5). Classement : Sochaux 16e (11 pts), Dunkerque 10e (15 pts). Stats empiriques (forme récente) : buts moy. 2, BTTS 50.0%, Over 2.5 40.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.35 / N: 3.25 / 2: 2.9 · Over 2.5: 1.8. Fiabilité 71.88%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.5,
+        "empiricalOver25Rate": 0.4,
+        "homeLambda": 1,
+        "awayLambda": 1,
+        "xgTotal": 2
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.35,
+        "draw": 3.25,
+        "away": 2.9,
+        "over25": 1.8,
+        "under25": 1.87
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-D-D-D-N",
+        "wins": 0,
+        "draws": 1,
+        "losses": 4,
+        "goalsFor": 4,
+        "goalsAgainst": 10,
+        "bttsRate": 0.6,
+        "over25Rate": 0.4,
+        "cleanSheets": 0,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-D-N-V-D",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 7,
+        "goalsAgainst": 5,
+        "bttsRate": 0.4,
+        "over25Rate": 0.4,
+        "cleanSheets": 1,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-06",
+          "opponent": "AS Nancy Lorraine",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-02",
+          "opponent": "Stade de Reims",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Annecy",
+          "venue": "H",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Metz",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-09",
+          "opponent": "Boulogne",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-06",
+          "opponent": "Guingamp",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-30",
+          "opponent": "Rodez Aveyron",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Metz",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Nantes",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-09",
+          "opponent": "Annecy",
+          "venue": "H",
+          "score": "0-1",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 16,
+        "points": 11,
+        "played": 12,
+        "gf": 8,
+        "ga": 15
+      },
+      "standingsAway": {
+        "rank": 10,
+        "points": 15,
+        "played": 12,
+        "gf": 17,
+        "ga": 17
+      },
+      "empiricalBttsRate": 0.5,
+      "empiricalOver25Rate": 0.4,
+      "homeLambda": 1,
+      "awayLambda": 1,
+      "statsOnly": true,
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "Sochaux et Dunkerque affichent tous deux une moyenne exacte de 1 but par match dans leurs échantillons respectifs.",
+      "ai_analysis": "Sochaux et Dunkerque présentent des statistiques trop neutres pour valider un marché spécifique. Avec un taux BTTS empirique de 50% et un Over 2.5 limité à 40%, couplé à de faibles moyennes de buts, le profil statistique est trop incertain. Il est plus sage de s'abstenir.",
+      "ai_analysis_en": "Sochaux and Dunkerque present statistics that are too neutral to validate a specific market. With an empirical BTTS rate of 50% and an Over 2.5 limited to 40%, coupled with low goal averages, the statistical profile is too uncertain. It is wiser to abstain.",
+      "ai_form_summary": "Sochaux : D-D-D-D-N (0W-1D-4L), 4 buts pour, 10 contre. Dunkerque : V-D-N-V-D (2W-1D-2L), 7 buts pour, 5 contre.",
+      "ai_form_summary_en": "Sochaux: D-D-D-D-N (0W-1D-4L), 4 goals for, 10 against. Dunkerque: V-D-N-V-D (2W-1D-2L), 7 goals for, 5 against.",
+      "ai_reasons": [
+        "Taux empirique BTTS à 50% et taux Over 2.5 à 40%.",
+        "Moyennes de buts faibles pour les deux équipes (1 but par match)."
+      ],
+      "ai_risks": [
+        "Sochaux est sur une série de 4 défaites et 1 nul, montrant une attaque en difficulté (4 buts sur les 5 derniers matchs).",
+        "Les données historiques et de forme manquent de tranchant pour un pronostic statistique clair."
+      ],
+      "ai_confidence": "low",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "abstain"
     }
   ],
   "fixtures": [
@@ -20430,6 +21000,574 @@
       "prediction": "Oui",
       "proba": 0.72,
       "confidence": 72,
+      "status": "PENDING"
+    },
+    {
+      "id": "dundee-vs-heartofm-2026-11-21",
+      "match": "Dundee vs Heart of Midlothian",
+      "home": "Dundee",
+      "away": "Heart of Midlothian",
+      "league": "Scottish Premiership",
+      "date": "2026-11-21",
+      "type": "BTTS",
+      "time": "17:45",
+      "matchSemantic": "dundee-vs-heartofm-2026-11-21",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/261.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/262.png",
+      "tier": "GOLD",
+      "reliabilityScore": 93.75,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2,
+      "xgAway": 1.25,
+      "xgTotal": 3.25,
+      "formBTTS": 80,
+      "analysis": "Dundee : forme D-V-D-N-V (2V 1N 2D, 9 buts marqués / 8 encaissés sur 5) · Heart of Midlothian : forme D-N-V-D-V (2V 1N 2D, 12 buts marqués / 14 encaissés sur 5). Classement : Dundee 5e (17 pts), Heart of Midlothian 4e (20 pts). Stats empiriques (forme récente) : buts moy. 3.25, BTTS 80.0%, Over 2.5 90.0%. Affinage AI ensuite. Fiabilité 93.75%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.8,
+        "empiricalOver25Rate": 0.9,
+        "homeLambda": 2,
+        "awayLambda": 1.25,
+        "xgTotal": 3.25
+      },
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "D-V-D-N-V",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 9,
+        "goalsAgainst": 8,
+        "bttsRate": 1,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-N-V-D-V",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 12,
+        "goalsAgainst": 14,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 2,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-07",
+          "opponent": "St Johnstone",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-28",
+          "opponent": "Kilmarnock",
+          "venue": "H",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "St Mirren",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Rangers",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Falkirk",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-08",
+          "opponent": "Falkirk",
+          "venue": "H",
+          "score": "2-5",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-28",
+          "opponent": "Rangers",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Motherwell",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Celtic",
+          "venue": "A",
+          "score": "1-7",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "St Mirren",
+          "venue": "H",
+          "score": "5-0",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 5,
+        "points": 17,
+        "played": 12,
+        "gf": 18,
+        "ga": 15
+      },
+      "standingsAway": {
+        "rank": 4,
+        "points": 20,
+        "played": 12,
+        "gf": 26,
+        "ga": 22
+      },
+      "empiricalBttsRate": 0.8,
+      "empiricalOver25Rate": 0.9,
+      "homeLambda": 2,
+      "awayLambda": 1.25,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Dundee affiche un taux BTTS de 100% sur ses 5 derniers matchs avec un taux empirique global de 80%.",
+      "ai_analysis": "Les statistiques observées révèlent une forte propension des deux équipes à marquer et à concéder des buts. Dundee possède un taux BTTS de 100% sur ses 5 derniers matchs, tandis que Hearts présente un bilan offensif solide mais perméable avec 26 buts marqués et 22 encaissés en 12 rencontres. Le taux empirique BTTS de 80% justifie amplement la sélection d'un pronostic positif sur ce marché.",
+      "ai_analysis_en": "Observed statistics reveal a strong tendency for both teams to score and concede. Dundee holds a 100% BTTS rate over their last 5 matches, while Hearts shows a solid yet leaky offensive and defensive record with 26 goals scored and 22 conceded in 12 games. The empirical BTTS rate of 80% fully justifies selecting a positive outcome on this market.",
+      "ai_form_summary": "Dundee : 2V-1N-2D (9 BP, 8 BC, BTTS 100%). Heart of Midlothian : 2V-1N-2D (12 BP, 14 BC, BTTS 60%).",
+      "ai_form_summary_en": "Dundee: 2W-1D-2L (9 GF, 8 GA, BTTS 100%). Heart of Midlothian: 2W-1D-2L (12 GF, 14 GA, BTTS 60%).",
+      "ai_reasons": [
+        "Taux empirique BTTS très élevé à 80% pour ce match.",
+        "Dundee présente un taux BTTS de 100% sur ses 5 derniers matchs.",
+        "Les deux équipes affichent des moyennes de buts encaissés notables (15 buts encaissés en 12 matchs pour Dundee, 22 pour Hearts)."
+      ],
+      "ai_risks": [
+        "La défense de Dundee a montré de la solidité par moments malgré son taux de BTTS élevé.",
+        "Le taux Over 2.5 est également très haut, ce qui pourrait concentrer la valeur sur d'autres marchés."
+      ],
+      "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 75,
+          "proba": 0.75,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.75
+        }
+      ],
+      "bttsProb": 0.75,
+      "prediction": "Oui",
+      "proba": 0.75,
+      "confidence": 75,
+      "status": "PENDING"
+    },
+    {
+      "id": "crdoba-vs-realovie-2026-11-22",
+      "match": "Córdoba vs Real Oviedo",
+      "home": "Córdoba",
+      "away": "Real Oviedo",
+      "league": "LaLiga 2",
+      "date": "2026-11-22",
+      "type": "BTTS",
+      "time": "13:00",
+      "matchSemantic": "crdoba-vs-realovie-2026-11-22",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/8447.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/92.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.67,
+      "xgAway": 1.75,
+      "xgTotal": 4.42,
+      "formBTTS": 70,
+      "analysis": "Córdoba : forme N-V-N-V-V (3V 2N 0D, 11 buts marqués / 5 encaissés sur 5) · Real Oviedo : forme D-V-D-N-V (2V 1N 2D, 9 buts marqués / 9 encaissés sur 5). Classement : Córdoba 10e (20 pts), Real Oviedo 9e (21 pts). Stats empiriques (forme récente) : buts moy. 4.42, BTTS 70.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.91 / N: 3.8 / 2: 3.6 · Over 2.5: 1.61. Fiabilité 89.38%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.7,
+        "empiricalOver25Rate": 0.8,
+        "homeLambda": 2.67,
+        "awayLambda": 1.75,
+        "xgTotal": 4.42
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.91,
+        "draw": 3.8,
+        "away": 3.6,
+        "over25": 1.61,
+        "under25": 2.2
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "N-V-N-V-V",
+        "wins": 3,
+        "draws": 2,
+        "losses": 0,
+        "goalsFor": 11,
+        "goalsAgainst": 5,
+        "bttsRate": 0.4,
+        "over25Rate": 0.6,
+        "cleanSheets": 3,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-V-D-N-V",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 9,
+        "goalsAgainst": 9,
+        "bttsRate": 1,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-14",
+          "opponent": "Mallorca",
+          "venue": "A",
+          "score": "3-3",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Ceuta",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "RC Celta Fortuna",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Eibar",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-16",
+          "opponent": "Leganés",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-14",
+          "opponent": "Girona",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Cádiz",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-02",
+          "opponent": "Las Palmas",
+          "venue": "H",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Almería",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Ceuta",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 10,
+        "points": 20,
+        "played": 14,
+        "gf": 25,
+        "ga": 25
+      },
+      "standingsAway": {
+        "rank": 9,
+        "points": 21,
+        "played": 14,
+        "gf": 20,
+        "ga": 18
+      },
+      "empiricalBttsRate": 0.7,
+      "empiricalOver25Rate": 0.8,
+      "homeLambda": 2.67,
+      "awayLambda": 1.75,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Real Oviedo présente un taux BTTS de 100% sur sa période récente.",
+      "ai_analysis": "L'analyse des statistiques observées met en évidence un profil très offensif pour Real Oviedo avec un taux BTTS de 100% et un over 2.5 également à 100%. Bien que Córdoba montre un taux BTTS de 40% dans ses récentes sorties, la moyenne de buts globale et le taux empirique de 70% justifient une sélection positive sur le marché des deux équipes marquent.",
+      "ai_analysis_en": "Analysis of observed statistics highlights a very offensive profile for Real Oviedo with a 100% BTTS rate and a 100% over 2.5 rate. Although Córdoba shows a 40% BTTS rate in recent outings, the overall goal average and 70% empirical rate justify a positive selection on the BTTS market.",
+      "ai_form_summary": "Córdoba : 3W-2D-0L (11 buts pour, 5 contre). Real Oviedo : 2W-1D-2L (9 buts pour, 9 contre).",
+      "ai_form_summary_en": "Córdoba: 3W-2D-0L (11 goals for, 5 against). Real Oviedo: 2W-1D-2L (9 goals for, 9 against).",
+      "ai_reasons": [
+        "Real Oviedo affiche un taux BTTS empirique de 100% sur ses derniers matchs",
+        "Le taux BTTS empirique global du match atteint 70%",
+        "Les moyennes de buts de Córdoba (2.67) et Oviedo (1.75) soutiennent des offensives productives"
+      ],
+      "ai_risks": [
+        "Le taux BTTS de Córdoba à domicile est plus modéré à 40%"
+      ],
+      "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 68,
+          "proba": 0.68,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.68
+        }
+      ],
+      "bttsProb": 0.68,
+      "prediction": "Oui",
+      "proba": 0.68,
+      "confidence": 68,
+      "status": "PENDING"
+    },
+    {
+      "id": "sochaux-vs-dunkerqu-2026-11-23",
+      "match": "Sochaux vs Dunkerque",
+      "home": "Sochaux",
+      "away": "Dunkerque",
+      "league": "Ligue 2",
+      "date": "2026-11-23",
+      "type": "BTTS",
+      "time": "19:45",
+      "matchSemantic": "sochaux-vs-dunkerqu-2026-11-23",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/272.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7732.png",
+      "tier": "SILVER",
+      "reliabilityScore": 71.88,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1,
+      "xgAway": 1,
+      "xgTotal": 2,
+      "formBTTS": 50,
+      "analysis": "Sochaux : forme D-D-D-D-N (0V 1N 4D, 4 buts marqués / 10 encaissés sur 5) · Dunkerque : forme V-D-N-V-D (2V 1N 2D, 7 buts marqués / 5 encaissés sur 5). Classement : Sochaux 16e (11 pts), Dunkerque 10e (15 pts). Stats empiriques (forme récente) : buts moy. 2, BTTS 50.0%, Over 2.5 40.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.35 / N: 3.25 / 2: 2.9 · Over 2.5: 1.8. Fiabilité 71.88%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.5,
+        "empiricalOver25Rate": 0.4,
+        "homeLambda": 1,
+        "awayLambda": 1,
+        "xgTotal": 2
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.35,
+        "draw": 3.25,
+        "away": 2.9,
+        "over25": 1.8,
+        "under25": 1.87
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-D-D-D-N",
+        "wins": 0,
+        "draws": 1,
+        "losses": 4,
+        "goalsFor": 4,
+        "goalsAgainst": 10,
+        "bttsRate": 0.6,
+        "over25Rate": 0.4,
+        "cleanSheets": 0,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-D-N-V-D",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 7,
+        "goalsAgainst": 5,
+        "bttsRate": 0.4,
+        "over25Rate": 0.4,
+        "cleanSheets": 1,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-06",
+          "opponent": "AS Nancy Lorraine",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-02",
+          "opponent": "Stade de Reims",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Annecy",
+          "venue": "H",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Metz",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-09",
+          "opponent": "Boulogne",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-06",
+          "opponent": "Guingamp",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-30",
+          "opponent": "Rodez Aveyron",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Metz",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Nantes",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-09",
+          "opponent": "Annecy",
+          "venue": "H",
+          "score": "0-1",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 16,
+        "points": 11,
+        "played": 12,
+        "gf": 8,
+        "ga": 15
+      },
+      "standingsAway": {
+        "rank": 10,
+        "points": 15,
+        "played": 12,
+        "gf": 17,
+        "ga": 17
+      },
+      "empiricalBttsRate": 0.5,
+      "empiricalOver25Rate": 0.4,
+      "homeLambda": 1,
+      "awayLambda": 1,
+      "statsOnly": true,
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "Sochaux et Dunkerque affichent tous deux une moyenne exacte de 1 but par match dans leurs échantillons respectifs.",
+      "ai_analysis": "Sochaux et Dunkerque présentent des statistiques trop neutres pour valider un marché spécifique. Avec un taux BTTS empirique de 50% et un Over 2.5 limité à 40%, couplé à de faibles moyennes de buts, le profil statistique est trop incertain. Il est plus sage de s'abstenir.",
+      "ai_analysis_en": "Sochaux and Dunkerque present statistics that are too neutral to validate a specific market. With an empirical BTTS rate of 50% and an Over 2.5 limited to 40%, coupled with low goal averages, the statistical profile is too uncertain. It is wiser to abstain.",
+      "ai_form_summary": "Sochaux : D-D-D-D-N (0W-1D-4L), 4 buts pour, 10 contre. Dunkerque : V-D-N-V-D (2W-1D-2L), 7 buts pour, 5 contre.",
+      "ai_form_summary_en": "Sochaux: D-D-D-D-N (0W-1D-4L), 4 goals for, 10 against. Dunkerque: V-D-N-V-D (2W-1D-2L), 7 goals for, 5 against.",
+      "ai_reasons": [
+        "Taux empirique BTTS à 50% et taux Over 2.5 à 40%.",
+        "Moyennes de buts faibles pour les deux équipes (1 but par match)."
+      ],
+      "ai_risks": [
+        "Sochaux est sur une série de 4 défaites et 1 nul, montrant une attaque en difficulté (4 buts sur les 5 derniers matchs).",
+        "Les données historiques et de forme manquent de tranchant pour un pronostic statistique clair."
+      ],
+      "ai_confidence": "low",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "abstain",
       "status": "PENDING"
     }
   ],
