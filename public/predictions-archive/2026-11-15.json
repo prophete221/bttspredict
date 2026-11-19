@@ -12792,7 +12792,9 @@
       "prediction": "Oui",
       "proba": 0.75,
       "confidence": 75,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-19T10:59:35.508Z"
     },
     {
       "id": "andorra-vs-azerbaij-2026-11-16",
@@ -17816,7 +17818,9 @@
       "prediction": "Oui",
       "proba": 0.78,
       "confidence": 78,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-19T10:59:46.350Z"
     },
     {
       "id": "jordan-vs-australi-2026-11-17",
