@@ -22,7 +22,7 @@
  *   ai_key_fact, ai_analysis               ← Gemini short text
  */
 
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState, type ReactNode, Children, isValidElement, cloneElement } from 'react'
 import { trackAffiliateAction } from '@/lib/affiliateTracking'
 import Link from 'next/link'
 import { generateMatchSlug } from '@/lib/match-slug'
@@ -37,6 +37,37 @@ import ShareAnalysisButton from './ShareAnalysisButton'
 import VipMarketTeaser from './VipMarketTeaser'
 import MissingMarketVipLink from './MissingMarketVipLink'
 import TeamLogo from './TeamLogo'
+
+// ─── FixturesCollapsible — page légère : n'affiche que les premières affiches ──
+// Présentation uniquement : les données, textes, liens et le compteur restent inchangés.
+const FIXTURES_PREVIEW_COUNT = 8
+function FixturesCollapsible({ count, lang, preview: previewCount = FIXTURES_PREVIEW_COUNT, children }: { count: number; lang: Locale; preview?: number; children: ReactNode }) {
+  const [expanded, setExpanded] = useState(false)
+  if (expanded) return <>{children}</>
+  const preview = Children.map(children, child => {
+    if (!isValidElement(child)) return child
+    const arrayChildren = Children.toArray((child.props as { children?: ReactNode }).children)
+    return cloneElement(child, {}, arrayChildren.slice(0, previewCount))
+  })
+  const remaining = count - previewCount
+  const moreLabel = lang === 'fr' ? `Voir les ${count} affiches` : lang === 'en' ? `View all ${count} fixtures` : `عرض جميع المباريات (${count})`
+  return (
+    <>
+      {preview}
+      {remaining > 0 && (
+        <button
+          type="button"
+          onClick={() => setExpanded(true)}
+          className="btx-filter"
+          aria-expanded={false}
+          style={{ width: '100%', marginTop: 12, justifyContent: 'center' }}
+        >
+          {moreLabel} <span aria-hidden="true">↓</span>
+        </button>
+      )}
+    </>
+  )
+}
 
 // ─── Palette (V3 — bleu analyse, sémantique WIN/LOST/PENDING) ────────────────
 const C = {
@@ -744,19 +775,22 @@ export default function BttsTodayDashboard({
                 {lang === 'fr' ? 'À venir' : lang === 'en' ? 'Upcoming' : 'القادمة'}
                 <span className="btx-count-pill">{visibleUpcomingMatches.length}</span>
               </h3>
-              <div className="btx-grid">
-                {visibleUpcomingMatches.map((m, i) => (
-                    <MatchCard
-                      key={`upcoming-${m.key}`}
-                      match={m}
-                      index={i}
-                      status="scheduled"
-                      lang={lang}
-                      labels={labels}
-                      now={now}
-                    />
-                ))}
-              </div>
+              {/* Page légère : aperçu de 6 cartes, le reste via « Voir tout » (présentation uniquement). */}
+              <FixturesCollapsible count={visibleUpcomingMatches.length} lang={lang} preview={6}>
+                <div className="btx-grid">
+                  {visibleUpcomingMatches.map((m, i) => (
+                      <MatchCard
+                        key={`upcoming-${m.key}`}
+                        match={m}
+                        index={i}
+                        status="scheduled"
+                        lang={lang}
+                        labels={labels}
+                        now={now}
+                      />
+                  ))}
+                </div>
+              </FixturesCollapsible>
             </div>
           )}
 
@@ -769,17 +803,22 @@ export default function BttsTodayDashboard({
               <p className="mb-3 text-xs" style={{ color: C.textSec }}>
                 {lang === 'fr' ? 'Rencontres programmées par ESPN ; aucun pronostic n’est affiché.' : lang === 'en' ? 'ESPN-scheduled matches with no prediction available.' : 'مباريات مجدولة من ESPN؛ لا يتم عرض أي توقع.'}
               </p>
-              <div className="btx-grid">
-                {visibleFixtures.map(fixture => (
-                  <article key={fixture.key} style={{ background: C.surface, border: `1px solid ${C.border}`, borderRadius: 14, padding: 14 }}>
-                    <p style={{ color: C.text, fontWeight: 800 }}>{fixture.home} <span style={{ color: C.textSec }}>vs</span> {fixture.away}</p>
-                    <p className="mt-1 text-xs" style={{ color: C.textSec }}>{fixture.league}</p>
-                    <time className="mt-2 block text-xs" style={{ color: C.textMute }} dateTime={fixture.time ? `${fixture.date}T${fixture.time}` : fixture.date}>
-                      {fmtFixtureDate(fixture.date, lang, new Date(now))}{fixture.time ? ` · ${fixture.time}` : ''}
-                    </time>
-                  </article>
-                ))}
-              </div>
+              {/* Page légère : seules les 8 premières affiches sont rendues,
+                  le reste reste accessible via « Voir tout » (présentation uniquement —
+                  aucune donnée, texte, lien ou SEO modifié). */}
+              <FixturesCollapsible count={visibleFixtures.length} lang={lang}>
+                <div className="btx-grid">
+                  {visibleFixtures.map(fixture => (
+                    <article key={fixture.key} style={{ background: C.surface, border: `1px solid ${C.border}`, borderRadius: 14, padding: 14 }}>
+                      <p style={{ color: C.text, fontWeight: 800 }}>{fixture.home} <span style={{ color: C.textSec }}>vs</span> {fixture.away}</p>
+                      <p className="mt-1 text-xs" style={{ color: C.textSec }}>{fixture.league}</p>
+                      <time className="mt-2 block text-xs" style={{ color: C.textMute }} dateTime={fixture.time ? `${fixture.date}T${fixture.time}` : fixture.date}>
+                        {fmtFixtureDate(fixture.date, lang, new Date(now))}{fixture.time ? ` · ${fixture.time}` : ''}
+                      </time>
+                    </article>
+                  ))}
+                </div>
+              </FixturesCollapsible>
             </section>
           )}
 

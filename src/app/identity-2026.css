@@ -4,7 +4,7 @@
  Plateforme de pronostics nouvelle génération — finie l'esthétique blog.
 
  Encre : noir-vert profond (pelouse nocturne sous projecteurs).
- Accent : volt électrique #C6F53F (gazon + éclairage stade).
+ Accent : volt électrique #3E7BFA (gazon + éclairage stade).
  Fonctionnel : #34D399 BTTS · #FBBF24 Over 2.5 (verrouillés par les tests,
                préservés tels quels) · #12B76A gagné · #FF5C5C perdu.
  VIP : or conservé, affiné.
@@ -21,18 +21,22 @@
 /* ── 1. TOKENS D'IDENTITÉ ───────────────────────────────────────────────── */
 :root {
   /* Encre Prime Time */
-  --id-ink-0: #050807;        /* fond page */
-  --id-ink-1: #0A0F0C;        /* fond relevé */
-  --id-ink-2: #0E1410;        /* surface carte */
-  --id-ink-3: #131B15;        /* surface carte hover */
-  --id-ink-glass: rgba(14, 20, 16, 0.72);
+  --id-ink-0: #070B14;        /* fond page */
+  --id-ink-1: #0B1220;        /* fond relevé */
+  --id-ink-2: #101A2E;        /* surface carte */
+  --id-ink-3: #15223A;        /* surface carte hover */
+  --id-ink-glass: rgba(12, 19, 33, 0.72);
 
-  /* Volt — accent de marque */
-  --id-volt: #C6F53F;
-  --id-volt-bright: #DFFF6A;
-  --id-volt-deep: #9BDB1F;
-  --id-volt-soft: rgba(198, 245, 63, 0.14);
-  --id-volt-line: rgba(198, 245, 63, 0.32);
+  /* Royal — accent de marque (token historique --id-volt conservé) */
+  --id-royal: #3E7BFA;
+  --id-cta-gold: #F0B23A;
+  --id-cta-gold-bright: #FFC95E;
+  --id-cta-gold-deep: #D29312;
+  --id-volt: #3E7BFA;
+  --id-volt-bright: #6BA1FF;
+  --id-volt-deep: #2A5CD8;
+  --id-volt-soft: rgba(62, 123, 250, 0.14);
+  --id-volt-line: rgba(62, 123, 250, 0.32);
 
   /* Fonctionnels (marchés verrouillés par tests) */
   --id-btts: #34D399;
@@ -42,18 +46,18 @@
   --id-vip-gold: #F5C96B;
 
   /* Texte */
-  --id-ice: #F4F8F2;
-  --id-mist: #A8B5A9;
-  --id-dim: #6F7D72;
+  --id-ice: #F2F6FD;
+  --id-mist: #A2B3CC;
+  --id-dim: #63718A;
 
   /* Lignes */
-  --id-line: rgba(226, 240, 214, 0.09);
-  --id-line-strong: rgba(226, 240, 214, 0.16);
+  --id-line: rgba(178, 202, 238, 0.09);
+  --id-line-strong: rgba(178, 202, 238, 0.16);
 
   /* Élévation */
   --id-shadow-card: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 10px 30px rgba(0, 0, 0, 0.45);
-  --id-shadow-pop: 0 2px 0 rgba(198, 245, 63, 0.10) inset, 0 18px 50px rgba(0, 0, 0, 0.55), 0 6px 24px rgba(198, 245, 63, 0.07);
-  --id-shadow-volt: 0 8px 28px rgba(198, 245, 63, 0.28);
+  --id-shadow-pop: 0 2px 0 rgba(62, 123, 250, 0.10) inset, 0 18px 50px rgba(0, 0, 0, 0.55), 0 6px 24px rgba(62, 123, 250, 0.07);
+  --id-shadow-volt: 0 8px 28px rgba(62, 123, 250, 0.28);
 
   /* Rayons */
   --id-r-sm: 10px;
@@ -62,13 +66,13 @@
   --id-r-xl: 26px;
 
   /* ── Recâblage des tokens hérités (toutes les couches convergent ici) ── */
-  --bg-page: #050807;
+  --bg-page: #070B14;
   --bg-main: var(--id-ink-0);
   --bg-secondary: var(--id-ink-1);
   --bg-tertiary: var(--id-ink-2);
   --bg-elev-1: var(--id-ink-1);
   --bg-elev-2: var(--id-ink-2);
-  --bg-inset: #070B09;
+  --bg-inset: #080E1B;
   --phase3-ink: var(--id-ink-0);
   --phase3-ink-soft: var(--id-ink-1);
   --phase3-surface: var(--id-ink-2);
@@ -107,10 +111,10 @@
   --accent: var(--id-volt);
   --accent-hover: var(--id-volt-bright);
   --accent-soft: var(--id-volt-soft);
-  --accent-soft-2: rgba(198, 245, 63, 0.07);
+  --accent-soft-2: rgba(62, 123, 250, 0.07);
   --action-primary: var(--id-volt);
   --action-primary-hover: var(--id-volt-bright);
-  --action-primary-text: #0A0F08;
+  --action-primary-text: #08101F;
   --action-secondary-border: var(--id-line-strong);
   --action-secondary-text: var(--id-mist);
 
@@ -151,27 +155,27 @@ html {
 
 body {
   background:
-    radial-gradient(58rem 34rem at 12% -6%, rgba(198, 245, 63, 0.07), transparent 60%),
-    radial-gradient(48rem 30rem at 96% 4%, rgba(18, 183, 106, 0.05), transparent 62%),
-    radial-gradient(60rem 42rem at 50% 118%, rgba(198, 245, 63, 0.045), transparent 64%),
+    radial-gradient(58rem 34rem at 12% -6%, rgba(62, 123, 250, 0.07), transparent 60%),
+    radial-gradient(48rem 30rem at 96% 4%, rgba(42, 92, 216, 0.05), transparent 62%),
+    radial-gradient(60rem 42rem at 50% 118%, rgba(62, 123, 250, 0.045), transparent 64%),
     var(--id-ink-0);
   color: var(--id-ice);
   background-attachment: fixed;
 }
 
 ::selection {
-  background: rgba(198, 245, 63, 0.32);
-  color: #F6FFF0;
+  background: rgba(62, 123, 250, 0.32);
+  color: #EAF2FF;
 }
 
 ::-webkit-scrollbar { width: 9px; height: 9px; }
 ::-webkit-scrollbar-track { background: var(--id-ink-0); }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #1D261E, #131B15);
+  background: linear-gradient(180deg, #1A2438, #15223A);
   border-radius: 99px;
   border: 2px solid var(--id-ink-0);
 }
-::-webkit-scrollbar-thumb:hover { background: #2A3529; }
+::-webkit-scrollbar-thumb:hover { background: #2B3D5C; }
 
 /* Grain premium ultra-léger sur toute la page */
 .bp-site-page::before {
@@ -198,11 +202,11 @@ h2[id] {
 }
 
 .fi-topbar {
-  background: linear-gradient(180deg, rgba(16, 22, 17, 0.88), rgba(10, 15, 12, 0.82));
+  background: linear-gradient(180deg, rgba(14, 21, 36, 0.88), rgba(7, 12, 22, 0.82));
   backdrop-filter: blur(18px) saturate(1.25);
   -webkit-backdrop-filter: blur(18px) saturate(1.25);
   border-bottom: 1px solid var(--id-line);
-  box-shadow: 0 1px 0 rgba(198, 245, 63, 0.06), 0 14px 34px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 1px 0 rgba(62, 123, 250, 0.06), 0 14px 34px rgba(0, 0, 0, 0.4);
 }
 
 .fi-topbar::after {
@@ -212,7 +216,7 @@ h2[id] {
   right: 0;
   top: 0;
   height: 2px;
-  background: linear-gradient(90deg, transparent 4%, rgba(198, 245, 63, 0.5) 30%, rgba(18, 183, 106, 0.4) 62%, transparent 96%);
+  background: linear-gradient(90deg, transparent 4%, rgba(62, 123, 250, 0.5) 30%, rgba(42, 92, 216, 0.4) 62%, transparent 96%);
   opacity: 0.6;
   pointer-events: none;
 }
@@ -224,7 +228,7 @@ h2[id] {
   font-weight: 400;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  background: linear-gradient(100deg, #F7FFF0 30%, var(--id-volt) 78%);
+  background: linear-gradient(100deg, #EAF2FF 30%, var(--id-volt) 78%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -248,7 +252,7 @@ h2[id] {
 
 /* Boutons icône — pastilles de verre */
 .fi-icon-button {
-  background: rgba(226, 240, 214, 0.05);
+  background: rgba(178, 202, 238, 0.05);
   border: 1px solid var(--id-line);
   border-radius: 12px;
   color: var(--id-mist);
@@ -274,11 +278,11 @@ h2[id] {
 }
 .fi-desktop-links a:hover {
   color: var(--id-ice);
-  background: rgba(226, 240, 214, 0.06);
+  background: rgba(178, 202, 238, 0.06);
 }
 .fi-desktop-links a[aria-current='page'] {
   color: var(--id-volt);
-  background: rgba(198, 245, 63, 0.09);
+  background: rgba(62, 123, 250, 0.09);
   box-shadow: inset 0 -2px 0 var(--id-volt);
 }
 
@@ -289,12 +293,12 @@ h2[id] {
 }
 .fi-status-dot.is-fresh {
   background: var(--id-volt);
-  box-shadow: 0 0 0 3px rgba(198, 245, 63, 0.18);
+  box-shadow: 0 0 0 3px rgba(62, 123, 250, 0.18);
   animation: id-pulse 2.4s ease-in-out infinite;
 }
 @keyframes id-pulse {
-  0%, 100% { box-shadow: 0 0 0 3px rgba(198, 245, 63, 0.18); }
-  50% { box-shadow: 0 0 0 6px rgba(198, 245, 63, 0.07); }
+  0%, 100% { box-shadow: 0 0 0 3px rgba(62, 123, 250, 0.18); }
+  50% { box-shadow: 0 0 0 6px rgba(62, 123, 250, 0.07); }
 }
 
 .fi-topbar__fresh {
@@ -315,7 +319,7 @@ h2[id] {
   font-weight: 600;
   letter-spacing: 0.08em;
   color: var(--id-ice);
-  background: rgba(226, 240, 214, 0.06);
+  background: rgba(178, 202, 238, 0.06);
   border: 1px dashed var(--id-volt-line);
   border-radius: 10px;
   padding: 6px 11px;
@@ -340,7 +344,7 @@ h2[id] {
 
 /* Rail desktop (sidebar) — verre sombre à bord volt */
 .fi-sidebar {
-  background: linear-gradient(180deg, rgba(13, 18, 14, 0.92), rgba(8, 12, 9, 0.9));
+  background: linear-gradient(180deg, rgba(11, 17, 30, 0.92), rgba(5, 9, 17, 0.9));
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-right: 1px solid var(--id-line);
@@ -387,20 +391,20 @@ h2[id] {
 }
 .fi-nav-link:hover {
   color: var(--id-ice);
-  background: rgba(226, 240, 214, 0.05);
+  background: rgba(178, 202, 238, 0.05);
   transform: translateX(2px);
 }
 .fi-nav-link[aria-current='page'] {
   color: var(--id-ice);
-  background: linear-gradient(90deg, var(--id-volt-soft), rgba(198, 245, 63, 0.03));
-  border-color: rgba(198, 245, 63, 0.22);
+  background: linear-gradient(90deg, var(--id-volt-soft), rgba(62, 123, 250, 0.03));
+  border-color: rgba(62, 123, 250, 0.22);
 }
 .fi-nav-link[aria-current='page']::before { height: 60%; }
 .fi-nav-link[aria-current='page'] .fi-nav-link__label { color: var(--id-volt); }
 
 .fi-nav-icon {
   border-radius: 9px;
-  background: rgba(226, 240, 214, 0.05);
+  background: rgba(178, 202, 238, 0.05);
   transition: background 0.22s ease, transform 0.22s ease;
 }
 .fi-nav-icon svg { stroke: currentColor; fill: none; }
@@ -411,7 +415,7 @@ h2[id] {
 .fi-nav-link[aria-current='page'] .fi-nav-icon svg { stroke: var(--id-volt); }
 
 .fi-nav-partner__logo {
-  background: rgba(226, 240, 214, 0.05);
+  background: rgba(178, 202, 238, 0.05);
   border-radius: 9px;
   overflow: hidden;
 }
@@ -428,14 +432,14 @@ h2[id] {
 
 /* ── 4. MENU MOBILE — tiroir plein écran en verre, liens scénarisés ─────── */
 .fi-nav-backdrop {
-  background: rgba(3, 5, 4, 0.62);
+  background: rgba(2, 4, 8, 0.62);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   animation: id-fade 0.28s ease both;
 }
 
 .fi-nav-drawer {
-  background: linear-gradient(180deg, rgba(13, 18, 14, 0.96), rgba(6, 9, 7, 0.97));
+  background: linear-gradient(180deg, rgba(11, 17, 30, 0.96), rgba(4, 7, 13, 0.97));
   backdrop-filter: blur(24px) saturate(1.2);
   -webkit-backdrop-filter: blur(24px) saturate(1.2);
   border-right: 1px solid var(--id-line);
@@ -482,7 +486,7 @@ h2[id] {
 
 /* ── 5. BARRE D'ONGLETS MOBILE — socle en verre à indicateurs volt ──────── */
 .bottomnav-shell {
-  background: linear-gradient(180deg, rgba(10, 15, 12, 0.78), rgba(6, 9, 7, 0.92));
+  background: linear-gradient(180deg, rgba(7, 12, 22, 0.78), rgba(4, 7, 13, 0.92));
   backdrop-filter: blur(22px) saturate(1.3);
   -webkit-backdrop-filter: blur(22px) saturate(1.3);
   border-top: 1px solid var(--id-line);
@@ -495,7 +499,7 @@ h2[id] {
 .bottomnav-tab span { font-family: inherit; }
 .bottomnav-tab.is-active { color: var(--id-volt); }
 .bottomnav-tab:active { transform: scale(0.94); }
-.bottomnav-tab.is-active .bottomnav-logo { filter: drop-shadow(0 0 8px rgba(198, 245, 63, 0.45)); }
+.bottomnav-tab.is-active .bottomnav-logo { filter: drop-shadow(0 0 8px rgba(62, 123, 250, 0.45)); }
 
 /* ── 6. HERO « FLOODLIGHT » — plein écran, titre Anton, CTA volt ────────── */
 .bp-home {
@@ -503,9 +507,9 @@ h2[id] {
   overflow: hidden;
   border-radius: 0 0 var(--id-r-xl) var(--id-r-xl);
   background:
-    radial-gradient(46rem 26rem at 84% -12%, rgba(198, 245, 63, 0.12), transparent 60%),
-    radial-gradient(38rem 24rem at -6% 8%, rgba(18, 183, 106, 0.08), transparent 58%),
-    linear-gradient(180deg, rgba(10, 15, 12, 0.4), transparent 42%);
+    radial-gradient(46rem 26rem at 84% -12%, rgba(62, 123, 250, 0.12), transparent 60%),
+    radial-gradient(38rem 24rem at -6% 8%, rgba(42, 92, 216, 0.08), transparent 58%),
+    linear-gradient(180deg, rgba(7, 12, 22, 0.4), transparent 42%);
 }
 
 /* Terrain : cercle central + lignes, texture géométrique */
@@ -517,10 +521,10 @@ h2[id] {
   pointer-events: none;
   opacity: 0.5;
   background:
-    radial-gradient(circle 220px at 82% 10%, transparent 218px, rgba(226, 240, 214, 0.055) 219px, transparent 221px),
-    radial-gradient(circle 90px at 82% 10%, transparent 88px, rgba(198, 245, 63, 0.1) 89px, transparent 91px),
-    linear-gradient(90deg, transparent 49.85%, rgba(226, 240, 214, 0.045) 49.85%, rgba(226, 240, 214, 0.045) 50.15%, transparent 50.15%),
-    linear-gradient(rgba(226, 240, 214, 0.03) 1px, transparent 1px);
+    radial-gradient(circle 220px at 82% 10%, transparent 218px, rgba(178, 202, 238, 0.055) 219px, transparent 221px),
+    radial-gradient(circle 90px at 82% 10%, transparent 88px, rgba(62, 123, 250, 0.1) 89px, transparent 91px),
+    linear-gradient(90deg, transparent 49.85%, rgba(178, 202, 238, 0.045) 49.85%, rgba(178, 202, 238, 0.045) 50.15%, transparent 50.15%),
+    linear-gradient(rgba(178, 202, 238, 0.03) 1px, transparent 1px);
   background-size: auto, auto, auto, 100% 46px;
   -webkit-mask-image: linear-gradient(180deg, #000 30%, transparent 88%);
   mask-image: linear-gradient(180deg, #000 30%, transparent 88%);
@@ -535,7 +539,7 @@ h2[id] {
   width: 60vmax;
   height: 60vmax;
   pointer-events: none;
-  background: conic-gradient(from 200deg at 50% 50%, transparent 0deg, rgba(198, 245, 63, 0.05) 18deg, transparent 44deg);
+  background: conic-gradient(from 200deg at 50% 50%, transparent 0deg, rgba(62, 123, 250, 0.05) 18deg, transparent 44deg);
   animation: id-sweep 14s ease-in-out infinite alternate;
   -webkit-mask-image: radial-gradient(closest-side, #000, transparent 72%);
   mask-image: radial-gradient(closest-side, #000, transparent 72%);
@@ -558,7 +562,7 @@ h2[id] {
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--id-mist);
-  background: rgba(5, 8, 7, 0.55);
+  background: rgba(4, 8, 16, 0.55);
   border: 1px solid var(--id-line-strong);
   border-radius: 999px;
   padding: 7px 14px;
@@ -573,7 +577,7 @@ h2[id] {
   font-size: 0; /* le glyphe ◈ du markup devient un simple point volt */
   background: var(--id-volt);
   border-radius: 50%;
-  box-shadow: 0 0 10px rgba(198, 245, 63, 0.6);
+  box-shadow: 0 0 10px rgba(62, 123, 250, 0.6);
   animation: id-pulse 2.2s ease-in-out infinite;
 }
 
@@ -604,7 +608,7 @@ h2[id] {
   height: 3px;
   margin-top: 16px;
   border-radius: 99px;
-  background: linear-gradient(90deg, var(--id-volt), rgba(198, 245, 63, 0));
+  background: linear-gradient(90deg, var(--id-volt), rgba(62, 123, 250, 0));
 }
 
 .bp-home__description {
@@ -621,12 +625,13 @@ h2[id] {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: linear-gradient(135deg, var(--id-volt-bright), var(--id-volt) 55%, var(--id-volt-deep));
-  color: #0A0F08;
+  /* CTA de conversion — or sur marine : contraste maximal, signal premium */
+  background: linear-gradient(135deg, var(--id-cta-gold-bright), var(--id-cta-gold) 55%, var(--id-cta-gold-deep));
+  color: #1B1302;
   font-weight: 800;
   border-radius: 999px;
   padding: 15px 26px;
-  box-shadow: var(--id-shadow-volt), 0 1px 0 rgba(255, 255, 255, 0.35) inset;
+  box-shadow: 0 8px 28px rgba(240, 178, 58, 0.30), 0 1px 0 rgba(255, 255, 255, 0.4) inset;
   overflow: hidden;
   transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease;
 }
@@ -645,7 +650,7 @@ h2[id] {
 }
 .bp-home__primary:hover {
   transform: translateY(-2px) scale(1.015);
-  box-shadow: 0 12px 38px rgba(198, 245, 63, 0.36), 0 1px 0 rgba(255, 255, 255, 0.35) inset;
+  box-shadow: 0 12px 38px rgba(240, 178, 58, 0.42), 0 1px 0 rgba(255, 255, 255, 0.4) inset;
 }
 .bp-home__primary:active { transform: scale(0.97); }
 .bp-home__primary span { transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1); }
@@ -655,7 +660,7 @@ h2[id] {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(226, 240, 214, 0.05);
+  background: rgba(178, 202, 238, 0.05);
   color: var(--id-ice);
   border: 1px solid var(--id-line-strong);
   border-radius: 999px;
@@ -701,7 +706,7 @@ h2[id] {
 .bp-feature {
   position: relative;
   border-radius: var(--id-r-xl);
-  background: linear-gradient(165deg, rgba(19, 27, 21, 0.92), rgba(10, 15, 12, 0.88));
+  background: linear-gradient(165deg, rgba(17, 27, 45, 0.92), rgba(7, 12, 22, 0.88));
   border: 1px solid var(--id-line-strong);
   box-shadow: var(--id-shadow-pop);
   backdrop-filter: blur(14px);
@@ -716,7 +721,7 @@ h2[id] {
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(150deg, rgba(198, 245, 63, 0.5), transparent 34%, transparent 66%, rgba(18, 183, 106, 0.4));
+  background: linear-gradient(150deg, rgba(62, 123, 250, 0.5), transparent 34%, transparent 66%, rgba(42, 92, 216, 0.4));
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
@@ -729,7 +734,7 @@ h2[id] {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: linear-gradient(115deg, transparent 42%, rgba(226, 240, 214, 0.09) 50%, transparent 58%);
+  background: linear-gradient(115deg, transparent 42%, rgba(178, 202, 238, 0.09) 50%, transparent 58%);
   transform: translateX(-130%);
   transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
   pointer-events: none;
@@ -737,7 +742,7 @@ h2[id] {
 }
 .bp-feature:hover {
   transform: perspective(900px) rotateX(3deg) rotateY(-3deg) translateZ(6px);
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6), 0 14px 40px rgba(198, 245, 63, 0.1);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6), 0 14px 40px rgba(62, 123, 250, 0.1);
   border-color: var(--id-volt-line);
 }
 .bp-feature:hover::after { transform: translateX(130%); }
@@ -747,7 +752,7 @@ h2[id] {
 
 .bp-feature__header {
   border-bottom: 1px solid var(--id-line);
-  background: linear-gradient(90deg, rgba(198, 245, 63, 0.08), transparent 70%);
+  background: linear-gradient(90deg, rgba(62, 123, 250, 0.08), transparent 70%);
 }
 .bp-feature__header span {
   font-family: var(--font-mono), ui-monospace, monospace;
@@ -794,7 +799,7 @@ h2[id] {
   font-size: 10px;
   letter-spacing: 0.16em;
   color: var(--id-dim);
-  background: rgba(226, 240, 214, 0.05);
+  background: rgba(178, 202, 238, 0.05);
   border: 1px solid var(--id-line);
   border-radius: 8px;
   padding: 4px 8px;
@@ -819,7 +824,7 @@ h2[id] {
   position: relative;
   border-radius: var(--id-r-md);
   border: 1px solid var(--id-line);
-  background: rgba(5, 8, 7, 0.55);
+  background: rgba(4, 8, 16, 0.55);
   padding: 12px 14px;
   overflow: hidden;
   transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.28s ease, box-shadow 0.28s ease;
@@ -876,7 +881,7 @@ h2[id] {
 
 .bp-feature__loading {
   border-radius: var(--id-r-lg);
-  background: linear-gradient(100deg, rgba(226, 240, 214, 0.03) 30%, rgba(226, 240, 214, 0.07) 50%, rgba(226, 240, 214, 0.03) 70%);
+  background: linear-gradient(100deg, rgba(178, 202, 238, 0.03) 30%, rgba(178, 202, 238, 0.07) 50%, rgba(178, 202, 238, 0.03) 70%);
   background-size: 220% 100%;
   animation: id-shimmer 1.6s linear infinite;
 }
@@ -893,7 +898,7 @@ h2[id] {
 .prediction-match-card {
   position: relative;
   border-radius: var(--id-r-lg);
-  background: linear-gradient(170deg, var(--id-ink-2), rgba(9, 13, 10, 0.92));
+  background: linear-gradient(170deg, var(--id-ink-2), rgba(6, 10, 19, 0.92));
   border: 1px solid var(--id-line);
   box-shadow: var(--id-shadow-card);
   transform-style: preserve-3d;
@@ -921,7 +926,7 @@ h2[id] {
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(140deg, rgba(198, 245, 63, 0.55), transparent 38%, transparent 70%, rgba(52, 211, 153, 0.45));
+  background: linear-gradient(140deg, rgba(62, 123, 250, 0.55), transparent 38%, transparent 70%, rgba(52, 211, 153, 0.45));
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
@@ -963,7 +968,7 @@ h2[id] {
   margin: 26px 14px;
   border-radius: var(--id-r-xl);
   border: 1px solid var(--id-line);
-  background: linear-gradient(160deg, rgba(14, 20, 16, 0.8), rgba(8, 12, 9, 0.85));
+  background: linear-gradient(160deg, rgba(12, 19, 33, 0.8), rgba(5, 9, 17, 0.85));
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   overflow: hidden;
@@ -976,7 +981,7 @@ h2[id] {
   bottom: 12%;
   width: 3px;
   border-radius: 99px;
-  background: linear-gradient(180deg, var(--id-volt), rgba(18, 183, 106, 0.6));
+  background: linear-gradient(180deg, var(--id-volt), rgba(42, 92, 216, 0.6));
 }
 .bp-home-summary h2 {
   font-family: var(--font-display), 'Arial Narrow', sans-serif;
@@ -1005,7 +1010,7 @@ h2[id] {
 }
 .bp-internal-links a {
   color: var(--id-mist);
-  background: rgba(226, 240, 214, 0.04);
+  background: rgba(178, 202, 238, 0.04);
   border: 1px solid var(--id-line);
   border-radius: 999px;
   padding: 8px 15px;
@@ -1033,13 +1038,13 @@ footer#faq::before {
   left: 8%;
   right: 8%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(198, 245, 63, 0.4), rgba(18, 183, 106, 0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(62, 123, 250, 0.4), rgba(42, 92, 216, 0.3), transparent);
 }
 
 .hp-footer-brand {
   border-radius: var(--id-r-xl);
   border: 1px solid var(--id-line);
-  background: linear-gradient(165deg, rgba(14, 20, 16, 0.82), rgba(7, 10, 8, 0.88));
+  background: linear-gradient(165deg, rgba(12, 19, 33, 0.82), rgba(5, 8, 15, 0.88));
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   padding: 22px;
@@ -1053,7 +1058,7 @@ footer#faq::before {
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.03em;
-  background: linear-gradient(100deg, #F7FFF0 40%, var(--id-volt) 90%);
+  background: linear-gradient(100deg, #EAF2FF 40%, var(--id-volt) 90%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1090,7 +1095,7 @@ footer#faq::before {
 
 /* Panneaux internes du footer (transparence / FAQ / légal) */
 footer#faq .rounded-xl[style*="#141C25"] {
-  background: linear-gradient(160deg, rgba(14, 20, 16, 0.75), rgba(8, 12, 9, 0.85)) !important;
+  background: linear-gradient(160deg, rgba(12, 19, 33, 0.75), rgba(5, 9, 17, 0.85)) !important;
   border: 1px solid var(--id-line) !important;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -1112,19 +1117,19 @@ footer#faq .rounded-xl[style*="#141C25"] {
 
 /* ── 11. FORMULAIRES / CHAMPS ───────────────────────────────────────────── */
 input, select, textarea {
-  background: rgba(5, 8, 7, 0.6);
+  background: rgba(4, 8, 16, 0.6);
   border: 1px solid var(--id-line);
   border-radius: 12px;
   color: var(--id-ice);
 }
 input:focus, select:focus, textarea:focus {
   border-color: var(--id-volt-line);
-  box-shadow: 0 0 0 3px rgba(198, 245, 63, 0.12);
+  box-shadow: 0 0 0 3px rgba(62, 123, 250, 0.12);
   outline: none;
 }
 
 /* ── 12. LIENS DE CONTENU GÉNÉRIQUES ────────────────────────────────────── */
-.bp-site-page a { text-decoration-color: rgba(198, 245, 63, 0.4); }
+.bp-site-page a { text-decoration-color: rgba(62, 123, 250, 0.4); }
 .bp-site-page a.underline:hover { text-decoration-color: var(--id-volt); }
 
 /* ── 13. RÉVÉLATION AU SCROLL (progressive, sans JS) ────────────────────── */
@@ -1213,13 +1218,13 @@ table td { border-bottom: 1px solid var(--id-line); }
 .hp-card,
 .btx-card,
 .glass-card {
-  background: linear-gradient(170deg, var(--id-ink-2), rgba(9, 13, 10, 0.92)) !important;
+  background: linear-gradient(170deg, var(--id-ink-2), rgba(6, 10, 19, 0.92)) !important;
   border: 1px solid var(--id-line) !important;
   border-radius: var(--id-r-lg) !important;
   box-shadow: var(--id-shadow-card) !important;
 }
 
-/* Fin — Identity 2026 · Prime Time Volt */
+/* Fin — Identity 2026 · Sovereign Blue */
 
 /* ═══════════════════════════════════════════════════════════════════════════
  16. BLINDAGES DE CASCADE — gagne sur les !important bleus de refonte-2026
@@ -1230,10 +1235,10 @@ table td { border-bottom: 1px solid var(--id-line); }
 
 html, body {
   background:
-    radial-gradient(58rem 34rem at 12% -6%, rgba(198, 245, 63, 0.07), transparent 60%),
-    radial-gradient(48rem 30rem at 96% 4%, rgba(18, 183, 106, 0.05), transparent 62%),
-    radial-gradient(60rem 42rem at 50% 118%, rgba(198, 245, 63, 0.045), transparent 64%),
-    #050807 !important;
+    radial-gradient(58rem 34rem at 12% -6%, rgba(62, 123, 250, 0.07), transparent 60%),
+    radial-gradient(48rem 30rem at 96% 4%, rgba(42, 92, 216, 0.05), transparent 62%),
+    radial-gradient(60rem 42rem at 50% 118%, rgba(62, 123, 250, 0.045), transparent 64%),
+    #070B14 !important;
 }
 
 /* Grain page — restaure au-dessus du kill-list de refonte */
@@ -1251,10 +1256,10 @@ html, body {
 /* ── HERO floodlight ── */
 #main-content .bp-home {
   background-image:
-    radial-gradient(44rem 24rem at 86% -10%, rgba(198, 245, 63, 0.14), transparent 58%),
-    radial-gradient(32rem 20rem at 4% -4%, rgba(226, 240, 214, 0.05), transparent 55%),
-    radial-gradient(120rem 42rem at 50% 130%, rgba(18, 183, 106, 0.09), transparent 62%),
-    linear-gradient(180deg, rgba(10, 15, 12, 0.55), rgba(5, 8, 7, 0) 50%) !important;
+    radial-gradient(44rem 24rem at 86% -10%, rgba(62, 123, 250, 0.14), transparent 58%),
+    radial-gradient(32rem 20rem at 4% -4%, rgba(178, 202, 238, 0.05), transparent 55%),
+    radial-gradient(120rem 42rem at 50% 130%, rgba(42, 92, 216, 0.09), transparent 62%),
+    linear-gradient(180deg, rgba(7, 12, 22, 0.55), rgba(4, 8, 16, 0) 50%) !important;
   border-bottom: 1px solid var(--id-line) !important;
   border-radius: 0 0 var(--id-r-xl) var(--id-r-xl);
 }
@@ -1263,10 +1268,10 @@ html, body {
   display: block !important;
   content: '' !important;
   background:
-    radial-gradient(circle 220px at 82% 10%, transparent 218px, rgba(226, 240, 214, 0.055) 219px, transparent 221px),
-    radial-gradient(circle 90px at 82% 10%, transparent 88px, rgba(198, 245, 63, 0.1) 89px, transparent 91px),
-    linear-gradient(90deg, transparent 49.85%, rgba(226, 240, 214, 0.045) 49.85%, rgba(226, 240, 214, 0.045) 50.15%, transparent 50.15%),
-    linear-gradient(rgba(226, 240, 214, 0.03) 1px, transparent 1px) !important;
+    radial-gradient(circle 220px at 82% 10%, transparent 218px, rgba(178, 202, 238, 0.055) 219px, transparent 221px),
+    radial-gradient(circle 90px at 82% 10%, transparent 88px, rgba(62, 123, 250, 0.1) 89px, transparent 91px),
+    linear-gradient(90deg, transparent 49.85%, rgba(178, 202, 238, 0.045) 49.85%, rgba(178, 202, 238, 0.045) 50.15%, transparent 50.15%),
+    linear-gradient(rgba(178, 202, 238, 0.03) 1px, transparent 1px) !important;
   background-size: auto, auto, auto, 100% 46px !important;
   background-position: center top !important;
   opacity: 0.5 !important;
@@ -1281,7 +1286,7 @@ html, body {
 #main-content .bp-home::after {
   display: block !important;
   content: '' !important;
-  background: conic-gradient(from 200deg at 50% 50%, transparent 0deg, rgba(198, 245, 63, 0.05) 18deg, transparent 44deg) !important;
+  background: conic-gradient(from 200deg at 50% 50%, transparent 0deg, rgba(62, 123, 250, 0.05) 18deg, transparent 44deg) !important;
   position: absolute !important;
   top: -40% !important;
   left: 55% !important;
@@ -1295,7 +1300,7 @@ html, body {
 
 #main-content .bp-home__eyebrow {
   color: var(--id-mist) !important;
-  background: rgba(5, 8, 7, 0.55) !important;
+  background: rgba(4, 8, 16, 0.55) !important;
   border: 1px solid var(--id-line-strong) !important;
   border-radius: 999px !important;
   padding: 7px 14px;
@@ -1313,7 +1318,7 @@ html, body {
   color: var(--id-volt) !important;
   background: var(--id-volt) !important;
   font-size: 0 !important;
-  box-shadow: 0 0 10px rgba(198, 245, 63, 0.6) !important;
+  box-shadow: 0 0 10px rgba(62, 123, 250, 0.6) !important;
 }
 
 #main-content .bp-home__title {
@@ -1341,22 +1346,22 @@ html, body {
   height: 3px !important;
   margin-top: 16px !important;
   border-radius: 99px !important;
-  background: linear-gradient(90deg, var(--id-volt), rgba(198, 245, 63, 0)) !important;
+  background: linear-gradient(90deg, var(--id-volt), rgba(62, 123, 250, 0)) !important;
 }
 
 #main-content .bp-home__description { color: var(--id-mist) !important; font-size: 15px !important; line-height: 1.65 !important; }
 
 #main-content .bp-home__primary {
-  background: linear-gradient(135deg, var(--id-volt-bright), var(--id-volt) 55%, var(--id-volt-deep)) !important;
-  color: #0A0F08 !important;
+  background: linear-gradient(135deg, var(--id-cta-gold-bright), var(--id-cta-gold) 55%, var(--id-cta-gold-deep)) !important;
+  color: #1B1302 !important;
   border-color: transparent !important;
-  box-shadow: var(--id-shadow-volt), 0 1px 0 rgba(255, 255, 255, 0.35) inset !important;
+  box-shadow: 0 8px 28px rgba(240, 178, 58, 0.30), 0 1px 0 rgba(255, 255, 255, 0.4) inset !important;
   border-radius: 999px !important;
   padding: 15px 26px !important;
   font-weight: 800 !important;
   overflow: hidden;
 }
-#main-content .bp-home__primary:hover { background: linear-gradient(135deg, #ECFF7E, var(--id-volt-bright) 60%, var(--id-volt)) !important; }
+#main-content .bp-home__primary:hover { background: linear-gradient(135deg, #FFD97E, var(--id-cta-gold-bright) 60%, var(--id-cta-gold)) !important; }
 #main-content .bp-home__primary:active { transform: scale(0.97); }
 #main-content .bp-home__primary::after {
   display: block !important;
@@ -1370,7 +1375,7 @@ html, body {
 }
 
 #main-content .bp-home__secondary {
-  background: rgba(226, 240, 214, 0.05) !important;
+  background: rgba(178, 202, 238, 0.05) !important;
   border-color: var(--id-line-strong) !important;
   color: var(--id-ice) !important;
   border-radius: 999px !important;
@@ -1383,7 +1388,7 @@ html, body {
 
 /* ── CARTE VEDETTE 3D ── */
 #main-content .bp-feature {
-  background: linear-gradient(165deg, rgba(19, 27, 21, 0.92), rgba(10, 15, 12, 0.88)) !important;
+  background: linear-gradient(165deg, rgba(17, 27, 45, 0.92), rgba(7, 12, 22, 0.88)) !important;
   border: 1px solid var(--id-line-strong) !important;
   border-radius: var(--id-r-xl) !important;
   box-shadow: var(--id-shadow-pop) !important;
@@ -1396,7 +1401,7 @@ html, body {
   #main-content .bp-feature:hover {
     transform: perspective(900px) rotateX(3deg) rotateY(-3deg) translateZ(6px);
     border-color: var(--id-volt-line) !important;
-    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6), 0 14px 40px rgba(198, 245, 63, 0.1) !important;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6), 0 14px 40px rgba(62, 123, 250, 0.1) !important;
   }
 }
 #main-content .bp-feature:active { transform: perspective(900px) scale(0.985); }
@@ -1408,7 +1413,7 @@ html, body {
   inset: 0 !important;
   border-radius: inherit !important;
   padding: 1px !important;
-  background: linear-gradient(150deg, rgba(198, 245, 63, 0.5), transparent 34%, transparent 66%, rgba(18, 183, 106, 0.4)) !important;
+  background: linear-gradient(150deg, rgba(62, 123, 250, 0.5), transparent 34%, transparent 66%, rgba(42, 92, 216, 0.4)) !important;
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0) !important;
   -webkit-mask-composite: xor !important;
   mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0) !important;
@@ -1422,7 +1427,7 @@ html, body {
   position: absolute !important;
   inset: 0 !important;
   border-radius: inherit !important;
-  background: linear-gradient(115deg, transparent 42%, rgba(226, 240, 214, 0.09) 50%, transparent 58%) !important;
+  background: linear-gradient(115deg, transparent 42%, rgba(178, 202, 238, 0.09) 50%, transparent 58%) !important;
   transform: translateX(-130%);
   transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1) !important;
   pointer-events: none !important;
@@ -1430,9 +1435,9 @@ html, body {
 }
 #main-content .bp-feature:hover::after { transform: translateX(130%); }
 
-#main-content .bp-feature__header { border-bottom: 1px solid var(--id-line); background: linear-gradient(90deg, rgba(198, 245, 63, 0.08), transparent 70%); }
+#main-content .bp-feature__header { border-bottom: 1px solid var(--id-line); background: linear-gradient(90deg, rgba(62, 123, 250, 0.08), transparent 70%); }
 #main-content .bp-feature__header span { color: var(--id-volt) !important; }
-#main-content .bp-feature__header span i { background: var(--id-volt) !important; box-shadow: 0 0 0 3px rgba(198, 245, 63, 0.16) !important; animation: id-pulse 2s ease-in-out infinite; }
+#main-content .bp-feature__header span i { background: var(--id-volt) !important; box-shadow: 0 0 0 3px rgba(62, 123, 250, 0.16) !important; animation: id-pulse 2s ease-in-out infinite; }
 #main-content .bp-feature__header small { color: var(--id-dim) !important; }
 #main-content .bp-feature__league { color: var(--id-mist) !important; }
 #main-content .bp-feature__teams b {
@@ -1449,7 +1454,7 @@ html, body {
   font-style: normal;
   font-size: 10px;
   letter-spacing: 0.16em;
-  background: rgba(226, 240, 214, 0.05);
+  background: rgba(178, 202, 238, 0.05);
   border: 1px solid var(--id-line);
   border-radius: 8px;
   padding: 4px 8px;
@@ -1462,7 +1467,7 @@ html, body {
 #main-content .bp-feature__time b { font-family: var(--font-mono), ui-monospace, monospace !important; color: var(--id-ice) !important; }
 #main-content .bp-feature__time span { color: var(--id-dim) !important; }
 #main-content .bp-feature__picks > div {
-  background: rgba(5, 8, 7, 0.55) !important;
+  background: rgba(4, 8, 16, 0.55) !important;
   border-color: var(--id-line) !important;
   border-radius: var(--id-r-md) !important;
   padding: 12px 14px !important;
@@ -1479,7 +1484,7 @@ html, body {
 #main-content .bp-feature__link:hover { color: var(--id-volt-bright) !important; }
 #main-content .bp-feature__loading {
   border-radius: var(--id-r-lg);
-  background: linear-gradient(100deg, rgba(226, 240, 214, 0.03) 30%, rgba(226, 240, 214, 0.07) 50%, rgba(226, 240, 214, 0.03) 70%) !important;
+  background: linear-gradient(100deg, rgba(178, 202, 238, 0.03) 30%, rgba(178, 202, 238, 0.07) 50%, rgba(178, 202, 238, 0.03) 70%) !important;
   background-size: 220% 100% !important;
   animation: id-shimmer 1.6s linear infinite !important;
 }
@@ -1489,7 +1494,7 @@ html, body {
 #main-content .hp-mc-card,
 #main-content .btp-match-card,
 #main-content .prediction-match-card {
-  background: linear-gradient(170deg, var(--id-ink-2), rgba(9, 13, 10, 0.94)) !important;
+  background: linear-gradient(170deg, var(--id-ink-2), rgba(6, 10, 19, 0.94)) !important;
   border-color: var(--id-line) !important;
   border-radius: var(--id-r-lg) !important;
   box-shadow: var(--id-shadow-card);
@@ -1502,7 +1507,7 @@ html, body {
   #main-content .prediction-match-card:hover {
     transform: perspective(1100px) rotateX(2.4deg) rotateY(-2.4deg) translateZ(4px);
     border-color: var(--id-volt-line) !important;
-    background: linear-gradient(170deg, var(--id-ink-3), rgba(9, 13, 10, 0.96)) !important;
+    background: linear-gradient(170deg, var(--id-ink-3), rgba(6, 10, 19, 0.96)) !important;
     box-shadow: var(--id-shadow-pop);
   }
 }
@@ -1520,7 +1525,7 @@ html, body {
 
 /* ── PANNEAU DE CONSENTEMENT — verre encre ── */
 .cookie-consent-panel {
-  background: linear-gradient(170deg, rgba(14, 20, 16, 0.96), rgba(8, 12, 9, 0.97)) !important;
+  background: linear-gradient(170deg, rgba(12, 19, 33, 0.96), rgba(5, 9, 17, 0.97)) !important;
   border: 1px solid var(--id-line-strong) !important;
   box-shadow: 0 -14px 44px rgba(0, 0, 0, 0.5) !important;
   color: var(--id-ice) !important;
@@ -1622,7 +1627,7 @@ footer#faq a[style*='47, 125, 255'] {
   height: 6px;
   border-radius: 50%;
   background: var(--id-volt);
-  box-shadow: 0 0 8px rgba(198, 245, 63, 0.55);
+  box-shadow: 0 0 8px rgba(62, 123, 250, 0.55);
   flex: none;
 }
 .bp-fixture-strip__label::after {
@@ -1650,7 +1655,7 @@ footer#faq a[style*='47, 125, 255'] {
   display: grid;
   gap: 7px;
   align-content: start;
-  background: linear-gradient(170deg, var(--id-ink-2), rgba(9, 13, 10, 0.92));
+  background: linear-gradient(170deg, var(--id-ink-2), rgba(6, 10, 19, 0.92));
   border: 1px solid var(--id-line);
   border-radius: var(--id-r-md);
   padding: 12px 13px;
@@ -1797,10 +1802,10 @@ footer#faq a[style*='47, 125, 255'] {
   border-color: var(--id-volt-line);
   background: var(--id-ink-3);
 }
-.fi-nav-drawer .fi-nav-partner .fi-nav-icon { background: rgba(226, 240, 214, 0.07); }
+.fi-nav-drawer .fi-nav-partner .fi-nav-icon { background: rgba(178, 202, 238, 0.07); }
 .fi-nav-drawer .fi-nav-partner .fi-nav-partner__external { margin-left: auto; }
 .fi-nav-drawer .fi-nav-link[aria-current='page'] {
-  background: linear-gradient(90deg, rgba(198, 245, 63, 0.12), rgba(198, 245, 63, 0.02));
+  background: linear-gradient(90deg, rgba(62, 123, 250, 0.12), rgba(62, 123, 250, 0.02));
 }
 
 /* Révélations du rail d'affiches, même grammaire que le reste du hero */

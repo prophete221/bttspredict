@@ -181,7 +181,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                var VERSION = 'bttspredict-v69-identity-prime-volt-2026-11-19';
+                var VERSION = 'bttspredict-v70-identity-sovereign-blue-2026-11-19';
                 try {
                   if('serviceWorker' in navigator){
                     navigator.serviceWorker.getRegistrations().then(function(regs){
