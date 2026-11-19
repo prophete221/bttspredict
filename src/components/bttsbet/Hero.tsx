@@ -1,13 +1,58 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type CSSProperties } from 'react'
 import { useLanguage } from './LanguageSwitcher'
 import BookmakerCardLinks from './BookmakerCardLinks'
 import { type Locale, localizedPath } from '@/lib/i18n'
 import { generateMatchSlug } from '@/lib/match-slug'
-import { getDakarDayDiff } from '@/lib/dakar-date'
+import { getDakarDayDiff, parseDakarDateTime } from '@/lib/dakar-date'
 import { getNextGeminiFixture, type FeaturedFixture } from '@/lib/home-featured-match'
-import type { GeminiPrediction } from '@/lib/gemini-predictions'
+import { getGeminiPicks, type GeminiPrediction } from '@/lib/gemini-predictions'
+import { selectUpcomingGeminiItems } from '@/lib/match-center-window'
+
+/** Prochaines affiches avec sélection publique — même fenêtre/logique que la carte vedette. */
+function getUpcomingGeminiFixtures(data: unknown, now = new Date(), limit = 4): FeaturedFixture[] {
+  if (!data || typeof data !== 'object' || Array.isArray(data)) return []
+  const payload = data as { free?: unknown[]; predictions?: unknown[] }
+  const rows = [
+    ...(Array.isArray(payload.free) ? payload.free : []),
+    ...(Array.isArray(payload.predictions) ? payload.predictions : []),
+  ]
+  const candidates: FeaturedFixture[] = []
+  for (const value of rows) {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) continue
+    const row = value as Record<string, unknown>
+    const home = typeof row.home === 'string' ? row.home.trim() : ''
+    const away = typeof row.away === 'string' ? row.away.trim() : ''
+    const date = typeof row.date === 'string' ? row.date.slice(0, 10) : ''
+    const time = typeof row.time === 'string' ? row.time.trim() : ''
+    const kickoff = parseDakarDateTime(date, time)
+    if (!home || !away || !kickoff || kickoff.getTime() <= now.getTime()) continue
+    const predictions = getGeminiPicks(row)
+    if (predictions.length === 0) continue
+    candidates.push({
+      home,
+      away,
+      league: typeof row.league === 'string' ? row.league.trim() : '',
+      date,
+      time,
+      homeLogo: typeof row.homeLogo === 'string' ? row.homeLogo : undefined,
+      awayLogo: typeof row.awayLogo === 'string' ? row.awayLogo : undefined,
+      predictions,
+    })
+  }
+  return selectUpcomingGeminiItems(candidates, date => getDakarDayDiff(date, now))
+    .filter(item => {
+      const kickoff = parseDakarDateTime(item.date, item.time)
+      return kickoff !== null && kickoff.getTime() > now.getTime()
+    })
+    .sort((a, b) => {
+      const aKickoff = parseDakarDateTime(a.date, a.time)?.getTime() ?? Number.MAX_SAFE_INTEGER
+      const bKickoff = parseDakarDateTime(b.date, b.time)?.getTime() ?? Number.MAX_SAFE_INTEGER
+      return aKickoff - bKickoff
+    })
+    .slice(0, limit)
+}
 
 type Copy = {
   eyebrow: string
@@ -114,6 +159,7 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
   const lang = initialLocale ?? detectedLang
   const copy = COPY[lang] ?? COPY.fr
   const [fixture, setFixture] = useState<FeaturedFixture | null>(null)
+  const [strip, setStrip] = useState<FeaturedFixture[]>([])
   const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
@@ -124,15 +170,16 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
       .then(data => {
         if (!active) return
         setFixture(getNextGeminiFixture(data))
+        setStrip(getUpcomingGeminiFixtures(data).slice(1))
         setLoaded(true)
       })
     return () => { active = false }
   }, [])
 
   const direction = lang === 'ar' ? 'rtl' : 'ltr'
-  const href = fixture
-    ? localizedPath(`/match/${generateMatchSlug(fixture.home, fixture.away, fixture.date)}`, lang)
-    : '#matchs'
+  const matchHref = (f: FeaturedFixture) =>
+    localizedPath(`/match/${generateMatchSlug(f.home, f.away, f.date)}`, lang)
+  const href = fixture ? matchHref(fixture) : '#matchs'
   const featureLinkLabel = fixture ? copy.view : copy.primary
 
   return (
@@ -185,6 +232,7 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
                     <small>{marketLabel(pick, copy)}</small>
                     <b>{selectionLabel(pick.prediction, lang)}</b>
                     <strong title={copy.probability} aria-label={`${copy.probability} ${Math.round(pick.proba * 100)}%`}>{Math.round(pick.proba * 100)}%</strong>
+                    <i className="bp-feature__meter" aria-hidden="true" style={{ '--meter': `${Math.round(pick.proba * 100)}%` } as CSSProperties} />
                   </div>
                 ))}
               </div>
@@ -197,6 +245,32 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
           <a className="bp-feature__link" href={href}>{featureLinkLabel}<span aria-hidden="true">→</span></a>
         </article>
       </div>
+
+      {strip.length > 0 && (
+        <div className="bp-fixture-strip">
+          <p className="bp-fixture-strip__label">{copy.eyebrow}</p>
+          <div className="bp-fixture-strip__rail">
+            {strip.map(item => (
+              <a
+                className="bp-fixture"
+                href={matchHref(item)}
+                key={`${item.date}-${item.home}-${item.away}`}
+              >
+                {item.league && <span className="bp-fixture__league">{item.league}</span>}
+                <span className="bp-fixture__teams">{item.home}<i aria-hidden="true">–</i>{item.away}</span>
+                <span className="bp-fixture__meta">
+                  <b>{item.time}</b>
+                  {item.predictions.map(pick => (
+                    <em key={pick.market} className={pick.market === 'BTTS' ? 'is-btts' : 'is-over'}>
+                      {pick.market} {Math.round(pick.proba * 100)}%
+                    </em>
+                  ))}
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
     </section>
   )
 }

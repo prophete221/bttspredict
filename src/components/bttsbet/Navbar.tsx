@@ -10,6 +10,7 @@ import { isVipAvailable } from '@/lib/locale-route-policy'
 import { trackAffiliateCodeCopy } from '@/lib/affiliateTracking'
 import { copyTextToClipboard } from '@/lib/clipboard'
 import { GlobalNavigationContext } from './NavigationContext'
+import BrandMark from './BrandMark'
 
 type NavLink = { id: string; label: Record<Locale, string>; href: string; icon: string }
 type NavGroup = { id: string; label: Record<Locale, string>; links: NavLink[] }
@@ -184,7 +185,8 @@ function NavigationContent() {
   }, [currentPartner])
 
   function isActive(href: string) {
-    const clean = href.split('#')[0].replace(/\/$/, '') || '/'
+    if (href.includes('#')) return false
+    const clean = href.replace(/\/$/, '') || '/'
     const current = pathname.replace(/\/$/, '') || '/'
     if (clean === paths.home.replace(/\/$/, '') || clean === '') return current === clean
     return current === clean || current.startsWith(`${clean}/`)
@@ -202,7 +204,7 @@ function NavigationContent() {
     <div className={`fi-navigation${collapsed ? ' is-collapsed' : ''}`}>
       <aside className="fi-sidebar" data-collapsed={collapsed ? 'true' : 'false'} aria-label={menuLabel}>
         <a className="fi-sidebar__brand" href={paths.home} aria-label={`${appName} — ${groups[0].links[0].label[lang]}`}>
-          <img src="/brand/bttspredict-fireball-transparent.png" alt="" width="44" height="44" />
+          <BrandMark size={40} />
           <span className="fi-brand-copy"><strong>{appName}</strong></span>
         </a>
         <nav className="fi-sidebar__scroll" aria-label={menuLabel}>
@@ -228,7 +230,7 @@ function NavigationContent() {
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d={menuOpen ? 'M6 6l12 12M18 6 6 18' : 'M4 6h16M4 12h16M4 18h16'} /></svg>
           </button>
           <a className="fi-mobile-brand" href={paths.home} aria-label={`${appName} — ${groups[0].links[0].label[lang]}`}>
-            <img src="/brand/bttspredict-fireball-transparent.png" alt="" width="32" height="32" /><strong>{appName}</strong>
+            <BrandMark size={30} /><strong>{appName}</strong>
           </a>
           <div className="fi-topbar__context">
             <span className="fi-topbar__page">{pageTitle}</span>
@@ -268,7 +270,7 @@ function NavigationContent() {
         <aside className="fi-nav-drawer" id="fi-mobile-navigation" role="dialog" aria-modal="true" aria-label={menuLabel}>
           <div className="fi-nav-drawer__head">
             <a className="fi-mobile-brand" href={paths.home} onClick={() => setMenuOpen(false)}>
-              <img src="/brand/bttspredict-fireball-transparent.png" alt="" width="32" height="32" /><strong>{appName}</strong>
+              <BrandMark size={30} /><strong>{appName}</strong>
             </a>
             <div className="fi-topbar__actions"><LanguageSwitcher compact /><button type="button" className="fi-icon-button" aria-label={mobileCloseLabel} onClick={() => setMenuOpen(false)}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg></button></div>
           </div>

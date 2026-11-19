@@ -9,6 +9,10 @@ import "./bttspredict-rebuild.css";
 /* REFONTE 2026 — design system canonique, chargé EN DERNIER :
    redéfinit les tokens et restyle les familles de composants. */
 import "./refonte-2026.css";
+/* IDENTITY 2026 — direction artistique « Prime Time Volt », chargée après
+   refonte-2026 : nouvelle palette, typo display, cartes 3D, menu verre.
+   Noms de classes, textes, liens et données inchangés. */
+import "./identity-2026.css";
 import ApplicationNavigationShell from "@/components/bttsbet/ApplicationNavigationShell";
 import LegacyCredentialCleanup from "@/components/bttsbet/LegacyCredentialCleanup";
 
@@ -40,6 +44,13 @@ const notoArabic = localFont({
     { path: "./fonts/NotoSansArabic-Bold.ttf", weight: "700", style: "normal" },
   ],
   display: 'swap',
+});
+
+const anton = localFont({
+  variable: "--font-display",
+  src: "./fonts/anton-400.woff2",
+  display: 'swap',
+  weight: '400',
 });
 
 const jetbrainsMono = localFont({
@@ -118,7 +129,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#080d16",
+  themeColor: "#070B14",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -170,7 +181,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                var VERSION = 'bttspredict-v68-premium-redesign-2026-11-15';
+                var VERSION = 'bttspredict-v70-identity-sovereign-blue-2026-11-19';
                 try {
                   if('serviceWorker' in navigator){
                     navigator.serviceWorker.getRegistrations().then(function(regs){
@@ -196,7 +207,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} ${notoArabic.variable} ${jetbrainsMono.variable} antialiased`}
+        className={`${inter.variable} ${notoArabic.variable} ${jetbrainsMono.variable} ${anton.variable} antialiased`}
       >
         <LegacyCredentialCleanup />
         <AnalyticsLoader />
