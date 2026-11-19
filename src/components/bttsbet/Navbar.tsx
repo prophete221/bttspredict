@@ -185,7 +185,8 @@ function NavigationContent() {
   }, [currentPartner])
 
   function isActive(href: string) {
-    const clean = href.split('#')[0].replace(/\/$/, '') || '/'
+    if (href.includes('#')) return false
+    const clean = href.replace(/\/$/, '') || '/'
     const current = pathname.replace(/\/$/, '') || '/'
     if (clean === paths.home.replace(/\/$/, '') || clean === '') return current === clean
     return current === clean || current.startsWith(`${clean}/`)
