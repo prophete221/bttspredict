@@ -37,6 +37,7 @@ import ShareAnalysisButton from './ShareAnalysisButton'
 import VipMarketTeaser from './VipMarketTeaser'
 import MissingMarketVipLink from './MissingMarketVipLink'
 import TeamLogo from './TeamLogo'
+import { attachStadiumTilt } from './stadium-tilt'
 
 // ─── FixturesCollapsible — page légère : n'affiche que les premières affiches ──
 // Présentation uniquement : les données, textes, liens et le compteur restent inchangés.
@@ -604,6 +605,16 @@ export default function BttsTodayDashboard({
     cards.forEach(c => io.observe(c))
     return () => io.disconnect()
   }, [loading, activeFilter, quickFilter, filteredMatches, liveTodayMatches, scheduledTodayMatches, finishedTodayMatches, upcomingMatches, now])
+
+  // ─── Tilt 3D piloté par le pointeur (décoratif, desktop, reduced-motion off) ─
+  // Délégation sur la section : les cartes btx-card réagissent au curseur
+  // via --rx/--ry/--gx/--gy consommées par identity-2026.css.
+  useEffect(() => {
+    if (loading) return
+    const section = sectionRef.current
+    if (!section) return
+    return attachStadiumTilt(section)
+  }, [loading, activeFilter, quickFilter, filteredMatches])
 
   // ─── Compteurs animés du header ────────────────────────────────────────
   const animCount = useCountUp(stats.total, !loading)

@@ -892,75 +892,8 @@ h2[id] {
 
 .bp-feature__empty { color: var(--id-mist); }
 
-/* ── 7. CARTES DE MATCH — 3D interactif, bordures réactives ─────────────── */
-.btp-match-card,
-.hp-live,
-.prediction-match-card {
-  position: relative;
-  border-radius: var(--id-r-lg);
-  background: linear-gradient(170deg, var(--id-ink-2), rgba(6, 10, 19, 0.92));
-  border: 1px solid var(--id-line);
-  box-shadow: var(--id-shadow-card);
-  transform-style: preserve-3d;
-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease, box-shadow 0.35s ease;
-}
-@media (hover: hover) and (pointer: fine) {
-  .btp-match-card:hover,
-  .hp-live:hover,
-  .prediction-match-card:hover {
-    transform: perspective(1100px) rotateX(2.4deg) rotateY(-2.4deg) translateZ(4px);
-    border-color: var(--id-volt-line);
-    box-shadow: var(--id-shadow-pop);
-  }
-}
-.btp-match-card:active,
-.hp-live:active,
-.prediction-match-card:active {
-  transform: perspective(1100px) scale(0.98);
-}
-
-/* Bordure volt au survol (double fond masqué) */
-.btp-match-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(140deg, rgba(62, 123, 250, 0.55), transparent 38%, transparent 70%, rgba(52, 211, 153, 0.45));
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
-.btp-match-card:hover::before { opacity: 1; }
-
-.hp-mc-team-name {
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  color: var(--id-ice);
-}
-.hp-mc-time-row b,
-.hp-mc-time-row .hp-mc-status {
-  font-family: var(--font-mono), ui-monospace, monospace;
-}
-
-.hp-pick__selection {
-  font-family: var(--font-mono), ui-monospace, monospace;
-  letter-spacing: 0.06em;
-}
-
-.hp-pick__confidence {
-  font-family: var(--font-mono), ui-monospace, monospace;
-  font-weight: 600;
-}
-
-.btp-match-card__countdown {
-  font-family: var(--font-mono), ui-monospace, monospace;
-  letter-spacing: 0.06em;
-}
+/* ── 7. CARTES DE MATCH — remplacées par la section 21 « CARTES STADIUM 3D » ─
+   (peau premium unifiée + tilt pointeur + mètres animés ; voir fin de fichier) */
 
 /* ── 8. SECTIONS ÉDITORIALES — respirations de plateforme ───────────────── */
 .bp-home-summary {
@@ -1825,3 +1758,725 @@ footer#faq a[style*='47, 125, 255'] {
   }
 }
 
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   21. CARTES STADIUM 3D — peau premium unifiée, interactive, mobile-first
+   ═══════════════════════════════════════════════════════════════════════════
+   Familles couvertes :
+   - .btp-match-card / .hp-mc-card  → MatchCenter de l'accueil (#matchs)
+   - .btx-card                      → dashboard /pronostics (btx)
+   - .prediction-match-card         → pages prédictions + teaser VIP
+   Interaction : tilt 3D piloté par le pointeur (stadium-tilt.ts écrit
+   --rx/--ry et --gx/--gy), reflet lumineux qui suit le curseur, bordure
+   gradient vivante, crêtes en profondeur (translateZ), mètres de probabilité
+   animés à la révélation (mc3d/btx3d), balayage lumineux, halo LIVE pulsé.
+   Mobile-first : press-scale tactile, aucun tilt, tout reste lisible.
+   Données/verdicts inchangés : couleurs marchés verrouillées
+   BTTS #34D399 · Over 2.5 #FBBF24 · gagné #12B76A · perdu #FF5C5C. */
+
+/* ── 21.1 Surface unifiée — verre marine, double halo stadium ───────────── */
+#main-content .btp-match-card,
+#main-content .hp-mc-card,
+#main-content .btx-card,
+#main-content .prediction-match-card,
+.btp-match-card,
+.btx-card,
+.prediction-match-card,
+.hp-live {
+  position: relative;
+  border-radius: 18px;
+  background:
+    radial-gradient(130% 55% at 50% -10%, rgba(62, 123, 250, 0.13), transparent 62%),
+    radial-gradient(90% 40% at 50% 110%, rgba(240, 178, 58, 0.05), transparent 60%),
+    linear-gradient(167deg, #101A2E 0%, rgba(10, 16, 29, 0.95) 56%, rgba(7, 11, 20, 0.97) 100%) !important;
+  border: 1px solid rgba(125, 165, 255, 0.13) !important;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.05) inset,
+    0 16px 38px -20px rgba(0, 0, 0, 0.72);
+  transform: perspective(1100px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateZ(0);
+  transform-style: preserve-3d;
+  transition:
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease,
+    box-shadow 0.4s ease;
+  will-change: transform;
+}
+
+/* ── 21.2 Bordure gradient vivante (::before) + reflet pointeur (::after) ── */
+#main-content .btp-match-card::before,
+#main-content .btx-card::before,
+#main-content .prediction-match-card::before,
+.btp-match-card::before,
+.btx-card::before,
+.prediction-match-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(155deg,
+    rgba(62, 123, 250, 0.42),
+    rgba(125, 165, 255, 0.10) 30%,
+    rgba(178, 202, 238, 0.05) 55%,
+    rgba(240, 178, 58, 0.22) 88%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  opacity: 0.75;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  z-index: 3;
+}
+#main-content .btp-match-card::after,
+#main-content .btx-card::after,
+#main-content .prediction-match-card::after,
+.btp-match-card::after,
+.btx-card::after,
+.prediction-match-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(460px circle at var(--gx, 50%) var(--gy, -30%),
+    rgba(139, 178, 255, 0.14), transparent 58%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ── 21.3 Tilt 3D pointeur + états tactiles ──────────────────────────────── */
+@media (hover: hover) and (pointer: fine) {
+  #main-content .btp-match-card:hover,
+  #main-content .btx-card:hover,
+  #main-content .prediction-match-card:hover,
+  #main-content .hp-mc-card:hover,
+  .btp-match-card:hover,
+  .btx-card:hover,
+  .prediction-match-card:hover,
+  .hp-live:hover {
+    transform: perspective(1100px) rotateX(var(--rx, 1.6deg)) rotateY(var(--ry, -1.6deg)) translateZ(16px) !important;
+    border-color: rgba(125, 165, 255, 0.30) !important;
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.06) inset,
+      0 34px 64px -26px rgba(2, 6, 16, 0.85),
+      0 10px 40px -12px rgba(62, 123, 250, 0.16);
+  }
+  .btp-match-card:hover::after,
+  .btx-card:hover::after,
+  .prediction-match-card:hover::after,
+  .hp-live:hover::after,
+  .btp-match-card.is-tilting::after,
+  .btx-card.is-tilting::after,
+  .prediction-match-card.is-tilting::after {
+    opacity: 1;
+  }
+  .btp-match-card.is-tilting::before,
+  .btx-card.is-tilting::before,
+  .prediction-match-card.is-tilting::before {
+    opacity: 1;
+  }
+}
+.btp-match-card:active,
+.btx-card:active,
+.prediction-match-card:active,
+.hp-live:active,
+#main-content .btp-match-card:active,
+#main-content .btx-card:active,
+#main-content .prediction-match-card:active {
+  transform: perspective(1100px) rotateX(0deg) rotateY(0deg) scale(0.982) translateZ(0) !important;
+  transition-duration: 0.14s;
+}
+
+/* ── 21.4 MatchCenter — chips, crêtes en profondeur, heure ───────────────── */
+#main-content .btp-match-card__meta,
+.btp-match-card__meta { position: relative; z-index: 1; }
+#main-content .btp-match-card__league,
+.btp-match-card__league {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--id-mist) !important;
+  padding: 4px 10px;
+  border-radius: 99px;
+  background: rgba(62, 123, 250, 0.10) !important;
+  border: 1px solid rgba(125, 165, 255, 0.18);
+  max-width: 62%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#main-content .btp-match-card .hp-mc-status,
+.btp-match-card .hp-mc-status {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 99px;
+  background: rgba(16, 26, 46, 0.65);
+  border: 1px solid var(--id-line-strong);
+}
+#main-content .btp-match-card__crest,
+.btp-match-card__crest {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at 50% 32%, rgba(125, 165, 255, 0.15), rgba(16, 26, 46, 0.92));
+  border: 1px solid rgba(125, 165, 255, 0.17);
+  box-shadow: 0 4px 14px -6px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(7, 11, 20, 0.65) inset;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease, box-shadow 0.35s ease;
+}
+#main-content .btp-match-card__crest img,
+.btp-match-card__crest img { width: 40px; height: 40px; object-fit: contain; }
+.btp-match-card:hover .btp-match-card__crest {
+  transform: translateZ(28px) scale(1.05);
+  border-color: rgba(125, 165, 255, 0.32);
+  box-shadow: 0 6px 18px -6px rgba(62, 123, 250, 0.35), 0 0 0 1px rgba(7, 11, 20, 0.6) inset;
+}
+#main-content .hp-mc-team-name,
+.hp-mc-team-name {
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--id-ice) !important;
+}
+#main-content .btp-match-card .hp-mc-time-row strong,
+.btp-match-card .hp-mc-time-row strong {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 17px;
+  color: var(--id-ice) !important;
+  text-shadow: 0 0 18px rgba(62, 123, 250, 0.35);
+}
+#main-content .hp-mc-time-row span,
+.hp-mc-time-row span { color: var(--id-dim) !important; }
+#main-content .btp-match-card__countdown,
+.btp-match-card__countdown {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  letter-spacing: 0.06em;
+  color: var(--id-cta-gold) !important;
+}
+
+/* ── 21.5 Picks = tableau de bord : puce marché, sélection display, mètre ── */
+#main-content .btp-market,
+.btp-match-card .btp-market {
+  position: relative;
+  padding: 9px 12px 15px !important;
+  border-radius: 13px !important;
+  background: linear-gradient(160deg, rgba(16, 26, 46, 0.78), rgba(9, 14, 26, 0.88)) !important;
+  border: 1px solid rgba(178, 202, 238, 0.10) !important;
+  overflow: hidden;
+}
+#main-content .btp-market.btp-market--btts { border-color: rgba(52, 211, 153, 0.30) !important; }
+#main-content .btp-market.btp-market--over25 { border-color: rgba(251, 191, 36, 0.30) !important; }
+#main-content .btp-market__name,
+.btp-market__name {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.09em;
+  padding: 3px 8px !important;
+  border-radius: 99px !important;
+}
+#main-content .btp-market.btp-market--btts .btp-market__name {
+  color: #34D399 !important;
+  background: rgba(52, 211, 153, 0.12) !important;
+}
+#main-content .btp-market.btp-market--over25 .btp-market__name {
+  color: #FBBF24 !important;
+  background: rgba(251, 191, 36, 0.12) !important;
+}
+#main-content .hp-pick__selection,
+.hp-pick__selection {
+  font-family: var(--font-display), 'Anton', Impact, sans-serif;
+  font-size: 21px;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--id-ice) !important;
+  text-shadow: 0 2px 16px rgba(62, 123, 250, 0.30);
+  margin-left: 2px;
+}
+#main-content .hp-pick__confidence,
+.hp-pick__confidence {
+  margin-left: auto;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-weight: 600;
+  font-size: 11.5px;
+  color: var(--id-ice) !important;
+  padding: 5px 11px;
+  border-radius: 99px;
+  background: rgba(62, 123, 250, 0.10) !important;
+  border: 1px solid rgba(125, 165, 255, 0.22);
+  font-variant-numeric: tabular-nums;
+}
+.btp-market[data-market='BTTS'] .hp-pick__confidence,
+#main-content .btp-market.btp-market--btts .hp-pick__confidence {
+  background: rgba(52, 211, 153, 0.10) !important;
+  border-color: rgba(52, 211, 153, 0.28);
+}
+.btp-market[data-market='O2.5'] .hp-pick__confidence,
+#main-content .btp-market.btp-market--over25 .hp-pick__confidence {
+  background: rgba(251, 191, 36, 0.10) !important;
+  border-color: rgba(251, 191, 36, 0.28);
+}
+
+/* Mètre de probabilité — piste + remplissage animé à la révélation */
+.btp-meter {
+  position: absolute;
+  left: 11px;
+  right: 11px;
+  bottom: 6px;
+  height: 4px;
+  border-radius: 99px;
+  background: rgba(178, 202, 238, 0.13);
+  overflow: hidden;
+  pointer-events: none;
+}
+.btp-meter i {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--w, 0%);
+  border-radius: 99px;
+  transition: width 0.95s cubic-bezier(0.22, 1, 0.36, 1) 0.18s;
+}
+.btp-market[data-market='BTTS'] .btp-meter i {
+  background: linear-gradient(90deg, rgba(52, 211, 153, 0.40), #34D399 76%, #A7F3D0);
+  box-shadow: 0 0 12px rgba(52, 211, 153, 0.5);
+}
+.btp-market[data-market='O2.5'] .btp-meter i {
+  background: linear-gradient(90deg, rgba(251, 191, 36, 0.40), #FBBF24 76%, #FDE68A);
+  box-shadow: 0 0 12px rgba(251, 191, 36, 0.5);
+}
+.btp-meter i::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 25%, rgba(255, 255, 255, 0.42) 50%, transparent 75%);
+  transform: translateX(-100%);
+  animation: btpMeterSheen 3.4s ease-in-out 1.4s infinite;
+}
+.btp-meter i::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: -2.5px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0.9;
+  box-shadow: 0 0 10px 2px rgba(52, 211, 153, 0.55);
+}
+.btp-market[data-market='O2.5'] .btp-meter i::before { box-shadow: 0 0 10px 2px rgba(251, 191, 36, 0.55); }
+/* Sans JS : pas de gate .mc3d → largeur finale immédiate (progressive enhancement).
+   Avec JS : remplissage depuis 0 quand la carte est révélée. */
+.mc3d .btp-match-card .btp-meter i { width: 0; }
+.mc3d .btp-match-card.is-revealed .btp-meter i { width: var(--w, 0%); }
+@keyframes btpMeterSheen {
+  0% { transform: translateX(-100%); }
+  55%, 100% { transform: translateX(230%); }
+}
+
+/* ── 21.6 Dashboard btx — barres premium, VS display, chips verre ────────── */
+#main-content .btx-card__edge,
+.btx-card__edge {
+  background: linear-gradient(90deg, transparent, rgba(62, 123, 250, 0.55), rgba(240, 178, 58, 0.30), transparent) !important;
+  opacity: 0.85;
+}
+#main-content .btx-league,
+.btx-league {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--id-mist) !important;
+  padding: 4px 10px;
+  border-radius: 99px;
+  background: rgba(62, 123, 250, 0.10) !important;
+  border: 1px solid rgba(125, 165, 255, 0.18);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 62%;
+}
+#main-content .btx-status,
+.btx-status {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 99px;
+  border: 1px solid var(--id-line-strong);
+  background: rgba(16, 26, 46, 0.65);
+}
+#main-content .btx-vs__chip,
+.btx-vs__chip {
+  font-family: var(--font-display), 'Anton', Impact, sans-serif !important;
+  font-size: 14px !important;
+  letter-spacing: 0.1em;
+  color: var(--id-ice) !important;
+  background: radial-gradient(circle at 50% 30%, rgba(62, 123, 250, 0.30), rgba(16, 26, 46, 0.92)) !important;
+  border: 1px solid rgba(125, 165, 255, 0.30) !important;
+  box-shadow: 0 0 18px rgba(62, 123, 250, 0.28), 0 1px 0 rgba(255, 255, 255, 0.08) inset;
+  text-shadow: 0 0 12px rgba(62, 123, 250, 0.5);
+}
+#main-content .btx-vs__line,
+.btx-vs__line {
+  background: linear-gradient(90deg, transparent, rgba(125, 165, 255, 0.30), transparent) !important;
+}
+#main-content .btx-bar,
+.btx-bar {
+  background: rgba(178, 202, 238, 0.12) !important;
+  border-radius: 99px;
+}
+#main-content .btx-bar__fill,
+#main-content .btx-bar[data-market='BTTS'] .btx-bar__fill {
+  background: linear-gradient(90deg, rgba(52, 211, 153, 0.40), #34D399 76%, #A7F3D0) !important;
+  box-shadow: 0 0 12px rgba(52, 211, 153, 0.5) !important;
+  overflow: hidden;
+}
+#main-content .btx-bar[data-market='O2.5'] .btx-bar__fill {
+  background: linear-gradient(90deg, rgba(251, 191, 36, 0.40), #FBBF24 76%, #FDE68A) !important;
+  box-shadow: 0 0 12px rgba(251, 191, 36, 0.5) !important;
+}
+#main-content .btx-bar__fill::after,
+.btx-bar__fill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 25%, rgba(255, 255, 255, 0.40) 50%, transparent 75%);
+  transform: translateX(-100%);
+  animation: btpMeterSheen 3.4s ease-in-out 1.4s infinite;
+}
+#main-content .btx-chip,
+.btx-chip {
+  background: rgba(16, 26, 46, 0.6) !important;
+  border: 1px solid rgba(178, 202, 238, 0.12) !important;
+  border-radius: 99px;
+  color: var(--id-mist);
+}
+#main-content .btx-ai {
+  background: linear-gradient(160deg, rgba(62, 123, 250, 0.07), rgba(9, 14, 26, 0.6)) !important;
+  border: 1px solid rgba(125, 165, 255, 0.14) !important;
+  border-radius: 13px;
+}
+#main-content .btx-ai__dot,
+.btx-ai__dot {
+  background: var(--id-royal) !important;
+  box-shadow: 0 0 10px rgba(62, 123, 250, 0.8);
+  animation: btxAiPulse 2.6s ease-in-out infinite;
+}
+@keyframes btxAiPulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 10px rgba(62, 123, 250, 0.8); }
+  50% { opacity: 0.55; box-shadow: 0 0 4px rgba(62, 123, 250, 0.4); }
+}
+#main-content .btx-prob__value,
+.btx-prob__value {
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 14px rgba(62, 123, 250, 0.25);
+}
+
+/* ── 21.7 Pages prédictions (prediction-match-card) — même grammaire ─────── */
+#main-content .prediction-match-card__accent,
+.prediction-match-card__accent {
+  background: linear-gradient(90deg, transparent, rgba(62, 123, 250, 0.45), rgba(240, 178, 58, 0.25), transparent) !important;
+}
+
+/* ── 21.8 Verdicts et LIVE — accents verrouillés, halo pulsé ─────────────── */
+.btp-match-card.is-won,
+#main-content .btp-match-card.is-won { border-color: rgba(18, 183, 106, 0.35) !important; }
+.btp-match-card.is-won::before {
+  background: linear-gradient(155deg, rgba(18, 183, 106, 0.55), transparent 45%, rgba(18, 183, 106, 0.35));
+  opacity: 0.9;
+}
+.btp-match-card.is-lost,
+#main-content .btp-match-card.is-lost { border-color: rgba(255, 92, 92, 0.35) !important; }
+.btp-match-card.is-lost::before {
+  background: linear-gradient(155deg, rgba(255, 92, 92, 0.55), transparent 45%, rgba(255, 92, 92, 0.35));
+  opacity: 0.9;
+}
+.btp-match-card.is-live::before,
+.btx-card:has(.btx-status--live)::before {
+  opacity: 1;
+  animation: idLiveSweep 3.6s linear infinite;
+}
+.btp-match-card.is-live,
+#main-content .btp-match-card.is-live {
+  border-color: rgba(52, 211, 153, 0.38) !important;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.05) inset,
+    0 16px 38px -20px rgba(0, 0, 0, 0.72),
+    0 0 22px -6px rgba(52, 211, 153, 0.35);
+}
+@keyframes idLiveSweep {
+  0% { background-position: 0% 0; }
+  100% { background-position: 200% 0; }
+}
+.btp-match-card.is-live::before {
+  background: linear-gradient(110deg, rgba(52, 211, 153, 0.55), transparent 30%, transparent 62%, rgba(52, 211, 153, 0.45));
+  background-size: 200% 100%;
+}
+
+/* ── 21.9 Révélations, reduced-motion, robustesse ────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .btp-match-card,
+  .btx-card,
+  .prediction-match-card,
+  .hp-live,
+  #main-content .btp-match-card,
+  #main-content .btx-card,
+  #main-content .prediction-match-card {
+    transform: none !important;
+    transition: none !important;
+    will-change: auto;
+  }
+  .btp-match-card::after,
+  .btx-card::after,
+  .prediction-match-card::after { display: none !important; }
+  .btp-meter i,
+  .btx-bar__fill { transition: none !important; }
+  .btp-meter i::after,
+  .btx-bar__fill::after { animation: none !important; }
+  .btp-match-card.is-live::before,
+  .btx-card:has(.btx-status--live)::before { animation: none !important; }
+  .btx-ai__dot { animation: none !important; }
+}
+/* Écrans tactiles : pas de reflet pointeur, tactile = press-scale (21.3) */
+@media (hover: none) {
+  .btp-match-card::after,
+  .btx-card::after,
+  .prediction-match-card::after { display: none !important; }
+}
+/* Ne pas écraser le reflet du hero (bp-feature) qui a sa propre grammaire */
+.bp-feature .bp-feature__meter { animation: none; }
+
+/* ── 21.10 Entrée de scène réintégrée + parallaxe 3D + états à spécificité ──
+   La règle 21.1 (spécificité #main-content + !important) écrase les transforms
+   d'entrée de globals (.mc3d/.btx3d) : on les ré-écrit ici PLUS FORT, on ajoute
+   la parallaxe translateZ des blocs internes pendant le tilt, et les états
+   hover/active des cartes révélées à la bonne spécificité. */
+#main-content .mc3d .hp-mc-card:not(.is-revealed),
+#main-content .mc3d .btp-match-card:not(.is-revealed) {
+  opacity: 0;
+  transform: perspective(1100px) translateY(44px) rotateX(12deg) scale(0.96) !important;
+}
+#main-content .mc3d .hp-mc-card.is-revealed,
+#main-content .mc3d .btp-match-card.is-revealed {
+  opacity: 1;
+  transform: perspective(1100px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateZ(0) !important;
+}
+#main-content .btx3d .btx-rev:not(.is-revealed) {
+  opacity: 0;
+  transform: perspective(1100px) translateY(38px) rotateX(8deg) scale(0.97) !important;
+}
+#main-content .btx3d .btx-rev.is-revealed {
+  opacity: 1;
+  transform: perspective(1100px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateZ(0) !important;
+}
+@media (hover: hover) and (pointer: fine) {
+  #main-content .mc3d .hp-mc-card.is-revealed:hover,
+  #main-content .mc3d .btp-match-card.is-revealed:hover,
+  #main-content .btx3d .btx-rev.is-revealed:hover {
+    transform: perspective(1100px) rotateX(var(--rx, 1.6deg)) rotateY(var(--ry, -1.6deg)) translateZ(16px) !important;
+  }
+}
+#main-content .mc3d .hp-mc-card.is-revealed:active,
+#main-content .btx3d .btx-rev.is-revealed:active {
+  transform: perspective(1100px) rotateX(0deg) rotateY(0deg) scale(0.982) translateZ(0) !important;
+  transition-duration: 0.14s;
+}
+/* Parallaxe — les blocs internes flottent au-dessus du plan de la carte */
+.mc3d .btp-match-card.is-revealed .btp-match-card__meta,
+.btx3d .btx-card.is-revealed .btx-card__top {
+  transform: translateZ(20px);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.mc3d .btp-match-card.is-revealed .btp-match-card__fixture,
+.btx3d .btx-card.is-revealed .btx-teams {
+  transform: translateZ(34px);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.mc3d .btp-match-card.is-revealed .btp-match-card__picks,
+.btx3d .btx-card.is-revealed .btx-probs {
+  transform: translateZ(26px);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.mc3d .btp-match-card.is-revealed .btp-match-card__stats,
+.mc3d .btp-match-card.is-revealed .btp-match-card__countdown,
+.btx3d .btx-card.is-revealed .btx-meta {
+  transform: translateZ(22px);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.mc3d .btp-match-card.is-revealed .btp-match-card__bottom,
+.btx3d .btx-card.is-revealed .btx-actions {
+  transform: translateZ(30px);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@media (prefers-reduced-motion: reduce) {
+  #main-content .mc3d .hp-mc-card:not(.is-revealed),
+  #main-content .mc3d .hp-mc-card.is-revealed,
+  #main-content .btx3d .btx-rev:not(.is-revealed),
+  #main-content .btx3d .btx-rev.is-revealed {
+    transform: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+  }
+  .mc3d .btp-match-card.is-revealed .btp-match-card__meta,
+  .mc3d .btp-match-card.is-revealed .btp-match-card__fixture,
+  .mc3d .btp-match-card.is-revealed .btp-match-card__picks,
+  .mc3d .btp-match-card.is-revealed .btp-match-card__stats,
+  .mc3d .btp-match-card.is-revealed .btp-match-card__countdown,
+  .mc3d .btp-match-card.is-revealed .btp-match-card__bottom,
+  .btx3d .btx-card.is-revealed .btx-card__top,
+  .btx3d .btx-card.is-revealed .btx-teams,
+  .btx3d .btx-card.is-revealed .btx-probs,
+  .btx3d .btx-card.is-revealed .btx-meta,
+  .btx3d .btx-card.is-revealed .btx-actions {
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ── 21.11 #matchs — mêmes sélecteurs que la surcharge globals (l.12341+) ────
+   identity-2026 est la DERNIÈRE feuille : à spécificité égale, ces règles
+   gagnent et rétablissent le vrai tilt 3D sous le curseur sur l'accueil. */
+#matchs .hp-mc-grid.mc3d .hp-mc-card--approved:not(.is-revealed) {
+  opacity: 0;
+  transform: perspective(1100px) translateY(44px) rotateX(12deg) scale(0.96) !important;
+}
+#matchs .hp-mc-grid.mc3d .hp-mc-card--approved.is-revealed {
+  opacity: 1;
+  transform: perspective(1100px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateZ(0) !important;
+}
+#matchs .hp-mc-grid.mc3d .hp-mc-card--approved.is-revealed:hover {
+  transform: perspective(1100px) rotateX(var(--rx, 1.6deg)) rotateY(var(--ry, -1.6deg)) translateZ(16px) !important;
+  border-color: rgba(125, 165, 255, 0.30) !important;
+}
+#matchs .hp-mc-grid.mc3d .hp-mc-card--approved.is-revealed:active {
+  transform: perspective(1100px) rotateX(0deg) rotateY(0deg) scale(0.982) !important;
+}
+/* Reflet pointeur ::after — bat le glare --mx/--my historique (globals 5150) */
+#matchs .hp-mc-grid.mc3d .hp-mc-card--approved.is-revealed:hover::after,
+#matchs .hp-mc-grid.mc3d .hp-mc-card--approved.is-tilting::after { opacity: 1 !important; }
+#matchs .hp-mc-grid.mc3d .hp-mc-card--approved::after {
+  background: radial-gradient(460px circle at var(--gx, 50%) var(--gy, -30%),
+    rgba(139, 178, 255, 0.15), transparent 58%) !important;
+}
+/* reduced-motion : retour statique intégral sur #matchs aussi */
+@media (prefers-reduced-motion: reduce) {
+  #matchs .hp-mc-grid.mc3d .hp-mc-card--approved:not(.is-revealed),
+  #matchs .hp-mc-grid.mc3d .hp-mc-card--approved.is-revealed,
+  #matchs .hp-mc-grid.mc3d .hp-mc-card--approved.is-revealed:hover,
+  #matchs .hp-mc-grid.mc3d .hp-mc-card--approved.is-revealed:active {
+    transform: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   22. HERO HOME2 « SIGNAL » — SKIN SOVEREIGN BLUE (V5.1)
+   Hero marque restauré (maquette validée par le propriétaire, 19-11) :
+   rail clubs, titre « Plateforme N°1 Mondiale », chips, carte Signal en
+   vedette avec données réelles + partenaires. Remap de la couche phase3 de
+   globals (volt #c5f36a / cyan #45C7F7) vers les tokens Sovereign Blue :
+   royal #3E7BFA = données/signal, or #F0B23A = score exact (conversion),
+   encre #070B14. Ce fichier charge APRÈS globals.css → gagne les égalités ;
+   !important calqué là où la couche phase3 en pose.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── 22.0 Réactivation des éléments du hero masqués par les couches 15-11 ──
+   (design-system/matchday-ui/rebuild avaient display:none sur le rail, les
+   chips, l'ambiance et la photo de stade — la maquette validée les affiche) */
+.page-design--home .hp-hero--refonte .hp-clubs { display: block !important; }
+.page-design--home .hp-hero--refonte .hp-hero__trust { display: grid !important; }
+.page-design--home .hp-hero--refonte .hp-hero__glow,
+.page-design--home .hp-hero--refonte .hp-hero__gridbg,
+.page-design--home .hp-hero--refonte .hp-live-halo,
+.page-design--home .hp-hero--refonte .hp-live__lab-scene { display: block !important; }
+
+/* ── 22.1 Accent du titre — dégradé royal (N°1 Mondiale) ─────────────────── */
+/* Sélecteur calqué sur globals 9721 (0,3,0) — identity charge en dernier. */
+.page-design--home .hp-hero__title .aw-w--em,
+.hp-hero .aw-w--em,
+.hp-hero .hp-title-em {
+  background-image: linear-gradient(115deg, #3E7BFA 0%, #6FA5FF 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+}
+.hp-hero .hp-title-em {
+  background: linear-gradient(115deg, #3E7BFA 0%, #6FA5FF 100%) !important;
+}
+
+/* ── 22.2 Carte Signal — surface verre marine + ligne de crête royale ────── */
+.hp-hero--refonte .hp-live {
+  background: linear-gradient(150deg, rgba(16, 26, 46, 0.96), rgba(7, 11, 20, 0.99)) !important;
+  border-color: rgba(111, 143, 218, 0.22) !important;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+}
+.hp-hero--refonte .hp-live::before {
+  background: linear-gradient(90deg, transparent, rgba(62, 123, 250, 0.75), rgba(111, 165, 255, 0.5), transparent) !important;
+}
+
+/* ── 22.3 Badge « Données réelles » + pulsations + ligue → royal ─────────── */
+.hp-hero--refonte .hp-live__badge,
+.page-design--home .hp-hero--refonte .hp-live__badge {
+  color: #9DBAFF !important;
+  background: rgba(62, 123, 250, 0.10) !important;
+  border-color: rgba(62, 123, 250, 0.32) !important;
+}
+.hp-hero--refonte .hp-live__pulse,
+.hp-hero--refonte .hp-live .hp-status-dot {
+  background: #3E7BFA !important;
+  box-shadow: 0 0 10px rgba(62, 123, 250, 0.55) !important;
+}
+.hp-hero--refonte .hp-live__league {
+  color: #9DBAFF !important;
+}
+
+/* ── 22.4 Pills de sélection — BTTS royal, Over royal clair, Exact or ────── */
+.hp-hero--refonte .hp-live__pick.is-btts {
+  color: #9DBAFF !important;
+  background: rgba(62, 123, 250, 0.10) !important;
+  border-color: rgba(62, 123, 250, 0.32) !important;
+}
+.hp-hero--refonte .hp-live__pick.is-btts b { color: #9DBAFF !important; }
+.hp-hero--refonte .hp-live__pick.is-over {
+  color: #C7D8FF !important;
+  background: rgba(111, 165, 255, 0.10) !important;
+  border-color: rgba(111, 165, 255, 0.32) !important;
+}
+.hp-hero--refonte .hp-live__pick.is-over b { color: #C7D8FF !important; }
+.hp-hero--refonte .hp-live__pick.is-exact {
+  color: #F0B23A !important;
+  background: rgba(240, 178, 58, 0.08) !important;
+  border-color: rgba(240, 178, 58, 0.32) !important;
+}
+.hp-hero--refonte .hp-live__pick.is-exact b { color: #F0B23A !important; }
+
+/* ── 22.5 CTA « Ouvrir l'analyse » — pilule blanche, texte royal ─────────── */
+.hp-hero--refonte .hp-live__open,
+.page-design--home .hp-hero--refonte .hp-live__open {
+  color: #3E7BFA !important;
+  background: #F4F6FB !important;
+  border-color: #F4F6FB !important;
+}
+
+/* ── 22.6 Chips Marchés/Méthode/Fuseau — verre encre, hairline bleu-gris ─── */
+.page-design--home .hp-hero--refonte .hp-hero__trust li {
+  background: rgba(13, 20, 34, 0.78) !important;
+  border-color: rgba(111, 143, 218, 0.16) !important;
+}
+
+/* ── 22.7 Rail des clubs — halo survol royal ─────────────────────────────── */
+.hp-clubs__track img:hover {
+  filter: drop-shadow(0 0 10px rgba(62, 123, 250, 0.45)) !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hp-clubs__track { animation: none !important; }
+  .hp-live__pulse, .hp-live .hp-status-dot { animation: none !important; }
+}
