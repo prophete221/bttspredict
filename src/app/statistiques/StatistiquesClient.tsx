@@ -62,7 +62,7 @@ interface WinHistory {
     sourceNoPick: number; sourceNoPickWon: number; sourceNoPickLost: number
     sourceRecordedPickRows: number; geminiRecordedPickRows: number; nonGeminiOrUnknownSourcePickRows: number; sourceNeedsReviewRows: number
     fullPickRows: number; fullPickWon: number; fullPickLost: number; fullPickUnverifiedRows: number
-    detailLimit: number; detailRows: number; detailSourceRecordedPickRows: number; detailGeminiRows: number; detailPickRows: number; detailNoPick: number
+    detailRows: number; detailSourceRecordedPickRows: number; detailGeminiRows: number; detailPickRows: number; detailNoPick: number
     outsideDetailRows: number; outsideDetailGeminiRows: number; outsideDetailPickRows: number; sourceMatchesPublished: boolean
   }
 }

@@ -145,6 +145,36 @@ describe('verify-results V6 — date réelle du match et propagation', () => {
       fs.rmSync(dir, { recursive: true, force: true })
     }
   })
+
+  it('vérifie aussi un résultat en attente dans une archive antérieure aux 90 dernières', async () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'verify-old-archive-'))
+    const start = Date.UTC(2025, 0, 1)
+    try {
+      for (let index = 0; index < 91; index += 1) {
+        const date = new Date(start + index * 24 * 60 * 60 * 1000).toISOString().slice(0, 10)
+        const predictions = index === 0
+          ? [psvRow({ id: 'old-psv', date, status: 'PENDING' })]
+          : []
+        writeArchive(dir, `${date}.json`, predictions)
+      }
+
+      const summary = await runVerifyResults({
+        dir,
+        write: true,
+        getScores: async date => date === '2025-01-01'
+          ? [{ home: 'PSV Eindhoven', away: 'Feyenoord Rotterdam', hs: 2, as: 1 }]
+          : [],
+        log: () => {},
+      })
+
+      expect(summary.filesLoaded).toBe(91)
+      expect(summary.verified).toBe(1)
+      expect(readArchive(dir, '2025-01-01.json')[0]).toMatchObject({ status: 'WON', finalScore: '2-1' })
+      expect(fs.readdirSync(dir).filter(name => name.endsWith('.json'))).toHaveLength(91)
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true })
+    }
+  })
 })
 
 // ── Déduplication win-history ────────────────────────────────────────────────

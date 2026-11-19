@@ -82,7 +82,7 @@ export interface WinHistory {
     sourceNoPick: number; sourceNoPickWon: number; sourceNoPickLost: number
     sourceRecordedPickRows: number; geminiRecordedPickRows: number; nonGeminiOrUnknownSourcePickRows: number; sourceNeedsReviewRows: number
     fullPickRows: number; fullPickWon: number; fullPickLost: number; fullPickUnverifiedRows: number
-    detailLimit: number; detailRows: number; detailSourceRecordedPickRows: number; detailGeminiRows: number; detailRecordedPickRows: number; detailPickRows: number; detailNeedsReviewRows: number; detailNoPick: number
+    detailRows: number; detailSourceRecordedPickRows: number; detailGeminiRows: number; detailRecordedPickRows: number; detailPickRows: number; detailNeedsReviewRows: number; detailNoPick: number
     outsideDetailRows: number; outsideDetailSourceRecordedPickRows: number; outsideDetailGeminiRows: number; outsideDetailRecordedPickRows: number; outsideDetailPickRows: number; outsideDetailNeedsReviewRows: number; outsideDetailNoPick: number; sourceMatchesPublished: boolean
   }
 }

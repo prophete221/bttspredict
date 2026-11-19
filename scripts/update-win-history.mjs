@@ -440,7 +440,8 @@ function run({ write, dir = DIR, now = Date.now(), includeFullHistory = false })
   }
   const exclusions = loadExclusions();
   const files = fs.readdirSync(dir).filter(f => f.endsWith('.json')).sort();
-  const allFiles = files.slice(-90);
+  // Aggregate every retained archive; a rolling cutoff silently drops verified history.
+  const allFiles = files;
 
   // ── Collecte dédupliquée : un enregistrement par match unique ──────────────
   const seen = new Map();  // clé → enregistrement (toutes fenêtres confondues)
@@ -527,10 +528,10 @@ function run({ write, dir = DIR, now = Date.now(), includeFullHistory = false })
       insufficientVolume: newStats.total < 30,
     },
     stats: newStats,
-    history: sortHistory(newBucket.all).slice(0, 500),
+    history: sortHistory(newBucket.all),
     legacyStats: {
       ...legacyStats,
-      history: sortHistory(legacyBucket.all).slice(0, 200),
+      history: sortHistory(legacyBucket.all),
       isPrivate: true,
       note: "Archives antérieures au nouveau suivi (avant " + TRACKING_START + "). Non affiché publiquement. Conservé pour audit technique et conformité.",
     },

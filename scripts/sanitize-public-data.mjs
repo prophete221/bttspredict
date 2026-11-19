@@ -39,7 +39,7 @@ export function sanitizePublicData(root, { staticExport = false, sourcePublicDir
     const exportHistoryPath = path.join(root, 'win-history.json')
     if (fs.existsSync(sourceHistoryPath) && fs.existsSync(sourceArchiveDir) && fs.existsSync(exportHistoryPath)) {
       const payload = JSON.parse(fs.readFileSync(sourceHistoryPath, 'utf8'))
-      const archiveFiles = fs.readdirSync(sourceArchiveDir).filter(file => file.endsWith('.json')).sort().slice(-90)
+      const archiveFiles = fs.readdirSync(sourceArchiveDir).filter(file => file.endsWith('.json')).sort()
       const archiveRows = archiveFiles.flatMap(file => {
         try {
           const archived = JSON.parse(fs.readFileSync(path.join(sourceArchiveDir, file), 'utf8'))

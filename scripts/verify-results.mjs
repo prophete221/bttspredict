@@ -17,8 +17,8 @@
 //    (date, ligue) au lieu d'un par fichier ;
 //  - Les archives sans aucun prono en attente sont ignorées (aucun fetch) ;
 //  - PROPAGATION : le verdict d'un match est écrit dans TOUTES les copies du
-//    même prono présentes dans la fenêtre de 90 archives (fini les doublons
-//    « WON dans une archive, PENDING à vie dans les autres ») ;
+//    même prono présentes dans les archives conservées, même si elles datent
+//    de plus de 90 jours ;
 //  - Checkpoint : écriture disque régulière (robuste aux timeouts).
 //
 // INVARIANTS CONSERVÉS :
@@ -35,7 +35,6 @@ import { pathToFileURL } from 'url';
 import { computeVerdict } from './verdict.mjs';
 
 const ARCHIVE_DIR = './public/predictions-archive';
-const WINDOW_SIZE = 90; // comme V5 : 90 derniers jours d'archives
 
 const LEAGUES = [
   'eng.1','eng.2','esp.1','esp.2','ger.1','ger.2','ita.1','ita.2',
@@ -197,7 +196,6 @@ async function findScore(p, fileDateISO, getScores) {
  *   - dir          : dossier d'archives (défaut ./public/predictions-archive)
  *   - write        : écrire les fichiers modifiés (défaut true)
  *   - getScores    : fournisseur de scores injectable (tests)
- *   - windowSize   : nombre d'archives récentes traitées (défaut 90)
  * @returns {object} résumé { filesLoaded, filesNeedingFetch, verified, won, lost,
  *                        propagated, filesWritten, stillPending }
  */
@@ -205,7 +203,6 @@ export async function runVerifyResults({
   dir = ARCHIVE_DIR,
   write = true,
   getScores = createScoreProvider(),
-  windowSize = WINDOW_SIZE,
   log = () => {},
 } = {}) {
   if (!fs.existsSync(dir)) {
@@ -215,8 +212,7 @@ export async function runVerifyResults({
 
   const fileNames = fs.readdirSync(dir)
     .filter(f => f.endsWith('.json'))
-    .sort()
-    .slice(-windowSize); // fenêtre : 90 archives les plus récentes
+    .sort();
 
   // 1. Chargement de toutes les archives + registre global des pronos
   const files = []; // { name, dateISO, data, preds, dirty }

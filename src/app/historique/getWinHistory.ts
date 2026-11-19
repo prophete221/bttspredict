@@ -15,7 +15,6 @@ export function getWinHistory() {
     const archiveFiles = fs.readdirSync(archiveDir)
       .filter(name => name.endsWith('.json'))
       .sort()
-      .slice(-90)
     const archiveRows = archiveFiles.flatMap(name => {
       try {
         const archived = JSON.parse(fs.readFileSync(path.join(archiveDir, name), 'utf8'))

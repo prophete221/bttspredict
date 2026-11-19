@@ -253,32 +253,19 @@ jobs:
       - name: Require code-only marker for targeted history deploy
         if: ${{ github.event_name == 'push' && contains(github.event.head_commit.message, '[history-json]') && !contains(github.event.head_commit.message, '[code-only]') }}
         run: |
-          echo "::error::[history-json] exige aussi [code-only] pour éviter tout rafraîchissement ou pruning des données."
+          echo "::error::[history-json] exige aussi [code-only] pour éviter tout rafraîchissement automatique des données."
           exit 1
 
-      - name: Prune old predictions archives (keep 90)
-        if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]') && !contains(github.event.head_commit.message, '[public-gemini-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
-        timeout-minutes: 2
-        env:
-          PRESERVE_EXISTING_ARCHIVES: ${{ github.event_name == 'push' && contains(github.event.head_commit.message, '[preserve-archives]') }}
-        run: node scripts/prune-archives.mjs
-
-      - name: Verify existing prediction archives remain intact
-        if: ${{ github.event_name == 'push' && contains(github.event.head_commit.message, '[preserve-archives]') && !contains(github.event.head_commit.message, '[code-only]') }}
+      - name: Verify complete prediction archive inventory before refresh
         run: |
           set -euo pipefail
-          if ! git diff --quiet HEAD -- public/predictions-archive/; then
-            echo "::error::Une archive préexistante a changé après le pruning protecteur; arrêt avant les mises à jour Gemini et des données."
-            git status --short -- public/predictions-archive/
-            exit 1
-          fi
           tracked_count="$(git ls-files -- 'public/predictions-archive/*.json' | wc -l | tr -d '[:space:]')"
           present_count="$(find public/predictions-archive -maxdepth 1 -type f -name '????-??-??.json' | wc -l | tr -d '[:space:]')"
           if [ "$tracked_count" -ne "$present_count" ]; then
             echo "::error::Inventaire d'archives différent : ${tracked_count} suivies, ${present_count} présentes; arrêt avant les mises à jour."
             exit 1
           fi
-          echo "Inventaire protégé validé : ${tracked_count} archive(s) suivie(s), ${present_count} présente(s), aucun changement ni suppression."
+          echo "Inventaire source validé : ${tracked_count} archive(s) suivie(s), ${present_count} présente(s); aucun pruning automatique."
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -474,6 +461,17 @@ jobs:
         run: |
           cmp public/win-history.json out/win-history.json
           cmp public/history-exclusions.json out/history-exclusions.json
+
+      - name: Prevent deletion of existing prediction archives
+        run: |
+          set -euo pipefail
+          deleted_files="$(git diff --name-only --diff-filter=D HEAD -- public/predictions-archive/)"
+          if [ -n "$deleted_files" ]; then
+            echo "::error::Le run tente de supprimer des archives historiques; arrêt avant Commit data et le transfert FTP."
+            printf '%s\n' "$deleted_files"
+            exit 1
+          fi
+          echo "Aucune archive historique supprimée pendant ce run."
 
       - name: Commit data
         if: ${{ (github.event_name != 'push' || !contains(github.event.head_commit.message, '[code-only]')) && (github.event_name != 'workflow_dispatch' || inputs.mode != 'code') }}

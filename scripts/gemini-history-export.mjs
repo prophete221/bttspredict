@@ -223,7 +223,6 @@ export function buildStrictGeminiHistoryProjection({ payload, fullHistory, archi
     fullPickLost: pickStats.lost,
     fullPickRate: pickStats.rate,
     fullPickUnverifiedRows: pickStats.unverifiedPickCount,
-    detailLimit: 500,
     detailRows: sourceDetailRows.length,
     detailSourceRecordedPickRows: sourceDetailRows.length - sourceDetailNoPick,
     detailGeminiRows: geminiDetailRows.length,
