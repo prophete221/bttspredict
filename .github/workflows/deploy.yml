@@ -583,6 +583,88 @@ jobs:
           }
           JS
 
+      - name: Prune obsolete remote assets under _next/static (LWS file-count quota)
+        id: ftp-prune
+        timeout-minutes: 30
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          set -euo pipefail
+          if [ -z "${FTP_SERVER:-}" ] || [ -z "${FTP_USERNAME:-}" ] || [ -z "${FTP_PASSWORD:-}" ]; then
+            echo "::error::Secrets FTP manquants — purge annulée sans écriture distante."
+            exit 1
+          fi
+          if [ ! -s out/deploy-manifest.prev.json ] || [ ! -s out/deploy-manifest.json ]; then
+            echo "::warning::Manifestes live/build absents — purge sautée (aucune suppression sans état de référence)."
+            exit 0
+          fi
+          # Listing récursif borné au seul préfixe _next/static/ : les chemins obtenus
+          # ne servent QUE de candidats à comparer aux deux manifestes; rien hors de
+          # ce préfixe n'est jamais supprimé par cette étape.
+          if ! lftp -u "$FTP_USERNAME,$FTP_PASSWORD" -e "set ssl:verify no; set net:timeout 60; set net:max-retries 2; set cmd:fail-exit yes; find _next/static; bye" "ftp://${FTP_SERVER}" > out/remote-nextstatic-listing.txt 2>out/remote-nextstatic-listing.err; then
+            echo "::warning::Listing distant indisponible — purge sautée (comportement historique conservé)."
+            exit 0
+          fi
+          python3 - <<'PY'
+          import json
+          PREFIX = '_next/static/'
+          prev = json.load(open('out/deploy-manifest.prev.json', encoding='utf-8'))['files']
+          cur = json.load(open('out/deploy-manifest.json', encoding='utf-8'))['files']
+          known = set(prev) | set(cur)
+          listing = []
+          for line in open('out/remote-nextstatic-listing.txt', encoding='utf-8', errors='replace'):
+              p = line.strip()
+              if p.startswith('./'):
+                  p = p[2:]
+              if p.startswith(PREFIX) and p != PREFIX.rstrip('/'):
+                  listing.append(p)
+          dirs = set()
+          for p in listing:
+              slash = p.rfind('/')
+              while slash != -1:
+                  dirs.add(p[:slash])
+                  slash = p.rfind('/', 0, slash)
+          remote_files = [p for p in listing if p not in dirs]
+          prev_live = sorted({p for p in prev if p.startswith(PREFIX)})
+          found_live = {p for p in remote_files if p in prev}
+          if prev_live and len(found_live) < 0.9 * len(prev_live):
+              print(f"::warning::Listing distant non fiable ({len(found_live)}/{len(prev_live)} fichiers live vus) — purge sautée.")
+              raise SystemExit(0)
+          obsolete = sorted({p for p in remote_files if p not in known})
+          if len(obsolete) > 5000:
+              print(f"::error::Nombre anormal de candidats ({len(obsolete)}) — purge refusée, inspection requise.")
+              raise SystemExit(1)
+          with open('out/prune-commands.lftp', 'w', encoding='utf-8') as f:
+              f.write("set ssl:verify no; set net:timeout 60; set net:max-retries 2;\n")
+              for p in obsolete:
+                  f.write(f"rm -f './{p}'\n")
+              f.write("bye\n")
+          additions = len({p for p in cur if p not in prev})
+          report = {
+              'remoteUnderPrefix': len(remote_files),
+              'liveManifestUnderPrefix': len(prev_live),
+              'liveFoundInListing': len(found_live),
+              'obsoleteDeleted': len(obsolete),
+              'projectedNewFiles': additions,
+              'projectionAfterPrune': len(remote_files) - len(obsolete) + additions,
+              'accountFileLimit': 10000,
+              'policy': 'Suppression uniquement sous _next/static/ de fichiers absents du manifeste live ET du build courant (reliques orphelines de générations antérieures). robots.txt, sitemap.xml, .htaccess, donnees JSON, archives et ar/ ne sont jamais touches.',
+          }
+          with open('out/prune-report.json', 'w', encoding='utf-8') as f:
+              f.write(json.dumps(report, indent=2, ensure_ascii=False) + '\n')
+          print(f"[LWS quota prune] distants sous _next/static: {len(remote_files)}; live confirmés: {len(found_live)}/{len(prev_live)}; obsolètes à supprimer: {len(obsolete)}; nouveaux fichiers du build: {additions}; projection post-purge+upload: {report['projectionAfterPrune']} (limite compte LWS: 10000 fichiers, tous usages)")
+          PY
+          if grep -q "^rm -f " out/prune-commands.lftp; then
+            set +e
+            lftp -u "$FTP_USERNAME,$FTP_PASSWORD" -e "source out/prune-commands.lftp" "ftp://${FTP_SERVER}" 2>&1 | tee out/prune-transfer.log
+            set -e
+            echo "Purge exécutée : $(grep -c "^rm -f " out/prune-commands.lftp) fichiers obsolètes supprimés sous _next/static/ (rapport : out/prune-report.json)."
+          else
+            echo "Purge : aucun fichier obsolète à supprimer — web root déjà propre."
+          fi
+
       - name: Deploy to bttspredict.com via FTP (validated allowlist, no delete)
         id: ftp-upload
         timeout-minutes: 180
