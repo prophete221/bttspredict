@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { buildBttsTodayDashboardData } from '@/lib/btts-today-dashboard-data'
-import { getDakarDateString } from '@/lib/dakar-date'
+import { getDakarDateString, parseDakarDateTime } from '@/lib/dakar-date'
 import { getGeminiPicks } from '@/lib/gemini-predictions'
 import { publicFixtureKey } from '@/lib/public-calendar'
 import currentPublicPredictions from '../public/predictions.json'
@@ -85,7 +85,7 @@ describe('today dashboard server data', () => {
 })
 
 describe('current public calendar day', () => {
-  it('prepares exactly the strict Gemini rows currently published for the Dakar date', () => {
+  it('prepares strict Gemini rows with upcoming kickoffs for the Dakar date', () => {
     const day = String(currentPublicPredictions.date)
     const buildNow = new Date(`${day}T12:00:00.000Z`)
     const dakarDay = getDakarDateString(buildNow)
@@ -94,7 +94,11 @@ describe('current public calendar day', () => {
       ...(Array.isArray(currentPublicPredictions.predictions) ? currentPublicPredictions.predictions : []),
     ]
     const expectedKeys = [...new Set(raw
-      .filter(row => row.date === dakarDay && getGeminiPicks(row).length > 0)
+      .filter(row => {
+        if (row.date !== dakarDay || getGeminiPicks(row).length === 0) return false
+        const kickoff = parseDakarDateTime(String(row.date || ''), String(row.time || ''))
+        return kickoff !== null && kickoff.getTime() > buildNow.getTime()
+      })
       .map(row => publicFixtureKey(row))
       .filter((key): key is string => Boolean(key)))]
     const dashboard = buildBttsTodayDashboardData(currentPublicPredictions, buildNow)
