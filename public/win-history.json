@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-11-19T20:54:21.983Z",
+  "generatedAt": "2026-11-20T11:01:12.453Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,16 +15,16 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 540,
-    "won": 426,
+    "total": 541,
+    "won": 427,
     "lost": 114,
-    "pending": 82,
-    "unverifiable": 243,
-    "archivedTotal": 865,
+    "pending": 93,
+    "unverifiable": 247,
+    "archivedTotal": 881,
     "rate": 78.9,
     "gold": {
-      "total": 422,
-      "won": 338,
+      "total": 423,
+      "won": 339,
       "lost": 84,
       "rate": 80.1
     },
@@ -42,20 +42,13 @@
         "rate": 80.8
       },
       "over25": {
-        "total": 102,
-        "won": 72,
+        "total": 103,
+        "won": 73,
         "lost": 30,
-        "rate": 70.6
+        "rate": 70.9
       }
     },
     "trend14": [
-      {
-        "date": "2026-11-01",
-        "total": 34,
-        "won": 21,
-        "lost": 13,
-        "rate": 61.8
-      },
       {
         "date": "2026-11-02",
         "total": 12,
@@ -146,15 +139,35 @@
         "won": 0,
         "lost": 2,
         "rate": 0
+      },
+      {
+        "date": "2026-11-20",
+        "total": 1,
+        "won": 1,
+        "lost": 0,
+        "rate": 100
       }
     ],
     "period": {
       "from": "2026-08-19",
-      "to": "2026-11-19",
-      "days": 91
+      "to": "2026-11-20",
+      "days": 92
     }
   },
   "history": [
+    {
+      "date": "2026-11-20",
+      "match": "Orlando City SC vs FC Cincinnati",
+      "league": "MLS",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.6,
+      "status": "WON",
+      "finalScore": "1-3",
+      "verifiedAt": "2026-11-20T11:00:25.099Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
     {
       "date": "2026-11-16",
       "match": "Albacete vs RC Celta Fortuna",
