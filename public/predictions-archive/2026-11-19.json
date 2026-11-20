@@ -14179,7 +14179,9 @@
       "prediction": "Oui",
       "proba": 0.6,
       "confidence": 60,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-20T19:31:12.796Z"
     },
     {
       "id": "athletic-vs-espanyol-2026-11-20",
