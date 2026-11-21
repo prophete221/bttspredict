@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-11-21T18:34:55.536Z",
+  "generatedAt": "2026-11-21T21:15:09.954Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,18 +15,18 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 570,
-    "won": 443,
-    "lost": 127,
-    "pending": 104,
-    "unverifiable": 256,
-    "archivedTotal": 930,
-    "rate": 77.7,
+    "total": 576,
+    "won": 446,
+    "lost": 130,
+    "pending": 98,
+    "unverifiable": 261,
+    "archivedTotal": 935,
+    "rate": 77.4,
     "gold": {
-      "total": 449,
-      "won": 352,
-      "lost": 97,
-      "rate": 78.4
+      "total": 455,
+      "won": 355,
+      "lost": 100,
+      "rate": 78
     },
     "standard": {
       "total": 121,
@@ -36,16 +36,16 @@
     },
     "byType": {
       "btts": {
-        "total": 459,
-        "won": 366,
-        "lost": 93,
-        "rate": 79.7
+        "total": 463,
+        "won": 367,
+        "lost": 96,
+        "rate": 79.3
       },
       "over25": {
-        "total": 111,
-        "won": 77,
+        "total": 113,
+        "won": 79,
         "lost": 34,
-        "rate": 69.4
+        "rate": 69.9
       }
     },
     "trend14": [
@@ -142,10 +142,10 @@
       },
       {
         "date": "2026-11-21",
-        "total": 13,
-        "won": 6,
-        "lost": 7,
-        "rate": 46.2
+        "total": 19,
+        "won": 9,
+        "lost": 10,
+        "rate": 47.4
       }
     ],
     "period": {
@@ -155,6 +155,84 @@
     }
   },
   "history": [
+    {
+      "date": "2026-11-21",
+      "match": "Dundee vs Heart of Midlothian",
+      "league": "Scottish Premiership",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.75,
+      "status": "WON",
+      "finalScore": "0-8",
+      "verifiedAt": "2026-11-21T21:13:39.067Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-21",
+      "match": "New England Revolution vs Philadelphia Union",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6,
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-11-21T21:13:33.953Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-21",
+      "match": "FC Utrecht vs SC Cambuur",
+      "league": "Eredivisie",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.72,
+      "status": "WON",
+      "finalScore": "2-3",
+      "verifiedAt": "2026-11-21T21:13:33.942Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-21",
+      "match": "Empoli vs Pisa",
+      "league": "Serie B",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.68,
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-21T21:13:08.447Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-21",
+      "match": "Dundee vs Heart of Midlothian",
+      "league": "Scottish Premiership",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.75,
+      "status": "LOST",
+      "finalScore": "0-8",
+      "verifiedAt": "2026-11-21T21:13:08.442Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-21",
+      "match": "FC Utrecht vs SC Cambuur",
+      "league": "Eredivisie",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.72,
+      "status": "WON",
+      "finalScore": "2-3",
+      "verifiedAt": "2026-11-21T21:13:08.440Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
     {
       "date": "2026-11-21",
       "match": "Lazio vs Lecce",

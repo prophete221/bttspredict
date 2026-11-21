@@ -16517,7 +16517,9 @@
       "prediction": "Oui",
       "proba": 0.72,
       "confidence": 72,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-3",
+      "verifiedAt": "2026-11-21T21:13:33.942Z"
     },
     {
       "id": "telstar-vs-peczwoll-2026-11-21",
@@ -16902,7 +16904,9 @@
       "prediction": "Oui",
       "proba": 0.75,
       "confidence": 75,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "0-8",
+      "verifiedAt": "2026-11-21T21:13:39.067Z"
     },
     {
       "id": "atletico-vs-luisngel-2026-11-21",
@@ -22031,7 +22035,9 @@
       "prediction": "Oui",
       "proba": 0.72,
       "confidence": 72,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-3",
+      "verifiedAt": "2026-11-21T21:13:08.440Z"
     },
     {
       "id": "rcceltaf-vs-realvall-2026-11-22",
