@@ -13041,7 +13041,9 @@
       "prediction": "Oui",
       "proba": 0.72,
       "confidence": 72,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-11-21T02:07:35.146Z"
     },
     {
       "id": "cerclebr-vs-kvcweste-2026-11-20",
@@ -13231,7 +13233,9 @@
       "prediction": "Oui",
       "proba": 0.75,
       "confidence": 75,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-21T02:07:44.779Z"
     },
     {
       "id": "seattles-vs-realsalt-2026-11-20",
@@ -13617,7 +13621,9 @@
       "prediction": "Oui",
       "proba": 0.65,
       "confidence": 65,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-21T02:07:35.146Z"
     },
     {
       "id": "alahli-vs-alnassr-2026-11-20",
@@ -13990,7 +13996,9 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-21T02:07:39.871Z"
     },
     {
       "id": "arminiab-vs-fcmagdeb-2026-11-20",
@@ -14362,7 +14370,9 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-21T02:07:39.871Z"
     },
     {
       "id": "accringt-vs-salfordc-2026-11-21",

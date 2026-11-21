@@ -7577,7 +7577,9 @@
       "prediction": "Oui",
       "proba": 0.58,
       "confidence": 58,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-21T02:07:39.871Z"
     },
     {
       "id": "orlandoc-vs-fccincin-2026-11-20",
@@ -8136,7 +8138,9 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-11-21T02:07:39.872Z"
     },
     {
       "id": "fcutrech-vs-sccambuu-2026-11-21",
@@ -13276,7 +13280,9 @@
       "prediction": "Oui",
       "proba": 0.72,
       "confidence": 72,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-11-21T02:07:35.146Z"
     },
     {
       "id": "cerclebr-vs-kvcweste-2026-11-20",
@@ -13465,7 +13471,9 @@
       "prediction": "Oui",
       "proba": 0.75,
       "confidence": 75,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-21T02:07:35.146Z"
     },
     {
       "id": "strasbou-vs-brest-2026-11-21",
@@ -14033,7 +14041,9 @@
       "prediction": "Oui",
       "proba": 0.75,
       "confidence": 75,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-21T02:07:44.779Z"
     }
   ],
   "analysisEngine": "gemini-stats-v1"
