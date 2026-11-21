@@ -9095,7 +9095,9 @@
       "prediction": "Oui",
       "proba": 0.65,
       "confidence": 65,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-11-21T18:33:09.926Z"
     },
     {
       "id": "lazio-vs-lecce-2026-11-21",
@@ -9292,7 +9294,9 @@
       "prediction": "Oui",
       "proba": 0.65,
       "confidence": 65,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-11-21T18:33:32.513Z"
     },
     {
       "id": "nice-vs-parissai-2026-11-21",
@@ -9482,7 +9486,9 @@
       "prediction": "Oui",
       "proba": 0.68,
       "confidence": 68,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-3",
+      "verifiedAt": "2026-11-21T18:33:09.929Z"
     },
     {
       "id": "strasbou-vs-brest-2026-11-21",

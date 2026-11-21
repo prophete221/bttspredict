@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-11-21T10:38:00.035Z",
+  "generatedAt": "2026-11-21T18:34:55.536Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,18 +15,18 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 557,
-    "won": 437,
-    "lost": 120,
-    "pending": 99,
-    "unverifiable": 253,
-    "archivedTotal": 909,
-    "rate": 78.5,
+    "total": 570,
+    "won": 443,
+    "lost": 127,
+    "pending": 104,
+    "unverifiable": 256,
+    "archivedTotal": 930,
+    "rate": 77.7,
     "gold": {
-      "total": 436,
-      "won": 346,
-      "lost": 90,
-      "rate": 79.4
+      "total": 449,
+      "won": 352,
+      "lost": 97,
+      "rate": 78.4
     },
     "standard": {
       "total": 121,
@@ -36,26 +36,19 @@
     },
     "byType": {
       "btts": {
-        "total": 450,
-        "won": 362,
-        "lost": 88,
-        "rate": 80.4
+        "total": 459,
+        "won": 366,
+        "lost": 93,
+        "rate": 79.7
       },
       "over25": {
-        "total": 107,
-        "won": 75,
-        "lost": 32,
-        "rate": 70.1
+        "total": 111,
+        "won": 77,
+        "lost": 34,
+        "rate": 69.4
       }
     },
     "trend14": [
-      {
-        "date": "2026-11-02",
-        "total": 12,
-        "won": 8,
-        "lost": 4,
-        "rate": 66.7
-      },
       {
         "date": "2026-11-03",
         "total": 8,
@@ -146,6 +139,13 @@
         "won": 11,
         "lost": 6,
         "rate": 64.7
+      },
+      {
+        "date": "2026-11-21",
+        "total": 13,
+        "won": 6,
+        "lost": 7,
+        "rate": 46.2
       }
     ],
     "period": {
@@ -155,6 +155,175 @@
     }
   },
   "history": [
+    {
+      "date": "2026-11-21",
+      "match": "Lazio vs Lecce",
+      "league": "Serie A",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.65,
+      "status": "LOST",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-11-21T18:33:32.513Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-21",
+      "match": "SV Elversberg vs SC Freiburg",
+      "league": "Bundesliga",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.68,
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-21T18:33:32.513Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-21",
+      "match": "WSG Swarovski Tirol vs Austria Lustenau",
+      "league": "Austrian Bundesliga",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.72,
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-21T18:33:32.513Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-21",
+      "match": "WSG Swarovski Tirol vs Austria Lustenau",
+      "league": "Austrian Bundesliga",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.65,
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-21T18:33:09.934Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-21",
+      "match": "Royal Charleroi SC vs Sint-Truidense",
+      "league": "Jupiler Pro League",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.72,
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-11-21T18:33:09.932Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-21",
+      "match": "Borussia Mönchengladbach vs Borussia Dortmund",
+      "league": "Bundesliga",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.65,
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-21T18:33:09.930Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-21",
+      "match": "NEC Nijmegen vs PSV Eindhoven",
+      "league": "Eredivisie",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.65,
+      "status": "WON",
+      "finalScore": "1-4",
+      "verifiedAt": "2026-11-21T18:33:09.930Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-21",
+      "match": "SV Elversberg vs SC Freiburg",
+      "league": "Bundesliga",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.72,
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-21T18:33:09.930Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-21",
+      "match": "Nice vs Paris Saint-Germain",
+      "league": "Ligue 1",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.68,
+      "status": "WON",
+      "finalScore": "2-3",
+      "verifiedAt": "2026-11-21T18:33:09.929Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-21",
+      "match": "Ascoli vs Vicenza",
+      "league": "Serie B",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.65,
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-11-21T18:33:09.928Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-21",
+      "match": "Lazio vs Lecce",
+      "league": "Serie A",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.72,
+      "status": "WON",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-11-21T18:33:09.928Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-21",
+      "match": "Tottenham Hotspur vs Ipswich Town",
+      "league": "Premier League",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.65,
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-11-21T18:33:09.926Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-21",
+      "match": "Catanzaro vs Palermo",
+      "league": "Serie B",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.65,
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-11-21T18:33:09.920Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
     {
       "date": "2026-11-20",
       "match": "AS Nancy Lorraine vs Dijon FCO",
