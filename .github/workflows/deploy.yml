@@ -585,7 +585,7 @@ jobs:
 
       - name: Prune obsolete remote assets and expired match pages (LWS file-count quota)
         id: ftp-prune
-        timeout-minutes: 30
+        timeout-minutes: 60
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
@@ -600,21 +600,20 @@ jobs:
             echo "::warning::Manifestes live/build absents — purge sautée (aucune suppression sans état de référence)."
             exit 0
           fi
-          # Listings récursifs bornés à trois préfixes : _next/static (reliques de
-          # builds) et match/ + en/match/ (pages de matchs dont la date est passée
-          # et que le build courant ne génère plus). Aucun autre chemin n'est
-          # jamais supprimé par cette étape.
-          TODAY_UTC=$(date -u +%F)
-          echo "Date UTC de référence pour l'expiration des pages match : $TODAY_UTC"
-          if ! lftp -u "$FTP_USERNAME,$FTP_PASSWORD" -e "set ssl:verify no; set net:timeout 60; set net:max-retries 2; set cmd:fail-exit yes; find _next/static; find match; find en/match; bye" "ftp://${FTP_SERVER}" > out/remote-nextstatic-listing.txt 2>out/remote-nextstatic-listing.err; then
+          # Listings récursifs bornés à quatre préfixes : _next/static (reliques de
+          # builds), match/, en/ et ar/ (pages et payloads que le pipeline ne
+          # gère plus). Aucun autre chemin n'est jamais supprimé par cette étape.
+          if ! lftp -u "$FTP_USERNAME,$FTP_PASSWORD" -e "set ssl:verify no; set net:timeout 60; set net:max-retries 2; set cmd:fail-exit yes; find _next/static; find match; find en; find ar; bye" "ftp://${FTP_SERVER}" > out/remote-nextstatic-listing.txt 2>out/remote-nextstatic-listing.err; then
             echo "::warning::Listing distant indisponible — purge sautée (comportement historique conservé)."
             exit 0
           fi
           python3 - <<'PY'
-          import json, os, re
+          import json, re
           PREFIX = '_next/static/'
-          MATCH_PREFIXES = ('match/', 'en/match/')
-          today = os.environ.get('TODAY_UTC') or ''
+          # Arbres éligibles à la purge d'orphelins + promos arabes protégées
+          # (le .htaccess ne publie que ces 5 pages sous ar/)
+          ORPHAN_PREFIXES = ('match/', 'en/', 'ar/')
+          AR_PROMO = re.compile(r'^ar/(?:code-promo-1xbet|code-promo-linebet-senegal|code-promo-melbet|bonus-888starz|bonus-888starz-btts221)(?:\.html)?(?:/|$)')
           prev = json.load(open('out/deploy-manifest.prev.json', encoding='utf-8'))['files']
           cur = json.load(open('out/deploy-manifest.json', encoding='utf-8'))['files']
           known = set(prev) | set(cur)
@@ -623,7 +622,7 @@ jobs:
               p = line.strip()
               if p.startswith('./'):
                   p = p[2:]
-              if (p.startswith(PREFIX) or p.startswith(MATCH_PREFIXES)) and p.rstrip('/') not in (PREFIX.rstrip('/'), 'match', 'en/match'):
+              if (p.startswith(PREFIX) or p.startswith(ORPHAN_PREFIXES)) and p.rstrip('/') not in (PREFIX.rstrip('/'), 'match', 'en', 'ar'):
                   listing.append(p)
           dirs = set()
           for p in listing:
@@ -637,57 +636,55 @@ jobs:
           prev_live = sorted({p for p in prev if p.startswith(PREFIX)})
           found_live = {p for p in next_files if p in prev}
           if prev_live and len(found_live) < 0.9 * len(prev_live):
-              print(f"::warning::Listing distant non fiable ({len(found_live)}/{len(prev_live)} fichiers live vus) — purge sautée.")
+              print(f"::warning::Listing distant non fiable ({len(found_live)}/{len(prev_live)} fichiers live vus sous _next/static) — purge sautée.")
               raise SystemExit(0)
           obsolete = sorted({p for p in next_files if p not in known})
-          # ── Phase 2 : pages match à date passée, plus générées par le build ────
-          # (le miroir en/match suit la même règle ; les pages encore générées
-          # par le build courant et celles sans date exploitable sont gardées)
-          expired_match = []
-          unparseable = 0
-          if today and re.fullmatch(r'\d{4}-\d{2}-\d{2}', today):
-              for p in remote_files:
-                  if not p.startswith(MATCH_PREFIXES):
-                      continue
-                  if p in cur:
-                      continue
-                  m = re.search(r'-(\d{4}-\d{2}-\d{2})(?:\.[a-z]+)?$', p)
-                  if not m:
-                      m = re.search(r'-(\d{4}-\d{2}-\d{2})/', p)
-                  if not m:
-                      unparseable += 1
-                      continue
-                  if m.group(1) < today:
-                      expired_match.append(p)
-          expired_match.sort()
-          total_candidates = len(obsolete) + len(expired_match)
-          if total_candidates > 5000:
+          # ── Phase 2 : orphelins des arbres de contenu match/, en/, ar/ ──────────
+          # Fichiers présents sur le serveur mais gérés par AUCUN état (ni manifeste
+          # live ni build courant) : pages/payloads abandonnés par les générations
+          # antérieures et jamais retirés par la politique no-delete. Garde de
+          # fiabilité par arbre (>=90 % des fichiers live de chaque arbre doivent
+          # apparaître dans le listing) ; promos arabes toujours protégées.
+          orphans = []
+          tree_stats = {}
+          for tree in ('match/', 'en/', 'ar/'):
+              tree_files = [p for p in remote_files if p.startswith(tree)]
+              tree_live_prev = [p for p in prev if p.startswith(tree)]
+              tree_found = {p for p in tree_files if p in prev}
+              if tree_live_prev and len(tree_found) < 0.9 * len(tree_live_prev):
+                  print(f"::warning::Listing distant non fiable pour {tree} ({len(tree_found)}/{len(tree_live_prev)} fichiers live vus) — arbre sauté.")
+                  tree_stats[tree.rstrip('/')] = 'garde-fiabilité: sauté'
+                  continue
+              cand = sorted({p for p in tree_files if p not in known and not AR_PROMO.match(p)})
+              orphans.extend(cand)
+              tree_stats[tree.rstrip('/')] = f"{len(tree_files)} distants, {len(cand)} orphelins"
+          total_candidates = len(obsolete) + len(orphans)
+          if total_candidates > 8000:
               print(f"::error::Nombre anormal de candidats ({total_candidates}) — purge refusée, inspection requise.")
               raise SystemExit(1)
           with open('out/prune-commands.lftp', 'w', encoding='utf-8') as f:
               f.write("set ssl:verify no; set net:timeout 60; set net:max-retries 2;\n")
-              for p in obsolete + expired_match:
+              for p in obsolete + orphans:
                   f.write(f"rm -f './{p}'\n")
               f.write("bye\n")
           next_additions = len({p for p in cur if p not in prev and p.startswith(PREFIX)})
           total_additions = len({p for p in cur if p not in prev})
           report = {
-              'date': today,
               'remoteUnderPrefix': len(next_files),
               'liveManifestUnderPrefix': len(prev_live),
               'liveFoundInListing': len(found_live),
               'obsoleteDeleted': len(obsolete),
-              'expiredMatchDeleted': len(expired_match),
-              'matchFilesWithoutDate': unparseable,
+              'contentOrphansDeleted': len(orphans),
+              'orphanTrees': tree_stats,
               'newBuildFilesTotal': total_additions,
               'newBuildFilesUnderNext': next_additions,
               'projectionNextAfterPrune': len(next_files) - len(obsolete) + next_additions,
               'accountFileLimit': 10000,
-              'policy': 'Phase 1: suppression uniquement sous _next/static/ de fichiers absents du manifeste live ET du build courant. Phase 2: suppression des pages match/ et en/match/ dont la date du slug est passee ET que le build courant ne genere plus. robots.txt, sitemap.xml, .htaccess, donnees JSON, archives, ar/ et toute page encore generee ne sont jamais touches.',
+              'policy': "Phase 1: suppression uniquement sous _next/static/ de fichiers absents du manifeste live ET du build courant. Phase 2: suppression des orphelins des arbres match/, en/ et ar/ (fichiers presents sur le serveur mais geres par aucun manifeste), promos arabes protegees, garde de fiabilite par arbre. robots.txt, sitemap.xml, .htaccess, donnees JSON, archives et tout fichier gere par le workflow ne sont jamais touches.",
           }
           with open('out/prune-report.json', 'w', encoding='utf-8') as f:
               f.write(json.dumps(report, indent=2, ensure_ascii=False) + '\n')
-          print(f"[LWS quota prune] _next/static: {len(next_files)} distants; live confirmés: {len(found_live)}/{len(prev_live)}; reliques: {len(obsolete)}; pages match expirées: {len(expired_match)} (sans date: {unparseable}); nouveaux fichiers du build: {total_additions} (dont {next_additions} sous _next); projection _next post-opération: {report['projectionNextAfterPrune']} (limite compte LWS: 10000 fichiers, tous usages)")
+          print(f"[LWS quota prune] _next/static: {len(next_files)} distants, reliques: {len(obsolete)}; orphelins contenu: {len(orphans)} ({tree_stats}); nouveaux fichiers du build: {total_additions} (dont {next_additions} sous _next); candidats totaux: {total_candidates} (limite compte LWS: 10000 fichiers)")
           PY
           if grep -q "^rm -f " out/prune-commands.lftp; then
             set +e
