@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-11-21T21:15:09.954Z",
+  "generatedAt": "2026-11-22T08:08:51.804Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,37 +15,37 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 576,
-    "won": 446,
-    "lost": 130,
-    "pending": 98,
-    "unverifiable": 261,
+    "total": 594,
+    "won": 455,
+    "lost": 139,
+    "pending": 79,
+    "unverifiable": 262,
     "archivedTotal": 935,
-    "rate": 77.4,
+    "rate": 76.6,
     "gold": {
-      "total": 455,
-      "won": 355,
-      "lost": 100,
-      "rate": 78
+      "total": 470,
+      "won": 362,
+      "lost": 108,
+      "rate": 77
     },
     "standard": {
-      "total": 121,
-      "won": 91,
-      "lost": 30,
-      "rate": 75.2
+      "total": 124,
+      "won": 93,
+      "lost": 31,
+      "rate": 75
     },
     "byType": {
       "btts": {
-        "total": 463,
-        "won": 367,
-        "lost": 96,
-        "rate": 79.3
+        "total": 476,
+        "won": 373,
+        "lost": 103,
+        "rate": 78.4
       },
       "over25": {
-        "total": 113,
-        "won": 79,
-        "lost": 34,
-        "rate": 69.9
+        "total": 118,
+        "won": 82,
+        "lost": 36,
+        "rate": 69.5
       }
     },
     "trend14": [
@@ -142,19 +142,251 @@
       },
       {
         "date": "2026-11-21",
-        "total": 19,
-        "won": 9,
-        "lost": 10,
-        "rate": 47.4
+        "total": 37,
+        "won": 18,
+        "lost": 19,
+        "rate": 48.6
       }
     ],
     "period": {
       "from": "2026-08-19",
-      "to": "2026-11-21",
-      "days": 93
+      "to": "2026-11-22",
+      "days": 94
     }
   },
   "history": [
+    {
+      "date": "2026-11-21",
+      "match": "Strasbourg vs Brest",
+      "league": "Ligue 1",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.68,
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-22T08:08:10.735Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-21",
+      "match": "Inter Miami CF vs Columbus Crew",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.64,
+      "status": "LOST",
+      "finalScore": "0-3",
+      "verifiedAt": "2026-11-22T08:06:54.491Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-21",
+      "match": "Lille vs Lyon",
+      "league": "Ligue 1",
+      "market": "btts",
+      "tier": "STANDARD",
+      "proba": 0.62,
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-22T08:06:54.489Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-11-21",
+      "match": "Real Madrid vs Celta Vigo",
+      "league": "LaLiga",
+      "market": "btts",
+      "tier": "STANDARD",
+      "proba": 0.62,
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-22T08:06:54.489Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-11-21",
+      "match": "Zulte-Waregem vs Antwerp",
+      "league": "Jupiler Pro League",
+      "market": "over25",
+      "tier": "STANDARD",
+      "proba": 0.72,
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-11-22T08:06:54.489Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-21",
+      "match": "Motherwell vs Rangers",
+      "league": "Scottish Premiership",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.58,
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-22T08:06:54.486Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-21",
+      "match": "St. Pauli vs VfL Bochum",
+      "league": "2. Bundesliga",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6,
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-11-22T08:06:54.485Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-21",
+      "match": "Lens vs Toulouse",
+      "league": "Ligue 1",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.65,
+      "status": "LOST",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-11-22T08:06:54.484Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-21",
+      "match": "Inter Miami CF vs Columbus Crew",
+      "league": "MLS",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.68,
+      "status": "WON",
+      "finalScore": "0-3",
+      "verifiedAt": "2026-11-22T08:06:54.482Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-21",
+      "match": "FC Dallas vs Portland Timbers",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6,
+      "status": "LOST",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-11-22T08:06:54.481Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-21",
+      "match": "KV Mechelen vs Club Brugge",
+      "league": "Jupiler Pro League",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.62,
+      "status": "WON",
+      "finalScore": "1-5",
+      "verifiedAt": "2026-11-22T08:06:54.481Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-21",
+      "match": "Napoli vs Torino",
+      "league": "Serie A",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.58,
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-22T08:06:54.480Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-21",
+      "match": "Tenerife vs Mallorca",
+      "league": "LaLiga 2",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.72,
+      "status": "LOST",
+      "finalScore": "0-0",
+      "verifiedAt": "2026-11-22T08:06:54.480Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-21",
+      "match": "FC Groningen vs Heerenveen",
+      "league": "Eredivisie",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.68,
+      "status": "WON",
+      "finalScore": "1-3",
+      "verifiedAt": "2026-11-22T08:06:54.478Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-21",
+      "match": "FC Groningen vs Heerenveen",
+      "league": "Eredivisie",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.75,
+      "status": "WON",
+      "finalScore": "1-3",
+      "verifiedAt": "2026-11-22T08:06:31.464Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-21",
+      "match": "Strasbourg vs Brest",
+      "league": "Ligue 1",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.65,
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-22T08:06:31.463Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-21",
+      "match": "AS Monaco vs AJ Auxerre",
+      "league": "Ligue 1",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.72,
+      "status": "WON",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-11-22T08:06:31.461Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-21",
+      "match": "Telstar vs PEC Zwolle",
+      "league": "Eredivisie",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.7,
+      "status": "WON",
+      "finalScore": "1-3",
+      "verifiedAt": "2026-11-22T08:06:31.458Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
     {
       "date": "2026-11-21",
       "match": "Dundee vs Heart of Midlothian",

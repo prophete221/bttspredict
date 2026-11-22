@@ -1,0 +1,4450 @@
+{
+  "date": "2026-11-22",
+  "lastUpdated": "2026-11-22T07:53:28.385Z",
+  "source": "ESPN + TheSportsDB",
+  "free": [
+    {
+      "id": "crdoba-vs-realovie-2026-11-22",
+      "match": "Córdoba vs Real Oviedo",
+      "home": "Córdoba",
+      "away": "Real Oviedo",
+      "league": "LaLiga 2",
+      "date": "2026-11-22",
+      "type": "Over 2.5",
+      "time": "13:00",
+      "matchSemantic": "crdoba-vs-realovie-2026-11-22",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/8447.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/92.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.67,
+      "xgAway": 1.75,
+      "xgTotal": 4.42,
+      "formBTTS": 70,
+      "analysis": "Córdoba : forme N-V-N-V-V (3V 2N 0D, 11 buts marqués / 5 encaissés sur 5) · Real Oviedo : forme D-V-D-N-V (2V 1N 2D, 9 buts marqués / 9 encaissés sur 5). Classement : Córdoba 10e (20 pts), Real Oviedo 9e (21 pts). Stats empiriques (forme récente) : buts moy. 4.42, BTTS 70.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.87 / N: 3.75 / 2: 3.55 · Over 2.5: 1.59. Fiabilité 89.38%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.7,
+        "empiricalOver25Rate": 0.8,
+        "homeLambda": 2.67,
+        "awayLambda": 1.75,
+        "xgTotal": 4.42
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.87,
+        "draw": 3.75,
+        "away": 3.55,
+        "over25": 1.59,
+        "under25": 2.15
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "N-V-N-V-V",
+        "wins": 3,
+        "draws": 2,
+        "losses": 0,
+        "goalsFor": 11,
+        "goalsAgainst": 5,
+        "bttsRate": 0.4,
+        "over25Rate": 0.6,
+        "cleanSheets": 3,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-V-D-N-V",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 9,
+        "goalsAgainst": 9,
+        "bttsRate": 1,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-14",
+          "opponent": "Mallorca",
+          "venue": "A",
+          "score": "3-3",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Ceuta",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "RC Celta Fortuna",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Eibar",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-16",
+          "opponent": "Leganés",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-14",
+          "opponent": "Girona",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Cádiz",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-02",
+          "opponent": "Las Palmas",
+          "venue": "H",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Almería",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Ceuta",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 10,
+        "points": 20,
+        "played": 14,
+        "gf": 25,
+        "ga": 25
+      },
+      "standingsAway": {
+        "rank": 9,
+        "points": 21,
+        "played": 14,
+        "gf": 20,
+        "ga": 18
+      },
+      "empiricalBttsRate": 0.7,
+      "empiricalOver25Rate": 0.8,
+      "homeLambda": 2.67,
+      "awayLambda": 1.75,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_key_fact": "Real Oviedo enregistre 100% de matchs Over 2.5 sur ses 5 dernières rencontres.",
+      "ai_analysis": "Les données indiquent clairement une rencontre prolifique en buts, avec un taux Over 2.5 empirique de 80%. Córdoba génère une moyenne offensive intéressante de 2.67 buts à domicile, tandis que Real Oviedo affiche un impressionnant 100% d'Over 2.5 sur ses 5 derniers matchs.",
+      "ai_analysis_en": "The data clearly points to a high-scoring encounter, with an empirical Over 2.5 rate of 80%. Córdoba generates an interesting home offensive average of 2.67 goals, while Real Oviedo boasts an impressive 100% Over 2.5 rate in their last 5 matches.",
+      "ai_form_summary": "Córdoba : 3W-2D-0L (11 buts pour, 5 contre). Real Oviedo : 2W-1D-2L (9 buts pour, 9 contre).",
+      "ai_form_summary_en": "Córdoba: 3W-2D-0L (11 goals for, 5 against). Real Oviedo: 2W-1D-2L (9 goals for, 9 against).",
+      "ai_reasons": [
+        "Taux Over 2.5 empirique global de 80% pour cette rencontre.",
+        "Real Oviedo affiche un taux Over 2.5 de 100% sur ses 5 derniers matchs.",
+        "Moyenne de buts de Córdoba à domicile s'établit à 2.67."
+      ],
+      "ai_risks": [
+        "Le taux BTTS récent de Córdoba sur ses 5 derniers matchs est plus bas (0.4)."
+      ],
+      "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 75,
+          "proba": 0.75,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "over25Prob": 0.75
+        }
+      ],
+      "over25Prob": 0.75,
+      "prediction": "Oui",
+      "proba": 0.75,
+      "confidence": 75,
+      "status": "PENDING"
+    },
+    {
+      "id": "acmilan-vs-frosinon-2026-11-22",
+      "match": "AC Milan vs Frosinone",
+      "home": "AC Milan",
+      "away": "Frosinone",
+      "league": "Serie A",
+      "date": "2026-11-22",
+      "type": "BTTS",
+      "time": "17:00",
+      "matchSemantic": "acmilan-vs-frosinon-2026-11-22",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/103.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4057.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.75,
+      "xgAway": 1.25,
+      "xgTotal": 4,
+      "formBTTS": 70,
+      "analysis": "AC Milan : forme V-V-D-V-V (4V 0N 1D, 12 buts marqués / 8 encaissés sur 5) · Frosinone : forme D-V-V-N-V (3V 1N 1D, 15 buts marqués / 8 encaissés sur 5). Classement : AC Milan 4e (24 pts), Frosinone 6e (20 pts). Stats empiriques (forme récente) : buts moy. 4, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.5 / N: 4.4 / 2: 4.9. Fiabilité 89.38%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.7,
+        "empiricalOver25Rate": 0.7,
+        "homeLambda": 2.75,
+        "awayLambda": 1.25,
+        "xgTotal": 4
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.5,
+        "draw": 4.4,
+        "away": 4.9,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "V-V-D-V-V",
+        "wins": 4,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 12,
+        "goalsAgainst": 8,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-V-V-N-V",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 15,
+        "goalsAgainst": 8,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-08",
+          "opponent": "Genoa",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Internazionale",
+          "venue": "H",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-28",
+          "opponent": "Bologna",
+          "venue": "H",
+          "score": "2-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Udinese",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Atalanta",
+          "venue": "H",
+          "score": "3-2",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-07",
+          "opponent": "Cagliari",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Torino",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-29",
+          "opponent": "Lecce",
+          "venue": "H",
+          "score": "5-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Atalanta",
+          "venue": "A",
+          "score": "4-4",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-16",
+          "opponent": "Sassuolo",
+          "venue": "H",
+          "score": "4-2",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 4,
+        "points": 24,
+        "played": 11,
+        "gf": 23,
+        "ga": 13
+      },
+      "standingsAway": {
+        "rank": 6,
+        "points": 20,
+        "played": 11,
+        "gf": 24,
+        "ga": 15
+      },
+      "empiricalBttsRate": 0.7,
+      "empiricalOver25Rate": 0.7,
+      "homeLambda": 2.75,
+      "awayLambda": 1.25,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "AC Milan affiche un taux BTTS de 80% sur ses 5 derniers matchs.",
+      "ai_analysis": "L'analyse des données montre une forte propension des deux équipes à marquer et à encaisser des buts. AC Milan présente un taux BTTS de 0.80 sur ses 5 derniers matchs, tandis que Frosinone marque régulièrement (24 buts en 11 matchs), rendant l'option des deux équipes marquent très crédible.",
+      "ai_analysis_en": "Data analysis shows a strong propensity for both teams to score and concede goals. AC Milan records an 80% BTTS rate over their last 5 matches, while Frosinone scores consistently (24 goals in 11 matches), making both teams to score a credible option.",
+      "ai_form_summary": "AC Milan : V-V-D-V-V (4W-0D-1L) | Frosinone : D-V-V-N-V (3W-1D-1L)",
+      "ai_form_summary_en": "AC Milan: W-W-L-W-W (4W-0D-1L) | Frosinone: L-W-W-D-W (3W-1D-1L)",
+      "ai_reasons": [
+        "Taux empirique BTTS solide de 0.70 et 0.80 sur les derniers matchs de Milan.",
+        "AC Milan et Frosinone affichent des attaques productives (23 et 24 buts inscrits en championnat).",
+        "Moyennes de buts élevées pour Milan (2.75) traduisant des matchs ouverts."
+      ],
+      "ai_risks": [
+        "Frosinone affiche un taux BTTS plus modéré (0.60) sur ses 5 derniers matchs."
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 68,
+          "proba": 0.68,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.68
+        }
+      ],
+      "bttsProb": 0.68,
+      "prediction": "Oui",
+      "proba": 0.68,
+      "confidence": 68,
+      "status": "PENDING"
+    },
+    {
+      "id": "goaheade-vs-fortunas-2026-11-22",
+      "match": "Go Ahead Eagles vs Fortuna Sittard",
+      "home": "Go Ahead Eagles",
+      "away": "Fortuna Sittard",
+      "league": "Eredivisie",
+      "date": "2026-11-22",
+      "type": "BTTS",
+      "time": "15:45",
+      "matchSemantic": "goaheade-vs-fortunas-2026-11-22",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3706.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/143.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.33,
+      "xgAway": 1.75,
+      "xgTotal": 4.08,
+      "formBTTS": 70,
+      "analysis": "Go Ahead Eagles : forme V-D-V-D-N (2V 1N 2D, 8 buts marqués / 13 encaissés sur 5) · Fortuna Sittard : forme N-N-V-N-N (1V 4N 0D, 7 buts marqués / 6 encaissés sur 5). Classement : Go Ahead Eagles 8e (17 pts), Fortuna Sittard 7e (20 pts). Stats empiriques (forme récente) : buts moy. 4.08, BTTS 70.0%, Over 2.5 60.0%. Affinage AI ensuite. Fiabilité 89.38%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.7,
+        "empiricalOver25Rate": 0.6,
+        "homeLambda": 2.33,
+        "awayLambda": 1.75,
+        "xgTotal": 4.08
+      },
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "V-D-V-D-N",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 8,
+        "goalsAgainst": 13,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-N-V-N-N",
+        "wins": 1,
+        "draws": 4,
+        "losses": 0,
+        "goalsFor": 7,
+        "goalsAgainst": 6,
+        "bttsRate": 0.8,
+        "over25Rate": 0.4,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-07",
+          "opponent": "Excelsior",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "SC Cambuur",
+          "venue": "A",
+          "score": "0-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Telstar",
+          "venue": "H",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "PEC Zwolle",
+          "venue": "A",
+          "score": "1-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Sparta Rotterdam",
+          "venue": "H",
+          "score": "3-3",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-07",
+          "opponent": "Telstar",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Feyenoord Rotterdam",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Excelsior",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "NEC Nijmegen",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "FC Twente",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 8,
+        "points": 17,
+        "played": 12,
+        "gf": 24,
+        "ga": 27
+      },
+      "standingsAway": {
+        "rank": 7,
+        "points": 20,
+        "played": 12,
+        "gf": 20,
+        "ga": 20
+      },
+      "empiricalBttsRate": 0.7,
+      "empiricalOver25Rate": 0.6,
+      "homeLambda": 2.33,
+      "awayLambda": 1.75,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Le taux BTTS empirique atteint 70% avec des dynamiques défensives poreuses des deux côtés.",
+      "ai_analysis": "L'analyse des statistiques observe un taux BTTS empirique de 70%, appuyé par la solidité relative mais la perméabilité défensive de Go Ahead Eagles (13 buts encaissés sur 5 matchs) et le taux de 80% de matchs avec buts des deux côtés pour Fortuna Sittard. Bien que Fortuna possède des tendances plus prudentes sur les Over 2.5, la configuration penche favorablement vers un score des deux équipes.",
+      "ai_analysis_en": "Statistical analysis shows an empirical BTTS rate of 70%, supported by Go Ahead Eagles' defensive vulnerability (13 goals conceded in 5 matches) and Fortuna Sittard's 80% BTTS rate in recent form. Although Fortuna sometimes records lower totals, the overall profile leans favorably towards goals at both ends.",
+      "ai_form_summary": "Go Ahead Eagles irrégulier (2V-1D-2D) mais perméable, Fortuna Sittard très accrocheur (1V-4N-0D) avec un fort taux de BTTS.",
+      "ai_form_summary_en": "Go Ahead Eagles are inconsistent (2W-1D-2L) and leaky, while Fortuna Sittard are hard to beat (1W-4D-0L) with high BTTS rates.",
+      "ai_reasons": [
+        "Taux BTTS empirique élevé à 70% pour ce match.",
+        "Go Ahead Eagles affiche un taux BTTS de 60% et encaisse beaucoup (13 buts en 5 matchs).",
+        "Fortuna Sittard présente un taux BTTS de 80% sur ses 5 derniers matchs."
+      ],
+      "ai_risks": [
+        "Fortuna Sittard montre parfois des matchs avec moins de buts (taux Over 2.5 à 40%)."
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 68,
+          "proba": 0.68,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.68
+        }
+      ],
+      "bttsProb": 0.68,
+      "prediction": "Oui",
+      "proba": 0.68,
+      "confidence": 68,
+      "status": "PENDING"
+    },
+    {
+      "id": "chicagof-vs-charlott-2026-11-22",
+      "match": "Chicago Fire FC vs Charlotte FC",
+      "home": "Chicago Fire FC",
+      "away": "Charlotte FC",
+      "league": "MLS",
+      "date": "2026-11-22",
+      "type": "Over 2.5",
+      "time": "23:30",
+      "matchSemantic": "chicagof-vs-charlott-2026-11-22",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/182.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21300.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.2,
+      "xgAway": 2,
+      "xgTotal": 4.2,
+      "formBTTS": 70,
+      "analysis": "Chicago Fire FC : forme D-V-N-V-D (2V 1N 2D, 12 buts marqués / 11 encaissés sur 5) · Charlotte FC : forme N-V-V-D-N (2V 2N 1D, 15 buts marqués / 8 encaissés sur 5). Classement : Chicago Fire FC 4e (55 pts), Charlotte FC 5e (54 pts). Stats empiriques (forme récente) : buts moy. 4.2, BTTS 70.0%, Over 2.5 90.0%. Affinage AI ensuite. Fiabilité 89.38%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.7,
+        "empiricalOver25Rate": 0.9,
+        "homeLambda": 2.2,
+        "awayLambda": 2,
+        "xgTotal": 4.2
+      },
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "D-V-N-V-D",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 12,
+        "goalsAgainst": 11,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-V-V-D-N",
+        "wins": 2,
+        "draws": 2,
+        "losses": 1,
+        "goalsFor": 15,
+        "goalsAgainst": 8,
+        "bttsRate": 0.6,
+        "over25Rate": 1,
+        "cleanSheets": 2,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-07",
+          "opponent": "Columbus Crew",
+          "venue": "H",
+          "score": "3-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Colorado Rapids",
+          "venue": "A",
+          "score": "4-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-29",
+          "opponent": "Orlando City SC",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Atlanta United FC",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "New England Revolution",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-07",
+          "opponent": "Inter Miami CF",
+          "venue": "A",
+          "score": "3-3",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Orlando City SC",
+          "venue": "H",
+          "score": "4-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-28",
+          "opponent": "CF Montréal",
+          "venue": "H",
+          "score": "4-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Portland Timbers",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Philadelphia Union",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 4,
+        "points": 55,
+        "played": 34,
+        "gf": 64,
+        "ga": 54
+      },
+      "standingsAway": {
+        "rank": 5,
+        "points": 54,
+        "played": 34,
+        "gf": 66,
+        "ga": 51
+      },
+      "empiricalBttsRate": 0.7,
+      "empiricalOver25Rate": 0.9,
+      "homeLambda": 2.2,
+      "awayLambda": 2,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_key_fact": "Le taux Over 2.5 empirique culmine à 90% avec des moyennes de buts respectives de 2.2 et 2.0.",
+      "ai_analysis": "Ce match de MLS présente des indicateurs offensifs très forts avec un taux Over 2.5 empirique de 90%. Charlotte FC affiche un score parfait de 100% sur ses 5 derniers matchs dans ce marché, tandis que Chicago Fire présente des moyennes de buts élevées par match (2.2). Malgré la proximité au classement, les statistiques de buts encaissés sur la saison (plus de 50 pour chaque équipe) renforcent l'option Over 2.5.",
+      "ai_analysis_en": "This MLS fixture features very strong offensive indicators with a 90% empirical Over 2.5 rate. Charlotte FC holds a 100% Over rate in their last 5 matches, while Chicago Fire maintains high per-game averages (2.2). Despite their close standings, both teams conceding over 50 goals this season strongly supports the Over 2.5 selection.",
+      "ai_form_summary": "Chicago Fire montre un profil offensif (2V-1D-2N) avec des matchs ouverts, Charlotte FC est très prolifique (2V-2N-1D).",
+      "ai_form_summary_en": "Chicago Fire shows an open profile (2W-1D-2L) with high-scoring games, and Charlotte FC is very prolific (2W-2D-1L).",
+      "ai_reasons": [
+        "Taux Over 2.5 empirique exceptionnel de 90%.",
+        "Charlotte FC affiche un taux Over 2.5 de 100% sur ses 5 derniers matchs.",
+        "Goalkeeping et défenses sous pression : Chicago Fire et Charlotte ont encaissé respectivement 54 et 51 buts sur la saison."
+      ],
+      "ai_risks": [
+        "Les deux équipes affichent des classements très proches (4e et 5e), ce qui pourrait engendrer une première mi-temps plus fermée."
+      ],
+      "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 75,
+          "proba": 0.75,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "over25Prob": 0.75
+        }
+      ],
+      "over25Prob": 0.75,
+      "prediction": "Oui",
+      "proba": 0.75,
+      "confidence": 75,
+      "status": "PENDING"
+    }
+  ],
+  "fixtures": [
+    {
+      "match": "FC Twente vs Willem II",
+      "home": "FC Twente",
+      "away": "Willem II",
+      "league": "Eredivisie",
+      "date": "2026-11-22",
+      "time": "11:15",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/152.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/156.png"
+    },
+    {
+      "match": "Juventus vs Venezia",
+      "home": "Juventus",
+      "away": "Venezia",
+      "league": "Serie A",
+      "date": "2026-11-22",
+      "time": "11:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/111.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/17530.png"
+    },
+    {
+      "match": "Burnley vs Blackburn Rovers",
+      "home": "Burnley",
+      "away": "Blackburn Rovers",
+      "league": "Championship",
+      "date": "2026-11-22",
+      "time": "12:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/379.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/365.png"
+    },
+    {
+      "match": "Energie Cottbus vs Hertha Berlin",
+      "home": "Energie Cottbus",
+      "away": "Hertha Berlin",
+      "league": "2. Bundesliga",
+      "date": "2026-11-22",
+      "time": "12:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/123.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/129.png"
+    },
+    {
+      "match": "Kaiserslautern vs Dynamo Dresden",
+      "home": "Kaiserslautern",
+      "away": "Dynamo Dresden",
+      "league": "2. Bundesliga",
+      "date": "2026-11-22",
+      "time": "12:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/130.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7017.png"
+    },
+    {
+      "match": "Karlsruher SC vs VfL Osnabruck",
+      "home": "Karlsruher SC",
+      "away": "VfL Osnabruck",
+      "league": "2. Bundesliga",
+      "date": "2026-11-22",
+      "time": "12:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4471.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7013.png"
+    },
+    {
+      "match": "Waasland-Beveren vs KAA Gent",
+      "home": "Waasland-Beveren",
+      "away": "KAA Gent",
+      "league": "Jupiler Pro League",
+      "date": "2026-11-22",
+      "time": "12:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/13450.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3611.png"
+    },
+    {
+      "match": "Barcelona vs Villarreal",
+      "home": "Barcelona",
+      "away": "Villarreal",
+      "league": "LaLiga",
+      "date": "2026-11-22",
+      "time": "13:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/83.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/102.png"
+    },
+    {
+      "match": "Ajax Amsterdam vs ADO Den Haag",
+      "home": "Ajax Amsterdam",
+      "away": "ADO Den Haag",
+      "league": "Eredivisie",
+      "date": "2026-11-22",
+      "time": "13:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/139.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2726.png"
+    },
+    {
+      "match": "SC Rheindorf Altach vs SK Sturm Graz",
+      "home": "SC Rheindorf Altach",
+      "away": "SK Sturm Graz",
+      "league": "Austrian Bundesliga",
+      "date": "2026-11-22",
+      "time": "13:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4405.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3746.png"
+    },
+    {
+      "match": "Sparta Rotterdam vs AZ Alkmaar",
+      "home": "Sparta Rotterdam",
+      "away": "AZ Alkmaar",
+      "league": "Eredivisie",
+      "date": "2026-11-22",
+      "time": "13:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/151.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/140.png"
+    },
+    {
+      "match": "Wolfsberger vs SV Josko Ried",
+      "home": "Wolfsberger",
+      "away": "SV Josko Ried",
+      "league": "Austrian Bundesliga",
+      "date": "2026-11-22",
+      "time": "13:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/13294.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3759.png"
+    },
+    {
+      "match": "Bologna vs Udinese",
+      "home": "Bologna",
+      "away": "Udinese",
+      "league": "Serie A",
+      "date": "2026-11-22",
+      "time": "14:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/107.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/118.png"
+    },
+    {
+      "match": "Hull City vs Brighton & Hove Albion",
+      "home": "Hull City",
+      "away": "Brighton & Hove Albion",
+      "league": "Premier League",
+      "date": "2026-11-22",
+      "time": "14:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/306.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/331.png"
+    },
+    {
+      "match": "Ipswich Town vs Southampton",
+      "home": "Ipswich Town",
+      "away": "Southampton",
+      "league": "English WSL Players Cup",
+      "date": "2026-11-22",
+      "time": "14:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21068.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21039.png"
+    },
+    {
+      "match": "Leicester City vs Wolverhampton",
+      "home": "Leicester City",
+      "away": "Wolverhampton",
+      "league": "English WSL Players Cup",
+      "date": "2026-11-22",
+      "time": "14:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21036.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21042.png"
+    },
+    {
+      "match": "Newcastle United vs Nottingham Forest",
+      "home": "Newcastle United",
+      "away": "Nottingham Forest",
+      "league": "English WSL Players Cup",
+      "date": "2026-11-22",
+      "time": "14:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21076.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21070.png"
+    },
+    {
+      "match": "OL Lyonnes vs Strasbourg",
+      "home": "OL Lyonnes",
+      "away": "Strasbourg",
+      "league": "French Première Ligue",
+      "date": "2026-11-22",
+      "time": "14:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/19256.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22329.png"
+    },
+    {
+      "match": "Paris FC vs Angers",
+      "home": "Paris FC",
+      "away": "Angers",
+      "league": "Ligue 1",
+      "date": "2026-11-22",
+      "time": "14:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6851.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7868.png"
+    },
+    {
+      "match": "Paris FC vs FC Fleury 91",
+      "home": "Paris FC",
+      "away": "FC Fleury 91",
+      "league": "French Première Ligue",
+      "date": "2026-11-22",
+      "time": "14:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21640.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21637.png"
+    },
+    {
+      "match": "Sassuolo vs Genoa",
+      "home": "Sassuolo",
+      "away": "Genoa",
+      "league": "Serie A",
+      "date": "2026-11-22",
+      "time": "14:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3997.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3263.png"
+    },
+    {
+      "match": "Sheffield United vs Durham",
+      "home": "Sheffield United",
+      "away": "Durham",
+      "league": "English WSL Players Cup",
+      "date": "2026-11-22",
+      "time": "14:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21038.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21045.png"
+    },
+    {
+      "match": "Sunderland vs Burnley",
+      "home": "Sunderland",
+      "away": "Burnley",
+      "league": "English WSL Players Cup",
+      "date": "2026-11-22",
+      "time": "14:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21060.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21048.png"
+    },
+    {
+      "match": "US Avellino vs Mantova",
+      "home": "US Avellino",
+      "away": "Mantova",
+      "league": "Serie B",
+      "date": "2026-11-22",
+      "time": "14:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4055.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3991.png"
+    },
+    {
+      "match": "FC Augsburg vs Mainz",
+      "home": "FC Augsburg",
+      "away": "Mainz",
+      "league": "Bundesliga",
+      "date": "2026-11-22",
+      "time": "14:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3841.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2950.png"
+    },
+    {
+      "match": "KV Kortrijk vs Union St.-Gilloise",
+      "home": "KV Kortrijk",
+      "away": "Union St.-Gilloise",
+      "league": "Jupiler Pro League",
+      "date": "2026-11-22",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/5786.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/5807.png"
+    },
+    {
+      "match": "Racing Santander vs Real Sociedad",
+      "home": "Racing Santander",
+      "away": "Real Sociedad",
+      "league": "LaLiga",
+      "date": "2026-11-22",
+      "time": "15:15",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/87.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/89.png"
+    },
+    {
+      "match": "Sporting Gijón vs Las Palmas",
+      "home": "Sporting Gijón",
+      "away": "Las Palmas",
+      "league": "LaLiga 2",
+      "date": "2026-11-22",
+      "time": "15:15",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3788.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/98.png"
+    },
+    {
+      "match": "Austria Vienna vs RB Salzburg",
+      "home": "Austria Vienna",
+      "away": "RB Salzburg",
+      "league": "Austrian Bundesliga",
+      "date": "2026-11-22",
+      "time": "16:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1382.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2790.png"
+    },
+    {
+      "match": "Bristol City vs Watford",
+      "home": "Bristol City",
+      "away": "Watford",
+      "league": "English WSL Players Cup",
+      "date": "2026-11-22",
+      "time": "16:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/19974.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21054.png"
+    },
+    {
+      "match": "Arezzo vs Padova",
+      "home": "Arezzo",
+      "away": "Padova",
+      "league": "Serie B",
+      "date": "2026-11-22",
+      "time": "16:15",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3345.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3952.png"
+    },
+    {
+      "match": "Lorient vs Stade Rennais",
+      "home": "Lorient",
+      "away": "Stade Rennais",
+      "league": "Ligue 1",
+      "date": "2026-11-22",
+      "time": "16:15",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/273.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/169.png"
+    },
+    {
+      "match": "Liverpool vs Manchester United",
+      "home": "Liverpool",
+      "away": "Manchester United",
+      "league": "Premier League",
+      "date": "2026-11-22",
+      "time": "16:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/364.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/360.png"
+    },
+    {
+      "match": "Werder Bremen vs Hamburg SV",
+      "home": "Werder Bremen",
+      "away": "Hamburg SV",
+      "league": "Bundesliga",
+      "date": "2026-11-22",
+      "time": "16:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/137.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/127.png"
+    },
+    {
+      "match": "Anderlecht vs OH Leuven",
+      "home": "Anderlecht",
+      "away": "OH Leuven",
+      "league": "Jupiler Pro League",
+      "date": "2026-11-22",
+      "time": "17:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/441.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/5579.png"
+    },
+    {
+      "match": "Girona vs Eibar",
+      "home": "Girona",
+      "away": "Eibar",
+      "league": "LaLiga 2",
+      "date": "2026-11-22",
+      "time": "17:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9812.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3752.png"
+    },
+    {
+      "match": "Osasuna vs Málaga",
+      "home": "Osasuna",
+      "away": "Málaga",
+      "league": "LaLiga",
+      "date": "2026-11-22",
+      "time": "17:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/97.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/99.png"
+    },
+    {
+      "match": "RC Celta Fortuna vs Real Valladolid",
+      "home": "RC Celta Fortuna",
+      "away": "Real Valladolid",
+      "league": "LaLiga 2",
+      "date": "2026-11-22",
+      "time": "17:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/131858.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/95.png"
+    },
+    {
+      "match": "Lommel SK vs Standard Liege",
+      "home": "Lommel SK",
+      "away": "Standard Liege",
+      "league": "Jupiler Pro League",
+      "date": "2026-11-22",
+      "time": "18:15",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22269.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/559.png"
+    },
+    {
+      "match": "Criciúma vs Fortaleza",
+      "home": "Criciúma",
+      "away": "Fortaleza",
+      "league": "Brazilian Serie B",
+      "date": "2026-11-22",
+      "time": "19:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9971.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6272.png"
+    },
+    {
+      "match": "Atalanta vs Internazionale",
+      "home": "Atalanta",
+      "away": "Internazionale",
+      "league": "Serie A",
+      "date": "2026-11-22",
+      "time": "19:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/105.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/110.png"
+    },
+    {
+      "match": "Marseille vs Le Mans",
+      "home": "Marseille",
+      "away": "Le Mans",
+      "league": "Ligue 1",
+      "date": "2026-11-22",
+      "time": "19:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/176.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2697.png"
+    },
+    {
+      "match": "Burgos vs Albacete",
+      "home": "Burgos",
+      "away": "Albacete",
+      "league": "LaLiga 2",
+      "date": "2026-11-22",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/12597.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2737.png"
+    },
+    {
+      "match": "Getafe vs Atlético Madrid",
+      "home": "Getafe",
+      "away": "Atlético Madrid",
+      "league": "LaLiga",
+      "date": "2026-11-22",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2922.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1068.png"
+    },
+    {
+      "match": "Fuerte San Francisco vs Inca Aruba",
+      "home": "Fuerte San Francisco",
+      "away": "Inca Aruba",
+      "league": "Salvadoran Primera Division",
+      "date": "2026-11-22",
+      "time": "21:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21987.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/132480.png"
+    },
+    {
+      "match": "Nashville SC vs FC Cincinnati",
+      "home": "Nashville SC",
+      "away": "FC Cincinnati",
+      "league": "MLS",
+      "date": "2026-11-22",
+      "time": "21:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18986.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18267.png"
+    },
+    {
+      "match": "Atlético Goianiense vs Vila Nova",
+      "home": "Atlético Goianiense",
+      "away": "Vila Nova",
+      "league": "Brazilian Serie B",
+      "date": "2026-11-22",
+      "time": "21:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10357.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9973.png"
+    },
+    {
+      "match": "Gimnasia y Tiro (Salta) vs Tristán Suárez",
+      "home": "Gimnasia y Tiro (Salta)",
+      "away": "Tristán Suárez",
+      "league": "Argentine Nacional B",
+      "date": "2026-11-23",
+      "time": "00:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10743.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10163.png"
+    },
+    {
+      "match": "Vancouver Whitecaps vs Real Salt Lake",
+      "home": "Vancouver Whitecaps",
+      "away": "Real Salt Lake",
+      "league": "MLS",
+      "date": "2026-11-23",
+      "time": "01:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9727.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4771.png"
+    },
+    {
+      "match": "Real Kashmir vs Dempo Sports Club",
+      "home": "Real Kashmir",
+      "away": "Dempo Sports Club",
+      "league": "Indian Football League",
+      "date": "2026-11-23",
+      "time": "13:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/19341.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22473.png"
+    },
+    {
+      "match": "Ceuta vs Almería",
+      "home": "Ceuta",
+      "away": "Almería",
+      "league": "LaLiga 2",
+      "date": "2026-11-23",
+      "time": "19:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/5404.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6832.png"
+    },
+    {
+      "match": "Monza vs Fiorentina",
+      "home": "Monza",
+      "away": "Fiorentina",
+      "league": "Serie A",
+      "date": "2026-11-23",
+      "time": "19:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4007.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/109.png"
+    },
+    {
+      "match": "Nantes vs Grenoble",
+      "home": "Nantes",
+      "away": "Grenoble",
+      "league": "Ligue 2",
+      "date": "2026-11-23",
+      "time": "19:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/165.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6994.png"
+    },
+    {
+      "match": "Sochaux vs Dunkerque",
+      "home": "Sochaux",
+      "away": "Dunkerque",
+      "league": "Ligue 2",
+      "date": "2026-11-23",
+      "time": "19:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/272.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7732.png"
+    },
+    {
+      "match": "Brentford vs Everton",
+      "home": "Brentford",
+      "away": "Everton",
+      "league": "Premier League",
+      "date": "2026-11-23",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/337.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/368.png"
+    },
+    {
+      "match": "Levante vs Elche",
+      "home": "Levante",
+      "away": "Elche",
+      "league": "LaLiga",
+      "date": "2026-11-23",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1538.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3751.png"
+    },
+    {
+      "match": "St. Louis CITY SC vs LAFC",
+      "home": "St. Louis CITY SC",
+      "away": "LAFC",
+      "league": "MLS",
+      "date": "2026-11-24",
+      "time": "01:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21812.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18966.png"
+    },
+    {
+      "match": "Samaleswari SC vs Bengaluru United FC",
+      "home": "Samaleswari SC",
+      "away": "Bengaluru United FC",
+      "league": "Indian Football League",
+      "date": "2026-11-24",
+      "time": "10:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/134035.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/134033.png"
+    },
+    {
+      "match": "Sreenidi Deccan FC vs Chanmari FC",
+      "home": "Sreenidi Deccan FC",
+      "away": "Chanmari FC",
+      "league": "Indian Football League",
+      "date": "2026-11-24",
+      "time": "13:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21311.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/131707.png"
+    },
+    {
+      "match": "Bodo/Glimt vs LASK Linz",
+      "home": "Bodo/Glimt",
+      "away": "LASK Linz",
+      "league": "UEFA Champions League",
+      "date": "2026-11-24",
+      "time": "17:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2980.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4411.png"
+    },
+    {
+      "match": "Galatasaray vs Aston Villa",
+      "home": "Galatasaray",
+      "away": "Aston Villa",
+      "league": "UEFA Champions League",
+      "date": "2026-11-24",
+      "time": "17:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/432.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/362.png"
+    },
+    {
+      "match": "Juve Stabia vs Catanzaro",
+      "home": "Juve Stabia",
+      "away": "Catanzaro",
+      "league": "Serie B",
+      "date": "2026-11-24",
+      "time": "18:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3975.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3257.png"
+    },
+    {
+      "match": "Benevento vs Empoli",
+      "home": "Benevento",
+      "away": "Empoli",
+      "league": "Serie B",
+      "date": "2026-11-24",
+      "time": "19:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4059.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2574.png"
+    },
+    {
+      "match": "Cesena vs Ascoli",
+      "home": "Cesena",
+      "away": "Ascoli",
+      "league": "Serie B",
+      "date": "2026-11-24",
+      "time": "19:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3337.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3346.png"
+    },
+    {
+      "match": "Fleetwood Town vs Leeds United U21",
+      "home": "Fleetwood Town",
+      "away": "Leeds United U21",
+      "league": "English EFL Trophy",
+      "date": "2026-11-24",
+      "time": "19:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3891.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20728.png"
+    },
+    {
+      "match": "Oxford United vs Tottenham Hotspur U21",
+      "home": "Oxford United",
+      "away": "Tottenham Hotspur U21",
+      "league": "English EFL Trophy",
+      "date": "2026-11-24",
+      "time": "19:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/311.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18787.png"
+    },
+    {
+      "match": "Palermo vs Sudtirol",
+      "home": "Palermo",
+      "away": "Sudtirol",
+      "league": "Serie B",
+      "date": "2026-11-24",
+      "time": "19:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2923.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/11139.png"
+    },
+    {
+      "match": "Salford City vs Sunderland U21",
+      "home": "Salford City",
+      "away": "Sunderland U21",
+      "league": "English EFL Trophy",
+      "date": "2026-11-24",
+      "time": "19:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4703.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18785.png"
+    },
+    {
+      "match": "Tranmere Rovers vs Everton U21",
+      "home": "Tranmere Rovers",
+      "away": "Everton U21",
+      "league": "English EFL Trophy",
+      "date": "2026-11-24",
+      "time": "19:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/345.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18776.png"
+    },
+    {
+      "match": "Vicenza vs Carrarese",
+      "home": "Vicenza",
+      "away": "Carrarese",
+      "league": "Serie B",
+      "date": "2026-11-24",
+      "time": "19:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/120.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3988.png"
+    },
+    {
+      "match": "Virtus Entella vs Hellas Verona",
+      "home": "Virtus Entella",
+      "away": "Hellas Verona",
+      "league": "Serie B",
+      "date": "2026-11-24",
+      "time": "19:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/11137.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/119.png"
+    },
+    {
+      "match": "Blackpool vs Leicester City",
+      "home": "Blackpool",
+      "away": "Leicester City",
+      "league": "English League One",
+      "date": "2026-11-24",
+      "time": "19:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/346.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/375.png"
+    },
+    {
+      "match": "Bradford City vs Barnsley",
+      "home": "Bradford City",
+      "away": "Barnsley",
+      "league": "English League One",
+      "date": "2026-11-24",
+      "time": "19:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/387.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/397.png"
+    },
+    {
+      "match": "Bristol City vs Wrexham",
+      "home": "Bristol City",
+      "away": "Wrexham",
+      "league": "Championship",
+      "date": "2026-11-24",
+      "time": "19:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/333.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/352.png"
+    },
+    {
+      "match": "Bromley vs Wycombe Wanderers",
+      "home": "Bromley",
+      "away": "Wycombe Wanderers",
+      "league": "English League One",
+      "date": "2026-11-24",
+      "time": "19:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3129.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/344.png"
+    },
+    {
+      "match": "Cardiff City vs Preston North End",
+      "home": "Cardiff City",
+      "away": "Preston North End",
+      "league": "Championship",
+      "date": "2026-11-24",
+      "time": "19:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/347.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/394.png"
+    },
+    {
+      "match": "Charlton Athletic vs Lincoln City",
+      "home": "Charlton Athletic",
+      "away": "Lincoln City",
+      "league": "Championship",
+      "date": "2026-11-24",
+      "time": "19:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/372.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/314.png"
+    },
+    {
+      "match": "Crawley Town vs Barnet",
+      "home": "Crawley Town",
+      "away": "Barnet",
+      "league": "English League Two",
+      "date": "2026-11-24",
+      "time": "19:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2594.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/280.png"
+    },
+    {
+      "match": "Hibernian vs Dundee",
+      "home": "Hibernian",
+      "away": "Dundee",
+      "league": "Scottish Premiership",
+      "date": "2026-11-24",
+      "time": "19:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/258.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/261.png"
+    },
+    {
+      "match": "Middlesbrough vs Swansea City",
+      "home": "Middlesbrough",
+      "away": "Swansea City",
+      "league": "Championship",
+      "date": "2026-11-24",
+      "time": "19:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/369.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/318.png"
+    },
+    {
+      "match": "Norwich City vs Queens Park Rangers",
+      "home": "Norwich City",
+      "away": "Queens Park Rangers",
+      "league": "Championship",
+      "date": "2026-11-24",
+      "time": "19:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/381.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/334.png"
+    },
+    {
+      "match": "Port Vale vs Northampton Town",
+      "home": "Port Vale",
+      "away": "Northampton Town",
+      "league": "English League Two",
+      "date": "2026-11-24",
+      "time": "19:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/348.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/353.png"
+    },
+    {
+      "match": "Portsmouth vs West Ham United",
+      "home": "Portsmouth",
+      "away": "West Ham United",
+      "league": "Championship",
+      "date": "2026-11-24",
+      "time": "19:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/385.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/371.png"
+    },
+    {
+      "match": "Sheffield United vs Southampton",
+      "home": "Sheffield United",
+      "away": "Southampton",
+      "league": "Championship",
+      "date": "2026-11-24",
+      "time": "19:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/398.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/376.png"
+    },
+    {
+      "match": "Stevenage vs Sheffield Wednesday",
+      "home": "Stevenage",
+      "away": "Sheffield Wednesday",
+      "league": "English League One",
+      "date": "2026-11-24",
+      "time": "19:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/285.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/399.png"
+    },
+    {
+      "match": "Arsenal vs Borussia Dortmund",
+      "home": "Arsenal",
+      "away": "Borussia Dortmund",
+      "league": "UEFA Champions League",
+      "date": "2026-11-24",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/359.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/124.png"
+    },
+    {
+      "match": "Como vs AEK Athens",
+      "home": "Como",
+      "away": "AEK Athens",
+      "league": "UEFA Champions League",
+      "date": "2026-11-24",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2572.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/887.png"
+    },
+    {
+      "match": "Feyenoord Rotterdam vs FC Porto",
+      "home": "Feyenoord Rotterdam",
+      "away": "FC Porto",
+      "league": "UEFA Champions League",
+      "date": "2026-11-24",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/142.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/437.png"
+    },
+    {
+      "match": "Manchester City vs Napoli",
+      "home": "Manchester City",
+      "away": "Napoli",
+      "league": "UEFA Champions League",
+      "date": "2026-11-24",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/382.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/114.png"
+    },
+    {
+      "match": "Rangers vs Aberdeen",
+      "home": "Rangers",
+      "away": "Aberdeen",
+      "league": "Scottish Premiership",
+      "date": "2026-11-24",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/257.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/263.png"
+    },
+    {
+      "match": "RB Leipzig vs Lens",
+      "home": "RB Leipzig",
+      "away": "Lens",
+      "league": "UEFA Champions League",
+      "date": "2026-11-24",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/11420.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/175.png"
+    },
+    {
+      "match": "Real Madrid vs PSV Eindhoven",
+      "home": "Real Madrid",
+      "away": "PSV Eindhoven",
+      "league": "UEFA Champions League",
+      "date": "2026-11-24",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/86.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/148.png"
+    },
+    {
+      "match": "Slovan Bratislava vs Real Betis",
+      "home": "Slovan Bratislava",
+      "away": "Real Betis",
+      "league": "UEFA Champions League",
+      "date": "2026-11-24",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/521.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/244.png"
+    },
+    {
+      "match": "Wolverhampton Wanderers vs Derby County",
+      "home": "Wolverhampton Wanderers",
+      "away": "Derby County",
+      "league": "Championship",
+      "date": "2026-11-24",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/380.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/374.png"
+    },
+    {
+      "match": "San Jose Earthquakes vs Houston Dynamo FC",
+      "home": "San Jose Earthquakes",
+      "away": "Houston Dynamo FC",
+      "league": "MLS",
+      "date": "2026-11-25",
+      "time": "03:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/191.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6077.png"
+    },
+    {
+      "match": "Avispa Fukuoka vs Yokohama F. Marinos",
+      "home": "Avispa Fukuoka",
+      "away": "Yokohama F. Marinos",
+      "league": "Japanese J.League",
+      "date": "2026-11-25",
+      "time": "10:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7107.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7116.png"
+    },
+    {
+      "match": "Fagiano Okayama vs Shimizu S-Pulse",
+      "home": "Fagiano Okayama",
+      "away": "Shimizu S-Pulse",
+      "league": "Japanese J.League",
+      "date": "2026-11-25",
+      "time": "10:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22522.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7104.png"
+    },
+    {
+      "match": "FC Tokyo vs Sanfrecce Hiroshima",
+      "home": "FC Tokyo",
+      "away": "Sanfrecce Hiroshima",
+      "league": "Japanese J.League",
+      "date": "2026-11-25",
+      "time": "10:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3384.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7114.png"
+    },
+    {
+      "match": "JEF United Ichihara-Chiba vs Nagoya Grampus",
+      "home": "JEF United Ichihara-Chiba",
+      "away": "Nagoya Grampus",
+      "league": "Japanese J.League",
+      "date": "2026-11-25",
+      "time": "10:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7111.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7108.png"
+    },
+    {
+      "match": "Mito Hollyhock vs Tokyo Verdy 1969",
+      "home": "Mito Hollyhock",
+      "away": "Tokyo Verdy 1969",
+      "league": "Japanese J.League",
+      "date": "2026-11-25",
+      "time": "10:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/131701.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3393.png"
+    },
+    {
+      "match": "V-Varen Nagasaki vs Kawasaki Frontale",
+      "home": "V-Varen Nagasaki",
+      "away": "Kawasaki Frontale",
+      "league": "Japanese J.League",
+      "date": "2026-11-25",
+      "time": "10:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/19001.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7112.png"
+    },
+    {
+      "match": "Mohammedan SC vs Rajasthan United FC",
+      "home": "Mohammedan SC",
+      "away": "Rajasthan United FC",
+      "league": "Indian Football League",
+      "date": "2026-11-25",
+      "time": "10:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20842.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21312.png"
+    },
+    {
+      "match": "Urawa Red Diamonds vs Cerezo Osaka",
+      "home": "Urawa Red Diamonds",
+      "away": "Cerezo Osaka",
+      "league": "Japanese J.League",
+      "date": "2026-11-25",
+      "time": "10:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3385.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7109.png"
+    },
+    {
+      "match": "Shillong Lajong FC vs Nagaland United SC",
+      "home": "Shillong Lajong FC",
+      "away": "Nagaland United SC",
+      "league": "Indian Football League",
+      "date": "2026-11-25",
+      "time": "13:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18898.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/134034.png"
+    },
+    {
+      "match": "Sabah FK vs Barcelona",
+      "home": "Sabah FK",
+      "away": "Barcelona",
+      "league": "UEFA Champions League",
+      "date": "2026-11-25",
+      "time": "17:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21922.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/83.png"
+    },
+    {
+      "match": "Slavia Prague vs Villarreal",
+      "home": "Slavia Prague",
+      "away": "Villarreal",
+      "league": "UEFA Champions League",
+      "date": "2026-11-25",
+      "time": "17:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/494.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/102.png"
+    },
+    {
+      "match": "Cremonese vs US Avellino",
+      "home": "Cremonese",
+      "away": "US Avellino",
+      "league": "Serie B",
+      "date": "2026-11-25",
+      "time": "18:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4050.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4055.png"
+    },
+    {
+      "match": "Mantova vs Arezzo",
+      "home": "Mantova",
+      "away": "Arezzo",
+      "league": "Serie B",
+      "date": "2026-11-25",
+      "time": "19:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3991.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3345.png"
+    },
+    {
+      "match": "Padova vs Sampdoria",
+      "home": "Padova",
+      "away": "Sampdoria",
+      "league": "Serie B",
+      "date": "2026-11-25",
+      "time": "19:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3952.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2734.png"
+    },
+    {
+      "match": "Pisa vs Modena",
+      "home": "Pisa",
+      "away": "Modena",
+      "league": "Serie B",
+      "date": "2026-11-25",
+      "time": "19:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3956.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2573.png"
+    },
+    {
+      "match": "Bolton Wanderers vs West Bromwich Albion",
+      "home": "Bolton Wanderers",
+      "away": "West Bromwich Albion",
+      "league": "Championship",
+      "date": "2026-11-25",
+      "time": "19:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/358.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/383.png"
+    },
+    {
+      "match": "Burnley vs Birmingham City",
+      "home": "Burnley",
+      "away": "Birmingham City",
+      "league": "Championship",
+      "date": "2026-11-25",
+      "time": "19:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/379.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/392.png"
+    },
+    {
+      "match": "Watford vs Blackburn Rovers",
+      "home": "Watford",
+      "away": "Blackburn Rovers",
+      "league": "Championship",
+      "date": "2026-11-25",
+      "time": "19:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/395.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/365.png"
+    },
+    {
+      "match": "Atlético Madrid vs Viking FK",
+      "home": "Atlético Madrid",
+      "away": "Viking FK",
+      "league": "UEFA Champions League",
+      "date": "2026-11-25",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1068.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/510.png"
+    },
+    {
+      "match": "Club Brugge vs Liverpool",
+      "home": "Club Brugge",
+      "away": "Liverpool",
+      "league": "UEFA Champions League",
+      "date": "2026-11-25",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/570.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/364.png"
+    },
+    {
+      "match": "Internazionale vs VfB Stuttgart",
+      "home": "Internazionale",
+      "away": "VfB Stuttgart",
+      "league": "UEFA Champions League",
+      "date": "2026-11-25",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/110.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/134.png"
+    },
+    {
+      "match": "Lille vs Bayern Munich",
+      "home": "Lille",
+      "away": "Bayern Munich",
+      "league": "UEFA Champions League",
+      "date": "2026-11-25",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/166.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/132.png"
+    },
+    {
+      "match": "Paris Saint-Germain vs AS Roma",
+      "home": "Paris Saint-Germain",
+      "away": "AS Roma",
+      "league": "UEFA Champions League",
+      "date": "2026-11-25",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/160.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/104.png"
+    },
+    {
+      "match": "Shakhtar Donetsk vs Fenerbahce",
+      "home": "Shakhtar Donetsk",
+      "away": "Fenerbahce",
+      "league": "UEFA Champions League",
+      "date": "2026-11-25",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/493.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/436.png"
+    },
+    {
+      "match": "Sporting CP vs Manchester United",
+      "home": "Sporting CP",
+      "away": "Manchester United",
+      "league": "UEFA Champions League",
+      "date": "2026-11-25",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2250.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/360.png"
+    },
+    {
+      "match": "Stoke City vs Millwall",
+      "home": "Stoke City",
+      "away": "Millwall",
+      "league": "Championship",
+      "date": "2026-11-25",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/336.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/391.png"
+    },
+    {
+      "match": "Real Potosí vs Always Ready",
+      "home": "Real Potosí",
+      "away": "Always Ready",
+      "league": "Copa Bolivia",
+      "date": "2026-11-25",
+      "time": "23:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6051.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/19425.png"
+    },
+    {
+      "match": "FC Ilves vs SJK-J",
+      "home": "FC Ilves",
+      "away": "SJK-J",
+      "league": "Club Friendly",
+      "date": "2026-11-26",
+      "time": "13:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/19248.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/134163.png"
+    },
+    {
+      "match": "Al Fateh vs Al Riyadh",
+      "home": "Al Fateh",
+      "away": "Al Riyadh",
+      "league": "Saudi Pro League",
+      "date": "2026-11-26",
+      "time": "14:25",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/13033.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21965.png"
+    },
+    {
+      "match": "Abha vs Al Shabab",
+      "home": "Abha",
+      "away": "Al Shabab",
+      "league": "Saudi Pro League",
+      "date": "2026-11-26",
+      "time": "15:05",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21833.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/793.png"
+    },
+    {
+      "match": "Kairat Almaty vs Mjällby AIF",
+      "home": "Kairat Almaty",
+      "away": "Mjällby AIF",
+      "league": "UEFA Conference League",
+      "date": "2026-11-26",
+      "time": "15:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2528.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20301.png"
+    },
+    {
+      "match": "Al Faisaly vs Al Diriyah",
+      "home": "Al Faisaly",
+      "away": "Al Diriyah",
+      "league": "Saudi Pro League",
+      "date": "2026-11-26",
+      "time": "17:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21446.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/131746.png"
+    },
+    {
+      "match": "Ajax Amsterdam vs FC Thun",
+      "home": "Ajax Amsterdam",
+      "away": "FC Thun",
+      "league": "UEFA Conference League",
+      "date": "2026-11-26",
+      "time": "17:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/139.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3024.png"
+    },
+    {
+      "match": "Besiktas vs Hapoel Be'er",
+      "home": "Besiktas",
+      "away": "Hapoel Be'er",
+      "league": "UEFA Europa League",
+      "date": "2026-11-26",
+      "time": "17:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1895.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/13083.png"
+    },
+    {
+      "match": "Brighton & Hove Albion vs CSU Craiova",
+      "home": "Brighton & Hove Albion",
+      "away": "CSU Craiova",
+      "league": "UEFA Conference League",
+      "date": "2026-11-26",
+      "time": "17:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/331.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/8089.png"
+    },
+    {
+      "match": "Celta Vigo vs AFC Bournemouth",
+      "home": "Celta Vigo",
+      "away": "AFC Bournemouth",
+      "league": "UEFA Europa League",
+      "date": "2026-11-26",
+      "time": "17:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/85.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/349.png"
+    },
+    {
+      "match": "Dinamo Zagreb vs Bayer Leverkusen",
+      "home": "Dinamo Zagreb",
+      "away": "Bayer Leverkusen",
+      "league": "UEFA Europa League",
+      "date": "2026-11-26",
+      "time": "17:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/597.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/131.png"
+    },
+    {
+      "match": "Egnatia vs Lincoln Red Imps",
+      "home": "Egnatia",
+      "away": "Lincoln Red Imps",
+      "league": "UEFA Conference League",
+      "date": "2026-11-26",
+      "time": "17:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21943.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/17856.png"
+    },
+    {
+      "match": "Heart of Midlothian vs AS Monaco",
+      "home": "Heart of Midlothian",
+      "away": "AS Monaco",
+      "league": "UEFA Conference League",
+      "date": "2026-11-26",
+      "time": "17:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/262.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/174.png"
+    },
+    {
+      "match": "Iberia 1999 vs Getafe",
+      "home": "Iberia 1999",
+      "away": "Getafe",
+      "league": "UEFA Conference League",
+      "date": "2026-11-26",
+      "time": "17:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20025.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2922.png"
+    },
+    {
+      "match": "Jablonec vs FC Lugano",
+      "home": "Jablonec",
+      "away": "FC Lugano",
+      "league": "UEFA Conference League",
+      "date": "2026-11-26",
+      "time": "17:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7922.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7672.png"
+    },
+    {
+      "match": "Kauno Zalgiris vs Riga FC",
+      "home": "Kauno Zalgiris",
+      "away": "Riga FC",
+      "league": "UEFA Conference League",
+      "date": "2026-11-26",
+      "time": "17:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20028.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/19246.png"
+    },
+    {
+      "match": "Marseille vs Levski Sofia",
+      "home": "Marseille",
+      "away": "Levski Sofia",
+      "league": "UEFA Europa League",
+      "date": "2026-11-26",
+      "time": "17:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/176.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/490.png"
+    },
+    {
+      "match": "Olympiacos vs AC Milan",
+      "home": "Olympiacos",
+      "away": "AC Milan",
+      "league": "UEFA Europa League",
+      "date": "2026-11-26",
+      "time": "17:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/435.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/103.png"
+    },
+    {
+      "match": "Pafos vs FC Midtjylland",
+      "home": "Pafos",
+      "away": "FC Midtjylland",
+      "league": "UEFA Conference League",
+      "date": "2026-11-26",
+      "time": "17:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22281.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/572.png"
+    },
+    {
+      "match": "RB Salzburg vs Ararat-Armenia",
+      "home": "RB Salzburg",
+      "away": "Ararat-Armenia",
+      "league": "UEFA Europa League",
+      "date": "2026-11-26",
+      "time": "17:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2790.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20024.png"
+    },
+    {
+      "match": "SK Brann vs AGF",
+      "home": "SK Brann",
+      "away": "AGF",
+      "league": "UEFA Conference League",
+      "date": "2026-11-26",
+      "time": "17:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/620.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7853.png"
+    },
+    {
+      "match": "Union St.-Gilloise vs Lech Poznan",
+      "home": "Union St.-Gilloise",
+      "away": "Lech Poznan",
+      "league": "UEFA Europa League",
+      "date": "2026-11-26",
+      "time": "17:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/5807.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2990.png"
+    },
+    {
+      "match": "Viktoria Plzen vs Benfica",
+      "home": "Viktoria Plzen",
+      "away": "Benfica",
+      "league": "UEFA Europa League",
+      "date": "2026-11-26",
+      "time": "17:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/11706.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1929.png"
+    },
+    {
+      "match": "Borac Banja Luka vs Atalanta",
+      "home": "Borac Banja Luka",
+      "away": "Atalanta",
+      "league": "UEFA Conference League",
+      "date": "2026-11-26",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20710.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/105.png"
+    },
+    {
+      "match": "Braga vs KuPS Kuopio",
+      "home": "Braga",
+      "away": "KuPS Kuopio",
+      "league": "UEFA Conference League",
+      "date": "2026-11-26",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2994.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/8169.png"
+    },
+    {
+      "match": "Crystal Palace vs Real Sociedad",
+      "home": "Crystal Palace",
+      "away": "Real Sociedad",
+      "league": "UEFA Europa League",
+      "date": "2026-11-26",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/384.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/89.png"
+    },
+    {
+      "match": "CSKA Sofia vs Trabzonspor",
+      "home": "CSKA Sofia",
+      "away": "Trabzonspor",
+      "league": "UEFA Conference League",
+      "date": "2026-11-26",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10834.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/997.png"
+    },
+    {
+      "match": "Doncaster Rovers vs Huddersfield Town",
+      "home": "Doncaster Rovers",
+      "away": "Huddersfield Town",
+      "league": "English League One",
+      "date": "2026-11-26",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/279.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/335.png"
+    },
+    {
+      "match": "FC Nordsjælland vs Panathinaikos",
+      "home": "FC Nordsjælland",
+      "away": "Panathinaikos",
+      "league": "UEFA Conference League",
+      "date": "2026-11-26",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3101.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/443.png"
+    },
+    {
+      "match": "Ferencvaros vs NK Celje",
+      "home": "Ferencvaros",
+      "away": "NK Celje",
+      "league": "UEFA Europa League",
+      "date": "2026-11-26",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/622.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3362.png"
+    },
+    {
+      "match": "Hajduk Split vs Sint-Truidense",
+      "home": "Hajduk Split",
+      "away": "Sint-Truidense",
+      "league": "UEFA Conference League",
+      "date": "2026-11-26",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/489.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/936.png"
+    },
+    {
+      "match": "Inter D'Escaldes vs F.C. København",
+      "home": "Inter D'Escaldes",
+      "away": "F.C. København",
+      "league": "UEFA Conference League",
+      "date": "2026-11-26",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20703.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/909.png"
+    },
+    {
+      "match": "Juventus vs Omonia Nicosia",
+      "home": "Juventus",
+      "away": "Omonia Nicosia",
+      "league": "UEFA Europa League",
+      "date": "2026-11-26",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/111.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/617.png"
+    },
+    {
+      "match": "KAA Gent vs Red Star Belgrade",
+      "home": "KAA Gent",
+      "away": "Red Star Belgrade",
+      "league": "UEFA Conference League",
+      "date": "2026-11-26",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3611.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2290.png"
+    },
+    {
+      "match": "Lyon vs Lillestrom",
+      "home": "Lyon",
+      "away": "Lillestrom",
+      "league": "UEFA Europa League",
+      "date": "2026-11-26",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/167.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/987.png"
+    },
+    {
+      "match": "NEC Nijmegen vs Stade Rennais",
+      "home": "NEC Nijmegen",
+      "away": "Stade Rennais",
+      "league": "UEFA Europa League",
+      "date": "2026-11-26",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/147.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/169.png"
+    },
+    {
+      "match": "OFI Crete vs Anderlecht",
+      "home": "OFI Crete",
+      "away": "Anderlecht",
+      "league": "UEFA Europa League",
+      "date": "2026-11-26",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1010.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/441.png"
+    },
+    {
+      "match": "SC Freiburg vs FC Twente",
+      "home": "SC Freiburg",
+      "away": "FC Twente",
+      "league": "UEFA Conference League",
+      "date": "2026-11-26",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/126.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/152.png"
+    },
+    {
+      "match": "Sparta Prague vs AZ Alkmaar",
+      "home": "Sparta Prague",
+      "away": "AZ Alkmaar",
+      "league": "UEFA Europa League",
+      "date": "2026-11-26",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/433.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/140.png"
+    },
+    {
+      "match": "Sunderland vs Jagiellonia Bialystok",
+      "home": "Sunderland",
+      "away": "Jagiellonia Bialystok",
+      "league": "UEFA Europa League",
+      "date": "2026-11-26",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/366.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/11505.png"
+    },
+    {
+      "match": "Torreense vs Celtic",
+      "home": "Torreense",
+      "away": "Celtic",
+      "league": "UEFA Europa League",
+      "date": "2026-11-26",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21615.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/256.png"
+    },
+    {
+      "match": "TSG Hoffenheim vs SK Sturm Graz",
+      "home": "TSG Hoffenheim",
+      "away": "SK Sturm Graz",
+      "league": "UEFA Europa League",
+      "date": "2026-11-26",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7911.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3746.png"
+    },
+    {
+      "match": "FC Ilves vs TPS",
+      "home": "FC Ilves",
+      "away": "TPS",
+      "league": "Club Friendly",
+      "date": "2026-11-27",
+      "time": "11:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/19248.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/8219.png"
+    },
+    {
+      "match": "Al Kholood vs Al Khaleej",
+      "home": "Al Kholood",
+      "away": "Al Khaleej",
+      "league": "Saudi Pro League",
+      "date": "2026-11-27",
+      "time": "12:15",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22028.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21829.png"
+    },
+    {
+      "match": "Al Qadsiah vs Al Fayha",
+      "home": "Al Qadsiah",
+      "away": "Al Fayha",
+      "league": "Saudi Pro League",
+      "date": "2026-11-27",
+      "time": "14:20",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22022.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21827.png"
+    },
+    {
+      "match": "1. FC Heidenheim 1846 vs 1. FC Nürnberg",
+      "home": "1. FC Heidenheim 1846",
+      "away": "1. FC Nürnberg",
+      "league": "2. Bundesliga",
+      "date": "2026-11-27",
+      "time": "17:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6418.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/269.png"
+    },
+    {
+      "match": "Al Ittihad vs Neom SC",
+      "home": "Al Ittihad",
+      "away": "Neom SC",
+      "league": "Saudi Pro League",
+      "date": "2026-11-27",
+      "time": "17:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2276.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/130899.png"
+    },
+    {
+      "match": "Östers IF vs FK Karlskrona",
+      "home": "Östers IF",
+      "away": "FK Karlskrona",
+      "league": "Club Friendly",
+      "date": "2026-11-27",
+      "time": "17:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2936.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/134180.png"
+    },
+    {
+      "match": "VfL Bochum vs SV Darmstadt 98",
+      "home": "VfL Bochum",
+      "away": "SV Darmstadt 98",
+      "league": "2. Bundesliga",
+      "date": "2026-11-27",
+      "time": "17:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/121.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3812.png"
+    },
+    {
+      "match": "Grazer AK vs SC Rheindorf Altach",
+      "home": "Grazer AK",
+      "away": "SC Rheindorf Altach",
+      "league": "Austrian Bundesliga",
+      "date": "2026-11-27",
+      "time": "18:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21846.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4405.png"
+    },
+    {
+      "match": "FC Groningen vs Willem II",
+      "home": "FC Groningen",
+      "away": "Willem II",
+      "league": "Eredivisie",
+      "date": "2026-11-27",
+      "time": "19:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/145.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/156.png"
+    },
+    {
+      "match": "Leganés vs CD Sabadell",
+      "home": "Leganés",
+      "away": "CD Sabadell",
+      "league": "LaLiga 2",
+      "date": "2026-11-27",
+      "time": "19:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/17534.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/11487.png"
+    },
+    {
+      "match": "Werder Bremen vs Borussia Mönchengladbach",
+      "home": "Werder Bremen",
+      "away": "Borussia Mönchengladbach",
+      "league": "Bundesliga",
+      "date": "2026-11-27",
+      "time": "19:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/137.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/268.png"
+    },
+    {
+      "match": "Brest vs Paris FC",
+      "home": "Brest",
+      "away": "Paris FC",
+      "league": "Ligue 1",
+      "date": "2026-11-27",
+      "time": "19:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6997.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6851.png"
+    },
+    {
+      "match": "OH Leuven vs KV Kortrijk",
+      "home": "OH Leuven",
+      "away": "KV Kortrijk",
+      "league": "Jupiler Pro League",
+      "date": "2026-11-27",
+      "time": "19:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/5579.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/5786.png"
+    },
+    {
+      "match": "Venezia vs Bologna",
+      "home": "Venezia",
+      "away": "Bologna",
+      "league": "Serie A",
+      "date": "2026-11-27",
+      "time": "19:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/17530.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/107.png"
+    },
+    {
+      "match": "Levante vs Racing Santander",
+      "home": "Levante",
+      "away": "Racing Santander",
+      "league": "LaLiga",
+      "date": "2026-11-27",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1538.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/87.png"
+    },
+    {
+      "match": "Nottingham Forest vs Chelsea",
+      "home": "Nottingham Forest",
+      "away": "Chelsea",
+      "league": "Premier League",
+      "date": "2026-11-27",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/393.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/363.png"
+    },
+    {
+      "match": "Southampton vs Middlesbrough",
+      "home": "Southampton",
+      "away": "Middlesbrough",
+      "league": "Championship",
+      "date": "2026-11-27",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/376.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/369.png"
+    },
+    {
+      "match": "Maritimo vs C.D. Nacional",
+      "home": "Maritimo",
+      "away": "C.D. Nacional",
+      "league": "Liga Portugal",
+      "date": "2026-11-27",
+      "time": "20:15",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/552.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3472.png"
+    },
+    {
+      "match": "Vila Nova vs Atlético Goianiense",
+      "home": "Vila Nova",
+      "away": "Atlético Goianiense",
+      "league": "Brazilian Serie B",
+      "date": "2026-11-27",
+      "time": "23:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9973.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10357.png"
+    },
+    {
+      "match": "Deportivo Morón vs Colón (Santa Fe)",
+      "home": "Deportivo Morón",
+      "away": "Colón (Santa Fe)",
+      "league": "Argentine Nacional B",
+      "date": "2026-11-28",
+      "time": "00:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10154.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7.png"
+    },
+    {
+      "match": "Columbus Crew vs Inter Miami CF",
+      "home": "Columbus Crew",
+      "away": "Inter Miami CF",
+      "league": "MLS",
+      "date": "2026-11-28",
+      "time": "01:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/183.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20232.png"
+    },
+    {
+      "match": "Real Salt Lake vs Vancouver Whitecaps",
+      "home": "Real Salt Lake",
+      "away": "Vancouver Whitecaps",
+      "league": "MLS",
+      "date": "2026-11-28",
+      "time": "03:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4771.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9727.png"
+    },
+    {
+      "match": "Kyoto Sanga vs Cerezo Osaka",
+      "home": "Kyoto Sanga",
+      "away": "Cerezo Osaka",
+      "league": "Japanese J.League",
+      "date": "2026-11-28",
+      "time": "05:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21361.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7109.png"
+    },
+    {
+      "match": "Shimizu S-Pulse vs Urawa Red Diamonds",
+      "home": "Shimizu S-Pulse",
+      "away": "Urawa Red Diamonds",
+      "league": "Japanese J.League",
+      "date": "2026-11-28",
+      "time": "05:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7104.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3385.png"
+    },
+    {
+      "match": "Kashima Antlers vs Fagiano Okayama",
+      "home": "Kashima Antlers",
+      "away": "Fagiano Okayama",
+      "league": "Japanese J.League",
+      "date": "2026-11-28",
+      "time": "06:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7115.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22522.png"
+    },
+    {
+      "match": "Vissel Kobe vs JEF United Ichihara-Chiba",
+      "home": "Vissel Kobe",
+      "away": "JEF United Ichihara-Chiba",
+      "league": "Japanese J.League",
+      "date": "2026-11-28",
+      "time": "06:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7477.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7111.png"
+    },
+    {
+      "match": "Kashiwa Reysol vs Sanfrecce Hiroshima",
+      "home": "Kashiwa Reysol",
+      "away": "Sanfrecce Hiroshima",
+      "league": "Japanese J.League",
+      "date": "2026-11-28",
+      "time": "07:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7476.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7114.png"
+    },
+    {
+      "match": "Dynamo Dresden vs St. Pauli",
+      "home": "Dynamo Dresden",
+      "away": "St. Pauli",
+      "league": "2. Bundesliga",
+      "date": "2026-11-28",
+      "time": "12:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7017.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/270.png"
+    },
+    {
+      "match": "Hertha Berlin vs Karlsruher SC",
+      "home": "Hertha Berlin",
+      "away": "Karlsruher SC",
+      "league": "2. Bundesliga",
+      "date": "2026-11-28",
+      "time": "12:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/129.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4471.png"
+    },
+    {
+      "match": "Holstein Kiel vs Kaiserslautern",
+      "home": "Holstein Kiel",
+      "away": "Kaiserslautern",
+      "league": "2. Bundesliga",
+      "date": "2026-11-28",
+      "time": "12:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7884.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/130.png"
+    },
+    {
+      "match": "Al Hazem vs Al Nassr",
+      "home": "Al Hazem",
+      "away": "Al Nassr",
+      "league": "Saudi Pro League",
+      "date": "2026-11-28",
+      "time": "12:15",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21964.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/817.png"
+    },
+    {
+      "match": "Blackburn Rovers vs Charlton Athletic",
+      "home": "Blackburn Rovers",
+      "away": "Charlton Athletic",
+      "league": "Championship",
+      "date": "2026-11-28",
+      "time": "12:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/365.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/372.png"
+    },
+    {
+      "match": "Bristol Rovers vs Tranmere Rovers",
+      "home": "Bristol Rovers",
+      "away": "Tranmere Rovers",
+      "league": "English League Two",
+      "date": "2026-11-28",
+      "time": "12:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/308.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/345.png"
+    },
+    {
+      "match": "Exeter City vs Crawley Town",
+      "home": "Exeter City",
+      "away": "Crawley Town",
+      "league": "English League Two",
+      "date": "2026-11-28",
+      "time": "12:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/324.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2594.png"
+    },
+    {
+      "match": "Lincoln City vs Wolverhampton Wanderers",
+      "home": "Lincoln City",
+      "away": "Wolverhampton Wanderers",
+      "league": "Championship",
+      "date": "2026-11-28",
+      "time": "12:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/314.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/380.png"
+    },
+    {
+      "match": "Milton Keynes Dons vs Notts County",
+      "home": "Milton Keynes Dons",
+      "away": "Notts County",
+      "league": "English League One",
+      "date": "2026-11-28",
+      "time": "12:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/390.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/340.png"
+    },
+    {
+      "match": "Peterborough United vs Cambridge United",
+      "home": "Peterborough United",
+      "away": "Cambridge United",
+      "league": "English League One",
+      "date": "2026-11-28",
+      "time": "12:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/342.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/351.png"
+    },
+    {
+      "match": "Preston North End vs Norwich City",
+      "home": "Preston North End",
+      "away": "Norwich City",
+      "league": "Championship",
+      "date": "2026-11-28",
+      "time": "12:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/394.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/381.png"
+    },
+    {
+      "match": "Las Palmas vs FC Andorra",
+      "home": "Las Palmas",
+      "away": "FC Andorra",
+      "league": "LaLiga 2",
+      "date": "2026-11-28",
+      "time": "13:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/98.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20179.png"
+    },
+    {
+      "match": "Real Betis vs Rayo Vallecano",
+      "home": "Real Betis",
+      "away": "Rayo Vallecano",
+      "league": "LaLiga",
+      "date": "2026-11-28",
+      "time": "13:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/244.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/101.png"
+    },
+    {
+      "match": "Ascoli vs Virtus Entella",
+      "home": "Ascoli",
+      "away": "Virtus Entella",
+      "league": "Serie B",
+      "date": "2026-11-28",
+      "time": "14:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3346.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/11137.png"
+    },
+    {
+      "match": "Carrarese vs Juve Stabia",
+      "home": "Carrarese",
+      "away": "Juve Stabia",
+      "league": "Serie B",
+      "date": "2026-11-28",
+      "time": "14:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3988.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3975.png"
+    },
+    {
+      "match": "Empoli vs Hellas Verona",
+      "home": "Empoli",
+      "away": "Hellas Verona",
+      "league": "Serie B",
+      "date": "2026-11-28",
+      "time": "14:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2574.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/119.png"
+    },
+    {
+      "match": "Frosinone vs Parma",
+      "home": "Frosinone",
+      "away": "Parma",
+      "league": "Serie A",
+      "date": "2026-11-28",
+      "time": "14:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4057.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/115.png"
+    },
+    {
+      "match": "Al Ettifaq vs Al Hilal",
+      "home": "Al Ettifaq",
+      "away": "Al Hilal",
+      "league": "Saudi Pro League",
+      "date": "2026-11-28",
+      "time": "14:20",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/8363.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/929.png"
+    },
+    {
+      "match": "FC Cologne vs SV Elversberg",
+      "home": "FC Cologne",
+      "away": "SV Elversberg",
+      "league": "Bundesliga",
+      "date": "2026-11-28",
+      "time": "14:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/122.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10388.png"
+    },
+    {
+      "match": "Hamburg SV vs Bayern Munich",
+      "home": "Hamburg SV",
+      "away": "Bayern Munich",
+      "league": "Bundesliga",
+      "date": "2026-11-28",
+      "time": "14:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/127.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/132.png"
+    },
+    {
+      "match": "Mainz vs 1. FC Union Berlin",
+      "home": "Mainz",
+      "away": "1. FC Union Berlin",
+      "league": "Bundesliga",
+      "date": "2026-11-28",
+      "time": "14:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2950.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/598.png"
+    },
+    {
+      "match": "SC Paderborn 07 vs Schalke 04",
+      "home": "SC Paderborn 07",
+      "away": "Schalke 04",
+      "league": "Bundesliga",
+      "date": "2026-11-28",
+      "time": "14:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3307.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/133.png"
+    },
+    {
+      "match": "Aberdeen vs Dundee",
+      "home": "Aberdeen",
+      "away": "Dundee",
+      "league": "Scottish Premiership",
+      "date": "2026-11-28",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/263.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/261.png"
+    },
+    {
+      "match": "AFC Wimbledon vs Barnsley",
+      "home": "AFC Wimbledon",
+      "away": "Barnsley",
+      "league": "English League One",
+      "date": "2026-11-28",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3802.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/397.png"
+    },
+    {
+      "match": "Birmingham City vs Bolton Wanderers",
+      "home": "Birmingham City",
+      "away": "Bolton Wanderers",
+      "league": "Championship",
+      "date": "2026-11-28",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/392.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/358.png"
+    },
+    {
+      "match": "Bromley vs Burton Albion",
+      "home": "Bromley",
+      "away": "Burton Albion",
+      "league": "English League One",
+      "date": "2026-11-28",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3129.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2567.png"
+    },
+    {
+      "match": "Colchester United vs York City",
+      "home": "Colchester United",
+      "away": "York City",
+      "league": "English League Two",
+      "date": "2026-11-28",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/339.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/315.png"
+    },
+    {
+      "match": "Crewe Alexandra vs Grimsby Town",
+      "home": "Crewe Alexandra",
+      "away": "Grimsby Town",
+      "league": "English League Two",
+      "date": "2026-11-28",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/396.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/386.png"
+    },
+    {
+      "match": "Derby County vs Watford",
+      "home": "Derby County",
+      "away": "Watford",
+      "league": "Championship",
+      "date": "2026-11-28",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/374.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/395.png"
+    },
+    {
+      "match": "Dundee United vs St Johnstone",
+      "home": "Dundee United",
+      "away": "St Johnstone",
+      "league": "Scottish Premiership",
+      "date": "2026-11-28",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/264.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/267.png"
+    },
+    {
+      "match": "Fleetwood Town vs Accrington Stanley",
+      "home": "Fleetwood Town",
+      "away": "Accrington Stanley",
+      "league": "English League Two",
+      "date": "2026-11-28",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3891.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2731.png"
+    },
+    {
+      "match": "KVC Westerlo vs RAAL La Louvière",
+      "home": "KVC Westerlo",
+      "away": "RAAL La Louvière",
+      "league": "Jupiler Pro League",
+      "date": "2026-11-28",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/606.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/131235.png"
+    },
+    {
+      "match": "Leeds United vs Coventry City",
+      "home": "Leeds United",
+      "away": "Coventry City",
+      "league": "Premier League",
+      "date": "2026-11-28",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/357.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/388.png"
+    },
+    {
+      "match": "Leicester City vs Mansfield Town",
+      "home": "Leicester City",
+      "away": "Mansfield Town",
+      "league": "English League One",
+      "date": "2026-11-28",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/375.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/304.png"
+    },
+    {
+      "match": "Luton Town vs Oxford United",
+      "home": "Luton Town",
+      "away": "Oxford United",
+      "league": "English League One",
+      "date": "2026-11-28",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/301.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/311.png"
+    },
+    {
+      "match": "Manchester United vs Brentford",
+      "home": "Manchester United",
+      "away": "Brentford",
+      "league": "Premier League",
+      "date": "2026-11-28",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/360.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/337.png"
+    },
+    {
+      "match": "Millwall vs Burnley",
+      "home": "Millwall",
+      "away": "Burnley",
+      "league": "Championship",
+      "date": "2026-11-28",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/391.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/379.png"
+    },
+    {
+      "match": "Port Vale vs Newport County",
+      "home": "Port Vale",
+      "away": "Newport County",
+      "league": "English League Two",
+      "date": "2026-11-28",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/348.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/635.png"
+    },
+    {
+      "match": "Queens Park Rangers vs Sheffield United",
+      "home": "Queens Park Rangers",
+      "away": "Sheffield United",
+      "league": "Championship",
+      "date": "2026-11-28",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/334.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/398.png"
+    },
+    {
+      "match": "Rangers vs Falkirk",
+      "home": "Rangers",
+      "away": "Falkirk",
+      "league": "Scottish Premiership",
+      "date": "2026-11-28",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/257.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/254.png"
+    },
+    {
+      "match": "Rochdale vs Barnet",
+      "home": "Rochdale",
+      "away": "Barnet",
+      "league": "English League Two",
+      "date": "2026-11-28",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/303.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/280.png"
+    },
+    {
+      "match": "Rotherham United vs Oldham Athletic",
+      "home": "Rotherham United",
+      "away": "Oldham Athletic",
+      "league": "English League Two",
+      "date": "2026-11-28",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/402.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/332.png"
+    },
+    {
+      "match": "Salford City vs Gillingham",
+      "home": "Salford City",
+      "away": "Gillingham",
+      "league": "English League Two",
+      "date": "2026-11-28",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4703.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/389.png"
+    },
+    {
+      "match": "Sheffield Wednesday vs Reading",
+      "home": "Sheffield Wednesday",
+      "away": "Reading",
+      "league": "English League One",
+      "date": "2026-11-28",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/399.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/338.png"
+    },
+    {
+      "match": "Shrewsbury Town vs Cheltenham Town",
+      "home": "Shrewsbury Town",
+      "away": "Cheltenham Town",
+      "league": "English League Two",
+      "date": "2026-11-28",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/302.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/320.png"
+    },
+    {
+      "match": "St Mirren vs Kilmarnock",
+      "home": "St Mirren",
+      "away": "Kilmarnock",
+      "league": "Scottish Premiership",
+      "date": "2026-11-28",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/250.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/260.png"
+    },
+    {
+      "match": "Stevenage vs Blackpool",
+      "home": "Stevenage",
+      "away": "Blackpool",
+      "league": "English League One",
+      "date": "2026-11-28",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/285.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/346.png"
+    },
+    {
+      "match": "Stockport County vs Leyton Orient",
+      "home": "Stockport County",
+      "away": "Leyton Orient",
+      "league": "English League One",
+      "date": "2026-11-28",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/400.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/309.png"
+    },
+    {
+      "match": "Swindon Town vs Chesterfield",
+      "home": "Swindon Town",
+      "away": "Chesterfield",
+      "league": "English League Two",
+      "date": "2026-11-28",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/341.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/343.png"
+    },
+    {
+      "match": "Walsall vs Northampton Town",
+      "home": "Walsall",
+      "away": "Northampton Town",
+      "league": "English League Two",
+      "date": "2026-11-28",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/401.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/353.png"
+    },
+    {
+      "match": "West Bromwich Albion vs Bristol City",
+      "home": "West Bromwich Albion",
+      "away": "Bristol City",
+      "league": "Championship",
+      "date": "2026-11-28",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/383.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/333.png"
+    },
+    {
+      "match": "West Ham United vs Stoke City",
+      "home": "West Ham United",
+      "away": "Stoke City",
+      "league": "Championship",
+      "date": "2026-11-28",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/371.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/336.png"
+    },
+    {
+      "match": "Wigan Athletic vs Plymouth Argyle",
+      "home": "Wigan Athletic",
+      "away": "Plymouth Argyle",
+      "league": "English League One",
+      "date": "2026-11-28",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/350.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/307.png"
+    },
+    {
+      "match": "Wrexham vs Portsmouth",
+      "home": "Wrexham",
+      "away": "Portsmouth",
+      "league": "Championship",
+      "date": "2026-11-28",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/352.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/385.png"
+    },
+    {
+      "match": "Wycombe Wanderers vs Bradford City",
+      "home": "Wycombe Wanderers",
+      "away": "Bradford City",
+      "league": "English League One",
+      "date": "2026-11-28",
+      "time": "15:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/344.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/387.png"
+    },
+    {
+      "match": "Albacete vs Tenerife",
+      "home": "Albacete",
+      "away": "Tenerife",
+      "league": "LaLiga 2",
+      "date": "2026-11-28",
+      "time": "15:15",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2737.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/245.png"
+    },
+    {
+      "match": "Eldense vs Girona",
+      "home": "Eldense",
+      "away": "Girona",
+      "league": "LaLiga 2",
+      "date": "2026-11-28",
+      "time": "15:15",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7320.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9812.png"
+    },
+    {
+      "match": "Málaga vs Athletic Club",
+      "home": "Málaga",
+      "away": "Athletic Club",
+      "league": "LaLiga",
+      "date": "2026-11-28",
+      "time": "15:15",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/99.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/93.png"
+    },
+    {
+      "match": "Arouca vs Rio Ave",
+      "home": "Arouca",
+      "away": "Rio Ave",
+      "league": "Liga Portugal",
+      "date": "2026-11-28",
+      "time": "15:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/15784.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3822.png"
+    },
+    {
+      "match": "Excelsior vs Telstar",
+      "home": "Excelsior",
+      "away": "Telstar",
+      "league": "Eredivisie",
+      "date": "2026-11-28",
+      "time": "15:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2566.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3735.png"
+    },
+    {
+      "match": "Moreirense vs Santa Clara",
+      "home": "Moreirense",
+      "away": "Santa Clara",
+      "league": "Liga Portugal",
+      "date": "2026-11-28",
+      "time": "15:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3696.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/12215.png"
+    },
+    {
+      "match": "Austria Vienna vs Wolfsberger",
+      "home": "Austria Vienna",
+      "away": "Wolfsberger",
+      "league": "Austrian Bundesliga",
+      "date": "2026-11-28",
+      "time": "16:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1382.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/13294.png"
+    },
+    {
+      "match": "Angers vs Lens",
+      "home": "Angers",
+      "away": "Lens",
+      "league": "Ligue 1",
+      "date": "2026-11-28",
+      "time": "16:15",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7868.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/175.png"
+    },
+    {
+      "match": "Vicenza vs Cesena",
+      "home": "Vicenza",
+      "away": "Cesena",
+      "league": "Serie B",
+      "date": "2026-11-28",
+      "time": "16:15",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/120.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3337.png"
+    },
+    {
+      "match": "Torino vs Lazio",
+      "home": "Torino",
+      "away": "Lazio",
+      "league": "Serie A",
+      "date": "2026-11-28",
+      "time": "17:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/239.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/112.png"
+    },
+    {
+      "match": "Cercle Brugge KSV vs KV Mechelen",
+      "home": "Cercle Brugge KSV",
+      "away": "KV Mechelen",
+      "league": "Jupiler Pro League",
+      "date": "2026-11-28",
+      "time": "17:15",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3610.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7879.png"
+    },
+    {
+      "match": "Al Ahli vs Al Taawoun",
+      "home": "Al Ahli",
+      "away": "Al Taawoun",
+      "league": "Saudi Pro League",
+      "date": "2026-11-28",
+      "time": "17:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/8346.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18459.png"
+    },
+    {
+      "match": "Charlotte FC vs Chicago Fire FC",
+      "home": "Charlotte FC",
+      "away": "Chicago Fire FC",
+      "league": "MLS",
+      "date": "2026-11-28",
+      "time": "17:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21300.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/182.png"
+    },
+    {
+      "match": "Eibar vs Burgos",
+      "home": "Eibar",
+      "away": "Burgos",
+      "league": "LaLiga 2",
+      "date": "2026-11-28",
+      "time": "17:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3752.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/12597.png"
+    },
+    {
+      "match": "Elche vs Atlético Madrid",
+      "home": "Elche",
+      "away": "Atlético Madrid",
+      "league": "LaLiga",
+      "date": "2026-11-28",
+      "time": "17:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3751.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1068.png"
+    },
+    {
+      "match": "Ipswich Town vs Aston Villa",
+      "home": "Ipswich Town",
+      "away": "Aston Villa",
+      "league": "Premier League",
+      "date": "2026-11-28",
+      "time": "17:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/373.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/362.png"
+    },
+    {
+      "match": "VfB Stuttgart vs Eintracht Frankfurt",
+      "home": "VfB Stuttgart",
+      "away": "Eintracht Frankfurt",
+      "league": "Bundesliga",
+      "date": "2026-11-28",
+      "time": "17:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/134.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/125.png"
+    },
+    {
+      "match": "Motherwell vs Hibernian",
+      "home": "Motherwell",
+      "away": "Hibernian",
+      "league": "Scottish Premiership",
+      "date": "2026-11-28",
+      "time": "17:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/266.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/258.png"
+    },
+    {
+      "match": "PSV Eindhoven vs Go Ahead Eagles",
+      "home": "PSV Eindhoven",
+      "away": "Go Ahead Eagles",
+      "league": "Eredivisie",
+      "date": "2026-11-28",
+      "time": "17:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/148.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3706.png"
+    },
+    {
+      "match": "Académico de Viseu vs Alverca",
+      "home": "Académico de Viseu",
+      "away": "Alverca",
+      "league": "Liga Portugal",
+      "date": "2026-11-28",
+      "time": "18:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21607.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21613.png"
+    },
+    {
+      "match": "Austria Lustenau vs Rapid Vienna",
+      "home": "Austria Lustenau",
+      "away": "Rapid Vienna",
+      "league": "Austrian Bundesliga",
+      "date": "2026-11-28",
+      "time": "18:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21540.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/519.png"
+    },
+    {
+      "match": "Palermo vs Benevento",
+      "home": "Palermo",
+      "away": "Benevento",
+      "league": "Serie B",
+      "date": "2026-11-28",
+      "time": "18:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2923.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4059.png"
+    },
+    {
+      "match": "Houston Dynamo FC vs San Jose Earthquakes",
+      "home": "Houston Dynamo FC",
+      "away": "San Jose Earthquakes",
+      "league": "MLS",
+      "date": "2026-11-28",
+      "time": "19:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6077.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/191.png"
+    },
+    {
+      "match": "VfL Osnabruck vs Hannover 96",
+      "home": "VfL Osnabruck",
+      "away": "Hannover 96",
+      "league": "2. Bundesliga",
+      "date": "2026-11-28",
+      "time": "19:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7013.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2428.png"
+    },
+    {
+      "match": "Internazionale vs Genoa",
+      "home": "Internazionale",
+      "away": "Genoa",
+      "league": "Serie A",
+      "date": "2026-11-28",
+      "time": "19:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/110.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3263.png"
+    },
+    {
+      "match": "Le Havre AC vs Strasbourg",
+      "home": "Le Havre AC",
+      "away": "Strasbourg",
+      "league": "Ligue 1",
+      "date": "2026-11-28",
+      "time": "19:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3236.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/180.png"
+    },
+    {
+      "match": "Le Mans vs Lille",
+      "home": "Le Mans",
+      "away": "Lille",
+      "league": "Ligue 1",
+      "date": "2026-11-28",
+      "time": "19:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2697.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/166.png"
+    },
+    {
+      "match": "Lommel SK vs Zulte-Waregem",
+      "home": "Lommel SK",
+      "away": "Zulte-Waregem",
+      "league": "Jupiler Pro League",
+      "date": "2026-11-28",
+      "time": "19:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22269.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4691.png"
+    },
+    {
+      "match": "Nice vs Troyes",
+      "home": "Nice",
+      "away": "Troyes",
+      "league": "Ligue 1",
+      "date": "2026-11-28",
+      "time": "19:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2502.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/170.png"
+    },
+    {
+      "match": "Paris Saint-Germain vs Lorient",
+      "home": "Paris Saint-Germain",
+      "away": "Lorient",
+      "league": "Ligue 1",
+      "date": "2026-11-28",
+      "time": "19:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/160.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/273.png"
+    },
+    {
+      "match": "Royal Charleroi SC vs Waasland-Beveren",
+      "home": "Royal Charleroi SC",
+      "away": "Waasland-Beveren",
+      "league": "Jupiler Pro League",
+      "date": "2026-11-28",
+      "time": "19:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3616.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/13450.png"
+    },
+    {
+      "match": "Atlanta vs Ciudad de Bolívar",
+      "home": "Atlanta",
+      "away": "Ciudad de Bolívar",
+      "league": "Argentine Nacional B",
+      "date": "2026-11-28",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10146.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21799.png"
+    },
+    {
+      "match": "Deportivo Madryn vs Gimnasia y Esgrima (Jujuy)",
+      "home": "Deportivo Madryn",
+      "away": "Gimnasia y Esgrima (Jujuy)",
+      "league": "Argentine Nacional B",
+      "date": "2026-11-28",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18260.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/5263.png"
+    },
+    {
+      "match": "Real Madrid vs Alavés",
+      "home": "Real Madrid",
+      "away": "Alavés",
+      "league": "LaLiga",
+      "date": "2026-11-28",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/86.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/96.png"
+    },
+    {
+      "match": "Real Valladolid vs Real Sociedad II",
+      "home": "Real Valladolid",
+      "away": "Real Sociedad II",
+      "league": "LaLiga 2",
+      "date": "2026-11-28",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/95.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20983.png"
+    },
+    {
+      "match": "SC Cambuur vs Sparta Rotterdam",
+      "home": "SC Cambuur",
+      "away": "Sparta Rotterdam",
+      "league": "Eredivisie",
+      "date": "2026-11-28",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3736.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/151.png"
+    },
+    {
+      "match": "TBD Home vs TBD Away",
+      "home": "TBD Home",
+      "away": "TBD Away",
+      "league": "Brazilian Serie B",
+      "date": "2026-11-28",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/131556.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/131554.png"
+    },
+    {
+      "match": "Tristán Suárez vs Gimnasia y Tiro (Salta)",
+      "home": "Tristán Suárez",
+      "away": "Gimnasia y Tiro (Salta)",
+      "league": "Argentine Nacional B",
+      "date": "2026-11-28",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10163.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10743.png"
+    },
+    {
+      "match": "Vitória de Guimaraes vs Estrela",
+      "home": "Vitória de Guimaraes",
+      "away": "Estrela",
+      "league": "Liga Portugal",
+      "date": "2026-11-28",
+      "time": "20:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/5309.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21610.png"
+    },
+    {
+      "match": "Philadelphia Union vs New England Revolution",
+      "home": "Philadelphia Union",
+      "away": "New England Revolution",
+      "league": "MLS",
+      "date": "2026-11-28",
+      "time": "21:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10739.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/189.png"
+    },
+    {
+      "match": "Fortaleza vs Criciúma",
+      "home": "Fortaleza",
+      "away": "Criciúma",
+      "league": "Brazilian Serie B",
+      "date": "2026-11-28",
+      "time": "23:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6272.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9971.png"
+    },
+    {
+      "match": "FC Cincinnati vs Nashville SC",
+      "home": "FC Cincinnati",
+      "away": "Nashville SC",
+      "league": "MLS",
+      "date": "2026-11-28",
+      "time": "23:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18267.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18986.png"
+    },
+    {
+      "match": "LAFC vs St. Louis CITY SC",
+      "home": "LAFC",
+      "away": "St. Louis CITY SC",
+      "league": "MLS",
+      "date": "2026-11-29",
+      "time": "01:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18966.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21812.png"
+    },
+    {
+      "match": "Portland Timbers vs FC Dallas",
+      "home": "Portland Timbers",
+      "away": "FC Dallas",
+      "league": "MLS",
+      "date": "2026-11-29",
+      "time": "03:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9723.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/185.png"
+    }
+  ],
+  "stats": {
+    "avgReliability": 78.43,
+    "totalAnalyzed": 293,
+    "totalRejected": 48,
+    "totalAccepted": 245,
+    "freeCount": 4,
+    "fixtureCount": 289
+  },
+  "predictions": [
+    {
+      "id": "crdoba-vs-realovie-2026-11-22",
+      "match": "Córdoba vs Real Oviedo",
+      "home": "Córdoba",
+      "away": "Real Oviedo",
+      "league": "LaLiga 2",
+      "date": "2026-11-22",
+      "type": "Over 2.5",
+      "time": "13:00",
+      "matchSemantic": "crdoba-vs-realovie-2026-11-22",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/8447.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/92.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.67,
+      "xgAway": 1.75,
+      "xgTotal": 4.42,
+      "formBTTS": 70,
+      "analysis": "Córdoba : forme N-V-N-V-V (3V 2N 0D, 11 buts marqués / 5 encaissés sur 5) · Real Oviedo : forme D-V-D-N-V (2V 1N 2D, 9 buts marqués / 9 encaissés sur 5). Classement : Córdoba 10e (20 pts), Real Oviedo 9e (21 pts). Stats empiriques (forme récente) : buts moy. 4.42, BTTS 70.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.87 / N: 3.75 / 2: 3.55 · Over 2.5: 1.59. Fiabilité 89.38%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.7,
+        "empiricalOver25Rate": 0.8,
+        "homeLambda": 2.67,
+        "awayLambda": 1.75,
+        "xgTotal": 4.42
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.87,
+        "draw": 3.75,
+        "away": 3.55,
+        "over25": 1.59,
+        "under25": 2.15
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "N-V-N-V-V",
+        "wins": 3,
+        "draws": 2,
+        "losses": 0,
+        "goalsFor": 11,
+        "goalsAgainst": 5,
+        "bttsRate": 0.4,
+        "over25Rate": 0.6,
+        "cleanSheets": 3,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-V-D-N-V",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 9,
+        "goalsAgainst": 9,
+        "bttsRate": 1,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-14",
+          "opponent": "Mallorca",
+          "venue": "A",
+          "score": "3-3",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Ceuta",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "RC Celta Fortuna",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Eibar",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-16",
+          "opponent": "Leganés",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-14",
+          "opponent": "Girona",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Cádiz",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-02",
+          "opponent": "Las Palmas",
+          "venue": "H",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Almería",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Ceuta",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 10,
+        "points": 20,
+        "played": 14,
+        "gf": 25,
+        "ga": 25
+      },
+      "standingsAway": {
+        "rank": 9,
+        "points": 21,
+        "played": 14,
+        "gf": 20,
+        "ga": 18
+      },
+      "empiricalBttsRate": 0.7,
+      "empiricalOver25Rate": 0.8,
+      "homeLambda": 2.67,
+      "awayLambda": 1.75,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_key_fact": "Real Oviedo enregistre 100% de matchs Over 2.5 sur ses 5 dernières rencontres.",
+      "ai_analysis": "Les données indiquent clairement une rencontre prolifique en buts, avec un taux Over 2.5 empirique de 80%. Córdoba génère une moyenne offensive intéressante de 2.67 buts à domicile, tandis que Real Oviedo affiche un impressionnant 100% d'Over 2.5 sur ses 5 derniers matchs.",
+      "ai_analysis_en": "The data clearly points to a high-scoring encounter, with an empirical Over 2.5 rate of 80%. Córdoba generates an interesting home offensive average of 2.67 goals, while Real Oviedo boasts an impressive 100% Over 2.5 rate in their last 5 matches.",
+      "ai_form_summary": "Córdoba : 3W-2D-0L (11 buts pour, 5 contre). Real Oviedo : 2W-1D-2L (9 buts pour, 9 contre).",
+      "ai_form_summary_en": "Córdoba: 3W-2D-0L (11 goals for, 5 against). Real Oviedo: 2W-1D-2L (9 goals for, 9 against).",
+      "ai_reasons": [
+        "Taux Over 2.5 empirique global de 80% pour cette rencontre.",
+        "Real Oviedo affiche un taux Over 2.5 de 100% sur ses 5 derniers matchs.",
+        "Moyenne de buts de Córdoba à domicile s'établit à 2.67."
+      ],
+      "ai_risks": [
+        "Le taux BTTS récent de Córdoba sur ses 5 derniers matchs est plus bas (0.4)."
+      ],
+      "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 75,
+          "proba": 0.75,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "over25Prob": 0.75
+        }
+      ],
+      "over25Prob": 0.75,
+      "prediction": "Oui",
+      "proba": 0.75,
+      "confidence": 75,
+      "status": "PENDING"
+    },
+    {
+      "id": "acmilan-vs-frosinon-2026-11-22",
+      "match": "AC Milan vs Frosinone",
+      "home": "AC Milan",
+      "away": "Frosinone",
+      "league": "Serie A",
+      "date": "2026-11-22",
+      "type": "BTTS",
+      "time": "17:00",
+      "matchSemantic": "acmilan-vs-frosinon-2026-11-22",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/103.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4057.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.75,
+      "xgAway": 1.25,
+      "xgTotal": 4,
+      "formBTTS": 70,
+      "analysis": "AC Milan : forme V-V-D-V-V (4V 0N 1D, 12 buts marqués / 8 encaissés sur 5) · Frosinone : forme D-V-V-N-V (3V 1N 1D, 15 buts marqués / 8 encaissés sur 5). Classement : AC Milan 4e (24 pts), Frosinone 6e (20 pts). Stats empiriques (forme récente) : buts moy. 4, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.5 / N: 4.4 / 2: 4.9. Fiabilité 89.38%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.7,
+        "empiricalOver25Rate": 0.7,
+        "homeLambda": 2.75,
+        "awayLambda": 1.25,
+        "xgTotal": 4
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.5,
+        "draw": 4.4,
+        "away": 4.9,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "V-V-D-V-V",
+        "wins": 4,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 12,
+        "goalsAgainst": 8,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-V-V-N-V",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 15,
+        "goalsAgainst": 8,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-08",
+          "opponent": "Genoa",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Internazionale",
+          "venue": "H",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-28",
+          "opponent": "Bologna",
+          "venue": "H",
+          "score": "2-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Udinese",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Atalanta",
+          "venue": "H",
+          "score": "3-2",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-07",
+          "opponent": "Cagliari",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Torino",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-29",
+          "opponent": "Lecce",
+          "venue": "H",
+          "score": "5-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Atalanta",
+          "venue": "A",
+          "score": "4-4",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-16",
+          "opponent": "Sassuolo",
+          "venue": "H",
+          "score": "4-2",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 4,
+        "points": 24,
+        "played": 11,
+        "gf": 23,
+        "ga": 13
+      },
+      "standingsAway": {
+        "rank": 6,
+        "points": 20,
+        "played": 11,
+        "gf": 24,
+        "ga": 15
+      },
+      "empiricalBttsRate": 0.7,
+      "empiricalOver25Rate": 0.7,
+      "homeLambda": 2.75,
+      "awayLambda": 1.25,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "AC Milan affiche un taux BTTS de 80% sur ses 5 derniers matchs.",
+      "ai_analysis": "L'analyse des données montre une forte propension des deux équipes à marquer et à encaisser des buts. AC Milan présente un taux BTTS de 0.80 sur ses 5 derniers matchs, tandis que Frosinone marque régulièrement (24 buts en 11 matchs), rendant l'option des deux équipes marquent très crédible.",
+      "ai_analysis_en": "Data analysis shows a strong propensity for both teams to score and concede goals. AC Milan records an 80% BTTS rate over their last 5 matches, while Frosinone scores consistently (24 goals in 11 matches), making both teams to score a credible option.",
+      "ai_form_summary": "AC Milan : V-V-D-V-V (4W-0D-1L) | Frosinone : D-V-V-N-V (3W-1D-1L)",
+      "ai_form_summary_en": "AC Milan: W-W-L-W-W (4W-0D-1L) | Frosinone: L-W-W-D-W (3W-1D-1L)",
+      "ai_reasons": [
+        "Taux empirique BTTS solide de 0.70 et 0.80 sur les derniers matchs de Milan.",
+        "AC Milan et Frosinone affichent des attaques productives (23 et 24 buts inscrits en championnat).",
+        "Moyennes de buts élevées pour Milan (2.75) traduisant des matchs ouverts."
+      ],
+      "ai_risks": [
+        "Frosinone affiche un taux BTTS plus modéré (0.60) sur ses 5 derniers matchs."
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 68,
+          "proba": 0.68,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.68
+        }
+      ],
+      "bttsProb": 0.68,
+      "prediction": "Oui",
+      "proba": 0.68,
+      "confidence": 68,
+      "status": "PENDING"
+    },
+    {
+      "id": "goaheade-vs-fortunas-2026-11-22",
+      "match": "Go Ahead Eagles vs Fortuna Sittard",
+      "home": "Go Ahead Eagles",
+      "away": "Fortuna Sittard",
+      "league": "Eredivisie",
+      "date": "2026-11-22",
+      "type": "BTTS",
+      "time": "15:45",
+      "matchSemantic": "goaheade-vs-fortunas-2026-11-22",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3706.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/143.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.33,
+      "xgAway": 1.75,
+      "xgTotal": 4.08,
+      "formBTTS": 70,
+      "analysis": "Go Ahead Eagles : forme V-D-V-D-N (2V 1N 2D, 8 buts marqués / 13 encaissés sur 5) · Fortuna Sittard : forme N-N-V-N-N (1V 4N 0D, 7 buts marqués / 6 encaissés sur 5). Classement : Go Ahead Eagles 8e (17 pts), Fortuna Sittard 7e (20 pts). Stats empiriques (forme récente) : buts moy. 4.08, BTTS 70.0%, Over 2.5 60.0%. Affinage AI ensuite. Fiabilité 89.38%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.7,
+        "empiricalOver25Rate": 0.6,
+        "homeLambda": 2.33,
+        "awayLambda": 1.75,
+        "xgTotal": 4.08
+      },
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "V-D-V-D-N",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 8,
+        "goalsAgainst": 13,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-N-V-N-N",
+        "wins": 1,
+        "draws": 4,
+        "losses": 0,
+        "goalsFor": 7,
+        "goalsAgainst": 6,
+        "bttsRate": 0.8,
+        "over25Rate": 0.4,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-07",
+          "opponent": "Excelsior",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "SC Cambuur",
+          "venue": "A",
+          "score": "0-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Telstar",
+          "venue": "H",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "PEC Zwolle",
+          "venue": "A",
+          "score": "1-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Sparta Rotterdam",
+          "venue": "H",
+          "score": "3-3",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-07",
+          "opponent": "Telstar",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Feyenoord Rotterdam",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Excelsior",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "NEC Nijmegen",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "FC Twente",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 8,
+        "points": 17,
+        "played": 12,
+        "gf": 24,
+        "ga": 27
+      },
+      "standingsAway": {
+        "rank": 7,
+        "points": 20,
+        "played": 12,
+        "gf": 20,
+        "ga": 20
+      },
+      "empiricalBttsRate": 0.7,
+      "empiricalOver25Rate": 0.6,
+      "homeLambda": 2.33,
+      "awayLambda": 1.75,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Le taux BTTS empirique atteint 70% avec des dynamiques défensives poreuses des deux côtés.",
+      "ai_analysis": "L'analyse des statistiques observe un taux BTTS empirique de 70%, appuyé par la solidité relative mais la perméabilité défensive de Go Ahead Eagles (13 buts encaissés sur 5 matchs) et le taux de 80% de matchs avec buts des deux côtés pour Fortuna Sittard. Bien que Fortuna possède des tendances plus prudentes sur les Over 2.5, la configuration penche favorablement vers un score des deux équipes.",
+      "ai_analysis_en": "Statistical analysis shows an empirical BTTS rate of 70%, supported by Go Ahead Eagles' defensive vulnerability (13 goals conceded in 5 matches) and Fortuna Sittard's 80% BTTS rate in recent form. Although Fortuna sometimes records lower totals, the overall profile leans favorably towards goals at both ends.",
+      "ai_form_summary": "Go Ahead Eagles irrégulier (2V-1D-2D) mais perméable, Fortuna Sittard très accrocheur (1V-4N-0D) avec un fort taux de BTTS.",
+      "ai_form_summary_en": "Go Ahead Eagles are inconsistent (2W-1D-2L) and leaky, while Fortuna Sittard are hard to beat (1W-4D-0L) with high BTTS rates.",
+      "ai_reasons": [
+        "Taux BTTS empirique élevé à 70% pour ce match.",
+        "Go Ahead Eagles affiche un taux BTTS de 60% et encaisse beaucoup (13 buts en 5 matchs).",
+        "Fortuna Sittard présente un taux BTTS de 80% sur ses 5 derniers matchs."
+      ],
+      "ai_risks": [
+        "Fortuna Sittard montre parfois des matchs avec moins de buts (taux Over 2.5 à 40%)."
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 68,
+          "proba": 0.68,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.68
+        }
+      ],
+      "bttsProb": 0.68,
+      "prediction": "Oui",
+      "proba": 0.68,
+      "confidence": 68,
+      "status": "PENDING"
+    },
+    {
+      "id": "chicagof-vs-charlott-2026-11-22",
+      "match": "Chicago Fire FC vs Charlotte FC",
+      "home": "Chicago Fire FC",
+      "away": "Charlotte FC",
+      "league": "MLS",
+      "date": "2026-11-22",
+      "type": "Over 2.5",
+      "time": "23:30",
+      "matchSemantic": "chicagof-vs-charlott-2026-11-22",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/182.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21300.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.2,
+      "xgAway": 2,
+      "xgTotal": 4.2,
+      "formBTTS": 70,
+      "analysis": "Chicago Fire FC : forme D-V-N-V-D (2V 1N 2D, 12 buts marqués / 11 encaissés sur 5) · Charlotte FC : forme N-V-V-D-N (2V 2N 1D, 15 buts marqués / 8 encaissés sur 5). Classement : Chicago Fire FC 4e (55 pts), Charlotte FC 5e (54 pts). Stats empiriques (forme récente) : buts moy. 4.2, BTTS 70.0%, Over 2.5 90.0%. Affinage AI ensuite. Fiabilité 89.38%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.7,
+        "empiricalOver25Rate": 0.9,
+        "homeLambda": 2.2,
+        "awayLambda": 2,
+        "xgTotal": 4.2
+      },
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "D-V-N-V-D",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 12,
+        "goalsAgainst": 11,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-V-V-D-N",
+        "wins": 2,
+        "draws": 2,
+        "losses": 1,
+        "goalsFor": 15,
+        "goalsAgainst": 8,
+        "bttsRate": 0.6,
+        "over25Rate": 1,
+        "cleanSheets": 2,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-07",
+          "opponent": "Columbus Crew",
+          "venue": "H",
+          "score": "3-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Colorado Rapids",
+          "venue": "A",
+          "score": "4-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-29",
+          "opponent": "Orlando City SC",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Atlanta United FC",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "New England Revolution",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-07",
+          "opponent": "Inter Miami CF",
+          "venue": "A",
+          "score": "3-3",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Orlando City SC",
+          "venue": "H",
+          "score": "4-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-28",
+          "opponent": "CF Montréal",
+          "venue": "H",
+          "score": "4-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Portland Timbers",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Philadelphia Union",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 4,
+        "points": 55,
+        "played": 34,
+        "gf": 64,
+        "ga": 54
+      },
+      "standingsAway": {
+        "rank": 5,
+        "points": 54,
+        "played": 34,
+        "gf": 66,
+        "ga": 51
+      },
+      "empiricalBttsRate": 0.7,
+      "empiricalOver25Rate": 0.9,
+      "homeLambda": 2.2,
+      "awayLambda": 2,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_key_fact": "Le taux Over 2.5 empirique culmine à 90% avec des moyennes de buts respectives de 2.2 et 2.0.",
+      "ai_analysis": "Ce match de MLS présente des indicateurs offensifs très forts avec un taux Over 2.5 empirique de 90%. Charlotte FC affiche un score parfait de 100% sur ses 5 derniers matchs dans ce marché, tandis que Chicago Fire présente des moyennes de buts élevées par match (2.2). Malgré la proximité au classement, les statistiques de buts encaissés sur la saison (plus de 50 pour chaque équipe) renforcent l'option Over 2.5.",
+      "ai_analysis_en": "This MLS fixture features very strong offensive indicators with a 90% empirical Over 2.5 rate. Charlotte FC holds a 100% Over rate in their last 5 matches, while Chicago Fire maintains high per-game averages (2.2). Despite their close standings, both teams conceding over 50 goals this season strongly supports the Over 2.5 selection.",
+      "ai_form_summary": "Chicago Fire montre un profil offensif (2V-1D-2N) avec des matchs ouverts, Charlotte FC est très prolifique (2V-2N-1D).",
+      "ai_form_summary_en": "Chicago Fire shows an open profile (2W-1D-2L) with high-scoring games, and Charlotte FC is very prolific (2W-2D-1L).",
+      "ai_reasons": [
+        "Taux Over 2.5 empirique exceptionnel de 90%.",
+        "Charlotte FC affiche un taux Over 2.5 de 100% sur ses 5 derniers matchs.",
+        "Goalkeeping et défenses sous pression : Chicago Fire et Charlotte ont encaissé respectivement 54 et 51 buts sur la saison."
+      ],
+      "ai_risks": [
+        "Les deux équipes affichent des classements très proches (4e et 5e), ce qui pourrait engendrer une première mi-temps plus fermée."
+      ],
+      "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 75,
+          "proba": 0.75,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "over25Prob": 0.75
+        }
+      ],
+      "over25Prob": 0.75,
+      "prediction": "Oui",
+      "proba": 0.75,
+      "confidence": 75,
+      "status": "PENDING"
+    }
+  ],
+  "analysisEngine": "gemini-stats-v1"
+}
