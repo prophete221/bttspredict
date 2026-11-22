@@ -17681,7 +17681,9 @@
       "prediction": "Oui",
       "proba": 0.68,
       "confidence": 68,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-11-22T18:56:26.280Z"
     },
     {
       "id": "acmilan-vs-frosinon-2026-11-22",
@@ -17877,7 +17879,9 @@
       "prediction": "Oui",
       "proba": 0.68,
       "confidence": 68,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "5-1",
+      "verifiedAt": "2026-11-22T18:56:22.091Z"
     },
     {
       "id": "goaheade-vs-fortunas-2026-11-22",
@@ -18066,7 +18070,9 @@
       "prediction": "Oui",
       "proba": 0.68,
       "confidence": 68,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-22T18:56:22.091Z"
     },
     {
       "id": "chicagof-vs-charlott-2026-11-22",

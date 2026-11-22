@@ -9885,7 +9885,9 @@
       "prediction": "Oui",
       "proba": 0.75,
       "confidence": 75,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-11-22T18:56:26.280Z"
     },
     {
       "id": "ajaxamst-vs-adodenha-2026-11-22",
@@ -10075,7 +10077,9 @@
       "prediction": "Oui",
       "proba": 0.68,
       "confidence": 68,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-11-22T18:56:26.280Z"
     },
     {
       "id": "racingsa-vs-realsoci-2026-11-22",
@@ -10271,7 +10275,9 @@
       "prediction": "Oui",
       "proba": 0.74,
       "confidence": 74,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-2",
+      "verifiedAt": "2026-11-22T18:56:26.280Z"
     },
     {
       "id": "acmilan-vs-frosinon-2026-11-22",
@@ -10467,7 +10473,9 @@
       "prediction": "Oui",
       "proba": 0.68,
       "confidence": 68,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "5-1",
+      "verifiedAt": "2026-11-22T18:56:22.091Z"
     },
     {
       "id": "goaheade-vs-fortunas-2026-11-22",
@@ -10656,7 +10664,9 @@
       "prediction": "Oui",
       "proba": 0.68,
       "confidence": 68,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-22T18:56:22.091Z"
     },
     {
       "id": "chicagof-vs-charlott-2026-11-22",
@@ -11035,7 +11045,9 @@
       "prediction": "Oui",
       "proba": 0.68,
       "confidence": 68,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-22T18:56:26.280Z"
     },
     {
       "id": "atalanta-vs-internaz-2026-11-22",
