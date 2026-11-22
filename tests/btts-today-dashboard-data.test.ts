@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { buildBttsTodayDashboardData } from '@/lib/btts-today-dashboard-data'
-import { getDakarDateString } from '@/lib/dakar-date'
+import { getDakarDateString, parseDakarDateTime } from '@/lib/dakar-date'
 import { getGeminiPicks } from '@/lib/gemini-predictions'
 import { publicFixtureKey } from '@/lib/public-calendar'
 import currentPublicPredictions from '../public/predictions.json'
@@ -93,8 +93,19 @@ describe('current public calendar day', () => {
       ...(Array.isArray(currentPublicPredictions.free) ? currentPublicPredictions.free : []),
       ...(Array.isArray(currentPublicPredictions.predictions) ? currentPublicPredictions.predictions : []),
     ]
+    // Oracle miroir des règles du builder pour le jour publié : une ligne
+    // stricte Gemini n'apparaît sur l'affiche du jour que si son coup d'envoi
+    // Africa/Dakar est encore à venir à l'heure de référence (kickoff > buildNow)
+    // et lisible — un match déjà commencé (ou à horaire illisible) est retiré,
+    // exactement comme buildBttsTodayDashboardData le fait avec son `now`.
+    // Sans ce filtre, tout pick programmé avant 12:00 UTC (ex. J.League 10:00)
+    // rendait ce test instable selon l'heure du cron (échecs #1493 et #1507).
     const expectedKeys = [...new Set(raw
-      .filter(row => row.date === dakarDay && getGeminiPicks(row).length > 0)
+      .filter(row => {
+        if (row.date !== dakarDay || getGeminiPicks(row).length === 0) return false
+        const kickoff = parseDakarDateTime(row.date, row.time || '')
+        return kickoff !== null && kickoff.getTime() > buildNow.getTime()
+      })
       .map(row => publicFixtureKey(row))
       .filter((key): key is string => Boolean(key)))]
     const dashboard = buildBttsTodayDashboardData(currentPublicPredictions, buildNow)
