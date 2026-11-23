@@ -18408,7 +18408,9 @@
       "prediction": "Oui",
       "proba": 0.7,
       "confidence": 70,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-11-23T01:28:50.848Z"
     },
     {
       "id": "fcaugsbu-vs-mainz-2026-11-22",
@@ -19576,7 +19578,9 @@
       "prediction": "Oui",
       "proba": 0.58,
       "confidence": 58,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-23T01:28:50.849Z"
     },
     {
       "id": "atalanta-vs-internaz-2026-11-22",
@@ -19773,7 +19777,9 @@
       "prediction": "Oui",
       "proba": 0.65,
       "confidence": 65,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "4-4",
+      "verifiedAt": "2026-11-23T01:28:50.849Z"
     },
     {
       "id": "werderbr-vs-hamburgs-2026-11-22",
@@ -20727,7 +20733,9 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-3",
+      "verifiedAt": "2026-11-23T01:28:50.852Z"
     },
     {
       "id": "energiec-vs-herthabe-2026-11-22",
@@ -21123,7 +21131,9 @@
       "prediction": "Oui",
       "proba": 0.72,
       "confidence": 72,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-23T01:28:50.852Z"
     },
     {
       "id": "burnley-vs-blackbur-2026-11-22",
@@ -21718,7 +21728,9 @@
       "prediction": "Oui",
       "proba": 0.67,
       "confidence": 67,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-23T01:28:50.852Z"
     },
     {
       "id": "bologna-vs-udinese-2026-11-22",
@@ -22114,7 +22126,9 @@
       "prediction": "Oui",
       "proba": 0.65,
       "confidence": 65,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-23T01:28:50.853Z"
     },
     {
       "id": "scrheind-vs-sksturmg-2026-11-22",
@@ -30118,7 +30132,9 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-3",
+      "verifiedAt": "2026-11-23T01:28:50.858Z"
     },
     {
       "id": "nashvill-vs-fccincin-2026-11-22",
@@ -30300,7 +30316,9 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-23T01:28:50.858Z"
     },
     {
       "id": "fuertesa-vs-incaarub-2026-11-22",
@@ -30692,7 +30710,9 @@
       "prediction": "Oui",
       "proba": 0.55,
       "confidence": 55,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-11-23T01:28:50.859Z"
     },
     {
       "id": "ceuta-vs-almera-2026-11-23",

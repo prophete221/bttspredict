@@ -11244,7 +11244,9 @@
       "prediction": "Oui",
       "proba": 0.65,
       "confidence": 65,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "4-4",
+      "verifiedAt": "2026-11-23T01:28:50.849Z"
     },
     {
       "id": "monza-vs-fiorenti-2026-11-23",
