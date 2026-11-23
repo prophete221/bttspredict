@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "description": "Matchs exclus de l'historique public (ne sont jamais comptés comme LOST/WON). Clé = date|match|marché. Respecté par scripts/update-win-history.mjs.",
-  "updatedAt": "2026-11-08T17:29:46Z",
+  "updatedAt": "2026-11-23T07:11:29Z",
   "entries": [
     {
       "key": "2026-11-05|Bayer Leverkusen vs Marseille|btts",
@@ -4031,6 +4031,97 @@
       "match": "Tigre vs Belgrano (Córdoba)",
       "market": "over25",
       "excludedAt": "2026-11-08T17:29:46Z"
+    },
+    {
+      "key": "2026-11-22|Ajax Amsterdam vs ADO Den Haag|btts",
+      "date": "2026-11-22",
+      "match": "Ajax Amsterdam vs ADO Den Haag",
+      "market": "btts",
+      "excludedAt": "2026-11-23"
+    },
+    {
+      "key": "2026-11-22|Anderlecht vs OH Leuven|over25",
+      "date": "2026-11-22",
+      "match": "Anderlecht vs OH Leuven",
+      "market": "over25",
+      "excludedAt": "2026-11-23"
+    },
+    {
+      "key": "2026-11-22|Bologna vs Udinese|over25",
+      "date": "2026-11-22",
+      "match": "Bologna vs Udinese",
+      "market": "over25",
+      "excludedAt": "2026-11-23"
+    },
+    {
+      "key": "2026-11-22|Burgos vs Albacete|btts",
+      "date": "2026-11-22",
+      "match": "Burgos vs Albacete",
+      "market": "btts",
+      "excludedAt": "2026-11-23"
+    },
+    {
+      "key": "2026-11-22|Córdoba vs Real Oviedo|btts",
+      "date": "2026-11-22",
+      "match": "Córdoba vs Real Oviedo",
+      "market": "btts",
+      "excludedAt": "2026-11-23"
+    },
+    {
+      "key": "2026-11-22|Energie Cottbus vs Hertha Berlin|btts",
+      "date": "2026-11-22",
+      "match": "Energie Cottbus vs Hertha Berlin",
+      "market": "btts",
+      "excludedAt": "2026-11-23"
+    },
+    {
+      "key": "2026-11-22|Getafe vs Atlético Madrid|btts",
+      "date": "2026-11-22",
+      "match": "Getafe vs Atlético Madrid",
+      "market": "btts",
+      "excludedAt": "2026-11-23"
+    },
+    {
+      "key": "2026-11-22|Go Ahead Eagles vs Fortuna Sittard|btts",
+      "date": "2026-11-22",
+      "match": "Go Ahead Eagles vs Fortuna Sittard",
+      "market": "btts",
+      "excludedAt": "2026-11-23"
+    },
+    {
+      "key": "2026-11-22|Nashville SC vs FC Cincinnati|btts",
+      "date": "2026-11-22",
+      "match": "Nashville SC vs FC Cincinnati",
+      "market": "btts",
+      "excludedAt": "2026-11-23"
+    },
+    {
+      "key": "2026-11-22|Osasuna vs Málaga|btts",
+      "date": "2026-11-22",
+      "match": "Osasuna vs Málaga",
+      "market": "btts",
+      "excludedAt": "2026-11-23"
+    },
+    {
+      "key": "2026-11-22|RC Celta Fortuna vs Real Valladolid|over25",
+      "date": "2026-11-22",
+      "match": "RC Celta Fortuna vs Real Valladolid",
+      "market": "over25",
+      "excludedAt": "2026-11-23"
+    },
+    {
+      "key": "2026-11-22|SC Rheindorf Altach vs SK Sturm Graz|over25",
+      "date": "2026-11-22",
+      "match": "SC Rheindorf Altach vs SK Sturm Graz",
+      "market": "over25",
+      "excludedAt": "2026-11-23"
+    },
+    {
+      "key": "2026-11-22|Werder Bremen vs Hamburg SV|btts",
+      "date": "2026-11-22",
+      "match": "Werder Bremen vs Hamburg SV",
+      "market": "btts",
+      "excludedAt": "2026-11-23"
     }
   ]
 }

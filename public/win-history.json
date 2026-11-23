@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-11-23T01:30:43.340Z",
+  "generatedAt": "2026-11-23T07:11:40.288Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,18 +15,18 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 622,
+    "total": 609,
     "won": 470,
-    "lost": 152,
+    "lost": 139,
     "pending": 89,
-    "unverifiable": 266,
+    "unverifiable": 279,
     "archivedTotal": 977,
-    "rate": 75.6,
+    "rate": 77.2,
     "gold": {
-      "total": 497,
+      "total": 484,
       "won": 376,
-      "lost": 121,
-      "rate": 75.7
+      "lost": 108,
+      "rate": 77.7
     },
     "standard": {
       "total": 125,
@@ -36,16 +36,16 @@
     },
     "byType": {
       "btts": {
-        "total": 494,
+        "total": 485,
         "won": 382,
-        "lost": 112,
-        "rate": 77.3
+        "lost": 103,
+        "rate": 78.8
       },
       "over25": {
-        "total": 128,
+        "total": 124,
         "won": 88,
-        "lost": 40,
-        "rate": 68.8
+        "lost": 36,
+        "rate": 71
       }
     },
     "trend14": [
@@ -142,10 +142,10 @@
       },
       {
         "date": "2026-11-22",
-        "total": 28,
+        "total": 15,
         "won": 15,
-        "lost": 13,
-        "rate": 53.6
+        "lost": 0,
+        "rate": 100
       }
     ],
     "period": {
@@ -155,19 +155,6 @@
     }
   },
   "history": [
-    {
-      "date": "2026-11-22",
-      "match": "RC Celta Fortuna vs Real Valladolid",
-      "league": "LaLiga 2",
-      "market": "over25",
-      "tier": "GOLD",
-      "proba": 0.68,
-      "status": "LOST",
-      "finalScore": "1-1",
-      "verifiedAt": "2026-11-23T01:29:12.315Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
     {
       "date": "2026-11-22",
       "match": "Atlético Goianiense vs Vila Nova",
@@ -183,56 +170,6 @@
     },
     {
       "date": "2026-11-22",
-      "match": "Getafe vs Atlético Madrid",
-      "league": "LaLiga",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.62,
-      "status": "LOST",
-      "finalScore": "0-3",
-      "verifiedAt": "2026-11-23T01:28:50.858Z",
-      "source": "ESPN public"
-    },
-    {
-      "date": "2026-11-22",
-      "match": "Nashville SC vs FC Cincinnati",
-      "league": "MLS",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.62,
-      "status": "LOST",
-      "finalScore": "0-1",
-      "verifiedAt": "2026-11-23T01:28:50.858Z",
-      "source": "ESPN public"
-    },
-    {
-      "date": "2026-11-22",
-      "match": "Anderlecht vs OH Leuven",
-      "league": "Jupiler Pro League",
-      "market": "over25",
-      "tier": "GOLD",
-      "proba": 0.65,
-      "status": "LOST",
-      "finalScore": "1-0",
-      "verifiedAt": "2026-11-23T01:28:50.853Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-22",
-      "match": "Burgos vs Albacete",
-      "league": "LaLiga 2",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.67,
-      "status": "LOST",
-      "finalScore": "1-0",
-      "verifiedAt": "2026-11-23T01:28:50.852Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-22",
       "match": "Marseille vs Le Mans",
       "league": "Ligue 1",
       "market": "btts",
@@ -242,19 +179,6 @@
       "finalScore": "2-3",
       "verifiedAt": "2026-11-23T01:28:50.852Z",
       "source": "ESPN public"
-    },
-    {
-      "date": "2026-11-22",
-      "match": "Osasuna vs Málaga",
-      "league": "LaLiga",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.72,
-      "status": "LOST",
-      "finalScore": "1-0",
-      "verifiedAt": "2026-11-23T01:28:50.852Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
     },
     {
       "date": "2026-11-22",
@@ -323,32 +247,6 @@
     },
     {
       "date": "2026-11-22",
-      "match": "Bologna vs Udinese",
-      "league": "Serie A",
-      "market": "over25",
-      "tier": "GOLD",
-      "proba": 0.68,
-      "status": "LOST",
-      "finalScore": "1-1",
-      "verifiedAt": "2026-11-22T18:56:26.285Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-22",
-      "match": "SC Rheindorf Altach vs SK Sturm Graz",
-      "league": "Austrian Bundesliga",
-      "market": "over25",
-      "tier": "GOLD",
-      "proba": 0.66,
-      "status": "LOST",
-      "finalScore": "1-0",
-      "verifiedAt": "2026-11-22T18:56:26.285Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-22",
       "match": "Barcelona vs Villarreal",
       "league": "LaLiga",
       "market": "over25",
@@ -375,19 +273,6 @@
     },
     {
       "date": "2026-11-22",
-      "match": "Energie Cottbus vs Hertha Berlin",
-      "league": "2. Bundesliga",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.58,
-      "status": "LOST",
-      "finalScore": "0-4",
-      "verifiedAt": "2026-11-22T18:56:26.284Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-22",
       "match": "Sparta Rotterdam vs AZ Alkmaar",
       "league": "Eredivisie",
       "market": "btts",
@@ -396,45 +281,6 @@
       "status": "WON",
       "finalScore": "1-5",
       "verifiedAt": "2026-11-22T18:56:26.283Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-22",
-      "match": "Werder Bremen vs Hamburg SV",
-      "league": "Bundesliga",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.6,
-      "status": "LOST",
-      "finalScore": "4-0",
-      "verifiedAt": "2026-11-22T18:56:26.282Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-22",
-      "match": "Ajax Amsterdam vs ADO Den Haag",
-      "league": "Eredivisie",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.68,
-      "status": "LOST",
-      "finalScore": "3-0",
-      "verifiedAt": "2026-11-22T18:56:26.280Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-22",
-      "match": "Córdoba vs Real Oviedo",
-      "league": "LaLiga 2",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.68,
-      "status": "LOST",
-      "finalScore": "3-0",
-      "verifiedAt": "2026-11-22T18:56:26.280Z",
       "source": "ESPN public",
       "prediction": "Oui"
     },
@@ -499,19 +345,6 @@
       "proba": 0.75,
       "status": "WON",
       "finalScore": "3-0",
-      "verifiedAt": "2026-11-22T18:56:22.091Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-22",
-      "match": "Go Ahead Eagles vs Fortuna Sittard",
-      "league": "Eredivisie",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.68,
-      "status": "LOST",
-      "finalScore": "0-1",
       "verifiedAt": "2026-11-22T18:56:22.091Z",
       "source": "ESPN public",
       "prediction": "Oui"
