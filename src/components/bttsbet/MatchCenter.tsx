@@ -311,6 +311,47 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
   )
 }
 
+// ─── Stadium Signal — helpers de la maquette A validée (23/11/2026) ──────────
+
+// Libellé humain du marché (« Over 2,5 buts » / « Les deux équipes marquent »).
+function marketLabel(market: 'BTTS' | 'O2.5', lang: Locale): string {
+  if (market === 'BTTS') {
+    return lang === 'en' ? 'Both teams to score' : lang === 'ar' ? 'كلا الفريقين يسجلان' : 'Les deux équipes marquent'
+  }
+  return lang === 'en' ? 'Over 2.5 goals' : lang === 'ar' ? 'أكثر من 2.5 هدف' : 'Over 2,5 buts'
+}
+
+// ─── ProbRing — jauge circulaire du pronostic principal (maquette A) ─────
+function ProbRing({ value, ringId, sub, ariaLabel, valueClassName }: { value: number; ringId: string; sub: string; ariaLabel: string; valueClassName?: string }) {
+  const pct = Math.min(100, Math.max(0, Math.round((Number.isFinite(value) ? value : 0) * 100)))
+  const radius = 31
+  const circumference = 2 * Math.PI * radius
+  const dash = (pct / 100) * circumference
+  return (
+    <div className="btx-ring" role="img" aria-label={ariaLabel}>
+      <svg viewBox="0 0 74 74" width="74" height="74" aria-hidden="true" focusable="false">
+        <circle cx="37" cy="37" r={radius} fill="none" stroke="rgba(178,202,238,0.10)" strokeWidth="7" />
+        <circle
+          cx="37" cy="37" r={radius} fill="none"
+          stroke={`url(#${ringId})`} strokeWidth="7" strokeLinecap="round"
+          strokeDasharray={`${dash.toFixed(1)} ${circumference.toFixed(1)}`}
+          transform="rotate(-90 37 37)"
+        />
+        <defs>
+          <linearGradient id={ringId} x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stopColor="#2A5CD8" />
+            <stop offset="1" stopColor="#6BA1FF" />
+          </linearGradient>
+        </defs>
+      </svg>
+      <span className="btx-ring__val" aria-hidden="true">
+        <b className={valueClassName}>{pct}%</b>
+        <i>{sub}</i>
+      </span>
+    </div>
+  )
+}
+
 /* ═══ Carte de match ═══ */
 function MatchCard({ m, index, lang, results, nowTs }: {
   m: FeedItem
@@ -338,6 +379,10 @@ function MatchCard({ m, index, lang, results, nowTs }: {
     : null
 
   const picks: MarketPick[] = (Array.isArray(m.predictions) ? m.predictions : []).slice(0, 3)
+  // Pronostic principal (maquette A validée) : premier pick publié ; les picks
+  // supplémentaires passent en tuiles, la cote Over 2,5 complète la rangée.
+  const heroPick = picks[0] ?? null
+  const extraPicks = picks.slice(1)
 
   const matchHref = m.home && m.away && m.date
     ? localizedPath(`/match/${generateMatchSlug(m.home, m.away, m.date)}`, lang)
@@ -365,12 +410,22 @@ function MatchCard({ m, index, lang, results, nowTs }: {
         : 'is-upcoming'
 
   const statusText = statusLabel
+  const ringId = `mc-ring-${Math.min(index, 8)}-${matchSlug.replace(/[^a-zA-Z0-9]/g, '').slice(0, 24)}`
+
+  // Ligne de provenance (maquette A) — véridique : bookmaker des cotes et
+  // analyse IA Gemini, tels qu'ils sortent du pipeline public.
+  const provBits: string[] = []
+  if (m.odds?.provider) provBits.push(`${lang === 'en' ? 'Source' : lang === 'ar' ? 'المصدر' : 'Source'} ${m.odds.provider}`)
+  if (picks.length > 0) provBits.push(lang === 'en' ? 'Gemini AI analysis' : lang === 'ar' ? 'تحليل Gemini AI' : 'Analyse IA Gemini')
+  const coteValue = typeof m.odds?.over25 === 'number' && Number.isFinite(m.odds.over25) ? m.odds.over25 : null
+  const coteImplied = coteValue !== null && coteValue > 1 ? Math.min(100, Math.max(0, (1 / coteValue) * 100)) : null
+
   return (
     <article
       data-match-date={m.date}
       data-match={m.match}
       data-match-league={m.league}
-      className={`btp-match-card hp-mc-card hp-mc-card--approved${won ? ' is-won' : ''}${lost ? ' is-lost' : ''}${matchStatus === 'live' && !isFinished ? ' is-live' : ''}`}
+      className={`btp-match-card hp-mc-card hp-mc-card--approved hp-mc-card--signal${won ? ' is-won' : ''}${lost ? ' is-lost' : ''}${matchStatus === 'live' && !isFinished ? ' is-live' : ''}`}
       style={{ ['--card-order' as string]: index }}
       lang={lang}
       dir={lang === 'ar' ? 'rtl' : 'ltr'}
@@ -383,6 +438,7 @@ function MatchCard({ m, index, lang, results, nowTs }: {
         </span>
       </div>
 
+      {/* ─── AFFICHE — crêtes + coup d'envoi (maquette A) ─── */}
       <div className="btp-match-card__fixture">
         <div className="btp-match-card__team">
           <span className="btp-match-card__crest">
@@ -398,6 +454,7 @@ function MatchCard({ m, index, lang, results, nowTs }: {
             <strong>{m.time || '--:--'}</strong>
           )}
           <span>{formatCardDate(m.date, lang)} · {t.home2.mcTz}</span>
+          <em className="btp-match-card__vsmark" aria-hidden="true">VS</em>
         </div>
         <div className="btp-match-card__team btp-match-card__team--away">
           <span className="btp-match-card__crest">
@@ -408,15 +465,51 @@ function MatchCard({ m, index, lang, results, nowTs }: {
         </div>
       </div>
 
+      {/* ─── COMPTE À REBOURS (bannière dorée de la maquette) ─── */}
       {countdown && matchStatus !== 'live' && !isFinished && (
         <small className="btp-match-card__countdown">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true" focusable="false">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 7v5l3 2" />
+          </svg>
           {KICKOFF_I18N[lang].startsSoon} {countdown}
         </small>
       )}
 
-      {picks.length > 0 && (
-        <div className="btp-match-card__picks" aria-label={lang === 'en' ? 'Predictions' : lang === 'ar' ? 'التوقعات' : 'Pronostics'}>
-          {picks.map(p => {
+      {/* ─── PRONOSTIC PRINCIPAL — jauge circulaire (maquette A) ─── */}
+      {heroPick && (() => {
+        const typeUp = (heroPick.type || '').toUpperCase()
+        const heroIsBtts = heroPick.market === 'BTTS' || typeUp.includes('BTTS') || typeUp.includes('BOTH')
+        const selectionLabel = heroPick.prediction === 'Oui'
+          ? (lang === 'en' ? 'Yes' : lang === 'ar' ? 'نعم' : 'Oui')
+          : heroPick.prediction === 'Non'
+            ? (lang === 'en' ? 'No' : lang === 'ar' ? 'لا' : 'Non')
+            : heroPick.prediction
+        const probability = typeof heroPick.proba === 'number' && heroPick.proba >= 0 && heroPick.proba <= 1
+          ? Math.round(heroPick.proba * 100)
+          : null
+        return (
+          <div className={`btx-pick ${heroIsBtts ? 'btp-market--btts' : 'btp-market--over25'}`} data-market={heroIsBtts ? 'BTTS' : 'O2.5'}>
+            <div className="btx-pick__copy">
+              <span className="btx-pick__lab">
+                {lang === 'fr' ? 'Pronostic principal' : lang === 'en' ? 'Main pick' : 'التنبؤ الرئيسي'}
+              </span>
+              <span className="btx-pick__market">{marketLabel(heroIsBtts ? 'BTTS' : 'O2.5', lang)}</span>
+              <strong className="hp-pick__selection btx-pick__sel" data-prediction={heroPick.prediction === 'Oui' ? 'yes' : heroPick.prediction === 'Non' ? 'no' : 'unknown'}>
+                {selectionLabel}
+              </strong>
+            </div>
+            {probability !== null && (
+              <ProbRing value={heroPick.proba as number} ringId={ringId} sub={lang === 'en' ? 'est.' : lang === 'ar' ? 'تقديري' : 'estimé'} valueClassName="hp-pick__confidence" ariaLabel={`${probability}%`} />
+            )}
+          </div>
+        )
+      })()}
+
+      {/* ─── TUILES : picks complémentaires + cote Over 2,5 (maquette A) ─── */}
+      {(extraPicks.length > 0 || coteValue !== null) && (
+        <div className="btx-tiles" aria-label={lang === 'en' ? 'Context stats' : lang === 'ar' ? 'بيانات السياق' : 'Données de contexte'}>
+          {extraPicks.map(p => {
             const typeUp = (p.type || '').toUpperCase()
             const isBtts = p.market === 'BTTS' || typeUp.includes('BTTS') || typeUp.includes('BOTH')
             const marketShort = isBtts
@@ -433,35 +526,42 @@ function MatchCard({ m, index, lang, results, nowTs }: {
               ? Math.round(p.proba * 100)
               : null
             return (
-              <div key={p.market ?? p.type} className={`btp-market ${isBtts ? 'btp-market--btts' : 'btp-market--over25'}`} data-market={isBtts ? 'BTTS' : 'O2.5'}>
-                <span className="btp-market__name">{marketShort}</span>
+              <div key={p.market ?? p.type} className={`btx-prob ${isBtts ? 'btp-market--btts' : 'btp-market--over25'}`} data-market={isBtts ? 'BTTS' : 'O2.5'}>
+                <span className="btx-prob__head">
+                  <span className="btx-prob__label">{marketShort}</span>
+                  {probability !== null && <strong className="hp-pick__confidence btx-prob__value">{probability}%</strong>}
+                </span>
                 <strong className="hp-pick__selection" data-prediction={p.prediction === 'Oui' ? 'yes' : p.prediction === 'Non' ? 'no' : 'unknown'}>{selectionLabel}</strong>
-                {probability !== null && <span className="hp-pick__confidence" title={lang === 'en' ? 'Estimated probability for this pick' : lang === 'ar' ? 'الاحتمال التقديري لهذا الاختيار' : 'Probabilité estimée de cette sélection'}>{lang === 'en' ? 'Est.' : lang === 'ar' ? 'تقدير' : 'Est.'} {probability}%</span>}
                 {probability !== null && (
-                  <span className="btp-meter" aria-hidden="true">
-                    <i style={{ ['--w' as string]: `${probability}%` }} />
+                  <span className="btx-bar" aria-hidden="true">
+                    <i className="btx-bar__fill" style={{ ['--w' as string]: `${probability}%` }} />
                   </span>
                 )}
               </div>
             )
           })}
+          {coteValue !== null && (
+            <div className="btx-cote">
+              <span className="btx-cote__k">{lang === 'en' ? 'Over 2.5 odds' : lang === 'ar' ? 'سعر أكثر من 2.5' : 'Cote Over 2,5'}</span>
+              <span className="btx-cote__v"><b>{coteValue.toFixed(2)}</b></span>
+              <span className="btx-cote__mini" aria-hidden="true">
+                <i style={{ width: coteImplied != null ? `${coteImplied.toFixed(1)}%` : '0%' }} />
+              </span>
+            </div>
+          )}
         </div>
       )}
 
-      {(m.formBTTS !== undefined || (m.odds && (m.odds.home || m.odds.away || m.odds.over25))) && (
-        <div className="btp-match-card__stats">
-          {m.formBTTS !== undefined && <span><small>{lang === 'en' ? 'Recent BTTS (sample size not provided)' : lang === 'ar' ? 'BTTS الأخيرة (حجم العينة غير متاح)' : 'BTTS récent (échantillon non précisé)'}</small>{m.formBTTS}%</span>}
-          {m.odds?.over25 !== null && m.odds?.over25 !== undefined && <span><small>{lang === 'en' ? 'Over 2.5 odds' : lang === 'ar' ? 'سعر أكثر من 2.5' : 'Cote Over 2,5'}</small>{m.odds.over25}</span>}
-          {m.odds?.provider && <span className="btp-match-card__source">{m.odds.provider}</span>}
-        </div>
-      )}
+      {/* ─── SOURCE (maquette A) ─── */}
+      {provBits.length > 0 && <p className="btx-prov" dir="ltr">{provBits.join(' · ')}</p>}
 
-      <div className="btp-match-card__bottom">
-        <span className="btp-match-card__result">
-          {isFinished ? (won ? t.home2.mcWon : lost ? t.home2.mcLost : t.home2.mcVerifying) : t.home2.mcPublished}
-        </span>
-        {matchHref && <a className="hp-mc-open" href={matchHref} data-cta={`mc-open-${index}`}>{t.home2.mcOpen}<span aria-hidden="true">↗</span></a>}
-      </div>
+      {/* ─── CTA « Ouvrir l'analyse » (maquette A) ─── */}
+      {matchHref && (
+        <a className="hp-mc-open btx-cta" href={matchHref} data-cta={`mc-open-${index}`}>
+          <span>{t.home2.mcOpen}</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+      )}
     </article>
   )
 }

@@ -2976,3 +2976,414 @@ footer#faq a[style*='47, 125, 255'] {
   #btts-today-dashboard .btx-signal .btx-cta:active { transition: none; transform: none; }
   #btts-today-dashboard .btx-signal .btx-cote__mini i { transition: none; }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+ 25. CARTES D'ACCUEIL « STADIUM SIGNAL » — maquette A validée (23/11/2026)
+═══════════════════════════════════════════════════════════════════════════
+ Applique la maquette A validée par le client aux cartes MatchCenter de la
+ page d'accueil (#matchs .hp-mc-card--signal) : même langage que le dashboard
+ /pronostics (section 24) — ligue mono + pilule de statut, affiche crêtes +
+ coup d'envoi GMT, bannière compte à rebours dorée, pronostic principal avec
+ jauge circulaire, tuiles marché complémentaire + cote, ligne de provenance,
+ CTA royal « Ouvrir l'analyse ».
+ Suppressions demandées par le client (rendu retiré du composant) :
+ « BTTS récent (échantillon non précisé) » et « Horodatage de publication
+ non enregistré ».
+ Couleurs marchés verrouillées : BTTS #34D399 · Over 2.5 #FBBF24. */
+
+/* ── 25.1 Coque + rythme vertical ─────────────────────────────────────────── */
+#main-content .hp-mc-card--signal {
+  display: flex !important;
+  flex-direction: column;
+  gap: 11px;
+  padding: 15px !important;
+}
+#main-content .hp-mc-card--signal .btp-match-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+#main-content .hp-mc-card--signal .btp-match-card__league {
+  font-family: var(--font-mono), ui-monospace, monospace !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  letter-spacing: .2em !important;
+  text-transform: uppercase !important;
+  color: var(--id-dim) !important;
+  background: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#main-content .hp-mc-card--signal .hp-mc-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex: none;
+  font-family: var(--font-mono), ui-monospace, monospace !important;
+  font-size: 9.5px !important;
+  font-weight: 600 !important;
+  letter-spacing: .14em !important;
+  text-transform: uppercase !important;
+  border-radius: 999px !important;
+  padding: 4px 10px !important;
+  white-space: nowrap;
+}
+#main-content .hp-mc-card--signal .hp-mc-status i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 8px currentColor;
+  animation: btx-signal-pulse 1.6s ease-in-out infinite;
+}
+
+/* ── 25.2 Affiche — crêtes carrées + coup d'envoi ─────────────────────────── */
+#main-content .hp-mc-card--signal .btp-match-card__fixture {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) !important;
+  gap: 8px !important;
+  align-items: center !important;
+  margin: 1px 0 2px !important;
+}
+#main-content .hp-mc-card--signal .btp-match-card__fixture > .hp-mc-time-row {
+  grid-column: auto !important;
+  grid-row: auto !important;
+  width: auto !important;
+}
+#main-content .hp-mc-card--signal .btp-match-card__fixture > .btp-match-card__team--away {
+  grid-column: auto !important;
+  grid-row: auto !important;
+  flex-direction: column !important;
+  text-align: center !important;
+  align-items: center !important;
+}
+#main-content .hp-mc-card--signal .btp-match-card__team {
+  flex-direction: column !important;
+  text-align: center !important;
+}
+#main-content .hp-mc-card--signal .btp-match-card__team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  text-align: center;
+  min-width: 0;
+}
+#main-content .hp-mc-card--signal .btp-match-card__crest {
+  width: 46px !important;
+  height: 46px !important;
+  border-radius: 14px !important;
+  background: linear-gradient(160deg, var(--id-ink-3), var(--id-ink-2)) !important;
+  border: 1px solid var(--id-line-strong) !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+#main-content .hp-mc-card--signal .btp-match-card__crest img {
+  position: absolute;
+  inset: 4px;
+  width: calc(100% - 8px) !important;
+  height: calc(100% - 8px) !important;
+  object-fit: contain;
+}
+#main-content .hp-mc-card--signal .hp-mc-team-name {
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  line-height: 1.15 !important;
+  color: var(--id-ice) !important;
+  max-width: 100%;
+  white-space: normal !important;
+  overflow-wrap: anywhere;
+  -webkit-line-clamp: unset !important;
+}
+#main-content .hp-mc-card--signal .hp-mc-time-row {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 2px !important;
+  padding: 0 4px !important;
+  min-width: 0 !important;
+}
+#main-content .hp-mc-card--signal .hp-mc-time-row strong {
+  font-family: var(--font-display), system-ui, sans-serif !important;
+  font-size: 23px !important;
+  font-weight: 800 !important;
+  letter-spacing: .02em !important;
+  line-height: 1 !important;
+  color: var(--id-ice) !important;
+  font-variant-numeric: tabular-nums;
+}
+#main-content .hp-mc-card--signal .hp-mc-time-row > span {
+  font-family: var(--font-mono), ui-monospace, monospace !important;
+  font-size: 8.5px !important;
+  letter-spacing: .08em !important;
+  text-transform: uppercase !important;
+  color: var(--id-dim) !important;
+  white-space: nowrap !important;
+}
+#main-content .hp-mc-card--signal .btp-match-card__score {
+  font-size: 21px !important;
+}
+#main-content .hp-mc-card--signal .btp-match-card__vsmark {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-style: normal;
+  font-size: 8px;
+  letter-spacing: .3em;
+  color: var(--id-dim);
+  margin-top: 2px;
+}
+
+/* ── 25.3 Bannière compte à rebours (dorée) ───────────────────────────────── */
+#main-content .hp-mc-card--signal .btp-match-card__countdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin: 0 !important;
+  background: rgba(240, 178, 58, .12) !important;
+  border: 1px solid rgba(240, 178, 58, .30) !important;
+  border-radius: 10px !important;
+  padding: 7px 10px !important;
+  font-family: var(--font-body), system-ui, sans-serif !important;
+  font-size: 11.5px !important;
+  font-weight: 600 !important;
+  color: var(--id-cta-gold-bright) !important;
+  text-align: center;
+}
+
+/* ── 25.4 Pronostic principal + jauge circulaire ──────────────────────────── */
+#main-content .hp-mc-card--signal .btx-pick {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background:
+    linear-gradient(160deg, rgba(62, 123, 250, .10), rgba(62, 123, 250, .03) 60%),
+    var(--id-ink-1);
+  border: 1px solid var(--id-volt-line);
+  border-radius: 16px;
+  padding: 13px 14px;
+  box-shadow: 0 8px 28px rgba(62, 123, 250, .16);
+}
+#main-content .hp-mc-card--signal .btx-pick__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+#main-content .hp-mc-card--signal .btx-pick__lab {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 8.5px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--id-volt-bright);
+}
+#main-content .hp-mc-card--signal .btx-pick__market {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #AFC4E8;
+}
+#main-content .hp-mc-card--signal .btx-pick__sel,
+#main-content .hp-mc-card--signal .btx-pick__sel.hp-pick__selection {
+  font-family: var(--font-display), system-ui, sans-serif !important;
+  font-size: 30px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  letter-spacing: .02em !important;
+  text-transform: uppercase;
+  background: linear-gradient(100deg, #FFFFFF 40%, var(--id-volt-bright) 90%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+}
+#main-content .hp-mc-card--signal .btx-pick__sel[data-prediction='no'] {
+  background: linear-gradient(100deg, #E8EFFC 30%, #8FA3B8 90%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+}
+#main-content .hp-mc-card--signal .btx-ring {
+  position: relative;
+  width: 74px;
+  height: 74px;
+  flex: none;
+}
+#main-content .hp-mc-card--signal .btx-ring svg { display: block; }
+#main-content .hp-mc-card--signal .btx-ring__val {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+}
+#main-content .hp-mc-card--signal .btx-ring__val b,
+#main-content .hp-mc-card--signal .btx-ring__val b.hp-pick__confidence {
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  color: var(--id-ice) !important;
+  font-variant-numeric: tabular-nums;
+}
+#main-content .hp-mc-card--signal .btx-ring__val i {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-style: normal;
+  font-size: 7px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--id-dim);
+}
+
+/* ── 25.5 Tuiles — marché complémentaire + cote ───────────────────────────── */
+#main-content .hp-mc-card--signal .btx-tiles {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 8px;
+}
+#main-content .hp-mc-card--signal .btx-prob,
+#main-content .hp-mc-card--signal .btx-cote {
+  background: var(--id-ink-2) !important;
+  border: 1px solid var(--id-line) !important;
+  border-radius: 12px !important;
+  padding: 9px 11px !important;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+#main-content .hp-mc-card--signal .btx-prob__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px;
+}
+#main-content .hp-mc-card--signal .btx-prob__label {
+  font-family: var(--font-mono), ui-monospace, monospace !important;
+  font-size: 7.5px !important;
+  letter-spacing: .14em !important;
+  text-transform: uppercase !important;
+  color: var(--id-dim) !important;
+}
+#main-content .hp-mc-card--signal .btx-prob__value,
+#main-content .hp-mc-card--signal .btx-prob__value.hp-pick__confidence {
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  color: var(--id-ice) !important;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+#main-content .hp-mc-card--signal .btx-prob[data-market='BTTS'] .btx-prob__value { color: var(--id-btts) !important; }
+#main-content .hp-mc-card--signal .btx-prob[data-market='O2.5'] .btx-prob__value { color: var(--id-over) !important; }
+#main-content .hp-mc-card--signal .btx-prob .hp-pick__selection {
+  font-size: 12.5px !important;
+  font-weight: 700 !important;
+  color: var(--id-ice) !important;
+}
+#main-content .hp-mc-card--signal .btx-bar {
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(178, 202, 238, .10) !important;
+  margin-top: 7px;
+  overflow: hidden;
+  display: block;
+}
+#main-content .hp-mc-card--signal .btx-bar .btx-bar__fill {
+  display: block;
+  height: 100%;
+  width: var(--w, 0%);
+  border-radius: 2px;
+}
+#main-content .hp-mc-card--signal .btx-cote__k {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 7.5px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--id-dim);
+}
+#main-content .hp-mc-card--signal .btx-cote__v { margin-top: 3px; }
+#main-content .hp-mc-card--signal .btx-cote__v b {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--id-cta-gold-bright);
+  font-variant-numeric: tabular-nums;
+}
+#main-content .hp-mc-card--signal .btx-cote__mini {
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(178, 202, 238, .10);
+  margin-top: 7px;
+  overflow: hidden;
+}
+#main-content .hp-mc-card--signal .btx-cote__mini i {
+  display: block;
+  height: 100%;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--id-cta-gold-deep), var(--id-cta-gold-bright));
+}
+
+/* ── 25.6 Ligne de provenance ─────────────────────────────────────────────── */
+#main-content .hp-mc-card--signal .btx-prov {
+  font-family: var(--font-mono), ui-monospace, monospace !important;
+  font-size: 8.5px !important;
+  letter-spacing: .16em !important;
+  text-transform: uppercase !important;
+  color: var(--id-dim) !important;
+  text-align: center;
+  margin: 0 !important;
+  overflow-wrap: anywhere;
+}
+
+/* ── 25.7 CTA « Ouvrir l'analyse » ────────────────────────────────────────── */
+#main-content .hp-mc-card--signal .btx-cta,
+#main-content .hp-mc-card--signal .btx-cta.hp-mc-open {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 44px;
+  border-radius: 12px;
+  border: 0;
+  font-family: var(--font-body), system-ui, sans-serif !important;
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  color: #FFFFFF !important;
+  text-decoration: none;
+  background: linear-gradient(100deg, var(--id-volt-deep), var(--id-royal) 55%, var(--id-volt-bright)) !important;
+  box-shadow: 0 8px 28px rgba(62, 123, 250, .28);
+  transition: filter .2s ease, transform .15s ease;
+}
+#main-content .hp-mc-card--signal .btx-cta:hover { filter: brightness(1.08); }
+#main-content .hp-mc-card--signal .btx-cta:active { transform: scale(.985); }
+#main-content .hp-mc-card--signal .btx-cta:focus-visible {
+  outline: 2px solid var(--id-volt-bright);
+  outline-offset: 2px;
+}
+
+/* ── 25.8 Mobile étroit + reduced-motion ──────────────────────────────────── */
+@media (max-width: 390px) {
+  #main-content .hp-mc-card--signal .hp-mc-time-row strong { font-size: 21px !important; }
+  #main-content .hp-mc-card--signal .btx-pick__sel { font-size: 27px !important; }
+  #main-content .hp-mc-card--signal .btx-ring,
+  #main-content .hp-mc-card--signal .btx-ring svg { width: 66px; height: 66px; }
+  #main-content .hp-mc-card--signal .btx-pick { padding: 12px 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #main-content .hp-mc-card--signal .hp-mc-status i { animation: none; }
+  #main-content .hp-mc-card--signal .btx-cta,
+  #main-content .hp-mc-card--signal .btx-cta:hover,
+  #main-content .hp-mc-card--signal .btx-cta:active { transition: none; transform: none; }
+}

@@ -13,7 +13,10 @@ describe('homepage Match Center card design', () => {
     expect(component).toContain('className="hp-mc-time-row"')
     expect(component).toContain('className="hp-mc-team-name"')
     expect(component).toContain('className="hp-pick__selection"')
-    expect(component).toContain('className="hp-pick__confidence"')
+    // Maquette A « Stadium Signal » validée : la confiance du pick est portée
+    // par la jauge circulaire (valueClassName) et les tuiles complémentaires.
+    expect(component).toContain('valueClassName="hp-pick__confidence"')
+    expect(component).toContain('className="hp-pick__confidence btx-prob__value"')
   })
 
   it('keeps date and countdown out of a narrow center column and pluralizes one match correctly', () => {
