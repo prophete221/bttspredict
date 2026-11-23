@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-11-23T19:46:23.409Z",
+  "generatedAt": "2026-11-23T21:58:18.524Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,37 +15,37 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 612,
-    "won": 472,
-    "lost": 140,
-    "pending": 86,
-    "unverifiable": 284,
+    "total": 618,
+    "won": 476,
+    "lost": 142,
+    "pending": 72,
+    "unverifiable": 292,
     "archivedTotal": 982,
-    "rate": 77.1,
+    "rate": 77,
     "gold": {
-      "total": 487,
-      "won": 378,
-      "lost": 109,
+      "total": 491,
+      "won": 381,
+      "lost": 110,
       "rate": 77.6
     },
     "standard": {
-      "total": 125,
-      "won": 94,
-      "lost": 31,
-      "rate": 75.2
+      "total": 127,
+      "won": 95,
+      "lost": 32,
+      "rate": 74.8
     },
     "byType": {
       "btts": {
-        "total": 486,
-        "won": 383,
-        "lost": 103,
-        "rate": 78.8
+        "total": 490,
+        "won": 385,
+        "lost": 105,
+        "rate": 78.6
       },
       "over25": {
-        "total": 126,
-        "won": 89,
+        "total": 128,
+        "won": 91,
         "lost": 37,
-        "rate": 70.6
+        "rate": 71.1
       }
     },
     "trend14": [
@@ -142,10 +142,10 @@
       },
       {
         "date": "2026-11-23",
-        "total": 1,
-        "won": 0,
-        "lost": 1,
-        "rate": 0
+        "total": 7,
+        "won": 4,
+        "lost": 3,
+        "rate": 57.1
       }
     ],
     "period": {
@@ -155,6 +155,82 @@
     }
   },
   "history": [
+    {
+      "date": "2026-11-23",
+      "match": "Monza vs Fiorentina",
+      "league": "Serie A",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.72,
+      "status": "WON",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-11-23T21:56:33.915Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-23",
+      "match": "Ceuta vs Almería",
+      "league": "LaLiga 2",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.62,
+      "status": "WON",
+      "finalScore": "2-3",
+      "verifiedAt": "2026-11-23T21:56:04.050Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-11-23",
+      "match": "Nantes vs Grenoble",
+      "league": "Ligue 2",
+      "market": "btts",
+      "tier": "STANDARD",
+      "proba": 0.62,
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-23T21:56:04.049Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-11-23",
+      "match": "Sochaux vs Dunkerque",
+      "league": "Ligue 2",
+      "market": "btts",
+      "tier": "STANDARD",
+      "proba": 0.52,
+      "status": "WON",
+      "finalScore": "2-3",
+      "verifiedAt": "2026-11-23T21:56:04.049Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-23",
+      "match": "Ceuta vs Almería",
+      "league": "LaLiga 2",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.6,
+      "status": "WON",
+      "finalScore": "2-3",
+      "verifiedAt": "2026-11-23T21:55:25.737Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-23",
+      "match": "Monza vs Fiorentina",
+      "league": "Serie A",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.75,
+      "status": "LOST",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-11-23T21:55:25.737Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
     {
       "date": "2026-11-23",
       "match": "Vancouver Whitecaps vs Real Salt Lake",

@@ -11445,7 +11445,9 @@
       "prediction": "Oui",
       "proba": 0.75,
       "confidence": 75,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-11-23T21:55:25.737Z"
     },
     {
       "id": "brentfor-vs-everton-2026-11-23",

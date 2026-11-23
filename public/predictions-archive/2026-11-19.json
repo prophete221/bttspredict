@@ -17679,7 +17679,9 @@
       "prediction": "Oui",
       "proba": 0.75,
       "confidence": 75,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-11-23T21:55:25.737Z"
     },
     {
       "id": "ceuta-vs-almera-2026-11-23",
@@ -17861,7 +17863,9 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-3",
+      "verifiedAt": "2026-11-23T21:56:04.050Z"
     },
     {
       "id": "brentfor-vs-everton-2026-11-23",
@@ -18240,7 +18244,9 @@
       "prediction": "Oui",
       "proba": 0.52,
       "confidence": 52,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-3",
+      "verifiedAt": "2026-11-23T21:56:04.049Z"
     },
     {
       "id": "nantes-vs-grenoble-2026-11-23",
@@ -18423,7 +18429,9 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-23T21:56:04.049Z"
     },
     {
       "id": "gimnasia-vs-tristnsu-2026-11-23",
@@ -21042,7 +21050,9 @@
       "prediction": "Oui",
       "proba": 0.72,
       "confidence": 72,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-11-23T21:56:33.915Z"
     },
     {
       "id": "dundee-vs-heartofm-2026-11-21",
@@ -21614,7 +21624,9 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-3",
+      "verifiedAt": "2026-11-23T21:56:04.049Z"
     }
   ],
   "analysisEngine": "gemini-stats-v1"
