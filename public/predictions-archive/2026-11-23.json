@@ -10512,7 +10512,8 @@
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "abstain",
+      "status": "PENDING"
     },
     {
       "id": "heartofm-vs-asmonaco-2026-11-26",
@@ -10707,7 +10708,8 @@
       "over25Prob": 0.65,
       "prediction": "Oui",
       "proba": 0.65,
-      "confidence": 65
+      "confidence": 65,
+      "status": "PENDING"
     },
     {
       "id": "werderbr-vs-borussia-2026-11-27",
