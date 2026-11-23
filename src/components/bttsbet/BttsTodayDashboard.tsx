@@ -28,7 +28,7 @@ import Link from 'next/link'
 import { generateMatchSlug } from '@/lib/match-slug'
 import { useLanguage } from './LanguageSwitcher'
 import { translationsFor, type Locale, localizedPath } from '@/lib/i18n'
-import { getDakarDateString, getDakarMatchStatus, getDakarDayDiff } from '@/lib/dakar-date'
+import { getDakarDateString, getDakarMatchStatus, getDakarDayDiff, parseDakarDateTime } from '@/lib/dakar-date'
 import { buildBttsTodayDashboardData, type BttsTodayDashboardData, type BttsTodayMatchData as MatchData, type BttsTodayScheduleFixture as ScheduleFixture } from '@/lib/btts-today-dashboard-data'
 import { summarizeVisibleBttsPredictions } from '@/lib/btts-today-dashboard-stats'
 import { selectLocalizedAnalysis } from '@/lib/localized-analysis'
@@ -201,41 +201,130 @@ function ProbBar({ label, value, color, market, locale, missingMarket }: { label
   )
 }
 
-// ─── StatusChip — LIVE pulsant / Terminé / Heure ────────────────────────
-function StatusChip({ status, time, lang, date, now }: { status: CardStatus; time: string; lang: Locale; date?: string; now: number }) {
+// ─── Stadium Signal — helpers de la maquette A validée (23/11/2026) ──────────
+
+// Compte à rebours avant le coup d'envoi (fuseau Dakar = GMT).
+function countdownValue(date: string, time: string, now: number): { days: number; hours: number; minutes: number } | null {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || !/^\d{2}:\d{2}$/.test(time || '')) return null
+  try {
+    const kickoff = parseDakarDateTime(date, time)
+    if (!kickoff) return null
+    const diffMs = kickoff.getTime() - now
+    if (diffMs <= 0) return null
+    const totalMin = Math.floor(diffMs / 60000)
+    return {
+      days: Math.floor(totalMin / 1440),
+      hours: Math.floor((totalMin % 1440) / 60),
+      minutes: totalMin % 60,
+    }
+  } catch { return null }
+}
+
+function formatCountdown({ days, hours, minutes }: { days: number; hours: number; minutes: number }, lang: Locale): string {
+  if (days > 0) return lang === 'en' ? `${days}d ${hours}h` : `${days} j ${hours} h`
+  if (hours > 0) return lang === 'en' ? `${hours}h ${minutes}min` : `${hours} h ${minutes} min`
+  return lang === 'en' ? `${minutes}min` : `${minutes} min`
+}
+
+// Jour du coup d'envoi (Aujourd'hui / Demain / « lun. 23 nov ») — fuseau Dakar (GMT).
+function kickoffDayLabel(date: string, lang: Locale, now: number): string {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) return ''
+  const diff = getDakarDayDiff(date, new Date(now))
+  if (diff === 0) return lang === 'fr' ? "Aujourd'hui" : lang === 'en' ? 'Today' : 'اليوم'
+  if (diff === 1) return lang === 'fr' ? 'Demain' : lang === 'en' ? 'Tomorrow' : 'غداً'
+  try {
+    return new Intl.DateTimeFormat(lang === 'en' ? 'en-GB' : lang === 'ar' ? 'ar' : 'fr-FR', {
+      timeZone: 'Africa/Dakar', weekday: 'short', day: '2-digit', month: 'short',
+    }).format(new Date(`${date}T12:00:00Z`))
+  } catch { return '' }
+}
+
+// Libellé humain du marché (maquette : « Over 2,5 buts » / « Les deux équipes marquent »).
+function marketLabel(market: 'BTTS' | 'O2.5', lang: Locale): string {
+  if (market === 'BTTS') {
+    return lang === 'en' ? 'Both teams to score' : lang === 'ar' ? 'كلا الفريقين يسجلان' : 'Les deux équipes marquent'
+  }
+  return lang === 'en' ? 'Over 2.5 goals' : lang === 'ar' ? 'أكثر من 2.5 هدف' : 'Over 2,5 buts'
+}
+
+// ─── StatusPill — À VENIR / LIVE / TERMINÉ (pilule de la maquette) ──────
+function StatusPill({ status, lang }: { status: CardStatus; lang: Locale }) {
   if (status === 'live') {
     return (
-      <span className="btx-status btx-status--live">
-        <span className="btx-status__dot" aria-hidden="true" />
+      <span className="btx-signal-status btx-signal-status--live">
+        <i className="btx-signal-status__dot" aria-hidden="true" />
         LIVE
       </span>
     )
   }
   if (status === 'finished') {
     return (
-      <span className="btx-status btx-status--done">
+      <span className="btx-signal-status btx-signal-status--done">
         {lang === 'fr' ? 'Terminé' : lang === 'en' ? 'Full time' : 'انتهت'}
       </span>
     )
   }
-  // Matchs à venir : afficher la date pour les journées suivantes (J+1 et plus)
-  // afin qu'une affiche « 19:00 » de demain ne soit pas confondue avec celle du jour.
-  let dayLabel = ''
-  if (date && /^\d{4}-\d{2}-\d{2}$/.test(date)) {
-    const diff = getDakarDayDiff(date, new Date(now))
-    if (diff === 1) dayLabel = lang === 'fr' ? 'Demain' : lang === 'en' ? 'Tomorrow' : 'غداً'
-    else if (diff > 1) {
-      try {
-        dayLabel = new Intl.DateTimeFormat(lang === 'en' ? 'en-GB' : lang === 'ar' ? 'ar' : 'fr-FR', {
-          timeZone: 'Africa/Dakar', day: '2-digit', month: 'short',
-        }).format(new Date(`${date}T12:00:00Z`))
-      } catch { /* date invalide — libellé absent */ }
-    }
-  }
-  return <span className="btx-status">{dayLabel ? `${dayLabel} · ` : ''}{time || '--:--'}</span>
+  return (
+    <span className="btx-signal-status">
+      <i className="btx-signal-status__dot" aria-hidden="true" />
+      {lang === 'fr' ? 'À venir' : lang === 'en' ? 'Upcoming' : 'قادمة'}
+    </span>
+  )
 }
 
-// ─── Match Card — premium V3 (glass, liseré statut, sheen, barres animées) ──
+// ─── ProbRing — jauge circulaire du pronostic principal (maquette) ──────
+function ProbRing({ value, ringId, sub, ariaLabel }: { value: number; ringId: string; sub: string; ariaLabel: string }) {
+  const pct = Math.min(100, Math.max(0, Math.round((Number.isFinite(value) ? value : 0) * 100)))
+  const radius = 31
+  const circumference = 2 * Math.PI * radius
+  const dash = (pct / 100) * circumference
+  return (
+    <div className="btx-ring" role="img" aria-label={ariaLabel}>
+      <svg viewBox="0 0 74 74" width="74" height="74" aria-hidden="true" focusable="false">
+        <circle cx="37" cy="37" r={radius} fill="none" stroke="rgba(178,202,238,0.10)" strokeWidth="7" />
+        <circle
+          cx="37" cy="37" r={radius} fill="none"
+          stroke={`url(#${ringId})`} strokeWidth="7" strokeLinecap="round"
+          strokeDasharray={`${dash.toFixed(1)} ${circumference.toFixed(1)}`}
+          transform="rotate(-90 37 37)"
+        />
+        <defs>
+          <linearGradient id={ringId} x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stopColor="#2A5CD8" />
+            <stop offset="1" stopColor="#6BA1FF" />
+          </linearGradient>
+        </defs>
+      </svg>
+      <span className="btx-ring__val" aria-hidden="true">
+        <b>{pct}%</b>
+        <i>{sub}</i>
+      </span>
+    </div>
+  )
+}
+
+// ─── CoteTile — tuile « Cote Over 2,5 » (barre = probabilité implicite 1/cote) ──
+function CoteTile({ odds, lang }: { odds: MatchData['odds']; lang: Locale }) {
+  const value = odds?.over25
+  const hasValue = typeof value === 'number' && Number.isFinite(value) && value > 1
+  const implied = hasValue ? Math.min(100, Math.max(0, (1 / (value as number)) * 100)) : null
+  const label = lang === 'en' ? 'Over 2.5 odds' : lang === 'ar' ? 'أودز أكثر من 2.5' : 'Cote Over 2,5'
+  return (
+    <div className="btx-cote">
+      <span className="btx-cote__k">{label}</span>
+      <span className="btx-cote__v"><b>{hasValue ? (value as number).toFixed(2) : '—'}</b></span>
+      <span className="btx-cote__mini" aria-hidden="true">
+        <i style={{ width: implied != null ? `${implied.toFixed(1)}%` : '0%' }} />
+      </span>
+    </div>
+  )
+}
+
+// ─── Match Card — « Stadium Signal » (maquette A validée par le client) ─────
+// Structure : pilule de statut + ligue, affiche crêtes + coup d'envoi,
+// compte à rebours doré, pronostic principal avec jauge circulaire, tuiles
+// marché complémentaire + cote, ligne de provenance, CTA « Ouvrir l'analyse ».
+// Données, liens, couleurs marchés (#34D399 / #FBBF24) et SEO inchangés.
 function MatchCard({ match, index, status, lang, labels, now }: {
   match: MatchData
   index: number
@@ -274,72 +363,154 @@ function MatchCard({ match, index, status, lang, labels, now }: {
   const dataSourceLabel = normalizeDataSource(match.dataSource, lang)
   const bttsPick = match.aiPicks.find(pick => pick.market === 'BTTS')
   const over25Pick = match.aiPicks.find(pick => pick.market === 'O2.5')
+  // Pronostic principal (maquette A) : le pick Gemini publié ; si les deux
+  // marchés sont publiés, le plus probable est mis en avant (présentation
+  // uniquement — le second marché reste affiché en tuile).
+  const heroPick = bttsPick && over25Pick
+    ? (over25Pick.proba >= bttsPick.proba ? over25Pick : bttsPick)
+    : bttsPick ?? over25Pick ?? null
+  const otherPick = heroPick
+    ? (heroPick.market === 'BTTS' ? over25Pick : bttsPick)
+    : null
+  const otherMarket: 'BTTS' | 'O2.5' | null = heroPick
+    ? (heroPick.market === 'BTTS' ? 'O2.5' : 'BTTS')
+    : null
 
   const matchPath = localizedPath(`/match/${generateMatchSlug(match.home, match.away, match.date)}`, lang)
 
+  const yesLabel = lang === 'en' ? 'Yes' : lang === 'ar' ? 'نعم' : 'Oui'
+  const noLabel = lang === 'en' ? 'No' : lang === 'ar' ? 'لا' : 'Non'
+  const countdown = fine === 'scheduled' ? countdownValue(match.date, match.time, now) : null
+  const kickDay = kickoffDayLabel(match.date, lang, now)
+  const ringId = `btx-ring-${Math.min(index, 8)}-${match.key.replace(/[^a-zA-Z0-9]/g, '').slice(0, 28)}`
+  const ringSub = lang === 'en' ? 'est.' : lang === 'ar' ? 'تقديري' : 'estimé'
+
+  // Ligne de provenance (maquette : « SOURCE DRAFTKINGS · ANALYSE IA GEMINI »).
+  // Toujours véridique : bookmaker des cotes, source des données, analyse
+  // Gemini et échantillon observés tels qu'ils sortent du pipeline public.
+  const observedCount = typeof match.matchCountHome === 'number' && typeof match.matchCountAway === 'number'
+    ? match.matchCountHome + match.matchCountAway
+    : null
+  const provBits: string[] = []
+  if (match.odds?.provider) provBits.push(`${labels.source} ${match.odds.provider}`)
+  else if (match.dataSource) provBits.push(`${labels.source} ${dataSourceLabel}`)
+  provBits.push(lang === 'en' ? 'Gemini AI analysis' : lang === 'ar' ? 'تحليل Gemini AI' : 'Analyse IA Gemini')
+  if (observedCount != null) provBits.push(`${fmtInt(observedCount)} ${labels.matches}`)
+
   return (
     <article
-      className="btx-card btx-rev"
+      className="btx-card btx-rev btx-signal"
       style={{ ['--accent' as string]: accent, ['--d' as string]: `${Math.min(index, 8) * 50}ms` }}
       aria-label={`${match.home} vs ${match.away} — ${match.league}`}
     >
       <div className="btx-card__edge" aria-hidden="true" />
       <div className="btx-card__inner">
-        {/* ─── TOP : ligue + statut ─── */}
+        {/* ─── TOP : ligue + statut (maquette) ─── */}
         <div className="btx-card__top">
           <span className="btx-league">{match.league}</span>
-          <StatusChip status={fine} time={match.time} lang={lang} date={match.date} now={now} />
+          <StatusPill status={fine} lang={lang} />
         </div>
 
-        {/* ─── TEAMS ─── */}
-        <div className="btx-teams">
-          <div className="btx-team">
+        {/* ─── AFFICHE — crêtes + coup d'envoi (maquette) ─── */}
+        <div className="btx-fixture">
+          <div className="btx-fixture__team">
             <TeamLogo src={match.homeLogo} name={match.home} />
-            <span className="btx-team__name">{match.home}</span>
+            <span className="btx-fixture__name">{match.home}</span>
           </div>
-          <div className="btx-vs" aria-hidden="true">
-            <span className="btx-vs__line" />
-            <span className="btx-vs__chip">VS</span>
-            <span className="btx-vs__line" />
+          <div className="btx-fixture__kick">
+            <strong>{match.time || '--:--'}</strong>
+            {kickDay && <span>{kickDay} · GMT</span>}
+            <em aria-hidden="true">VS</em>
           </div>
-          <div className="btx-team">
+          <div className="btx-fixture__team">
             <TeamLogo src={match.awayLogo} name={match.away} />
-            <span className="btx-team__name">{match.away}</span>
+            <span className="btx-fixture__name">{match.away}</span>
           </div>
         </div>
 
-        {/* ─── PROBABILITÉS — barres animées ─── */}
-        <div className="btx-probs">
-          <ProbBar
-            label={`BTTS${bttsPick ? ` · ${bttsPick.prediction === 'Oui' ? (lang === 'en' ? 'Yes' : lang === 'ar' ? 'نعم' : 'Oui') : (lang === 'en' ? 'No' : lang === 'ar' ? 'لا' : 'Non')}` : ''}`}
-            value={bttsPick?.proba}
-            color="#34D399"
-            market="BTTS"
-            locale={lang}
-            missingMarket={!bttsPick ? 'BTTS' : undefined}
-          />
-          <ProbBar
-            label={`Over 2.5${over25Pick ? ` · ${over25Pick.prediction === 'Oui' ? (lang === 'en' ? 'Yes' : lang === 'ar' ? 'نعم' : 'Oui') : (lang === 'en' ? 'No' : lang === 'ar' ? 'لا' : 'Non')}` : ''}`}
-            value={over25Pick?.proba}
-            color="#FBBF24"
-            market="O2.5"
-            locale={lang}
-            missingMarket={!over25Pick ? 'Over 2.5' : undefined}
-          />
-        </div>
-        {/* ─── MÉTA : source / matchs pris en compte ─── */}
-        <div className="btx-meta">
-          <span className="btx-chip">
-            {labels.source} <b style={{ ['--cc' as string]: '#7DB5FF' }}>{dataSourceLabel}</b>
-          </span>
-          <span className="btx-chip">
-            {fmtInt(match.matchCountHome)} + {fmtInt(match.matchCountAway)} {labels.matches}
-          </span>
+        {/* ─── COMPTE À REBOURS (bannière dorée de la maquette) ─── */}
+        {fine === 'live' && (
+          <div className="btx-countdown btx-countdown--live" role="status">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 7v5l3 2" />
+            </svg>
+            <span>{lang === 'fr' ? 'Match en cours' : lang === 'en' ? 'Match in progress' : 'المباراة جارية'}</span>
+          </div>
+        )}
+        {fine === 'scheduled' && countdown && (
+          <div className="btx-countdown" role="status">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 7v5l3 2" />
+            </svg>
+            <span>
+              {lang === 'fr'
+                ? `Commence dans ${formatCountdown(countdown, lang)}`
+                : lang === 'en'
+                  ? `Starts in ${formatCountdown(countdown, lang)}`
+                  : `يبدأ بعد ${formatCountdown(countdown, lang)}`}
+            </span>
+          </div>
+        )}
+
+        {/* ─── PRONOSTIC PRINCIPAL — jauge circulaire (maquette) ─── */}
+        {heroPick ? (
+          <div className="btx-pick" data-market={heroPick.market}>
+            <div className="btx-pick__copy">
+              <span className="btx-pick__lab">
+                {lang === 'fr' ? 'Pronostic principal' : lang === 'en' ? 'Main pick' : 'التنبؤ الرئيسي'}
+              </span>
+              <span className="btx-pick__market">{marketLabel(heroPick.market, lang)}</span>
+              <strong className="btx-pick__sel" data-prediction={heroPick.prediction === 'Oui' ? 'yes' : 'no'}>
+                {heroPick.prediction === 'Oui' ? yesLabel : noLabel}
+              </strong>
+            </div>
+            <ProbRing value={heroPick.proba} ringId={ringId} sub={ringSub} ariaLabel={`${Math.round(heroPick.proba * 100)}%`} />
+          </div>
+        ) : null}
+
+        {/* ─── TUILES : marché complémentaire + cote (maquette) ─── */}
+        <div className="btx-tiles">
+          {heroPick && otherMarket ? (
+            <ProbBar
+              label={`${otherMarket === 'BTTS' ? 'BTTS' : 'Over 2.5'}${otherPick ? ` · ${otherPick.prediction === 'Oui' ? yesLabel : noLabel}` : ''}`}
+              value={otherPick?.proba}
+              color={otherMarket === 'BTTS' ? '#34D399' : '#FBBF24'}
+              market={otherMarket}
+              locale={lang}
+              missingMarket={!otherPick ? (otherMarket === 'O2.5' ? 'Over 2.5' : 'BTTS') : undefined}
+            />
+          ) : null}
+          {!heroPick && (
+            <>
+              <ProbBar
+                label={`BTTS${bttsPick ? ` · ${bttsPick.prediction === 'Oui' ? yesLabel : noLabel}` : ''}`}
+                value={bttsPick?.proba}
+                color="#34D399"
+                market="BTTS"
+                locale={lang}
+                missingMarket={!bttsPick ? 'BTTS' : undefined}
+              />
+              <ProbBar
+                label={`Over 2.5${over25Pick ? ` · ${over25Pick.prediction === 'Oui' ? yesLabel : noLabel}` : ''}`}
+                value={over25Pick?.proba}
+                color="#FBBF24"
+                market="O2.5"
+                locale={lang}
+                missingMarket={!over25Pick ? 'Over 2.5' : undefined}
+              />
+            </>
+          )}
+          <CoteTile odds={match.odds} lang={lang} />
         </div>
 
-        {/* ─── ANALYSE IA GEMINI ─── */}
+        {/* ─── SOURCE — ligne de provenance (maquette) ─── */}
+        <p className="btx-prov" dir="ltr">{provBits.join(' · ')}</p>
+
+        {/* ─── ANALYSE DU MATCH (contenu inchangé, habillage Stadium Signal) ─── */}
         {hasLocalizedAnalysis && (
-          <div className="btx-ai">
+          <div className="btx-ai btx-ai--signal">
             <div className="btx-ai__head">
               <span className="btx-ai__dot" aria-hidden="true" />
               <span className="btx-ai__label">{labels.aiAnalysis}</span>
@@ -348,38 +519,24 @@ function MatchCard({ match, index, status, lang, labels, now }: {
 
             {/* Forme récente des deux équipes */}
             {vFormSummary && (
-              <div style={{ margin: '0.45rem 0', padding: '0.55rem 0.65rem', borderRadius: 10, background: 'rgba(255,255,255,0.035)', border: '1px solid rgba(255,255,255,0.06)' }}>
-                <div style={{ fontSize: 10, letterSpacing: '0.12em', textTransform: 'uppercase', opacity: 0.6, marginBottom: 3 }}>
-                  {lang === 'fr' ? 'Forme récente (5 derniers matchs)' : lang === 'en' ? 'Recent form' : 'الفورمة الأخيرة'}
-                </div>
-                <div style={{ fontSize: 12.5, lineHeight: 1.5, opacity: 0.85 }}>📈 {vFormSummary}</div>
+              <div className="btx-ai__panel">
+                <div className="btx-ai__panel-k">{lang === 'fr' ? 'Forme récente (5 derniers matchs)' : lang === 'en' ? 'Recent form' : 'الفورمة الأخيرة'}</div>
+                <div className="btx-ai__panel-v">📈 {vFormSummary}</div>
               </div>
             )}
 
             {/* Cotes réelles du marché (gratuit — ESPN/bookmaker) */}
             {match.odds && (match.odds.home || match.odds.away) && (
-              <div style={{ margin: '0.45rem 0' }}>
-                <div style={{ fontSize: 10, letterSpacing: '0.12em', textTransform: 'uppercase', opacity: 0.6, marginBottom: 4 }}>
+              <div className="btx-ai__odds">
+                <div className="btx-ai__panel-k">
                   {lang === 'fr' ? 'Cotes marché' : lang === 'en' ? 'Market odds' : 'أودز السوق'}{match.odds.provider ? ` · ${match.odds.provider}` : ''}
                 </div>
-                <div style={{ display: 'flex', gap: 6 }}>
-                  <div style={{ flex: 1, textAlign: 'center', padding: '3px 0', borderRadius: 8, background: 'rgba(255,255,255,0.05)' }}>
-                    <div style={{ fontSize: 9, opacity: 0.55 }}>1</div>
-                    <div style={{ fontSize: 13, fontWeight: 700, fontFamily: 'var(--font-mono, monospace)' }}>{match.odds.home ?? '—'}</div>
-                  </div>
-                  <div style={{ flex: 1, textAlign: 'center', padding: '3px 0', borderRadius: 8, background: 'rgba(255,255,255,0.05)' }}>
-                    <div style={{ fontSize: 9, opacity: 0.55 }}>{lang === 'en' ? 'D' : lang === 'ar' ? 'X' : 'N'}</div>
-                    <div style={{ fontSize: 13, fontWeight: 700, fontFamily: 'var(--font-mono, monospace)' }}>{match.odds.draw ?? '—'}</div>
-                  </div>
-                  <div style={{ flex: 1, textAlign: 'center', padding: '3px 0', borderRadius: 8, background: 'rgba(255,255,255,0.05)' }}>
-                    <div style={{ fontSize: 9, opacity: 0.55 }}>2</div>
-                    <div style={{ fontSize: 13, fontWeight: 700, fontFamily: 'var(--font-mono, monospace)' }}>{match.odds.away ?? '—'}</div>
-                  </div>
+                <div className="btx-ai__odds-row">
+                  <span className="btx-ai__odd"><i>1</i><b>{match.odds.home ?? '—'}</b></span>
+                  <span className="btx-ai__odd"><i>{lang === 'en' ? 'D' : lang === 'ar' ? 'X' : 'N'}</i><b>{match.odds.draw ?? '—'}</b></span>
+                  <span className="btx-ai__odd"><i>2</i><b>{match.odds.away ?? '—'}</b></span>
                   {match.odds.over25 && (
-                    <div style={{ flex: 1, textAlign: 'center', padding: '3px 0', borderRadius: 8, background: 'rgba(52,211,153,0.12)' }}>
-                      <div style={{ fontSize: 9, opacity: 0.55 }}>O2.5</div>
-                      <div style={{ fontSize: 13, fontWeight: 700, fontFamily: 'var(--font-mono, monospace)', color: '#34D399' }}>{match.odds.over25}</div>
-                    </div>
+                    <span className="btx-ai__odd btx-ai__odd--over"><i>O2.5</i><b>{match.odds.over25}</b></span>
                   )}
                 </div>
               </div>
@@ -393,72 +550,59 @@ function MatchCard({ match, index, status, lang, labels, now }: {
 
             {/* Lecture des cotes par l'IA */}
             {vOddsInsight && (
-              <p style={{ fontSize: 12.5, lineHeight: 1.5, opacity: 0.7, margin: '0.4rem 0 0.2rem' }}>💰 {vOddsInsight}</p>
+              <p className="btx-ai__note">💰 {vOddsInsight}</p>
             )}
 
             {/* Disponibilités / absents */}
             {vAbsences && (
-              <p style={{ fontSize: 12.5, lineHeight: 1.5, opacity: 0.7, margin: '0.2rem 0' }}>🩹 {vAbsences}</p>
+              <p className="btx-ai__note">🩹 {vAbsences}</p>
             )}
-            <div className="btx-actions" style={{ paddingInline: 0, borderTop: 'none', paddingTop: '0.55rem' }}>
-              {vAnalysis && vAnalysis.length > 180 && (
-                <button
-                  onClick={() => setExpanded(e => !e)}
-                  aria-expanded={expanded}
-                  aria-label={expanded ? (lang === 'en' ? `Hide the full analysis of ${match.home} vs ${match.away}` : lang === 'ar' ? `إخفاء التحليل الكامل لـ ${match.home} ضد ${match.away}` : `Masquer l'analyse complète de ${match.home} vs ${match.away}`) : (lang === 'en' ? `View the full analysis of ${match.home} vs ${match.away}` : lang === 'ar' ? `عرض التحليل الكامل لـ ${match.home} ضد ${match.away}` : `Voir l'analyse complète de ${match.home} vs ${match.away}`)}
-                  className="btx-link"
-                  style={{ background: 'none', border: 'none', padding: 0 }}
-                >
-                  {expanded ? '−' : '+'} {expanded ? (lang === 'fr' ? 'Masquer l’analyse' : lang === 'en' ? 'Hide analysis' : 'إخفاء التحليل') : (lang === 'fr' ? 'Voir l’analyse complète' : lang === 'en' ? 'Full analysis' : 'التحليل الكامل')}
-                </button>
-              )}
-              <Link
-                href={matchPath}
-                className="btx-link"
+
+            {vAnalysis && vAnalysis.length > 180 && (
+              <button
+                onClick={() => setExpanded(e => !e)}
+                aria-expanded={expanded}
+                aria-label={expanded ? (lang === 'en' ? `Hide the full analysis of ${match.home} vs ${match.away}` : lang === 'ar' ? `إخفاء التحليل الكامل لـ ${match.home} ضد ${match.away}` : `Masquer l'analyse complète de ${match.home} vs ${match.away}`) : (lang === 'en' ? `View the full analysis of ${match.home} vs ${match.away}` : lang === 'ar' ? `عرض التحليل الكامل لـ ${match.home} ضد ${match.away}` : `Voir l'analyse complète de ${match.home} vs ${match.away}`)}
+                className="btx-link btx-ai__toggle"
               >
-                {labels.openMatch} →
-              </Link>
-              <ShareAnalysisButton
-                home={match.home}
-                away={match.away}
-                league={match.league}
-                date={match.date}
-                time={match.time}
-                bttsProbability={fmtPct(match.bttsProb, lang)}
-                over25Probability={fmtPct(match.over25Prob, lang)}
-                path={matchPath}
-                locale={lang}
-              />
-            </div>
+                {expanded ? '−' : '+'} {expanded ? (lang === 'fr' ? 'Masquer l’analyse' : lang === 'en' ? 'Hide analysis' : 'إخفاء التحليل') : (lang === 'fr' ? 'Voir l’analyse complète' : lang === 'en' ? 'Full analysis' : 'التحليل الكامل')}
+              </button>
+            )}
           </div>
         )}
 
         {/* Lien page match pour les cartes sans analyse IA */}
-      {!hasLocalizedAnalysis && hasSourceAnalysis && lang !== 'fr' && (
-        <p className="btx-ai__text">{lang === 'en' ? 'Analysis text is not available in English for this match yet.' : 'تحليل المباراة غير متاح بهذه اللغة حالياً.'}</p>
-      )}
+        {!hasLocalizedAnalysis && hasSourceAnalysis && lang !== 'fr' && (
+          <p className="btx-ai__text">{lang === 'en' ? 'Analysis text is not available in English for this match yet.' : 'تحليل المباراة غير متاح بهذه اللغة حالياً.'}</p>
+        )}
 
-      {!hasLocalizedAnalysis && (
-          <div className="btx-actions">
+        {/* ─── ACTIONS — CTA « Ouvrir l'analyse » (maquette) + partage ─── */}
+        <div className="btx-actions btx-actions--signal">
+          {matchPath && (
             <Link
               href={matchPath}
-              className="btx-link"
+              className="btx-cta"
+              aria-label={`${labels.openMatch} — ${match.home} vs ${match.away}`}
             >
-              {labels.openMatch} →
+              <span>{labels.openMatch}</span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" aria-hidden="true" focusable="false">
+                <path d="M7 17L17 7" />
+                <path d="M9 7h8v8" />
+              </svg>
             </Link>
-            <ShareAnalysisButton
-              home={match.home}
-              away={match.away}
-              league={match.league}
-              date={match.date}
-              time={match.time}
-              bttsProbability={fmtPct(match.bttsProb, lang)}
-              over25Probability={fmtPct(match.over25Prob, lang)}
-              path={matchPath}
-              locale={lang}
-            />
-          </div>
-        )}
+          )}
+          <ShareAnalysisButton
+            home={match.home}
+            away={match.away}
+            league={match.league}
+            date={match.date}
+            time={match.time}
+            bttsProbability={fmtPct(match.bttsProb, lang)}
+            over25Probability={fmtPct(match.over25Prob, lang)}
+            path={matchPath}
+            locale={lang}
+          />
+        </div>
         <VipMarketTeaser locale={lang} />
       </div>
     </article>

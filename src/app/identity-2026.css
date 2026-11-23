@@ -2480,3 +2480,499 @@ footer#faq a[style*='47, 125, 255'] {
   .hp-clubs__track { animation: none !important; }
   .hp-live__pulse, .hp-live .hp-status-dot { animation: none !important; }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+ 24. CARTE DE PRONOSTIC « STADIUM SIGNAL » — maquette A validée (23/11/2026)
+═══════════════════════════════════════════════════════════════════════════
+ Applique la maquette A validée par le client aux cartes du dashboard
+ /pronostics (.btx-card.btx-signal) : pilule de statut, affiche crêtes +
+ coup d'envoi GMT, compte à rebours doré, pronostic principal avec jauge
+ circulaire, tuiles marché/cote, ligne de provenance, CTA royal.
+ Données, liens, SEO et couleurs marchés (#34D399 / #FBBF24) inchangés.
+ Mobile-first ; prefers-reduced-motion respecté (aucune animation ajoutée). */
+
+/* ── 24.1 Coque + rythme vertical ─────────────────────────────────────────── */
+#btts-today-dashboard .btx-signal .btx-card__inner {
+  display: flex !important;
+  flex-direction: column;
+  gap: 11px;
+  grid-template-columns: none !important;
+  grid-template-areas: none !important;
+  padding: 15px 15px 14px !important;
+}
+#btts-today-dashboard .btx-signal .btx-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 0 !important;
+  background: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  width: 100% !important;
+  max-width: none !important;
+  align-self: stretch !important;
+  margin-inline: 0 !important;
+}
+#btts-today-dashboard .btx-signal .btx-league {
+  font-family: var(--font-mono), ui-monospace, monospace !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  letter-spacing: .2em !important;
+  text-transform: uppercase !important;
+  color: var(--id-dim) !important;
+  background: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── 24.2 Pilule de statut — À VENIR / LIVE / TERMINÉ ─────────────────────── */
+#btts-today-dashboard .btx-signal .btx-signal-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex: none;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--id-volt-bright);
+  background: var(--id-volt-soft);
+  border: 1px solid var(--id-volt-line);
+  border-radius: 999px;
+  padding: 4px 10px;
+  white-space: nowrap;
+}
+#btts-today-dashboard .btx-signal .btx-signal-status__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--id-volt-bright);
+  box-shadow: 0 0 8px var(--id-volt-bright);
+}
+#btts-today-dashboard .btx-signal .btx-signal-status--live {
+  color: var(--id-btts);
+  background: rgba(52, 211, 153, .12);
+  border-color: rgba(52, 211, 153, .35);
+}
+#btts-today-dashboard .btx-signal .btx-signal-status--live .btx-signal-status__dot {
+  background: var(--id-btts);
+  box-shadow: 0 0 8px var(--id-btts);
+  animation: btx-signal-pulse 1.6s ease-in-out infinite;
+}
+#btts-today-dashboard .btx-signal .btx-signal-status--done {
+  color: var(--id-dim);
+  background: rgba(178, 202, 238, .06);
+  border-color: var(--id-line-strong);
+}
+#btts-today-dashboard .btx-signal .btx-signal-status--done .btx-signal-status__dot { display: none; }
+@keyframes btx-signal-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .45; }
+}
+
+/* ── 24.3 Affiche — crêtes carrées + coup d'envoi ─────────────────────────── */
+#btts-today-dashboard .btx-signal .btx-fixture {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: 8px;
+  align-items: center;
+  margin: 1px 0 2px;
+  background: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+#btts-today-dashboard .btx-signal .btx-fixture__team,
+#btts-today-dashboard .btx-signal .btx-fixture__kick {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+#btts-today-dashboard .btx-signal .btx-fixture__team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  text-align: center;
+  min-width: 0;
+}
+#btts-today-dashboard .btx-signal .btx-fixture__team .btx-team__logo {
+  width: 46px !important;
+  height: 46px !important;
+  border-radius: 14px !important;
+  background: linear-gradient(160deg, var(--id-ink-3), var(--id-ink-2)) !important;
+  border: 1px solid var(--id-line-strong) !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  padding: 5px !important;
+  flex: none;
+  transition: none !important;
+}
+#btts-today-dashboard .btx-signal .btx-fixture__team .btx-team__logo img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain;
+}
+#btts-today-dashboard .btx-signal .btx-fixture__name {
+  font-size: 13.5px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--id-ice);
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+#btts-today-dashboard .btx-signal .btx-fixture__kick {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 0 4px;
+}
+#btts-today-dashboard .btx-signal .btx-fixture__kick strong {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 23px;
+  font-weight: 800;
+  letter-spacing: .02em;
+  line-height: 1;
+  color: var(--id-ice);
+  font-variant-numeric: tabular-nums;
+}
+#btts-today-dashboard .btx-signal .btx-fixture__kick span {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 8.5px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--id-dim);
+  white-space: nowrap;
+}
+#btts-today-dashboard .btx-signal .btx-fixture__kick em {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-style: normal;
+  font-size: 8px;
+  letter-spacing: .3em;
+  color: var(--id-dim);
+  margin-top: 2px;
+}
+
+/* ── 24.4 Bannière compte à rebours (dorée) / live (verte) ────────────────── */
+#btts-today-dashboard .btx-signal .btx-countdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin: 0;
+  background: rgba(240, 178, 58, .12);
+  border: 1px solid rgba(240, 178, 58, .30);
+  border-radius: 10px;
+  padding: 7px 10px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--id-cta-gold-bright);
+  text-align: center;
+}
+#btts-today-dashboard .btx-signal .btx-countdown--live {
+  background: rgba(52, 211, 153, .10);
+  border-color: rgba(52, 211, 153, .32);
+  color: var(--id-btts);
+}
+
+/* ── 24.5 Pronostic principal + jauge circulaire ──────────────────────────── */
+#btts-today-dashboard .btx-signal .btx-pick {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background:
+    linear-gradient(160deg, rgba(62, 123, 250, .10), rgba(62, 123, 250, .03) 60%),
+    var(--id-ink-1);
+  border: 1px solid var(--id-volt-line);
+  border-radius: 16px;
+  padding: 13px 14px;
+  box-shadow: 0 8px 28px rgba(62, 123, 250, .16);
+}
+#btts-today-dashboard .btx-signal .btx-pick__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+#btts-today-dashboard .btx-signal .btx-pick__lab {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 8.5px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--id-volt-bright);
+}
+#btts-today-dashboard .btx-signal .btx-pick__market {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #AFC4E8;
+}
+#btts-today-dashboard .btx-signal .btx-pick__sel {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  background: linear-gradient(100deg, #FFFFFF 40%, var(--id-volt-bright) 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+#btts-today-dashboard .btx-signal .btx-pick__sel[data-prediction='no'] {
+  background: linear-gradient(100deg, #E8EFFC 30%, #8FA3B8 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+#btts-today-dashboard .btx-signal .btx-ring {
+  position: relative;
+  width: 74px;
+  height: 74px;
+  flex: none;
+}
+#btts-today-dashboard .btx-signal .btx-ring svg { display: block; }
+#btts-today-dashboard .btx-signal .btx-ring__val {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+}
+#btts-today-dashboard .btx-signal .btx-ring__val b {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--id-ice);
+  font-variant-numeric: tabular-nums;
+}
+#btts-today-dashboard .btx-signal .btx-ring__val i {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-style: normal;
+  font-size: 7px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--id-dim);
+}
+
+/* ── 24.6 Tuiles — marché complémentaire + cote ───────────────────────────── */
+#btts-today-dashboard .btx-signal .btx-tiles {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 8px;
+}
+#btts-today-dashboard .btx-signal .btx-prob,
+#btts-today-dashboard .btx-signal .btx-cote {
+  background: var(--id-ink-2) !important;
+  border: 1px solid var(--id-line) !important;
+  border-radius: 12px !important;
+  padding: 9px 11px !important;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+#btts-today-dashboard .btx-signal .btx-prob__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px;
+}
+#btts-today-dashboard .btx-signal .btx-prob__label {
+  font-family: var(--font-mono), ui-monospace, monospace !important;
+  font-size: 7.5px !important;
+  letter-spacing: .14em !important;
+  text-transform: uppercase !important;
+  color: var(--id-dim) !important;
+}
+#btts-today-dashboard .btx-signal .btx-prob__value {
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+#btts-today-dashboard .btx-signal .btx-prob .btx-bar {
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(178, 202, 238, .10) !important;
+  margin-top: 7px;
+  overflow: hidden;
+}
+#btts-today-dashboard .btx-signal .btx-cote__k {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 7.5px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--id-dim);
+}
+#btts-today-dashboard .btx-signal .btx-cote__v { margin-top: 3px; }
+#btts-today-dashboard .btx-signal .btx-cote__v b {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--id-cta-gold-bright);
+  font-variant-numeric: tabular-nums;
+}
+#btts-today-dashboard .btx-signal .btx-cote__mini {
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(178, 202, 238, .10);
+  margin-top: 7px;
+  overflow: hidden;
+}
+#btts-today-dashboard .btx-signal .btx-cote__mini i {
+  display: block;
+  height: 100%;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--id-cta-gold-deep), var(--id-cta-gold-bright));
+}
+
+/* ── 24.7 Ligne de provenance ─────────────────────────────────────────────── */
+#btts-today-dashboard .btx-signal .btx-prov {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 8.5px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--id-dim);
+  text-align: center;
+  margin: 0 !important;
+  overflow-wrap: anywhere;
+}
+
+/* ── 24.8 Bloc analyse (contenu inchangé, habillage maquette) ─────────────── */
+#btts-today-dashboard .btx-signal .btx-ai--signal {
+  background: var(--id-ink-1) !important;
+  border: 1px solid var(--id-line) !important;
+  border-radius: 14px !important;
+  padding: 12px 13px !important;
+}
+#btts-today-dashboard .btx-signal .btx-ai__fact {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  line-height: 1.5 !important;
+  color: var(--id-ice) !important;
+  margin: 6px 0 0 !important;
+}
+#btts-today-dashboard .btx-signal .btx-ai__panel {
+  margin: 8px 0;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, .03);
+  border: 1px solid rgba(255, 255, 255, .06);
+}
+#btts-today-dashboard .btx-signal .btx-ai__panel-k {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 9.5px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--id-dim) !important;
+  margin-bottom: 3px;
+}
+#btts-today-dashboard .btx-signal .btx-ai__panel-v {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: #C8D2DC;
+}
+#btts-today-dashboard .btx-signal .btx-ai__odds { margin: 8px 0; }
+#btts-today-dashboard .btx-signal .btx-ai__odds-row { display: flex; gap: 6px; }
+#btts-today-dashboard .btx-signal .btx-ai__odd {
+  flex: 1;
+  text-align: center;
+  padding: 4px 0;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, .04);
+  min-width: 0;
+}
+#btts-today-dashboard .btx-signal .btx-ai__odd i {
+  display: block;
+  font-style: normal;
+  font-size: 9px;
+  color: var(--id-dim);
+}
+#btts-today-dashboard .btx-signal .btx-ai__odd b {
+  font-size: 13px;
+  font-weight: 700;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  color: var(--id-ice);
+}
+#btts-today-dashboard .btx-signal .btx-ai__odd--over { background: rgba(52, 211, 153, .12); }
+#btts-today-dashboard .btx-signal .btx-ai__odd--over b { color: var(--id-btts); }
+#btts-today-dashboard .btx-signal .btx-ai__note {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: #8FA3B8;
+  margin: 6px 0 2px;
+}
+#btts-today-dashboard .btx-signal .btx-ai__toggle { margin-top: 8px; }
+
+/* ── 24.9 CTA « Ouvrir l'analyse » + partage ──────────────────────────────── */
+#btts-today-dashboard .btx-signal .btx-actions--signal {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 8px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-top: none !important;
+  padding-top: 0 !important;
+}
+#btts-today-dashboard .btx-signal .btx-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 44px;
+  border-radius: 12px;
+  border: 0;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  text-decoration: none;
+  background: linear-gradient(100deg, var(--id-volt-deep), var(--id-royal) 55%, var(--id-volt-bright)) !important;
+  box-shadow: 0 8px 28px rgba(62, 123, 250, .28);
+  transition: filter .2s ease, transform .15s ease;
+}
+#btts-today-dashboard .btx-signal .btx-cta:hover { filter: brightness(1.08); }
+#btts-today-dashboard .btx-signal .btx-cta:active { transform: scale(.985); }
+#btts-today-dashboard .btx-signal .btx-cta:focus-visible {
+  outline: 2px solid var(--id-volt-bright);
+  outline-offset: 2px;
+}
+#btts-today-dashboard .btx-signal .btx-actions--signal .btx-share-button {
+  width: 100%;
+  min-height: 40px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, .03) !important;
+  border: 1px solid var(--id-line-strong) !important;
+  color: var(--id-mist) !important;
+  font-size: 12.5px;
+  font-weight: 600;
+  justify-content: center;
+}
+
+/* ── 24.10 Mobile étroit + reduced-motion ─────────────────────────────────── */
+@media (max-width: 390px) {
+  #btts-today-dashboard .btx-signal .btx-fixture__kick strong { font-size: 21px; }
+  #btts-today-dashboard .btx-signal .btx-pick__sel { font-size: 27px; }
+  #btts-today-dashboard .btx-signal .btx-ring,
+  #btts-today-dashboard .btx-signal .btx-ring svg { width: 66px; height: 66px; }
+  #btts-today-dashboard .btx-signal .btx-pick { padding: 12px 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #btts-today-dashboard .btx-signal .btx-signal-status--live .btx-signal-status__dot { animation: none; }
+  #btts-today-dashboard .btx-signal .btx-cta,
+  #btts-today-dashboard .btx-signal .btx-cta:hover,
+  #btts-today-dashboard .btx-signal .btx-cta:active { transition: none; transform: none; }
+  #btts-today-dashboard .btx-signal .btx-cote__mini i { transition: none; }
+}
