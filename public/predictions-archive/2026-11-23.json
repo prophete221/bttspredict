@@ -10906,6 +10906,383 @@
       "proba": 0.6,
       "confidence": 60,
       "status": "PENDING"
+    },
+    {
+      "id": "vvarenna-vs-kawasaki-2026-11-25",
+      "match": "V-Varen Nagasaki vs Kawasaki Frontale",
+      "home": "V-Varen Nagasaki",
+      "away": "Kawasaki Frontale",
+      "league": "Japanese J.League",
+      "date": "2026-11-25",
+      "type": "BTTS",
+      "time": "10:00",
+      "matchSemantic": "vvarenna-vs-kawasaki-2026-11-25",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/19001.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7112.png",
+      "tier": "GOLD",
+      "reliabilityScore": 85,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2,
+      "xgAway": 2.33,
+      "xgTotal": 4.33,
+      "formBTTS": 60,
+      "analysis": "V-Varen Nagasaki : forme N-N-D-D-V (1V 2N 2D, 6 buts marqués / 4 encaissés sur 5) · Kawasaki Frontale : forme V-D-D-V-V (3V 0N 2D, 8 buts marqués / 8 encaissés sur 5). Classement : V-Varen Nagasaki 17e (14 pts), Kawasaki Frontale 6e (25 pts). Stats empiriques (forme récente) : buts moy. 4.33, BTTS 60.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 3.55 / N: 3.95 / 2: 1.87. Fiabilité 85%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.6,
+        "empiricalOver25Rate": 0.6,
+        "homeLambda": 2,
+        "awayLambda": 2.33,
+        "xgTotal": 4.33
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 3.55,
+        "draw": 3.95,
+        "away": 1.87,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "N-N-D-D-V",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 6,
+        "goalsAgainst": 4,
+        "bttsRate": 0.4,
+        "over25Rate": 0.4,
+        "cleanSheets": 2,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-D-D-V-V",
+        "wins": 3,
+        "draws": 0,
+        "losses": 2,
+        "goalsFor": 8,
+        "goalsAgainst": 8,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-21",
+          "opponent": "Machida Zelvia",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Avispa Fukuoka",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Tokyo Verdy 1969",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Urawa Red Diamonds",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-21",
+          "opponent": "Sanfrecce Hiroshima",
+          "venue": "H",
+          "score": "4-0",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-21",
+          "opponent": "Avispa Fukuoka",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Kashiwa Reysol",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Yokohama F. Marinos",
+          "venue": "A",
+          "score": "2-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Fagiano Okayama",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-21",
+          "opponent": "Vissel Kobe",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 17,
+        "points": 14,
+        "played": 15,
+        "gf": 17,
+        "ga": 22
+      },
+      "standingsAway": {
+        "rank": 6,
+        "points": 25,
+        "played": 15,
+        "gf": 29,
+        "ga": 24
+      },
+      "empiricalBttsRate": 0.6,
+      "empiricalOver25Rate": 0.6,
+      "homeLambda": 2,
+      "awayLambda": 2.33,
+      "statsOnly": true,
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "V-Varen Nagasaki présente des taux de 40% en BTTS et Over 2.5 malgré la présence de Kawasaki Frontale.",
+      "ai_analysis": "Ce match oppose V-Varen Nagasaki, qui pratique des rencontres plutôt fermées (40% de BTTS et d'Over 2.5), à Kawasaki Frontale, aux statistiques plus animées. Ces profils contradictoires ne permettent pas d'isoler une tendance claire et fiable pour un pari sur les buts. Par conséquent, il est préférable de s'abstenir sur cette rencontre.",
+      "ai_analysis_en": "This match pits V-Varen Nagasaki, who plays in relatively low-scoring matches (40% BTTS and Over 2.5), against Kawasaki Frontale, with livelier stats. These contradictory profiles do not allow for a clear and reliable trend for a goals bet. Therefore, it is wiser to abstain from this fixture.",
+      "ai_form_summary": "V-Varen Nagasaki : 1W-2D-2L (6 buts pour, 4 contre). Kawasaki Frontale : 3W-0D-2L (8 buts pour, 8 contre).",
+      "ai_form_summary_en": "V-Varen Nagasaki: 1W-2D-2L (6 goals for, 4 against). Kawasaki Frontale: 3W-0D-2L (8 goals for, 8 against).",
+      "ai_reasons": [
+        "V-Varen Nagasaki affiche un taux BTTS et Over 2.5 de seulement 40% sur ses 5 derniers matchs.",
+        "Signaux contradictoires entre la forme prudente de Nagasaki et l'attaque prolifique de Kawasaki Frontale (8 buts pour et 8 contre)."
+      ],
+      "ai_risks": [
+        "Faible taux de matchs ouverts récents pour l'équipe à domicile.",
+        "Incertitude sur la capacité de Nagasaki à marquer face à une équipe du top 6."
+      ],
+      "ai_confidence": "low",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "abstain"
+    },
+    {
+      "id": "scfreibu-vs-fctwente-2026-11-26",
+      "match": "SC Freiburg vs FC Twente",
+      "home": "SC Freiburg",
+      "away": "FC Twente",
+      "league": "UEFA Conference League",
+      "date": "2026-11-26",
+      "type": "Over 2.5",
+      "time": "20:00",
+      "matchSemantic": "scfreibu-vs-fctwente-2026-11-26",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/126.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/152.png",
+      "tier": "GOLD",
+      "reliabilityScore": 85,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.5,
+      "xgAway": 4,
+      "xgTotal": 6.5,
+      "formBTTS": 60,
+      "analysis": "SC Freiburg : forme V-V-V-D-D (3V 0N 2D, 7 buts marqués / 6 encaissés sur 5) · FC Twente : forme V-N-V-V-D (3V 1N 1D, 16 buts marqués / 5 encaissés sur 5). Classement : SC Freiburg 14e (6 pts), FC Twente 3e (9 pts). Stats empiriques (forme récente) : buts moy. 6.5, BTTS 60.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.1 / N: 3.9 / 2: 3.1. Fiabilité 85%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.6,
+        "empiricalOver25Rate": 0.7,
+        "homeLambda": 2.5,
+        "awayLambda": 4,
+        "xgTotal": 6.5
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.1,
+        "draw": 3.9,
+        "away": 3.1,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "V-V-V-D-D",
+        "wins": 3,
+        "draws": 0,
+        "losses": 2,
+        "goalsFor": 7,
+        "goalsAgainst": 6,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 2,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-N-V-V-D",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 16,
+        "goalsAgainst": 5,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 2,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-21",
+          "opponent": "SV Elversberg",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-08",
+          "opponent": "1. FC Union Berlin",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "FC Augsburg",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Bayern Munich",
+          "venue": "H",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Bayer Leverkusen",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-22",
+          "opponent": "Willem II",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-08",
+          "opponent": "Ajax Amsterdam",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Excelsior",
+          "venue": "A",
+          "score": "9-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "AZ Alkmaar",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "FC Utrecht",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 14,
+        "points": 6,
+        "played": 3,
+        "gf": 4,
+        "ga": 5
+      },
+      "standingsAway": {
+        "rank": 3,
+        "points": 9,
+        "played": 3,
+        "gf": 8,
+        "ga": 2
+      },
+      "empiricalBttsRate": 0.6,
+      "empiricalOver25Rate": 0.7,
+      "homeLambda": 2.5,
+      "awayLambda": 4,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_key_fact": "FC Twente affiche une moyenne de buts à l'extérieur de 4 par match avec un taux Over 2.5 de 80%.",
+      "ai_analysis": "Les statistiques de buts observées pour cette rencontre incitent à miser sur le marché des buts. FC Twente se déplace avec une impressionnante moyenne de 4 buts par match et un taux Over 2.5 de 80%. Couplé à la moyenne de 2.5 buts à domicile de SC Freiburg et à un taux empirique global de 70% sur l'Over 2.5, les conditions sont réunies pour voir au moins trois buts dans ce match.",
+      "ai_analysis_en": "Observed goal statistics for this fixture point towards the goals market. FC Twente travels with an impressive away average of 4 goals per match and an 80% Over 2.5 rate. Combined with SC Freiburg's 2.5 home goals average and a 70% overall empirical Over 2.5 rate, the conditions are met to see at least three goals.",
+      "ai_form_summary": "SC Freiburg (3V-0N-2D, 7 BP / 6 BC, Over2.5 60%) contre FC Twente (3V-1N-1D, 16 BP / 5 BC, Over2.5 80%).",
+      "ai_form_summary_en": "SC Freiburg (3W-0D-2L, 7 GF / 6 GA, Over2.5 60%) vs FC Twente (3W-1D-1L, 16 GF / 5 GA, Over2.5 80%).",
+      "ai_reasons": [
+        "Taux Over 2.5 empirique solide à 70%.",
+        "FC Twente présente une excellente moyenne de buts à l'extérieur de 4 par match et un taux Over de 80%.",
+        "SC Freiburg affiche une moyenne de buts à domicile de 2.5 par match."
+      ],
+      "ai_risks": [
+        "Le taux BTTS empirique est de 60%, signalant un léger risque de clean sheet d'une des deux équipes.",
+        "SC Freiburg a enregistré deux défaites sur ses 5 derniers matchs de forme."
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 68,
+          "proba": 0.68,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "over25Prob": 0.68
+        }
+      ],
+      "over25Prob": 0.68,
+      "prediction": "Oui",
+      "proba": 0.68,
+      "confidence": 68
     }
   ],
   "fixtures": [
@@ -24381,6 +24758,385 @@
       "prediction": "Oui",
       "proba": 0.6,
       "confidence": 60,
+      "status": "PENDING"
+    },
+    {
+      "id": "vvarenna-vs-kawasaki-2026-11-25",
+      "match": "V-Varen Nagasaki vs Kawasaki Frontale",
+      "home": "V-Varen Nagasaki",
+      "away": "Kawasaki Frontale",
+      "league": "Japanese J.League",
+      "date": "2026-11-25",
+      "type": "BTTS",
+      "time": "10:00",
+      "matchSemantic": "vvarenna-vs-kawasaki-2026-11-25",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/19001.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7112.png",
+      "tier": "GOLD",
+      "reliabilityScore": 85,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2,
+      "xgAway": 2.33,
+      "xgTotal": 4.33,
+      "formBTTS": 60,
+      "analysis": "V-Varen Nagasaki : forme N-N-D-D-V (1V 2N 2D, 6 buts marqués / 4 encaissés sur 5) · Kawasaki Frontale : forme V-D-D-V-V (3V 0N 2D, 8 buts marqués / 8 encaissés sur 5). Classement : V-Varen Nagasaki 17e (14 pts), Kawasaki Frontale 6e (25 pts). Stats empiriques (forme récente) : buts moy. 4.33, BTTS 60.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 3.55 / N: 3.95 / 2: 1.87. Fiabilité 85%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.6,
+        "empiricalOver25Rate": 0.6,
+        "homeLambda": 2,
+        "awayLambda": 2.33,
+        "xgTotal": 4.33
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 3.55,
+        "draw": 3.95,
+        "away": 1.87,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "N-N-D-D-V",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 6,
+        "goalsAgainst": 4,
+        "bttsRate": 0.4,
+        "over25Rate": 0.4,
+        "cleanSheets": 2,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-D-D-V-V",
+        "wins": 3,
+        "draws": 0,
+        "losses": 2,
+        "goalsFor": 8,
+        "goalsAgainst": 8,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-21",
+          "opponent": "Machida Zelvia",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Avispa Fukuoka",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Tokyo Verdy 1969",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Urawa Red Diamonds",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-21",
+          "opponent": "Sanfrecce Hiroshima",
+          "venue": "H",
+          "score": "4-0",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-21",
+          "opponent": "Avispa Fukuoka",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Kashiwa Reysol",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Yokohama F. Marinos",
+          "venue": "A",
+          "score": "2-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Fagiano Okayama",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-21",
+          "opponent": "Vissel Kobe",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 17,
+        "points": 14,
+        "played": 15,
+        "gf": 17,
+        "ga": 22
+      },
+      "standingsAway": {
+        "rank": 6,
+        "points": 25,
+        "played": 15,
+        "gf": 29,
+        "ga": 24
+      },
+      "empiricalBttsRate": 0.6,
+      "empiricalOver25Rate": 0.6,
+      "homeLambda": 2,
+      "awayLambda": 2.33,
+      "statsOnly": true,
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "V-Varen Nagasaki présente des taux de 40% en BTTS et Over 2.5 malgré la présence de Kawasaki Frontale.",
+      "ai_analysis": "Ce match oppose V-Varen Nagasaki, qui pratique des rencontres plutôt fermées (40% de BTTS et d'Over 2.5), à Kawasaki Frontale, aux statistiques plus animées. Ces profils contradictoires ne permettent pas d'isoler une tendance claire et fiable pour un pari sur les buts. Par conséquent, il est préférable de s'abstenir sur cette rencontre.",
+      "ai_analysis_en": "This match pits V-Varen Nagasaki, who plays in relatively low-scoring matches (40% BTTS and Over 2.5), against Kawasaki Frontale, with livelier stats. These contradictory profiles do not allow for a clear and reliable trend for a goals bet. Therefore, it is wiser to abstain from this fixture.",
+      "ai_form_summary": "V-Varen Nagasaki : 1W-2D-2L (6 buts pour, 4 contre). Kawasaki Frontale : 3W-0D-2L (8 buts pour, 8 contre).",
+      "ai_form_summary_en": "V-Varen Nagasaki: 1W-2D-2L (6 goals for, 4 against). Kawasaki Frontale: 3W-0D-2L (8 goals for, 8 against).",
+      "ai_reasons": [
+        "V-Varen Nagasaki affiche un taux BTTS et Over 2.5 de seulement 40% sur ses 5 derniers matchs.",
+        "Signaux contradictoires entre la forme prudente de Nagasaki et l'attaque prolifique de Kawasaki Frontale (8 buts pour et 8 contre)."
+      ],
+      "ai_risks": [
+        "Faible taux de matchs ouverts récents pour l'équipe à domicile.",
+        "Incertitude sur la capacité de Nagasaki à marquer face à une équipe du top 6."
+      ],
+      "ai_confidence": "low",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "abstain",
+      "status": "PENDING"
+    },
+    {
+      "id": "scfreibu-vs-fctwente-2026-11-26",
+      "match": "SC Freiburg vs FC Twente",
+      "home": "SC Freiburg",
+      "away": "FC Twente",
+      "league": "UEFA Conference League",
+      "date": "2026-11-26",
+      "type": "Over 2.5",
+      "time": "20:00",
+      "matchSemantic": "scfreibu-vs-fctwente-2026-11-26",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/126.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/152.png",
+      "tier": "GOLD",
+      "reliabilityScore": 85,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.5,
+      "xgAway": 4,
+      "xgTotal": 6.5,
+      "formBTTS": 60,
+      "analysis": "SC Freiburg : forme V-V-V-D-D (3V 0N 2D, 7 buts marqués / 6 encaissés sur 5) · FC Twente : forme V-N-V-V-D (3V 1N 1D, 16 buts marqués / 5 encaissés sur 5). Classement : SC Freiburg 14e (6 pts), FC Twente 3e (9 pts). Stats empiriques (forme récente) : buts moy. 6.5, BTTS 60.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.1 / N: 3.9 / 2: 3.1. Fiabilité 85%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.6,
+        "empiricalOver25Rate": 0.7,
+        "homeLambda": 2.5,
+        "awayLambda": 4,
+        "xgTotal": 6.5
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.1,
+        "draw": 3.9,
+        "away": 3.1,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "V-V-V-D-D",
+        "wins": 3,
+        "draws": 0,
+        "losses": 2,
+        "goalsFor": 7,
+        "goalsAgainst": 6,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 2,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-N-V-V-D",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 16,
+        "goalsAgainst": 5,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 2,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-21",
+          "opponent": "SV Elversberg",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-08",
+          "opponent": "1. FC Union Berlin",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "FC Augsburg",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Bayern Munich",
+          "venue": "H",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Bayer Leverkusen",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-22",
+          "opponent": "Willem II",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-08",
+          "opponent": "Ajax Amsterdam",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Excelsior",
+          "venue": "A",
+          "score": "9-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "AZ Alkmaar",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "FC Utrecht",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 14,
+        "points": 6,
+        "played": 3,
+        "gf": 4,
+        "ga": 5
+      },
+      "standingsAway": {
+        "rank": 3,
+        "points": 9,
+        "played": 3,
+        "gf": 8,
+        "ga": 2
+      },
+      "empiricalBttsRate": 0.6,
+      "empiricalOver25Rate": 0.7,
+      "homeLambda": 2.5,
+      "awayLambda": 4,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_key_fact": "FC Twente affiche une moyenne de buts à l'extérieur de 4 par match avec un taux Over 2.5 de 80%.",
+      "ai_analysis": "Les statistiques de buts observées pour cette rencontre incitent à miser sur le marché des buts. FC Twente se déplace avec une impressionnante moyenne de 4 buts par match et un taux Over 2.5 de 80%. Couplé à la moyenne de 2.5 buts à domicile de SC Freiburg et à un taux empirique global de 70% sur l'Over 2.5, les conditions sont réunies pour voir au moins trois buts dans ce match.",
+      "ai_analysis_en": "Observed goal statistics for this fixture point towards the goals market. FC Twente travels with an impressive away average of 4 goals per match and an 80% Over 2.5 rate. Combined with SC Freiburg's 2.5 home goals average and a 70% overall empirical Over 2.5 rate, the conditions are met to see at least three goals.",
+      "ai_form_summary": "SC Freiburg (3V-0N-2D, 7 BP / 6 BC, Over2.5 60%) contre FC Twente (3V-1N-1D, 16 BP / 5 BC, Over2.5 80%).",
+      "ai_form_summary_en": "SC Freiburg (3W-0D-2L, 7 GF / 6 GA, Over2.5 60%) vs FC Twente (3W-1D-1L, 16 GF / 5 GA, Over2.5 80%).",
+      "ai_reasons": [
+        "Taux Over 2.5 empirique solide à 70%.",
+        "FC Twente présente une excellente moyenne de buts à l'extérieur de 4 par match et un taux Over de 80%.",
+        "SC Freiburg affiche une moyenne de buts à domicile de 2.5 par match."
+      ],
+      "ai_risks": [
+        "Le taux BTTS empirique est de 60%, signalant un léger risque de clean sheet d'une des deux équipes.",
+        "SC Freiburg a enregistré deux défaites sur ses 5 derniers matchs de forme."
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 68,
+          "proba": 0.68,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "over25Prob": 0.68
+        }
+      ],
+      "over25Prob": 0.68,
+      "prediction": "Oui",
+      "proba": 0.68,
+      "confidence": 68,
       "status": "PENDING"
     }
   ],
