@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-11-23T21:58:18.524Z",
+  "generatedAt": "2026-11-23T23:41:04.410Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,18 +15,18 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 618,
+    "total": 619,
     "won": 476,
-    "lost": 142,
-    "pending": 72,
+    "lost": 143,
+    "pending": 71,
     "unverifiable": 292,
     "archivedTotal": 982,
-    "rate": 77,
+    "rate": 76.9,
     "gold": {
-      "total": 491,
+      "total": 492,
       "won": 381,
-      "lost": 110,
-      "rate": 77.6
+      "lost": 111,
+      "rate": 77.4
     },
     "standard": {
       "total": 127,
@@ -36,10 +36,10 @@
     },
     "byType": {
       "btts": {
-        "total": 490,
+        "total": 491,
         "won": 385,
-        "lost": 105,
-        "rate": 78.6
+        "lost": 106,
+        "rate": 78.4
       },
       "over25": {
         "total": 128,
@@ -142,10 +142,10 @@
       },
       {
         "date": "2026-11-23",
-        "total": 7,
+        "total": 8,
         "won": 4,
-        "lost": 3,
-        "rate": 57.1
+        "lost": 4,
+        "rate": 50
       }
     ],
     "period": {
@@ -155,6 +155,18 @@
     }
   },
   "history": [
+    {
+      "date": "2026-11-23",
+      "match": "Brentford vs Everton",
+      "league": "Premier League",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.62,
+      "status": "LOST",
+      "finalScore": "4-0",
+      "verifiedAt": "2026-11-23T23:39:34.367Z",
+      "source": "ESPN public"
+    },
     {
       "date": "2026-11-23",
       "match": "Monza vs Fiorentina",

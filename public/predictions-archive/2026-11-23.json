@@ -198,7 +198,9 @@
       "prediction": "Oui",
       "proba": 0.75,
       "confidence": 75,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-11-23T21:55:25.737Z"
     },
     {
       "id": "ceuta-vs-almera-2026-11-23",
@@ -395,7 +397,9 @@
       "prediction": "Oui",
       "proba": 0.6,
       "confidence": 60,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-3",
+      "verifiedAt": "2026-11-23T21:55:25.737Z"
     },
     {
       "id": "portvale-vs-northamp-2026-11-24",
@@ -7864,7 +7868,9 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-3",
+      "verifiedAt": "2026-11-23T21:56:04.049Z"
     },
     {
       "id": "nantes-vs-grenoble-2026-11-23",
@@ -8046,7 +8052,9 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-23T21:56:04.049Z"
     },
     {
       "id": "portsmou-vs-westhamu-2026-11-24",
@@ -9951,7 +9959,9 @@
       "prediction": "Oui",
       "proba": 0.58,
       "confidence": 58,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-3",
+      "verifiedAt": "2026-11-23T21:56:04.050Z"
     },
     {
       "id": "stlouisc-vs-lafc-2026-11-24",
@@ -21540,7 +21550,9 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "4-0",
+      "verifiedAt": "2026-11-23T23:39:34.367Z"
     },
     {
       "id": "sochaux-vs-dunkerqu-2026-11-23",
