@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { buildBttsTodayDashboardData } from '@/lib/btts-today-dashboard-data'
 import { getDakarDateString, parseDakarDateTime } from '@/lib/dakar-date'
 import { getGeminiPicks } from '@/lib/gemini-predictions'
-import { publicFixtureKey } from '@/lib/public-calendar'
+import { publicFixtureKey, type PublicCalendarItem } from '@/lib/public-calendar'
 import currentPublicPredictions from '../public/predictions.json'
 
 const now = new Date('2026-11-11T10:00:00.000Z')
@@ -89,9 +89,11 @@ describe('current public calendar day', () => {
     const day = String(currentPublicPredictions.date)
     const buildNow = new Date(`${day}T12:00:00.000Z`)
     const dakarDay = getDakarDateString(buildNow)
-    const raw = [
-      ...(Array.isArray(currentPublicPredictions.free) ? currentPublicPredictions.free : []),
-      ...(Array.isArray(currentPublicPredictions.predictions) ? currentPublicPredictions.predictions : []),
+    // Typage explicite : l'inférence littérale du JSON publié (auto-update)
+    // peut produire `never[]` selon le contenu du cycle et casser `tsc --noEmit`.
+    const raw: PublicCalendarItem[] = [
+      ...(Array.isArray(currentPublicPredictions.free) ? (currentPublicPredictions.free as unknown as PublicCalendarItem[]) : []),
+      ...(Array.isArray(currentPublicPredictions.predictions) ? (currentPublicPredictions.predictions as unknown as PublicCalendarItem[]) : []),
     ]
     // Oracle miroir des règles du builder pour le jour publié : une ligne
     // stricte Gemini n'apparaît sur l'affiche du jour que si son coup d'envoi
@@ -102,8 +104,8 @@ describe('current public calendar day', () => {
     // rendait ce test instable selon l'heure du cron (échecs #1493 et #1507).
     const expectedKeys = [...new Set(raw
       .filter(row => {
-        if (row.date !== dakarDay || getGeminiPicks(row).length === 0) return false
-        const kickoff = parseDakarDateTime(row.date, row.time || '')
+        if (typeof row.date !== 'string' || row.date !== dakarDay || getGeminiPicks(row).length === 0) return false
+        const kickoff = parseDakarDateTime(row.date, typeof row.time === 'string' ? row.time : '')
         return kickoff !== null && kickoff.getTime() > buildNow.getTime()
       })
       .map(row => publicFixtureKey(row))
