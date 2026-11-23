@@ -18218,7 +18218,9 @@
       "prediction": "Oui",
       "proba": 0.75,
       "confidence": 75,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-23T07:23:28.846Z"
     },
     {
       "id": "rcceltaf-vs-realvall-2026-11-22",
@@ -22721,7 +22723,9 @@
       "prediction": "Oui",
       "proba": 0.78,
       "confidence": 78,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-11-23T07:23:32.495Z"
     },
     {
       "id": "ceuta-vs-almera-2026-11-23",
@@ -29950,7 +29954,9 @@
       "prediction": "Oui",
       "proba": 0.68,
       "confidence": 68,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-23T07:23:32.498Z"
     },
     {
       "id": "getafe-vs-atlticom-2026-11-22",

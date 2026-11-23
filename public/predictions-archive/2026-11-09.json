@@ -10855,7 +10855,9 @@
       "prediction": "Oui",
       "proba": 0.75,
       "confidence": 75,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-23T07:23:28.846Z"
     },
     {
       "id": "fctwente-vs-willemii-2026-11-22",
