@@ -24612,7 +24612,9 @@
       "prediction": "Oui",
       "proba": 0.68,
       "confidence": 68,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-2",
+      "verifiedAt": "2026-11-24T07:47:01.260Z"
     },
     {
       "id": "cardiffc-vs-prestonn-2026-11-24",
