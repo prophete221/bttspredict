@@ -1694,7 +1694,8 @@
       "bttsProb": 0.68,
       "prediction": "Oui",
       "proba": 0.68,
-      "confidence": 68
+      "confidence": 68,
+      "status": "PENDING"
     },
     {
       "id": "realmadr-vs-psveindh-2026-11-24",
@@ -1876,7 +1877,8 @@
       "bttsProb": 0.68,
       "prediction": "Oui",
       "proba": 0.68,
-      "confidence": 68
+      "confidence": 68,
+      "status": "PENDING"
     },
     {
       "id": "blackpoo-vs-leiceste-2026-11-24",
@@ -2057,7 +2059,8 @@
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "abstain",
+      "status": "PENDING"
     },
     {
       "id": "cesena-vs-ascoli-2026-11-24",
@@ -2238,7 +2241,1546 @@
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "abstain",
+      "status": "PENDING"
+    },
+    {
+      "id": "boltonwa-vs-westbrom-2026-11-25",
+      "match": "Bolton Wanderers vs West Bromwich Albion",
+      "home": "Bolton Wanderers",
+      "away": "West Bromwich Albion",
+      "league": "Championship",
+      "date": "2026-11-25",
+      "type": "BTTS",
+      "time": "19:45",
+      "matchSemantic": "boltonwa-vs-westbrom-2026-11-25",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/358.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/383.png",
+      "tier": "GOLD",
+      "reliabilityScore": 86.88,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.33,
+      "xgAway": 1.5,
+      "xgTotal": 2.83,
+      "formBTTS": 70,
+      "analysis": "Bolton Wanderers : forme D-V-D-D-N (1V 1N 3D, 5 buts marqués / 11 encaissés sur 5) · West Bromwich Albion : forme V-N-V-N-V (3V 2N 0D, 11 buts marqués / 5 encaissés sur 5). Classement : Bolton Wanderers 18e (17 pts), West Bromwich Albion 5e (28 pts). Stats empiriques (forme récente) : buts moy. 2.83, BTTS 70.0%, Over 2.5 60.0%. Affinage AI ensuite. Fiabilité 86.88%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.7,
+        "empiricalOver25Rate": 0.6,
+        "homeLambda": 1.33,
+        "awayLambda": 1.5,
+        "xgTotal": 2.83
+      },
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "D-V-D-D-N",
+        "wins": 1,
+        "draws": 1,
+        "losses": 3,
+        "goalsFor": 5,
+        "goalsAgainst": 11,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 2,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-N-V-N-V",
+        "wins": 3,
+        "draws": 2,
+        "losses": 0,
+        "goalsFor": 11,
+        "goalsAgainst": 5,
+        "bttsRate": 0.8,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-21",
+          "opponent": "Portsmouth",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-06",
+          "opponent": "Derby County",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-03",
+          "opponent": "Charlton Athletic",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Bristol City",
+          "venue": "H",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Middlesbrough",
+          "venue": "H",
+          "score": "1-5",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-21",
+          "opponent": "Swansea City",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Millwall",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-03",
+          "opponent": "Southampton",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "West Ham United",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Preston North End",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 18,
+        "points": 17,
+        "played": 15,
+        "gf": 20,
+        "ga": 29
+      },
+      "standingsAway": {
+        "rank": 5,
+        "points": 28,
+        "played": 15,
+        "gf": 23,
+        "ga": 15
+      },
+      "empiricalBttsRate": 0.7,
+      "empiricalOver25Rate": 0.6,
+      "homeLambda": 1.33,
+      "awayLambda": 1.5,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "West Bromwich Albion enregistre un taux BTTS de 80% sur ses 5 derniers matchs.",
+      "ai_analysis": "West Bromwich Albion démontre une forte propension au BTTS (80% sur 5 matchs) et se déplace chez une équipe de Bolton Wanderers en difficulté défensive (29 buts encaissés). Les indicateurs empiriques soutiennent une issue où les deux équipes trouvent le chemin des filets.",
+      "ai_analysis_en": "West Bromwich Albion demonstrates a high BTTS propensity (80% over 5 matches) and visits a Bolton Wanderers side struggling defensively (29 goals conceded). Empirical indicators support both teams scoring.",
+      "ai_form_summary": "Bolton Wanderers : 1V-1N-3D (5 buts marqués, 11 encaissés). West Bromwich Albion : 3V-2N-0D (11 buts marqués, 5 encaissés).",
+      "ai_form_summary_en": "Bolton Wanderers: 1W-1D-3L (5 scored, 11 conceded). West Bromwich Albion: 3W-2D-0L (11 scored, 5 conceded).",
+      "ai_reasons": [
+        "West Bromwich Albion affiche un taux BTTS de 80% sur ses 5 derniers matchs.",
+        "L'empirique global BTTS est de 0.70 pour cette affiche de Championship.",
+        "Bolton Wanderers présente de grandes difficultés défensives avec 29 buts encaissés en 15 matchs."
+      ],
+      "ai_risks": [
+        "Bolton Wanderers est irrégulier avec un taux BTTS de 60% sur ses 5 derniers matchs."
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 65,
+          "proba": 0.65,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.65
+        }
+      ],
+      "bttsProb": 0.65,
+      "prediction": "Oui",
+      "proba": 0.65,
+      "confidence": 65,
+      "status": "PENDING"
+    },
+    {
+      "id": "urawared-vs-cerezoos-2026-11-25",
+      "match": "Urawa Red Diamonds vs Cerezo Osaka",
+      "home": "Urawa Red Diamonds",
+      "away": "Cerezo Osaka",
+      "league": "Japanese J.League",
+      "date": "2026-11-25",
+      "type": "Over 2.5",
+      "time": "10:30",
+      "matchSemantic": "urawared-vs-cerezoos-2026-11-25",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3385.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7109.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.33,
+      "xgAway": 1.5,
+      "xgTotal": 3.83,
+      "formBTTS": 70,
+      "analysis": "Urawa Red Diamonds : forme D-N-D-V-V (2V 1N 2D, 7 buts marqués / 10 encaissés sur 5) · Cerezo Osaka : forme D-V-D-N-N (1V 2N 2D, 7 buts marqués / 12 encaissés sur 5). Classement : Urawa Red Diamonds 9e (22 pts), Cerezo Osaka 12e (17 pts). Stats empiriques (forme récente) : buts moy. 3.83, BTTS 70.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.83 / N: 3.8 / 2: 3.7 · Over 2.5: 1.51. Fiabilité 89.38%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.7,
+        "empiricalOver25Rate": 0.8,
+        "homeLambda": 2.33,
+        "awayLambda": 1.5,
+        "xgTotal": 3.83
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.83,
+        "draw": 3.8,
+        "away": 3.7,
+        "over25": 1.51,
+        "under25": 2.3
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-N-D-V-V",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 7,
+        "goalsAgainst": 10,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-V-D-N-N",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 7,
+        "goalsAgainst": 12,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-21",
+          "opponent": "Kyoto Sanga",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-08",
+          "opponent": "Vissel Kobe",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Kashiwa Reysol",
+          "venue": "A",
+          "score": "0-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "V-Varen Nagasaki",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-21",
+          "opponent": "JEF United Ichihara-Chiba",
+          "venue": "H",
+          "score": "3-2",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-21",
+          "opponent": "FC Tokyo",
+          "venue": "H",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-08",
+          "opponent": "Gamba Osaka",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Kashima Antlers",
+          "venue": "A",
+          "score": "1-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "JEF United Ichihara-Chiba",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-21",
+          "opponent": "Nagoya Grampus",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 9,
+        "points": 22,
+        "played": 15,
+        "gf": 24,
+        "ga": 31
+      },
+      "standingsAway": {
+        "rank": 12,
+        "points": 17,
+        "played": 15,
+        "gf": 16,
+        "ga": 28
+      },
+      "empiricalBttsRate": 0.7,
+      "empiricalOver25Rate": 0.8,
+      "homeLambda": 2.33,
+      "awayLambda": 1.5,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_key_fact": "Urawa Red Diamonds et Cerezo Osaka affichent tous deux un taux de 80% d'Over 2.5 sur leurs cinq derniers matchs.",
+      "ai_analysis": "Cette confrontation de J.League présente des garanties statistiques solides pour un match prolifique en buts. Urawa Red Diamonds et Cerezo Osaka affichent des taux d'Over 2.5 de 80% sur leurs cinq derniers matchs, confirmés par un taux empirique global de 0.8. Avec des moyennes de buts significatives pour les deux formations (2.33 pour Urawa et 1.5 pour Cerezo), la barre des 2.5 buts apparaît comme une option cohérente.",
+      "ai_analysis_en": "This J.League fixture presents strong statistical guarantees for a high-scoring match. Both Urawa Red Diamonds and Cerezo Osaka show an 80% Over 2.5 rate over their last five matches, confirmed by an overall empirical rate of 0.8. With significant goal averages for both sides (2.33 for Urawa and 1.5 for Cerezo), the over 2.5 line appears to be a consistent option.",
+      "ai_form_summary": "Urawa Red Diamonds : 2W-1D-2L, 7 buts pour, 10 buts contre, 80% Over 2.5. Cerezo Osaka : 1W-2D-2L, 7 buts pour, 12 buts contre, 80% Over 2.5.",
+      "ai_form_summary_en": "Urawa Red Diamonds: 2W-1D-2L, 7 goals for, 10 goals against, 80% Over 2.5. Cerezo Osaka: 1W-2D-2L, 7 goals for, 12 goals against, 80% Over 2.5.",
+      "ai_reasons": [
+        "Taux Over 2.5 empirique élevé à 80% sur l'échantillon global.",
+        "Taux Over 2.5 de 80% pour Urawa Red Diamonds sur ses 5 derniers matchs.",
+        "Taux Over 2.5 de 80% pour Cerezo Osaka sur ses 5 derniers matchs."
+      ],
+      "ai_risks": [
+        "Moyennes de buts à l'extérieur pour Cerezo Osaka plus mesurées (1.5 buts par match).",
+        "Écarts de buts concédés importants qui peuvent déséquilibrer la rencontre de manière imprévisible."
+      ],
+      "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 75,
+          "proba": 0.75,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "over25Prob": 0.75
+        }
+      ],
+      "over25Prob": 0.75,
+      "prediction": "Oui",
+      "proba": 0.75,
+      "confidence": 75,
+      "status": "PENDING"
+    },
+    {
+      "id": "sanjosee-vs-houstond-2026-11-25",
+      "match": "San Jose Earthquakes vs Houston Dynamo FC",
+      "home": "San Jose Earthquakes",
+      "away": "Houston Dynamo FC",
+      "league": "MLS",
+      "date": "2026-11-25",
+      "type": "Over 2.5",
+      "time": "03:00",
+      "matchSemantic": "sanjosee-vs-houstond-2026-11-25",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/191.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6077.png",
+      "tier": "GOLD",
+      "reliabilityScore": 85,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2,
+      "xgAway": 1.75,
+      "xgTotal": 3.75,
+      "formBTTS": 60,
+      "analysis": "San Jose Earthquakes : forme D-V-N-D-N (1V 2N 2D, 6 buts marqués / 10 encaissés sur 5) · Houston Dynamo FC : forme D-D-V-N-N (1V 2N 2D, 4 buts marqués / 6 encaissés sur 5). Classement : San Jose Earthquakes 4e (52 pts), Houston Dynamo FC 5e (51 pts). Stats empiriques (forme récente) : buts moy. 3.75, BTTS 60.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.1 / N: 3.4 / 2: 3.1 · Over 2.5: 1.69. Fiabilité 85%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.6,
+        "empiricalOver25Rate": 0.6,
+        "homeLambda": 2,
+        "awayLambda": 1.75,
+        "xgTotal": 3.75
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.1,
+        "draw": 3.4,
+        "away": 3.1,
+        "over25": 1.69,
+        "under25": 2.1
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-V-N-D-N",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 6,
+        "goalsAgainst": 10,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-D-V-N-N",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 4,
+        "goalsAgainst": 6,
+        "bttsRate": 0.4,
+        "over25Rate": 0.4,
+        "cleanSheets": 2,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-08",
+          "opponent": "Minnesota United FC",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Real Salt Lake",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-29",
+          "opponent": "Colorado Rapids",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "FC Dallas",
+          "venue": "A",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Nashville SC",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-08",
+          "opponent": "St. Louis CITY SC",
+          "venue": "H",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-02",
+          "opponent": "Portland Timbers",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-29",
+          "opponent": "Seattle Sounders FC",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Minnesota United FC",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "FC Dallas",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 4,
+        "points": 52,
+        "played": 34,
+        "gf": 57,
+        "ga": 51
+      },
+      "standingsAway": {
+        "rank": 5,
+        "points": 51,
+        "played": 34,
+        "gf": 43,
+        "ga": 43
+      },
+      "empiricalBttsRate": 0.6,
+      "empiricalOver25Rate": 0.6,
+      "homeLambda": 2,
+      "awayLambda": 1.75,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_key_fact": "San Jose Earthquakes affiche un taux Over 2.5 de 80% sur ses 5 derniers matchs avec une moyenne de 2 buts marqués.",
+      "ai_analysis": "Ce match de MLS met en scène San Jose Earthquakes, dont les récents matchs affichent 80% d'Over 2.5 et une moyenne de 2 buts par match. Couplé à l'empirique global de 60% et aux moyennes générales des deux formations, l'option Over 2.5 apparaît comme l'option la plus cohérente des statistiques de terrain.",
+      "ai_analysis_en": "This MLS match features San Jose Earthquakes, whose recent games show 80% Over 2.5 rates and an average of 2 goals per match. Coupled with the overall empirical 60% rate and general team averages, the Over 2.5 option emerges as the most consistent choice from the field statistics.",
+      "ai_form_summary": "San Jose (1W-2D-2L, 6GF/10GA) joue haut en buts par rapport à Houston (1W-2D-2L, 4GF/6GA) plus prudent.",
+      "ai_form_summary_en": "San Jose (1W-2D-2L, 6GF/10GA) plays higher-scoring games compared to a more cautious Houston side (1W-2D-2L, 4GF/6GA).",
+      "ai_reasons": [
+        "Taux Over 2.5 empirique de 60% pour ce duel de MLS",
+        "San Jose présente un taux Over 2.5 de 80% sur ses 5 derniers matchs",
+        "Moyennes de buts élevées pour San Jose (2 buts par match) et Houston (1.75 but par match)"
+      ],
+      "ai_risks": [
+        "Houston Dynamo affiche un taux Over 2.5 plus faible de 40% sur ses 5 derniers matchs",
+        "Les côtes et les profils généraux restent proches au classement (4e vs 5e)"
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 65,
+          "proba": 0.65,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "over25Prob": 0.65
+        }
+      ],
+      "over25Prob": 0.65,
+      "prediction": "Oui",
+      "proba": 0.65,
+      "confidence": 65,
+      "status": "PENDING"
+    },
+    {
+      "id": "vvarenna-vs-kawasaki-2026-11-25",
+      "match": "V-Varen Nagasaki vs Kawasaki Frontale",
+      "home": "V-Varen Nagasaki",
+      "away": "Kawasaki Frontale",
+      "league": "Japanese J.League",
+      "date": "2026-11-25",
+      "type": "BTTS",
+      "time": "10:00",
+      "matchSemantic": "vvarenna-vs-kawasaki-2026-11-25",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/19001.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7112.png",
+      "tier": "GOLD",
+      "reliabilityScore": 85,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2,
+      "xgAway": 2.33,
+      "xgTotal": 4.33,
+      "formBTTS": 60,
+      "analysis": "V-Varen Nagasaki : forme N-N-D-D-V (1V 2N 2D, 6 buts marqués / 4 encaissés sur 5) · Kawasaki Frontale : forme V-D-D-V-V (3V 0N 2D, 8 buts marqués / 8 encaissés sur 5). Classement : V-Varen Nagasaki 17e (14 pts), Kawasaki Frontale 6e (25 pts). Stats empiriques (forme récente) : buts moy. 4.33, BTTS 60.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 3.6 / N: 4 / 2: 1.87 · Over 2.5: 1.54. Fiabilité 85%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.6,
+        "empiricalOver25Rate": 0.6,
+        "homeLambda": 2,
+        "awayLambda": 2.33,
+        "xgTotal": 4.33
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 3.6,
+        "draw": 4,
+        "away": 1.87,
+        "over25": 1.54,
+        "under25": 2.35
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "N-N-D-D-V",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 6,
+        "goalsAgainst": 4,
+        "bttsRate": 0.4,
+        "over25Rate": 0.4,
+        "cleanSheets": 2,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-D-D-V-V",
+        "wins": 3,
+        "draws": 0,
+        "losses": 2,
+        "goalsFor": 8,
+        "goalsAgainst": 8,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-21",
+          "opponent": "Machida Zelvia",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Avispa Fukuoka",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Tokyo Verdy 1969",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Urawa Red Diamonds",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-21",
+          "opponent": "Sanfrecce Hiroshima",
+          "venue": "H",
+          "score": "4-0",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-21",
+          "opponent": "Avispa Fukuoka",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Kashiwa Reysol",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Yokohama F. Marinos",
+          "venue": "A",
+          "score": "2-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Fagiano Okayama",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-21",
+          "opponent": "Vissel Kobe",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 17,
+        "points": 14,
+        "played": 15,
+        "gf": 17,
+        "ga": 22
+      },
+      "standingsAway": {
+        "rank": 6,
+        "points": 25,
+        "played": 15,
+        "gf": 29,
+        "ga": 24
+      },
+      "empiricalBttsRate": 0.6,
+      "empiricalOver25Rate": 0.6,
+      "homeLambda": 2,
+      "awayLambda": 2.33,
+      "statsOnly": true,
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "V-Varen Nagasaki affiche des taux de 40% en BTTS et Over 2.5, contrastant avec les 80% de Kawasaki Frontale.",
+      "ai_analysis": "L'analyse des statistiques montre une opposition de style nette entre V-Varen Nagasaki, qui propose des matchs plutôt fermés (40% d'Over et BTTS sur ses 5 derniers matchs), et Kawasaki Frontale, beaucoup plus tourné vers l'offensive (80%). En raison de ces signaux contradictoires et de taux empiriques moyens, la prudence s'impose et nous appliquons un ABSTAIN.",
+      "ai_analysis_en": "Statistical analysis shows a clear contrast in styles between V-Varen Nagasaki, whose recent matches are tighter (40% Over and BTTS in their last 5), and Kawasaki Frontale, which is much more offensive-minded (80%). Due to these conflicting signals and moderate empirical rates, caution is required and we apply an ABSTAIN.",
+      "ai_form_summary": "V-Varen Nagasaki : N-N-D-D-V (1W-2D-2L, 6 BP, 4 BC). Kawasaki Frontale : V-D-D-V-V (3W-0D-2L, 8 BP, 8 BC).",
+      "ai_form_summary_en": "V-Varen Nagasaki: D-D-L-L-W (1W-2D-2L, 6 GF, 4 GA). Kawasaki Frontale: W-L-L-W-W (3W-0D-2L, 8 GF, 8 GA).",
+      "ai_reasons": [
+        "Taux empiriques modérés de 60% pour le BTTS et l'Over 2.5.",
+        "Signaux contradictoires entre la forme de V-Varen Nagasaki (btts_rate de 40% et over25_rate de 40%) et Kawasaki Frontale (80% pour les deux).",
+        "Moyennes de buts divergents entre une défense solide pour les locaux en forme et une attaque prolifique pour les visiteurs."
+      ],
+      "ai_risks": [
+        "Faible taux de buts et d'Over pour V-Varen Nagasaki sur ses derniers matchs (4 buts marqués, 4 encaissés)."
+      ],
+      "ai_confidence": "low",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "abstain",
+      "status": "PENDING"
+    },
+    {
+      "id": "fcgronin-vs-willemii-2026-11-27",
+      "match": "FC Groningen vs Willem II",
+      "home": "FC Groningen",
+      "away": "Willem II",
+      "league": "Eredivisie",
+      "date": "2026-11-27",
+      "type": "BTTS",
+      "time": "19:00",
+      "matchSemantic": "fcgronin-vs-willemii-2026-11-27",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/145.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/156.png",
+      "tier": "GOLD",
+      "reliabilityScore": 91.25,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2,
+      "xgAway": 1,
+      "xgTotal": 3,
+      "formBTTS": 90,
+      "analysis": "FC Groningen : forme D-D-D-N-D (0V 1N 4D, 10 buts marqués / 17 encaissés sur 5) · Willem II : forme N-D-D-D-D (0V 1N 4D, 5 buts marqués / 20 encaissés sur 5). Classement : FC Groningen 10e (15 pts), Willem II 18e (3 pts). Stats empiriques (forme récente) : buts moy. 3, BTTS 90.0%, Over 2.5 90.0%. Affinage AI ensuite. Fiabilité 91.25%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.9,
+        "empiricalOver25Rate": 0.9,
+        "homeLambda": 2,
+        "awayLambda": 1,
+        "xgTotal": 3
+      },
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "D-D-D-N-D",
+        "wins": 0,
+        "draws": 1,
+        "losses": 4,
+        "goalsFor": 10,
+        "goalsAgainst": 17,
+        "bttsRate": 1,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-D-D-D-D",
+        "wins": 0,
+        "draws": 1,
+        "losses": 4,
+        "goalsFor": 5,
+        "goalsAgainst": 20,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-21",
+          "opponent": "Heerenveen",
+          "venue": "H",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-08",
+          "opponent": "AZ Alkmaar",
+          "venue": "A",
+          "score": "3-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Sparta Rotterdam",
+          "venue": "H",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "NEC Nijmegen",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Ajax Amsterdam",
+          "venue": "H",
+          "score": "2-5",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-22",
+          "opponent": "FC Twente",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-06",
+          "opponent": "PEC Zwolle",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "PSV Eindhoven",
+          "venue": "A",
+          "score": "0-7",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "SC Cambuur",
+          "venue": "H",
+          "score": "1-6",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Sparta Rotterdam",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 10,
+        "points": 15,
+        "played": 13,
+        "gf": 30,
+        "ga": 31
+      },
+      "standingsAway": {
+        "rank": 18,
+        "points": 3,
+        "played": 12,
+        "gf": 11,
+        "ga": 40
+      },
+      "empiricalBttsRate": 0.9,
+      "empiricalOver25Rate": 0.9,
+      "homeLambda": 2,
+      "awayLambda": 1,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "FC Groningen et Willem II partagent un taux empirique de BTTS de 90% avec des défenses très perméables.",
+      "ai_analysis": "C'est la configuration statistique la plus évidente de la sélection. Les deux équipes traversent des séries catastrophiques sur le plan défensif (17 buts encaissés pour Groningen et 20 pour Willem II sur leurs 5 derniers matchs). Avec un taux empirique de BTTS de 90% et un formBTTS de 90%, tous les voyants sont au vert pour que les deux défenses cèdent.",
+      "ai_analysis_en": "This is the most obvious statistical setup in the selection. Both teams are going through catastrophic defensive streaks (17 goals conceded for Groningen and 20 for Willem II in their last 5 matches). With an empirical BTTS rate of 90% and a formBTTS of 90%, all indicators point toward both defenses conceding.",
+      "ai_form_summary": "FC Groningen (0V-1N-4D, 10 BP / 17 BC) et Willem II (0V-1N-4D, 5 BP / 20 BC).",
+      "ai_form_summary_en": "FC Groningen (0W-1D-4L, 10 GF / 17 GA) and Willem II (0W-1D-4L, 5 GF / 20 GA).",
+      "ai_reasons": [],
+      "ai_risks": [
+        "La forme globale est exécrable pour les deux équipes (0 victoire sur les 5 derniers matchs), ce qui peut générer des approximations techniques."
+      ],
+      "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 78,
+          "proba": 0.78,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.78
+        }
+      ],
+      "bttsProb": 0.78,
+      "prediction": "Oui",
+      "proba": 0.78,
+      "confidence": 78,
+      "status": "PENDING"
+    },
+    {
+      "id": "fcheiden-vs-fcnrnber-2026-11-27",
+      "match": "1. FC Heidenheim 1846 vs 1. FC Nürnberg",
+      "home": "1. FC Heidenheim 1846",
+      "away": "1. FC Nürnberg",
+      "league": "2. Bundesliga",
+      "date": "2026-11-27",
+      "type": "BTTS",
+      "time": "17:30",
+      "matchSemantic": "fcheiden-vs-fcnrnber-2026-11-27",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6418.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/269.png",
+      "tier": "GOLD",
+      "reliabilityScore": 88.75,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1,
+      "xgAway": 1.67,
+      "xgTotal": 2.67,
+      "formBTTS": 80,
+      "analysis": "1. FC Heidenheim 1846 : forme D-N-D-N-D (0V 2N 3D, 6 buts marqués / 11 encaissés sur 5) · 1. FC Nürnberg : forme D-V-V-D-N (2V 1N 2D, 7 buts marqués / 5 encaissés sur 5). Classement : 1. FC Heidenheim 1846 7e (16 pts), 1. FC Nürnberg 2e (24 pts). Stats empiriques (forme récente) : buts moy. 2.67, BTTS 80.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.95 / N: 3.85 / 2: 3.3. Fiabilité 88.75%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.8,
+        "empiricalOver25Rate": 0.6,
+        "homeLambda": 1,
+        "awayLambda": 1.67,
+        "xgTotal": 2.67
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.95,
+        "draw": 3.85,
+        "away": 3.3,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-N-D-N-D",
+        "wins": 0,
+        "draws": 2,
+        "losses": 3,
+        "goalsFor": 6,
+        "goalsAgainst": 11,
+        "bttsRate": 1,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-V-V-D-N",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 7,
+        "goalsAgainst": 5,
+        "bttsRate": 0.6,
+        "over25Rate": 0.4,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-20",
+          "opponent": "SV Darmstadt 98",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-08",
+          "opponent": "Hannover 96",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Karlsruher SC",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Energie Cottbus",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "VfL Wolfsburg",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-21",
+          "opponent": "TSV Eintracht Braunschweig",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "SV Darmstadt 98",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "St. Pauli",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Kaiserslautern",
+          "venue": "H",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-16",
+          "opponent": "Energie Cottbus",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 7,
+        "points": 16,
+        "played": 12,
+        "gf": 20,
+        "ga": 23
+      },
+      "standingsAway": {
+        "rank": 2,
+        "points": 24,
+        "played": 12,
+        "gf": 27,
+        "ga": 15
+      },
+      "empiricalBttsRate": 0.8,
+      "empiricalOver25Rate": 0.6,
+      "homeLambda": 1,
+      "awayLambda": 1.67,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Heidenheim affiche un taux BTTS de 100% lors de ses 5 dernières rencontres.",
+      "ai_analysis": "L'analyse statistique montre une forte inclination pour les buts des deux côtés avec un taux BTTS empirique de 80%. Heidenheim encaisse régulièrement mais trouve le chemin des filets, tandis que Nürnberg possède une attaque solide classée 2e. Les indicateurs de forme confirment la tendance BTTS.",
+      "ai_analysis_en": "Statistical analysis shows a strong inclination for goals at both ends with an 80% empirical BTTS rate. Heidenheim concedes regularly but finds the net, while Nürnberg boasts a solid attack ranked 2nd. Form indicators support the BTTS trend.",
+      "ai_form_summary": "Heidenheim : D-N-D-N-D (0V-2N-3D), 6 buts pour, 11 contre. Nürnberg : D-V-V-D-N (2V-1N-2D), 7 buts pour, 5 contre.",
+      "ai_form_summary_en": "Heidenheim: D-N-D-N-D (0W-2D-3L), 6 goals for, 11 against. Nürnberg: D-V-V-D-N (2W-1D-2L), 7 goals for, 5 against.",
+      "ai_reasons": [
+        "Taux BTTS empirique élevé à 80% sur l'échantillon global",
+        "Taux BTTS de Heidenheim à 100% sur ses 5 derniers matchs",
+        "Moyennes de buts encourageantes (Heidenheim 1.0, Nürnberg 1.67)"
+      ],
+      "ai_risks": [
+        "Heidenheim traverse une période difficile avec 3 défaites sur 5 matchs"
+      ],
+      "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 72,
+          "proba": 0.72,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.72
+        }
+      ],
+      "bttsProb": 0.72,
+      "prediction": "Oui",
+      "proba": 0.72,
+      "confidence": 72,
+      "status": "PENDING"
+    },
+    {
+      "id": "legans-vs-cdsabade-2026-11-27",
+      "match": "Leganés vs CD Sabadell",
+      "home": "Leganés",
+      "away": "CD Sabadell",
+      "league": "LaLiga 2",
+      "date": "2026-11-27",
+      "type": "BTTS",
+      "time": "19:30",
+      "matchSemantic": "legans-vs-cdsabade-2026-11-27",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/17534.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/11487.png",
+      "tier": "GOLD",
+      "reliabilityScore": 85,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.25,
+      "xgAway": 0.75,
+      "xgTotal": 2,
+      "formBTTS": 80,
+      "analysis": "Leganés : forme V-V-D-D-N (2V 1N 2D, 11 buts marqués / 10 encaissés sur 5) · CD Sabadell : forme N-D-N-D-N (0V 3N 2D, 3 buts marqués / 6 encaissés sur 5). Classement : Leganés 15e (18 pts), CD Sabadell 13e (19 pts). Stats empiriques (forme récente) : buts moy. 2, BTTS 80.0%, Over 2.5 50.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.55 / N: 2.9 / 2: 2.95 · Over 2.5: 2.3. Fiabilité 85%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.8,
+        "empiricalOver25Rate": 0.5,
+        "homeLambda": 1.25,
+        "awayLambda": 0.75,
+        "xgTotal": 2
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.55,
+        "draw": 2.9,
+        "away": 2.95,
+        "over25": 2.3,
+        "under25": 1.51
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "V-V-D-D-N",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 11,
+        "goalsAgainst": 10,
+        "bttsRate": 1,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-D-N-D-N",
+        "wins": 0,
+        "draws": 3,
+        "losses": 2,
+        "goalsFor": 3,
+        "goalsAgainst": 6,
+        "bttsRate": 0.6,
+        "over25Rate": 0.2,
+        "cleanSheets": 1,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-20",
+          "opponent": "FC Andorra",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-13",
+          "opponent": "Burgos",
+          "venue": "H",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Albacete",
+          "venue": "H",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-02",
+          "opponent": "Real Valladolid",
+          "venue": "A",
+          "score": "3-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Mallorca",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-21",
+          "opponent": "Granada",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-15",
+          "opponent": "Eldense",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-09",
+          "opponent": "Real Sociedad II",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Albacete",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Tenerife",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 15,
+        "points": 18,
+        "played": 15,
+        "gf": 17,
+        "ga": 25
+      },
+      "standingsAway": {
+        "rank": 13,
+        "points": 19,
+        "played": 15,
+        "gf": 13,
+        "ga": 14
+      },
+      "empiricalBttsRate": 0.8,
+      "empiricalOver25Rate": 0.5,
+      "homeLambda": 1.25,
+      "awayLambda": 0.75,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Leganés présente un taux BTTS de 100% sur ses cinq dernières sorties.",
+      "ai_analysis": "Malgré la faiblesse offensive relative de Sabadell, Leganés présente un profil très orienté vers le BTTS (100% récemment). La défense de Leganés (25 buts encaissés) offre des opportunités à l'adversaire, rendant l'option Yes cohérente.",
+      "ai_analysis_en": "Despite Sabadell's relative offensive weakness, Leganés has a strong BTTS profile (100% recently). Leganés' defense (25 goals conceded) offers opponent opportunities, making the Yes option consistent.",
+      "ai_form_summary": "Leganés : V-V-D-D-N (2V-1N-2D), 11 buts pour, 10 contre. CD Sabadell : N-D-N-D-N (0V-3N-2D), 3 buts pour, 6 contre.",
+      "ai_form_summary_en": "Leganés: V-V-D-D-N (2W-1D-2L), 11 goals for, 10 against. CD Sabadell: N-D-N-D-N (0W-3D-2L), 3 goals for, 6 against.",
+      "ai_reasons": [
+        "Taux BTTS empirique global de 80%",
+        "Taux BTTS de Leganés à 100% sur ses 5 derniers matchs",
+        "Buts encaissés importants pour Leganés (25 buts en 15 matchs)"
+      ],
+      "ai_risks": [
+        "CD Sabadell a une moyenne de buts faible (0.75 par match)"
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 68,
+          "proba": 0.68,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.68
+        }
+      ],
+      "bttsProb": 0.68,
+      "prediction": "Oui",
+      "proba": 0.68,
+      "confidence": 68,
+      "status": "PENDING"
+    },
+    {
+      "id": "alqadsia-vs-alfayha-2026-11-27",
+      "match": "Al Qadsiah vs Al Fayha",
+      "home": "Al Qadsiah",
+      "away": "Al Fayha",
+      "league": "Saudi Pro League",
+      "date": "2026-11-27",
+      "type": "Over 2.5",
+      "time": "14:20",
+      "matchSemantic": "alqadsia-vs-alfayha-2026-11-27",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22022.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21827.png",
+      "tier": "GOLD",
+      "reliabilityScore": 85,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.5,
+      "xgAway": 0.75,
+      "xgTotal": 3.25,
+      "formBTTS": 60,
+      "analysis": "Al Qadsiah : forme V-D-V-V-V (4V 0N 1D, 16 buts marqués / 4 encaissés sur 5) · Al Fayha : forme V-N-D-D-N (1V 2N 2D, 9 buts marqués / 9 encaissés sur 5). Classement : Al Qadsiah 2e (28 pts), Al Fayha 13e (11 pts). Stats empiriques (forme récente) : buts moy. 3.25, BTTS 60.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.19 / N: 7 / 2: 9.5. Fiabilité 85%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.6,
+        "empiricalOver25Rate": 0.7,
+        "homeLambda": 2.5,
+        "awayLambda": 0.75,
+        "xgTotal": 3.25
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.19,
+        "draw": 7,
+        "away": 9.5,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "V-D-V-V-V",
+        "wins": 4,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 16,
+        "goalsAgainst": 4,
+        "bttsRate": 0.4,
+        "over25Rate": 0.8,
+        "cleanSheets": 3,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-N-D-D-N",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 9,
+        "goalsAgainst": 9,
+        "bttsRate": 0.8,
+        "over25Rate": 0.6,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-29",
+          "opponent": "Al Riyadh",
+          "venue": "A",
+          "score": "6-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Al Hilal",
+          "venue": "H",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-20",
+          "opponent": "Al Taawoun",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-16",
+          "opponent": "Abha",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-09",
+          "opponent": "Al Kholood",
+          "venue": "A",
+          "score": "5-0",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-31",
+          "opponent": "Al Faisaly",
+          "venue": "H",
+          "score": "4-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-22",
+          "opponent": "Al Hazem",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-19",
+          "opponent": "Al Ahli",
+          "venue": "H",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-15",
+          "opponent": "Al Khaleej",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Al Riyadh",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 2,
+        "points": 28,
+        "played": 12,
+        "gf": 32,
+        "ga": 12
+      },
+      "standingsAway": {
+        "rank": 13,
+        "points": 11,
+        "played": 12,
+        "gf": 16,
+        "ga": 20
+      },
+      "empiricalBttsRate": 0.6,
+      "empiricalOver25Rate": 0.7,
+      "homeLambda": 2.5,
+      "awayLambda": 0.75,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_key_fact": "Al Qadsiah a inscrit 32 buts en 12 matchs cette saison.",
+      "ai_analysis": "Al Qadsiah domine offensivement avec 32 buts inscrits et un taux Over 2.5 de 80% sur sa forme récente. Même si Al Fayha marque moins, la puissance de frappe de l'équipe locale pousse nettement vers un match prolifique.",
+      "ai_analysis_en": "Al Qadsiah dominates offensively with 32 goals scored and an 80% Over 2.5 rate in recent form. Even though Al Fayha scores less, the home team's firepower strongly drives towards a high-scoring match.",
+      "ai_form_summary": "Al Qadsiah : V-D-V-V-V (4V-0N-1D), 16 buts pour, 4 contre. Al Fayha : V-N-D-D-N (1V-2N-2D), 9 buts pour, 9 contre.",
+      "ai_form_summary_en": "Al Qadsiah: V-D-V-V-V (4W-0D-1L), 16 goals for, 4 against. Al Fayha: V-N-D-D-N (1W-2D-2L), 9 goals for, 9 against.",
+      "ai_reasons": [
+        "Taux Over 2.5 de forme à 80% pour Al Qadsiah",
+        "Moyenne de buts de 2.5 par match pour l'équipe à domicile",
+        "Al Qadsiah possède la 2e meilleure attaque du championnat (32 buts en 12 matchs)"
+      ],
+      "ai_risks": [
+        "Al Fayha a une moyenne de buts faible à l'extérieur (0.75 par match)"
+      ],
+      "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 75,
+          "proba": 0.75,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "over25Prob": 0.75
+        }
+      ],
+      "over25Prob": 0.75,
+      "prediction": "Oui",
+      "proba": 0.75,
+      "confidence": 75,
+      "status": "PENDING"
     }
   ],
   "fixtures": [
@@ -7371,6 +8913,1544 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
+      "status": "PENDING"
+    },
+    {
+      "id": "boltonwa-vs-westbrom-2026-11-25",
+      "match": "Bolton Wanderers vs West Bromwich Albion",
+      "home": "Bolton Wanderers",
+      "away": "West Bromwich Albion",
+      "league": "Championship",
+      "date": "2026-11-25",
+      "type": "BTTS",
+      "time": "19:45",
+      "matchSemantic": "boltonwa-vs-westbrom-2026-11-25",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/358.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/383.png",
+      "tier": "GOLD",
+      "reliabilityScore": 86.88,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.33,
+      "xgAway": 1.5,
+      "xgTotal": 2.83,
+      "formBTTS": 70,
+      "analysis": "Bolton Wanderers : forme D-V-D-D-N (1V 1N 3D, 5 buts marqués / 11 encaissés sur 5) · West Bromwich Albion : forme V-N-V-N-V (3V 2N 0D, 11 buts marqués / 5 encaissés sur 5). Classement : Bolton Wanderers 18e (17 pts), West Bromwich Albion 5e (28 pts). Stats empiriques (forme récente) : buts moy. 2.83, BTTS 70.0%, Over 2.5 60.0%. Affinage AI ensuite. Fiabilité 86.88%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.7,
+        "empiricalOver25Rate": 0.6,
+        "homeLambda": 1.33,
+        "awayLambda": 1.5,
+        "xgTotal": 2.83
+      },
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "D-V-D-D-N",
+        "wins": 1,
+        "draws": 1,
+        "losses": 3,
+        "goalsFor": 5,
+        "goalsAgainst": 11,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 2,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-N-V-N-V",
+        "wins": 3,
+        "draws": 2,
+        "losses": 0,
+        "goalsFor": 11,
+        "goalsAgainst": 5,
+        "bttsRate": 0.8,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-21",
+          "opponent": "Portsmouth",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-06",
+          "opponent": "Derby County",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-03",
+          "opponent": "Charlton Athletic",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Bristol City",
+          "venue": "H",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Middlesbrough",
+          "venue": "H",
+          "score": "1-5",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-21",
+          "opponent": "Swansea City",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Millwall",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-03",
+          "opponent": "Southampton",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "West Ham United",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Preston North End",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 18,
+        "points": 17,
+        "played": 15,
+        "gf": 20,
+        "ga": 29
+      },
+      "standingsAway": {
+        "rank": 5,
+        "points": 28,
+        "played": 15,
+        "gf": 23,
+        "ga": 15
+      },
+      "empiricalBttsRate": 0.7,
+      "empiricalOver25Rate": 0.6,
+      "homeLambda": 1.33,
+      "awayLambda": 1.5,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "West Bromwich Albion enregistre un taux BTTS de 80% sur ses 5 derniers matchs.",
+      "ai_analysis": "West Bromwich Albion démontre une forte propension au BTTS (80% sur 5 matchs) et se déplace chez une équipe de Bolton Wanderers en difficulté défensive (29 buts encaissés). Les indicateurs empiriques soutiennent une issue où les deux équipes trouvent le chemin des filets.",
+      "ai_analysis_en": "West Bromwich Albion demonstrates a high BTTS propensity (80% over 5 matches) and visits a Bolton Wanderers side struggling defensively (29 goals conceded). Empirical indicators support both teams scoring.",
+      "ai_form_summary": "Bolton Wanderers : 1V-1N-3D (5 buts marqués, 11 encaissés). West Bromwich Albion : 3V-2N-0D (11 buts marqués, 5 encaissés).",
+      "ai_form_summary_en": "Bolton Wanderers: 1W-1D-3L (5 scored, 11 conceded). West Bromwich Albion: 3W-2D-0L (11 scored, 5 conceded).",
+      "ai_reasons": [
+        "West Bromwich Albion affiche un taux BTTS de 80% sur ses 5 derniers matchs.",
+        "L'empirique global BTTS est de 0.70 pour cette affiche de Championship.",
+        "Bolton Wanderers présente de grandes difficultés défensives avec 29 buts encaissés en 15 matchs."
+      ],
+      "ai_risks": [
+        "Bolton Wanderers est irrégulier avec un taux BTTS de 60% sur ses 5 derniers matchs."
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 65,
+          "proba": 0.65,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.65
+        }
+      ],
+      "bttsProb": 0.65,
+      "prediction": "Oui",
+      "proba": 0.65,
+      "confidence": 65,
+      "status": "PENDING"
+    },
+    {
+      "id": "urawared-vs-cerezoos-2026-11-25",
+      "match": "Urawa Red Diamonds vs Cerezo Osaka",
+      "home": "Urawa Red Diamonds",
+      "away": "Cerezo Osaka",
+      "league": "Japanese J.League",
+      "date": "2026-11-25",
+      "type": "Over 2.5",
+      "time": "10:30",
+      "matchSemantic": "urawared-vs-cerezoos-2026-11-25",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3385.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7109.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.33,
+      "xgAway": 1.5,
+      "xgTotal": 3.83,
+      "formBTTS": 70,
+      "analysis": "Urawa Red Diamonds : forme D-N-D-V-V (2V 1N 2D, 7 buts marqués / 10 encaissés sur 5) · Cerezo Osaka : forme D-V-D-N-N (1V 2N 2D, 7 buts marqués / 12 encaissés sur 5). Classement : Urawa Red Diamonds 9e (22 pts), Cerezo Osaka 12e (17 pts). Stats empiriques (forme récente) : buts moy. 3.83, BTTS 70.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.83 / N: 3.8 / 2: 3.7 · Over 2.5: 1.51. Fiabilité 89.38%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.7,
+        "empiricalOver25Rate": 0.8,
+        "homeLambda": 2.33,
+        "awayLambda": 1.5,
+        "xgTotal": 3.83
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.83,
+        "draw": 3.8,
+        "away": 3.7,
+        "over25": 1.51,
+        "under25": 2.3
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-N-D-V-V",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 7,
+        "goalsAgainst": 10,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-V-D-N-N",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 7,
+        "goalsAgainst": 12,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-21",
+          "opponent": "Kyoto Sanga",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-08",
+          "opponent": "Vissel Kobe",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Kashiwa Reysol",
+          "venue": "A",
+          "score": "0-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "V-Varen Nagasaki",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-21",
+          "opponent": "JEF United Ichihara-Chiba",
+          "venue": "H",
+          "score": "3-2",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-21",
+          "opponent": "FC Tokyo",
+          "venue": "H",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-08",
+          "opponent": "Gamba Osaka",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Kashima Antlers",
+          "venue": "A",
+          "score": "1-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "JEF United Ichihara-Chiba",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-21",
+          "opponent": "Nagoya Grampus",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 9,
+        "points": 22,
+        "played": 15,
+        "gf": 24,
+        "ga": 31
+      },
+      "standingsAway": {
+        "rank": 12,
+        "points": 17,
+        "played": 15,
+        "gf": 16,
+        "ga": 28
+      },
+      "empiricalBttsRate": 0.7,
+      "empiricalOver25Rate": 0.8,
+      "homeLambda": 2.33,
+      "awayLambda": 1.5,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_key_fact": "Urawa Red Diamonds et Cerezo Osaka affichent tous deux un taux de 80% d'Over 2.5 sur leurs cinq derniers matchs.",
+      "ai_analysis": "Cette confrontation de J.League présente des garanties statistiques solides pour un match prolifique en buts. Urawa Red Diamonds et Cerezo Osaka affichent des taux d'Over 2.5 de 80% sur leurs cinq derniers matchs, confirmés par un taux empirique global de 0.8. Avec des moyennes de buts significatives pour les deux formations (2.33 pour Urawa et 1.5 pour Cerezo), la barre des 2.5 buts apparaît comme une option cohérente.",
+      "ai_analysis_en": "This J.League fixture presents strong statistical guarantees for a high-scoring match. Both Urawa Red Diamonds and Cerezo Osaka show an 80% Over 2.5 rate over their last five matches, confirmed by an overall empirical rate of 0.8. With significant goal averages for both sides (2.33 for Urawa and 1.5 for Cerezo), the over 2.5 line appears to be a consistent option.",
+      "ai_form_summary": "Urawa Red Diamonds : 2W-1D-2L, 7 buts pour, 10 buts contre, 80% Over 2.5. Cerezo Osaka : 1W-2D-2L, 7 buts pour, 12 buts contre, 80% Over 2.5.",
+      "ai_form_summary_en": "Urawa Red Diamonds: 2W-1D-2L, 7 goals for, 10 goals against, 80% Over 2.5. Cerezo Osaka: 1W-2D-2L, 7 goals for, 12 goals against, 80% Over 2.5.",
+      "ai_reasons": [
+        "Taux Over 2.5 empirique élevé à 80% sur l'échantillon global.",
+        "Taux Over 2.5 de 80% pour Urawa Red Diamonds sur ses 5 derniers matchs.",
+        "Taux Over 2.5 de 80% pour Cerezo Osaka sur ses 5 derniers matchs."
+      ],
+      "ai_risks": [
+        "Moyennes de buts à l'extérieur pour Cerezo Osaka plus mesurées (1.5 buts par match).",
+        "Écarts de buts concédés importants qui peuvent déséquilibrer la rencontre de manière imprévisible."
+      ],
+      "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 75,
+          "proba": 0.75,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "over25Prob": 0.75
+        }
+      ],
+      "over25Prob": 0.75,
+      "prediction": "Oui",
+      "proba": 0.75,
+      "confidence": 75,
+      "status": "PENDING"
+    },
+    {
+      "id": "sanjosee-vs-houstond-2026-11-25",
+      "match": "San Jose Earthquakes vs Houston Dynamo FC",
+      "home": "San Jose Earthquakes",
+      "away": "Houston Dynamo FC",
+      "league": "MLS",
+      "date": "2026-11-25",
+      "type": "Over 2.5",
+      "time": "03:00",
+      "matchSemantic": "sanjosee-vs-houstond-2026-11-25",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/191.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6077.png",
+      "tier": "GOLD",
+      "reliabilityScore": 85,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2,
+      "xgAway": 1.75,
+      "xgTotal": 3.75,
+      "formBTTS": 60,
+      "analysis": "San Jose Earthquakes : forme D-V-N-D-N (1V 2N 2D, 6 buts marqués / 10 encaissés sur 5) · Houston Dynamo FC : forme D-D-V-N-N (1V 2N 2D, 4 buts marqués / 6 encaissés sur 5). Classement : San Jose Earthquakes 4e (52 pts), Houston Dynamo FC 5e (51 pts). Stats empiriques (forme récente) : buts moy. 3.75, BTTS 60.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.1 / N: 3.4 / 2: 3.1 · Over 2.5: 1.69. Fiabilité 85%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.6,
+        "empiricalOver25Rate": 0.6,
+        "homeLambda": 2,
+        "awayLambda": 1.75,
+        "xgTotal": 3.75
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.1,
+        "draw": 3.4,
+        "away": 3.1,
+        "over25": 1.69,
+        "under25": 2.1
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-V-N-D-N",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 6,
+        "goalsAgainst": 10,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-D-V-N-N",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 4,
+        "goalsAgainst": 6,
+        "bttsRate": 0.4,
+        "over25Rate": 0.4,
+        "cleanSheets": 2,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-08",
+          "opponent": "Minnesota United FC",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Real Salt Lake",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-29",
+          "opponent": "Colorado Rapids",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "FC Dallas",
+          "venue": "A",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Nashville SC",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-08",
+          "opponent": "St. Louis CITY SC",
+          "venue": "H",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-02",
+          "opponent": "Portland Timbers",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-29",
+          "opponent": "Seattle Sounders FC",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Minnesota United FC",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "FC Dallas",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 4,
+        "points": 52,
+        "played": 34,
+        "gf": 57,
+        "ga": 51
+      },
+      "standingsAway": {
+        "rank": 5,
+        "points": 51,
+        "played": 34,
+        "gf": 43,
+        "ga": 43
+      },
+      "empiricalBttsRate": 0.6,
+      "empiricalOver25Rate": 0.6,
+      "homeLambda": 2,
+      "awayLambda": 1.75,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_key_fact": "San Jose Earthquakes affiche un taux Over 2.5 de 80% sur ses 5 derniers matchs avec une moyenne de 2 buts marqués.",
+      "ai_analysis": "Ce match de MLS met en scène San Jose Earthquakes, dont les récents matchs affichent 80% d'Over 2.5 et une moyenne de 2 buts par match. Couplé à l'empirique global de 60% et aux moyennes générales des deux formations, l'option Over 2.5 apparaît comme l'option la plus cohérente des statistiques de terrain.",
+      "ai_analysis_en": "This MLS match features San Jose Earthquakes, whose recent games show 80% Over 2.5 rates and an average of 2 goals per match. Coupled with the overall empirical 60% rate and general team averages, the Over 2.5 option emerges as the most consistent choice from the field statistics.",
+      "ai_form_summary": "San Jose (1W-2D-2L, 6GF/10GA) joue haut en buts par rapport à Houston (1W-2D-2L, 4GF/6GA) plus prudent.",
+      "ai_form_summary_en": "San Jose (1W-2D-2L, 6GF/10GA) plays higher-scoring games compared to a more cautious Houston side (1W-2D-2L, 4GF/6GA).",
+      "ai_reasons": [
+        "Taux Over 2.5 empirique de 60% pour ce duel de MLS",
+        "San Jose présente un taux Over 2.5 de 80% sur ses 5 derniers matchs",
+        "Moyennes de buts élevées pour San Jose (2 buts par match) et Houston (1.75 but par match)"
+      ],
+      "ai_risks": [
+        "Houston Dynamo affiche un taux Over 2.5 plus faible de 40% sur ses 5 derniers matchs",
+        "Les côtes et les profils généraux restent proches au classement (4e vs 5e)"
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 65,
+          "proba": 0.65,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "over25Prob": 0.65
+        }
+      ],
+      "over25Prob": 0.65,
+      "prediction": "Oui",
+      "proba": 0.65,
+      "confidence": 65,
+      "status": "PENDING"
+    },
+    {
+      "id": "vvarenna-vs-kawasaki-2026-11-25",
+      "match": "V-Varen Nagasaki vs Kawasaki Frontale",
+      "home": "V-Varen Nagasaki",
+      "away": "Kawasaki Frontale",
+      "league": "Japanese J.League",
+      "date": "2026-11-25",
+      "type": "BTTS",
+      "time": "10:00",
+      "matchSemantic": "vvarenna-vs-kawasaki-2026-11-25",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/19001.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7112.png",
+      "tier": "GOLD",
+      "reliabilityScore": 85,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2,
+      "xgAway": 2.33,
+      "xgTotal": 4.33,
+      "formBTTS": 60,
+      "analysis": "V-Varen Nagasaki : forme N-N-D-D-V (1V 2N 2D, 6 buts marqués / 4 encaissés sur 5) · Kawasaki Frontale : forme V-D-D-V-V (3V 0N 2D, 8 buts marqués / 8 encaissés sur 5). Classement : V-Varen Nagasaki 17e (14 pts), Kawasaki Frontale 6e (25 pts). Stats empiriques (forme récente) : buts moy. 4.33, BTTS 60.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 3.6 / N: 4 / 2: 1.87 · Over 2.5: 1.54. Fiabilité 85%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.6,
+        "empiricalOver25Rate": 0.6,
+        "homeLambda": 2,
+        "awayLambda": 2.33,
+        "xgTotal": 4.33
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 3.6,
+        "draw": 4,
+        "away": 1.87,
+        "over25": 1.54,
+        "under25": 2.35
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "N-N-D-D-V",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 6,
+        "goalsAgainst": 4,
+        "bttsRate": 0.4,
+        "over25Rate": 0.4,
+        "cleanSheets": 2,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-D-D-V-V",
+        "wins": 3,
+        "draws": 0,
+        "losses": 2,
+        "goalsFor": 8,
+        "goalsAgainst": 8,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-21",
+          "opponent": "Machida Zelvia",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Avispa Fukuoka",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Tokyo Verdy 1969",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Urawa Red Diamonds",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-21",
+          "opponent": "Sanfrecce Hiroshima",
+          "venue": "H",
+          "score": "4-0",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-21",
+          "opponent": "Avispa Fukuoka",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Kashiwa Reysol",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Yokohama F. Marinos",
+          "venue": "A",
+          "score": "2-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Fagiano Okayama",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-21",
+          "opponent": "Vissel Kobe",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 17,
+        "points": 14,
+        "played": 15,
+        "gf": 17,
+        "ga": 22
+      },
+      "standingsAway": {
+        "rank": 6,
+        "points": 25,
+        "played": 15,
+        "gf": 29,
+        "ga": 24
+      },
+      "empiricalBttsRate": 0.6,
+      "empiricalOver25Rate": 0.6,
+      "homeLambda": 2,
+      "awayLambda": 2.33,
+      "statsOnly": true,
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "V-Varen Nagasaki affiche des taux de 40% en BTTS et Over 2.5, contrastant avec les 80% de Kawasaki Frontale.",
+      "ai_analysis": "L'analyse des statistiques montre une opposition de style nette entre V-Varen Nagasaki, qui propose des matchs plutôt fermés (40% d'Over et BTTS sur ses 5 derniers matchs), et Kawasaki Frontale, beaucoup plus tourné vers l'offensive (80%). En raison de ces signaux contradictoires et de taux empiriques moyens, la prudence s'impose et nous appliquons un ABSTAIN.",
+      "ai_analysis_en": "Statistical analysis shows a clear contrast in styles between V-Varen Nagasaki, whose recent matches are tighter (40% Over and BTTS in their last 5), and Kawasaki Frontale, which is much more offensive-minded (80%). Due to these conflicting signals and moderate empirical rates, caution is required and we apply an ABSTAIN.",
+      "ai_form_summary": "V-Varen Nagasaki : N-N-D-D-V (1W-2D-2L, 6 BP, 4 BC). Kawasaki Frontale : V-D-D-V-V (3W-0D-2L, 8 BP, 8 BC).",
+      "ai_form_summary_en": "V-Varen Nagasaki: D-D-L-L-W (1W-2D-2L, 6 GF, 4 GA). Kawasaki Frontale: W-L-L-W-W (3W-0D-2L, 8 GF, 8 GA).",
+      "ai_reasons": [
+        "Taux empiriques modérés de 60% pour le BTTS et l'Over 2.5.",
+        "Signaux contradictoires entre la forme de V-Varen Nagasaki (btts_rate de 40% et over25_rate de 40%) et Kawasaki Frontale (80% pour les deux).",
+        "Moyennes de buts divergents entre une défense solide pour les locaux en forme et une attaque prolifique pour les visiteurs."
+      ],
+      "ai_risks": [
+        "Faible taux de buts et d'Over pour V-Varen Nagasaki sur ses derniers matchs (4 buts marqués, 4 encaissés)."
+      ],
+      "ai_confidence": "low",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "abstain",
+      "status": "PENDING"
+    },
+    {
+      "id": "fcgronin-vs-willemii-2026-11-27",
+      "match": "FC Groningen vs Willem II",
+      "home": "FC Groningen",
+      "away": "Willem II",
+      "league": "Eredivisie",
+      "date": "2026-11-27",
+      "type": "BTTS",
+      "time": "19:00",
+      "matchSemantic": "fcgronin-vs-willemii-2026-11-27",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/145.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/156.png",
+      "tier": "GOLD",
+      "reliabilityScore": 91.25,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2,
+      "xgAway": 1,
+      "xgTotal": 3,
+      "formBTTS": 90,
+      "analysis": "FC Groningen : forme D-D-D-N-D (0V 1N 4D, 10 buts marqués / 17 encaissés sur 5) · Willem II : forme N-D-D-D-D (0V 1N 4D, 5 buts marqués / 20 encaissés sur 5). Classement : FC Groningen 10e (15 pts), Willem II 18e (3 pts). Stats empiriques (forme récente) : buts moy. 3, BTTS 90.0%, Over 2.5 90.0%. Affinage AI ensuite. Fiabilité 91.25%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.9,
+        "empiricalOver25Rate": 0.9,
+        "homeLambda": 2,
+        "awayLambda": 1,
+        "xgTotal": 3
+      },
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "D-D-D-N-D",
+        "wins": 0,
+        "draws": 1,
+        "losses": 4,
+        "goalsFor": 10,
+        "goalsAgainst": 17,
+        "bttsRate": 1,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-D-D-D-D",
+        "wins": 0,
+        "draws": 1,
+        "losses": 4,
+        "goalsFor": 5,
+        "goalsAgainst": 20,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-21",
+          "opponent": "Heerenveen",
+          "venue": "H",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-08",
+          "opponent": "AZ Alkmaar",
+          "venue": "A",
+          "score": "3-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Sparta Rotterdam",
+          "venue": "H",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "NEC Nijmegen",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Ajax Amsterdam",
+          "venue": "H",
+          "score": "2-5",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-22",
+          "opponent": "FC Twente",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-06",
+          "opponent": "PEC Zwolle",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "PSV Eindhoven",
+          "venue": "A",
+          "score": "0-7",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "SC Cambuur",
+          "venue": "H",
+          "score": "1-6",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Sparta Rotterdam",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 10,
+        "points": 15,
+        "played": 13,
+        "gf": 30,
+        "ga": 31
+      },
+      "standingsAway": {
+        "rank": 18,
+        "points": 3,
+        "played": 12,
+        "gf": 11,
+        "ga": 40
+      },
+      "empiricalBttsRate": 0.9,
+      "empiricalOver25Rate": 0.9,
+      "homeLambda": 2,
+      "awayLambda": 1,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "FC Groningen et Willem II partagent un taux empirique de BTTS de 90% avec des défenses très perméables.",
+      "ai_analysis": "C'est la configuration statistique la plus évidente de la sélection. Les deux équipes traversent des séries catastrophiques sur le plan défensif (17 buts encaissés pour Groningen et 20 pour Willem II sur leurs 5 derniers matchs). Avec un taux empirique de BTTS de 90% et un formBTTS de 90%, tous les voyants sont au vert pour que les deux défenses cèdent.",
+      "ai_analysis_en": "This is the most obvious statistical setup in the selection. Both teams are going through catastrophic defensive streaks (17 goals conceded for Groningen and 20 for Willem II in their last 5 matches). With an empirical BTTS rate of 90% and a formBTTS of 90%, all indicators point toward both defenses conceding.",
+      "ai_form_summary": "FC Groningen (0V-1N-4D, 10 BP / 17 BC) et Willem II (0V-1N-4D, 5 BP / 20 BC).",
+      "ai_form_summary_en": "FC Groningen (0W-1D-4L, 10 GF / 17 GA) and Willem II (0W-1D-4L, 5 GF / 20 GA).",
+      "ai_reasons": [],
+      "ai_risks": [
+        "La forme globale est exécrable pour les deux équipes (0 victoire sur les 5 derniers matchs), ce qui peut générer des approximations techniques."
+      ],
+      "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 78,
+          "proba": 0.78,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.78
+        }
+      ],
+      "bttsProb": 0.78,
+      "prediction": "Oui",
+      "proba": 0.78,
+      "confidence": 78,
+      "status": "PENDING"
+    },
+    {
+      "id": "fcheiden-vs-fcnrnber-2026-11-27",
+      "match": "1. FC Heidenheim 1846 vs 1. FC Nürnberg",
+      "home": "1. FC Heidenheim 1846",
+      "away": "1. FC Nürnberg",
+      "league": "2. Bundesliga",
+      "date": "2026-11-27",
+      "type": "BTTS",
+      "time": "17:30",
+      "matchSemantic": "fcheiden-vs-fcnrnber-2026-11-27",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6418.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/269.png",
+      "tier": "GOLD",
+      "reliabilityScore": 88.75,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1,
+      "xgAway": 1.67,
+      "xgTotal": 2.67,
+      "formBTTS": 80,
+      "analysis": "1. FC Heidenheim 1846 : forme D-N-D-N-D (0V 2N 3D, 6 buts marqués / 11 encaissés sur 5) · 1. FC Nürnberg : forme D-V-V-D-N (2V 1N 2D, 7 buts marqués / 5 encaissés sur 5). Classement : 1. FC Heidenheim 1846 7e (16 pts), 1. FC Nürnberg 2e (24 pts). Stats empiriques (forme récente) : buts moy. 2.67, BTTS 80.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.95 / N: 3.85 / 2: 3.3. Fiabilité 88.75%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.8,
+        "empiricalOver25Rate": 0.6,
+        "homeLambda": 1,
+        "awayLambda": 1.67,
+        "xgTotal": 2.67
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.95,
+        "draw": 3.85,
+        "away": 3.3,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-N-D-N-D",
+        "wins": 0,
+        "draws": 2,
+        "losses": 3,
+        "goalsFor": 6,
+        "goalsAgainst": 11,
+        "bttsRate": 1,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-V-V-D-N",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 7,
+        "goalsAgainst": 5,
+        "bttsRate": 0.6,
+        "over25Rate": 0.4,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-20",
+          "opponent": "SV Darmstadt 98",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-08",
+          "opponent": "Hannover 96",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Karlsruher SC",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Energie Cottbus",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "VfL Wolfsburg",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-21",
+          "opponent": "TSV Eintracht Braunschweig",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "SV Darmstadt 98",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "St. Pauli",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Kaiserslautern",
+          "venue": "H",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-16",
+          "opponent": "Energie Cottbus",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 7,
+        "points": 16,
+        "played": 12,
+        "gf": 20,
+        "ga": 23
+      },
+      "standingsAway": {
+        "rank": 2,
+        "points": 24,
+        "played": 12,
+        "gf": 27,
+        "ga": 15
+      },
+      "empiricalBttsRate": 0.8,
+      "empiricalOver25Rate": 0.6,
+      "homeLambda": 1,
+      "awayLambda": 1.67,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Heidenheim affiche un taux BTTS de 100% lors de ses 5 dernières rencontres.",
+      "ai_analysis": "L'analyse statistique montre une forte inclination pour les buts des deux côtés avec un taux BTTS empirique de 80%. Heidenheim encaisse régulièrement mais trouve le chemin des filets, tandis que Nürnberg possède une attaque solide classée 2e. Les indicateurs de forme confirment la tendance BTTS.",
+      "ai_analysis_en": "Statistical analysis shows a strong inclination for goals at both ends with an 80% empirical BTTS rate. Heidenheim concedes regularly but finds the net, while Nürnberg boasts a solid attack ranked 2nd. Form indicators support the BTTS trend.",
+      "ai_form_summary": "Heidenheim : D-N-D-N-D (0V-2N-3D), 6 buts pour, 11 contre. Nürnberg : D-V-V-D-N (2V-1N-2D), 7 buts pour, 5 contre.",
+      "ai_form_summary_en": "Heidenheim: D-N-D-N-D (0W-2D-3L), 6 goals for, 11 against. Nürnberg: D-V-V-D-N (2W-1D-2L), 7 goals for, 5 against.",
+      "ai_reasons": [
+        "Taux BTTS empirique élevé à 80% sur l'échantillon global",
+        "Taux BTTS de Heidenheim à 100% sur ses 5 derniers matchs",
+        "Moyennes de buts encourageantes (Heidenheim 1.0, Nürnberg 1.67)"
+      ],
+      "ai_risks": [
+        "Heidenheim traverse une période difficile avec 3 défaites sur 5 matchs"
+      ],
+      "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 72,
+          "proba": 0.72,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.72
+        }
+      ],
+      "bttsProb": 0.72,
+      "prediction": "Oui",
+      "proba": 0.72,
+      "confidence": 72,
+      "status": "PENDING"
+    },
+    {
+      "id": "legans-vs-cdsabade-2026-11-27",
+      "match": "Leganés vs CD Sabadell",
+      "home": "Leganés",
+      "away": "CD Sabadell",
+      "league": "LaLiga 2",
+      "date": "2026-11-27",
+      "type": "BTTS",
+      "time": "19:30",
+      "matchSemantic": "legans-vs-cdsabade-2026-11-27",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/17534.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/11487.png",
+      "tier": "GOLD",
+      "reliabilityScore": 85,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.25,
+      "xgAway": 0.75,
+      "xgTotal": 2,
+      "formBTTS": 80,
+      "analysis": "Leganés : forme V-V-D-D-N (2V 1N 2D, 11 buts marqués / 10 encaissés sur 5) · CD Sabadell : forme N-D-N-D-N (0V 3N 2D, 3 buts marqués / 6 encaissés sur 5). Classement : Leganés 15e (18 pts), CD Sabadell 13e (19 pts). Stats empiriques (forme récente) : buts moy. 2, BTTS 80.0%, Over 2.5 50.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.55 / N: 2.9 / 2: 2.95 · Over 2.5: 2.3. Fiabilité 85%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.8,
+        "empiricalOver25Rate": 0.5,
+        "homeLambda": 1.25,
+        "awayLambda": 0.75,
+        "xgTotal": 2
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.55,
+        "draw": 2.9,
+        "away": 2.95,
+        "over25": 2.3,
+        "under25": 1.51
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "V-V-D-D-N",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 11,
+        "goalsAgainst": 10,
+        "bttsRate": 1,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-D-N-D-N",
+        "wins": 0,
+        "draws": 3,
+        "losses": 2,
+        "goalsFor": 3,
+        "goalsAgainst": 6,
+        "bttsRate": 0.6,
+        "over25Rate": 0.2,
+        "cleanSheets": 1,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-20",
+          "opponent": "FC Andorra",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-13",
+          "opponent": "Burgos",
+          "venue": "H",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Albacete",
+          "venue": "H",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-02",
+          "opponent": "Real Valladolid",
+          "venue": "A",
+          "score": "3-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Mallorca",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-21",
+          "opponent": "Granada",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-15",
+          "opponent": "Eldense",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-09",
+          "opponent": "Real Sociedad II",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Albacete",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Tenerife",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 15,
+        "points": 18,
+        "played": 15,
+        "gf": 17,
+        "ga": 25
+      },
+      "standingsAway": {
+        "rank": 13,
+        "points": 19,
+        "played": 15,
+        "gf": 13,
+        "ga": 14
+      },
+      "empiricalBttsRate": 0.8,
+      "empiricalOver25Rate": 0.5,
+      "homeLambda": 1.25,
+      "awayLambda": 0.75,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Leganés présente un taux BTTS de 100% sur ses cinq dernières sorties.",
+      "ai_analysis": "Malgré la faiblesse offensive relative de Sabadell, Leganés présente un profil très orienté vers le BTTS (100% récemment). La défense de Leganés (25 buts encaissés) offre des opportunités à l'adversaire, rendant l'option Yes cohérente.",
+      "ai_analysis_en": "Despite Sabadell's relative offensive weakness, Leganés has a strong BTTS profile (100% recently). Leganés' defense (25 goals conceded) offers opponent opportunities, making the Yes option consistent.",
+      "ai_form_summary": "Leganés : V-V-D-D-N (2V-1N-2D), 11 buts pour, 10 contre. CD Sabadell : N-D-N-D-N (0V-3N-2D), 3 buts pour, 6 contre.",
+      "ai_form_summary_en": "Leganés: V-V-D-D-N (2W-1D-2L), 11 goals for, 10 against. CD Sabadell: N-D-N-D-N (0W-3D-2L), 3 goals for, 6 against.",
+      "ai_reasons": [
+        "Taux BTTS empirique global de 80%",
+        "Taux BTTS de Leganés à 100% sur ses 5 derniers matchs",
+        "Buts encaissés importants pour Leganés (25 buts en 15 matchs)"
+      ],
+      "ai_risks": [
+        "CD Sabadell a une moyenne de buts faible (0.75 par match)"
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 68,
+          "proba": 0.68,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.68
+        }
+      ],
+      "bttsProb": 0.68,
+      "prediction": "Oui",
+      "proba": 0.68,
+      "confidence": 68,
+      "status": "PENDING"
+    },
+    {
+      "id": "alqadsia-vs-alfayha-2026-11-27",
+      "match": "Al Qadsiah vs Al Fayha",
+      "home": "Al Qadsiah",
+      "away": "Al Fayha",
+      "league": "Saudi Pro League",
+      "date": "2026-11-27",
+      "type": "Over 2.5",
+      "time": "14:20",
+      "matchSemantic": "alqadsia-vs-alfayha-2026-11-27",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22022.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21827.png",
+      "tier": "GOLD",
+      "reliabilityScore": 85,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.5,
+      "xgAway": 0.75,
+      "xgTotal": 3.25,
+      "formBTTS": 60,
+      "analysis": "Al Qadsiah : forme V-D-V-V-V (4V 0N 1D, 16 buts marqués / 4 encaissés sur 5) · Al Fayha : forme V-N-D-D-N (1V 2N 2D, 9 buts marqués / 9 encaissés sur 5). Classement : Al Qadsiah 2e (28 pts), Al Fayha 13e (11 pts). Stats empiriques (forme récente) : buts moy. 3.25, BTTS 60.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.19 / N: 7 / 2: 9.5. Fiabilité 85%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.6,
+        "empiricalOver25Rate": 0.7,
+        "homeLambda": 2.5,
+        "awayLambda": 0.75,
+        "xgTotal": 3.25
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.19,
+        "draw": 7,
+        "away": 9.5,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "V-D-V-V-V",
+        "wins": 4,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 16,
+        "goalsAgainst": 4,
+        "bttsRate": 0.4,
+        "over25Rate": 0.8,
+        "cleanSheets": 3,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-N-D-D-N",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 9,
+        "goalsAgainst": 9,
+        "bttsRate": 0.8,
+        "over25Rate": 0.6,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-29",
+          "opponent": "Al Riyadh",
+          "venue": "A",
+          "score": "6-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Al Hilal",
+          "venue": "H",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-20",
+          "opponent": "Al Taawoun",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-16",
+          "opponent": "Abha",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-09",
+          "opponent": "Al Kholood",
+          "venue": "A",
+          "score": "5-0",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-31",
+          "opponent": "Al Faisaly",
+          "venue": "H",
+          "score": "4-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-22",
+          "opponent": "Al Hazem",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-19",
+          "opponent": "Al Ahli",
+          "venue": "H",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-15",
+          "opponent": "Al Khaleej",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Al Riyadh",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 2,
+        "points": 28,
+        "played": 12,
+        "gf": 32,
+        "ga": 12
+      },
+      "standingsAway": {
+        "rank": 13,
+        "points": 11,
+        "played": 12,
+        "gf": 16,
+        "ga": 20
+      },
+      "empiricalBttsRate": 0.6,
+      "empiricalOver25Rate": 0.7,
+      "homeLambda": 2.5,
+      "awayLambda": 0.75,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_key_fact": "Al Qadsiah a inscrit 32 buts en 12 matchs cette saison.",
+      "ai_analysis": "Al Qadsiah domine offensivement avec 32 buts inscrits et un taux Over 2.5 de 80% sur sa forme récente. Même si Al Fayha marque moins, la puissance de frappe de l'équipe locale pousse nettement vers un match prolifique.",
+      "ai_analysis_en": "Al Qadsiah dominates offensively with 32 goals scored and an 80% Over 2.5 rate in recent form. Even though Al Fayha scores less, the home team's firepower strongly drives towards a high-scoring match.",
+      "ai_form_summary": "Al Qadsiah : V-D-V-V-V (4V-0N-1D), 16 buts pour, 4 contre. Al Fayha : V-N-D-D-N (1V-2N-2D), 9 buts pour, 9 contre.",
+      "ai_form_summary_en": "Al Qadsiah: V-D-V-V-V (4W-0D-1L), 16 goals for, 4 against. Al Fayha: V-N-D-D-N (1W-2D-2L), 9 goals for, 9 against.",
+      "ai_reasons": [
+        "Taux Over 2.5 de forme à 80% pour Al Qadsiah",
+        "Moyenne de buts de 2.5 par match pour l'équipe à domicile",
+        "Al Qadsiah possède la 2e meilleure attaque du championnat (32 buts en 12 matchs)"
+      ],
+      "ai_risks": [
+        "Al Fayha a une moyenne de buts faible à l'extérieur (0.75 par match)"
+      ],
+      "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 75,
+          "proba": 0.75,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "over25Prob": 0.75
+        }
+      ],
+      "over25Prob": 0.75,
+      "prediction": "Oui",
+      "proba": 0.75,
+      "confidence": 75,
       "status": "PENDING"
     }
   ],
