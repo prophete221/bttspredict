@@ -346,6 +346,10 @@ jobs:
         if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
         run: node scripts/filter-gemini-current-picks.mjs public/predictions.json
 
+      - name: Guard against empty public feed (Gemini outage)
+        if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
+        run: node scripts/guard-nonempty-public-feed.mjs public/predictions.json
+
       - name: Require fresh public schedule content before private jobs or deployment
         if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
         run: node scripts/validate-predictions.mjs public/predictions.json --require-timestamp --require-gemini --require-scheduled-content
