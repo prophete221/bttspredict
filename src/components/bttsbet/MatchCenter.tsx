@@ -412,11 +412,11 @@ function MatchCard({ m, index, lang, results, nowTs }: {
   const statusText = statusLabel
   const ringId = `mc-ring-${Math.min(index, 8)}-${matchSlug.replace(/[^a-zA-Z0-9]/g, '').slice(0, 24)}`
 
-  // Ligne de provenance (maquette A) — véridique : bookmaker des cotes et
-  // analyse IA Gemini, tels qu'ils sortent du pipeline public.
+  // Ligne de provenance (maquette A) — véridique : bookmaker des cotes,
+  // tels qu'ils sortent du pipeline public. (Aucune mention de fournisseur
+  // d'analyse IA n'est affichée — décision produit.)
   const provBits: string[] = []
   if (m.odds?.provider) provBits.push(`${lang === 'en' ? 'Source' : lang === 'ar' ? 'المصدر' : 'Source'} ${m.odds.provider}`)
-  if (picks.length > 0) provBits.push(lang === 'en' ? 'Gemini AI analysis' : lang === 'ar' ? 'تحليل Gemini AI' : 'Analyse IA Gemini')
   const coteValue = typeof m.odds?.over25 === 'number' && Number.isFinite(m.odds.over25) ? m.odds.over25 : null
   const coteImplied = coteValue !== null && coteValue > 1 ? Math.min(100, Math.max(0, (1 / coteValue) * 100)) : null
 

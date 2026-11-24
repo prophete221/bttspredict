@@ -236,18 +236,18 @@ describe('five protected SEO routes', () => {
   it('keeps the exact localized home title and description text used by metadata and H1', () => {
     const english = translationsFor('en')
     expect(english.home2.heroTitle1).toBe('The [World’s No.1]')
-    expect(english.home2.heroTitle2).toBe('BTTS & Over 2.5 Master Platform')
+    expect(english.home2.heroTitle2).toBe('BTTS & Over\u00A02.5 Master Platform')
     expect(english.home2.heroText).toBe('Best BTTS, Over 2.5 and surebets picks | Reliable football analysis')
     expect(english.hero.subtitle).toBe('BTTS and Over 2.5 picks for upcoming matches, tracked to the verified result.')
 
     const french = translationsFor('fr')
     expect(french.home2.heroTitle1).toBe('Plateforme [N°1 Mondiale]')
-    expect(french.home2.heroTitle2).toBe('BTTS & Over 2.5 Master')
+    expect(french.home2.heroTitle2).toBe('BTTS & Over\u00A02.5 Master')
     expect(french.home2.heroText).toBe('Meilleurs pronostics BTTS, Over 2.5 et surbets | Analyses foot fiables')
 
     const arabic = translationsFor('ar')
     expect(arabic.home2.heroTitle1).toBe('المنصة [الأولى عالمياً]')
-    expect(arabic.home2.heroTitle2).toBe('BTTS و Over 2.5 Master')
+    expect(arabic.home2.heroTitle2).toBe('BTTS و Over\u00A02.5 Master')
     expect(arabic.home2.heroText).toBe('أفضل توقعات BTTS و Over 2.5 والسيربيت | تحليلات كرة قدم موثوقة')
     expect(arabic.hero.subtitle).toBe('اختيارات BTTS وOver 2.5 لمباريات قادمة، وتُتابع حتى النتيجة الموثّقة.')
   })

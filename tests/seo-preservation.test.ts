@@ -29,7 +29,9 @@ const hash = (value: string) => createHash('sha256').update(value).digest('hex')
 // Approved 2026-11-16: normalize only removed non-promo Arabic alternates and
 // neutralized publisher/language labels; frozen titles, canonicals and URLs stay intact.
 // Owner-approved 2026-11-16: provider names are removed from public-facing copy; internal validation remains unchanged.
-const frozenI18nWithoutPartnerCta = 'fb0c146be9f84035e33c7f15b852211490070dc2f653bc0fb748ee4ffe55f79f'
+// Owner-approved 2026-11-24: heroTitle2 gains a non-breaking space in "Over\u00A02.5"
+// (FR/EN/AR) so the phrase never splits across lines on mobile; rendered copy is identical.
+const frozenI18nWithoutPartnerCta = '0cd62856dd08eba360808d5b2ed218b73db70e4a998a01733163c92956f47ece'
 
 describe('owner-requested SEO preservation', () => {
   it.each(Object.entries(frozenFiles))('preserves %s byte for byte', (file, expected) => {

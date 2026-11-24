@@ -24,6 +24,14 @@ body { font-family: var(--font-body), Inter, Arial, sans-serif; }
 }
 .page-design--home .hp-hero__inner { padding-block: clamp(28px,5vw,64px) !important; }
 .page-design--home .hp-hero__title { font-size: clamp(2rem,5vw,3.7rem) !important; line-height: 1.04 !important; font-weight: 800 !important; letter-spacing: -.055em !important; }
+/* Mobile (≤480px) : à 32px la ligne « BTTS & Over 2.5 Master » dépasse la
+   largeur utile (~341px vs 330px à 390px) et text-wrap:balance coupe en
+   plein milieu (« BTTS & Over / 2.5 Master »). On redescend à ~27-33px :
+   chaque titre tient sur UNE ligne dès 340px, et l'espace insécable posée
+   dans i18n (Over 2.5) garantit une croupe propre en dessous. */
+@media (max-width: 480px) {
+  .page-design--home .hp-hero__title { font-size: clamp(1.7rem, 7.2vw, 2.05rem) !important; }
+}
 .page-design--home .hp-hero__title-line2 { color: var(--btp-accent) !important; }
 .page-design--home .hp-hero__text { color: #b2bfd0 !important; max-width: 38rem; }
 .page-design--home .hp-hero__glow, .page-design--home .hp-hero__gridbg, .page-design--home .hp-clubs { display:none !important; }

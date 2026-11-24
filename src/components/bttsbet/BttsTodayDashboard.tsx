@@ -385,16 +385,15 @@ function MatchCard({ match, index, status, lang, labels, now }: {
   const ringId = `btx-ring-${Math.min(index, 8)}-${match.key.replace(/[^a-zA-Z0-9]/g, '').slice(0, 28)}`
   const ringSub = lang === 'en' ? 'est.' : lang === 'ar' ? 'تقديري' : 'estimé'
 
-  // Ligne de provenance (maquette : « SOURCE DRAFTKINGS · ANALYSE IA GEMINI »).
-  // Toujours véridique : bookmaker des cotes, source des données, analyse
-  // Gemini et échantillon observés tels qu'ils sortent du pipeline public.
+  // Ligne de provenance — véridique : bookmaker des cotes, source des
+  // données et échantillon observés tels qu'ils sortent du pipeline public.
+  // (Aucune mention de fournisseur d'analyse IA n'est affichée — décision produit.)
   const observedCount = typeof match.matchCountHome === 'number' && typeof match.matchCountAway === 'number'
     ? match.matchCountHome + match.matchCountAway
     : null
   const provBits: string[] = []
   if (match.odds?.provider) provBits.push(`${labels.source} ${match.odds.provider}`)
   else if (match.dataSource) provBits.push(`${labels.source} ${dataSourceLabel}`)
-  provBits.push(lang === 'en' ? 'Gemini AI analysis' : lang === 'ar' ? 'تحليل Gemini AI' : 'Analyse IA Gemini')
   if (observedCount != null) provBits.push(`${fmtInt(observedCount)} ${labels.matches}`)
 
   return (
@@ -506,7 +505,7 @@ function MatchCard({ match, index, status, lang, labels, now }: {
         </div>
 
         {/* ─── SOURCE — ligne de provenance (maquette) ─── */}
-        <p className="btx-prov" dir="ltr">{provBits.join(' · ')}</p>
+        {provBits.length > 0 && <p className="btx-prov" dir="ltr">{provBits.join(' · ')}</p>}
 
         {/* ─── ANALYSE DU MATCH (contenu inchangé, habillage Stadium Signal) ─── */}
         {hasLocalizedAnalysis && (

@@ -44,7 +44,7 @@ export const TRANSLATIONS = {
     home2: {
       statusUpdated: 'Données mises à jour aujourd’hui',
       heroTitle1: 'Plateforme [N°1 Mondiale]',
-      heroTitle2: 'BTTS & Over 2.5 Master',
+      heroTitle2: 'BTTS & Over\u00A02.5 Master',
       heroText: 'Meilleurs pronostics BTTS, Over 2.5 et surbets | Analyses foot fiables',
       heroCtaPrimary: 'Voir les matchs analysés',
       heroCtaSecondary: 'Consulter l’historique',
@@ -165,7 +165,7 @@ export const TRANSLATIONS = {
     home2: {
       statusUpdated: 'Data updated today',
       heroTitle1: 'The [World’s No.1]',
-      heroTitle2: 'BTTS & Over 2.5 Master Platform',
+      heroTitle2: 'BTTS & Over\u00A02.5 Master Platform',
       heroText: 'Best BTTS, Over 2.5 and surebets picks | Reliable football analysis',
       heroCtaPrimary: 'See analysed matches',
       heroCtaSecondary: 'Browse the history',
@@ -286,7 +286,7 @@ export const TRANSLATIONS = {
     home2: {
       statusUpdated: 'بيانات محدّثة اليوم',
       heroTitle1: 'المنصة [الأولى عالمياً]',
-      heroTitle2: 'BTTS و Over 2.5 Master',
+      heroTitle2: 'BTTS و Over\u00A02.5 Master',
       heroText: 'أفضل توقعات BTTS و Over 2.5 والسيربيت | تحليلات كرة قدم موثوقة',
       heroCtaPrimary: 'عرض المباريات المُحلَّلة',
       heroCtaSecondary: 'تصفّح السجل',

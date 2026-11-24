@@ -85,9 +85,14 @@ type Phase = 'idle' | 'armed' | 'play'
 
 type Seg = { words: string[]; accent: boolean }
 
-/** Segmente le texte en mots, en isolant le segment accent (dégradé). */
+/** Segmente le texte en mots, en isolant le segment accent (dégradé).
+ *  L'espace insécable (U+00A0 / U+202F) ne sépare PAS les mots : elle colle
+ *  deux unités (ex. « Over 2.5 ») qui doivent toujours rester ensemble,
+ *  y compris au retour à la ligne sur mobile. */
+const WORD_BREAK = /[\t\n\r\f\v\u2028\u2029 ]+/
+
 function buildSegments(text: string, accent?: string): Seg[] {
-  const split = (s: string) => s.split(/\s+/).filter(Boolean)
+  const split = (s: string) => s.split(WORD_BREAK).filter(Boolean)
   if (!accent) return [{ words: split(text), accent: false }]
   const idx = text.indexOf(accent)
   if (idx < 0) return [{ words: split(text), accent: false }]
