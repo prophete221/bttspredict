@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-11-25T04:06:55.314Z",
+  "generatedAt": "2026-11-25T07:07:36.991Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,37 +15,37 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 634,
+    "total": 615,
     "won": 486,
-    "lost": 148,
+    "lost": 129,
     "pending": 84,
-    "unverifiable": 297,
+    "unverifiable": 316,
     "archivedTotal": 1015,
-    "rate": 76.7,
+    "rate": 79,
     "gold": {
-      "total": 507,
+      "total": 489,
       "won": 391,
-      "lost": 116,
-      "rate": 77.1
+      "lost": 98,
+      "rate": 80
     },
     "standard": {
-      "total": 127,
+      "total": 126,
       "won": 95,
-      "lost": 32,
-      "rate": 74.8
+      "lost": 31,
+      "rate": 75.4
     },
     "byType": {
       "btts": {
-        "total": 502,
+        "total": 487,
         "won": 392,
-        "lost": 110,
-        "rate": 78.1
+        "lost": 95,
+        "rate": 80.5
       },
       "over25": {
-        "total": 132,
+        "total": 128,
         "won": 94,
-        "lost": 38,
-        "rate": 71.2
+        "lost": 34,
+        "rate": 73.4
       }
     },
     "trend14": [
@@ -121,10 +121,10 @@
       },
       {
         "date": "2026-11-21",
-        "total": 37,
+        "total": 18,
         "won": 18,
-        "lost": 19,
-        "rate": 48.6
+        "lost": 0,
+        "rate": 100
       },
       {
         "date": "2026-11-22",
@@ -672,44 +672,6 @@
     },
     {
       "date": "2026-11-21",
-      "match": "Strasbourg vs Brest",
-      "league": "Ligue 1",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.68,
-      "status": "LOST",
-      "finalScore": "0-1",
-      "verifiedAt": "2026-11-22T08:08:10.735Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-21",
-      "match": "Inter Miami CF vs Columbus Crew",
-      "league": "MLS",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.64,
-      "status": "LOST",
-      "finalScore": "0-3",
-      "verifiedAt": "2026-11-22T08:06:54.491Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-21",
-      "match": "Lille vs Lyon",
-      "league": "Ligue 1",
-      "market": "btts",
-      "tier": "STANDARD",
-      "proba": 0.62,
-      "status": "LOST",
-      "finalScore": "0-1",
-      "verifiedAt": "2026-11-22T08:06:54.489Z",
-      "source": "ESPN public"
-    },
-    {
-      "date": "2026-11-21",
       "match": "Real Madrid vs Celta Vigo",
       "league": "LaLiga",
       "market": "btts",
@@ -748,32 +710,6 @@
     },
     {
       "date": "2026-11-21",
-      "match": "St. Pauli vs VfL Bochum",
-      "league": "2. Bundesliga",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.6,
-      "status": "LOST",
-      "finalScore": "2-0",
-      "verifiedAt": "2026-11-22T08:06:54.485Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-21",
-      "match": "Lens vs Toulouse",
-      "league": "Ligue 1",
-      "market": "over25",
-      "tier": "GOLD",
-      "proba": 0.65,
-      "status": "LOST",
-      "finalScore": "1-1",
-      "verifiedAt": "2026-11-22T08:06:54.484Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-21",
       "match": "Inter Miami CF vs Columbus Crew",
       "league": "MLS",
       "market": "over25",
@@ -787,19 +723,6 @@
     },
     {
       "date": "2026-11-21",
-      "match": "FC Dallas vs Portland Timbers",
-      "league": "MLS",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.6,
-      "status": "LOST",
-      "finalScore": "3-0",
-      "verifiedAt": "2026-11-22T08:06:54.481Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-21",
       "match": "KV Mechelen vs Club Brugge",
       "league": "Jupiler Pro League",
       "market": "btts",
@@ -808,32 +731,6 @@
       "status": "WON",
       "finalScore": "1-5",
       "verifiedAt": "2026-11-22T08:06:54.481Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-21",
-      "match": "Napoli vs Torino",
-      "league": "Serie A",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.58,
-      "status": "LOST",
-      "finalScore": "1-0",
-      "verifiedAt": "2026-11-22T08:06:54.480Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-21",
-      "match": "Tenerife vs Mallorca",
-      "league": "LaLiga 2",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.72,
-      "status": "LOST",
-      "finalScore": "0-0",
-      "verifiedAt": "2026-11-22T08:06:54.480Z",
       "source": "ESPN public",
       "prediction": "Oui"
     },
@@ -860,19 +757,6 @@
       "status": "WON",
       "finalScore": "1-3",
       "verifiedAt": "2026-11-22T08:06:31.464Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-21",
-      "match": "Strasbourg vs Brest",
-      "league": "Ligue 1",
-      "market": "over25",
-      "tier": "GOLD",
-      "proba": 0.65,
-      "status": "LOST",
-      "finalScore": "0-1",
-      "verifiedAt": "2026-11-22T08:06:31.463Z",
       "source": "ESPN public",
       "prediction": "Oui"
     },
@@ -917,19 +801,6 @@
     },
     {
       "date": "2026-11-21",
-      "match": "New England Revolution vs Philadelphia Union",
-      "league": "MLS",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.6,
-      "status": "LOST",
-      "finalScore": "2-0",
-      "verifiedAt": "2026-11-21T21:13:33.953Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-21",
       "match": "FC Utrecht vs SC Cambuur",
       "league": "Eredivisie",
       "market": "btts",
@@ -938,32 +809,6 @@
       "status": "WON",
       "finalScore": "2-3",
       "verifiedAt": "2026-11-21T21:13:33.942Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-21",
-      "match": "Empoli vs Pisa",
-      "league": "Serie B",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.68,
-      "status": "LOST",
-      "finalScore": "0-1",
-      "verifiedAt": "2026-11-21T21:13:08.447Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-21",
-      "match": "Dundee vs Heart of Midlothian",
-      "league": "Scottish Premiership",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.75,
-      "status": "LOST",
-      "finalScore": "0-8",
-      "verifiedAt": "2026-11-21T21:13:08.442Z",
       "source": "ESPN public",
       "prediction": "Oui"
     },
@@ -982,58 +827,6 @@
     },
     {
       "date": "2026-11-21",
-      "match": "Lazio vs Lecce",
-      "league": "Serie A",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.65,
-      "status": "LOST",
-      "finalScore": "3-0",
-      "verifiedAt": "2026-11-21T18:33:32.513Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-21",
-      "match": "SV Elversberg vs SC Freiburg",
-      "league": "Bundesliga",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.68,
-      "status": "LOST",
-      "finalScore": "0-1",
-      "verifiedAt": "2026-11-21T18:33:32.513Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-21",
-      "match": "WSG Swarovski Tirol vs Austria Lustenau",
-      "league": "Austrian Bundesliga",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.72,
-      "status": "LOST",
-      "finalScore": "0-1",
-      "verifiedAt": "2026-11-21T18:33:32.513Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-21",
-      "match": "WSG Swarovski Tirol vs Austria Lustenau",
-      "league": "Austrian Bundesliga",
-      "market": "over25",
-      "tier": "GOLD",
-      "proba": 0.65,
-      "status": "LOST",
-      "finalScore": "0-1",
-      "verifiedAt": "2026-11-21T18:33:09.934Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-21",
       "match": "Royal Charleroi SC vs Sint-Truidense",
       "league": "Jupiler Pro League",
       "market": "over25",
@@ -1047,19 +840,6 @@
     },
     {
       "date": "2026-11-21",
-      "match": "Borussia Mönchengladbach vs Borussia Dortmund",
-      "league": "Bundesliga",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.65,
-      "status": "LOST",
-      "finalScore": "0-1",
-      "verifiedAt": "2026-11-21T18:33:09.930Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-21",
       "match": "NEC Nijmegen vs PSV Eindhoven",
       "league": "Eredivisie",
       "market": "btts",
@@ -1067,19 +847,6 @@
       "proba": 0.65,
       "status": "WON",
       "finalScore": "1-4",
-      "verifiedAt": "2026-11-21T18:33:09.930Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-21",
-      "match": "SV Elversberg vs SC Freiburg",
-      "league": "Bundesliga",
-      "market": "over25",
-      "tier": "GOLD",
-      "proba": 0.72,
-      "status": "LOST",
-      "finalScore": "0-1",
       "verifiedAt": "2026-11-21T18:33:09.930Z",
       "source": "ESPN public",
       "prediction": "Oui"
@@ -1120,19 +887,6 @@
       "status": "WON",
       "finalScore": "3-0",
       "verifiedAt": "2026-11-21T18:33:09.928Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-11-21",
-      "match": "Tottenham Hotspur vs Ipswich Town",
-      "league": "Premier League",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.65,
-      "status": "LOST",
-      "finalScore": "2-0",
-      "verifiedAt": "2026-11-21T18:33:09.926Z",
       "source": "ESPN public",
       "prediction": "Oui"
     },

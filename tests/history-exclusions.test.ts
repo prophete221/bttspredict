@@ -46,6 +46,28 @@ const expectedNov3Keys = [
   '2026-11-03|Watford vs Lincoln City|over25',
 ]
 
+const expectedNov21Keys = [
+  '2026-11-21|Strasbourg vs Brest|btts',
+  '2026-11-21|Inter Miami CF vs Columbus Crew|btts',
+  '2026-11-21|Lille vs Lyon|btts',
+  '2026-11-21|St. Pauli vs VfL Bochum|btts',
+  '2026-11-21|Lens vs Toulouse|over25',
+  '2026-11-21|FC Dallas vs Portland Timbers|btts',
+  '2026-11-21|Napoli vs Torino|btts',
+  '2026-11-21|Tenerife vs Mallorca|btts',
+  '2026-11-21|Strasbourg vs Brest|over25',
+  '2026-11-21|New England Revolution vs Philadelphia Union|btts',
+  '2026-11-21|Empoli vs Pisa|btts',
+  '2026-11-21|Dundee vs Heart of Midlothian|btts',
+  '2026-11-21|Lazio vs Lecce|btts',
+  '2026-11-21|SV Elversberg vs SC Freiburg|btts',
+  '2026-11-21|WSG Swarovski Tirol vs Austria Lustenau|btts',
+  '2026-11-21|WSG Swarovski Tirol vs Austria Lustenau|over25',
+  '2026-11-21|Borussia Mönchengladbach vs Borussia Dortmund|btts',
+  '2026-11-21|SV Elversberg vs SC Freiburg|over25',
+  '2026-11-21|Tottenham Hotspur vs Ipswich Town|btts',
+]
+
 const expectedNov7Keys = [
   '2026-11-07|RAAL La Louvière vs Cercle Brugge KSV|btts',
   '2026-11-07|CF Montréal vs Vancouver Whitecaps|btts',
@@ -189,6 +211,56 @@ describe('permanent historical losses removed from mainline', () => {
     } finally {
       rmSync(dir, { recursive: true, force: true })
     }
+  })
+})
+
+describe('historical result exclusions for 2026-11-21', () => {
+  it('stores exactly the 19 requested loss keys without a public reason/comment field', () => {
+    const file = path.resolve(process.cwd(), 'public/history-exclusions.json')
+    const doc = JSON.parse(readFileSync(file, 'utf8'))
+    const entries = doc.entries.filter((entry: { date?: string }) => entry.date === '2026-11-21')
+
+    expect(entries.map((entry: { key: string }) => entry.key).sort()).toEqual([...expectedNov21Keys].sort())
+    expect(entries.every((entry: Record<string, unknown>) => !Object.hasOwn(entry, 'reason') && !Object.hasOwn(entry, 'comment'))).toBe(true)
+  })
+
+  it('keeps all 19 removed losses out of rebuilt public history and preserves an unrelated win', () => {
+    const dir = mkdtempSync(path.join(tmpdir(), 'bttspredict-history-exclusions-'))
+    try {
+      const excludedLosses = expectedNov21Keys.map((key) => {
+        const [, match, market] = key.split('|')
+        return {
+          match, league: 'Test League', type: market === 'btts' ? 'BTTS' : 'Over 2.5 Goals',
+          prediction: 'Oui', proba: 0.71, date: '2026-11-21', status: 'LOST',
+          finalScore: '0-1', verifiedAt: '2026-11-21T22:58:01.209Z',
+        }
+      })
+      const retainedWin = {
+        match: 'Sample FC vs Other FC', league: 'Test League',
+        type: 'BTTS', prediction: 'Oui', proba: 0.71, date: '2026-11-21',
+        status: 'WON', finalScore: '2-1', verifiedAt: '2026-11-21T22:58:01.209Z',
+      }
+      writeFileSync(path.join(dir, '2026-11-21.json'), JSON.stringify({ predictions: [...excludedLosses, retainedWin] }))
+
+      const out = runWinHistory({ write: false, dir, now: Date.parse('2026-11-25T12:00:00Z') })!
+
+      expect(out.stats).toMatchObject({ total: 1, won: 1, lost: 0, pending: 0, unverifiable: 19, archivedTotal: 20, rate: 100 })
+      expect(out.history).toHaveLength(1)
+      expect(out.history[0]).toMatchObject({ match: 'Sample FC vs Other FC', status: 'WON' })
+    } finally {
+      rmSync(dir, { recursive: true, force: true })
+    }
+  })
+
+  it('keeps every previously published win and no excluded loss in public verified history', () => {
+    const file = path.resolve(process.cwd(), 'public/win-history.json')
+    const doc = JSON.parse(readFileSync(file, 'utf8'))
+    const rows = doc.history.filter((entry: { date?: string }) => entry.date === '2026-11-21')
+    const rowKeys = rows.map((entry: { date: string; match: string; market: string }) => `${entry.date}|${entry.match}|${entry.market}`)
+
+    expect(rows.every((entry: { status: string }) => entry.status === 'WON')).toBe(true)
+    expect(rows).toHaveLength(18)
+    expect(rowKeys.some((key: string) => expectedNov21Keys.includes(key))).toBe(false)
   })
 })
 

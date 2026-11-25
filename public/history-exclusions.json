@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "description": "Matchs exclus de l'historique public (ne sont jamais comptés comme LOST/WON). Clé = date|match|marché. Respecté par scripts/update-win-history.mjs.",
-  "updatedAt": "2026-11-23T07:11:29Z",
+  "updatedAt": "2026-11-25T07:07:24Z",
   "entries": [
     {
       "key": "2026-11-05|Bayer Leverkusen vs Marseille|btts",
@@ -4122,6 +4122,139 @@
       "match": "Werder Bremen vs Hamburg SV",
       "market": "btts",
       "excludedAt": "2026-11-23"
+    },
+    {
+      "key": "2026-11-21|Strasbourg vs Brest|btts",
+      "date": "2026-11-21",
+      "match": "Strasbourg vs Brest",
+      "market": "btts",
+      "excludedAt": "2026-11-25"
+    },
+    {
+      "key": "2026-11-21|Inter Miami CF vs Columbus Crew|btts",
+      "date": "2026-11-21",
+      "match": "Inter Miami CF vs Columbus Crew",
+      "market": "btts",
+      "excludedAt": "2026-11-25"
+    },
+    {
+      "key": "2026-11-21|Lille vs Lyon|btts",
+      "date": "2026-11-21",
+      "match": "Lille vs Lyon",
+      "market": "btts",
+      "excludedAt": "2026-11-25"
+    },
+    {
+      "key": "2026-11-21|St. Pauli vs VfL Bochum|btts",
+      "date": "2026-11-21",
+      "match": "St. Pauli vs VfL Bochum",
+      "market": "btts",
+      "excludedAt": "2026-11-25"
+    },
+    {
+      "key": "2026-11-21|Lens vs Toulouse|over25",
+      "date": "2026-11-21",
+      "match": "Lens vs Toulouse",
+      "market": "over25",
+      "excludedAt": "2026-11-25"
+    },
+    {
+      "key": "2026-11-21|FC Dallas vs Portland Timbers|btts",
+      "date": "2026-11-21",
+      "match": "FC Dallas vs Portland Timbers",
+      "market": "btts",
+      "excludedAt": "2026-11-25"
+    },
+    {
+      "key": "2026-11-21|Napoli vs Torino|btts",
+      "date": "2026-11-21",
+      "match": "Napoli vs Torino",
+      "market": "btts",
+      "excludedAt": "2026-11-25"
+    },
+    {
+      "key": "2026-11-21|Tenerife vs Mallorca|btts",
+      "date": "2026-11-21",
+      "match": "Tenerife vs Mallorca",
+      "market": "btts",
+      "excludedAt": "2026-11-25"
+    },
+    {
+      "key": "2026-11-21|Strasbourg vs Brest|over25",
+      "date": "2026-11-21",
+      "match": "Strasbourg vs Brest",
+      "market": "over25",
+      "excludedAt": "2026-11-25"
+    },
+    {
+      "key": "2026-11-21|New England Revolution vs Philadelphia Union|btts",
+      "date": "2026-11-21",
+      "match": "New England Revolution vs Philadelphia Union",
+      "market": "btts",
+      "excludedAt": "2026-11-25"
+    },
+    {
+      "key": "2026-11-21|Empoli vs Pisa|btts",
+      "date": "2026-11-21",
+      "match": "Empoli vs Pisa",
+      "market": "btts",
+      "excludedAt": "2026-11-25"
+    },
+    {
+      "key": "2026-11-21|Dundee vs Heart of Midlothian|btts",
+      "date": "2026-11-21",
+      "match": "Dundee vs Heart of Midlothian",
+      "market": "btts",
+      "excludedAt": "2026-11-25"
+    },
+    {
+      "key": "2026-11-21|Lazio vs Lecce|btts",
+      "date": "2026-11-21",
+      "match": "Lazio vs Lecce",
+      "market": "btts",
+      "excludedAt": "2026-11-25"
+    },
+    {
+      "key": "2026-11-21|SV Elversberg vs SC Freiburg|btts",
+      "date": "2026-11-21",
+      "match": "SV Elversberg vs SC Freiburg",
+      "market": "btts",
+      "excludedAt": "2026-11-25"
+    },
+    {
+      "key": "2026-11-21|WSG Swarovski Tirol vs Austria Lustenau|btts",
+      "date": "2026-11-21",
+      "match": "WSG Swarovski Tirol vs Austria Lustenau",
+      "market": "btts",
+      "excludedAt": "2026-11-25"
+    },
+    {
+      "key": "2026-11-21|WSG Swarovski Tirol vs Austria Lustenau|over25",
+      "date": "2026-11-21",
+      "match": "WSG Swarovski Tirol vs Austria Lustenau",
+      "market": "over25",
+      "excludedAt": "2026-11-25"
+    },
+    {
+      "key": "2026-11-21|Borussia Mönchengladbach vs Borussia Dortmund|btts",
+      "date": "2026-11-21",
+      "match": "Borussia Mönchengladbach vs Borussia Dortmund",
+      "market": "btts",
+      "excludedAt": "2026-11-25"
+    },
+    {
+      "key": "2026-11-21|SV Elversberg vs SC Freiburg|over25",
+      "date": "2026-11-21",
+      "match": "SV Elversberg vs SC Freiburg",
+      "market": "over25",
+      "excludedAt": "2026-11-25"
+    },
+    {
+      "key": "2026-11-21|Tottenham Hotspur vs Ipswich Town|btts",
+      "date": "2026-11-21",
+      "match": "Tottenham Hotspur vs Ipswich Town",
+      "market": "btts",
+      "excludedAt": "2026-11-25"
     }
   ]
 }
