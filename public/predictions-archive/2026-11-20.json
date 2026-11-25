@@ -19409,7 +19409,9 @@
       "prediction": "Oui",
       "proba": 0.65,
       "confidence": 65,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "4-1",
+      "verifiedAt": "2026-11-25T04:04:26.599Z"
     },
     {
       "id": "benevent-vs-empoli-2026-11-24",
@@ -19599,7 +19601,9 @@
       "prediction": "Oui",
       "proba": 0.62,
       "confidence": 62,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "5-0",
+      "verifiedAt": "2026-11-25T04:04:48.904Z"
     },
     {
       "id": "stlouisc-vs-lafc-2026-11-24",
@@ -19980,7 +19984,9 @@
       "prediction": "Oui",
       "proba": 0.6,
       "confidence": 60,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-4",
+      "verifiedAt": "2026-11-25T04:04:26.599Z"
     },
     {
       "id": "hibernia-vs-dundee-2026-11-24",
@@ -20170,7 +20176,9 @@
       "prediction": "Oui",
       "proba": 0.75,
       "confidence": 75,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-25T04:04:48.904Z"
     },
     {
       "id": "como-vs-aekathen-2026-11-24",
@@ -20353,7 +20361,9 @@
       "prediction": "Oui",
       "proba": 0.78,
       "confidence": 78,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-25T04:04:26.600Z"
     },
     {
       "id": "pisa-vs-modena-2026-11-25",
@@ -22810,7 +22820,9 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-4",
+      "verifiedAt": "2026-11-25T04:04:26.599Z"
     },
     {
       "id": "sanjosee-vs-houstond-2026-11-25",

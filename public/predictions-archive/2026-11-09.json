@@ -11821,7 +11821,9 @@
       "prediction": "Oui",
       "proba": 0.75,
       "confidence": 75,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-25T04:04:19.968Z"
     },
     {
       "id": "stlouisc-vs-lafc-2026-11-24",
@@ -12202,7 +12204,9 @@
       "prediction": "Oui",
       "proba": 0.6,
       "confidence": 60,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-4",
+      "verifiedAt": "2026-11-25T04:04:26.599Z"
     },
     {
       "id": "hibernia-vs-dundee-2026-11-24",
@@ -12392,7 +12396,9 @@
       "prediction": "Oui",
       "proba": 0.75,
       "confidence": 75,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-25T04:04:48.904Z"
     },
     {
       "id": "como-vs-aekathen-2026-11-24",
@@ -12574,7 +12580,9 @@
       "prediction": "Oui",
       "proba": 0.76,
       "confidence": 76,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-25T04:04:48.905Z"
     },
     {
       "id": "manchest-vs-napoli-2026-11-24",
@@ -12756,7 +12764,9 @@
       "prediction": "Oui",
       "proba": 0.68,
       "confidence": 68,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-11-25T04:04:26.600Z"
     },
     {
       "id": "realmadr-vs-psveindh-2026-11-24",
@@ -12939,7 +12949,9 @@
       "prediction": "Oui",
       "proba": 0.68,
       "confidence": 68,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "5-1",
+      "verifiedAt": "2026-11-25T04:04:26.600Z"
     },
     {
       "id": "sheffiel-vs-southamp-2026-11-24",
@@ -13129,7 +13141,9 @@
       "prediction": "Oui",
       "proba": 0.58,
       "confidence": 58,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-11-25T04:04:26.600Z"
     },
     {
       "id": "bayernmu-vs-fccologn-2026-11-20",

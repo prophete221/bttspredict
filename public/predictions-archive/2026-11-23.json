@@ -14826,7 +14826,9 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-4",
+      "verifiedAt": "2026-11-25T04:04:26.599Z"
     },
     {
       "id": "sheffiel-vs-southamp-2026-11-24",
@@ -15016,7 +15018,9 @@
       "prediction": "Oui",
       "proba": 0.58,
       "confidence": 58,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-11-25T04:04:26.600Z"
     },
     {
       "id": "rangers-vs-aberdeen-2026-11-24",
@@ -15206,7 +15210,9 @@
       "prediction": "Oui",
       "proba": 0.75,
       "confidence": 75,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-2",
+      "verifiedAt": "2026-11-25T04:04:26.600Z"
     },
     {
       "id": "boltonwa-vs-westbrom-2026-11-25",
@@ -22112,7 +22118,9 @@
       "prediction": "Oui",
       "proba": 0.75,
       "confidence": 75,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-25T04:04:19.968Z"
     },
     {
       "id": "crawleyt-vs-barnet-2026-11-24",
@@ -22492,7 +22500,9 @@
       "prediction": "Oui",
       "proba": 0.65,
       "confidence": 65,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "4-1",
+      "verifiedAt": "2026-11-25T04:04:26.599Z"
     },
     {
       "id": "cardiffc-vs-prestonn-2026-11-24",
@@ -22689,7 +22699,9 @@
       "prediction": "Oui",
       "proba": 0.58,
       "confidence": 58,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "0-4",
+      "verifiedAt": "2026-11-25T04:04:26.603Z"
     },
     {
       "id": "parissai-vs-asroma-2026-11-25",
@@ -24211,7 +24223,9 @@
       "prediction": "Oui",
       "proba": 0.6,
       "confidence": 60,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-4",
+      "verifiedAt": "2026-11-25T04:04:26.599Z"
     },
     {
       "id": "sanjosee-vs-houstond-2026-11-25",
