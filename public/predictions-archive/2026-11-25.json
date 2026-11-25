@@ -11653,7 +11653,8 @@
       "over25Prob": 0.75,
       "prediction": "Oui",
       "proba": 0.75,
-      "confidence": 75
+      "confidence": 75,
+      "status": "PENDING"
     },
     {
       "id": "padova-vs-sampdori-2026-11-25",
@@ -11849,7 +11850,8 @@
       "over25Prob": 0.72,
       "prediction": "Non",
       "proba": 0.72,
-      "confidence": 72
+      "confidence": 72,
+      "status": "PENDING"
     },
     {
       "id": "stokecit-vs-millwall-2026-11-25",
@@ -12031,7 +12033,8 @@
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "abstain",
+      "status": "PENDING"
     },
     {
       "id": "cremones-vs-usavelli-2026-11-25",
@@ -12213,7 +12216,8 @@
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "abstain",
+      "status": "PENDING"
     },
     {
       "id": "mantova-vs-arezzo-2026-11-25",
@@ -12395,7 +12399,8 @@
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "abstain",
+      "status": "PENDING"
     },
     {
       "id": "mitoholl-vs-tokyover-2026-11-25",
@@ -12591,7 +12596,8 @@
       "over25Prob": 0.58,
       "prediction": "Oui",
       "proba": 0.58,
-      "confidence": 58
+      "confidence": 58,
+      "status": "PENDING"
     },
     {
       "id": "fctokyo-vs-sanfrecc-2026-11-25",
@@ -12787,7 +12793,8 @@
       "over25Prob": 0.72,
       "prediction": "Oui",
       "proba": 0.72,
-      "confidence": 72
+      "confidence": 72,
+      "status": "PENDING"
     },
     {
       "id": "venezia-vs-bologna-2026-11-27",
@@ -12982,6 +12989,203 @@
       ],
       "over25Prob": 0.58,
       "prediction": "Oui",
+      "proba": 0.58,
+      "confidence": 58,
+      "status": "PENDING"
+    },
+    {
+      "id": "watford-vs-blackbur-2026-11-25",
+      "match": "Watford vs Blackburn Rovers",
+      "home": "Watford",
+      "away": "Blackburn Rovers",
+      "league": "Championship",
+      "date": "2026-11-25",
+      "type": "BTTS",
+      "time": "19:45",
+      "matchSemantic": "watford-vs-blackbur-2026-11-25",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/395.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/365.png",
+      "tier": "SILVER",
+      "reliabilityScore": 67.5,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 0.75,
+      "xgAway": 1.25,
+      "xgTotal": 2,
+      "formBTTS": 40,
+      "analysis": "Watford : forme D-N-V-D-D (1V 1N 3D, 3 buts marqués / 8 encaissés sur 5) · Blackburn Rovers : forme N-V-D-D-V (2V 1N 2D, 7 buts marqués / 9 encaissés sur 5). Classement : Watford 20e (15 pts), Blackburn Rovers 13e (22 pts). Stats empiriques (forme récente) : buts moy. 2, BTTS 40.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.45 / N: 3.35 / 2: 2.9 · Over 2.5: 2. Fiabilité 67.5%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.4,
+        "empiricalOver25Rate": 0.6,
+        "homeLambda": 0.75,
+        "awayLambda": 1.25,
+        "xgTotal": 2
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.45,
+        "draw": 3.35,
+        "away": 2.9,
+        "over25": 2,
+        "under25": 1.77
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-N-V-D-D",
+        "wins": 1,
+        "draws": 1,
+        "losses": 3,
+        "goalsFor": 3,
+        "goalsAgainst": 8,
+        "bttsRate": 0.2,
+        "over25Rate": 0.4,
+        "cleanSheets": 2,
+        "failedToScore": 3,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-V-D-D-V",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 7,
+        "goalsAgainst": 9,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-21",
+          "opponent": "Sheffield United",
+          "venue": "A",
+          "score": "0-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Middlesbrough",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-03",
+          "opponent": "Lincoln City",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Norwich City",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Wolverhampton Wanderers",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-22",
+          "opponent": "Burnley",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "West Ham United",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-03",
+          "opponent": "Stoke City",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Swansea City",
+          "venue": "A",
+          "score": "0-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Wrexham",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 20,
+        "points": 15,
+        "played": 16,
+        "gf": 13,
+        "ga": 27
+      },
+      "standingsAway": {
+        "rank": 13,
+        "points": 22,
+        "played": 16,
+        "gf": 24,
+        "ga": 25
+      },
+      "empiricalBttsRate": 0.4,
+      "empiricalOver25Rate": 0.6,
+      "homeLambda": 0.75,
+      "awayLambda": 1.25,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Watford enregistre un taux BTTS de seulement 20% sur ses 5 derniers matchs.",
+      "ai_analysis": "Cette confrontation de Championship présente des indicateurs contrastés, mais la faiblesse offensive chronique de Watford à domicile (0.75 but par match et seulement 3 buts sur ses 5 dernières sorties) oriente l'analyse vers l'option BTTS Non. Malgré les statistiques de Blackburn qui montrent un taux BTTS de 60%, le manque d'efficacité des locaux pèse lourdement dans cette sélection.",
+      "ai_analysis_en": "This Championship fixture presents contrasting indicators, but Watford's chronic home offensive weakness (0.75 goals per match and only 3 goals in their last 5 outings) points the analysis towards the BTTS No option. Despite Blackburn's statistics showing a 60% BTTS rate, the hosts' lack of efficiency heavily influences this selection.",
+      "ai_form_summary": "Watford : 1W-1D-3L, 3 buts pour, 8 buts contre. Blackburn Rovers : 2W-1D-2L, 7 buts pour, 9 buts contre.",
+      "ai_form_summary_en": "Watford: 1W-1D-3L, 3 goals for, 8 goals against. Blackburn Rovers: 2W-1D-2L, 7 goals for, 9 goals against.",
+      "ai_reasons": [
+        "Le taux BTTS empirique de Watford est faible à 20% sur ses 5 derniers matchs.",
+        "La moyenne de buts marqués par Watford à domicile n'est que de 0.75 par match.",
+        "Watford a inscrit seulement 3 buts lors de ses 5 dernières rencontres."
+      ],
+      "ai_risks": [
+        "Blackburn Rovers affiche un taux BTTS de 60% sur ses 5 derniers matchs.",
+        "Blackburn a concédé 9 buts sur la même période."
+      ],
+      "ai_confidence": "low",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Non",
+          "confidence": 58,
+          "proba": 0.58,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.58
+        }
+      ],
+      "bttsProb": 0.58,
+      "prediction": "Non",
       "proba": 0.58,
       "confidence": 58
     }
@@ -15741,7 +15945,9 @@
       "prediction": "Oui",
       "proba": 0.75,
       "confidence": 75,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-11-25T16:37:02.088Z"
     },
     {
       "id": "vvarenna-vs-kawasaki-2026-11-25",
@@ -15930,7 +16136,9 @@
       "prediction": "Oui",
       "proba": 0.67,
       "confidence": 67,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-25T16:37:02.089Z"
     },
     {
       "id": "realpoto-vs-alwaysre-2026-11-25",
@@ -16864,7 +17072,9 @@
       "prediction": "Oui",
       "proba": 0.72,
       "confidence": 72,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-25T16:37:02.090Z"
     },
     {
       "id": "pisa-vs-modena-2026-11-25",
@@ -17598,7 +17808,9 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-25T16:37:02.091Z"
     },
     {
       "id": "atlticom-vs-vikingfk-2026-11-25",
@@ -26825,7 +27037,9 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-25T16:37:02.089Z"
     },
     {
       "id": "sabahfk-vs-barcelon-2026-11-25",
@@ -27951,7 +28165,9 @@
       "prediction": "Oui",
       "proba": 0.58,
       "confidence": 58,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-25T16:37:21.442Z"
     },
     {
       "id": "fctokyo-vs-sanfrecc-2026-11-25",
@@ -28148,7 +28364,9 @@
       "prediction": "Oui",
       "proba": 0.72,
       "confidence": 72,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-11-25T16:37:21.442Z"
     },
     {
       "id": "venezia-vs-bologna-2026-11-27",
@@ -28343,6 +28561,203 @@
       ],
       "over25Prob": 0.58,
       "prediction": "Oui",
+      "proba": 0.58,
+      "confidence": 58,
+      "status": "PENDING"
+    },
+    {
+      "id": "watford-vs-blackbur-2026-11-25",
+      "match": "Watford vs Blackburn Rovers",
+      "home": "Watford",
+      "away": "Blackburn Rovers",
+      "league": "Championship",
+      "date": "2026-11-25",
+      "type": "BTTS",
+      "time": "19:45",
+      "matchSemantic": "watford-vs-blackbur-2026-11-25",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/395.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/365.png",
+      "tier": "SILVER",
+      "reliabilityScore": 67.5,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 0.75,
+      "xgAway": 1.25,
+      "xgTotal": 2,
+      "formBTTS": 40,
+      "analysis": "Watford : forme D-N-V-D-D (1V 1N 3D, 3 buts marqués / 8 encaissés sur 5) · Blackburn Rovers : forme N-V-D-D-V (2V 1N 2D, 7 buts marqués / 9 encaissés sur 5). Classement : Watford 20e (15 pts), Blackburn Rovers 13e (22 pts). Stats empiriques (forme récente) : buts moy. 2, BTTS 40.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.45 / N: 3.35 / 2: 2.9 · Over 2.5: 2. Fiabilité 67.5%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.4,
+        "empiricalOver25Rate": 0.6,
+        "homeLambda": 0.75,
+        "awayLambda": 1.25,
+        "xgTotal": 2
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.45,
+        "draw": 3.35,
+        "away": 2.9,
+        "over25": 2,
+        "under25": 1.77
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-N-V-D-D",
+        "wins": 1,
+        "draws": 1,
+        "losses": 3,
+        "goalsFor": 3,
+        "goalsAgainst": 8,
+        "bttsRate": 0.2,
+        "over25Rate": 0.4,
+        "cleanSheets": 2,
+        "failedToScore": 3,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-V-D-D-V",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 7,
+        "goalsAgainst": 9,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-21",
+          "opponent": "Sheffield United",
+          "venue": "A",
+          "score": "0-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Middlesbrough",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-03",
+          "opponent": "Lincoln City",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Norwich City",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Wolverhampton Wanderers",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-22",
+          "opponent": "Burnley",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "West Ham United",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-03",
+          "opponent": "Stoke City",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Swansea City",
+          "venue": "A",
+          "score": "0-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Wrexham",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 20,
+        "points": 15,
+        "played": 16,
+        "gf": 13,
+        "ga": 27
+      },
+      "standingsAway": {
+        "rank": 13,
+        "points": 22,
+        "played": 16,
+        "gf": 24,
+        "ga": 25
+      },
+      "empiricalBttsRate": 0.4,
+      "empiricalOver25Rate": 0.6,
+      "homeLambda": 0.75,
+      "awayLambda": 1.25,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Watford enregistre un taux BTTS de seulement 20% sur ses 5 derniers matchs.",
+      "ai_analysis": "Cette confrontation de Championship présente des indicateurs contrastés, mais la faiblesse offensive chronique de Watford à domicile (0.75 but par match et seulement 3 buts sur ses 5 dernières sorties) oriente l'analyse vers l'option BTTS Non. Malgré les statistiques de Blackburn qui montrent un taux BTTS de 60%, le manque d'efficacité des locaux pèse lourdement dans cette sélection.",
+      "ai_analysis_en": "This Championship fixture presents contrasting indicators, but Watford's chronic home offensive weakness (0.75 goals per match and only 3 goals in their last 5 outings) points the analysis towards the BTTS No option. Despite Blackburn's statistics showing a 60% BTTS rate, the hosts' lack of efficiency heavily influences this selection.",
+      "ai_form_summary": "Watford : 1W-1D-3L, 3 buts pour, 8 buts contre. Blackburn Rovers : 2W-1D-2L, 7 buts pour, 9 buts contre.",
+      "ai_form_summary_en": "Watford: 1W-1D-3L, 3 goals for, 8 goals against. Blackburn Rovers: 2W-1D-2L, 7 goals for, 9 goals against.",
+      "ai_reasons": [
+        "Le taux BTTS empirique de Watford est faible à 20% sur ses 5 derniers matchs.",
+        "La moyenne de buts marqués par Watford à domicile n'est que de 0.75 par match.",
+        "Watford a inscrit seulement 3 buts lors de ses 5 dernières rencontres."
+      ],
+      "ai_risks": [
+        "Blackburn Rovers affiche un taux BTTS de 60% sur ses 5 derniers matchs.",
+        "Blackburn a concédé 9 buts sur la même période."
+      ],
+      "ai_confidence": "low",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Non",
+          "confidence": 58,
+          "proba": 0.58,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.58
+        }
+      ],
+      "bttsProb": 0.58,
+      "prediction": "Non",
       "proba": 0.58,
       "confidence": 58,
       "status": "PENDING"

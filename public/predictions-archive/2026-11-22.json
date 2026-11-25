@@ -25572,7 +25572,9 @@
       "prediction": "Oui",
       "proba": 0.67,
       "confidence": 67,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-11-25T16:37:33.828Z"
     },
     {
       "id": "sanjosee-vs-houstond-2026-11-25",
@@ -25967,7 +25969,9 @@
       "prediction": "Oui",
       "proba": 0.65,
       "confidence": 65,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-25T16:37:33.828Z"
     },
     {
       "id": "realpoto-vs-alwaysre-2026-11-25",
@@ -31314,7 +31318,9 @@
       "prediction": "Oui",
       "proba": 0.67,
       "confidence": 67,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-25T16:37:02.089Z"
     },
     {
       "id": "slaviapr-vs-villarre-2026-11-25",

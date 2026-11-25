@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-11-25T07:26:25.773Z",
+  "generatedAt": "2026-11-25T16:38:45.752Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,37 +15,37 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 617,
-    "won": 488,
-    "lost": 129,
-    "pending": 89,
+    "total": 625,
+    "won": 495,
+    "lost": 130,
+    "pending": 81,
     "unverifiable": 316,
     "archivedTotal": 1022,
-    "rate": 79.1,
+    "rate": 79.2,
     "gold": {
-      "total": 491,
-      "won": 393,
+      "total": 497,
+      "won": 399,
       "lost": 98,
-      "rate": 80
+      "rate": 80.3
     },
     "standard": {
-      "total": 126,
-      "won": 95,
-      "lost": 31,
-      "rate": 75.4
+      "total": 128,
+      "won": 96,
+      "lost": 32,
+      "rate": 75
     },
     "byType": {
       "btts": {
-        "total": 488,
-        "won": 393,
+        "total": 492,
+        "won": 397,
         "lost": 95,
-        "rate": 80.5
+        "rate": 80.7
       },
       "over25": {
-        "total": 129,
-        "won": 95,
-        "lost": 34,
-        "rate": 73.6
+        "total": 133,
+        "won": 98,
+        "lost": 35,
+        "rate": 73.7
       }
     },
     "trend14": [
@@ -142,10 +142,10 @@
       },
       {
         "date": "2026-11-25",
-        "total": 2,
-        "won": 2,
-        "lost": 0,
-        "rate": 100
+        "total": 10,
+        "won": 9,
+        "lost": 1,
+        "rate": 90
       }
     ],
     "period": {
@@ -155,6 +155,109 @@
     }
   },
   "history": [
+    {
+      "date": "2026-11-25",
+      "match": "Urawa Red Diamonds vs Cerezo Osaka",
+      "league": "Japanese J.League",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.67,
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-11-25T16:37:33.828Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-25",
+      "match": "V-Varen Nagasaki vs Kawasaki Frontale",
+      "league": "Japanese J.League",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.65,
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-25T16:37:33.828Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-25",
+      "match": "FC Tokyo vs Sanfrecce Hiroshima",
+      "league": "Japanese J.League",
+      "market": "over25",
+      "tier": "STANDARD",
+      "proba": 0.72,
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-11-25T16:37:21.442Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-25",
+      "match": "Mito Hollyhock vs Tokyo Verdy 1969",
+      "league": "Japanese J.League",
+      "market": "over25",
+      "tier": "STANDARD",
+      "proba": 0.58,
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-25T16:37:21.442Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-25",
+      "match": "JEF United Ichihara-Chiba vs Nagoya Grampus",
+      "league": "Japanese J.League",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.62,
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-25T16:37:02.091Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-11-25",
+      "match": "Avispa Fukuoka vs Yokohama F. Marinos",
+      "league": "Japanese J.League",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.72,
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-25T16:37:02.090Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-25",
+      "match": "V-Varen Nagasaki vs Kawasaki Frontale",
+      "league": "Japanese J.League",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.67,
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-25T16:37:02.089Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-25",
+      "match": "Urawa Red Diamonds vs Cerezo Osaka",
+      "league": "Japanese J.League",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.75,
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-11-25T16:37:02.088Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
     {
       "date": "2026-11-25",
       "match": "San Jose Earthquakes vs Houston Dynamo FC",

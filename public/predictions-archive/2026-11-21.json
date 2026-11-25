@@ -31069,7 +31069,9 @@
       "prediction": "Oui",
       "proba": 0.67,
       "confidence": 67,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-25T16:37:02.089Z"
     },
     {
       "id": "urawared-vs-cerezoos-2026-11-25",
@@ -31258,7 +31260,9 @@
       "prediction": "Oui",
       "proba": 0.67,
       "confidence": 67,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-11-25T16:37:33.828Z"
     },
     {
       "id": "boltonwa-vs-westbrom-2026-11-25",
@@ -36615,7 +36619,9 @@
       "prediction": "Oui",
       "proba": 0.65,
       "confidence": 65,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-25T16:37:33.828Z"
     },
     {
       "id": "clubbrug-vs-liverpoo-2026-11-25",
@@ -43379,7 +43385,9 @@
       "prediction": "Oui",
       "proba": 0.75,
       "confidence": 75,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-11-25T16:37:02.088Z"
     },
     {
       "id": "parissai-vs-asroma-2026-11-25",

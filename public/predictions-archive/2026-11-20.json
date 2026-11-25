@@ -20741,7 +20741,9 @@
       "prediction": "Oui",
       "proba": 0.67,
       "confidence": 67,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-25T16:37:02.089Z"
     },
     {
       "id": "urawared-vs-cerezoos-2026-11-25",
@@ -20930,7 +20932,9 @@
       "prediction": "Oui",
       "proba": 0.67,
       "confidence": 67,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-11-25T16:37:33.828Z"
     },
     {
       "id": "boltonwa-vs-westbrom-2026-11-25",
