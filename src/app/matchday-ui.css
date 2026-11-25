@@ -577,9 +577,25 @@ body:has(.fi-sidebar) { background: var(--bp-bg) !important; }
   .page-design--home .hp-hero__text { font-size: 13px !important; }
   .page-design--home .hp-hero__cta-zone { display: flex !important; flex-wrap: wrap !important; }
   .page-design--home .hp-live-zone { width: 100% !important; }
-  .page-design--home .hp-live__teams { gap: 6px !important; }
-  .page-design--home .hp-live__team { font-size: 11px !important; }
+  /* Carte Signal : équipes empilées (une rangée chacune) — plus de troncature
+     « Bolto… / West … » ; le séparateur VS reste aligné sous les écussons. */
+  .page-design--home .hp-live__teams {
+    grid-template-columns: minmax(0,1fr) !important;
+    gap: 4px !important;
+    padding: 10px 14px !important;
+  }
+  .page-design--home .hp-live__team { font-size: 12px !important; }
   .page-design--home .hp-live__team img { width: 22px !important; height: 22px !important; }
+  .page-design--home .hp-live__sep { padding-inline-start: 30px !important; }
+  /* Ligne de données : autorise le retour à la ligne au lieu de coller aux bords. */
+  .page-design--home .hp-live__data { row-gap: 2px !important; }
+  .page-design--home .hp-live__data span { white-space: normal !important; }
+  /* Scène de fond plus discrète sur petit écran : le texte redevient lisible. */
+  .page-design--home .hp-live__lab-scene img {
+    opacity: 0.30 !important;
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, transparent 82%) !important;
+    mask-image: linear-gradient(180deg, #000 0%, transparent 82%) !important;
+  }
 }
 
 
