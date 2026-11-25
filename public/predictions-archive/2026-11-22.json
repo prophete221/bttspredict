@@ -25768,7 +25768,9 @@
       "prediction": "Oui",
       "proba": 0.62,
       "confidence": 62,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-25T07:24:42.784Z"
     },
     {
       "id": "vvarenna-vs-kawasaki-2026-11-25",

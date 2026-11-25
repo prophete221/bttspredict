@@ -21315,7 +21315,9 @@
       "prediction": "Oui",
       "proba": 0.62,
       "confidence": 62,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-25T07:24:42.784Z"
     },
     {
       "id": "realpoto-vs-alwaysre-2026-11-25",
@@ -23019,7 +23021,9 @@
       "prediction": "Oui",
       "proba": 0.65,
       "confidence": 65,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-25T07:24:42.782Z"
     },
     {
       "id": "clubbrug-vs-liverpoo-2026-11-25",
