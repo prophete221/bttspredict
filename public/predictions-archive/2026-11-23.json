@@ -15401,7 +15401,9 @@
       "prediction": "Oui",
       "proba": 0.65,
       "confidence": 65,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-3",
+      "verifiedAt": "2026-11-26T01:27:24.042Z"
     },
     {
       "id": "urawared-vs-cerezoos-2026-11-25",
@@ -16362,7 +16364,9 @@
       "prediction": "Oui",
       "proba": 0.75,
       "confidence": 75,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "0-3",
+      "verifiedAt": "2026-11-26T01:27:35.088Z"
     },
     {
       "id": "slaviapr-vs-villarre-2026-11-25",
@@ -16545,7 +16549,9 @@
       "prediction": "Oui",
       "proba": 0.75,
       "confidence": 75,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-26T01:27:35.088Z"
     },
     {
       "id": "parissai-vs-asroma-2026-11-25",
@@ -16728,7 +16734,9 @@
       "prediction": "Oui",
       "proba": 0.72,
       "confidence": 72,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-11-26T01:27:29.381Z"
     },
     {
       "id": "heartofm-vs-asmonaco-2026-11-26",
@@ -22890,7 +22898,9 @@
       "prediction": "Oui",
       "proba": 0.72,
       "confidence": 72,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-11-26T01:27:35.090Z"
     },
     {
       "id": "torreens-vs-celtic-2026-11-26",

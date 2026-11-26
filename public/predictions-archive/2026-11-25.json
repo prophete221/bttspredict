@@ -15748,7 +15748,9 @@
       "prediction": "Oui",
       "proba": 0.65,
       "confidence": 65,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-3",
+      "verifiedAt": "2026-11-26T01:27:24.042Z"
     },
     {
       "id": "urawared-vs-cerezoos-2026-11-25",
@@ -16510,7 +16512,9 @@
       "prediction": "Oui",
       "proba": 0.75,
       "confidence": 75,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-3",
+      "verifiedAt": "2026-11-26T01:27:29.381Z"
     },
     {
       "id": "slaviapr-vs-villarre-2026-11-25",
@@ -16693,7 +16697,9 @@
       "prediction": "Oui",
       "proba": 0.65,
       "confidence": 65,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-26T01:27:29.381Z"
     },
     {
       "id": "parissai-vs-asroma-2026-11-25",
@@ -16876,7 +16882,9 @@
       "prediction": "Oui",
       "proba": 0.72,
       "confidence": 72,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-11-26T01:27:29.381Z"
     },
     {
       "id": "avispafu-vs-yokohama-2026-11-25",
@@ -17263,7 +17271,9 @@
       "prediction": "Oui",
       "proba": 0.68,
       "confidence": 68,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-11-26T01:27:29.382Z"
     },
     {
       "id": "sabahfk-vs-barcelon-2026-11-25",
@@ -17430,7 +17440,9 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-4",
+      "verifiedAt": "2026-11-26T01:27:29.382Z"
     },
     {
       "id": "burnley-vs-birmingh-2026-11-25",
@@ -17627,7 +17639,9 @@
       "prediction": "Oui",
       "proba": 0.62,
       "confidence": 62,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-2",
+      "verifiedAt": "2026-11-26T01:27:29.382Z"
     },
     {
       "id": "jefunite-vs-nagoyagr-2026-11-25",
@@ -17993,7 +18007,9 @@
       "prediction": "Oui",
       "proba": 0.65,
       "confidence": 65,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-11-26T01:27:29.382Z"
     },
     {
       "id": "padova-vs-sampdori-2026-11-25",
@@ -18175,7 +18191,9 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-26T01:27:29.382Z"
     },
     {
       "id": "internaz-vs-vfbstutt-2026-11-25",
@@ -18358,7 +18376,9 @@
       "prediction": "Oui",
       "proba": 0.6,
       "confidence": 60,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-11-26T01:27:29.382Z"
     },
     {
       "id": "lille-vs-bayernmu-2026-11-25",
@@ -18541,7 +18561,9 @@
       "prediction": "Oui",
       "proba": 0.7,
       "confidence": 70,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-26T01:27:29.382Z"
     },
     {
       "id": "sporting-vs-manchest-2026-11-25",
@@ -18724,7 +18746,9 @@
       "prediction": "Oui",
       "proba": 0.63,
       "confidence": 63,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-11-26T01:27:29.383Z"
     },
     {
       "id": "watford-vs-blackbur-2026-11-25",
@@ -18907,7 +18931,9 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-26T01:27:29.383Z"
     },
     {
       "id": "shakhtar-vs-fenerbah-2026-11-25",
@@ -19090,7 +19116,9 @@
       "prediction": "Oui",
       "proba": 0.6,
       "confidence": 60,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-26T01:27:29.383Z"
     },
     {
       "id": "stokecit-vs-millwall-2026-11-25",
@@ -19287,7 +19315,9 @@
       "prediction": "Oui",
       "proba": 0.58,
       "confidence": 58,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-26T01:27:29.383Z"
     },
     {
       "id": "heartofm-vs-asmonaco-2026-11-26",
@@ -27222,7 +27252,9 @@
       "prediction": "Oui",
       "proba": 0.75,
       "confidence": 75,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-4",
+      "verifiedAt": "2026-11-26T01:27:29.384Z"
     },
     {
       "id": "padova-vs-sampdori-2026-11-25",
@@ -27419,7 +27451,9 @@
       "prediction": "Non",
       "proba": 0.72,
       "confidence": 72,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-26T01:27:29.384Z"
     },
     {
       "id": "stokecit-vs-millwall-2026-11-25",
@@ -27602,7 +27636,9 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-26T01:27:29.384Z"
     },
     {
       "id": "cremones-vs-usavelli-2026-11-25",
@@ -27785,7 +27821,9 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-26T01:27:29.384Z"
     },
     {
       "id": "mantova-vs-arezzo-2026-11-25",
@@ -27968,7 +28006,9 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-11-26T01:27:29.385Z"
     },
     {
       "id": "mitoholl-vs-tokyover-2026-11-25",
@@ -28760,7 +28800,9 @@
       "prediction": "Non",
       "proba": 0.58,
       "confidence": 58,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-26T01:27:29.383Z"
     }
   ],
   "analysisEngine": "gemini-stats-v1"
