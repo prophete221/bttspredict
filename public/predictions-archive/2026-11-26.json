@@ -9940,7 +9940,8 @@
       "over25Prob": 0.58,
       "prediction": "Oui",
       "proba": 0.58,
-      "confidence": 58
+      "confidence": 58,
+      "status": "PENDING"
     },
     {
       "id": "alfaisal-vs-aldiriya-2026-11-26",
@@ -10136,7 +10137,8 @@
       "over25Prob": 0.65,
       "prediction": "Oui",
       "proba": 0.65,
-      "confidence": 65
+      "confidence": 65,
+      "status": "PENDING"
     },
     {
       "id": "abha-vs-alshabab-2026-11-26",
@@ -10318,7 +10320,8 @@
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "abstain",
+      "status": "PENDING"
     },
     {
       "id": "tsghoffe-vs-sksturmg-2026-11-26",
@@ -10486,7 +10489,8 @@
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "abstain",
+      "status": "PENDING"
     },
     {
       "id": "rbsalzbu-vs-araratar-2026-11-26",
@@ -10668,7 +10672,8 @@
       "over25Prob": 0.7,
       "prediction": "Oui",
       "proba": 0.7,
-      "confidence": 70
+      "confidence": 70,
+      "status": "PENDING"
     },
     {
       "id": "sunderla-vs-jagiello-2026-11-26",
@@ -10836,7 +10841,8 @@
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "abstain",
+      "status": "PENDING"
     },
     {
       "id": "fcgronin-vs-willemii-2026-11-27",
@@ -11203,7 +11209,8 @@
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "abstain",
+      "status": "PENDING"
     },
     {
       "id": "deportiv-vs-barcelon-2026-11-29",
@@ -11596,7 +11603,8 @@
       "over25Prob": 0.72,
       "prediction": "Non",
       "proba": 0.72,
-      "confidence": 72
+      "confidence": 72,
+      "status": "PENDING"
     },
     {
       "id": "realovie-vs-rcceltaf-2026-11-30",
@@ -11785,7 +11793,8 @@
       "over25Prob": 0.74,
       "prediction": "Oui",
       "proba": 0.74,
-      "confidence": 74
+      "confidence": 74,
+      "status": "PENDING"
     },
     {
       "id": "catanzar-vs-usavelli-2026-11-30",
@@ -13123,7 +13132,8 @@
       "bttsProb": 0.75,
       "prediction": "Oui",
       "proba": 0.75,
-      "confidence": 75
+      "confidence": 75,
+      "status": "PENDING"
     },
     {
       "id": "blackpoo-vs-lutontow-2026-12-01",
@@ -13312,7 +13322,599 @@
       "bttsProb": 0.72,
       "prediction": "Oui",
       "proba": 0.72,
-      "confidence": 72
+      "confidence": 72,
+      "status": "PENDING"
+    },
+    {
+      "id": "sccambuu-vs-spartaro-2026-11-28",
+      "match": "SC Cambuur vs Sparta Rotterdam",
+      "home": "SC Cambuur",
+      "away": "Sparta Rotterdam",
+      "league": "Eredivisie",
+      "date": "2026-11-28",
+      "type": "BTTS",
+      "time": "20:00",
+      "matchSemantic": "sccambuu-vs-spartaro-2026-11-28",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3736.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/151.png",
+      "tier": "GOLD",
+      "reliabilityScore": 93.75,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.75,
+      "xgAway": 2,
+      "xgTotal": 4.75,
+      "formBTTS": 90,
+      "analysis": "SC Cambuur : forme V-D-V-V-N (3V 1N 1D, 17 buts marqués / 10 encaissés sur 5) · Sparta Rotterdam : forme D-D-V-D-V (2V 0N 3D, 9 buts marqués / 14 encaissés sur 5). Classement : SC Cambuur 8e (18 pts), Sparta Rotterdam 14e (12 pts). Stats empiriques (forme récente) : buts moy. 4.75, BTTS 90.0%, Over 2.5 100.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.1 / N: 3.75 / 2: 2.9. Fiabilité 93.75%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.9,
+        "empiricalOver25Rate": 1,
+        "homeLambda": 2.75,
+        "awayLambda": 2,
+        "xgTotal": 4.75
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.1,
+        "draw": 3.75,
+        "away": 2.9,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "V-D-V-V-N",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 17,
+        "goalsAgainst": 10,
+        "bttsRate": 0.8,
+        "over25Rate": 1,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-D-V-D-V",
+        "wins": 2,
+        "draws": 0,
+        "losses": 3,
+        "goalsFor": 9,
+        "goalsAgainst": 14,
+        "bttsRate": 1,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-21",
+          "opponent": "FC Utrecht",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-08",
+          "opponent": "PSV Eindhoven",
+          "venue": "H",
+          "score": "2-5",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Go Ahead Eagles",
+          "venue": "H",
+          "score": "4-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Willem II",
+          "venue": "A",
+          "score": "6-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "AZ Alkmaar",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-22",
+          "opponent": "AZ Alkmaar",
+          "venue": "H",
+          "score": "1-5",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "ADO Den Haag",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "FC Groningen",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Ajax Amsterdam",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Willem II",
+          "venue": "H",
+          "score": "3-2",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 8,
+        "points": 18,
+        "played": 13,
+        "gf": 28,
+        "ga": 29
+      },
+      "standingsAway": {
+        "rank": 14,
+        "points": 12,
+        "played": 13,
+        "gf": 22,
+        "ga": 34
+      },
+      "empiricalBttsRate": 0.9,
+      "empiricalOver25Rate": 1,
+      "homeLambda": 2.75,
+      "awayLambda": 2,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Le taux BTTS empirique atteint 90% avec un taux d'Over 2.5 de 100% pour les deux équipes.",
+      "ai_analysis": "Les statistiques observées pour SC Cambuur et Sparta Rotterdam indiquent une forte propension aux matchs ouverts. Avec un taux BTTS empirique de 90% et des performances offensives et défensives très perméables, la configuration est idéale pour voir les deux équipes marquer. L'analyse de la forme récente montre également un taux de 100% d'Over 2.5 pour les deux formations.",
+      "ai_analysis_en": "The observed statistics for SC Cambuur and Sparta Rotterdam indicate a strong tendency towards open matches. With an empirical BTTS rate of 90% and highly permeable defensive and offensive records, the setup is ideal for both teams to score. Recent form analysis also shows a 100% Over 2.5 rate for both sides.",
+      "ai_form_summary": "SC Cambuur : 3V-1D-1N (17 BP, 10 BC, 80% BTTS). Sparta Rotterdam : 2W-0D-3L (9 BP, 14 BC, 100% BTTS).",
+      "ai_form_summary_en": "SC Cambuur: 3W-1D-1L (17 GF, 10 GA, 80% BTTS). Sparta Rotterdam: 2W-0D-3L (9 GF, 14 GA, 100% BTTS).",
+      "ai_reasons": [
+        "Taux BTTS empirique très élevé à 90%.",
+        "Taux BTTS de l'équipe à l'extérieur de 100% sur les 5 derniers matchs.",
+        "Moyennes de buts concédés élevées pour les deux formations dans leurs classements respectifs (28 GF / 29 GA pour Cambuur, 22 GF / 34 GA pour Sparta Rotterdam)."
+      ],
+      "ai_risks": [
+        "La variance inhérente au championnat d'Eredivisie peut parfois fausser les lignes défensives.",
+        "Le classement de Cambuur (8e) légèrement supérieur à celui de Sparta (14e) pourrait induire une domination stérile."
+      ],
+      "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 72,
+          "proba": 0.72,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.72
+        }
+      ],
+      "bttsProb": 0.72,
+      "prediction": "Oui",
+      "proba": 0.72,
+      "confidence": 72,
+      "status": "PENDING"
+    },
+    {
+      "id": "charlott-vs-chicagof-2026-11-28",
+      "match": "Charlotte FC vs Chicago Fire FC",
+      "home": "Charlotte FC",
+      "away": "Chicago Fire FC",
+      "league": "MLS",
+      "date": "2026-11-28",
+      "type": "BTTS",
+      "time": "17:30",
+      "matchSemantic": "charlott-vs-chicagof-2026-11-28",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21300.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/182.png",
+      "tier": "GOLD",
+      "reliabilityScore": 93.75,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 3.67,
+      "xgAway": 2.33,
+      "xgTotal": 6,
+      "formBTTS": 80,
+      "analysis": "Charlotte FC : forme V-N-V-V-D (3V 1N 1D, 15 buts marqués / 7 encaissés sur 5) · Chicago Fire FC : forme D-D-V-N-V (2V 1N 2D, 13 buts marqués / 12 encaissés sur 5). Classement : Charlotte FC 5e (54 pts), Chicago Fire FC 4e (55 pts). Stats empiriques (forme récente) : buts moy. 6, BTTS 80.0%, Over 2.5 100.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.7 / N: 3.65 / 2: 2.25. Fiabilité 93.75%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.8,
+        "empiricalOver25Rate": 1,
+        "homeLambda": 3.67,
+        "awayLambda": 2.33,
+        "xgTotal": 6
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.7,
+        "draw": 3.65,
+        "away": 2.25,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "V-N-V-V-D",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 15,
+        "goalsAgainst": 7,
+        "bttsRate": 0.6,
+        "over25Rate": 1,
+        "cleanSheets": 2,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-D-V-N-V",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 13,
+        "goalsAgainst": 12,
+        "bttsRate": 1,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-22",
+          "opponent": "Chicago Fire FC",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Inter Miami CF",
+          "venue": "A",
+          "score": "3-3",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Orlando City SC",
+          "venue": "H",
+          "score": "4-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-28",
+          "opponent": "CF Montréal",
+          "venue": "H",
+          "score": "4-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Portland Timbers",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-22",
+          "opponent": "Charlotte FC",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Columbus Crew",
+          "venue": "H",
+          "score": "3-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Colorado Rapids",
+          "venue": "A",
+          "score": "4-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-29",
+          "opponent": "Orlando City SC",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Atlanta United FC",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 5,
+        "points": 54,
+        "played": 34,
+        "gf": 66,
+        "ga": 51
+      },
+      "standingsAway": {
+        "rank": 4,
+        "points": 55,
+        "played": 34,
+        "gf": 64,
+        "ga": 54
+      },
+      "empiricalBttsRate": 0.8,
+      "empiricalOver25Rate": 1,
+      "homeLambda": 3.67,
+      "awayLambda": 2.33,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Chicago Fire présente un taux BTTS de 100% sur ses 5 derniers matchs.",
+      "ai_analysis": "Charlotte FC et Chicago Fire FC se rencontrent avec des profils statistiques très offensifs en MLS. L'empirique BTTS s'établit à 80% et les moyennes de buts par match renforcent l'hypothèse d'une rencontre prolifique. Malgré la proximité au classement général, la dynamique récente des deux attaques plaide pour des buts des deux côtés.",
+      "ai_analysis_en": "Charlotte FC and Chicago Fire FC meet with highly offensive statistical profiles in MLS. The empirical BTTS stands at 80% and the match goal averages reinforce the hypothesis of a high-scoring encounter. Despite the close standings, the recent momentum of both attacks points towards goals at both ends.",
+      "ai_form_summary": "Charlotte FC : 3V-1D-1N (15 BP, 7 BC, 60% BTTS). Chicago Fire FC : 2V-1D-2N (13 BP, 12 BC, 100% BTTS).",
+      "ai_form_summary_en": "Charlotte FC: 3W-1D-1L (15 GF, 7 GA, 60% BTTS). Chicago Fire FC: 2W-1D-2L (13 GF, 12 GA, 100% BTTS).",
+      "ai_reasons": [
+        "Taux BTTS empirique solide à 80%.",
+        "Taux BTTS de 100% sur les 5 derniers matchs pour Chicago Fire.",
+        "Moyennes de buts élevés (3.67 pour Charlotte FC, 2.33 pour Chicago Fire FC)."
+      ],
+      "ai_risks": [
+        "Les deux équipes affichent des classements proches (4e et 5e) avec des points très serrés (55 vs 54), ce qui peut mener à un match tactique et prudent.",
+        "Le taux BTTS de Charlotte sur ses 5 derniers matchs est plus modéré à 60%."
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 68,
+          "proba": 0.68,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.68
+        }
+      ],
+      "bttsProb": 0.68,
+      "prediction": "Oui",
+      "proba": 0.68,
+      "confidence": 68,
+      "status": "PENDING"
+    },
+    {
+      "id": "asroma-vs-monza-2026-11-29",
+      "match": "AS Roma vs Monza",
+      "home": "AS Roma",
+      "away": "Monza",
+      "league": "Serie A",
+      "date": "2026-11-29",
+      "type": "Over 2.5",
+      "time": "17:00",
+      "matchSemantic": "asroma-vs-monza-2026-11-29",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/104.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4007.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.75,
+      "xgAway": 1.33,
+      "xgTotal": 4.08,
+      "formBTTS": 70,
+      "analysis": "AS Roma : forme V-V-V-V-N (4V 1N 0D, 20 buts marqués / 8 encaissés sur 5) · Monza : forme V-D-D-D-D (1V 0N 4D, 7 buts marqués / 10 encaissés sur 5). Classement : AS Roma 2e (30 pts), Monza 14e (10 pts). Stats empiriques (forme récente) : buts moy. 4.08, BTTS 70.0%, Over 2.5 90.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.19 / N: 6.5 / 2: 10. Fiabilité 89.38%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.7,
+        "empiricalOver25Rate": 0.9,
+        "homeLambda": 2.75,
+        "awayLambda": 1.33,
+        "xgTotal": 4.08
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.19,
+        "draw": 6.5,
+        "away": 10,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "V-V-V-V-N",
+        "wins": 4,
+        "draws": 1,
+        "losses": 0,
+        "goalsFor": 20,
+        "goalsAgainst": 8,
+        "bttsRate": 0.8,
+        "over25Rate": 1,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-D-D-D-D",
+        "wins": 1,
+        "draws": 0,
+        "losses": 4,
+        "goalsFor": 7,
+        "goalsAgainst": 10,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-21",
+          "opponent": "Parma",
+          "venue": "A",
+          "score": "5-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Sassuolo",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Udinese",
+          "venue": "A",
+          "score": "5-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-27",
+          "opponent": "Cagliari",
+          "venue": "H",
+          "score": "4-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Napoli",
+          "venue": "A",
+          "score": "3-3",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-23",
+          "opponent": "Fiorentina",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-08",
+          "opponent": "Atalanta",
+          "venue": "H",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Bologna",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-28",
+          "opponent": "Napoli",
+          "venue": "H",
+          "score": "1-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Torino",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 2,
+        "points": 30,
+        "played": 12,
+        "gf": 36,
+        "ga": 11
+      },
+      "standingsAway": {
+        "rank": 14,
+        "points": 10,
+        "played": 12,
+        "gf": 20,
+        "ga": 25
+      },
+      "empiricalBttsRate": 0.7,
+      "empiricalOver25Rate": 0.9,
+      "homeLambda": 2.75,
+      "awayLambda": 1.33,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_key_fact": "L'AS Roma affiche un taux de 100% d'Over 2.5 sur ses 5 derniers matchs.",
+      "ai_analysis": "L'AS Roma reçoit Monza dans une configuration statistique idéale pour les buts, affichant un taux empirique Over 2.5 impressionnant de 90%. Les Romains tournent à plein régime offensivement avec 20 buts sur leurs 5 derniers matchs, tandis que Monza concède régulièrement du terrain malgré des difficultés. La barre des 2.5 buts semble largement à portée.",
+      "ai_analysis_en": "AS Roma hosts Monza in an ideal statistical setup for goals, boasting an impressive 90% empirical Over 2.5 rate. The Romans are firing on all cylinders offensively with 20 goals in their last 5 matches, while Monza frequently concedes despite difficulties. The Over 2.5 line appears well within reach.",
+      "ai_form_summary": "AS Roma: 4V-1N-0D (20 buts pour, 8 contre) / Monza: 1V-0N-4D (7 buts pour, 10 contre)",
+      "ai_form_summary_en": "AS Roma: 4W-1D-0L (20 GF, 8 GA) / Monza: 1W-0D-4L (7 GF, 10 GA)",
+      "ai_reasons": [
+        "Taux empirique Over 2.5 très élevé à 90% pour cette affiche.",
+        "L'AS Roma affiche un taux de Over 2.5 de 100% sur ses 5 derniers matchs avec 20 buts marqués.",
+        "Monza présente un taux de Over 2.5 de 80% sur ses 5 dernières sorties."
+      ],
+      "ai_risks": [
+        "L'AS Roma possède une défense solide qui n'a concédé que 11 buts en 12 matchs.",
+        "Monza traverse une mauvaise passe avec 4 défaites sur ses 5 derniers matchs."
+      ],
+      "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 78,
+          "proba": 0.78,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "over25Prob": 0.78
+        }
+      ],
+      "over25Prob": 0.78,
+      "prediction": "Oui",
+      "proba": 0.78,
+      "confidence": 78,
+      "status": "PENDING"
     }
   ],
   "fixtures": [
@@ -15901,7 +16503,9 @@
       "prediction": "Oui",
       "proba": 0.65,
       "confidence": 65,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-3",
+      "verifiedAt": "2026-11-26T20:46:18.764Z"
     },
     {
       "id": "skbrann-vs-agf-2026-11-26",
@@ -16098,7 +16702,9 @@
       "prediction": "Oui",
       "proba": 0.65,
       "confidence": 65,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-4",
+      "verifiedAt": "2026-11-26T20:46:18.765Z"
     },
     {
       "id": "fcnordsj-vs-panathin-2026-11-26",
@@ -17228,7 +17834,9 @@
       "prediction": "Oui",
       "proba": 0.72,
       "confidence": 72,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "4-0",
+      "verifiedAt": "2026-11-26T20:46:22.371Z"
     },
     {
       "id": "besiktas-vs-hapoelbe-2026-11-26",
@@ -17411,7 +18019,9 @@
       "prediction": "Oui",
       "proba": 0.7,
       "confidence": 70,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-26T20:46:22.371Z"
     },
     {
       "id": "celtavig-vs-afcbourn-2026-11-26",
@@ -17594,7 +18204,9 @@
       "prediction": "Oui",
       "proba": 0.75,
       "confidence": 75,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-26T20:46:22.371Z"
     },
     {
       "id": "viktoria-vs-benfica-2026-11-26",
@@ -17777,7 +18389,9 @@
       "prediction": "Oui",
       "proba": 0.7,
       "confidence": 70,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "4-0",
+      "verifiedAt": "2026-11-26T20:46:22.371Z"
     },
     {
       "id": "ferencva-vs-nkcelje-2026-11-26",
@@ -19269,7 +19883,9 @@
       "prediction": "Oui",
       "proba": 0.72,
       "confidence": 72,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-11-26T20:46:22.372Z"
     },
     {
       "id": "alfateh-vs-alriyadh-2026-11-26",
@@ -26376,7 +26992,9 @@
       "prediction": "Oui",
       "proba": 0.7,
       "confidence": 70,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-11-26T20:46:42.545Z"
     },
     {
       "id": "sunderla-vs-jagiello-2026-11-26",
@@ -29026,6 +29644,597 @@
       "prediction": "Oui",
       "proba": 0.72,
       "confidence": 72,
+      "status": "PENDING"
+    },
+    {
+      "id": "sccambuu-vs-spartaro-2026-11-28",
+      "match": "SC Cambuur vs Sparta Rotterdam",
+      "home": "SC Cambuur",
+      "away": "Sparta Rotterdam",
+      "league": "Eredivisie",
+      "date": "2026-11-28",
+      "type": "BTTS",
+      "time": "20:00",
+      "matchSemantic": "sccambuu-vs-spartaro-2026-11-28",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3736.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/151.png",
+      "tier": "GOLD",
+      "reliabilityScore": 93.75,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.75,
+      "xgAway": 2,
+      "xgTotal": 4.75,
+      "formBTTS": 90,
+      "analysis": "SC Cambuur : forme V-D-V-V-N (3V 1N 1D, 17 buts marqués / 10 encaissés sur 5) · Sparta Rotterdam : forme D-D-V-D-V (2V 0N 3D, 9 buts marqués / 14 encaissés sur 5). Classement : SC Cambuur 8e (18 pts), Sparta Rotterdam 14e (12 pts). Stats empiriques (forme récente) : buts moy. 4.75, BTTS 90.0%, Over 2.5 100.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.1 / N: 3.75 / 2: 2.9. Fiabilité 93.75%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.9,
+        "empiricalOver25Rate": 1,
+        "homeLambda": 2.75,
+        "awayLambda": 2,
+        "xgTotal": 4.75
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.1,
+        "draw": 3.75,
+        "away": 2.9,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "V-D-V-V-N",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 17,
+        "goalsAgainst": 10,
+        "bttsRate": 0.8,
+        "over25Rate": 1,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-D-V-D-V",
+        "wins": 2,
+        "draws": 0,
+        "losses": 3,
+        "goalsFor": 9,
+        "goalsAgainst": 14,
+        "bttsRate": 1,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-21",
+          "opponent": "FC Utrecht",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-08",
+          "opponent": "PSV Eindhoven",
+          "venue": "H",
+          "score": "2-5",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Go Ahead Eagles",
+          "venue": "H",
+          "score": "4-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Willem II",
+          "venue": "A",
+          "score": "6-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "AZ Alkmaar",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-22",
+          "opponent": "AZ Alkmaar",
+          "venue": "H",
+          "score": "1-5",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "ADO Den Haag",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "FC Groningen",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Ajax Amsterdam",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Willem II",
+          "venue": "H",
+          "score": "3-2",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 8,
+        "points": 18,
+        "played": 13,
+        "gf": 28,
+        "ga": 29
+      },
+      "standingsAway": {
+        "rank": 14,
+        "points": 12,
+        "played": 13,
+        "gf": 22,
+        "ga": 34
+      },
+      "empiricalBttsRate": 0.9,
+      "empiricalOver25Rate": 1,
+      "homeLambda": 2.75,
+      "awayLambda": 2,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Le taux BTTS empirique atteint 90% avec un taux d'Over 2.5 de 100% pour les deux équipes.",
+      "ai_analysis": "Les statistiques observées pour SC Cambuur et Sparta Rotterdam indiquent une forte propension aux matchs ouverts. Avec un taux BTTS empirique de 90% et des performances offensives et défensives très perméables, la configuration est idéale pour voir les deux équipes marquer. L'analyse de la forme récente montre également un taux de 100% d'Over 2.5 pour les deux formations.",
+      "ai_analysis_en": "The observed statistics for SC Cambuur and Sparta Rotterdam indicate a strong tendency towards open matches. With an empirical BTTS rate of 90% and highly permeable defensive and offensive records, the setup is ideal for both teams to score. Recent form analysis also shows a 100% Over 2.5 rate for both sides.",
+      "ai_form_summary": "SC Cambuur : 3V-1D-1N (17 BP, 10 BC, 80% BTTS). Sparta Rotterdam : 2W-0D-3L (9 BP, 14 BC, 100% BTTS).",
+      "ai_form_summary_en": "SC Cambuur: 3W-1D-1L (17 GF, 10 GA, 80% BTTS). Sparta Rotterdam: 2W-0D-3L (9 GF, 14 GA, 100% BTTS).",
+      "ai_reasons": [
+        "Taux BTTS empirique très élevé à 90%.",
+        "Taux BTTS de l'équipe à l'extérieur de 100% sur les 5 derniers matchs.",
+        "Moyennes de buts concédés élevées pour les deux formations dans leurs classements respectifs (28 GF / 29 GA pour Cambuur, 22 GF / 34 GA pour Sparta Rotterdam)."
+      ],
+      "ai_risks": [
+        "La variance inhérente au championnat d'Eredivisie peut parfois fausser les lignes défensives.",
+        "Le classement de Cambuur (8e) légèrement supérieur à celui de Sparta (14e) pourrait induire une domination stérile."
+      ],
+      "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 72,
+          "proba": 0.72,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.72
+        }
+      ],
+      "bttsProb": 0.72,
+      "prediction": "Oui",
+      "proba": 0.72,
+      "confidence": 72,
+      "status": "PENDING"
+    },
+    {
+      "id": "charlott-vs-chicagof-2026-11-28",
+      "match": "Charlotte FC vs Chicago Fire FC",
+      "home": "Charlotte FC",
+      "away": "Chicago Fire FC",
+      "league": "MLS",
+      "date": "2026-11-28",
+      "type": "BTTS",
+      "time": "17:30",
+      "matchSemantic": "charlott-vs-chicagof-2026-11-28",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21300.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/182.png",
+      "tier": "GOLD",
+      "reliabilityScore": 93.75,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 3.67,
+      "xgAway": 2.33,
+      "xgTotal": 6,
+      "formBTTS": 80,
+      "analysis": "Charlotte FC : forme V-N-V-V-D (3V 1N 1D, 15 buts marqués / 7 encaissés sur 5) · Chicago Fire FC : forme D-D-V-N-V (2V 1N 2D, 13 buts marqués / 12 encaissés sur 5). Classement : Charlotte FC 5e (54 pts), Chicago Fire FC 4e (55 pts). Stats empiriques (forme récente) : buts moy. 6, BTTS 80.0%, Over 2.5 100.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.7 / N: 3.65 / 2: 2.25. Fiabilité 93.75%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.8,
+        "empiricalOver25Rate": 1,
+        "homeLambda": 3.67,
+        "awayLambda": 2.33,
+        "xgTotal": 6
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.7,
+        "draw": 3.65,
+        "away": 2.25,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "V-N-V-V-D",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 15,
+        "goalsAgainst": 7,
+        "bttsRate": 0.6,
+        "over25Rate": 1,
+        "cleanSheets": 2,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-D-V-N-V",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 13,
+        "goalsAgainst": 12,
+        "bttsRate": 1,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-22",
+          "opponent": "Chicago Fire FC",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Inter Miami CF",
+          "venue": "A",
+          "score": "3-3",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Orlando City SC",
+          "venue": "H",
+          "score": "4-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-28",
+          "opponent": "CF Montréal",
+          "venue": "H",
+          "score": "4-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Portland Timbers",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-22",
+          "opponent": "Charlotte FC",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Columbus Crew",
+          "venue": "H",
+          "score": "3-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Colorado Rapids",
+          "venue": "A",
+          "score": "4-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-29",
+          "opponent": "Orlando City SC",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Atlanta United FC",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 5,
+        "points": 54,
+        "played": 34,
+        "gf": 66,
+        "ga": 51
+      },
+      "standingsAway": {
+        "rank": 4,
+        "points": 55,
+        "played": 34,
+        "gf": 64,
+        "ga": 54
+      },
+      "empiricalBttsRate": 0.8,
+      "empiricalOver25Rate": 1,
+      "homeLambda": 3.67,
+      "awayLambda": 2.33,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Chicago Fire présente un taux BTTS de 100% sur ses 5 derniers matchs.",
+      "ai_analysis": "Charlotte FC et Chicago Fire FC se rencontrent avec des profils statistiques très offensifs en MLS. L'empirique BTTS s'établit à 80% et les moyennes de buts par match renforcent l'hypothèse d'une rencontre prolifique. Malgré la proximité au classement général, la dynamique récente des deux attaques plaide pour des buts des deux côtés.",
+      "ai_analysis_en": "Charlotte FC and Chicago Fire FC meet with highly offensive statistical profiles in MLS. The empirical BTTS stands at 80% and the match goal averages reinforce the hypothesis of a high-scoring encounter. Despite the close standings, the recent momentum of both attacks points towards goals at both ends.",
+      "ai_form_summary": "Charlotte FC : 3V-1D-1N (15 BP, 7 BC, 60% BTTS). Chicago Fire FC : 2V-1D-2N (13 BP, 12 BC, 100% BTTS).",
+      "ai_form_summary_en": "Charlotte FC: 3W-1D-1L (15 GF, 7 GA, 60% BTTS). Chicago Fire FC: 2W-1D-2L (13 GF, 12 GA, 100% BTTS).",
+      "ai_reasons": [
+        "Taux BTTS empirique solide à 80%.",
+        "Taux BTTS de 100% sur les 5 derniers matchs pour Chicago Fire.",
+        "Moyennes de buts élevés (3.67 pour Charlotte FC, 2.33 pour Chicago Fire FC)."
+      ],
+      "ai_risks": [
+        "Les deux équipes affichent des classements proches (4e et 5e) avec des points très serrés (55 vs 54), ce qui peut mener à un match tactique et prudent.",
+        "Le taux BTTS de Charlotte sur ses 5 derniers matchs est plus modéré à 60%."
+      ],
+      "ai_confidence": "medium",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 68,
+          "proba": 0.68,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "bttsProb": 0.68
+        }
+      ],
+      "bttsProb": 0.68,
+      "prediction": "Oui",
+      "proba": 0.68,
+      "confidence": 68,
+      "status": "PENDING"
+    },
+    {
+      "id": "asroma-vs-monza-2026-11-29",
+      "match": "AS Roma vs Monza",
+      "home": "AS Roma",
+      "away": "Monza",
+      "league": "Serie A",
+      "date": "2026-11-29",
+      "type": "Over 2.5",
+      "time": "17:00",
+      "matchSemantic": "asroma-vs-monza-2026-11-29",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/104.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4007.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.75,
+      "xgAway": 1.33,
+      "xgTotal": 4.08,
+      "formBTTS": 70,
+      "analysis": "AS Roma : forme V-V-V-V-N (4V 1N 0D, 20 buts marqués / 8 encaissés sur 5) · Monza : forme V-D-D-D-D (1V 0N 4D, 7 buts marqués / 10 encaissés sur 5). Classement : AS Roma 2e (30 pts), Monza 14e (10 pts). Stats empiriques (forme récente) : buts moy. 4.08, BTTS 70.0%, Over 2.5 90.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.19 / N: 6.5 / 2: 10. Fiabilité 89.38%.",
+      "analysisData": {
+        "empiricalBttsRate": 0.7,
+        "empiricalOver25Rate": 0.9,
+        "homeLambda": 2.75,
+        "awayLambda": 1.33,
+        "xgTotal": 4.08
+      },
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.19,
+        "draw": 6.5,
+        "away": 10,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "V-V-V-V-N",
+        "wins": 4,
+        "draws": 1,
+        "losses": 0,
+        "goalsFor": 20,
+        "goalsAgainst": 8,
+        "bttsRate": 0.8,
+        "over25Rate": 1,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-D-D-D-D",
+        "wins": 1,
+        "draws": 0,
+        "losses": 4,
+        "goalsFor": 7,
+        "goalsAgainst": 10,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-21",
+          "opponent": "Parma",
+          "venue": "A",
+          "score": "5-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Sassuolo",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Udinese",
+          "venue": "A",
+          "score": "5-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-27",
+          "opponent": "Cagliari",
+          "venue": "H",
+          "score": "4-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Napoli",
+          "venue": "A",
+          "score": "3-3",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-23",
+          "opponent": "Fiorentina",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-08",
+          "opponent": "Atalanta",
+          "venue": "H",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Bologna",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-28",
+          "opponent": "Napoli",
+          "venue": "H",
+          "score": "1-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Torino",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 2,
+        "points": 30,
+        "played": 12,
+        "gf": 36,
+        "ga": 11
+      },
+      "standingsAway": {
+        "rank": 14,
+        "points": 10,
+        "played": 12,
+        "gf": 20,
+        "ga": 25
+      },
+      "empiricalBttsRate": 0.7,
+      "empiricalOver25Rate": 0.9,
+      "homeLambda": 2.75,
+      "awayLambda": 1.33,
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_key_fact": "L'AS Roma affiche un taux de 100% d'Over 2.5 sur ses 5 derniers matchs.",
+      "ai_analysis": "L'AS Roma reçoit Monza dans une configuration statistique idéale pour les buts, affichant un taux empirique Over 2.5 impressionnant de 90%. Les Romains tournent à plein régime offensivement avec 20 buts sur leurs 5 derniers matchs, tandis que Monza concède régulièrement du terrain malgré des difficultés. La barre des 2.5 buts semble largement à portée.",
+      "ai_analysis_en": "AS Roma hosts Monza in an ideal statistical setup for goals, boasting an impressive 90% empirical Over 2.5 rate. The Romans are firing on all cylinders offensively with 20 goals in their last 5 matches, while Monza frequently concedes despite difficulties. The Over 2.5 line appears well within reach.",
+      "ai_form_summary": "AS Roma: 4V-1N-0D (20 buts pour, 8 contre) / Monza: 1V-0N-4D (7 buts pour, 10 contre)",
+      "ai_form_summary_en": "AS Roma: 4W-1D-0L (20 GF, 8 GA) / Monza: 1W-0D-4L (7 GF, 10 GA)",
+      "ai_reasons": [
+        "Taux empirique Over 2.5 très élevé à 90% pour cette affiche.",
+        "L'AS Roma affiche un taux de Over 2.5 de 100% sur ses 5 derniers matchs avec 20 buts marqués.",
+        "Monza présente un taux de Over 2.5 de 80% sur ses 5 dernières sorties."
+      ],
+      "ai_risks": [
+        "L'AS Roma possède une défense solide qui n'a concédé que 11 buts en 12 matchs.",
+        "Monza traverse une mauvaise passe avec 4 défaites sur ses 5 derniers matchs."
+      ],
+      "ai_confidence": "high",
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 78,
+          "proba": 0.78,
+          "modelEngine": "gemini-3.5-flash-lite",
+          "over25Prob": 0.78
+        }
+      ],
+      "over25Prob": 0.78,
+      "prediction": "Oui",
+      "proba": 0.78,
+      "confidence": 78,
       "status": "PENDING"
     }
   ],

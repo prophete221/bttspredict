@@ -19514,7 +19514,9 @@
       "prediction": "Oui",
       "proba": 0.65,
       "confidence": 65,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-3",
+      "verifiedAt": "2026-11-26T20:46:18.764Z"
     },
     {
       "id": "skbrann-vs-agf-2026-11-26",
@@ -19711,7 +19713,9 @@
       "prediction": "Oui",
       "proba": 0.65,
       "confidence": 65,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-4",
+      "verifiedAt": "2026-11-26T20:46:18.765Z"
     },
     {
       "id": "fcnordsj-vs-panathin-2026-11-26",

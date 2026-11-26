@@ -32411,7 +32411,9 @@
       "prediction": "Oui",
       "proba": 0.65,
       "confidence": 65,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-3",
+      "verifiedAt": "2026-11-26T20:46:18.764Z"
     },
     {
       "id": "scfreibu-vs-fctwente-2026-11-26",
@@ -32980,7 +32982,9 @@
       "prediction": "Oui",
       "proba": 0.72,
       "confidence": 72,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "4-0",
+      "verifiedAt": "2026-11-26T20:46:51.511Z"
     },
     {
       "id": "crystalp-vs-realsoci-2026-11-26",
@@ -33542,7 +33546,9 @@
       "prediction": "Oui",
       "proba": 0.65,
       "confidence": 65,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-4",
+      "verifiedAt": "2026-11-26T20:46:18.765Z"
     },
     {
       "id": "besiktas-vs-hapoelbe-2026-11-26",
@@ -33725,7 +33731,9 @@
       "prediction": "Oui",
       "proba": 0.7,
       "confidence": 70,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-26T20:46:22.371Z"
     },
     {
       "id": "fcutrech-vs-sccambuu-2026-11-21",
