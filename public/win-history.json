@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-11-26T20:48:21.764Z",
+  "generatedAt": "2026-11-27T03:33:19.890Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,37 +15,37 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 658,
-    "won": 515,
-    "lost": 143,
-    "pending": 74,
+    "total": 673,
+    "won": 527,
+    "lost": 146,
+    "pending": 77,
     "unverifiable": 319,
-    "archivedTotal": 1051,
+    "archivedTotal": 1069,
     "rate": 78.3,
     "gold": {
-      "total": 516,
-      "won": 413,
-      "lost": 103,
-      "rate": 80
+      "total": 527,
+      "won": 421,
+      "lost": 106,
+      "rate": 79.9
     },
     "standard": {
-      "total": 142,
-      "won": 102,
+      "total": 146,
+      "won": 106,
       "lost": 40,
-      "rate": 71.8
+      "rate": 72.6
     },
     "byType": {
       "btts": {
-        "total": 509,
-        "won": 405,
-        "lost": 104,
-        "rate": 79.6
+        "total": 518,
+        "won": 413,
+        "lost": 105,
+        "rate": 79.7
       },
       "over25": {
-        "total": 149,
-        "won": 110,
-        "lost": 39,
-        "rate": 73.8
+        "total": 155,
+        "won": 114,
+        "lost": 41,
+        "rate": 73.5
       }
     },
     "trend14": [
@@ -142,19 +142,212 @@
       },
       {
         "date": "2026-11-26",
-        "total": 10,
-        "won": 8,
-        "lost": 2,
+        "total": 25,
+        "won": 20,
+        "lost": 5,
         "rate": 80
       }
     ],
     "period": {
       "from": "2026-08-19",
-      "to": "2026-11-26",
-      "days": 98
+      "to": "2026-11-27",
+      "days": 99
     }
   },
   "history": [
+    {
+      "date": "2026-11-26",
+      "match": "Torreense vs Celtic",
+      "league": "UEFA Europa League",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.78,
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-27T03:31:07.300Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-26",
+      "match": "SC Freiburg vs FC Twente",
+      "league": "UEFA Conference League",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.68,
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-27T03:31:07.299Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-26",
+      "match": "Sunderland vs Jagiellonia Bialystok",
+      "league": "UEFA Europa League",
+      "market": "btts",
+      "tier": "STANDARD",
+      "proba": 0.62,
+      "status": "WON",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-11-27T03:30:55.822Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-11-26",
+      "match": "TSG Hoffenheim vs SK Sturm Graz",
+      "league": "UEFA Europa League",
+      "market": "btts",
+      "tier": "STANDARD",
+      "proba": 0.62,
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-11-27T03:30:55.822Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-11-26",
+      "match": "FC Nordsjælland vs Panathinaikos",
+      "league": "UEFA Conference League",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.6,
+      "status": "WON",
+      "finalScore": "3-2",
+      "verifiedAt": "2026-11-27T03:30:55.821Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-26",
+      "match": "Lyon vs Lillestrom",
+      "league": "UEFA Europa League",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.58,
+      "status": "LOST",
+      "finalScore": "0-0",
+      "verifiedAt": "2026-11-27T03:30:55.821Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-26",
+      "match": "Sparta Prague vs AZ Alkmaar",
+      "league": "UEFA Europa League",
+      "market": "btts",
+      "tier": "STANDARD",
+      "proba": 0.62,
+      "status": "WON",
+      "finalScore": "2-4",
+      "verifiedAt": "2026-11-27T03:30:55.819Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-26",
+      "match": "Juventus vs Omonia Nicosia",
+      "league": "UEFA Europa League",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.75,
+      "status": "WON",
+      "finalScore": "4-1",
+      "verifiedAt": "2026-11-27T03:30:55.818Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-26",
+      "match": "Lyon vs Lillestrom",
+      "league": "UEFA Europa League",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.62,
+      "status": "LOST",
+      "finalScore": "0-0",
+      "verifiedAt": "2026-11-27T03:30:55.818Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-26",
+      "match": "NEC Nijmegen vs Stade Rennais",
+      "league": "UEFA Europa League",
+      "market": "btts",
+      "tier": "STANDARD",
+      "proba": 0.62,
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-11-27T03:30:55.818Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-26",
+      "match": "Crystal Palace vs Real Sociedad",
+      "league": "UEFA Europa League",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.7,
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-27T03:30:55.817Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-26",
+      "match": "Ferencvaros vs NK Celje",
+      "league": "UEFA Europa League",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.7,
+      "status": "LOST",
+      "finalScore": "0-0",
+      "verifiedAt": "2026-11-27T03:30:55.817Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-26",
+      "match": "Torreense vs Celtic",
+      "league": "UEFA Europa League",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.75,
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-27T03:30:55.817Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-26",
+      "match": "SC Freiburg vs FC Twente",
+      "league": "UEFA Conference League",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.68,
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-27T03:30:50.322Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-26",
+      "match": "FC Nordsjælland vs Panathinaikos",
+      "league": "UEFA Conference League",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6,
+      "status": "WON",
+      "finalScore": "3-2",
+      "verifiedAt": "2026-11-27T03:30:50.321Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
     {
       "date": "2026-11-26",
       "match": "Heart of Midlothian vs AS Monaco",

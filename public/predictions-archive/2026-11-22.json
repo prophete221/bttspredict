@@ -27113,7 +27113,9 @@
       "prediction": "Oui",
       "proba": 0.68,
       "confidence": 68,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-27T03:31:07.299Z"
     },
     {
       "id": "doncaste-vs-huddersf-2026-11-26",
@@ -27691,7 +27693,9 @@
       "prediction": "Oui",
       "proba": 0.7,
       "confidence": 70,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-27T03:30:55.817Z"
     },
     {
       "id": "torreens-vs-celtic-2026-11-26",
@@ -27873,7 +27877,9 @@
       "prediction": "Oui",
       "proba": 0.75,
       "confidence": 75,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-27T03:30:55.817Z"
     },
     {
       "id": "skbrann-vs-agf-2026-11-26",
@@ -31703,7 +31709,9 @@
       "prediction": "Oui",
       "proba": 0.78,
       "confidence": 78,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-27T03:31:07.300Z"
     },
     {
       "id": "ajaxamst-vs-fcthun-2026-11-26",

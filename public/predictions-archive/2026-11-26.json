@@ -16886,7 +16886,9 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-2",
+      "verifiedAt": "2026-11-27T03:30:50.321Z"
     },
     {
       "id": "scfreibu-vs-fctwente-2026-11-26",
@@ -17083,7 +17085,9 @@
       "prediction": "Oui",
       "proba": 0.68,
       "confidence": 68,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-27T03:30:50.322Z"
     },
     {
       "id": "doncaste-vs-huddersf-2026-11-26",
@@ -17455,7 +17459,9 @@
       "prediction": "Oui",
       "proba": 0.7,
       "confidence": 70,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-27T03:30:55.817Z"
     },
     {
       "id": "torreens-vs-celtic-2026-11-26",
@@ -17637,7 +17643,9 @@
       "prediction": "Oui",
       "proba": 0.75,
       "confidence": 75,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-27T03:30:55.817Z"
     },
     {
       "id": "ajaxamst-vs-fcthun-2026-11-26",
@@ -18574,7 +18582,9 @@
       "prediction": "Oui",
       "proba": 0.7,
       "confidence": 70,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-0",
+      "verifiedAt": "2026-11-27T03:30:55.817Z"
     },
     {
       "id": "juventus-vs-omoniani-2026-11-26",
@@ -18757,7 +18767,9 @@
       "prediction": "Oui",
       "proba": 0.75,
       "confidence": 75,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "4-1",
+      "verifiedAt": "2026-11-27T03:30:55.818Z"
     },
     {
       "id": "lyon-vs-lillestr-2026-11-26",
@@ -18940,7 +18952,9 @@
       "prediction": "Oui",
       "proba": 0.62,
       "confidence": 62,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-0",
+      "verifiedAt": "2026-11-27T03:30:55.818Z"
     },
     {
       "id": "necnijme-vs-staderen-2026-11-26",
@@ -19123,7 +19137,9 @@
       "prediction": "Oui",
       "proba": 0.62,
       "confidence": 62,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-11-27T03:30:55.818Z"
     },
     {
       "id": "spartapr-vs-azalkmaa-2026-11-26",
@@ -19306,7 +19322,9 @@
       "prediction": "Oui",
       "proba": 0.62,
       "confidence": 62,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-4",
+      "verifiedAt": "2026-11-27T03:30:55.819Z"
     },
     {
       "id": "alfaisal-vs-aldiriya-2026-11-26",
@@ -26077,7 +26095,9 @@
       "prediction": "Oui",
       "proba": 0.6,
       "confidence": 60,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-2",
+      "verifiedAt": "2026-11-27T03:30:55.821Z"
     },
     {
       "id": "lyon-vs-lillestr-2026-11-26",
@@ -26260,7 +26280,9 @@
       "prediction": "Oui",
       "proba": 0.58,
       "confidence": 58,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-0",
+      "verifiedAt": "2026-11-27T03:30:55.821Z"
     },
     {
       "id": "alfaisal-vs-aldiriya-2026-11-26",
@@ -26809,7 +26831,9 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-11-27T03:30:55.822Z"
     },
     {
       "id": "rbsalzbu-vs-araratar-2026-11-26",
@@ -27163,7 +27187,9 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-11-27T03:30:55.822Z"
     },
     {
       "id": "fcgronin-vs-willemii-2026-11-27",
