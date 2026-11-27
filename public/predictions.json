@@ -1,8 +1,504 @@
 {
   "date": "2026-11-27",
-  "lastUpdated": "2026-11-27T03:23:30.688Z",
+  "lastUpdated": "2026-11-27T15:48:08.203Z",
   "source": "ESPN + TheSportsDB",
   "free": [
+    {
+      "id": "fcgronin-vs-willemii-2026-11-27",
+      "match": "FC Groningen vs Willem II",
+      "home": "FC Groningen",
+      "away": "Willem II",
+      "league": "Eredivisie",
+      "date": "2026-11-27",
+      "type": "BTTS",
+      "time": "19:00",
+      "matchSemantic": "fcgronin-vs-willemii-2026-11-27",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/145.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/156.png",
+      "tier": "GOLD",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "formBTTS": 90,
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "D-D-D-N-D",
+        "wins": 0,
+        "draws": 1,
+        "losses": 4,
+        "goalsFor": 10,
+        "goalsAgainst": 17,
+        "bttsRate": 1,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-D-D-D-D",
+        "wins": 0,
+        "draws": 1,
+        "losses": 4,
+        "goalsFor": 5,
+        "goalsAgainst": 20,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-21",
+          "opponent": "Heerenveen",
+          "venue": "H",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-08",
+          "opponent": "AZ Alkmaar",
+          "venue": "A",
+          "score": "3-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Sparta Rotterdam",
+          "venue": "H",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "NEC Nijmegen",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Ajax Amsterdam",
+          "venue": "H",
+          "score": "2-5",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-22",
+          "opponent": "FC Twente",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-06",
+          "opponent": "PEC Zwolle",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "PSV Eindhoven",
+          "venue": "A",
+          "score": "0-7",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "SC Cambuur",
+          "venue": "H",
+          "score": "1-6",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Sparta Rotterdam",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 10,
+        "points": 15,
+        "played": 13,
+        "gf": 30,
+        "ga": 31
+      },
+      "standingsAway": {
+        "rank": 18,
+        "points": 3,
+        "played": 12,
+        "gf": 11,
+        "ga": 40
+      },
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "FC Groningen et Willem II partagent un taux empirique de BTTS de 90% avec des défenses très perméables.",
+      "ai_form_summary": "FC Groningen (0V-1N-4D, 10 BP / 17 BC) et Willem II (0V-1N-4D, 5 BP / 20 BC).",
+      "ai_form_summary_en": "FC Groningen (0W-1D-4L, 10 GF / 17 GA) and Willem II (0W-1D-4L, 5 GF / 20 GA).",
+      "ai_reasons": [],
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "proba": 0.78,
+          "modelEngine": "gemini-3.5-flash-lite"
+        }
+      ],
+      "prediction": "Oui",
+      "proba": 0.78,
+      "status": "PENDING"
+    },
+    {
+      "id": "fcheiden-vs-fcnrnber-2026-11-27",
+      "match": "1. FC Heidenheim 1846 vs 1. FC Nürnberg",
+      "home": "1. FC Heidenheim 1846",
+      "away": "1. FC Nürnberg",
+      "league": "2. Bundesliga",
+      "date": "2026-11-27",
+      "type": "BTTS",
+      "time": "17:30",
+      "matchSemantic": "fcheiden-vs-fcnrnber-2026-11-27",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6418.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/269.png",
+      "tier": "GOLD",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "formBTTS": 80,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.95,
+        "draw": 3.85,
+        "away": 3.3,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-N-D-N-D",
+        "wins": 0,
+        "draws": 2,
+        "losses": 3,
+        "goalsFor": 6,
+        "goalsAgainst": 11,
+        "bttsRate": 1,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-V-V-D-N",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 7,
+        "goalsAgainst": 5,
+        "bttsRate": 0.6,
+        "over25Rate": 0.4,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-20",
+          "opponent": "SV Darmstadt 98",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-08",
+          "opponent": "Hannover 96",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Karlsruher SC",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Energie Cottbus",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "VfL Wolfsburg",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-21",
+          "opponent": "TSV Eintracht Braunschweig",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "SV Darmstadt 98",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "St. Pauli",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Kaiserslautern",
+          "venue": "H",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-16",
+          "opponent": "Energie Cottbus",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 7,
+        "points": 16,
+        "played": 12,
+        "gf": 20,
+        "ga": 23
+      },
+      "standingsAway": {
+        "rank": 2,
+        "points": 24,
+        "played": 12,
+        "gf": 27,
+        "ga": 15
+      },
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Heidenheim affiche un taux BTTS de 100% lors de ses 5 dernières rencontres.",
+      "ai_form_summary": "Heidenheim : D-N-D-N-D (0V-2N-3D), 6 buts pour, 11 contre. Nürnberg : D-V-V-D-N (2V-1N-2D), 7 buts pour, 5 contre.",
+      "ai_form_summary_en": "Heidenheim: D-N-D-N-D (0W-2D-3L), 6 goals for, 11 against. Nürnberg: D-V-V-D-N (2W-1D-2L), 7 goals for, 5 against.",
+      "ai_reasons": [
+        "Taux BTTS empirique élevé à 80% sur l'échantillon global",
+        "Taux BTTS de Heidenheim à 100% sur ses 5 derniers matchs",
+        "Moyennes de buts encourageantes (Heidenheim 1.0, Nürnberg 1.67)"
+      ],
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "proba": 0.72,
+          "modelEngine": "gemini-3.5-flash-lite"
+        }
+      ],
+      "prediction": "Oui",
+      "proba": 0.72,
+      "status": "PENDING"
+    },
+    {
+      "id": "legans-vs-cdsabade-2026-11-27",
+      "match": "Leganés vs CD Sabadell",
+      "home": "Leganés",
+      "away": "CD Sabadell",
+      "league": "LaLiga 2",
+      "date": "2026-11-27",
+      "type": "BTTS",
+      "time": "19:30",
+      "matchSemantic": "legans-vs-cdsabade-2026-11-27",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/17534.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/11487.png",
+      "tier": "GOLD",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "formBTTS": 80,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.55,
+        "draw": 2.9,
+        "away": 2.95,
+        "over25": 2.3,
+        "under25": 1.51
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "V-V-D-D-N",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 11,
+        "goalsAgainst": 10,
+        "bttsRate": 1,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-D-N-D-N",
+        "wins": 0,
+        "draws": 3,
+        "losses": 2,
+        "goalsFor": 3,
+        "goalsAgainst": 6,
+        "bttsRate": 0.6,
+        "over25Rate": 0.2,
+        "cleanSheets": 1,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-20",
+          "opponent": "FC Andorra",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-13",
+          "opponent": "Burgos",
+          "venue": "H",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Albacete",
+          "venue": "H",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-02",
+          "opponent": "Real Valladolid",
+          "venue": "A",
+          "score": "3-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Mallorca",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-21",
+          "opponent": "Granada",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-15",
+          "opponent": "Eldense",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-09",
+          "opponent": "Real Sociedad II",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Albacete",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Tenerife",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 15,
+        "points": 18,
+        "played": 15,
+        "gf": 17,
+        "ga": 25
+      },
+      "standingsAway": {
+        "rank": 13,
+        "points": 19,
+        "played": 15,
+        "gf": 13,
+        "ga": 14
+      },
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Leganés présente un taux BTTS de 100% sur ses cinq dernières sorties.",
+      "ai_form_summary": "Leganés : V-V-D-D-N (2V-1N-2D), 11 buts pour, 10 contre. CD Sabadell : N-D-N-D-N (0V-3N-2D), 3 buts pour, 6 contre.",
+      "ai_form_summary_en": "Leganés: V-V-D-D-N (2W-1D-2L), 11 goals for, 10 against. CD Sabadell: N-D-N-D-N (0W-3D-2L), 3 goals for, 6 against.",
+      "ai_reasons": [
+        "Taux BTTS empirique global de 80%",
+        "Taux BTTS de Leganés à 100% sur ses 5 derniers matchs",
+        "Buts encaissés importants pour Leganés (25 buts en 15 matchs)"
+      ],
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "proba": 0.68,
+          "modelEngine": "gemini-3.5-flash-lite"
+        }
+      ],
+      "prediction": "Oui",
+      "proba": 0.68,
+      "status": "PENDING"
+    },
     {
       "id": "alittiha-vs-neomsc-2026-11-27",
       "match": "Al Ittihad vs Neom SC",
@@ -24,11 +520,11 @@
       "formBTTS": 60,
       "odds": {
         "provider": "DraftKings",
-        "home": 1.87,
-        "draw": 3.75,
-        "away": 3.55,
-        "over25": 1.59,
-        "under25": 2.15
+        "home": 2.1,
+        "draw": 3.6,
+        "away": 3.3,
+        "over25": 1.69,
+        "under25": 2.1
       },
       "oddsSource": "DraftKings",
       "formHome": {
@@ -146,31 +642,20 @@
         "ga": 10
       },
       "statsOnly": true,
-      "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_key_fact": "Al Ittihad affiche un taux de BTTS de 80% sur ses 5 derniers matchs.",
-      "ai_form_summary": "Al Ittihad (3V-1D-1L) est en forme correcte avec 12 buts marqués. Neom SC (2V-1D-2L) propose un profil plus fermé.",
-      "ai_form_summary_en": "Al Ittihad (3W-1D-1L) shows decent form with 12 goals scored. Neom SC (2W-1D-2L) displays a tighter defensive profile.",
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "Le taux empirique du BTTS est de 60% et l'Over 2.5 ne dépasse pas 40%, reflétant des matchs fermés.",
+      "ai_form_summary": "Al Ittihad: 3W-1D-1L, 12 buts marqués, 6 encaissés. Neom SC: 2W-1D-2L, 5 buts marqués, 4 encaissés.",
+      "ai_form_summary_en": "Al Ittihad: 3W-1D-1L, 12 goals scored, 6 conceded. Neom SC: 2W-1D-2L, 5 goals scored, 4 conceded.",
       "ai_reasons": [
-        "Taux BTTS empirique de 60% sur l'échantillon analysé.",
-        "Taux de BTTS de Al Ittihad à 80% sur ses 5 derniers matchs.",
-        "Moyennes de buts marquées élevées pour Al Ittihad (2 buts/match) et Neom SC (1.25 but/match)."
+        "Taux empirique BTTS modéré à 60% et taux Over 2.5 à 40%.",
+        "Neom SC présente un taux BTTS de seulement 40% sur ses 5 derniers matchs.",
+        "Faible proportion de matchs ouverts pour l'équipe extérieure (0.2 d'Over 2.5 rate pour Neom SC)."
       ],
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "pick",
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "proba": 0.6,
-          "modelEngine": "gemini-3.5-flash-lite"
-        }
-      ],
-      "prediction": "Oui",
-      "proba": 0.6,
-      "status": "PENDING"
+      "ai_response_status": "abstain"
     },
     {
       "id": "venezia-vs-bologna-2026-11-27",
@@ -193,11 +678,11 @@
       "formBTTS": 50,
       "odds": {
         "provider": "DraftKings",
-        "home": 3.25,
+        "home": 3.3,
         "draw": 3.15,
-        "away": 2.2,
-        "over25": 2.1,
-        "under25": 1.74
+        "away": 2.1,
+        "over25": 2,
+        "under25": 1.77
       },
       "oddsSource": "DraftKings",
       "formHome": {
@@ -315,20 +800,31 @@
         "ga": 15
       },
       "statsOnly": true,
-      "ai_abstain": true,
-      "ai_market": "ABSTAIN",
-      "ai_key_fact": "Venezia possède le pire classement de la ligue et n'a marqué que 2 buts lors de ses 5 derniers matchs.",
-      "ai_form_summary": "Venezia en pleine crise (1V-4D) accueille un Bologna très solide (4V-1D).",
-      "ai_form_summary_en": "Venezia in deep crisis (1W-4L) hosts a very solid Bologna side (4W-1D).",
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Venezia n'a marqué que 2 buts lors de ses 5 derniers matchs de Serie A.",
+      "ai_form_summary": "Venezia (1V-0N-4L) en grande difficulté offensive, Bologna (4V-1N-0L) en excellente forme.",
+      "ai_form_summary_en": "Venezia (1W-0D-4L) in deep offensive trouble, Bologna (4W-1D-0L) in excellent form.",
       "ai_reasons": [
-        "Venezia affiche une très faible production offensive avec 0.75 but par match en moyenne",
-        "Taux BTTS empirique partagé à 50% malgré les dynamiques opposées",
-        "Forme très contrastée entre un Venezia en difficulté (1W-4L) et un Bologna en forme (4W-1D)"
+        "Venezia a un taux BTTS très faible de 0.2 sur ses 5 derniers matchs",
+        "Venezia n'a inscrit que 2 buts lors de ses 5 dernières rencontres",
+        "Faible moyenne de buts pour Venezia à domicile (0.75)"
       ],
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Non",
+          "proba": 0.52,
+          "modelEngine": "gemini-3.5-flash-lite"
+        }
+      ],
+      "prediction": "Non",
+      "proba": 0.52,
+      "status": "PENDING"
     },
     {
       "id": "werderbr-vs-borussia-2026-11-27",
@@ -669,174 +1165,6 @@
       "status": "PENDING"
     },
     {
-      "id": "alkholoo-vs-alkhalee-2026-11-27",
-      "match": "Al Kholood vs Al Khaleej",
-      "home": "Al Kholood",
-      "away": "Al Khaleej",
-      "league": "Saudi Pro League",
-      "date": "2026-11-27",
-      "type": "BTTS",
-      "time": "12:15",
-      "matchSemantic": "alkholoo-vs-alkhalee-2026-11-27",
-      "source": "empirical-form-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22028.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21829.png",
-      "tier": "GOLD",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "formBTTS": 60,
-      "odds": {
-        "provider": "DraftKings",
-        "home": 2.05,
-        "draw": 3.7,
-        "away": 3.25,
-        "over25": 1.69,
-        "under25": 2.1
-      },
-      "oddsSource": "DraftKings",
-      "formHome": {
-        "last5String": "D-D-D-D-D",
-        "wins": 0,
-        "draws": 0,
-        "losses": 5,
-        "goalsFor": 5,
-        "goalsAgainst": 18,
-        "bttsRate": 0.4,
-        "over25Rate": 0.8,
-        "cleanSheets": 0,
-        "failedToScore": 3,
-        "count": 5
-      },
-      "formAway": {
-        "last5String": "V-D-V-V-N",
-        "wins": 3,
-        "draws": 1,
-        "losses": 1,
-        "goalsFor": 11,
-        "goalsAgainst": 9,
-        "bttsRate": 0.8,
-        "over25Rate": 0.6,
-        "cleanSheets": 1,
-        "failedToScore": 0,
-        "count": 5
-      },
-      "last5Home": [
-        {
-          "date": "2026-10-29",
-          "opponent": "Al Nassr",
-          "venue": "A",
-          "score": "3-5",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-24",
-          "opponent": "Al Ettifaq",
-          "venue": "H",
-          "score": "0-3",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-15",
-          "opponent": "Al Faisaly",
-          "venue": "A",
-          "score": "2-3",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-09",
-          "opponent": "Al Qadsiah",
-          "venue": "H",
-          "score": "0-5",
-          "result": "L"
-        },
-        {
-          "date": "2026-09-13",
-          "opponent": "Al Riyadh",
-          "venue": "A",
-          "score": "0-2",
-          "result": "L"
-        }
-      ],
-      "last5Away": [
-        {
-          "date": "2026-10-29",
-          "opponent": "Al Hazem",
-          "venue": "H",
-          "score": "4-2",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-23",
-          "opponent": "Al Ahli",
-          "venue": "A",
-          "score": "1-4",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-18",
-          "opponent": "Al Fateh",
-          "venue": "A",
-          "score": "3-2",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-15",
-          "opponent": "Al Fayha",
-          "venue": "H",
-          "score": "2-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-10",
-          "opponent": "Al Ettifaq",
-          "venue": "A",
-          "score": "1-1",
-          "result": "D"
-        }
-      ],
-      "standingsHome": {
-        "rank": 11,
-        "points": 12,
-        "played": 11,
-        "gf": 17,
-        "ga": 26
-      },
-      "standingsAway": {
-        "rank": 10,
-        "points": 15,
-        "played": 12,
-        "gf": 14,
-        "ga": 19
-      },
-      "statsOnly": true,
-      "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_key_fact": "Al Khaleej présente un taux BTTS de 0.8 sur ses cinq dernières rencontres.",
-      "ai_form_summary": "Al Kholood : 0W-0D-5L (5 buts pour, 18 contre). Al Khaleej : 3W-1D-1L (11 buts pour, 9 contre).",
-      "ai_form_summary_en": "Al Kholood: 0W-0D-5L (5 goals for, 18 against). Al Khaleej: 3W-1D-1L (11 goals for, 9 against).",
-      "ai_reasons": [
-        "Al Khaleej affiche un taux BTTS élevé de 0.8 sur ses 5 derniers matchs.",
-        "L'indicateur formBTTS est à 60%, démontrant une dynamique favorable aux buts des deux côtés.",
-        "Le taux BTTS empirique global du match s'établit à 0.6 avec de bonnes moyennes offensives."
-      ],
-      "modelEngine": "gemini-stats-v1",
-      "ai_source": "gemini-stats-v1",
-      "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "pick",
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "proba": 0.62,
-          "modelEngine": "gemini-3.5-flash-lite"
-        }
-      ],
-      "prediction": "Oui",
-      "proba": 0.62
-    },
-    {
       "id": "southamp-vs-middlesb-2026-11-27",
       "match": "Southampton vs Middlesbrough",
       "home": "Southampton",
@@ -857,11 +1185,11 @@
       "formBTTS": 40,
       "odds": {
         "provider": "DraftKings",
-        "home": 2.85,
+        "home": 3.15,
         "draw": 3.75,
-        "away": 2.3,
-        "over25": 1.59,
-        "under25": 2.35
+        "away": 2.15,
+        "over25": null,
+        "under25": null
       },
       "oddsSource": "DraftKings",
       "formHome": {
@@ -981,13 +1309,12 @@
       "statsOnly": true,
       "ai_abstain": true,
       "ai_market": "ABSTAIN",
-      "ai_key_fact": "Le taux empirique Over 2.5 est limité à 0.3.",
-      "ai_form_summary": "Southampton : 2W-2D-1L (8 buts pour, 4 contre). Middlesbrough : 3W-1D-1L (7 buts pour, 3 contre).",
-      "ai_form_summary_en": "Southampton: 2W-2D-1L (8 goals for, 4 against). Middlesbrough: 3W-1D-1L (7 goals for, 3 against).",
+      "ai_key_fact": "Les deux équipes montrent de très faibles taux Over 2.5 (0.3) et BTTS (0.4) malgré de bonnes moyennes générales.",
+      "ai_form_summary": "Southampton: 2W-2D-1L (8 BP, 4 BC, BTTS 0.6). Middlesbrough: 3W-1D-1L (7 BP, 3 BC, BTTS 0.2).",
+      "ai_form_summary_en": "Southampton: 2W-2D-1L (8 GF, 4 GA, BTTS 0.6). Middlesbrough: 3W-1D-1L (7 GF, 3 GA, BTTS 0.2).",
       "ai_reasons": [
-        "Le taux empirique Over 2.5 est faible à 0.3.",
-        "Le taux BTTS empirique est de 0.4, sous la barre des 0.45.",
-        "Les taux Over 2.5 récents des deux équipes sont bas (0.2 et 0.4)."
+        "Le taux BTTS empirique est faible à 0.4 et le taux Over 2.5 est bas à 0.3.",
+        "Southampton et Middlesbrough affichent tous deux de solides performances défensives récentes (seulement 4 et 3 buts encaissés sur leurs 5 derniers matchs respectifs)."
       ],
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
@@ -1160,7 +1487,8 @@
         }
       ],
       "prediction": "Oui",
-      "proba": 0.52
+      "proba": 0.52,
+      "status": "PENDING"
     },
     {
       "id": "vilanova-vs-atlticog-2026-11-27",
@@ -1183,11 +1511,11 @@
       "formBTTS": 50,
       "odds": {
         "provider": "DraftKings",
-        "home": 2.5,
-        "draw": 3.1,
-        "away": 3,
-        "over25": 2.15,
-        "under25": 1.65
+        "home": 2.75,
+        "draw": 2.9,
+        "away": 2.9,
+        "over25": null,
+        "under25": null
       },
       "oddsSource": "DraftKings",
       "formHome": {
@@ -1305,30 +1633,20 @@
         "ga": 35
       },
       "statsOnly": true,
-      "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_key_fact": "Vila Nova affiche un taux BTTS de 0.6 sur ses cinq derniers matchs.",
-      "ai_form_summary": "Vila Nova : 1W-2D-2L (6 buts pour, 7 contre). Atlético Goianiense : 2W-2D-1L (5 buts pour, 4 contre).",
-      "ai_form_summary_en": "Vila Nova: 1W-2D-2L (6 goals for, 7 against). Atlético Goianiense: 2W-2D-1L (5 goals for, 4 against).",
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "Le taux empirique Over 2.5 est de seulement 30% malgré des classements proches.",
+      "ai_form_summary": "Vila Nova : N-D-V-N-D (1W-2D-2L) | Atlético Goianiense : N-V-V-N-D (2W-2D-1L)",
+      "ai_form_summary_en": "Vila Nova: D-L-W-D-L (1W-2D-2L) | Atlético Goianiense: D-W-W-D-L (2W-2D-1L)",
       "ai_reasons": [
-        "Le taux BTTS empirique est de 0.5 sur l'échantillon fourni.",
-        "Vila Nova enregistre un taux BTTS de 0.6 sur ses 5 derniers matchs.",
-        "L'indicateur formBTTS atteint 50% pour cette affiche de Serie B."
+        "Le taux empirique Over 2.5 est faible à 30%.",
+        "Le taux empirique BTTS est de 50%, mais les taux de buts récents sont modérés.",
+        "Les deux équipes affichent des dynamiques de buts trop partagées pour dégager un pari clair."
       ],
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "pick",
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "proba": 0.55,
-          "modelEngine": "gemini-3.5-flash-lite"
-        }
-      ],
-      "prediction": "Oui",
-      "proba": 0.55
+      "ai_response_status": "abstain"
     },
     {
       "id": "ohleuven-vs-kvkortri-2026-11-27",
@@ -1337,7 +1655,7 @@
       "away": "KV Kortrijk",
       "league": "Jupiler Pro League",
       "date": "2026-11-27",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "time": "19:45",
       "matchSemantic": "ohleuven-vs-kvkortri-2026-11-27",
       "source": "empirical-form-data",
@@ -1351,11 +1669,11 @@
       "formBTTS": 50,
       "odds": {
         "provider": "DraftKings",
-        "home": 1.87,
-        "draw": 3.85,
-        "away": 3.75,
-        "over25": 1.63,
-        "under25": 2.2
+        "home": 2,
+        "draw": 3.65,
+        "away": 3.45,
+        "over25": 1.67,
+        "under25": 2.15
       },
       "oddsSource": "DraftKings",
       "formHome": {
@@ -1474,14 +1792,14 @@
       },
       "statsOnly": true,
       "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_key_fact": "KV Kortrijk has conceded 24 goals in 12 matches while scoring only 4.",
-      "ai_form_summary": "OH Leuven : 2V-2N-1D (7 BP, 5 BC). KV Kortrijk : 0V-1N-4D (2 BP, 9 BC).",
-      "ai_form_summary_en": "OH Leuven: 2W-2D-1L (7 GF, 5 GA). KV Kortrijk: 0W-1D-4L (2 GF, 9 GA).",
+      "ai_market": "OVER_25",
+      "ai_key_fact": "KV Kortrijk a encaissé 24 buts en 12 matchs de championnat, favorisant potentiellement le volume offensif.",
+      "ai_form_summary": "OH Leuven : D-V-V-N-N (2W-2D-1L) | KV Kortrijk : D-D-D-N-D (0W-1D-4L)",
+      "ai_form_summary_en": "OH Leuven: L-W-W-D-D (2W-2D-1L) | KV Kortrijk: L-L-L-D-L (0W-1D-4L)",
       "ai_reasons": [
-        "OH Leuven has a home BTTS rate of 60% across their recent sample.",
-        "Empirical BTTS sits at 50% for this fixture.",
-        "KV Kortrijk struggles defensively with 24 goals conceded in 12 matches."
+        "OH Leuven affiche une moyenne de buts marqués à domicile élevée (1.75 par match).",
+        "KV Kortrijk encaisse énormément (24 buts encaissés en 12 matchs de championnat).",
+        "La cote pour l'Over 2.5 est fixée à 1.67 chez le fournisseur."
       ],
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
@@ -1489,7 +1807,7 @@
       "ai_response_status": "pick",
       "predictions": [
         {
-          "type": "BTTS",
+          "type": "Over 2.5",
           "prediction": "Oui",
           "proba": 0.55,
           "modelEngine": "gemini-3.5-flash-lite"
@@ -1519,7 +1837,7 @@
       "formBTTS": 50,
       "odds": {
         "provider": "DraftKings",
-        "home": 2,
+        "home": 2.05,
         "draw": 2.85,
         "away": 4,
         "over25": null,
@@ -1641,19 +1959,30 @@
         "ga": 33
       },
       "statsOnly": true,
-      "ai_abstain": true,
-      "ai_market": "ABSTAIN",
-      "ai_key_fact": "Atlanta and Ciudad de Bolívar show balanced metrics without strong indicators for either market.",
-      "ai_form_summary": "Atlanta : 2V-2N-1D (5 BP, 5 BC). Ciudad de Bolívar : 2V-0N-3D (4 BP, 7 BC).",
-      "ai_form_summary_en": "Atlanta: 2W-2D-1L (5 GF, 5 GA). Ciudad de Bolívar: 2W-0D-3L (4 GF, 7 GA).",
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Le taux empirique BTTS est de 50% avec des dynamiques de forme récentes équilibrées.",
+      "ai_form_summary": "Atlanta : V-N-N-V-D (2W-2D-1L) | Ciudad de Bolívar : D-V-D-D-V (2W-0D-3L)",
+      "ai_form_summary_en": "Atlanta: W-D-D-W-L (2W-2D-1L) | Ciudad de Bolívar: L-W-L-L-W (2W-0D-3L)",
       "ai_reasons": [
-        "Empirical BTTS and Over 2.5 are at 50% and 40% respectively, showing no strong tendency.",
-        "Both teams display low goal averages in their respective recent forms."
+        "Le taux empirique BTTS est exactement de 50%.",
+        "Les deux formations affichent des taux de BTTS récents de 60% pour Atlanta et 40% pour Ciudad de Bolívar.",
+        "Ciudad de Bolívar concède plus de buts qu'il n'en marque à l'extérieur (1.25 encaissé en moyenne)."
       ],
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "proba": 0.55,
+          "modelEngine": "gemini-3.5-flash-lite"
+        }
+      ],
+      "prediction": "Oui",
+      "proba": 0.55
     },
     {
       "id": "vflbochu-vs-svdarmst-2026-11-27",
@@ -1676,11 +2005,11 @@
       "formBTTS": 50,
       "odds": {
         "provider": "DraftKings",
-        "home": 1.77,
-        "draw": 3.95,
-        "away": 4.1,
-        "over25": 1.59,
-        "under25": 2.3
+        "home": 1.63,
+        "draw": 4.2,
+        "away": 5,
+        "over25": 1.69,
+        "under25": 2.1
       },
       "oddsSource": "DraftKings",
       "formHome": {
@@ -1798,30 +2127,20 @@
         "ga": 22
       },
       "statsOnly": true,
-      "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_key_fact": "SV Darmstadt 98 has conceded 22 goals across 12 league matches.",
-      "ai_form_summary": "VfL Bochum : 2V-1N-2D (6 BP, 8 BC). SV Darmstadt 98 : 1V-2N-2D (4 BP, 8 BC).",
-      "ai_form_summary_en": "VfL Bochum: 2W-1D-2L (6 GF, 8 GA). SV Darmstadt 98: 1W-2D-2L (4 GF, 8 GA).",
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "Moyenne de buts de Darmstadt 0.33 et taux Over 2.5 à 40%.",
+      "ai_form_summary": "Bochum : 2V-1N-2D (6 buts marqués, 8 encaissés). Darmstadt : 1V-2N-2D (4 buts marqués, 8 encaissés).",
+      "ai_form_summary_en": "Bochum: 2W-1D-2L (6 goals scored, 8 conceded). Darmstadt: 1W-2D-2L (4 goals scored, 8 conceded).",
       "ai_reasons": [
-        "VfL Bochum maintains a 60% BTTS rate in their recent home sample.",
-        "Empirical BTTS stands at 50% for this matchup.",
-        "SV Darmstadt 98 has conceded 22 goals in 12 played matches."
+        "Taux empirique du BTTS à 50% mais moyennes de buts faibles (Bochum 1.25, Darmstadt 0.33).",
+        "Taux Over 2.5 faible à 40% pour les deux équipes.",
+        "Forme récente instable avec des taux de BTTS partagés (Bochum 60%, Darmstadt 40%)."
       ],
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "pick",
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "proba": 0.55,
-          "modelEngine": "gemini-3.5-flash-lite"
-        }
-      ],
-      "prediction": "Oui",
-      "proba": 0.55
+      "ai_response_status": "abstain"
     },
     {
       "id": "grazerak-vs-scrheind-2026-11-27",
@@ -1989,7 +2308,8 @@
         }
       ],
       "prediction": "Oui",
-      "proba": 0.65
+      "proba": 0.65,
+      "status": "PENDING"
     },
     {
       "id": "maritimo-vs-cdnacion-2026-11-27",
@@ -2012,11 +2332,11 @@
       "formBTTS": 40,
       "odds": {
         "provider": "DraftKings",
-        "home": 2.1,
-        "draw": 3.3,
+        "home": 2.15,
+        "draw": 3.2,
         "away": 3.55,
-        "over25": 2.15,
-        "under25": 1.65
+        "over25": 2.2,
+        "under25": 1.61
       },
       "oddsSource": "DraftKings",
       "formHome": {
@@ -2136,12 +2456,13 @@
       "statsOnly": true,
       "ai_abstain": true,
       "ai_market": "ABSTAIN",
-      "ai_key_fact": "Maritimo affiche une moyenne de 0.75 buts par match à domicile.",
-      "ai_form_summary": "Maritimo en difficulté (0W-1D-4L) face à un C.D. Nacional irrégulier (2W-0D-3L).",
-      "ai_form_summary_en": "Maritimo struggling (0W-1D-4L) against an inconsistent C.D. Nacional (2W-0D-3L).",
+      "ai_key_fact": "C.D. Nacional a un taux de BTTS de seulement 20% sur ses 5 derniers matchs.",
+      "ai_form_summary": "Maritimo : 0V-1N-4D (3 buts marqués, 13 encaissés). Nacional : 2V-0N-3D (4 buts marqués, 8 encaissés).",
+      "ai_form_summary_en": "Maritimo: 0W-1D-4L (3 goals scored, 13 conceded). Nacional: 2W-0D-3L (4 goals scored, 8 conceded).",
       "ai_reasons": [
-        "Faibles moyennes de buts (0.75 pour Maritimo et 0.67 pour C.D. Nacional).",
-        "Taux BTTS empirique faible à 40% sur l'ensemble des données."
+        "Taux empirique du BTTS bas à 40%.",
+        "Taux d'Over 2.5 à 50% sans domination nette d'un scénario offensif.",
+        "Forme récente très faible pour Maritimo (0V-1N-4D)."
       ],
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
@@ -2993,7 +3314,7 @@
       "away": "Chicago Fire FC",
       "league": "MLS",
       "date": "2026-11-28",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "time": "17:30",
       "matchSemantic": "charlott-vs-chicagof-2026-11-28",
       "source": "empirical-form-data",
@@ -3130,14 +3451,14 @@
       },
       "statsOnly": true,
       "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_key_fact": "Charlotte FC et Chicago Fire affichent tous deux un taux Over 2.5 de 100% sur leurs récents échantillons.",
-      "ai_form_summary": "Charlotte FC (3W-1D-1L) et Chicago Fire FC (2W-1D-2L) s'appuient sur des attaques prolifiques et des dynamiques offensives constantes.",
-      "ai_form_summary_en": "Charlotte FC (3W-1D-1L) and Chicago Fire FC (2W-1D-2L) rely on prolific attacks and consistent offensive dynamics.",
+      "ai_market": "BTTS",
+      "ai_key_fact": "Chicago Fire présente un taux BTTS de 100% sur ses 5 derniers matchs.",
+      "ai_form_summary": "Charlotte FC : 3V-1D-1N (15 BP, 7 BC, 60% BTTS). Chicago Fire FC : 2V-1D-2N (13 BP, 12 BC, 100% BTTS).",
+      "ai_form_summary_en": "Charlotte FC: 3W-1D-1L (15 GF, 7 GA, 60% BTTS). Chicago Fire FC: 2W-1D-2L (13 GF, 12 GA, 100% BTTS).",
       "ai_reasons": [
-        "Taux empirique Over 2.5 à 100% et taux BTTS à 80%",
-        "Moyennes de buts très élevées (Charlotte FC 3.67, Chicago Fire FC 2.33)",
-        "Bilan offensif impressionnant sur l'ensemble de la saison (66 buts pour Charlotte, 64 pour Chicago en 34 matchs)"
+        "Taux BTTS empirique solide à 80%.",
+        "Taux BTTS de 100% sur les 5 derniers matchs pour Chicago Fire.",
+        "Moyennes de buts élevés (3.67 pour Charlotte FC, 2.33 pour Chicago Fire FC)."
       ],
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
@@ -3145,14 +3466,14 @@
       "ai_response_status": "pick",
       "predictions": [
         {
-          "type": "Over 2.5",
+          "type": "BTTS",
           "prediction": "Oui",
-          "proba": 0.73,
+          "proba": 0.68,
           "modelEngine": "gemini-3.5-flash-lite"
         }
       ],
       "prediction": "Oui",
-      "proba": 0.73,
+      "proba": 0.68,
       "status": "PENDING"
     },
     {
@@ -3322,6 +3643,682 @@
       ],
       "prediction": "Oui",
       "proba": 0.7,
+      "status": "PENDING"
+    },
+    {
+      "id": "ipswicht-vs-astonvil-2026-11-28",
+      "match": "Ipswich Town vs Aston Villa",
+      "home": "Ipswich Town",
+      "away": "Aston Villa",
+      "league": "Premier League",
+      "date": "2026-11-28",
+      "type": "BTTS",
+      "time": "17:30",
+      "matchSemantic": "ipswicht-vs-astonvil-2026-11-28",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/373.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/362.png",
+      "tier": "GOLD",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "formBTTS": 70,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 3.35,
+        "draw": 3.8,
+        "away": 2,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-D-N-N-D",
+        "wins": 0,
+        "draws": 2,
+        "losses": 3,
+        "goalsFor": 6,
+        "goalsAgainst": 10,
+        "bttsRate": 0.8,
+        "over25Rate": 0.6,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-N-N-V-V",
+        "wins": 2,
+        "draws": 3,
+        "losses": 0,
+        "goalsFor": 8,
+        "goalsAgainst": 6,
+        "bttsRate": 0.6,
+        "over25Rate": 0.4,
+        "cleanSheets": 2,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-21",
+          "opponent": "Tottenham Hotspur",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-08",
+          "opponent": "AFC Bournemouth",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Hull City",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Nottingham Forest",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Manchester City",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-21",
+          "opponent": "Sunderland",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-08",
+          "opponent": "Manchester United",
+          "venue": "A",
+          "score": "4-4",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Fulham",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Manchester City",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Newcastle United",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 16,
+        "points": 11,
+        "played": 11,
+        "gf": 15,
+        "ga": 22
+      },
+      "standingsAway": {
+        "rank": 12,
+        "points": 14,
+        "played": 11,
+        "gf": 14,
+        "ga": 17
+      },
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Ipswich Town enregistre un taux BTTS de 80% sur sa forme récente malgré l'absence de victoire.",
+      "ai_form_summary": "Ipswich Town : 0W-2D-3L (6 buts pour, 10 contre). Aston Villa : 2W-3D-0L (8 buts pour, 6 contre).",
+      "ai_form_summary_en": "Ipswich Town: 0W-2D-3L (6 GF, 10 GA). Aston Villa: 2W-3D-0L (8 GF, 6 GA).",
+      "ai_reasons": [
+        "Taux empirique BTTS de 70% pour ce match de Premier League",
+        "Taux BTTS de Ipswich Town atteignant 80% sur ses 5 derniers matchs",
+        "Aston Villa présente une moyenne de buts élevée à l'extérieur (2.67)"
+      ],
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "proba": 0.65,
+          "modelEngine": "gemini-3.5-flash-lite"
+        }
+      ],
+      "prediction": "Oui",
+      "proba": 0.65,
+      "status": "PENDING"
+    },
+    {
+      "id": "deportiv-vs-barcelon-2026-11-29",
+      "match": "Deportivo vs Barcelona",
+      "home": "Deportivo",
+      "away": "Barcelona",
+      "league": "LaLiga",
+      "date": "2026-11-29",
+      "type": "BTTS",
+      "time": "15:15",
+      "matchSemantic": "deportiv-vs-barcelon-2026-11-29",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/90.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/83.png",
+      "tier": "GOLD",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "formBTTS": 80,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 8.5,
+        "draw": 7,
+        "away": 1.25,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-N-V-D-N",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 4,
+        "goalsAgainst": 6,
+        "bttsRate": 0.6,
+        "over25Rate": 0.4,
+        "cleanSheets": 1,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-V-D-V",
+        "wins": 4,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 17,
+        "goalsAgainst": 8,
+        "bttsRate": 1,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-21",
+          "opponent": "Alavés",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Espanyol",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-02",
+          "opponent": "Osasuna",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Atlético Madrid",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-16",
+          "opponent": "Levante",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-22",
+          "opponent": "Villarreal",
+          "venue": "H",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-08",
+          "opponent": "Atlético Madrid",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Alavés",
+          "venue": "H",
+          "score": "6-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Real Madrid",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Real Betis",
+          "venue": "A",
+          "score": "5-2",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 12,
+        "points": 15,
+        "played": 13,
+        "gf": 16,
+        "ga": 17
+      },
+      "standingsAway": {
+        "rank": 1,
+        "points": 36,
+        "played": 13,
+        "gf": 51,
+        "ga": 15
+      },
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Barcelona possède la meilleure attaque avec 51 buts marqués en 13 matchs mais concède aussi 8 buts sur ses 8 derniers.",
+      "ai_form_summary": "Deportivo : 1W-2D-2L (4 BP, 6 BC, BTTS 60%). Barcelona : 4W-0D-1L (17 BP, 8 BC, BTTS 100%).",
+      "ai_form_summary_en": "Deportivo: 1W-2D-2L (4 GF, 6 GA, BTTS 60%). Barcelona: 4W-0D-1L (17 GF, 8 GA, BTTS 100%).",
+      "ai_reasons": [
+        "Taux empirique BTTS élevé à 0.8 pour ce match.",
+        "Barcelona présente un taux BTTS de 1 et une moyenne de 3.33 buts marqués sur ses 8 derniers matchs.",
+        "Deportivo affiche un taux BTTS de 0.6 sur ses 5 derniers matchs malgré des difficultés au classement."
+      ],
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "proba": 0.72,
+          "modelEngine": "gemini-3.5-flash-lite"
+        }
+      ],
+      "prediction": "Oui",
+      "proba": 0.72,
+      "status": "PENDING"
+    },
+    {
+      "id": "ajauxerr-vs-marseill-2026-11-29",
+      "match": "AJ Auxerre vs Marseille",
+      "home": "AJ Auxerre",
+      "away": "Marseille",
+      "league": "Ligue 1",
+      "date": "2026-11-29",
+      "type": "BTTS",
+      "time": "14:00",
+      "matchSemantic": "ajauxerr-vs-marseill-2026-11-29",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/172.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/176.png",
+      "tier": "GOLD",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "formBTTS": 80,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 3.8,
+        "draw": 3.9,
+        "away": 1.87,
+        "over25": 1.57,
+        "under25": 2.3
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "N-D-D-N-V",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 6,
+        "goalsAgainst": 9,
+        "bttsRate": 0.8,
+        "over25Rate": 0.4,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-V-V-V-V",
+        "wins": 4,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 15,
+        "goalsAgainst": 9,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-21",
+          "opponent": "AS Monaco",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Paris FC",
+          "venue": "H",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Strasbourg",
+          "venue": "A",
+          "score": "1-5",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Le Mans",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Le Havre AC",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-22",
+          "opponent": "Le Mans",
+          "venue": "H",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-08",
+          "opponent": "Lens",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Toulouse",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Le Havre AC",
+          "venue": "H",
+          "score": "4-3",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Angers",
+          "venue": "A",
+          "score": "5-2",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 15,
+        "points": 11,
+        "played": 11,
+        "gf": 14,
+        "ga": 25
+      },
+      "standingsAway": {
+        "rank": 5,
+        "points": 18,
+        "played": 11,
+        "gf": 24,
+        "ga": 17
+      },
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Les deux équipes affichent un taux BTTS de 80% sur leurs 5 derniers matchs respectifs.",
+      "ai_form_summary": "AJ Auxerre : 1W-2D-2L (6 BP, 9 BC, BTTS 80%). Marseille : 4W-0D-1L (15 BP, 9 BC, BTTS 80%).",
+      "ai_form_summary_en": "AJ Auxerre: 1W-2D-2L (6 GF, 9 GA, BTTS 80%). Marseille: 4W-0D-1L (15 GF, 9 GA, BTTS 80%).",
+      "ai_reasons": [
+        "Taux empirique BTTS à 0.8 pour cette confrontation.",
+        "Taux BTTS de 0.8 pour AJ Auxerre et Marseille sur leurs 5 derniers matchs respectifs.",
+        "Marseille affiche 15 buts marqués et 9 encaissés sur sa période récente."
+      ],
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "proba": 0.75,
+          "modelEngine": "gemini-3.5-flash-lite"
+        }
+      ],
+      "prediction": "Oui",
+      "proba": 0.75,
+      "status": "PENDING"
+    },
+    {
+      "id": "adodenha-vs-fcutrech-2026-11-29",
+      "match": "ADO Den Haag vs FC Utrecht",
+      "home": "ADO Den Haag",
+      "away": "FC Utrecht",
+      "league": "Eredivisie",
+      "date": "2026-11-29",
+      "type": "Over 2.5",
+      "time": "11:15",
+      "matchSemantic": "adodenha-vs-fcutrech-2026-11-29",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2726.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/153.png",
+      "tier": "GOLD",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "formBTTS": 80,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.6,
+        "draw": 3.6,
+        "away": 2.4,
+        "over25": 1.54,
+        "under25": 2.25
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-V-D-D-V",
+        "wins": 2,
+        "draws": 0,
+        "losses": 3,
+        "goalsFor": 7,
+        "goalsAgainst": 9,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-D-D-N-V",
+        "wins": 1,
+        "draws": 1,
+        "losses": 3,
+        "goalsFor": 9,
+        "goalsAgainst": 12,
+        "bttsRate": 1,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-22",
+          "opponent": "Ajax Amsterdam",
+          "venue": "A",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Sparta Rotterdam",
+          "venue": "H",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "PEC Zwolle",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Heerenveen",
+          "venue": "H",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "PSV Eindhoven",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-21",
+          "opponent": "SC Cambuur",
+          "venue": "H",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-08",
+          "opponent": "NEC Nijmegen",
+          "venue": "H",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Telstar",
+          "venue": "A",
+          "score": "2-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "PEC Zwolle",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "FC Twente",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 17,
+        "points": 9,
+        "played": 13,
+        "gf": 16,
+        "ga": 28
+      },
+      "standingsAway": {
+        "rank": 15,
+        "points": 12,
+        "played": 13,
+        "gf": 23,
+        "ga": 37
+      },
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_key_fact": "Les deux formations partagent un taux d'Over 2.5 de 80% lors de leurs cinq dernières sorties.",
+      "ai_form_summary": "ADO Den Haag : 2W-0D-3L (7 BP, 9 BC, Over 80%). FC Utrecht : 1W-1D-3L (9 BP, 12 BC, Over 80%).",
+      "ai_form_summary_en": "ADO Den Haag: 2W-0D-3L (7 GF, 9 GA, Over 80%). FC Utrecht: 1W-1D-3L (9 GF, 12 GA, Over 80%).",
+      "ai_reasons": [
+        "Taux empirique Over 2.5 élevé à 0.8 pour ce match.",
+        "ADO Den Haag et FC Utrecht affichent tous deux un taux Over 2.5 de 0.8 sur leurs 5 derniers matchs.",
+        "Les statistiques globales montrent des défenses très perméables avec 28 buts encaissés pour Den Haag et 37 pour Utrecht."
+      ],
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "proba": 0.75,
+          "modelEngine": "gemini-3.5-flash-lite"
+        }
+      ],
+      "prediction": "Oui",
+      "proba": 0.75,
       "status": "PENDING"
     },
     {
@@ -3669,7 +4666,7 @@
       "away": "Monza",
       "league": "Serie A",
       "date": "2026-11-29",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "time": "17:00",
       "matchSemantic": "asroma-vs-monza-2026-11-29",
       "source": "empirical-form-data",
@@ -3806,14 +4803,14 @@
       },
       "statsOnly": true,
       "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_key_fact": "L'AS Roma affiche un taux de 100% d'Over 2.5 sur ses 5 derniers matchs.",
-      "ai_form_summary": "AS Roma: 4V-1N-0D (20 buts pour, 8 contre) / Monza: 1V-0N-4D (7 buts pour, 10 contre)",
-      "ai_form_summary_en": "AS Roma: 4W-1D-0L (20 GF, 8 GA) / Monza: 1W-0D-4L (7 GF, 10 GA)",
+      "ai_market": "BTTS",
+      "ai_key_fact": "AS Roma a un taux BTTS de 0.8 sur ses 5 derniers matchs malgré son rang de dauphin.",
+      "ai_form_summary": "AS Roma : V-V-V-V-N (4W-1D-0L) | Monza : V-D-D-D-D (1W-0D-4L)",
+      "ai_form_summary_en": "AS Roma: V-V-V-V-N (4W-1D-0L) | Monza: V-D-D-D-D (1W-0D-4L)",
       "ai_reasons": [
-        "Taux empirique Over 2.5 très élevé à 90% pour cette affiche.",
-        "L'AS Roma affiche un taux de Over 2.5 de 100% sur ses 5 derniers matchs avec 20 buts marqués.",
-        "Monza présente un taux de Over 2.5 de 80% sur ses 5 dernières sorties."
+        "AS Roma affiche un taux BTTS de 0.8 sur ses 5 derniers matchs et de 0.7 empirique global.",
+        "Monza présente un taux BTTS de 0.6 sur ses 5 derniers matchs.",
+        "AS Roma concède en moyenne 8 buts sur ses 5 derniers matchs et Monza encaisse 25 buts en 12 matchs de championnat."
       ],
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
@@ -3821,14 +4818,14 @@
       "ai_response_status": "pick",
       "predictions": [
         {
-          "type": "Over 2.5",
+          "type": "BTTS",
           "prediction": "Oui",
-          "proba": 0.78,
+          "proba": 0.68,
           "modelEngine": "gemini-3.5-flash-lite"
         }
       ],
       "prediction": "Oui",
-      "proba": 0.78,
+      "proba": 0.68,
       "status": "PENDING"
     },
     {
@@ -3838,7 +4835,7 @@
       "away": "Padova",
       "league": "Serie B",
       "date": "2026-11-29",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "time": "14:00",
       "matchSemantic": "modena-vs-padova-2026-11-29",
       "source": "empirical-form-data",
@@ -3853,7 +4850,7 @@
       "odds": {
         "provider": "DraftKings",
         "home": 1.43,
-        "draw": 4.5,
+        "draw": 4.4,
         "away": 6.5,
         "over25": 1.67,
         "under25": 2.05
@@ -3975,14 +4972,14 @@
       },
       "statsOnly": true,
       "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_key_fact": "Padova affiche un taux BTTS de 80% sur ses 5 derniers matchs malgré des résultats mitigés.",
-      "ai_form_summary": "Modena : 3V-2N-0L (8 BP, 3 BC, 60% BTTS). Padova : 1V-3D-1L (7 BP, 6 BC, 80% BTTS).",
-      "ai_form_summary_en": "Modena: 3W-2D-0L (8 GF, 3 GA, 60% BTTS). Padova: 1W-3D-1L (7 GF, 6 GA, 80% BTTS).",
+      "ai_market": "OVER_25",
+      "ai_key_fact": "Modena a un taux d'Over 2.5 de seulement 20% sur ses 5 derniers matchs.",
+      "ai_form_summary": "Modena : N-V-V-N-V (3W-2D-0L) / Padova : D-N-N-N-V (1W-3D-1L)",
+      "ai_form_summary_en": "Modena: D-W-W-D-W (3W-2D-0L) / Padova: L-D-D-D-W (1W-3D-1L)",
       "ai_reasons": [
-        "Taux empirique BTTS de 70% pour cette affiche de Serie B.",
-        "Padova présente un taux de BTTS de 80% sur ses 5 derniers matchs.",
-        "La forme BTTS est évaluée à 70% d'après les données récentes."
+        "Taux Under 2.5 très prononcé avec un taux Over 2.5 empirique à seulement 30%",
+        "Modena affiche un taux Under 2.5 strict sur ses 5 derniers matchs (taux over à 20%)",
+        "Les statistiques de Padova montrent également un taux Over 2.5 limité à 40% sur ses 5 derniers matchs"
       ],
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
@@ -3990,14 +4987,15 @@
       "ai_response_status": "pick",
       "predictions": [
         {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "proba": 0.68,
+          "type": "Over 2.5",
+          "prediction": "Non",
+          "proba": 0.72,
           "modelEngine": "gemini-3.5-flash-lite"
         }
       ],
-      "prediction": "Oui",
-      "proba": 0.68
+      "prediction": "Non",
+      "proba": 0.72,
+      "status": "PENDING"
     },
     {
       "id": "tsghoffe-vs-fcaugsbu-2026-11-29",
@@ -4499,7 +5497,7 @@
       "away": "AC Milan",
       "league": "Serie A",
       "date": "2026-11-30",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "time": "19:45",
       "matchSemantic": "cagliari-vs-acmilan-2026-11-30",
       "source": "empirical-form-data",
@@ -4636,14 +5634,14 @@
       },
       "statsOnly": true,
       "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_key_fact": "AC Milan a inscrit 14 buts lors de ses 5 derniers matchs mais concède aussi 7 buts sur la même période.",
-      "ai_form_summary": "Cagliari : 1W-0D-4L (4 buts pour, 10 contre). AC Milan : 4W-0D-1L (14 buts pour, 7 contre).",
-      "ai_form_summary_en": "Cagliari: 1W-0D-4L (4 GF, 10 GA). AC Milan: 4W-0D-1L (14 GF, 7 GA).",
+      "ai_market": "OVER_25",
+      "ai_key_fact": "AC Milan affiche un taux de 80% d'Over 2.5 sur ses cinq derniers matchs avec 14 buts marqués.",
+      "ai_form_summary": "Cagliari (1W-0D-4L, 4 BP, 10 BC) vs AC Milan (4W-0D-1L, 14 BP, 7 BC)",
+      "ai_form_summary_en": "Cagliari (1W-0D-4L, 4 GF, 10 GA) vs AC Milan (4W-0D-1L, 14 GF, 7 GA)",
       "ai_reasons": [
-        "Taux BTTS empirique de 60% sur l'échantillon disponible.",
-        "AC Milan affiche une excellente forme offensive (14 buts en 5 matchs) avec un taux de BTTS de 80%.",
-        "Cagliari encaisse régulièrement (17 buts en 12 matchs)."
+        "AC Milan présente un taux over25 de 0.8 sur ses 5 derniers matchs.",
+        "AC Milan a inscrit 14 buts lors de ses 5 dernières rencontres (moyenne offensive de 1.67).",
+        "Taux empirique global du match établi à 0.6 pour l'Over 2.5."
       ],
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
@@ -4651,14 +5649,15 @@
       "ai_response_status": "pick",
       "predictions": [
         {
-          "type": "BTTS",
+          "type": "Over 2.5",
           "prediction": "Oui",
-          "proba": 0.58,
+          "proba": 0.62,
           "modelEngine": "gemini-3.5-flash-lite"
         }
       ],
       "prediction": "Oui",
-      "proba": 0.58
+      "proba": 0.62,
+      "status": "PENDING"
     },
     {
       "id": "benfica-vs-fcfamali-2026-11-30",
@@ -4999,651 +5998,6 @@
       "status": "PENDING"
     },
     {
-      "id": "casapia-vs-braga-2026-11-30",
-      "match": "Casa Pia vs Braga",
-      "home": "Casa Pia",
-      "away": "Braga",
-      "league": "Liga Portugal",
-      "date": "2026-11-30",
-      "type": "BTTS",
-      "time": "20:15",
-      "matchSemantic": "casapia-vs-braga-2026-11-30",
-      "source": "empirical-form-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21581.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2994.png",
-      "tier": "SILVER",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "formBTTS": 40,
-      "odds": {
-        "provider": "DraftKings",
-        "home": 6.5,
-        "draw": 4.2,
-        "away": 1.45,
-        "over25": 1.87,
-        "under25": 1.77
-      },
-      "oddsSource": "DraftKings",
-      "formHome": {
-        "last5String": "N-D-V-D-V",
-        "wins": 2,
-        "draws": 1,
-        "losses": 2,
-        "goalsFor": 5,
-        "goalsAgainst": 5,
-        "bttsRate": 0.4,
-        "over25Rate": 0.2,
-        "cleanSheets": 1,
-        "failedToScore": 2,
-        "count": 5
-      },
-      "formAway": {
-        "last5String": "V-V-D-D-D",
-        "wins": 2,
-        "draws": 0,
-        "losses": 3,
-        "goalsFor": 6,
-        "goalsAgainst": 6,
-        "bttsRate": 0.4,
-        "over25Rate": 0.6,
-        "cleanSheets": 2,
-        "failedToScore": 1,
-        "count": 5
-      },
-      "last5Home": [
-        {
-          "date": "2026-11-07",
-          "opponent": "Alverca",
-          "venue": "A",
-          "score": "1-1",
-          "result": "D"
-        },
-        {
-          "date": "2026-10-30",
-          "opponent": "Sporting CP",
-          "venue": "H",
-          "score": "0-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-24",
-          "opponent": "Estrela",
-          "venue": "A",
-          "score": "2-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-10",
-          "opponent": "Santa Clara",
-          "venue": "H",
-          "score": "0-1",
-          "result": "L"
-        },
-        {
-          "date": "2026-09-20",
-          "opponent": "Estoril",
-          "venue": "A",
-          "score": "2-1",
-          "result": "W"
-        }
-      ],
-      "last5Away": [
-        {
-          "date": "2026-11-08",
-          "opponent": "Rio Ave",
-          "venue": "A",
-          "score": "1-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-11-01",
-          "opponent": "FC Famalicao",
-          "venue": "H",
-          "score": "3-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-25",
-          "opponent": "C.D. Nacional",
-          "venue": "A",
-          "score": "0-1",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-19",
-          "opponent": "Gil Vicente",
-          "venue": "H",
-          "score": "1-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-09",
-          "opponent": "Sporting CP",
-          "venue": "H",
-          "score": "1-3",
-          "result": "L"
-        }
-      ],
-      "standingsHome": {
-        "rank": 16,
-        "points": 8,
-        "played": 11,
-        "gf": 6,
-        "ga": 20
-      },
-      "standingsAway": {
-        "rank": 8,
-        "points": 17,
-        "played": 11,
-        "gf": 13,
-        "ga": 11
-      },
-      "statsOnly": true,
-      "ai_abstain": true,
-      "ai_market": "ABSTAIN",
-      "ai_key_fact": "Les taux empiriques BTTS et Over 2.5 sont tous deux bloqués à 0.4.",
-      "ai_form_summary": "Casa Pia : N-D-V-D-V (2W-1D-2L), Braga : V-V-D-D-D (2W-0D-3L)",
-      "ai_form_summary_en": "Casa Pia: N-D-V-D-V (2W-1D-2L), Braga: V-V-D-D-D (2W-0D-3L)",
-      "ai_reasons": [
-        "Taux empiriques BTTS et Over 2.5 faibles (tous deux à 0.4).",
-        "Moyennes de buts très basses pour les deux équipes (0.25 et 0.5)."
-      ],
-      "modelEngine": "gemini-stats-v1",
-      "ai_source": "gemini-stats-v1",
-      "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
-    },
-    {
-      "id": "espanyol-vs-getafe-2026-11-30",
-      "match": "Espanyol vs Getafe",
-      "home": "Espanyol",
-      "away": "Getafe",
-      "league": "LaLiga",
-      "date": "2026-11-30",
-      "type": "BTTS",
-      "time": "20:00",
-      "matchSemantic": "espanyol-vs-getafe-2026-11-30",
-      "source": "empirical-form-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/88.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2922.png",
-      "tier": "STANDARD",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "formBTTS": 30,
-      "odds": {
-        "provider": "DraftKings",
-        "home": 2.05,
-        "draw": 3.2,
-        "away": 3.85,
-        "over25": 2.4,
-        "under25": 1.54
-      },
-      "oddsSource": "DraftKings",
-      "formHome": {
-        "last5String": "V-N-V-D-D",
-        "wins": 2,
-        "draws": 1,
-        "losses": 2,
-        "goalsFor": 3,
-        "goalsAgainst": 3,
-        "bttsRate": 0.2,
-        "over25Rate": 0.2,
-        "cleanSheets": 3,
-        "failedToScore": 2,
-        "count": 5
-      },
-      "formAway": {
-        "last5String": "D-D-V-D-N",
-        "wins": 1,
-        "draws": 1,
-        "losses": 3,
-        "goalsFor": 4,
-        "goalsAgainst": 11,
-        "bttsRate": 0.4,
-        "over25Rate": 0.6,
-        "cleanSheets": 0,
-        "failedToScore": 3,
-        "count": 5
-      },
-      "last5Home": [
-        {
-          "date": "2026-11-20",
-          "opponent": "Athletic Club",
-          "venue": "A",
-          "score": "1-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-11-07",
-          "opponent": "Deportivo",
-          "venue": "H",
-          "score": "0-0",
-          "result": "D"
-        },
-        {
-          "date": "2026-10-30",
-          "opponent": "Villarreal",
-          "venue": "A",
-          "score": "1-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-24",
-          "opponent": "Racing Santander",
-          "venue": "A",
-          "score": "1-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-17",
-          "opponent": "Atlético Madrid",
-          "venue": "H",
-          "score": "0-1",
-          "result": "L"
-        }
-      ],
-      "last5Away": [
-        {
-          "date": "2026-11-22",
-          "opponent": "Atlético Madrid",
-          "venue": "H",
-          "score": "0-3",
-          "result": "L"
-        },
-        {
-          "date": "2026-11-08",
-          "opponent": "Villarreal",
-          "venue": "A",
-          "score": "0-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-11-01",
-          "opponent": "Sevilla",
-          "venue": "H",
-          "score": "3-1",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-25",
-          "opponent": "Athletic Club",
-          "venue": "A",
-          "score": "0-4",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-19",
-          "opponent": "Rayo Vallecano",
-          "venue": "H",
-          "score": "1-1",
-          "result": "D"
-        }
-      ],
-      "standingsHome": {
-        "rank": 11,
-        "points": 15,
-        "played": 13,
-        "gf": 14,
-        "ga": 14
-      },
-      "standingsAway": {
-        "rank": 18,
-        "points": 12,
-        "played": 13,
-        "gf": 8,
-        "ga": 21
-      },
-      "statsOnly": true,
-      "ai_abstain": true,
-      "ai_market": "ABSTAIN",
-      "ai_key_fact": "Le taux empirique BTTS est de 0.3 seulement pour cette rencontre.",
-      "ai_form_summary": "Espanyol : V-N-V-D-D (2W-1D-2L), Getafe : D-D-V-D-N (1W-1D-3L)",
-      "ai_form_summary_en": "Espanyol: V-N-V-D-D (2W-1D-2L), Getafe: D-D-V-D-N (1W-1D-3L)",
-      "ai_reasons": [
-        "Taux empiriques faibles : 0.3 pour le BTTS et 0.4 pour l'Over 2.5.",
-        "Formes récentes très pauvres en buts (Espanyol et Getafe affichent des moyennes très faibles)."
-      ],
-      "modelEngine": "gemini-stats-v1",
-      "ai_source": "gemini-stats-v1",
-      "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
-    },
-    {
-      "id": "coventry-vs-ipswicht-2026-12-01",
-      "match": "Coventry City vs Ipswich Town",
-      "home": "Coventry City",
-      "away": "Ipswich Town",
-      "league": "Premier League",
-      "date": "2026-12-01",
-      "type": "BTTS",
-      "time": "20:00",
-      "matchSemantic": "coventry-vs-ipswicht-2026-12-01",
-      "source": "empirical-form-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/388.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/373.png",
-      "tier": "GOLD",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "formBTTS": 80,
-      "odds": {
-        "provider": "DraftKings",
-        "home": 2.25,
-        "draw": 3.6,
-        "away": 3,
-        "over25": 1.67,
-        "under25": 2.15
-      },
-      "oddsSource": "DraftKings",
-      "formHome": {
-        "last5String": "V-D-V-D-D",
-        "wins": 2,
-        "draws": 0,
-        "losses": 3,
-        "goalsFor": 8,
-        "goalsAgainst": 10,
-        "bttsRate": 0.8,
-        "over25Rate": 0.8,
-        "cleanSheets": 0,
-        "failedToScore": 1,
-        "count": 5
-      },
-      "formAway": {
-        "last5String": "D-D-N-N-D",
-        "wins": 0,
-        "draws": 2,
-        "losses": 3,
-        "goalsFor": 6,
-        "goalsAgainst": 10,
-        "bttsRate": 0.8,
-        "over25Rate": 0.6,
-        "cleanSheets": 0,
-        "failedToScore": 1,
-        "count": 5
-      },
-      "last5Home": [
-        {
-          "date": "2026-11-21",
-          "opponent": "Crystal Palace",
-          "venue": "H",
-          "score": "3-2",
-          "result": "W"
-        },
-        {
-          "date": "2026-11-06",
-          "opponent": "Everton",
-          "venue": "A",
-          "score": "1-3",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-31",
-          "opponent": "Sunderland",
-          "venue": "H",
-          "score": "3-1",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-24",
-          "opponent": "Fulham",
-          "venue": "H",
-          "score": "0-1",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-19",
-          "opponent": "Tottenham Hotspur",
-          "venue": "A",
-          "score": "1-3",
-          "result": "L"
-        }
-      ],
-      "last5Away": [
-        {
-          "date": "2026-11-21",
-          "opponent": "Tottenham Hotspur",
-          "venue": "A",
-          "score": "0-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-11-08",
-          "opponent": "AFC Bournemouth",
-          "venue": "H",
-          "score": "1-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-31",
-          "opponent": "Hull City",
-          "venue": "A",
-          "score": "2-2",
-          "result": "D"
-        },
-        {
-          "date": "2026-10-23",
-          "opponent": "Nottingham Forest",
-          "venue": "H",
-          "score": "1-1",
-          "result": "D"
-        },
-        {
-          "date": "2026-10-17",
-          "opponent": "Manchester City",
-          "venue": "A",
-          "score": "2-3",
-          "result": "L"
-        }
-      ],
-      "standingsHome": {
-        "rank": 14,
-        "points": 12,
-        "played": 11,
-        "gf": 13,
-        "ga": 21
-      },
-      "standingsAway": {
-        "rank": 16,
-        "points": 11,
-        "played": 11,
-        "gf": 15,
-        "ga": 22
-      },
-      "statsOnly": true,
-      "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_key_fact": "Coventry et Ipswich affichent tous deux un taux BTTS de 80% sur leurs 5 derniers matchs.",
-      "ai_form_summary": "Coventry : 2W-0D-3L sur les 5 derniers, 8 buts marqués, 10 encaissés. Ipswich : 0W-2D-3L sur les 5 derniers, 6 buts marqués, 10 encaissés.",
-      "ai_form_summary_en": "Coventry: 2W-0D-3L in last 5, 8 goals for, 10 against. Ipswich: 0W-2D-3L in last 5, 6 goals for, 10 against.",
-      "ai_reasons": [
-        "Taux empirique BTTS élevé à 80% pour les deux équipes",
-        "Moyennes de buts solides (Coventry 2.0, Ipswich 1.4)",
-        "Taux de matches Over 2.5 également élevés (70%)"
-      ],
-      "modelEngine": "gemini-stats-v1",
-      "ai_source": "gemini-stats-v1",
-      "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "pick",
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "proba": 0.75,
-          "modelEngine": "gemini-3.5-flash-lite"
-        }
-      ],
-      "prediction": "Oui",
-      "proba": 0.75,
-      "status": "PENDING"
-    },
-    {
-      "id": "blackpoo-vs-lutontow-2026-12-01",
-      "match": "Blackpool vs Luton Town",
-      "home": "Blackpool",
-      "away": "Luton Town",
-      "league": "English League One",
-      "date": "2026-12-01",
-      "type": "BTTS",
-      "time": "19:45",
-      "matchSemantic": "blackpoo-vs-lutontow-2026-12-01",
-      "source": "empirical-form-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/346.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/301.png",
-      "tier": "GOLD",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "formBTTS": 80,
-      "odds": null,
-      "oddsSource": null,
-      "formHome": {
-        "last5String": "N-D-D-N-D",
-        "wins": 0,
-        "draws": 2,
-        "losses": 3,
-        "goalsFor": 4,
-        "goalsAgainst": 9,
-        "bttsRate": 0.8,
-        "over25Rate": 0.4,
-        "cleanSheets": 0,
-        "failedToScore": 1,
-        "count": 5
-      },
-      "formAway": {
-        "last5String": "V-N-V-V-V",
-        "wins": 4,
-        "draws": 1,
-        "losses": 0,
-        "goalsFor": 10,
-        "goalsAgainst": 4,
-        "bttsRate": 0.8,
-        "over25Rate": 0.6,
-        "cleanSheets": 1,
-        "failedToScore": 0,
-        "count": 5
-      },
-      "last5Home": [
-        {
-          "date": "2026-11-24",
-          "opponent": "Leicester City",
-          "venue": "H",
-          "score": "1-1",
-          "result": "D"
-        },
-        {
-          "date": "2026-11-21",
-          "opponent": "Wigan Athletic",
-          "venue": "H",
-          "score": "1-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-11-14",
-          "opponent": "AFC Wimbledon",
-          "venue": "A",
-          "score": "0-1",
-          "result": "L"
-        },
-        {
-          "date": "2026-11-01",
-          "opponent": "Sheffield Wednesday",
-          "venue": "A",
-          "score": "1-1",
-          "result": "D"
-        },
-        {
-          "date": "2026-10-24",
-          "opponent": "Mansfield Town",
-          "venue": "H",
-          "score": "1-4",
-          "result": "L"
-        }
-      ],
-      "last5Away": [
-        {
-          "date": "2026-11-21",
-          "opponent": "Burton Albion",
-          "venue": "A",
-          "score": "2-1",
-          "result": "W"
-        },
-        {
-          "date": "2026-11-03",
-          "opponent": "Huddersfield Town",
-          "venue": "A",
-          "score": "1-1",
-          "result": "D"
-        },
-        {
-          "date": "2026-10-31",
-          "opponent": "Peterborough United",
-          "venue": "A",
-          "score": "2-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-27",
-          "opponent": "Doncaster Rovers",
-          "venue": "H",
-          "score": "3-1",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-24",
-          "opponent": "Leicester City",
-          "venue": "H",
-          "score": "2-1",
-          "result": "W"
-        }
-      ],
-      "standingsHome": {
-        "rank": 20,
-        "points": 13,
-        "played": 15,
-        "gf": 19,
-        "ga": 25
-      },
-      "standingsAway": {
-        "rank": 5,
-        "points": 27,
-        "played": 15,
-        "gf": 29,
-        "ga": 22
-      },
-      "statsOnly": true,
-      "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_key_fact": "Luton Town arrive en grande forme avec 10 buts marqués sur ses 5 derniers matchs.",
-      "ai_form_summary": "Blackpool : 0W-2D-3L sur les 5 derniers, 4 buts marqués, 9 encaissés. Luton Town : 4W-1D-0L sur les 5 derniers, 10 buts marqués, 4 encaissés.",
-      "ai_form_summary_en": "Blackpool: 0W-2D-3L in last 5, 4 goals for, 9 against. Luton Town: 4W-1D-0L in last 5, 10 goals for, 4 against.",
-      "ai_reasons": [
-        "Taux empirique BTTS de 80% pour Blackpool et Luton Town",
-        "Excellente forme offensive de Luton Town (2 buts par match en moyenne)",
-        "Blackpool encaisse régulièrement (9 buts sur ses 5 derniers matchs)"
-      ],
-      "modelEngine": "gemini-stats-v1",
-      "ai_source": "gemini-stats-v1",
-      "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "pick",
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "proba": 0.72,
-          "modelEngine": "gemini-3.5-flash-lite"
-        }
-      ],
-      "prediction": "Oui",
-      "proba": 0.72,
-      "status": "PENDING"
-    },
-    {
       "id": "accringt-vs-creweale-2026-12-01",
       "match": "Accrington Stanley vs Crewe Alexandra",
       "home": "Accrington Stanley",
@@ -5974,7 +6328,7 @@
       "away": "Shrewsbury Town",
       "league": "English League Two",
       "date": "2026-12-01",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "time": "19:45",
       "matchSemantic": "yorkcity-vs-shrewsbu-2026-12-01",
       "source": "empirical-form-data",
@@ -6104,14 +6458,14 @@
       },
       "statsOnly": true,
       "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_key_fact": "Shrewsbury Town présente un taux BTTS de 100% sur ses 5 derniers matchs avec 2.25 buts de moyenne.",
-      "ai_form_summary": "York City : 2V-1N-2D (6 BP, 8 BC, BTTS 40%). Shrewsbury Town : 2V-1N-2D (10 BP, 12 BC, BTTS 100%).",
-      "ai_form_summary_en": "York City: 2W-1D-2L (6 GF, 8 GA, BTTS 40%). Shrewsbury Town: 2W-1D-2L (10 GF, 12 GA, BTTS 100%).",
+      "ai_market": "OVER_25",
+      "ai_key_fact": "Shrewsbury Town enregistre un taux de 100% sur l'Over 2.5 et le BTTS lors de ses 5 derniers matchs.",
+      "ai_form_summary": "York : 2W-1D-2L, 6 buts pour, 8 contre (Over25 40%). Shrewsbury : 2W-1D-2L, 10 buts pour, 12 contre (Over25 100%).",
+      "ai_form_summary_en": "York: 2W-1D-2L, 6 GF, 8 GA (Over25 40%). Shrewsbury: 2W-1D-2L, 10 GF, 12 GA (Over25 100%).",
       "ai_reasons": [
-        "Taux BTTS empirique élevé à 70% sur la base des matchs observés.",
-        "Shrewsbury Town affiche un taux BTTS de 100% sur ses 5 derniers matchs.",
-        "Moyenne de buts encaissés et marqués importante pour l'équipe extérieure (2.25 buts par match)."
+        "Taux empirique Over 2.5 à 70% pour York City",
+        "Shrewsbury Town affiche un taux de BTTS et d'Over 2.5 de 100% sur ses 5 derniers matchs",
+        "Moyenne de buts de 2.25 par match pour Shrewsbury sur l'échantillon"
       ],
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
@@ -6119,14 +6473,15 @@
       "ai_response_status": "pick",
       "predictions": [
         {
-          "type": "BTTS",
+          "type": "Over 2.5",
           "prediction": "Oui",
-          "proba": 0.68,
+          "proba": 0.7,
           "modelEngine": "gemini-3.5-flash-lite"
         }
       ],
       "prediction": "Oui",
-      "proba": 0.68
+      "proba": 0.7,
+      "status": "PENDING"
     },
     {
       "id": "barnsley-vs-wycombew-2026-12-01",
@@ -6426,19 +6781,31 @@
         "ga": 12
       },
       "statsOnly": true,
-      "ai_abstain": true,
-      "ai_market": "ABSTAIN",
-      "ai_key_fact": "Newport County et Walsall affichent tous deux des taux de 60% en BTTS et Over 2.5.",
-      "ai_form_summary": "Newport County : 2V-2N-1D (10 BP, 6 BC, BTTS 60%). Walsall : 2V-2N-1D (9 BP, 6 BC, BTTS 60%).",
-      "ai_form_summary_en": "Newport County: 2W-2D-1L (10 GF, 6 GA, BTTS 60%). Walsall: 2W-2D-1L (9 GF, 6 GA, BTTS 60%).",
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Newport et Walsall affichent tous deux un taux de BTTS de 60% sur leurs 8 derniers matchs d'échantillon.",
+      "ai_form_summary": "Newport County : V-N-V-D-N (2V-2D-1L, 10 buts pour, 6 contre). Walsall : N-V-D-V-N (2V-2D-1L, 9 buts pour, 6 contre).",
+      "ai_form_summary_en": "Newport County: W-D-W-L-D (2W-2D-1L, 10 goals for, 6 against). Walsall: D-W-L-W-D (2W-2D-1L, 9 goals for, 6 against).",
       "ai_reasons": [
-        "Taux BTTS et Over 2.5 empiriques modérés à 60%.",
-        "Équipes proches au classement (9ème et 7ème) avec des dynamiques de forme très similaires."
+        "Taux BTTS empirique de 60% pour les deux équipes sur leurs derniers matchs.",
+        "Moyennes de buts encourageantes avec Newport à 2 buts marqués par match et Walsall à 1.2.",
+        "Formes récentes similaires (2V-2D-1L) indiquant une dynamique compétitive équilibrée."
       ],
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "proba": 0.62,
+          "modelEngine": "gemini-3.5-flash-lite"
+        }
+      ],
+      "prediction": "Oui",
+      "proba": 0.62,
+      "status": "PENDING"
     },
     {
       "id": "northamp-vs-fleetwoo-2026-12-01",
@@ -6768,7 +7135,8 @@
         }
       ],
       "prediction": "Oui",
-      "proba": 0.76
+      "proba": 0.76,
+      "status": "PENDING"
     },
     {
       "id": "rangers-vs-dundeeun-2026-12-02",
@@ -6929,7 +7297,8 @@
         }
       ],
       "prediction": "Oui",
-      "proba": 0.68
+      "proba": 0.68,
+      "status": "PENDING"
     },
     {
       "id": "dundee-vs-celtic-2026-12-02",
@@ -6938,7 +7307,7 @@
       "away": "Celtic",
       "league": "Scottish Premiership",
       "date": "2026-12-02",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "time": "19:45",
       "matchSemantic": "dundee-vs-celtic-2026-12-02",
       "source": "empirical-form-data",
@@ -7068,14 +7437,14 @@
       },
       "statsOnly": true,
       "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_key_fact": "Dundee enregistre un taux de 100% d'Over 2.5 sur ses cinq dernières sorties.",
-      "ai_form_summary": "Dundee: 1V-0D-4D, 6 buts pour, 15 encaissés. Celtic: 3V-1D-1D, 9 buts pour, 6 encaissés.",
-      "ai_form_summary_en": "Dundee: 1W-0D-4L, 6 goals for, 15 against. Celtic: 3W-1D-1L, 9 goals for, 6 against.",
+      "ai_market": "BTTS",
+      "ai_key_fact": "Dundee affiche un taux BTTS de 80% sur ses cinq derniers matchs avec une moyenne globale de 1.75 buts marqués.",
+      "ai_form_summary": "Dundee : 1V-0D-4L, 6 buts pour, 15 contre. Celtic : 3V-1D-1L, 9 buts pour, 6 contre.",
+      "ai_form_summary_en": "Dundee: 1W-0D-4L, 6 GF, 15 GA. Celtic: 3W-1D-1L, 9 GF, 6 GA.",
       "ai_reasons": [
-        "Taux Over 2.5 empirique global fixé à 0.8.",
-        "Dundee présente un taux Over 2.5 de 1.0 sur ses 5 derniers matchs.",
-        "Défense de Dundee perméable avec 15 buts encaissés en 5 matchs."
+        "Taux BTTS empirique élevé à 70% sur la base des données disponibles",
+        "Dundee affiche un taux BTTS de 80% sur ses 5 derniers matchs malgré ses difficultés",
+        "Moyennes de buts encaissés et marqués concordantes avec des matchs ouverts"
       ],
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
@@ -7083,14 +7452,14 @@
       "ai_response_status": "pick",
       "predictions": [
         {
-          "type": "Over 2.5",
+          "type": "BTTS",
           "prediction": "Oui",
-          "proba": 0.74,
+          "proba": 0.68,
           "modelEngine": "gemini-3.5-flash-lite"
         }
       ],
       "prediction": "Oui",
-      "proba": 0.74
+      "proba": 0.68
     },
     {
       "id": "manchest-vs-leedsuni-2026-12-02",
@@ -7235,30 +7604,20 @@
         "ga": 9
       },
       "statsOnly": true,
-      "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_key_fact": "Manchester City a concédé 9 buts lors de ses 5 derniers matchs malgré son statut.",
-      "ai_form_summary": "Manchester City: 1V-1D-3D, 6 buts pour, 9 encaissés. Leeds United: 2V-2D-1D, 6 buts pour, 4 encaissés.",
-      "ai_form_summary_en": "Manchester City: 1W-1D-3L, 6 goals for, 9 against. Leeds United: 2W-2D-1L, 6 goals for, 4 against.",
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "Leeds United enregistre un taux d'Over 2.5 de seulement 20% sur ses cinq derniers matchs.",
+      "ai_form_summary": "Manchester City : 1W-1D-3L, 6 buts pour, 9 contre. Leeds United : 2W-2D-1L, 6 buts pour, 4 contre.",
+      "ai_form_summary_en": "Manchester City: 1W-1D-3L, 6 GF, 9 GA. Leeds United: 2W-2D-1L, 6 GF, 4 GA.",
       "ai_reasons": [
-        "Manchester City affiche un taux BTTS élevé de 0.8 sur ses 5 derniers matchs.",
-        "Le taux BTTS empirique global est estimé à 0.6.",
-        "Moyennes de buts correctes avec 2.25 pour City et 1.25 pour Leeds."
+        "Taux BTTS empirique à 60% mais taux Over 2.5 faible à 40%",
+        "Leeds United présente de faibles taux d'Over 2.5 (20% sur les 5 derniers matchs)",
+        "Signaux contradictoires entre la défense de Leeds et la moyenne offensive de Manchester City"
       ],
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "pick",
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "proba": 0.65,
-          "modelEngine": "gemini-3.5-flash-lite"
-        }
-      ],
-      "prediction": "Oui",
-      "proba": 0.65
+      "ai_response_status": "abstain"
     },
     {
       "id": "barcelon-vs-atlticom-2026-12-02",
@@ -7426,7 +7785,8 @@
         }
       ],
       "prediction": "Oui",
-      "proba": 0.7
+      "proba": 0.7,
+      "status": "PENDING"
     },
     {
       "id": "heartofm-vs-aberdeen-2026-12-02",
@@ -7587,7 +7947,8 @@
         }
       ],
       "prediction": "Oui",
-      "proba": 0.75
+      "proba": 0.75,
+      "status": "PENDING"
     },
     {
       "id": "kilmarno-vs-hibernia-2026-12-02",
@@ -7748,7 +8109,8 @@
         }
       ],
       "prediction": "Oui",
-      "proba": 0.72
+      "proba": 0.72,
+      "status": "PENDING"
     },
     {
       "id": "falkirk-vs-motherwe-2026-12-02",
@@ -7886,82 +8248,31 @@
         "ga": 23
       },
       "statsOnly": true,
-      "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_key_fact": "Motherwell présente un taux de BTTS de 0.6 sur ses cinq derniers matchs malgré une position difficile au classement.",
-      "ai_form_summary": "Falkirk (5V-0N-0D) souverain mais Motherwell (1V-2N-2D) accrocheur avec des matchs souvent animés des deux côtés.",
-      "ai_form_summary_en": "Falkirk (5W-0D-0L) sovereign but Motherwell (1W-2D-2L) persistent with matches often lively on both sides.",
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "Falkirk est en grande forme (5 victoires d'affilée) mais ses taux BTTS et Over restent modérés à 40-60%.",
+      "ai_form_summary": "Falkirk domine avec 5 victoires consécutives, alors que Motherwell peine à enchaîner (1V-2D-2L).",
+      "ai_form_summary_en": "Falkirk dominates with 5 consecutive wins, while Motherwell struggles for consistency (1W-2D-2L).",
       "ai_reasons": [
-        "Taux BTTS empirique de 0.5 et formBTTS à 50%.",
-        "Motherwell affiche un taux BTTS récent de 0.6 sur ses 5 derniers matchs.",
-        "Falkirk est sur une dynamique parfaite de 5 victoires mais concède tout de même quelques buts (3 encaissés récemment)."
+        "Taux empiriques BTTS (50%) et Over 2.5 (50%) neutres ne dégageant pas de valeur nette.",
+        "Falkirk affiche une excellente forme (5V-0D) mais encaisse peu (3 buts lors de ses 5 derniers), limitant les signaux Over/BTTS."
       ],
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "pick",
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "proba": 0.55,
-          "modelEngine": "gemini-3.5-flash-lite"
-        }
-      ],
-      "prediction": "Oui",
-      "proba": 0.55
+      "ai_response_status": "abstain"
     }
   ],
   "fixtures": [
     {
-      "match": "FC Ilves vs TPS",
-      "home": "FC Ilves",
-      "away": "TPS",
-      "league": "Club Friendly",
-      "date": "2026-11-27",
-      "time": "11:30",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/19248.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/8219.png"
-    },
-    {
-      "match": "1. FC Tatran Presov vs FC LOKOMOTÍVA KOŠICE",
-      "home": "1. FC Tatran Presov",
-      "away": "FC LOKOMOTÍVA KOŠICE",
-      "league": "Club Friendly",
-      "date": "2026-11-27",
-      "time": "13:00",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/133391.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/133249.png"
-    },
-    {
-      "match": "FC Basel II vs Servette II",
-      "home": "FC Basel II",
-      "away": "Servette II",
-      "league": "Club Friendly",
-      "date": "2026-11-27",
-      "time": "13:00",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/132674.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/133525.png"
-    },
-    {
-      "match": "Al Qadsiah vs Al Fayha",
-      "home": "Al Qadsiah",
-      "away": "Al Fayha",
+      "match": "Al Ittihad vs Neom SC",
+      "home": "Al Ittihad",
+      "away": "Neom SC",
       "league": "Saudi Pro League",
       "date": "2026-11-27",
-      "time": "14:20",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22022.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21827.png"
-    },
-    {
-      "match": "1. FC Heidenheim 1846 vs 1. FC Nürnberg",
-      "home": "1. FC Heidenheim 1846",
-      "away": "1. FC Nürnberg",
-      "league": "2. Bundesliga",
-      "date": "2026-11-27",
       "time": "17:30",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6418.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/269.png"
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2276.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/130899.png"
     },
     {
       "match": "Östers IF vs FK Karlskrona",
@@ -7974,44 +8285,14 @@
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/134180.png"
     },
     {
-      "match": "FSC Eggendorf vs Wolfsberger AC Amateure",
-      "home": "FSC Eggendorf",
-      "away": "Wolfsberger AC Amateure",
-      "league": "Club Friendly",
+      "match": "VfL Bochum vs SV Darmstadt 98",
+      "home": "VfL Bochum",
+      "away": "SV Darmstadt 98",
+      "league": "2. Bundesliga",
       "date": "2026-11-27",
-      "time": "17:45",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/133630.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/132801.png"
-    },
-    {
-      "match": "FC Groningen vs Willem II",
-      "home": "FC Groningen",
-      "away": "Willem II",
-      "league": "Eredivisie",
-      "date": "2026-11-27",
-      "time": "19:00",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/145.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/156.png"
-    },
-    {
-      "match": "Leganés vs CD Sabadell",
-      "home": "Leganés",
-      "away": "CD Sabadell",
-      "league": "LaLiga 2",
-      "date": "2026-11-27",
-      "time": "19:30",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/17534.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/11487.png"
-    },
-    {
-      "match": "Venezia vs Bologna",
-      "home": "Venezia",
-      "away": "Bologna",
-      "league": "Serie A",
-      "date": "2026-11-27",
-      "time": "19:45",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/17530.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/107.png"
+      "time": "17:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/121.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3812.png"
     },
     {
       "match": "Nottingham Forest vs Chelsea",
@@ -8044,14 +8325,14 @@
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3472.png"
     },
     {
-      "match": "Atlanta vs Ciudad de Bolívar",
-      "home": "Atlanta",
-      "away": "Ciudad de Bolívar",
-      "league": "Argentine Nacional B",
+      "match": "Vila Nova vs Atlético Goianiense",
+      "home": "Vila Nova",
+      "away": "Atlético Goianiense",
+      "league": "Brazilian Serie B",
       "date": "2026-11-27",
-      "time": "22:00",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10146.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21799.png"
+      "time": "23:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9973.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10357.png"
     },
     {
       "match": "Deportivo Morón vs Colón (Santa Fe)",
@@ -8182,6 +8463,16 @@
       "time": "12:15",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21964.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/817.png"
+    },
+    {
+      "match": "ESPOON PALLOSEURA FC vs PK-35",
+      "home": "ESPOON PALLOSEURA FC",
+      "away": "PK-35",
+      "league": "Club Friendly",
+      "date": "2026-11-28",
+      "time": "12:15",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/132610.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/133784.png"
     },
     {
       "match": "Blackburn Rovers vs Charlton Athletic",
@@ -8794,16 +9085,6 @@
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1068.png"
     },
     {
-      "match": "Ipswich Town vs Aston Villa",
-      "home": "Ipswich Town",
-      "away": "Aston Villa",
-      "league": "Premier League",
-      "date": "2026-11-28",
-      "time": "17:30",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/373.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/362.png"
-    },
-    {
       "match": "VfB Stuttgart vs Eintracht Frankfurt",
       "home": "VfB Stuttgart",
       "away": "Eintracht Frankfurt",
@@ -9104,16 +9385,6 @@
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3393.png"
     },
     {
-      "match": "ADO Den Haag vs FC Utrecht",
-      "home": "ADO Den Haag",
-      "away": "FC Utrecht",
-      "league": "Eredivisie",
-      "date": "2026-11-29",
-      "time": "11:15",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2726.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/153.png"
-    },
-    {
       "match": "Udinese vs Fiorentina",
       "home": "Udinese",
       "away": "Fiorentina",
@@ -9244,16 +9515,6 @@
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6907.png"
     },
     {
-      "match": "AJ Auxerre vs Marseille",
-      "home": "AJ Auxerre",
-      "away": "Marseille",
-      "league": "Ligue 1",
-      "date": "2026-11-29",
-      "time": "14:00",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/172.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/176.png"
-    },
-    {
       "match": "Sassuolo vs Napoli",
       "home": "Sassuolo",
       "away": "Napoli",
@@ -9342,16 +9603,6 @@
       "time": "15:00",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/262.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/256.png"
-    },
-    {
-      "match": "Deportivo vs Barcelona",
-      "home": "Deportivo",
-      "away": "Barcelona",
-      "league": "LaLiga",
-      "date": "2026-11-29",
-      "time": "15:15",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/90.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/83.png"
     },
     {
       "match": "Mallorca vs Castellón",
@@ -9614,6 +9865,16 @@
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/402.png"
     },
     {
+      "match": "Blackpool vs Luton Town",
+      "home": "Blackpool",
+      "away": "Luton Town",
+      "league": "English League One",
+      "date": "2026-12-01",
+      "time": "19:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/346.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/301.png"
+    },
+    {
       "match": "Bradford City vs Milton Keynes Dons",
       "home": "Bradford City",
       "away": "Milton Keynes Dons",
@@ -9704,16 +9965,6 @@
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/400.png"
     },
     {
-      "match": "Newport County vs Walsall",
-      "home": "Newport County",
-      "away": "Walsall",
-      "league": "English League Two",
-      "date": "2026-12-01",
-      "time": "19:45",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/635.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/401.png"
-    },
-    {
       "match": "Notts County vs AFC Wimbledon",
       "home": "Notts County",
       "away": "AFC Wimbledon",
@@ -9754,6 +10005,16 @@
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3129.png"
     },
     {
+      "match": "Coventry City vs Ipswich Town",
+      "home": "Coventry City",
+      "away": "Ipswich Town",
+      "league": "Premier League",
+      "date": "2026-12-01",
+      "time": "20:00",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/388.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/373.png"
+    },
+    {
       "match": "Reading vs Doncaster Rovers",
       "home": "Reading",
       "away": "Doncaster Rovers",
@@ -9792,6 +10053,26 @@
       "time": "19:30",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/364.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/366.png"
+    },
+    {
+      "match": "Manchester City vs Leeds United",
+      "home": "Manchester City",
+      "away": "Leeds United",
+      "league": "Premier League",
+      "date": "2026-12-02",
+      "time": "19:30",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/382.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/357.png"
+    },
+    {
+      "match": "Falkirk vs Motherwell",
+      "home": "Falkirk",
+      "away": "Motherwell",
+      "league": "Scottish Premiership",
+      "date": "2026-12-02",
+      "time": "19:45",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/254.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/266.png"
     },
     {
       "match": "St Johnstone vs St Mirren",
@@ -9965,14 +10246,510 @@
     }
   ],
   "stats": {
-    "avgReliability": 79.56,
-    "totalAnalyzed": 246,
-    "totalRejected": 27,
-    "totalAccepted": 219,
-    "freeCount": 48,
-    "fixtureCount": 205
+    "avgReliability": 79.54,
+    "totalAnalyzed": 241,
+    "totalRejected": 24,
+    "totalAccepted": 217,
+    "freeCount": 50,
+    "fixtureCount": 198
   },
   "predictions": [
+    {
+      "id": "fcgronin-vs-willemii-2026-11-27",
+      "match": "FC Groningen vs Willem II",
+      "home": "FC Groningen",
+      "away": "Willem II",
+      "league": "Eredivisie",
+      "date": "2026-11-27",
+      "type": "BTTS",
+      "time": "19:00",
+      "matchSemantic": "fcgronin-vs-willemii-2026-11-27",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/145.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/156.png",
+      "tier": "GOLD",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "formBTTS": 90,
+      "odds": null,
+      "oddsSource": null,
+      "formHome": {
+        "last5String": "D-D-D-N-D",
+        "wins": 0,
+        "draws": 1,
+        "losses": 4,
+        "goalsFor": 10,
+        "goalsAgainst": 17,
+        "bttsRate": 1,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-D-D-D-D",
+        "wins": 0,
+        "draws": 1,
+        "losses": 4,
+        "goalsFor": 5,
+        "goalsAgainst": 20,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-21",
+          "opponent": "Heerenveen",
+          "venue": "H",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-08",
+          "opponent": "AZ Alkmaar",
+          "venue": "A",
+          "score": "3-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Sparta Rotterdam",
+          "venue": "H",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "NEC Nijmegen",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Ajax Amsterdam",
+          "venue": "H",
+          "score": "2-5",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-22",
+          "opponent": "FC Twente",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-06",
+          "opponent": "PEC Zwolle",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "PSV Eindhoven",
+          "venue": "A",
+          "score": "0-7",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "SC Cambuur",
+          "venue": "H",
+          "score": "1-6",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Sparta Rotterdam",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 10,
+        "points": 15,
+        "played": 13,
+        "gf": 30,
+        "ga": 31
+      },
+      "standingsAway": {
+        "rank": 18,
+        "points": 3,
+        "played": 12,
+        "gf": 11,
+        "ga": 40
+      },
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "FC Groningen et Willem II partagent un taux empirique de BTTS de 90% avec des défenses très perméables.",
+      "ai_form_summary": "FC Groningen (0V-1N-4D, 10 BP / 17 BC) et Willem II (0V-1N-4D, 5 BP / 20 BC).",
+      "ai_form_summary_en": "FC Groningen (0W-1D-4L, 10 GF / 17 GA) and Willem II (0W-1D-4L, 5 GF / 20 GA).",
+      "ai_reasons": [],
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "proba": 0.78,
+          "modelEngine": "gemini-3.5-flash-lite"
+        }
+      ],
+      "prediction": "Oui",
+      "proba": 0.78,
+      "status": "PENDING"
+    },
+    {
+      "id": "fcheiden-vs-fcnrnber-2026-11-27",
+      "match": "1. FC Heidenheim 1846 vs 1. FC Nürnberg",
+      "home": "1. FC Heidenheim 1846",
+      "away": "1. FC Nürnberg",
+      "league": "2. Bundesliga",
+      "date": "2026-11-27",
+      "type": "BTTS",
+      "time": "17:30",
+      "matchSemantic": "fcheiden-vs-fcnrnber-2026-11-27",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6418.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/269.png",
+      "tier": "GOLD",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "formBTTS": 80,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.95,
+        "draw": 3.85,
+        "away": 3.3,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-N-D-N-D",
+        "wins": 0,
+        "draws": 2,
+        "losses": 3,
+        "goalsFor": 6,
+        "goalsAgainst": 11,
+        "bttsRate": 1,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-V-V-D-N",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 7,
+        "goalsAgainst": 5,
+        "bttsRate": 0.6,
+        "over25Rate": 0.4,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-20",
+          "opponent": "SV Darmstadt 98",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-08",
+          "opponent": "Hannover 96",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Karlsruher SC",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Energie Cottbus",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "VfL Wolfsburg",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-21",
+          "opponent": "TSV Eintracht Braunschweig",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "SV Darmstadt 98",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "St. Pauli",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Kaiserslautern",
+          "venue": "H",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-16",
+          "opponent": "Energie Cottbus",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 7,
+        "points": 16,
+        "played": 12,
+        "gf": 20,
+        "ga": 23
+      },
+      "standingsAway": {
+        "rank": 2,
+        "points": 24,
+        "played": 12,
+        "gf": 27,
+        "ga": 15
+      },
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Heidenheim affiche un taux BTTS de 100% lors de ses 5 dernières rencontres.",
+      "ai_form_summary": "Heidenheim : D-N-D-N-D (0V-2N-3D), 6 buts pour, 11 contre. Nürnberg : D-V-V-D-N (2V-1N-2D), 7 buts pour, 5 contre.",
+      "ai_form_summary_en": "Heidenheim: D-N-D-N-D (0W-2D-3L), 6 goals for, 11 against. Nürnberg: D-V-V-D-N (2W-1D-2L), 7 goals for, 5 against.",
+      "ai_reasons": [
+        "Taux BTTS empirique élevé à 80% sur l'échantillon global",
+        "Taux BTTS de Heidenheim à 100% sur ses 5 derniers matchs",
+        "Moyennes de buts encourageantes (Heidenheim 1.0, Nürnberg 1.67)"
+      ],
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "proba": 0.72,
+          "modelEngine": "gemini-3.5-flash-lite"
+        }
+      ],
+      "prediction": "Oui",
+      "proba": 0.72,
+      "status": "PENDING"
+    },
+    {
+      "id": "legans-vs-cdsabade-2026-11-27",
+      "match": "Leganés vs CD Sabadell",
+      "home": "Leganés",
+      "away": "CD Sabadell",
+      "league": "LaLiga 2",
+      "date": "2026-11-27",
+      "type": "BTTS",
+      "time": "19:30",
+      "matchSemantic": "legans-vs-cdsabade-2026-11-27",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/17534.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/11487.png",
+      "tier": "GOLD",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "formBTTS": 80,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.55,
+        "draw": 2.9,
+        "away": 2.95,
+        "over25": 2.3,
+        "under25": 1.51
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "V-V-D-D-N",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 11,
+        "goalsAgainst": 10,
+        "bttsRate": 1,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-D-N-D-N",
+        "wins": 0,
+        "draws": 3,
+        "losses": 2,
+        "goalsFor": 3,
+        "goalsAgainst": 6,
+        "bttsRate": 0.6,
+        "over25Rate": 0.2,
+        "cleanSheets": 1,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-20",
+          "opponent": "FC Andorra",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-13",
+          "opponent": "Burgos",
+          "venue": "H",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Albacete",
+          "venue": "H",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-02",
+          "opponent": "Real Valladolid",
+          "venue": "A",
+          "score": "3-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Mallorca",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-21",
+          "opponent": "Granada",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-15",
+          "opponent": "Eldense",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-09",
+          "opponent": "Real Sociedad II",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Albacete",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Tenerife",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 15,
+        "points": 18,
+        "played": 15,
+        "gf": 17,
+        "ga": 25
+      },
+      "standingsAway": {
+        "rank": 13,
+        "points": 19,
+        "played": 15,
+        "gf": 13,
+        "ga": 14
+      },
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Leganés présente un taux BTTS de 100% sur ses cinq dernières sorties.",
+      "ai_form_summary": "Leganés : V-V-D-D-N (2V-1N-2D), 11 buts pour, 10 contre. CD Sabadell : N-D-N-D-N (0V-3N-2D), 3 buts pour, 6 contre.",
+      "ai_form_summary_en": "Leganés: V-V-D-D-N (2W-1D-2L), 11 goals for, 10 against. CD Sabadell: N-D-N-D-N (0W-3D-2L), 3 goals for, 6 against.",
+      "ai_reasons": [
+        "Taux BTTS empirique global de 80%",
+        "Taux BTTS de Leganés à 100% sur ses 5 derniers matchs",
+        "Buts encaissés importants pour Leganés (25 buts en 15 matchs)"
+      ],
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "proba": 0.68,
+          "modelEngine": "gemini-3.5-flash-lite"
+        }
+      ],
+      "prediction": "Oui",
+      "proba": 0.68,
+      "status": "PENDING"
+    },
     {
       "id": "alittiha-vs-neomsc-2026-11-27",
       "match": "Al Ittihad vs Neom SC",
@@ -9994,11 +10771,11 @@
       "formBTTS": 60,
       "odds": {
         "provider": "DraftKings",
-        "home": 1.87,
-        "draw": 3.75,
-        "away": 3.55,
-        "over25": 1.59,
-        "under25": 2.15
+        "home": 2.1,
+        "draw": 3.6,
+        "away": 3.3,
+        "over25": 1.69,
+        "under25": 2.1
       },
       "oddsSource": "DraftKings",
       "formHome": {
@@ -10116,31 +10893,20 @@
         "ga": 10
       },
       "statsOnly": true,
-      "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_key_fact": "Al Ittihad affiche un taux de BTTS de 80% sur ses 5 derniers matchs.",
-      "ai_form_summary": "Al Ittihad (3V-1D-1L) est en forme correcte avec 12 buts marqués. Neom SC (2V-1D-2L) propose un profil plus fermé.",
-      "ai_form_summary_en": "Al Ittihad (3W-1D-1L) shows decent form with 12 goals scored. Neom SC (2W-1D-2L) displays a tighter defensive profile.",
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "Le taux empirique du BTTS est de 60% et l'Over 2.5 ne dépasse pas 40%, reflétant des matchs fermés.",
+      "ai_form_summary": "Al Ittihad: 3W-1D-1L, 12 buts marqués, 6 encaissés. Neom SC: 2W-1D-2L, 5 buts marqués, 4 encaissés.",
+      "ai_form_summary_en": "Al Ittihad: 3W-1D-1L, 12 goals scored, 6 conceded. Neom SC: 2W-1D-2L, 5 goals scored, 4 conceded.",
       "ai_reasons": [
-        "Taux BTTS empirique de 60% sur l'échantillon analysé.",
-        "Taux de BTTS de Al Ittihad à 80% sur ses 5 derniers matchs.",
-        "Moyennes de buts marquées élevées pour Al Ittihad (2 buts/match) et Neom SC (1.25 but/match)."
+        "Taux empirique BTTS modéré à 60% et taux Over 2.5 à 40%.",
+        "Neom SC présente un taux BTTS de seulement 40% sur ses 5 derniers matchs.",
+        "Faible proportion de matchs ouverts pour l'équipe extérieure (0.2 d'Over 2.5 rate pour Neom SC)."
       ],
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "pick",
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "proba": 0.6,
-          "modelEngine": "gemini-3.5-flash-lite"
-        }
-      ],
-      "prediction": "Oui",
-      "proba": 0.6,
-      "status": "PENDING"
+      "ai_response_status": "abstain"
     },
     {
       "id": "venezia-vs-bologna-2026-11-27",
@@ -10163,11 +10929,11 @@
       "formBTTS": 50,
       "odds": {
         "provider": "DraftKings",
-        "home": 3.25,
+        "home": 3.3,
         "draw": 3.15,
-        "away": 2.2,
-        "over25": 2.1,
-        "under25": 1.74
+        "away": 2.1,
+        "over25": 2,
+        "under25": 1.77
       },
       "oddsSource": "DraftKings",
       "formHome": {
@@ -10285,20 +11051,31 @@
         "ga": 15
       },
       "statsOnly": true,
-      "ai_abstain": true,
-      "ai_market": "ABSTAIN",
-      "ai_key_fact": "Venezia possède le pire classement de la ligue et n'a marqué que 2 buts lors de ses 5 derniers matchs.",
-      "ai_form_summary": "Venezia en pleine crise (1V-4D) accueille un Bologna très solide (4V-1D).",
-      "ai_form_summary_en": "Venezia in deep crisis (1W-4L) hosts a very solid Bologna side (4W-1D).",
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Venezia n'a marqué que 2 buts lors de ses 5 derniers matchs de Serie A.",
+      "ai_form_summary": "Venezia (1V-0N-4L) en grande difficulté offensive, Bologna (4V-1N-0L) en excellente forme.",
+      "ai_form_summary_en": "Venezia (1W-0D-4L) in deep offensive trouble, Bologna (4W-1D-0L) in excellent form.",
       "ai_reasons": [
-        "Venezia affiche une très faible production offensive avec 0.75 but par match en moyenne",
-        "Taux BTTS empirique partagé à 50% malgré les dynamiques opposées",
-        "Forme très contrastée entre un Venezia en difficulté (1W-4L) et un Bologna en forme (4W-1D)"
+        "Venezia a un taux BTTS très faible de 0.2 sur ses 5 derniers matchs",
+        "Venezia n'a inscrit que 2 buts lors de ses 5 dernières rencontres",
+        "Faible moyenne de buts pour Venezia à domicile (0.75)"
       ],
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Non",
+          "proba": 0.52,
+          "modelEngine": "gemini-3.5-flash-lite"
+        }
+      ],
+      "prediction": "Non",
+      "proba": 0.52,
+      "status": "PENDING"
     },
     {
       "id": "werderbr-vs-borussia-2026-11-27",
@@ -10639,174 +11416,6 @@
       "status": "PENDING"
     },
     {
-      "id": "alkholoo-vs-alkhalee-2026-11-27",
-      "match": "Al Kholood vs Al Khaleej",
-      "home": "Al Kholood",
-      "away": "Al Khaleej",
-      "league": "Saudi Pro League",
-      "date": "2026-11-27",
-      "type": "BTTS",
-      "time": "12:15",
-      "matchSemantic": "alkholoo-vs-alkhalee-2026-11-27",
-      "source": "empirical-form-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22028.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21829.png",
-      "tier": "GOLD",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "formBTTS": 60,
-      "odds": {
-        "provider": "DraftKings",
-        "home": 2.05,
-        "draw": 3.7,
-        "away": 3.25,
-        "over25": 1.69,
-        "under25": 2.1
-      },
-      "oddsSource": "DraftKings",
-      "formHome": {
-        "last5String": "D-D-D-D-D",
-        "wins": 0,
-        "draws": 0,
-        "losses": 5,
-        "goalsFor": 5,
-        "goalsAgainst": 18,
-        "bttsRate": 0.4,
-        "over25Rate": 0.8,
-        "cleanSheets": 0,
-        "failedToScore": 3,
-        "count": 5
-      },
-      "formAway": {
-        "last5String": "V-D-V-V-N",
-        "wins": 3,
-        "draws": 1,
-        "losses": 1,
-        "goalsFor": 11,
-        "goalsAgainst": 9,
-        "bttsRate": 0.8,
-        "over25Rate": 0.6,
-        "cleanSheets": 1,
-        "failedToScore": 0,
-        "count": 5
-      },
-      "last5Home": [
-        {
-          "date": "2026-10-29",
-          "opponent": "Al Nassr",
-          "venue": "A",
-          "score": "3-5",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-24",
-          "opponent": "Al Ettifaq",
-          "venue": "H",
-          "score": "0-3",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-15",
-          "opponent": "Al Faisaly",
-          "venue": "A",
-          "score": "2-3",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-09",
-          "opponent": "Al Qadsiah",
-          "venue": "H",
-          "score": "0-5",
-          "result": "L"
-        },
-        {
-          "date": "2026-09-13",
-          "opponent": "Al Riyadh",
-          "venue": "A",
-          "score": "0-2",
-          "result": "L"
-        }
-      ],
-      "last5Away": [
-        {
-          "date": "2026-10-29",
-          "opponent": "Al Hazem",
-          "venue": "H",
-          "score": "4-2",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-23",
-          "opponent": "Al Ahli",
-          "venue": "A",
-          "score": "1-4",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-18",
-          "opponent": "Al Fateh",
-          "venue": "A",
-          "score": "3-2",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-15",
-          "opponent": "Al Fayha",
-          "venue": "H",
-          "score": "2-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-10",
-          "opponent": "Al Ettifaq",
-          "venue": "A",
-          "score": "1-1",
-          "result": "D"
-        }
-      ],
-      "standingsHome": {
-        "rank": 11,
-        "points": 12,
-        "played": 11,
-        "gf": 17,
-        "ga": 26
-      },
-      "standingsAway": {
-        "rank": 10,
-        "points": 15,
-        "played": 12,
-        "gf": 14,
-        "ga": 19
-      },
-      "statsOnly": true,
-      "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_key_fact": "Al Khaleej présente un taux BTTS de 0.8 sur ses cinq dernières rencontres.",
-      "ai_form_summary": "Al Kholood : 0W-0D-5L (5 buts pour, 18 contre). Al Khaleej : 3W-1D-1L (11 buts pour, 9 contre).",
-      "ai_form_summary_en": "Al Kholood: 0W-0D-5L (5 goals for, 18 against). Al Khaleej: 3W-1D-1L (11 goals for, 9 against).",
-      "ai_reasons": [
-        "Al Khaleej affiche un taux BTTS élevé de 0.8 sur ses 5 derniers matchs.",
-        "L'indicateur formBTTS est à 60%, démontrant une dynamique favorable aux buts des deux côtés.",
-        "Le taux BTTS empirique global du match s'établit à 0.6 avec de bonnes moyennes offensives."
-      ],
-      "modelEngine": "gemini-stats-v1",
-      "ai_source": "gemini-stats-v1",
-      "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "pick",
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "proba": 0.62,
-          "modelEngine": "gemini-3.5-flash-lite"
-        }
-      ],
-      "prediction": "Oui",
-      "proba": 0.62
-    },
-    {
       "id": "southamp-vs-middlesb-2026-11-27",
       "match": "Southampton vs Middlesbrough",
       "home": "Southampton",
@@ -10827,11 +11436,11 @@
       "formBTTS": 40,
       "odds": {
         "provider": "DraftKings",
-        "home": 2.85,
+        "home": 3.15,
         "draw": 3.75,
-        "away": 2.3,
-        "over25": 1.59,
-        "under25": 2.35
+        "away": 2.15,
+        "over25": null,
+        "under25": null
       },
       "oddsSource": "DraftKings",
       "formHome": {
@@ -10951,13 +11560,12 @@
       "statsOnly": true,
       "ai_abstain": true,
       "ai_market": "ABSTAIN",
-      "ai_key_fact": "Le taux empirique Over 2.5 est limité à 0.3.",
-      "ai_form_summary": "Southampton : 2W-2D-1L (8 buts pour, 4 contre). Middlesbrough : 3W-1D-1L (7 buts pour, 3 contre).",
-      "ai_form_summary_en": "Southampton: 2W-2D-1L (8 goals for, 4 against). Middlesbrough: 3W-1D-1L (7 goals for, 3 against).",
+      "ai_key_fact": "Les deux équipes montrent de très faibles taux Over 2.5 (0.3) et BTTS (0.4) malgré de bonnes moyennes générales.",
+      "ai_form_summary": "Southampton: 2W-2D-1L (8 BP, 4 BC, BTTS 0.6). Middlesbrough: 3W-1D-1L (7 BP, 3 BC, BTTS 0.2).",
+      "ai_form_summary_en": "Southampton: 2W-2D-1L (8 GF, 4 GA, BTTS 0.6). Middlesbrough: 3W-1D-1L (7 GF, 3 GA, BTTS 0.2).",
       "ai_reasons": [
-        "Le taux empirique Over 2.5 est faible à 0.3.",
-        "Le taux BTTS empirique est de 0.4, sous la barre des 0.45.",
-        "Les taux Over 2.5 récents des deux équipes sont bas (0.2 et 0.4)."
+        "Le taux BTTS empirique est faible à 0.4 et le taux Over 2.5 est bas à 0.3.",
+        "Southampton et Middlesbrough affichent tous deux de solides performances défensives récentes (seulement 4 et 3 buts encaissés sur leurs 5 derniers matchs respectifs)."
       ],
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
@@ -11130,7 +11738,8 @@
         }
       ],
       "prediction": "Oui",
-      "proba": 0.52
+      "proba": 0.52,
+      "status": "PENDING"
     },
     {
       "id": "vilanova-vs-atlticog-2026-11-27",
@@ -11153,11 +11762,11 @@
       "formBTTS": 50,
       "odds": {
         "provider": "DraftKings",
-        "home": 2.5,
-        "draw": 3.1,
-        "away": 3,
-        "over25": 2.15,
-        "under25": 1.65
+        "home": 2.75,
+        "draw": 2.9,
+        "away": 2.9,
+        "over25": null,
+        "under25": null
       },
       "oddsSource": "DraftKings",
       "formHome": {
@@ -11275,30 +11884,20 @@
         "ga": 35
       },
       "statsOnly": true,
-      "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_key_fact": "Vila Nova affiche un taux BTTS de 0.6 sur ses cinq derniers matchs.",
-      "ai_form_summary": "Vila Nova : 1W-2D-2L (6 buts pour, 7 contre). Atlético Goianiense : 2W-2D-1L (5 buts pour, 4 contre).",
-      "ai_form_summary_en": "Vila Nova: 1W-2D-2L (6 goals for, 7 against). Atlético Goianiense: 2W-2D-1L (5 goals for, 4 against).",
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "Le taux empirique Over 2.5 est de seulement 30% malgré des classements proches.",
+      "ai_form_summary": "Vila Nova : N-D-V-N-D (1W-2D-2L) | Atlético Goianiense : N-V-V-N-D (2W-2D-1L)",
+      "ai_form_summary_en": "Vila Nova: D-L-W-D-L (1W-2D-2L) | Atlético Goianiense: D-W-W-D-L (2W-2D-1L)",
       "ai_reasons": [
-        "Le taux BTTS empirique est de 0.5 sur l'échantillon fourni.",
-        "Vila Nova enregistre un taux BTTS de 0.6 sur ses 5 derniers matchs.",
-        "L'indicateur formBTTS atteint 50% pour cette affiche de Serie B."
+        "Le taux empirique Over 2.5 est faible à 30%.",
+        "Le taux empirique BTTS est de 50%, mais les taux de buts récents sont modérés.",
+        "Les deux équipes affichent des dynamiques de buts trop partagées pour dégager un pari clair."
       ],
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "pick",
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "proba": 0.55,
-          "modelEngine": "gemini-3.5-flash-lite"
-        }
-      ],
-      "prediction": "Oui",
-      "proba": 0.55
+      "ai_response_status": "abstain"
     },
     {
       "id": "ohleuven-vs-kvkortri-2026-11-27",
@@ -11307,7 +11906,7 @@
       "away": "KV Kortrijk",
       "league": "Jupiler Pro League",
       "date": "2026-11-27",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "time": "19:45",
       "matchSemantic": "ohleuven-vs-kvkortri-2026-11-27",
       "source": "empirical-form-data",
@@ -11321,11 +11920,11 @@
       "formBTTS": 50,
       "odds": {
         "provider": "DraftKings",
-        "home": 1.87,
-        "draw": 3.85,
-        "away": 3.75,
-        "over25": 1.63,
-        "under25": 2.2
+        "home": 2,
+        "draw": 3.65,
+        "away": 3.45,
+        "over25": 1.67,
+        "under25": 2.15
       },
       "oddsSource": "DraftKings",
       "formHome": {
@@ -11444,14 +12043,14 @@
       },
       "statsOnly": true,
       "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_key_fact": "KV Kortrijk has conceded 24 goals in 12 matches while scoring only 4.",
-      "ai_form_summary": "OH Leuven : 2V-2N-1D (7 BP, 5 BC). KV Kortrijk : 0V-1N-4D (2 BP, 9 BC).",
-      "ai_form_summary_en": "OH Leuven: 2W-2D-1L (7 GF, 5 GA). KV Kortrijk: 0W-1D-4L (2 GF, 9 GA).",
+      "ai_market": "OVER_25",
+      "ai_key_fact": "KV Kortrijk a encaissé 24 buts en 12 matchs de championnat, favorisant potentiellement le volume offensif.",
+      "ai_form_summary": "OH Leuven : D-V-V-N-N (2W-2D-1L) | KV Kortrijk : D-D-D-N-D (0W-1D-4L)",
+      "ai_form_summary_en": "OH Leuven: L-W-W-D-D (2W-2D-1L) | KV Kortrijk: L-L-L-D-L (0W-1D-4L)",
       "ai_reasons": [
-        "OH Leuven has a home BTTS rate of 60% across their recent sample.",
-        "Empirical BTTS sits at 50% for this fixture.",
-        "KV Kortrijk struggles defensively with 24 goals conceded in 12 matches."
+        "OH Leuven affiche une moyenne de buts marqués à domicile élevée (1.75 par match).",
+        "KV Kortrijk encaisse énormément (24 buts encaissés en 12 matchs de championnat).",
+        "La cote pour l'Over 2.5 est fixée à 1.67 chez le fournisseur."
       ],
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
@@ -11459,7 +12058,7 @@
       "ai_response_status": "pick",
       "predictions": [
         {
-          "type": "BTTS",
+          "type": "Over 2.5",
           "prediction": "Oui",
           "proba": 0.55,
           "modelEngine": "gemini-3.5-flash-lite"
@@ -11489,7 +12088,7 @@
       "formBTTS": 50,
       "odds": {
         "provider": "DraftKings",
-        "home": 2,
+        "home": 2.05,
         "draw": 2.85,
         "away": 4,
         "over25": null,
@@ -11611,19 +12210,30 @@
         "ga": 33
       },
       "statsOnly": true,
-      "ai_abstain": true,
-      "ai_market": "ABSTAIN",
-      "ai_key_fact": "Atlanta and Ciudad de Bolívar show balanced metrics without strong indicators for either market.",
-      "ai_form_summary": "Atlanta : 2V-2N-1D (5 BP, 5 BC). Ciudad de Bolívar : 2V-0N-3D (4 BP, 7 BC).",
-      "ai_form_summary_en": "Atlanta: 2W-2D-1L (5 GF, 5 GA). Ciudad de Bolívar: 2W-0D-3L (4 GF, 7 GA).",
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Le taux empirique BTTS est de 50% avec des dynamiques de forme récentes équilibrées.",
+      "ai_form_summary": "Atlanta : V-N-N-V-D (2W-2D-1L) | Ciudad de Bolívar : D-V-D-D-V (2W-0D-3L)",
+      "ai_form_summary_en": "Atlanta: W-D-D-W-L (2W-2D-1L) | Ciudad de Bolívar: L-W-L-L-W (2W-0D-3L)",
       "ai_reasons": [
-        "Empirical BTTS and Over 2.5 are at 50% and 40% respectively, showing no strong tendency.",
-        "Both teams display low goal averages in their respective recent forms."
+        "Le taux empirique BTTS est exactement de 50%.",
+        "Les deux formations affichent des taux de BTTS récents de 60% pour Atlanta et 40% pour Ciudad de Bolívar.",
+        "Ciudad de Bolívar concède plus de buts qu'il n'en marque à l'extérieur (1.25 encaissé en moyenne)."
       ],
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "proba": 0.55,
+          "modelEngine": "gemini-3.5-flash-lite"
+        }
+      ],
+      "prediction": "Oui",
+      "proba": 0.55
     },
     {
       "id": "vflbochu-vs-svdarmst-2026-11-27",
@@ -11646,11 +12256,11 @@
       "formBTTS": 50,
       "odds": {
         "provider": "DraftKings",
-        "home": 1.77,
-        "draw": 3.95,
-        "away": 4.1,
-        "over25": 1.59,
-        "under25": 2.3
+        "home": 1.63,
+        "draw": 4.2,
+        "away": 5,
+        "over25": 1.69,
+        "under25": 2.1
       },
       "oddsSource": "DraftKings",
       "formHome": {
@@ -11768,30 +12378,20 @@
         "ga": 22
       },
       "statsOnly": true,
-      "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_key_fact": "SV Darmstadt 98 has conceded 22 goals across 12 league matches.",
-      "ai_form_summary": "VfL Bochum : 2V-1N-2D (6 BP, 8 BC). SV Darmstadt 98 : 1V-2N-2D (4 BP, 8 BC).",
-      "ai_form_summary_en": "VfL Bochum: 2W-1D-2L (6 GF, 8 GA). SV Darmstadt 98: 1W-2D-2L (4 GF, 8 GA).",
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "Moyenne de buts de Darmstadt 0.33 et taux Over 2.5 à 40%.",
+      "ai_form_summary": "Bochum : 2V-1N-2D (6 buts marqués, 8 encaissés). Darmstadt : 1V-2N-2D (4 buts marqués, 8 encaissés).",
+      "ai_form_summary_en": "Bochum: 2W-1D-2L (6 goals scored, 8 conceded). Darmstadt: 1W-2D-2L (4 goals scored, 8 conceded).",
       "ai_reasons": [
-        "VfL Bochum maintains a 60% BTTS rate in their recent home sample.",
-        "Empirical BTTS stands at 50% for this matchup.",
-        "SV Darmstadt 98 has conceded 22 goals in 12 played matches."
+        "Taux empirique du BTTS à 50% mais moyennes de buts faibles (Bochum 1.25, Darmstadt 0.33).",
+        "Taux Over 2.5 faible à 40% pour les deux équipes.",
+        "Forme récente instable avec des taux de BTTS partagés (Bochum 60%, Darmstadt 40%)."
       ],
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "pick",
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "proba": 0.55,
-          "modelEngine": "gemini-3.5-flash-lite"
-        }
-      ],
-      "prediction": "Oui",
-      "proba": 0.55
+      "ai_response_status": "abstain"
     },
     {
       "id": "grazerak-vs-scrheind-2026-11-27",
@@ -11959,7 +12559,8 @@
         }
       ],
       "prediction": "Oui",
-      "proba": 0.65
+      "proba": 0.65,
+      "status": "PENDING"
     },
     {
       "id": "maritimo-vs-cdnacion-2026-11-27",
@@ -11982,11 +12583,11 @@
       "formBTTS": 40,
       "odds": {
         "provider": "DraftKings",
-        "home": 2.1,
-        "draw": 3.3,
+        "home": 2.15,
+        "draw": 3.2,
         "away": 3.55,
-        "over25": 2.15,
-        "under25": 1.65
+        "over25": 2.2,
+        "under25": 1.61
       },
       "oddsSource": "DraftKings",
       "formHome": {
@@ -12106,12 +12707,13 @@
       "statsOnly": true,
       "ai_abstain": true,
       "ai_market": "ABSTAIN",
-      "ai_key_fact": "Maritimo affiche une moyenne de 0.75 buts par match à domicile.",
-      "ai_form_summary": "Maritimo en difficulté (0W-1D-4L) face à un C.D. Nacional irrégulier (2W-0D-3L).",
-      "ai_form_summary_en": "Maritimo struggling (0W-1D-4L) against an inconsistent C.D. Nacional (2W-0D-3L).",
+      "ai_key_fact": "C.D. Nacional a un taux de BTTS de seulement 20% sur ses 5 derniers matchs.",
+      "ai_form_summary": "Maritimo : 0V-1N-4D (3 buts marqués, 13 encaissés). Nacional : 2V-0N-3D (4 buts marqués, 8 encaissés).",
+      "ai_form_summary_en": "Maritimo: 0W-1D-4L (3 goals scored, 13 conceded). Nacional: 2W-0D-3L (4 goals scored, 8 conceded).",
       "ai_reasons": [
-        "Faibles moyennes de buts (0.75 pour Maritimo et 0.67 pour C.D. Nacional).",
-        "Taux BTTS empirique faible à 40% sur l'ensemble des données."
+        "Taux empirique du BTTS bas à 40%.",
+        "Taux d'Over 2.5 à 50% sans domination nette d'un scénario offensif.",
+        "Forme récente très faible pour Maritimo (0V-1N-4D)."
       ],
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
@@ -12963,7 +13565,7 @@
       "away": "Chicago Fire FC",
       "league": "MLS",
       "date": "2026-11-28",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "time": "17:30",
       "matchSemantic": "charlott-vs-chicagof-2026-11-28",
       "source": "empirical-form-data",
@@ -13100,14 +13702,14 @@
       },
       "statsOnly": true,
       "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_key_fact": "Charlotte FC et Chicago Fire affichent tous deux un taux Over 2.5 de 100% sur leurs récents échantillons.",
-      "ai_form_summary": "Charlotte FC (3W-1D-1L) et Chicago Fire FC (2W-1D-2L) s'appuient sur des attaques prolifiques et des dynamiques offensives constantes.",
-      "ai_form_summary_en": "Charlotte FC (3W-1D-1L) and Chicago Fire FC (2W-1D-2L) rely on prolific attacks and consistent offensive dynamics.",
+      "ai_market": "BTTS",
+      "ai_key_fact": "Chicago Fire présente un taux BTTS de 100% sur ses 5 derniers matchs.",
+      "ai_form_summary": "Charlotte FC : 3V-1D-1N (15 BP, 7 BC, 60% BTTS). Chicago Fire FC : 2V-1D-2N (13 BP, 12 BC, 100% BTTS).",
+      "ai_form_summary_en": "Charlotte FC: 3W-1D-1L (15 GF, 7 GA, 60% BTTS). Chicago Fire FC: 2W-1D-2L (13 GF, 12 GA, 100% BTTS).",
       "ai_reasons": [
-        "Taux empirique Over 2.5 à 100% et taux BTTS à 80%",
-        "Moyennes de buts très élevées (Charlotte FC 3.67, Chicago Fire FC 2.33)",
-        "Bilan offensif impressionnant sur l'ensemble de la saison (66 buts pour Charlotte, 64 pour Chicago en 34 matchs)"
+        "Taux BTTS empirique solide à 80%.",
+        "Taux BTTS de 100% sur les 5 derniers matchs pour Chicago Fire.",
+        "Moyennes de buts élevés (3.67 pour Charlotte FC, 2.33 pour Chicago Fire FC)."
       ],
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
@@ -13115,14 +13717,14 @@
       "ai_response_status": "pick",
       "predictions": [
         {
-          "type": "Over 2.5",
+          "type": "BTTS",
           "prediction": "Oui",
-          "proba": 0.73,
+          "proba": 0.68,
           "modelEngine": "gemini-3.5-flash-lite"
         }
       ],
       "prediction": "Oui",
-      "proba": 0.73,
+      "proba": 0.68,
       "status": "PENDING"
     },
     {
@@ -13292,6 +13894,682 @@
       ],
       "prediction": "Oui",
       "proba": 0.7,
+      "status": "PENDING"
+    },
+    {
+      "id": "ipswicht-vs-astonvil-2026-11-28",
+      "match": "Ipswich Town vs Aston Villa",
+      "home": "Ipswich Town",
+      "away": "Aston Villa",
+      "league": "Premier League",
+      "date": "2026-11-28",
+      "type": "BTTS",
+      "time": "17:30",
+      "matchSemantic": "ipswicht-vs-astonvil-2026-11-28",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/373.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/362.png",
+      "tier": "GOLD",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "formBTTS": 70,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 3.35,
+        "draw": 3.8,
+        "away": 2,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-D-N-N-D",
+        "wins": 0,
+        "draws": 2,
+        "losses": 3,
+        "goalsFor": 6,
+        "goalsAgainst": 10,
+        "bttsRate": 0.8,
+        "over25Rate": 0.6,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-N-N-V-V",
+        "wins": 2,
+        "draws": 3,
+        "losses": 0,
+        "goalsFor": 8,
+        "goalsAgainst": 6,
+        "bttsRate": 0.6,
+        "over25Rate": 0.4,
+        "cleanSheets": 2,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-21",
+          "opponent": "Tottenham Hotspur",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-08",
+          "opponent": "AFC Bournemouth",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Hull City",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Nottingham Forest",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Manchester City",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-21",
+          "opponent": "Sunderland",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-08",
+          "opponent": "Manchester United",
+          "venue": "A",
+          "score": "4-4",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Fulham",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Manchester City",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Newcastle United",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 16,
+        "points": 11,
+        "played": 11,
+        "gf": 15,
+        "ga": 22
+      },
+      "standingsAway": {
+        "rank": 12,
+        "points": 14,
+        "played": 11,
+        "gf": 14,
+        "ga": 17
+      },
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Ipswich Town enregistre un taux BTTS de 80% sur sa forme récente malgré l'absence de victoire.",
+      "ai_form_summary": "Ipswich Town : 0W-2D-3L (6 buts pour, 10 contre). Aston Villa : 2W-3D-0L (8 buts pour, 6 contre).",
+      "ai_form_summary_en": "Ipswich Town: 0W-2D-3L (6 GF, 10 GA). Aston Villa: 2W-3D-0L (8 GF, 6 GA).",
+      "ai_reasons": [
+        "Taux empirique BTTS de 70% pour ce match de Premier League",
+        "Taux BTTS de Ipswich Town atteignant 80% sur ses 5 derniers matchs",
+        "Aston Villa présente une moyenne de buts élevée à l'extérieur (2.67)"
+      ],
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "proba": 0.65,
+          "modelEngine": "gemini-3.5-flash-lite"
+        }
+      ],
+      "prediction": "Oui",
+      "proba": 0.65,
+      "status": "PENDING"
+    },
+    {
+      "id": "deportiv-vs-barcelon-2026-11-29",
+      "match": "Deportivo vs Barcelona",
+      "home": "Deportivo",
+      "away": "Barcelona",
+      "league": "LaLiga",
+      "date": "2026-11-29",
+      "type": "BTTS",
+      "time": "15:15",
+      "matchSemantic": "deportiv-vs-barcelon-2026-11-29",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/90.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/83.png",
+      "tier": "GOLD",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "formBTTS": 80,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 8.5,
+        "draw": 7,
+        "away": 1.25,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-N-V-D-N",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 4,
+        "goalsAgainst": 6,
+        "bttsRate": 0.6,
+        "over25Rate": 0.4,
+        "cleanSheets": 1,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-V-D-V",
+        "wins": 4,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 17,
+        "goalsAgainst": 8,
+        "bttsRate": 1,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-21",
+          "opponent": "Alavés",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Espanyol",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-02",
+          "opponent": "Osasuna",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Atlético Madrid",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-16",
+          "opponent": "Levante",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-22",
+          "opponent": "Villarreal",
+          "venue": "H",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-08",
+          "opponent": "Atlético Madrid",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Alavés",
+          "venue": "H",
+          "score": "6-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Real Madrid",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Real Betis",
+          "venue": "A",
+          "score": "5-2",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 12,
+        "points": 15,
+        "played": 13,
+        "gf": 16,
+        "ga": 17
+      },
+      "standingsAway": {
+        "rank": 1,
+        "points": 36,
+        "played": 13,
+        "gf": 51,
+        "ga": 15
+      },
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Barcelona possède la meilleure attaque avec 51 buts marqués en 13 matchs mais concède aussi 8 buts sur ses 8 derniers.",
+      "ai_form_summary": "Deportivo : 1W-2D-2L (4 BP, 6 BC, BTTS 60%). Barcelona : 4W-0D-1L (17 BP, 8 BC, BTTS 100%).",
+      "ai_form_summary_en": "Deportivo: 1W-2D-2L (4 GF, 6 GA, BTTS 60%). Barcelona: 4W-0D-1L (17 GF, 8 GA, BTTS 100%).",
+      "ai_reasons": [
+        "Taux empirique BTTS élevé à 0.8 pour ce match.",
+        "Barcelona présente un taux BTTS de 1 et une moyenne de 3.33 buts marqués sur ses 8 derniers matchs.",
+        "Deportivo affiche un taux BTTS de 0.6 sur ses 5 derniers matchs malgré des difficultés au classement."
+      ],
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "proba": 0.72,
+          "modelEngine": "gemini-3.5-flash-lite"
+        }
+      ],
+      "prediction": "Oui",
+      "proba": 0.72,
+      "status": "PENDING"
+    },
+    {
+      "id": "ajauxerr-vs-marseill-2026-11-29",
+      "match": "AJ Auxerre vs Marseille",
+      "home": "AJ Auxerre",
+      "away": "Marseille",
+      "league": "Ligue 1",
+      "date": "2026-11-29",
+      "type": "BTTS",
+      "time": "14:00",
+      "matchSemantic": "ajauxerr-vs-marseill-2026-11-29",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/172.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/176.png",
+      "tier": "GOLD",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "formBTTS": 80,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 3.8,
+        "draw": 3.9,
+        "away": 1.87,
+        "over25": 1.57,
+        "under25": 2.3
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "N-D-D-N-V",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 6,
+        "goalsAgainst": 9,
+        "bttsRate": 0.8,
+        "over25Rate": 0.4,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-V-V-V-V",
+        "wins": 4,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 15,
+        "goalsAgainst": 9,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-21",
+          "opponent": "AS Monaco",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Paris FC",
+          "venue": "H",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Strasbourg",
+          "venue": "A",
+          "score": "1-5",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Le Mans",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Le Havre AC",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-22",
+          "opponent": "Le Mans",
+          "venue": "H",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-08",
+          "opponent": "Lens",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Toulouse",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Le Havre AC",
+          "venue": "H",
+          "score": "4-3",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Angers",
+          "venue": "A",
+          "score": "5-2",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 15,
+        "points": 11,
+        "played": 11,
+        "gf": 14,
+        "ga": 25
+      },
+      "standingsAway": {
+        "rank": 5,
+        "points": 18,
+        "played": 11,
+        "gf": 24,
+        "ga": 17
+      },
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Les deux équipes affichent un taux BTTS de 80% sur leurs 5 derniers matchs respectifs.",
+      "ai_form_summary": "AJ Auxerre : 1W-2D-2L (6 BP, 9 BC, BTTS 80%). Marseille : 4W-0D-1L (15 BP, 9 BC, BTTS 80%).",
+      "ai_form_summary_en": "AJ Auxerre: 1W-2D-2L (6 GF, 9 GA, BTTS 80%). Marseille: 4W-0D-1L (15 GF, 9 GA, BTTS 80%).",
+      "ai_reasons": [
+        "Taux empirique BTTS à 0.8 pour cette confrontation.",
+        "Taux BTTS de 0.8 pour AJ Auxerre et Marseille sur leurs 5 derniers matchs respectifs.",
+        "Marseille affiche 15 buts marqués et 9 encaissés sur sa période récente."
+      ],
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "proba": 0.75,
+          "modelEngine": "gemini-3.5-flash-lite"
+        }
+      ],
+      "prediction": "Oui",
+      "proba": 0.75,
+      "status": "PENDING"
+    },
+    {
+      "id": "adodenha-vs-fcutrech-2026-11-29",
+      "match": "ADO Den Haag vs FC Utrecht",
+      "home": "ADO Den Haag",
+      "away": "FC Utrecht",
+      "league": "Eredivisie",
+      "date": "2026-11-29",
+      "type": "Over 2.5",
+      "time": "11:15",
+      "matchSemantic": "adodenha-vs-fcutrech-2026-11-29",
+      "source": "empirical-form-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2726.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/153.png",
+      "tier": "GOLD",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "formBTTS": 80,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.6,
+        "draw": 3.6,
+        "away": 2.4,
+        "over25": 1.54,
+        "under25": 2.25
+      },
+      "oddsSource": "DraftKings",
+      "formHome": {
+        "last5String": "D-V-D-D-V",
+        "wins": 2,
+        "draws": 0,
+        "losses": 3,
+        "goalsFor": 7,
+        "goalsAgainst": 9,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-D-D-N-V",
+        "wins": 1,
+        "draws": 1,
+        "losses": 3,
+        "goalsFor": 9,
+        "goalsAgainst": 12,
+        "bttsRate": 1,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-22",
+          "opponent": "Ajax Amsterdam",
+          "venue": "A",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Sparta Rotterdam",
+          "venue": "H",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "PEC Zwolle",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Heerenveen",
+          "venue": "H",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "PSV Eindhoven",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-21",
+          "opponent": "SC Cambuur",
+          "venue": "H",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-08",
+          "opponent": "NEC Nijmegen",
+          "venue": "H",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Telstar",
+          "venue": "A",
+          "score": "2-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "PEC Zwolle",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "FC Twente",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 17,
+        "points": 9,
+        "played": 13,
+        "gf": 16,
+        "ga": 28
+      },
+      "standingsAway": {
+        "rank": 15,
+        "points": 12,
+        "played": 13,
+        "gf": 23,
+        "ga": 37
+      },
+      "statsOnly": true,
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_key_fact": "Les deux formations partagent un taux d'Over 2.5 de 80% lors de leurs cinq dernières sorties.",
+      "ai_form_summary": "ADO Den Haag : 2W-0D-3L (7 BP, 9 BC, Over 80%). FC Utrecht : 1W-1D-3L (9 BP, 12 BC, Over 80%).",
+      "ai_form_summary_en": "ADO Den Haag: 2W-0D-3L (7 GF, 9 GA, Over 80%). FC Utrecht: 1W-1D-3L (9 GF, 12 GA, Over 80%).",
+      "ai_reasons": [
+        "Taux empirique Over 2.5 élevé à 0.8 pour ce match.",
+        "ADO Den Haag et FC Utrecht affichent tous deux un taux Over 2.5 de 0.8 sur leurs 5 derniers matchs.",
+        "Les statistiques globales montrent des défenses très perméables avec 28 buts encaissés pour Den Haag et 37 pour Utrecht."
+      ],
+      "modelEngine": "gemini-stats-v1",
+      "ai_source": "gemini-stats-v1",
+      "ai_model": "gemini-3.5-flash-lite",
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "proba": 0.75,
+          "modelEngine": "gemini-3.5-flash-lite"
+        }
+      ],
+      "prediction": "Oui",
+      "proba": 0.75,
       "status": "PENDING"
     },
     {
@@ -13639,7 +14917,7 @@
       "away": "Monza",
       "league": "Serie A",
       "date": "2026-11-29",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "time": "17:00",
       "matchSemantic": "asroma-vs-monza-2026-11-29",
       "source": "empirical-form-data",
@@ -13776,14 +15054,14 @@
       },
       "statsOnly": true,
       "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_key_fact": "L'AS Roma affiche un taux de 100% d'Over 2.5 sur ses 5 derniers matchs.",
-      "ai_form_summary": "AS Roma: 4V-1N-0D (20 buts pour, 8 contre) / Monza: 1V-0N-4D (7 buts pour, 10 contre)",
-      "ai_form_summary_en": "AS Roma: 4W-1D-0L (20 GF, 8 GA) / Monza: 1W-0D-4L (7 GF, 10 GA)",
+      "ai_market": "BTTS",
+      "ai_key_fact": "AS Roma a un taux BTTS de 0.8 sur ses 5 derniers matchs malgré son rang de dauphin.",
+      "ai_form_summary": "AS Roma : V-V-V-V-N (4W-1D-0L) | Monza : V-D-D-D-D (1W-0D-4L)",
+      "ai_form_summary_en": "AS Roma: V-V-V-V-N (4W-1D-0L) | Monza: V-D-D-D-D (1W-0D-4L)",
       "ai_reasons": [
-        "Taux empirique Over 2.5 très élevé à 90% pour cette affiche.",
-        "L'AS Roma affiche un taux de Over 2.5 de 100% sur ses 5 derniers matchs avec 20 buts marqués.",
-        "Monza présente un taux de Over 2.5 de 80% sur ses 5 dernières sorties."
+        "AS Roma affiche un taux BTTS de 0.8 sur ses 5 derniers matchs et de 0.7 empirique global.",
+        "Monza présente un taux BTTS de 0.6 sur ses 5 derniers matchs.",
+        "AS Roma concède en moyenne 8 buts sur ses 5 derniers matchs et Monza encaisse 25 buts en 12 matchs de championnat."
       ],
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
@@ -13791,14 +15069,14 @@
       "ai_response_status": "pick",
       "predictions": [
         {
-          "type": "Over 2.5",
+          "type": "BTTS",
           "prediction": "Oui",
-          "proba": 0.78,
+          "proba": 0.68,
           "modelEngine": "gemini-3.5-flash-lite"
         }
       ],
       "prediction": "Oui",
-      "proba": 0.78,
+      "proba": 0.68,
       "status": "PENDING"
     },
     {
@@ -13808,7 +15086,7 @@
       "away": "Padova",
       "league": "Serie B",
       "date": "2026-11-29",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "time": "14:00",
       "matchSemantic": "modena-vs-padova-2026-11-29",
       "source": "empirical-form-data",
@@ -13823,7 +15101,7 @@
       "odds": {
         "provider": "DraftKings",
         "home": 1.43,
-        "draw": 4.5,
+        "draw": 4.4,
         "away": 6.5,
         "over25": 1.67,
         "under25": 2.05
@@ -13945,14 +15223,14 @@
       },
       "statsOnly": true,
       "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_key_fact": "Padova affiche un taux BTTS de 80% sur ses 5 derniers matchs malgré des résultats mitigés.",
-      "ai_form_summary": "Modena : 3V-2N-0L (8 BP, 3 BC, 60% BTTS). Padova : 1V-3D-1L (7 BP, 6 BC, 80% BTTS).",
-      "ai_form_summary_en": "Modena: 3W-2D-0L (8 GF, 3 GA, 60% BTTS). Padova: 1W-3D-1L (7 GF, 6 GA, 80% BTTS).",
+      "ai_market": "OVER_25",
+      "ai_key_fact": "Modena a un taux d'Over 2.5 de seulement 20% sur ses 5 derniers matchs.",
+      "ai_form_summary": "Modena : N-V-V-N-V (3W-2D-0L) / Padova : D-N-N-N-V (1W-3D-1L)",
+      "ai_form_summary_en": "Modena: D-W-W-D-W (3W-2D-0L) / Padova: L-D-D-D-W (1W-3D-1L)",
       "ai_reasons": [
-        "Taux empirique BTTS de 70% pour cette affiche de Serie B.",
-        "Padova présente un taux de BTTS de 80% sur ses 5 derniers matchs.",
-        "La forme BTTS est évaluée à 70% d'après les données récentes."
+        "Taux Under 2.5 très prononcé avec un taux Over 2.5 empirique à seulement 30%",
+        "Modena affiche un taux Under 2.5 strict sur ses 5 derniers matchs (taux over à 20%)",
+        "Les statistiques de Padova montrent également un taux Over 2.5 limité à 40% sur ses 5 derniers matchs"
       ],
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
@@ -13960,14 +15238,15 @@
       "ai_response_status": "pick",
       "predictions": [
         {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "proba": 0.68,
+          "type": "Over 2.5",
+          "prediction": "Non",
+          "proba": 0.72,
           "modelEngine": "gemini-3.5-flash-lite"
         }
       ],
-      "prediction": "Oui",
-      "proba": 0.68
+      "prediction": "Non",
+      "proba": 0.72,
+      "status": "PENDING"
     },
     {
       "id": "tsghoffe-vs-fcaugsbu-2026-11-29",
@@ -14469,7 +15748,7 @@
       "away": "AC Milan",
       "league": "Serie A",
       "date": "2026-11-30",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "time": "19:45",
       "matchSemantic": "cagliari-vs-acmilan-2026-11-30",
       "source": "empirical-form-data",
@@ -14606,14 +15885,14 @@
       },
       "statsOnly": true,
       "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_key_fact": "AC Milan a inscrit 14 buts lors de ses 5 derniers matchs mais concède aussi 7 buts sur la même période.",
-      "ai_form_summary": "Cagliari : 1W-0D-4L (4 buts pour, 10 contre). AC Milan : 4W-0D-1L (14 buts pour, 7 contre).",
-      "ai_form_summary_en": "Cagliari: 1W-0D-4L (4 GF, 10 GA). AC Milan: 4W-0D-1L (14 GF, 7 GA).",
+      "ai_market": "OVER_25",
+      "ai_key_fact": "AC Milan affiche un taux de 80% d'Over 2.5 sur ses cinq derniers matchs avec 14 buts marqués.",
+      "ai_form_summary": "Cagliari (1W-0D-4L, 4 BP, 10 BC) vs AC Milan (4W-0D-1L, 14 BP, 7 BC)",
+      "ai_form_summary_en": "Cagliari (1W-0D-4L, 4 GF, 10 GA) vs AC Milan (4W-0D-1L, 14 GF, 7 GA)",
       "ai_reasons": [
-        "Taux BTTS empirique de 60% sur l'échantillon disponible.",
-        "AC Milan affiche une excellente forme offensive (14 buts en 5 matchs) avec un taux de BTTS de 80%.",
-        "Cagliari encaisse régulièrement (17 buts en 12 matchs)."
+        "AC Milan présente un taux over25 de 0.8 sur ses 5 derniers matchs.",
+        "AC Milan a inscrit 14 buts lors de ses 5 dernières rencontres (moyenne offensive de 1.67).",
+        "Taux empirique global du match établi à 0.6 pour l'Over 2.5."
       ],
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
@@ -14621,14 +15900,15 @@
       "ai_response_status": "pick",
       "predictions": [
         {
-          "type": "BTTS",
+          "type": "Over 2.5",
           "prediction": "Oui",
-          "proba": 0.58,
+          "proba": 0.62,
           "modelEngine": "gemini-3.5-flash-lite"
         }
       ],
       "prediction": "Oui",
-      "proba": 0.58
+      "proba": 0.62,
+      "status": "PENDING"
     },
     {
       "id": "benfica-vs-fcfamali-2026-11-30",
@@ -14969,651 +16249,6 @@
       "status": "PENDING"
     },
     {
-      "id": "casapia-vs-braga-2026-11-30",
-      "match": "Casa Pia vs Braga",
-      "home": "Casa Pia",
-      "away": "Braga",
-      "league": "Liga Portugal",
-      "date": "2026-11-30",
-      "type": "BTTS",
-      "time": "20:15",
-      "matchSemantic": "casapia-vs-braga-2026-11-30",
-      "source": "empirical-form-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21581.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2994.png",
-      "tier": "SILVER",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "formBTTS": 40,
-      "odds": {
-        "provider": "DraftKings",
-        "home": 6.5,
-        "draw": 4.2,
-        "away": 1.45,
-        "over25": 1.87,
-        "under25": 1.77
-      },
-      "oddsSource": "DraftKings",
-      "formHome": {
-        "last5String": "N-D-V-D-V",
-        "wins": 2,
-        "draws": 1,
-        "losses": 2,
-        "goalsFor": 5,
-        "goalsAgainst": 5,
-        "bttsRate": 0.4,
-        "over25Rate": 0.2,
-        "cleanSheets": 1,
-        "failedToScore": 2,
-        "count": 5
-      },
-      "formAway": {
-        "last5String": "V-V-D-D-D",
-        "wins": 2,
-        "draws": 0,
-        "losses": 3,
-        "goalsFor": 6,
-        "goalsAgainst": 6,
-        "bttsRate": 0.4,
-        "over25Rate": 0.6,
-        "cleanSheets": 2,
-        "failedToScore": 1,
-        "count": 5
-      },
-      "last5Home": [
-        {
-          "date": "2026-11-07",
-          "opponent": "Alverca",
-          "venue": "A",
-          "score": "1-1",
-          "result": "D"
-        },
-        {
-          "date": "2026-10-30",
-          "opponent": "Sporting CP",
-          "venue": "H",
-          "score": "0-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-24",
-          "opponent": "Estrela",
-          "venue": "A",
-          "score": "2-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-10",
-          "opponent": "Santa Clara",
-          "venue": "H",
-          "score": "0-1",
-          "result": "L"
-        },
-        {
-          "date": "2026-09-20",
-          "opponent": "Estoril",
-          "venue": "A",
-          "score": "2-1",
-          "result": "W"
-        }
-      ],
-      "last5Away": [
-        {
-          "date": "2026-11-08",
-          "opponent": "Rio Ave",
-          "venue": "A",
-          "score": "1-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-11-01",
-          "opponent": "FC Famalicao",
-          "venue": "H",
-          "score": "3-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-25",
-          "opponent": "C.D. Nacional",
-          "venue": "A",
-          "score": "0-1",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-19",
-          "opponent": "Gil Vicente",
-          "venue": "H",
-          "score": "1-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-09",
-          "opponent": "Sporting CP",
-          "venue": "H",
-          "score": "1-3",
-          "result": "L"
-        }
-      ],
-      "standingsHome": {
-        "rank": 16,
-        "points": 8,
-        "played": 11,
-        "gf": 6,
-        "ga": 20
-      },
-      "standingsAway": {
-        "rank": 8,
-        "points": 17,
-        "played": 11,
-        "gf": 13,
-        "ga": 11
-      },
-      "statsOnly": true,
-      "ai_abstain": true,
-      "ai_market": "ABSTAIN",
-      "ai_key_fact": "Les taux empiriques BTTS et Over 2.5 sont tous deux bloqués à 0.4.",
-      "ai_form_summary": "Casa Pia : N-D-V-D-V (2W-1D-2L), Braga : V-V-D-D-D (2W-0D-3L)",
-      "ai_form_summary_en": "Casa Pia: N-D-V-D-V (2W-1D-2L), Braga: V-V-D-D-D (2W-0D-3L)",
-      "ai_reasons": [
-        "Taux empiriques BTTS et Over 2.5 faibles (tous deux à 0.4).",
-        "Moyennes de buts très basses pour les deux équipes (0.25 et 0.5)."
-      ],
-      "modelEngine": "gemini-stats-v1",
-      "ai_source": "gemini-stats-v1",
-      "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
-    },
-    {
-      "id": "espanyol-vs-getafe-2026-11-30",
-      "match": "Espanyol vs Getafe",
-      "home": "Espanyol",
-      "away": "Getafe",
-      "league": "LaLiga",
-      "date": "2026-11-30",
-      "type": "BTTS",
-      "time": "20:00",
-      "matchSemantic": "espanyol-vs-getafe-2026-11-30",
-      "source": "empirical-form-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/88.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2922.png",
-      "tier": "STANDARD",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "formBTTS": 30,
-      "odds": {
-        "provider": "DraftKings",
-        "home": 2.05,
-        "draw": 3.2,
-        "away": 3.85,
-        "over25": 2.4,
-        "under25": 1.54
-      },
-      "oddsSource": "DraftKings",
-      "formHome": {
-        "last5String": "V-N-V-D-D",
-        "wins": 2,
-        "draws": 1,
-        "losses": 2,
-        "goalsFor": 3,
-        "goalsAgainst": 3,
-        "bttsRate": 0.2,
-        "over25Rate": 0.2,
-        "cleanSheets": 3,
-        "failedToScore": 2,
-        "count": 5
-      },
-      "formAway": {
-        "last5String": "D-D-V-D-N",
-        "wins": 1,
-        "draws": 1,
-        "losses": 3,
-        "goalsFor": 4,
-        "goalsAgainst": 11,
-        "bttsRate": 0.4,
-        "over25Rate": 0.6,
-        "cleanSheets": 0,
-        "failedToScore": 3,
-        "count": 5
-      },
-      "last5Home": [
-        {
-          "date": "2026-11-20",
-          "opponent": "Athletic Club",
-          "venue": "A",
-          "score": "1-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-11-07",
-          "opponent": "Deportivo",
-          "venue": "H",
-          "score": "0-0",
-          "result": "D"
-        },
-        {
-          "date": "2026-10-30",
-          "opponent": "Villarreal",
-          "venue": "A",
-          "score": "1-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-24",
-          "opponent": "Racing Santander",
-          "venue": "A",
-          "score": "1-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-17",
-          "opponent": "Atlético Madrid",
-          "venue": "H",
-          "score": "0-1",
-          "result": "L"
-        }
-      ],
-      "last5Away": [
-        {
-          "date": "2026-11-22",
-          "opponent": "Atlético Madrid",
-          "venue": "H",
-          "score": "0-3",
-          "result": "L"
-        },
-        {
-          "date": "2026-11-08",
-          "opponent": "Villarreal",
-          "venue": "A",
-          "score": "0-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-11-01",
-          "opponent": "Sevilla",
-          "venue": "H",
-          "score": "3-1",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-25",
-          "opponent": "Athletic Club",
-          "venue": "A",
-          "score": "0-4",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-19",
-          "opponent": "Rayo Vallecano",
-          "venue": "H",
-          "score": "1-1",
-          "result": "D"
-        }
-      ],
-      "standingsHome": {
-        "rank": 11,
-        "points": 15,
-        "played": 13,
-        "gf": 14,
-        "ga": 14
-      },
-      "standingsAway": {
-        "rank": 18,
-        "points": 12,
-        "played": 13,
-        "gf": 8,
-        "ga": 21
-      },
-      "statsOnly": true,
-      "ai_abstain": true,
-      "ai_market": "ABSTAIN",
-      "ai_key_fact": "Le taux empirique BTTS est de 0.3 seulement pour cette rencontre.",
-      "ai_form_summary": "Espanyol : V-N-V-D-D (2W-1D-2L), Getafe : D-D-V-D-N (1W-1D-3L)",
-      "ai_form_summary_en": "Espanyol: V-N-V-D-D (2W-1D-2L), Getafe: D-D-V-D-N (1W-1D-3L)",
-      "ai_reasons": [
-        "Taux empiriques faibles : 0.3 pour le BTTS et 0.4 pour l'Over 2.5.",
-        "Formes récentes très pauvres en buts (Espanyol et Getafe affichent des moyennes très faibles)."
-      ],
-      "modelEngine": "gemini-stats-v1",
-      "ai_source": "gemini-stats-v1",
-      "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
-    },
-    {
-      "id": "coventry-vs-ipswicht-2026-12-01",
-      "match": "Coventry City vs Ipswich Town",
-      "home": "Coventry City",
-      "away": "Ipswich Town",
-      "league": "Premier League",
-      "date": "2026-12-01",
-      "type": "BTTS",
-      "time": "20:00",
-      "matchSemantic": "coventry-vs-ipswicht-2026-12-01",
-      "source": "empirical-form-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/388.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/373.png",
-      "tier": "GOLD",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "formBTTS": 80,
-      "odds": {
-        "provider": "DraftKings",
-        "home": 2.25,
-        "draw": 3.6,
-        "away": 3,
-        "over25": 1.67,
-        "under25": 2.15
-      },
-      "oddsSource": "DraftKings",
-      "formHome": {
-        "last5String": "V-D-V-D-D",
-        "wins": 2,
-        "draws": 0,
-        "losses": 3,
-        "goalsFor": 8,
-        "goalsAgainst": 10,
-        "bttsRate": 0.8,
-        "over25Rate": 0.8,
-        "cleanSheets": 0,
-        "failedToScore": 1,
-        "count": 5
-      },
-      "formAway": {
-        "last5String": "D-D-N-N-D",
-        "wins": 0,
-        "draws": 2,
-        "losses": 3,
-        "goalsFor": 6,
-        "goalsAgainst": 10,
-        "bttsRate": 0.8,
-        "over25Rate": 0.6,
-        "cleanSheets": 0,
-        "failedToScore": 1,
-        "count": 5
-      },
-      "last5Home": [
-        {
-          "date": "2026-11-21",
-          "opponent": "Crystal Palace",
-          "venue": "H",
-          "score": "3-2",
-          "result": "W"
-        },
-        {
-          "date": "2026-11-06",
-          "opponent": "Everton",
-          "venue": "A",
-          "score": "1-3",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-31",
-          "opponent": "Sunderland",
-          "venue": "H",
-          "score": "3-1",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-24",
-          "opponent": "Fulham",
-          "venue": "H",
-          "score": "0-1",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-19",
-          "opponent": "Tottenham Hotspur",
-          "venue": "A",
-          "score": "1-3",
-          "result": "L"
-        }
-      ],
-      "last5Away": [
-        {
-          "date": "2026-11-21",
-          "opponent": "Tottenham Hotspur",
-          "venue": "A",
-          "score": "0-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-11-08",
-          "opponent": "AFC Bournemouth",
-          "venue": "H",
-          "score": "1-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-31",
-          "opponent": "Hull City",
-          "venue": "A",
-          "score": "2-2",
-          "result": "D"
-        },
-        {
-          "date": "2026-10-23",
-          "opponent": "Nottingham Forest",
-          "venue": "H",
-          "score": "1-1",
-          "result": "D"
-        },
-        {
-          "date": "2026-10-17",
-          "opponent": "Manchester City",
-          "venue": "A",
-          "score": "2-3",
-          "result": "L"
-        }
-      ],
-      "standingsHome": {
-        "rank": 14,
-        "points": 12,
-        "played": 11,
-        "gf": 13,
-        "ga": 21
-      },
-      "standingsAway": {
-        "rank": 16,
-        "points": 11,
-        "played": 11,
-        "gf": 15,
-        "ga": 22
-      },
-      "statsOnly": true,
-      "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_key_fact": "Coventry et Ipswich affichent tous deux un taux BTTS de 80% sur leurs 5 derniers matchs.",
-      "ai_form_summary": "Coventry : 2W-0D-3L sur les 5 derniers, 8 buts marqués, 10 encaissés. Ipswich : 0W-2D-3L sur les 5 derniers, 6 buts marqués, 10 encaissés.",
-      "ai_form_summary_en": "Coventry: 2W-0D-3L in last 5, 8 goals for, 10 against. Ipswich: 0W-2D-3L in last 5, 6 goals for, 10 against.",
-      "ai_reasons": [
-        "Taux empirique BTTS élevé à 80% pour les deux équipes",
-        "Moyennes de buts solides (Coventry 2.0, Ipswich 1.4)",
-        "Taux de matches Over 2.5 également élevés (70%)"
-      ],
-      "modelEngine": "gemini-stats-v1",
-      "ai_source": "gemini-stats-v1",
-      "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "pick",
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "proba": 0.75,
-          "modelEngine": "gemini-3.5-flash-lite"
-        }
-      ],
-      "prediction": "Oui",
-      "proba": 0.75,
-      "status": "PENDING"
-    },
-    {
-      "id": "blackpoo-vs-lutontow-2026-12-01",
-      "match": "Blackpool vs Luton Town",
-      "home": "Blackpool",
-      "away": "Luton Town",
-      "league": "English League One",
-      "date": "2026-12-01",
-      "type": "BTTS",
-      "time": "19:45",
-      "matchSemantic": "blackpoo-vs-lutontow-2026-12-01",
-      "source": "empirical-form-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/346.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/301.png",
-      "tier": "GOLD",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "formBTTS": 80,
-      "odds": null,
-      "oddsSource": null,
-      "formHome": {
-        "last5String": "N-D-D-N-D",
-        "wins": 0,
-        "draws": 2,
-        "losses": 3,
-        "goalsFor": 4,
-        "goalsAgainst": 9,
-        "bttsRate": 0.8,
-        "over25Rate": 0.4,
-        "cleanSheets": 0,
-        "failedToScore": 1,
-        "count": 5
-      },
-      "formAway": {
-        "last5String": "V-N-V-V-V",
-        "wins": 4,
-        "draws": 1,
-        "losses": 0,
-        "goalsFor": 10,
-        "goalsAgainst": 4,
-        "bttsRate": 0.8,
-        "over25Rate": 0.6,
-        "cleanSheets": 1,
-        "failedToScore": 0,
-        "count": 5
-      },
-      "last5Home": [
-        {
-          "date": "2026-11-24",
-          "opponent": "Leicester City",
-          "venue": "H",
-          "score": "1-1",
-          "result": "D"
-        },
-        {
-          "date": "2026-11-21",
-          "opponent": "Wigan Athletic",
-          "venue": "H",
-          "score": "1-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-11-14",
-          "opponent": "AFC Wimbledon",
-          "venue": "A",
-          "score": "0-1",
-          "result": "L"
-        },
-        {
-          "date": "2026-11-01",
-          "opponent": "Sheffield Wednesday",
-          "venue": "A",
-          "score": "1-1",
-          "result": "D"
-        },
-        {
-          "date": "2026-10-24",
-          "opponent": "Mansfield Town",
-          "venue": "H",
-          "score": "1-4",
-          "result": "L"
-        }
-      ],
-      "last5Away": [
-        {
-          "date": "2026-11-21",
-          "opponent": "Burton Albion",
-          "venue": "A",
-          "score": "2-1",
-          "result": "W"
-        },
-        {
-          "date": "2026-11-03",
-          "opponent": "Huddersfield Town",
-          "venue": "A",
-          "score": "1-1",
-          "result": "D"
-        },
-        {
-          "date": "2026-10-31",
-          "opponent": "Peterborough United",
-          "venue": "A",
-          "score": "2-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-27",
-          "opponent": "Doncaster Rovers",
-          "venue": "H",
-          "score": "3-1",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-24",
-          "opponent": "Leicester City",
-          "venue": "H",
-          "score": "2-1",
-          "result": "W"
-        }
-      ],
-      "standingsHome": {
-        "rank": 20,
-        "points": 13,
-        "played": 15,
-        "gf": 19,
-        "ga": 25
-      },
-      "standingsAway": {
-        "rank": 5,
-        "points": 27,
-        "played": 15,
-        "gf": 29,
-        "ga": 22
-      },
-      "statsOnly": true,
-      "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_key_fact": "Luton Town arrive en grande forme avec 10 buts marqués sur ses 5 derniers matchs.",
-      "ai_form_summary": "Blackpool : 0W-2D-3L sur les 5 derniers, 4 buts marqués, 9 encaissés. Luton Town : 4W-1D-0L sur les 5 derniers, 10 buts marqués, 4 encaissés.",
-      "ai_form_summary_en": "Blackpool: 0W-2D-3L in last 5, 4 goals for, 9 against. Luton Town: 4W-1D-0L in last 5, 10 goals for, 4 against.",
-      "ai_reasons": [
-        "Taux empirique BTTS de 80% pour Blackpool et Luton Town",
-        "Excellente forme offensive de Luton Town (2 buts par match en moyenne)",
-        "Blackpool encaisse régulièrement (9 buts sur ses 5 derniers matchs)"
-      ],
-      "modelEngine": "gemini-stats-v1",
-      "ai_source": "gemini-stats-v1",
-      "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "pick",
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "proba": 0.72,
-          "modelEngine": "gemini-3.5-flash-lite"
-        }
-      ],
-      "prediction": "Oui",
-      "proba": 0.72,
-      "status": "PENDING"
-    },
-    {
       "id": "accringt-vs-creweale-2026-12-01",
       "match": "Accrington Stanley vs Crewe Alexandra",
       "home": "Accrington Stanley",
@@ -15944,7 +16579,7 @@
       "away": "Shrewsbury Town",
       "league": "English League Two",
       "date": "2026-12-01",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "time": "19:45",
       "matchSemantic": "yorkcity-vs-shrewsbu-2026-12-01",
       "source": "empirical-form-data",
@@ -16074,14 +16709,14 @@
       },
       "statsOnly": true,
       "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_key_fact": "Shrewsbury Town présente un taux BTTS de 100% sur ses 5 derniers matchs avec 2.25 buts de moyenne.",
-      "ai_form_summary": "York City : 2V-1N-2D (6 BP, 8 BC, BTTS 40%). Shrewsbury Town : 2V-1N-2D (10 BP, 12 BC, BTTS 100%).",
-      "ai_form_summary_en": "York City: 2W-1D-2L (6 GF, 8 GA, BTTS 40%). Shrewsbury Town: 2W-1D-2L (10 GF, 12 GA, BTTS 100%).",
+      "ai_market": "OVER_25",
+      "ai_key_fact": "Shrewsbury Town enregistre un taux de 100% sur l'Over 2.5 et le BTTS lors de ses 5 derniers matchs.",
+      "ai_form_summary": "York : 2W-1D-2L, 6 buts pour, 8 contre (Over25 40%). Shrewsbury : 2W-1D-2L, 10 buts pour, 12 contre (Over25 100%).",
+      "ai_form_summary_en": "York: 2W-1D-2L, 6 GF, 8 GA (Over25 40%). Shrewsbury: 2W-1D-2L, 10 GF, 12 GA (Over25 100%).",
       "ai_reasons": [
-        "Taux BTTS empirique élevé à 70% sur la base des matchs observés.",
-        "Shrewsbury Town affiche un taux BTTS de 100% sur ses 5 derniers matchs.",
-        "Moyenne de buts encaissés et marqués importante pour l'équipe extérieure (2.25 buts par match)."
+        "Taux empirique Over 2.5 à 70% pour York City",
+        "Shrewsbury Town affiche un taux de BTTS et d'Over 2.5 de 100% sur ses 5 derniers matchs",
+        "Moyenne de buts de 2.25 par match pour Shrewsbury sur l'échantillon"
       ],
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
@@ -16089,14 +16724,15 @@
       "ai_response_status": "pick",
       "predictions": [
         {
-          "type": "BTTS",
+          "type": "Over 2.5",
           "prediction": "Oui",
-          "proba": 0.68,
+          "proba": 0.7,
           "modelEngine": "gemini-3.5-flash-lite"
         }
       ],
       "prediction": "Oui",
-      "proba": 0.68
+      "proba": 0.7,
+      "status": "PENDING"
     },
     {
       "id": "barnsley-vs-wycombew-2026-12-01",
@@ -16396,19 +17032,31 @@
         "ga": 12
       },
       "statsOnly": true,
-      "ai_abstain": true,
-      "ai_market": "ABSTAIN",
-      "ai_key_fact": "Newport County et Walsall affichent tous deux des taux de 60% en BTTS et Over 2.5.",
-      "ai_form_summary": "Newport County : 2V-2N-1D (10 BP, 6 BC, BTTS 60%). Walsall : 2V-2N-1D (9 BP, 6 BC, BTTS 60%).",
-      "ai_form_summary_en": "Newport County: 2W-2D-1L (10 GF, 6 GA, BTTS 60%). Walsall: 2W-2D-1L (9 GF, 6 GA, BTTS 60%).",
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_key_fact": "Newport et Walsall affichent tous deux un taux de BTTS de 60% sur leurs 8 derniers matchs d'échantillon.",
+      "ai_form_summary": "Newport County : V-N-V-D-N (2V-2D-1L, 10 buts pour, 6 contre). Walsall : N-V-D-V-N (2V-2D-1L, 9 buts pour, 6 contre).",
+      "ai_form_summary_en": "Newport County: W-D-W-L-D (2W-2D-1L, 10 goals for, 6 against). Walsall: D-W-L-W-D (2W-2D-1L, 9 goals for, 6 against).",
       "ai_reasons": [
-        "Taux BTTS et Over 2.5 empiriques modérés à 60%.",
-        "Équipes proches au classement (9ème et 7ème) avec des dynamiques de forme très similaires."
+        "Taux BTTS empirique de 60% pour les deux équipes sur leurs derniers matchs.",
+        "Moyennes de buts encourageantes avec Newport à 2 buts marqués par match et Walsall à 1.2.",
+        "Formes récentes similaires (2V-2D-1L) indiquant une dynamique compétitive équilibrée."
       ],
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "abstain"
+      "ai_response_status": "pick",
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "proba": 0.62,
+          "modelEngine": "gemini-3.5-flash-lite"
+        }
+      ],
+      "prediction": "Oui",
+      "proba": 0.62,
+      "status": "PENDING"
     },
     {
       "id": "northamp-vs-fleetwoo-2026-12-01",
@@ -16738,7 +17386,8 @@
         }
       ],
       "prediction": "Oui",
-      "proba": 0.76
+      "proba": 0.76,
+      "status": "PENDING"
     },
     {
       "id": "rangers-vs-dundeeun-2026-12-02",
@@ -16899,7 +17548,8 @@
         }
       ],
       "prediction": "Oui",
-      "proba": 0.68
+      "proba": 0.68,
+      "status": "PENDING"
     },
     {
       "id": "dundee-vs-celtic-2026-12-02",
@@ -16908,7 +17558,7 @@
       "away": "Celtic",
       "league": "Scottish Premiership",
       "date": "2026-12-02",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "time": "19:45",
       "matchSemantic": "dundee-vs-celtic-2026-12-02",
       "source": "empirical-form-data",
@@ -17038,14 +17688,14 @@
       },
       "statsOnly": true,
       "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_key_fact": "Dundee enregistre un taux de 100% d'Over 2.5 sur ses cinq dernières sorties.",
-      "ai_form_summary": "Dundee: 1V-0D-4D, 6 buts pour, 15 encaissés. Celtic: 3V-1D-1D, 9 buts pour, 6 encaissés.",
-      "ai_form_summary_en": "Dundee: 1W-0D-4L, 6 goals for, 15 against. Celtic: 3W-1D-1L, 9 goals for, 6 against.",
+      "ai_market": "BTTS",
+      "ai_key_fact": "Dundee affiche un taux BTTS de 80% sur ses cinq derniers matchs avec une moyenne globale de 1.75 buts marqués.",
+      "ai_form_summary": "Dundee : 1V-0D-4L, 6 buts pour, 15 contre. Celtic : 3V-1D-1L, 9 buts pour, 6 contre.",
+      "ai_form_summary_en": "Dundee: 1W-0D-4L, 6 GF, 15 GA. Celtic: 3W-1D-1L, 9 GF, 6 GA.",
       "ai_reasons": [
-        "Taux Over 2.5 empirique global fixé à 0.8.",
-        "Dundee présente un taux Over 2.5 de 1.0 sur ses 5 derniers matchs.",
-        "Défense de Dundee perméable avec 15 buts encaissés en 5 matchs."
+        "Taux BTTS empirique élevé à 70% sur la base des données disponibles",
+        "Dundee affiche un taux BTTS de 80% sur ses 5 derniers matchs malgré ses difficultés",
+        "Moyennes de buts encaissés et marqués concordantes avec des matchs ouverts"
       ],
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
@@ -17053,14 +17703,14 @@
       "ai_response_status": "pick",
       "predictions": [
         {
-          "type": "Over 2.5",
+          "type": "BTTS",
           "prediction": "Oui",
-          "proba": 0.74,
+          "proba": 0.68,
           "modelEngine": "gemini-3.5-flash-lite"
         }
       ],
       "prediction": "Oui",
-      "proba": 0.74
+      "proba": 0.68
     },
     {
       "id": "manchest-vs-leedsuni-2026-12-02",
@@ -17205,30 +17855,20 @@
         "ga": 9
       },
       "statsOnly": true,
-      "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_key_fact": "Manchester City a concédé 9 buts lors de ses 5 derniers matchs malgré son statut.",
-      "ai_form_summary": "Manchester City: 1V-1D-3D, 6 buts pour, 9 encaissés. Leeds United: 2V-2D-1D, 6 buts pour, 4 encaissés.",
-      "ai_form_summary_en": "Manchester City: 1W-1D-3L, 6 goals for, 9 against. Leeds United: 2W-2D-1L, 6 goals for, 4 against.",
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "Leeds United enregistre un taux d'Over 2.5 de seulement 20% sur ses cinq derniers matchs.",
+      "ai_form_summary": "Manchester City : 1W-1D-3L, 6 buts pour, 9 contre. Leeds United : 2W-2D-1L, 6 buts pour, 4 contre.",
+      "ai_form_summary_en": "Manchester City: 1W-1D-3L, 6 GF, 9 GA. Leeds United: 2W-2D-1L, 6 GF, 4 GA.",
       "ai_reasons": [
-        "Manchester City affiche un taux BTTS élevé de 0.8 sur ses 5 derniers matchs.",
-        "Le taux BTTS empirique global est estimé à 0.6.",
-        "Moyennes de buts correctes avec 2.25 pour City et 1.25 pour Leeds."
+        "Taux BTTS empirique à 60% mais taux Over 2.5 faible à 40%",
+        "Leeds United présente de faibles taux d'Over 2.5 (20% sur les 5 derniers matchs)",
+        "Signaux contradictoires entre la défense de Leeds et la moyenne offensive de Manchester City"
       ],
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "pick",
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "proba": 0.65,
-          "modelEngine": "gemini-3.5-flash-lite"
-        }
-      ],
-      "prediction": "Oui",
-      "proba": 0.65
+      "ai_response_status": "abstain"
     },
     {
       "id": "barcelon-vs-atlticom-2026-12-02",
@@ -17396,7 +18036,8 @@
         }
       ],
       "prediction": "Oui",
-      "proba": 0.7
+      "proba": 0.7,
+      "status": "PENDING"
     },
     {
       "id": "heartofm-vs-aberdeen-2026-12-02",
@@ -17557,7 +18198,8 @@
         }
       ],
       "prediction": "Oui",
-      "proba": 0.75
+      "proba": 0.75,
+      "status": "PENDING"
     },
     {
       "id": "kilmarno-vs-hibernia-2026-12-02",
@@ -17718,7 +18360,8 @@
         }
       ],
       "prediction": "Oui",
-      "proba": 0.72
+      "proba": 0.72,
+      "status": "PENDING"
     },
     {
       "id": "falkirk-vs-motherwe-2026-12-02",
@@ -17856,30 +18499,19 @@
         "ga": 23
       },
       "statsOnly": true,
-      "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_key_fact": "Motherwell présente un taux de BTTS de 0.6 sur ses cinq derniers matchs malgré une position difficile au classement.",
-      "ai_form_summary": "Falkirk (5V-0N-0D) souverain mais Motherwell (1V-2N-2D) accrocheur avec des matchs souvent animés des deux côtés.",
-      "ai_form_summary_en": "Falkirk (5W-0D-0L) sovereign but Motherwell (1W-2D-2L) persistent with matches often lively on both sides.",
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_key_fact": "Falkirk est en grande forme (5 victoires d'affilée) mais ses taux BTTS et Over restent modérés à 40-60%.",
+      "ai_form_summary": "Falkirk domine avec 5 victoires consécutives, alors que Motherwell peine à enchaîner (1V-2D-2L).",
+      "ai_form_summary_en": "Falkirk dominates with 5 consecutive wins, while Motherwell struggles for consistency (1W-2D-2L).",
       "ai_reasons": [
-        "Taux BTTS empirique de 0.5 et formBTTS à 50%.",
-        "Motherwell affiche un taux BTTS récent de 0.6 sur ses 5 derniers matchs.",
-        "Falkirk est sur une dynamique parfaite de 5 victoires mais concède tout de même quelques buts (3 encaissés récemment)."
+        "Taux empiriques BTTS (50%) et Over 2.5 (50%) neutres ne dégageant pas de valeur nette.",
+        "Falkirk affiche une excellente forme (5V-0D) mais encaisse peu (3 buts lors de ses 5 derniers), limitant les signaux Over/BTTS."
       ],
       "modelEngine": "gemini-stats-v1",
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
-      "ai_response_status": "pick",
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "proba": 0.55,
-          "modelEngine": "gemini-3.5-flash-lite"
-        }
-      ],
-      "prediction": "Oui",
-      "proba": 0.55
+      "ai_response_status": "abstain"
     }
   ],
   "analysisEngine": "gemini-stats-v1"
