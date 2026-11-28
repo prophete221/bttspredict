@@ -150,7 +150,7 @@ describe('bookmakers data guardrails', () => {
     const faqEnglish = faqLinebet.slice(faqLinebet.indexOf('    en: ['), faqLinebet.indexOf('    ar: ['))
     const shell = readFileSync('src/components/bttsbet/PromoLandingShell.tsx', 'utf8')
 
-    expect(page).toContain("const title = isEnglish ? 'Linebet Promo Code VISION221: Worldwide 300% Offer'")
+    expect(page).toContain("const title = isEnglish ? 'Linebet Promo Code VISION221: Worldwide 300% + Cashback'")
     expect(page).toContain("'Linebet 300% worldwide'")
     const metadataDescription = page.match(/const description = isEnglish\s*\?\s*'([^']+)'/)?.[1] ?? ''
     expect(metadataDescription).toContain('worldwide 300% deposit bonus')
