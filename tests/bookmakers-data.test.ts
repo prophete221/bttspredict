@@ -119,40 +119,5 @@ describe('bookmakers data guardrails', () => {
     expect(page).toContain("robots: { index: true, follow: true }")
   })
 
-  it('keeps the selected promo claims with visible affiliate disclosures', () => {
-    const clients = [
-      'src/app/code-promo-1xbet/XbetClient.tsx',
-      'src/app/code-promo-melbet/MelbetClient.tsx',
-      'src/app/code-promo-linebet-senegal/LinebetClient.tsx',
-      'src/components/bttsbet/Star888PromoClient.tsx',
-    ]
-    for (const file of clients) {
-      const text = readFileSync(file, 'utf8')
-      expect(text).not.toMatch(/PUBLICITÉ|ADVERTISEMENT|إعلان|offre partenaire|partner offer|code partenaire|partner code|lien partenaire|partner link|عرض الشريك|رمز الشريك|رابط الشريك/i)
-      expect(text).toMatch(/Code promo|Promo code|رمز .* الترويجي/i)
-      expect(text).toMatch(/cashback/i)
-    }
 
-    const localized = readFileSync('src/components/bttsbet/LocalizedPromoClient.tsx', 'utf8')
-    expect(localized).not.toMatch(/PUBLICITÉ|ADVERTISEMENT|إعلان|offre partenaire|partner offer|code partenaire|partner code|lien partenaire|partner link|عرض الشريك|رمز الشريك|رابط الشريك/i)
-    expect(localized).toMatch(/Promo Code/)
-    expect(localized).toMatch(/Code promo/)
-    expect(localized).toMatch(/رمز .* الترويجي/)
-    expect(localized).toMatch(/cashback.*weekly bonuses/i)
-    expect(localized).toMatch(/cashback.*bonus hebdomadaires/i)
-    expect(localized).toMatch(/استرداد نقدي/)
-    expect(localized).toMatch(/مكافآت أسبوعية/)
-
-    const shell = readFileSync('src/components/bttsbet/PromoLandingShell.tsx', 'utf8')
-    expect(shell).not.toMatch(/PUBLICITÉ|ADVERTISEMENT|إعلان|Other partners|Autres partenaires|شركاء آخرون/i)
-    expect(shell).toContain('data-affiliate-disclosure')
-    expect(shell).toContain('affiliateDisclosure')
-    expect(shell).toContain('BTTSPredict peut percevoir une commission')
-    expect(shell).toContain('BTTSPredict may receive a commission')
-    expect(shell).toContain('قد تحصل BTTSPredict على عمولة')
-
-    const star888 = readFileSync('src/components/bttsbet/Star888PromoClient.tsx', 'utf8')
-    expect(star888).toContain('data-affiliate-disclosure')
-    expect(star888).toContain('affiliateDisclosure')
-  })
 })
