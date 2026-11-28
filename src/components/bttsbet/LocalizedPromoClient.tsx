@@ -139,7 +139,7 @@ const LOCALIZED_COPY: Record<Exclude<BookmakerId, '888starz'>, Record<'fr' | 'en
     },
     ar: {
       badge: 'دليل Linebet الدولي',
-      title: 'رمز Linebet VISION221: مكافأة 300% واسترداد نقدي',
+      title: 'رمز Linebet الترويجي VISION221: مكافأة 300% واسترداد نقدي',
       intro: 'يعمل رمز Linebet VISION221 حول العالم. يشمل العرض مكافأة إيداع عالمية بنسبة 300%، واستردادًا نقديًا ومكافآت أسبوعية. راجع الشروط السارية لدى Linebet.',
       offerHeadline: 'عرض Linebet حول العالم',
       offerSub: 'رمز VISION221 · مكافأة إيداع عالمية 300% · استرداد نقدي ومكافآت أسبوعية.',
