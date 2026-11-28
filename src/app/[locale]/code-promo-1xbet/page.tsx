@@ -29,9 +29,6 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title,
     description,
-    keywords: isEnglish
-      ? ['1xBet promo code', '1xBet promo code vipbtts', 'vipbtts', '1xBet 300% worldwide']
-      : ['رمز 1xBet الترويجي', 'رمز 1xBet vipbtts', 'vipbtts', '1xBet 300% حول العالم'],
     alternates: {
       canonical: isEnglish ? EN_URL : AR_URL,
       languages: { fr: FR_URL, en: EN_URL, ar: AR_URL, 'x-default': FR_URL },
