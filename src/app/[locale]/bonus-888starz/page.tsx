@@ -22,10 +22,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params
   const isEnglish = locale === 'en'
   if (!isEnglish && locale !== 'ar') return {}
-  const title = isEnglish ? '888Starz Promo Code btts221: 300% Worldwide Bonus' : 'رمز 888Starz الترويجي btts221: مكافأة عالمية 300%'
+  const title = isEnglish ? '888Starz Promo Code btts221: 300% + Cashback' : 'رمز 888Starz btts221: مكافأة 300% واسترداد نقدي'
   const description = isEnglish
-    ? '888Starz code btts221 works worldwide. The offer includes a 300% deposit bonus, cashback and weekly bonuses. 18+.'
-    : 'يعمل رمز 888Starz btts221 حول العالم. يشمل العرض مكافأة إيداع بنسبة 300%، واستردادًا نقديًا ومكافآت أسبوعية. 18+.'
+    ? 'Copy btts221: 300% deposit bonus, cashback and weekly bonuses. Learn how to use the 888Starz code and check the current terms. 18+.'
+    : 'انسخ btts221: مكافأة إيداع 300% واسترداد نقدي ومكافآت أسبوعية. تعرّف على طريقة استخدام الرمز وشروط 888Starz. للبالغين 18+.'
   return {
     title,
     description,
