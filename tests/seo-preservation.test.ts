@@ -94,6 +94,14 @@ describe('owner-requested SEO preservation', () => {
     expect(source).toContain("robots: { index: true, follow: true }")
   })
 
+  it('keeps localized Linebet URLs canonical and indexable without freezing promo wording', () => {
+    const source = readFileSync('src/app/[locale]/code-promo-linebet-senegal/page.tsx', 'utf8')
+    expect(source).toContain("const FR_URL = `${SITE_URL}/${SLUG}`")
+    expect(source).toContain("const EN_URL = `${SITE_URL}/en/${SLUG}`")
+    expect(source).toContain("const AR_URL = `${SITE_URL}/ar/${SLUG}`")
+    expect(source).toContain("canonical: isEnglish ? EN_URL : AR_URL")
+    expect(source).toContain("robots: { index: true, follow: true }")
+  })
   it.each(Object.entries(frozenMetadata))('preserves titles/canonicals/indexation in %s', (file, expected) => {
     const text = readFileSync(file, 'utf8')
     const ast = ts.createSourceFile(file, text, ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX)
