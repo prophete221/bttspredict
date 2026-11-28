@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
-import { checkSeo } from '@/lib/seo'
 import { buildPromoFaqJsonLd } from '@/lib/promo-faq'
 import PromoVerificationGuide from '@/components/bttsbet/PromoVerificationGuide'
 
@@ -16,8 +15,6 @@ const TITLE = 'Code promo 888Starz btts221 : bonus 300 % + cashback'
 const DESCRIPTION = 'Copiez btts221 : bonus de dépôt 300 %, cashback et bonus hebdomadaires. Guide d’utilisation et conditions à vérifier chez 888Starz. 18+.'
 const OPEN_GRAPH_TITLE = TITLE
 const OPEN_GRAPH_DESCRIPTION = 'Code 888Starz btts221 : bonus de dépôt 300 %, cashback et bonus hebdomadaires. Découvrez comment utiliser le code et vérifier les conditions. 18+.'
-
-if (process.env.NODE_ENV === 'production') checkSeo(SLUG, TITLE, DESCRIPTION)
 
 export const metadata: Metadata = {
   title: TITLE,
