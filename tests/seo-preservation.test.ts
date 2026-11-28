@@ -137,15 +137,6 @@ describe('owner-requested SEO preservation', () => {
       expect(selected.split(approvedLogoResolver).length - 1).toBe(1)
       selected = selected.replace(approvedLogoResolver, 'const match = getMatchBySlug(slug)')
     }
-    if (file === 'src/app/[locale]/code-promo-linebet-senegal/page.tsx') {
-      const approvedDescription = "'Linebet promo code VISION221: worldwide 300% deposit bonus, cashback and weekly bonuses. Check local terms with Linebet. 18+.'"
-      const originalDescription = "'Linebet code VISION221 works worldwide. The offer includes a 300% deposit bonus, cashback and weekly bonuses. 18+.'"
-      expect(selected.split(approvedDescription).length - 1).toBe(1)
-      selected = selected.replace(approvedDescription, originalDescription)
-      const approvedSocialMetadata = "    openGraph: {\n      title,\n      description,\n      url: isEnglish ? EN_URL : AR_URL,\n      siteName: 'BTTSPredict',\n      type: 'article',\n      locale: isEnglish ? 'en_US' : 'ar',\n      images: [{ url: '/og-image.png', width: 1200, height: 630, alt: title }],\n    },\n    twitter: { card: 'summary_large_image', title, description, images: ['/og-image.png'] },\n"
-      expect(selected.split(approvedSocialMetadata).length - 1).toBe(1)
-      selected = selected.replace(approvedSocialMetadata, '')
-    }
     if (file === 'src/app/methodologie/page.tsx') {
       const approvedAlternates = "alternates: frEnAlternates('/methodologie', 'fr'),"
       const originalCanonical = "alternates: { canonical: 'https://bttspredict.com/methodologie' },"
