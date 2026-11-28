@@ -23,10 +23,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params
   const isEnglish = locale === 'en'
   if (!isEnglish && locale !== 'ar') notFound()
-  const title = isEnglish ? 'How to Use 888Starz Promo Code btts221' : 'كيفية استخدام الرمز الترويجي 888Starz btts221'
+  const title = isEnglish ? '888Starz btts221 Code: Where to Enter It' : 'رمز 888Starz btts221: أين وكيفية إدخاله'
   const description = isEnglish
-    ? 'Learn where to enter 888Starz code btts221 and how to check whether the offer is applied. Confirm eligibility and terms with 888Starz. 18+.'
-    : 'تعرف على مكان إدخال الرمز 888Starz btts221 وكيفية التحقق من تطبيق العرض. تحقق من الأهلية والشروط لدى 888Starz. للبالغين 18+.'
+    ? 'Where do you enter btts221? Follow the steps to use the 888Starz code and check whether the offer is applied. Confirm terms with 888Starz. 18+.'
+    : 'أين تدخل الرمز btts221؟ اتبع خطوات استخدام رمز 888Starz وتحقق من تطبيق العرض والشروط لدى المشغّل. للبالغين 18+.'
   return {
     title,
     description,
