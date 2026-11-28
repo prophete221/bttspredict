@@ -90,7 +90,7 @@ const LOCALIZED_COPY: Record<Exclude<BookmakerId, '888starz'>, Record<'fr' | 'en
     en: {
       badge: '1XBET CODE GUIDE',
       title: '1xBet Promo Code vipbtts: 300% + Cashback',
-      intro: '1xBet promo code vipbtts works worldwide. The offer includes a 300% worldwide deposit bonus, cashback and weekly bonuses. Check current terms with 1xBet.',
+      intro: '1xBet promo code vipbtts: this page covers a 300% deposit bonus, cashback and weekly bonuses. It is not a verified no-deposit or free-bet code; check the terms that apply to your account with 1xBet before depositing.',
       offerHeadline: '1xBet deposit bonus',
       offerSub: '300% worldwide deposit bonus · cashback · weekly bonuses.',
       benefits: ['Exact code: vipbtts', '300% worldwide deposit bonus', 'Cashback', 'Weekly bonuses'],
@@ -101,7 +101,7 @@ const LOCALIZED_COPY: Record<Exclude<BookmakerId, '888starz'>, Record<'fr' | 'en
     },
     ar: {
       badge: 'دليل رمز 1xBet',
-      title: 'رمز 1xBet vipbtts: مكافأة 300% واسترداد نقدي',
+      title: 'برومو كود 1xBet vipbtts: مكافأة 300% واسترداد نقدي',
       intro: 'يعمل رمز 1xBet vipbtts حول العالم. يشمل العرض مكافأة إيداع عالمية بنسبة 300%، واستردادًا نقديًا ومكافآت أسبوعية. راجع الشروط السارية لدى 1xBet.',
       offerHeadline: 'مكافأة إيداع 1xBet',
       offerSub: 'مكافأة إيداع عالمية 300% · استرداد نقدي · مكافآت أسبوعية.',
@@ -139,7 +139,7 @@ const LOCALIZED_COPY: Record<Exclude<BookmakerId, '888starz'>, Record<'fr' | 'en
     },
     ar: {
       badge: 'دليل Linebet الدولي',
-      title: 'رمز Linebet الترويجي VISION221: مكافأة 300% واسترداد نقدي',
+      title: 'برومو كود Linebet VISION221: مكافأة 300% واسترداد نقدي',
       intro: 'يعمل رمز Linebet VISION221 حول العالم. يشمل العرض مكافأة إيداع عالمية بنسبة 300%، واستردادًا نقديًا ومكافآت أسبوعية. راجع الشروط السارية لدى Linebet.',
       offerHeadline: 'عرض Linebet حول العالم',
       offerSub: 'رمز VISION221 · مكافأة إيداع عالمية 300% · استرداد نقدي ومكافآت أسبوعية.',
@@ -178,7 +178,7 @@ const LOCALIZED_COPY: Record<Exclude<BookmakerId, '888starz'>, Record<'fr' | 'en
     ar: {
       badge: 'دليل Melbet',
       title: 'برومو كود Melbet Bttswin: مكافأة 300% واسترداد نقدي',
-      intro: 'يعمل رمز Melbet ‏Bttswin حول العالم. يشمل العرض مكافأة إيداع بنسبة 300%، واستردادًا نقديًا ومكافآت أسبوعية. انسخ Bttswin مع الانتباه إلى أن الحرف الأول B كبير.',
+      intro: 'برومو كود Melbet هو Bttswin بحرف B كبير، ويُعرض معه بونص إيداع 300% واسترداد نقدي ومكافآت أسبوعية. هذا ليس تأكيدًا على رهان مجاني أو عرض دون إيداع؛ تحقق من شروط حسابك لدى Melbet قبل الإيداع.',
       offerHeadline: 'مكافأة Melbet والاسترداد النقدي',
       offerSub: 'مكافأة إيداع عالمية 300% · استرداد نقدي · مكافآت أسبوعية.',
       benefits: ['الرمز الدقيق: Bttswin', 'مكافأة إيداع عالمية 300%', 'استرداد نقدي', 'مكافآت أسبوعية'],
