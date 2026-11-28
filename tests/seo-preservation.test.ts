@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs'
 import ts from 'typescript'
 import { describe, expect, it } from 'vitest'
 
-// The owner explicitly freezes SEO and existing titles/URLs at the original 7faa1ff0 revision.
+// Protect non-promotional SEO metadata; promotional copy and titles are intentionally editable.
 const frozenFiles = {
   'src/lib/seoSchemas.ts': '7444b699bce53a5ec32112791b0350b8a17b1f3de688cca1bf2bb0bdb111d103',
   // Hash mis à jour à la demande du propriétaire (2026-11) : ajout des pages
