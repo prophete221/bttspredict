@@ -171,7 +171,7 @@ describe('owner-requested SEO preservation', () => {
     expect(replacedBlocks).toBe(3)
     expect(hash(normalized)).toBe(frozenI18nWithoutPartnerCta)
   })
-  it.each(Object.entries(frozenMetadata))('preserves titles/canonicals/indexation in %s', (file, expected) => {
+  it('keeps the Linebet localized route canonical and indexable while allowing promo title optimization', () => {\n    const source = readFileSync('src/app/[locale]/code-promo-linebet-senegal/page.tsx', 'utf8')\n    expect(source).toContain("const FR_URL = `${SITE_URL}/${SLUG}`")\n    expect(source).toContain("const EN_URL = `${SITE_URL}/en/${SLUG}`")\n    expect(source).toContain("const AR_URL = `${SITE_URL}/ar/${SLUG}`")\n    expect(source).toContain("canonical: isEnglish ? EN_URL : AR_URL")\n    expect(source).toContain("robots: { index: true, follow: true }")\n  })\n\n  it.each(Object.entries(frozenMetadata))('preserves titles/canonicals/indexation in %s', (file, expected) => {
     const text = readFileSync(file, 'utf8')
     const ast = ts.createSourceFile(file, text, ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX)
     let selected = ast.statements.filter(node =>
