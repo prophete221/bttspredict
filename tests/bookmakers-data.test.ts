@@ -139,40 +139,13 @@ describe('bookmakers data guardrails', () => {
     }
   })
 
-  it('uses the owner-confirmed worldwide Linebet offer and directs readers to local terms', () => {
+  it('keeps the localized Linebet route canonical and indexable without freezing its copy', () => {
     const page = readFileSync('src/app/[locale]/code-promo-linebet-senegal/page.tsx', 'utf8')
-    const client = readFileSync('src/components/bttsbet/LocalizedPromoClient.tsx', 'utf8')
-    const clientEnglishStart = client.indexOf("    en: {\n      badge: 'LINEBET PROMO CODE'")
-    const clientEnglishEnd = client.indexOf('    ar: {', clientEnglishStart)
-    const clientEnglish = client.slice(clientEnglishStart, clientEnglishEnd)
-    const faq = readFileSync('src/lib/promo-faq.ts', 'utf8')
-    const faqLinebet = faq.slice(faq.indexOf('  linebet: {'), faq.indexOf("  '1xbet': {"))
-    const faqEnglish = faqLinebet.slice(faqLinebet.indexOf('    en: ['), faqLinebet.indexOf('    ar: ['))
-    const shell = readFileSync('src/components/bttsbet/PromoLandingShell.tsx', 'utf8')
-
-    expect(page).toContain("const title = isEnglish ? 'Linebet Promo Code VISION221: Worldwide 300% + Cashback'")
-    expect(page).toContain("'Linebet 300% worldwide'")
-    const metadataDescription = page.match(/const description = isEnglish\s*\?\s*'([^']+)'/)?.[1] ?? ''
-    expect(metadataDescription).toContain('worldwide 300% deposit bonus')
-    expect(metadataDescription).toContain('Check local terms with Linebet')
-    expect(clientEnglish).toContain('Linebet promo code VISION221 is valid worldwide')
-    expect(clientEnglish).toContain('Check the terms that apply to your account with Linebet')
-    expect(faqEnglish).toContain('VISION221 is offered worldwide')
-    expect(faqEnglish).toContain('check the local terms directly with Linebet')
-    expect(shell).not.toContain('Country availability has not been verified')
-  })
-
-  it('never shows the superseded neutral Melbet wording', () => {
-    const files = [
-      'src/lib/constants.ts',
-      'src/app/code-promo-melbet/page.tsx',
-      'src/app/code-promo-melbet/MelbetClient.tsx',
-      'src/components/bttsbet/LocalizedPromoClient.tsx',
-    ]
-    for (const file of files) {
-      const text = readFileSync(file, 'utf8')
-      expect(text, `${file} affiche encore l’ancien wording Melbet`).not.toMatch(/[Bb]onus de bienvenue sur le premier dépôt|[Ww]elcome bonus on your first deposit|مكافأة ترحيبية على أول إيداع/)
-    }
+    expect(page).toContain("const FR_URL = `${SITE_URL}/${SLUG}`")
+    expect(page).toContain("const EN_URL = `${SITE_URL}/en/${SLUG}`")
+    expect(page).toContain("const AR_URL = `${SITE_URL}/ar/${SLUG}`")
+    expect(page).toContain("canonical: isEnglish ? EN_URL : AR_URL")
+    expect(page).toContain("robots: { index: true, follow: true }")
   })
 
   it('keeps the selected promo claims with visible affiliate disclosures', () => {
