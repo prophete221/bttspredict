@@ -29,11 +29,11 @@ function listHtmlFiles(dir, accumulator = []) {
 }
 
 function extractTitle(html) {
-  return html.match(/<title[^>]*>([\\s\\S]*?)<\\/title>/i)?.[1]?.trim() ?? null
+  return html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1]?.trim() ?? null
 }
 
 function extractDescription(html) {
-  return html.match(/<meta\\s+name=["']description["']\\s+content=["']([^"']*)["']/i)?.[1]?.trim() ?? null
+  return html.match(/<meta\s+name=["']description["']\s+content=["']([^"']*)["']/i)?.[1]?.trim() ?? null
 }
 
 function main() {
