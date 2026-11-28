@@ -17,7 +17,6 @@ const OPEN_GRAPH_DESCRIPTION = 'Guide 888Starz btts221 : où saisir le code, com
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  keywords: ['code promo 888Starz btts221', '888Starz btts221', 'code btts221', '888Starz promo code', '888Starz 300% worldwide'],
   alternates: {
     canonical: PAGE_URL,
     languages: {
