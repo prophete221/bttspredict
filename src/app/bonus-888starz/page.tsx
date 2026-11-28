@@ -19,7 +19,6 @@ const OPEN_GRAPH_DESCRIPTION = 'Code 888Starz btts221 : bonus de dépôt 300 %, 
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  keywords: ['code promo 888Starz', 'code promo 888Starz btts221', 'bonus 888Starz', 'btts221', '888Starz 300% worldwide'],
   alternates: {
     canonical: PAGE_URL,
     languages: {
