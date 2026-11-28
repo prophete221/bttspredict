@@ -44,22 +44,18 @@ const PROMO_H1S: Array<{ file: string; code: string; text: string }> = [
 ]
 
 const PROMO_BODY_COPY: Array<{ file: string; code?: string; text: string }> = [
-  { file: 'src/app/code-promo-1xbet/XbetClient.tsx', code: 'vipbtts', text: 'Le code promo 1xBet vipbtts fonctionne dans le monde entier.' },
-  { file: 'src/app/code-promo-linebet-senegal/LinebetClient.tsx', code: 'VISION221', text: 'Le code promo Linebet VISION221 est international, pour les pays où Linebet l’accepte.' },
-  { file: 'src/app/code-promo-melbet/MelbetClient.tsx', code: 'Bttswin', text: 'Le code promo Melbet Bttswin fonctionne dans le monde entier.' },
-  { file: 'src/components/bttsbet/LocalizedPromoClient.tsx', code: 'vipbtts', text: '1xBet promo code vipbtts works worldwide.' },
-  { file: 'src/components/bttsbet/LocalizedPromoClient.tsx', code: 'VISION221', text: 'Linebet promo code VISION221 is valid worldwide.' },
-  { file: 'src/components/bttsbet/LocalizedPromoClient.tsx', code: 'Bttswin', text: 'Melbet code Bttswin works worldwide.' },
-  { file: 'src/components/bttsbet/LocalizedPromoClient.tsx', code: 'vipbtts', text: 'يعمل رمز 1xBet vipbtts حول العالم.' },
-  { file: 'src/components/bttsbet/LocalizedPromoClient.tsx', code: 'VISION221', text: 'يعمل رمز Linebet VISION221 حول العالم.' },
-  { file: 'src/components/bttsbet/LocalizedPromoClient.tsx', code: 'Bttswin', text: 'Bttswin حول العالم.' },
-  { file: 'src/components/bttsbet/Star888PromoClient.tsx', code: 'btts221', text: 'Le code 888Starz btts221 fonctionne dans le monde entier.' },
-  { file: 'src/components/bttsbet/Star888PromoClient.tsx', code: 'btts221', text: '888Starz code btts221 works worldwide.' },
-  { file: 'src/components/bttsbet/Star888PromoClient.tsx', code: 'btts221', text: 'btts221 حول العالم.' },
-  { file: 'src/lib/promo-faq.ts', code: 'vipbtts', text: 'Le code promo 1xBet est vipbtts et fonctionne dans le monde entier.' },
-  { file: 'src/lib/promo-faq.ts', code: 'VISION221', text: 'Le code VISION221 fonctionne dans le monde entier' },
-  { file: 'src/lib/promo-faq.ts', code: 'Bttswin', text: 'Le code promo Melbet est Bttswin et fonctionne dans le monde entier.' },
-  { file: 'src/lib/promo-faq.ts', code: 'btts221', text: 'Le code promo 888Starz est btts221 et fonctionne dans le monde entier.' },
+  { file: 'src/lib/promo-faq.ts', code: 'vipbtts', text: 'Le code exact présenté pour 1xBet est vipbtts' },
+  { file: 'src/lib/promo-faq.ts', code: 'VISION221', text: 'Le code exact présenté par BTTSPredict est VISION221' },
+  { file: 'src/lib/promo-faq.ts', code: 'Bttswin', text: 'Le code exact présenté pour Melbet est Bttswin' },
+  { file: 'src/lib/promo-faq.ts', code: 'btts221', text: 'Le code exact présenté pour 888Starz est btts221' },
+  { file: 'src/lib/promo-faq.ts', code: 'vipbtts', text: 'The exact code presented for 1xBet is vipbtts' },
+  { file: 'src/lib/promo-faq.ts', code: 'VISION221', text: 'The exact code presented by BTTSPredict is VISION221' },
+  { file: 'src/lib/promo-faq.ts', code: 'Bttswin', text: 'The exact code presented for Melbet is Bttswin' },
+  { file: 'src/lib/promo-faq.ts', code: 'btts221', text: 'The exact code presented for 888Starz is btts221' },
+  { file: 'src/lib/promo-faq.ts', code: 'vipbtts', text: 'الرمز الدقيق المعروض لـ 1xBet هو vipbtts' },
+  { file: 'src/lib/promo-faq.ts', code: 'VISION221', text: 'الرمز الدقيق الذي تعرضه BTTSPredict هو VISION221' },
+  { file: 'src/lib/promo-faq.ts', code: 'Bttswin', text: 'الرمز الدقيق المعروض لـ Melbet هو Bttswin' },
+  { file: 'src/lib/promo-faq.ts', code: 'btts221', text: 'الرمز الدقيق المعروض لـ 888Starz هو btts221' },
 ]
 
 const PROMO_COPY_FILES = [
