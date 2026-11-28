@@ -8,7 +8,7 @@ const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'code-promo-linebet-senegal'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
 const TITLE = 'Code promo Linebet VISION221 : 300 % + cashback'
-const DESCRIPTION = 'Code promo Linebet : VISION221. Offre internationale annoncée à 300 %, avec cashback et bonus hebdomadaires ; vérifiez les conditions de votre compte auprès de Linebet. 18+.'
+const DESCRIPTION = 'Code promo Linebet : bonus de dépôt mondial de 300 %, cashback et bonus hebdomadaires. Vérifiez les conditions de votre compte puis copiez le code VISION221'
 const OPEN_GRAPH_TITLE = TITLE
 const OPEN_GRAPH_DESCRIPTION = DESCRIPTION
 
