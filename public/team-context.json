@@ -1,46 +1,34 @@
 {
-  "updatedAt": "2026-11-26T20:52:17.449Z",
+  "updatedAt": "2026-11-28T19:14:10.281Z",
   "sourceVersion": "open-news-v2-no-rss",
   "globalNews": [],
   "teams": {
-    "1. FC Heidenheim 1846": {
-      "name": "1. FC Heidenheim 1846",
-      "checkedAt": "2026-11-26T20:49:30.070Z",
+    "AC Milan": {
+      "name": "AC Milan",
+      "checkedAt": "2026-11-28T19:09:07.816Z",
       "newsStatus": "empty",
       "news": [],
       "image": {
-        "url": "/team-media/f3ef79280fbe2ba49e12.jpg",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Voith-Arena.jpg",
-        "author": "1846Hoirna",
+        "url": "/team-media/75bf0334912a080c168d.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stadio_Meazza_2021_3.jpg",
+        "author": "Prelvini",
         "license": "CC BY-SA",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-        "caption": "1. FC Heidenheim 1846 — stade Voith-Arena: Voith-Arena",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "AC Milan — stade Giuseppe Meazza Stadium: Stadio Giuseppe Meazza",
         "kind": "stadium",
-        "date": "2011-04-06T00:00:00.000Z",
-        "title": "File:Voith-Arena.jpg",
-        "cachedAt": "2026-11-22T10:39:27.459Z"
+        "date": "2021-05-07T19:48:58.000Z",
+        "title": "File:Stadio Meazza 2021 3.jpg",
+        "cachedAt": "2026-11-22T10:39:41.934Z"
       },
-      "officialUrl": "https://www.fc-heidenheim.de/",
-      "entityUrl": "https://www.wikidata.org/wiki/Q162251",
+      "officialUrl": "https://www.acmilan.com",
+      "entityUrl": "https://www.wikidata.org/wiki/Q1543",
       "sourceVersion": "open-news-v2-no-rss",
       "gdeltNews": [],
-      "gdeltCheckedAt": "2026-10-23T18:53:02.274Z"
-    },
-    "1. FC Nürnberg": {
-      "name": "1. FC Nürnberg",
-      "checkedAt": "2026-11-26T20:49:30.647Z",
-      "newsStatus": "empty",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
+      "gdeltCheckedAt": "2026-10-31T05:48:21.302Z"
     },
     "Accrington Stanley": {
       "name": "Accrington Stanley",
-      "checkedAt": "2026-11-26T20:49:31.942Z",
+      "checkedAt": "2026-11-28T19:09:13.780Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -52,7 +40,7 @@
     },
     "ADO Den Haag": {
       "name": "ADO Den Haag",
-      "checkedAt": "2026-11-26T20:49:32.710Z",
+      "checkedAt": "2026-11-28T19:09:14.539Z",
       "newsStatus": "empty",
       "news": [],
       "image": {
@@ -73,9 +61,21 @@
       "gdeltNews": [],
       "gdeltCheckedAt": "2026-11-03T22:56:30.747Z"
     },
+    "Águila": {
+      "name": "Águila",
+      "checkedAt": "2026-11-28T19:09:15.772Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": null,
+      "officialUrl": null,
+      "entityUrl": null,
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": "2026-11-15T10:18:00.428Z"
+    },
     "AJ Auxerre": {
       "name": "AJ Auxerre",
-      "checkedAt": "2026-11-26T20:49:33.876Z",
+      "checkedAt": "2026-11-28T19:09:16.528Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -87,7 +87,7 @@
     },
     "Ajax Amsterdam": {
       "name": "Ajax Amsterdam",
-      "checkedAt": "2026-11-26T20:49:34.699Z",
+      "checkedAt": "2026-11-28T19:09:17.288Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -97,9 +97,9 @@
       "gdeltNews": [],
       "gdeltCheckedAt": null
     },
-    "Al Fayha": {
-      "name": "Al Fayha",
-      "checkedAt": "2026-11-26T20:49:36.164Z",
+    "Al Diriyah": {
+      "name": "Al Diriyah",
+      "checkedAt": "2026-11-28T19:09:18.773Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -109,21 +109,45 @@
       "gdeltNews": [],
       "gdeltCheckedAt": null
     },
-    "Al Ittihad": {
-      "name": "Al Ittihad",
-      "checkedAt": "2026-11-26T20:49:36.916Z",
+    "Al Ettifaq": {
+      "name": "Al Ettifaq",
+      "checkedAt": "2026-11-28T19:09:19.531Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
       "officialUrl": null,
-      "entityUrl": "https://www.wikidata.org/wiki/Q429501",
+      "entityUrl": null,
       "sourceVersion": "open-news-v2-no-rss",
       "gdeltNews": [],
       "gdeltCheckedAt": null
     },
-    "Al Qadsiah": {
-      "name": "Al Qadsiah",
-      "checkedAt": "2026-11-26T20:49:38.876Z",
+    "Al Hilal": {
+      "name": "Al Hilal",
+      "checkedAt": "2026-11-28T19:09:20.276Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": null,
+      "officialUrl": null,
+      "entityUrl": null,
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "Al Shabab": {
+      "name": "Al Shabab",
+      "checkedAt": "2026-11-28T19:09:21.037Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": null,
+      "officialUrl": null,
+      "entityUrl": null,
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "Alavés": {
+      "name": "Alavés",
+      "checkedAt": "2026-11-28T19:09:25.572Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -135,7 +159,7 @@
     },
     "AS Roma": {
       "name": "AS Roma",
-      "checkedAt": "2026-11-26T20:49:39.711Z",
+      "checkedAt": "2026-11-28T19:09:26.300Z",
       "newsStatus": "empty",
       "news": [],
       "image": {
@@ -156,21 +180,9 @@
       "gdeltNews": [],
       "gdeltCheckedAt": null
     },
-    "Aston Villa": {
-      "name": "Aston Villa",
-      "checkedAt": "2026-11-26T20:49:45.808Z",
-      "newsStatus": "empty",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": "2026-10-30T21:32:04.674Z"
-    },
     "Atalanta": {
       "name": "Atalanta",
-      "checkedAt": "2026-11-26T20:49:51.611Z",
+      "checkedAt": "2026-11-28T19:09:32.296Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -180,9 +192,32 @@
       "gdeltNews": [],
       "gdeltCheckedAt": "2026-10-30T21:32:18.532Z"
     },
+    "Atlético Madrid": {
+      "name": "Atlético Madrid",
+      "checkedAt": "2026-11-28T19:09:34.317Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": {
+        "url": "/team-media/bd646f2cac4018143555.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wanda-Metropolitano.jpg",
+        "author": "Fernandopascullo",
+        "license": "CC BY-SA",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Atlético Madrid — stade Metropolitano Stadium: Panoramic view of the Wanda Metropolitano stadium, home of Atlético de Madrid .",
+        "kind": "stadium",
+        "date": "2018-02-10T12:26:50.000Z",
+        "title": "File:Wanda-Metropolitano.jpg",
+        "cachedAt": "2026-11-25T07:28:26.118Z"
+      },
+      "officialUrl": "https://www.atleticodemadrid.com/",
+      "entityUrl": "https://www.wikidata.org/wiki/Q8701",
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
     "Barcelona": {
       "name": "Barcelona",
-      "checkedAt": "2026-11-26T20:49:53.578Z",
+      "checkedAt": "2026-11-28T19:09:40.274Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -194,7 +229,7 @@
     },
     "Barnsley": {
       "name": "Barnsley",
-      "checkedAt": "2026-11-26T20:49:59.601Z",
+      "checkedAt": "2026-11-28T19:09:46.307Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -204,9 +239,9 @@
       "gdeltNews": [],
       "gdeltCheckedAt": null
     },
-    "Benevento": {
-      "name": "Benevento",
-      "checkedAt": "2026-11-26T20:50:03.155Z",
+    "Benfica": {
+      "name": "Benfica",
+      "checkedAt": "2026-11-28T19:09:49.809Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -218,31 +253,7 @@
     },
     "Blackpool": {
       "name": "Blackpool",
-      "checkedAt": "2026-11-26T20:50:04.365Z",
-      "newsStatus": "empty",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "Bologna": {
-      "name": "Bologna",
-      "checkedAt": "2026-11-26T20:50:08.086Z",
-      "newsStatus": "empty",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "Borussia Mönchengladbach": {
-      "name": "Borussia Mönchengladbach",
-      "checkedAt": "2026-11-26T20:50:11.105Z",
+      "checkedAt": "2026-11-28T19:09:55.048Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -254,7 +265,7 @@
     },
     "Braga": {
       "name": "Braga",
-      "checkedAt": "2026-11-26T20:50:13.887Z",
+      "checkedAt": "2026-11-28T19:10:01.836Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -264,9 +275,9 @@
       "gdeltNews": [],
       "gdeltCheckedAt": null
     },
-    "Burgos": {
-      "name": "Burgos",
-      "checkedAt": "2026-11-26T20:50:16.877Z",
+    "Cagliari": {
+      "name": "Cagliari",
+      "checkedAt": "2026-11-28T19:10:04.888Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -278,7 +289,7 @@
     },
     "Casa Pia": {
       "name": "Casa Pia",
-      "checkedAt": "2026-11-26T20:50:19.871Z",
+      "checkedAt": "2026-11-28T19:10:06.324Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -288,9 +299,21 @@
       "gdeltNews": [],
       "gdeltCheckedAt": null
     },
-    "CD Sabadell": {
-      "name": "CD Sabadell",
-      "checkedAt": "2026-11-26T20:50:20.659Z",
+    "Catanzaro": {
+      "name": "Catanzaro",
+      "checkedAt": "2026-11-28T19:10:07.081Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": null,
+      "officialUrl": null,
+      "entityUrl": null,
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "Celtic": {
+      "name": "Celtic",
+      "checkedAt": "2026-11-28T19:10:08.353Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -302,7 +325,7 @@
     },
     "Charlotte FC": {
       "name": "Charlotte FC",
-      "checkedAt": "2026-11-26T20:50:21.358Z",
+      "checkedAt": "2026-11-28T19:10:14.336Z",
       "newsStatus": "empty",
       "news": [],
       "image": {
@@ -325,7 +348,7 @@
     },
     "Chesterfield": {
       "name": "Chesterfield",
-      "checkedAt": "2026-11-26T20:50:22.120Z",
+      "checkedAt": "2026-11-28T19:10:15.043Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -337,7 +360,7 @@
     },
     "Chicago Fire FC": {
       "name": "Chicago Fire FC",
-      "checkedAt": "2026-11-26T20:50:25.644Z",
+      "checkedAt": "2026-11-28T19:10:18.618Z",
       "newsStatus": "empty",
       "news": [],
       "image": {
@@ -360,7 +383,7 @@
     },
     "Club Brugge": {
       "name": "Club Brugge",
-      "checkedAt": "2026-11-26T20:50:26.364Z",
+      "checkedAt": "2026-11-28T19:10:19.285Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -372,7 +395,7 @@
     },
     "Coventry City": {
       "name": "Coventry City",
-      "checkedAt": "2026-11-26T20:50:28.149Z",
+      "checkedAt": "2026-11-28T19:10:21.055Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -384,7 +407,7 @@
     },
     "Crewe Alexandra": {
       "name": "Crewe Alexandra",
-      "checkedAt": "2026-11-26T20:50:34.114Z",
+      "checkedAt": "2026-11-28T19:10:27.082Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -396,7 +419,7 @@
     },
     "Deportivo": {
       "name": "Deportivo",
-      "checkedAt": "2026-11-26T20:50:34.892Z",
+      "checkedAt": "2026-11-28T19:10:27.829Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -406,9 +429,33 @@
       "gdeltNews": [],
       "gdeltCheckedAt": null
     },
-    "Eibar": {
-      "name": "Eibar",
-      "checkedAt": "2026-11-26T20:50:38.120Z",
+    "Deportivo Madryn": {
+      "name": "Deportivo Madryn",
+      "checkedAt": "2026-11-28T19:10:31.100Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": null,
+      "officialUrl": "https://deportivomadryn.com",
+      "entityUrl": "https://www.wikidata.org/wiki/Q919761",
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "Dundee": {
+      "name": "Dundee",
+      "checkedAt": "2026-11-28T19:10:32.529Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": null,
+      "officialUrl": null,
+      "entityUrl": null,
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "Dundee United": {
+      "name": "Dundee United",
+      "checkedAt": "2026-11-28T19:10:37.088Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -420,7 +467,19 @@
     },
     "Espanyol": {
       "name": "Espanyol",
-      "checkedAt": "2026-11-26T20:50:39.349Z",
+      "checkedAt": "2026-11-28T19:10:38.321Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": null,
+      "officialUrl": null,
+      "entityUrl": null,
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "Estrela": {
+      "name": "Estrela",
+      "checkedAt": "2026-11-28T19:10:41.854Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -432,7 +491,19 @@
     },
     "Exeter City": {
       "name": "Exeter City",
-      "checkedAt": "2026-11-26T20:50:42.901Z",
+      "checkedAt": "2026-11-28T19:10:43.076Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": null,
+      "officialUrl": null,
+      "entityUrl": null,
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "Falkirk": {
+      "name": "Falkirk",
+      "checkedAt": "2026-11-28T19:10:44.322Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -444,7 +515,7 @@
     },
     "FC Augsburg": {
       "name": "FC Augsburg",
-      "checkedAt": "2026-11-26T20:50:44.141Z",
+      "checkedAt": "2026-11-28T19:10:46.597Z",
       "newsStatus": "empty",
       "news": [],
       "image": {
@@ -465,21 +536,55 @@
       "gdeltNews": [],
       "gdeltCheckedAt": null
     },
-    "FC Groningen": {
-      "name": "FC Groningen",
-      "checkedAt": "2026-11-26T20:50:44.864Z",
+    "FC Dallas": {
+      "name": "FC Dallas",
+      "checkedAt": "2026-11-28T19:10:47.296Z",
       "newsStatus": "empty",
       "news": [],
-      "image": null,
-      "officialUrl": "https://www.fcgroningen.nl/",
-      "entityUrl": "https://www.wikidata.org/wiki/Q24711",
+      "image": {
+        "url": "/team-media/a4df6650917b87b4775b.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Toyota_Stadium.jpeg",
+        "author": "Flavius Constantine",
+        "license": "CC BY-SA",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "FC Dallas — stade Toyota Stadium: Toyota Stadium, Frisco, TX",
+        "kind": "stadium",
+        "date": "2019-03-23T00:00:00.000Z",
+        "title": "File:Toyota Stadium.jpeg",
+        "cachedAt": "2026-11-28T19:10:50.304Z"
+      },
+      "officialUrl": "https://www.fcdallas.com/",
+      "entityUrl": "https://www.wikidata.org/wiki/Q642291",
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "FC Famalicao": {
+      "name": "FC Famalicao",
+      "checkedAt": "2026-11-28T19:10:50.304Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": {
+        "url": "/team-media/7d4e9c8e5f63c5e48902.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Blick_von_der_Gegentrib%C3%BCne_-_Est%C3%A1dio_Municipal_22_de_Junho.jpg",
+        "author": "Bohemio09",
+        "license": "CC BY-SA",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "FC Famalicao — stade Estádio Municipal 22 de Junho: Blick von der Gegentribüne",
+        "kind": "stadium",
+        "date": "2017-02-19T16:32:15.000Z",
+        "title": "File:Blick von der Gegentribüne - Estádio Municipal 22 de Junho.jpg",
+        "cachedAt": "2026-11-28T19:11:01.302Z"
+      },
+      "officialUrl": "https://www.fcfamalicao.pt/",
+      "entityUrl": "https://www.wikidata.org/wiki/Q1387105",
       "sourceVersion": "open-news-v2-no-rss",
       "gdeltNews": [],
       "gdeltCheckedAt": null
     },
     "FC Utrecht": {
       "name": "FC Utrecht",
-      "checkedAt": "2026-11-26T20:50:46.824Z",
+      "checkedAt": "2026-11-28T19:11:01.302Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -491,7 +596,7 @@
     },
     "Feyenoord Rotterdam": {
       "name": "Feyenoord Rotterdam",
-      "checkedAt": "2026-11-26T20:51:04.062Z",
+      "checkedAt": "2026-11-28T19:11:08.504Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -503,7 +608,31 @@
     },
     "Fleetwood Town": {
       "name": "Fleetwood Town",
-      "checkedAt": "2026-11-26T20:51:06.856Z",
+      "checkedAt": "2026-11-28T19:11:11.303Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": null,
+      "officialUrl": null,
+      "entityUrl": null,
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "Fulham": {
+      "name": "Fulham",
+      "checkedAt": "2026-11-28T19:11:12.090Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": null,
+      "officialUrl": null,
+      "entityUrl": null,
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "Genoa": {
+      "name": "Genoa",
+      "checkedAt": "2026-11-28T19:11:18.077Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -515,7 +644,7 @@
     },
     "Getafe": {
       "name": "Getafe",
-      "checkedAt": "2026-11-26T20:51:07.636Z",
+      "checkedAt": "2026-11-28T19:11:21.610Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -525,9 +654,9 @@
       "gdeltNews": [],
       "gdeltCheckedAt": null
     },
-    "Gillingham": {
-      "name": "Gillingham",
-      "checkedAt": "2026-11-26T20:51:10.635Z",
+    "Gimnasia y Esgrima (Jujuy)": {
+      "name": "Gimnasia y Esgrima (Jujuy)",
+      "checkedAt": "2026-11-28T19:11:24.628Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -537,9 +666,68 @@
       "gdeltNews": [],
       "gdeltCheckedAt": null
     },
-    "Grimsby Town": {
-      "name": "Grimsby Town",
-      "checkedAt": "2026-11-26T20:51:12.665Z",
+    "Hannover 96": {
+      "name": "Hannover 96",
+      "checkedAt": "2026-11-28T19:11:25.335Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": null,
+      "officialUrl": null,
+      "entityUrl": "https://www.wikidata.org/wiki/Q127433420",
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "Hibernian": {
+      "name": "Hibernian",
+      "checkedAt": "2026-11-28T19:11:28.583Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": null,
+      "officialUrl": null,
+      "entityUrl": null,
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "Houston Dynamo FC": {
+      "name": "Houston Dynamo FC",
+      "checkedAt": "2026-11-28T19:11:30.349Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": {
+        "url": "/team-media/ec27810334c383d89105.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shell_Energy_Stadium_Geometric_Entrance.jpg",
+        "author": "HDFC PR",
+        "license": "CC BY-SA",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Houston Dynamo FC — stade Shell Energy Stadium: Aerial photograph of Shell Energy Stadium Geometric Entrance",
+        "kind": "stadium",
+        "date": "2023-08-14T00:00:00.000Z",
+        "title": "File:Shell Energy Stadium Geometric Entrance.jpg",
+        "cachedAt": "2026-11-28T19:11:32.276Z"
+      },
+      "officialUrl": "https://www.houstondynamo.com",
+      "entityUrl": "https://www.wikidata.org/wiki/Q328313",
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "Internacional Santa Tecla": {
+      "name": "Internacional Santa Tecla",
+      "checkedAt": "2026-11-28T19:11:32.276Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": null,
+      "officialUrl": null,
+      "entityUrl": null,
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "Internazionale": {
+      "name": "Internazionale",
+      "checkedAt": "2026-11-28T19:11:33.074Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -551,7 +739,55 @@
     },
     "Ipswich Town": {
       "name": "Ipswich Town",
-      "checkedAt": "2026-11-26T20:51:13.399Z",
+      "checkedAt": "2026-11-28T19:11:39.110Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": null,
+      "officialUrl": null,
+      "entityUrl": null,
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "Kilmarnock": {
+      "name": "Kilmarnock",
+      "checkedAt": "2026-11-28T19:11:41.603Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": null,
+      "officialUrl": null,
+      "entityUrl": null,
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "LAFC": {
+      "name": "LAFC",
+      "checkedAt": "2026-11-28T19:11:43.869Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": null,
+      "officialUrl": null,
+      "entityUrl": null,
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "Le Havre AC": {
+      "name": "Le Havre AC",
+      "checkedAt": "2026-11-28T19:11:44.647Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": null,
+      "officialUrl": null,
+      "entityUrl": null,
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "Le Mans": {
+      "name": "Le Mans",
+      "checkedAt": "2026-11-28T19:11:45.386Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -563,7 +799,7 @@
     },
     "Lecce": {
       "name": "Lecce",
-      "checkedAt": "2026-11-26T20:51:15.935Z",
+      "checkedAt": "2026-11-28T19:11:48.631Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -573,9 +809,21 @@
       "gdeltNews": [],
       "gdeltCheckedAt": null
     },
-    "Leganés": {
-      "name": "Leganés",
-      "checkedAt": "2026-11-26T20:51:17.937Z",
+    "Leeds United": {
+      "name": "Leeds United",
+      "checkedAt": "2026-11-28T19:11:50.624Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": null,
+      "officialUrl": null,
+      "entityUrl": "https://www.wikidata.org/wiki/Q1812080",
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "Leyton Orient": {
+      "name": "Leyton Orient",
+      "checkedAt": "2026-11-28T19:12:02.340Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -585,32 +833,57 @@
       "gdeltNews": [],
       "gdeltCheckedAt": null
     },
-    "Levante": {
-      "name": "Levante",
-      "checkedAt": "2026-11-26T20:51:18.655Z",
+    "Lille": {
+      "name": "Lille",
+      "checkedAt": "2026-11-28T19:12:03.159Z",
       "newsStatus": "empty",
       "news": [],
-      "image": {
-        "url": "/team-media/9566c74273ed71ec2ade.jpg",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Estadi_Ciutat_de_Val%C3%A8ncia_-_nocturna.jpg",
-        "author": "Francesc Fort",
-        "license": "CC BY-SA",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-        "caption": "Levante — stade Estadi Ciutat de València: Estadi Ciutat de València (association football stadium in València, Spain)",
-        "kind": "stadium",
-        "date": "2021-12-05T00:00:00.000Z",
-        "title": "File:Estadi Ciutat de València - nocturna.jpg",
-        "cachedAt": "2026-11-25T07:30:37.358Z"
-      },
-      "officialUrl": "https://www.levanteud.com/",
-      "entityUrl": "https://www.wikidata.org/wiki/Q8823",
+      "image": null,
+      "officialUrl": null,
+      "entityUrl": null,
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "Lommel SK": {
+      "name": "Lommel SK",
+      "checkedAt": "2026-11-28T19:12:08.377Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": null,
+      "officialUrl": "https://www.lommelsk.be/",
+      "entityUrl": "https://www.wikidata.org/wiki/Q1668203",
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "Lorient": {
+      "name": "Lorient",
+      "checkedAt": "2026-11-28T19:12:09.590Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": null,
+      "officialUrl": null,
+      "entityUrl": null,
       "sourceVersion": "open-news-v2-no-rss",
       "gdeltNews": [],
       "gdeltCheckedAt": null
     },
     "Luton Town": {
       "name": "Luton Town",
-      "checkedAt": "2026-11-26T20:51:20.389Z",
+      "checkedAt": "2026-11-28T19:12:10.930Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": null,
+      "officialUrl": null,
+      "entityUrl": null,
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "Manchester City": {
+      "name": "Manchester City",
+      "checkedAt": "2026-11-28T19:12:12.171Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -622,7 +895,7 @@
     },
     "Marseille": {
       "name": "Marseille",
-      "checkedAt": "2026-11-26T20:51:21.664Z",
+      "checkedAt": "2026-11-28T19:12:18.164Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -634,7 +907,7 @@
     },
     "Modena": {
       "name": "Modena",
-      "checkedAt": "2026-11-26T20:51:27.665Z",
+      "checkedAt": "2026-11-28T19:12:24.161Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -646,7 +919,7 @@
     },
     "Monza": {
       "name": "Monza",
-      "checkedAt": "2026-11-26T20:51:29.394Z",
+      "checkedAt": "2026-11-28T19:12:25.900Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -656,9 +929,9 @@
       "gdeltNews": [],
       "gdeltCheckedAt": null
     },
-    "Neom SC": {
-      "name": "Neom SC",
-      "checkedAt": "2026-11-26T20:51:32.759Z",
+    "Motherwell": {
+      "name": "Motherwell",
+      "checkedAt": "2026-11-28T19:12:29.162Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -668,9 +941,21 @@
       "gdeltNews": [],
       "gdeltCheckedAt": null
     },
-    "Newport County": {
-      "name": "Newport County",
-      "checkedAt": "2026-11-26T20:51:33.386Z",
+    "New England Revolution": {
+      "name": "New England Revolution",
+      "checkedAt": "2026-11-28T19:12:31.163Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": null,
+      "officialUrl": null,
+      "entityUrl": null,
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "Nice": {
+      "name": "Nice",
+      "checkedAt": "2026-11-28T19:12:33.912Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -682,7 +967,7 @@
     },
     "Northampton Town": {
       "name": "Northampton Town",
-      "checkedAt": "2026-11-26T20:51:34.653Z",
+      "checkedAt": "2026-11-28T19:12:39.921Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -694,7 +979,7 @@
     },
     "Padova": {
       "name": "Padova",
-      "checkedAt": "2026-11-26T20:51:35.897Z",
+      "checkedAt": "2026-11-28T19:12:41.172Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -704,9 +989,9 @@
       "gdeltNews": [],
       "gdeltCheckedAt": null
     },
-    "Palermo": {
-      "name": "Palermo",
-      "checkedAt": "2026-11-26T20:51:36.662Z",
+    "Paris Saint-Germain": {
+      "name": "Paris Saint-Germain",
+      "checkedAt": "2026-11-28T19:12:41.917Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -716,9 +1001,9 @@
       "gdeltNews": [],
       "gdeltCheckedAt": null
     },
-    "Racing Santander": {
-      "name": "Racing Santander",
-      "checkedAt": "2026-11-26T20:51:41.215Z",
+    "Peterborough United": {
+      "name": "Peterborough United",
+      "checkedAt": "2026-11-28T19:12:47.210Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -728,21 +1013,163 @@
       "gdeltNews": [],
       "gdeltCheckedAt": null
     },
-    "Salford City": {
-      "name": "Salford City",
-      "checkedAt": "2026-11-26T20:51:42.397Z",
+    "Philadelphia Union": {
+      "name": "Philadelphia Union",
+      "checkedAt": "2026-11-28T19:12:48.694Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": {
+        "url": "/team-media/7aefeed61d37f5007e68.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:PPL_Park_Interior_from_the_River_End_2010.10.02_(cropped).jpg",
+        "author": "Something Original ( talk )",
+        "license": "CC BY-SA",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Philadelphia Union — stade Subaru Park: View of the interior of PPL Park , from the Sons of Ben supporters section, the River End, captured during the ninth minute of play of the Union v. Dynamo match October 2, 2010.",
+        "kind": "stadium",
+        "date": "2010-10-07T04:25:00.000Z",
+        "title": "File:PPL Park Interior from the River End 2010.10.02 (cropped).jpg",
+        "cachedAt": "2026-11-28T19:13:00.630Z"
+      },
+      "officialUrl": "https://www.philadelphiaunion.com/",
+      "entityUrl": "https://www.wikidata.org/wiki/Q689874",
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "Portland Timbers": {
+      "name": "Portland Timbers",
+      "checkedAt": "2026-11-28T19:13:00.630Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
       "officialUrl": null,
       "entityUrl": null,
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "Rangers": {
+      "name": "Rangers",
+      "checkedAt": "2026-11-28T19:13:02.502Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": null,
+      "officialUrl": null,
+      "entityUrl": null,
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "RC Celta Fortuna": {
+      "name": "RC Celta Fortuna",
+      "checkedAt": "2026-11-28T19:13:08.455Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": {
+        "url": "/team-media/c574f6fb5a87fc5afe36.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gran_Pe%C3%B1a_-_R%C3%A1pido_de_Bouzas,_no_Estadio_Municipal_de_Barreiro_01.jpg",
+        "author": "Estevoaei",
+        "license": "CC BY-SA",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "RC Celta Fortuna — stade Campo Municipal de Barreiro: Gran Peña - Rápido de Bouzas, no Estadio Municipal de Barreiro",
+        "kind": "stadium",
+        "date": "2022-12-08T14:50:54.000Z",
+        "title": "File:Gran Peña - Rápido de Bouzas, no Estadio Municipal de Barreiro 01.jpg",
+        "cachedAt": "2026-11-28T19:13:10.405Z"
+      },
+      "officialUrl": null,
+      "entityUrl": "https://www.wikidata.org/wiki/Q2311865",
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "Real Madrid": {
+      "name": "Real Madrid",
+      "checkedAt": "2026-11-28T19:13:10.405Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": null,
+      "officialUrl": "https://www.barracascentral.com/",
+      "entityUrl": "https://www.wikidata.org/wiki/Q2469894",
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "Real Oviedo": {
+      "name": "Real Oviedo",
+      "checkedAt": "2026-11-28T19:13:16.933Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": null,
+      "officialUrl": "https://www.realoviedo.es/",
+      "entityUrl": "https://www.wikidata.org/wiki/Q271574",
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "Real Sociedad": {
+      "name": "Real Sociedad",
+      "checkedAt": "2026-11-28T19:13:18.912Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": null,
+      "officialUrl": null,
+      "entityUrl": null,
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "Real Sociedad II": {
+      "name": "Real Sociedad II",
+      "checkedAt": "2026-11-28T19:13:20.979Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": null,
+      "officialUrl": null,
+      "entityUrl": null,
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "Real Valladolid": {
+      "name": "Real Valladolid",
+      "checkedAt": "2026-11-28T19:13:21.729Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": null,
+      "officialUrl": null,
+      "entityUrl": null,
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "Royal Charleroi SC": {
+      "name": "Royal Charleroi SC",
+      "checkedAt": "2026-11-28T19:13:22.480Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": null,
+      "officialUrl": null,
+      "entityUrl": null,
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "San Jose Earthquakes": {
+      "name": "San Jose Earthquakes",
+      "checkedAt": "2026-11-28T19:13:23.237Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": null,
+      "officialUrl": null,
+      "entityUrl": "https://www.wikidata.org/wiki/Q1095113",
       "sourceVersion": "open-news-v2-no-rss",
       "gdeltNews": [],
       "gdeltCheckedAt": null
     },
     "SC Cambuur": {
       "name": "SC Cambuur",
-      "checkedAt": "2026-11-26T20:51:43.157Z",
+      "checkedAt": "2026-11-28T19:13:25.438Z",
       "newsStatus": "empty",
       "news": [],
       "image": {
@@ -765,7 +1192,7 @@
     },
     "Shrewsbury Town": {
       "name": "Shrewsbury Town",
-      "checkedAt": "2026-11-26T20:51:43.924Z",
+      "checkedAt": "2026-11-28T19:13:26.206Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -777,7 +1204,7 @@
     },
     "Sparta Rotterdam": {
       "name": "Sparta Rotterdam",
-      "checkedAt": "2026-11-26T20:51:45.156Z",
+      "checkedAt": "2026-11-28T19:13:27.501Z",
       "newsStatus": "empty",
       "news": [],
       "image": {
@@ -798,9 +1225,56 @@
       "gdeltNews": [],
       "gdeltCheckedAt": null
     },
+    "St Johnstone": {
+      "name": "St Johnstone",
+      "checkedAt": "2026-11-28T19:13:28.262Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": null,
+      "officialUrl": null,
+      "entityUrl": null,
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "St Mirren": {
+      "name": "St Mirren",
+      "checkedAt": "2026-11-28T19:13:29.029Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": null,
+      "officialUrl": null,
+      "entityUrl": null,
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "St. Louis CITY SC": {
+      "name": "St. Louis CITY SC",
+      "checkedAt": "2026-11-28T19:13:29.712Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": {
+        "url": "/team-media/497250f6c7530e1156e3.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:St._Louis_City_SC_vs._FC_Cincinnati_at_CityPark_(20230416094709-02).jpg",
+        "author": "Cornfield948",
+        "license": "CC BY-SA",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "St. Louis CITY SC — stade Energizer Park: St. Louis City SC vs. FC Cincinnati at CityPark.",
+        "kind": "stadium",
+        "date": "2023-04-15T00:00:00.000Z",
+        "title": "File:St. Louis City SC vs. FC Cincinnati at CityPark (20230416094709-02).jpg",
+        "cachedAt": "2026-11-28T19:13:31.694Z"
+      },
+      "officialUrl": "https://www.stlcitysc.com/",
+      "entityUrl": "https://www.wikidata.org/wiki/Q66642491",
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
     "Standard Liege": {
       "name": "Standard Liege",
-      "checkedAt": "2026-11-26T20:51:45.954Z",
+      "checkedAt": "2026-11-28T19:13:31.694Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -810,9 +1284,45 @@
       "gdeltNews": [],
       "gdeltCheckedAt": null
     },
+    "Strasbourg": {
+      "name": "Strasbourg",
+      "checkedAt": "2026-11-28T19:13:34.929Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": null,
+      "officialUrl": null,
+      "entityUrl": null,
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "Tottenham Hotspur": {
+      "name": "Tottenham Hotspur",
+      "checkedAt": "2026-11-28T19:13:41.007Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": null,
+      "officialUrl": null,
+      "entityUrl": null,
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "Troyes": {
+      "name": "Troyes",
+      "checkedAt": "2026-11-28T19:13:47.005Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": null,
+      "officialUrl": null,
+      "entityUrl": null,
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
     "TSG Hoffenheim": {
       "name": "TSG Hoffenheim",
-      "checkedAt": "2026-11-26T20:51:49.149Z",
+      "checkedAt": "2026-11-28T19:13:48.590Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -822,9 +1332,9 @@
       "gdeltNews": [],
       "gdeltCheckedAt": null
     },
-    "Venezia": {
-      "name": "Venezia",
-      "checkedAt": "2026-11-26T20:51:49.932Z",
+    "US Avellino": {
+      "name": "US Avellino",
+      "checkedAt": "2026-11-28T19:13:49.257Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -834,9 +1344,21 @@
       "gdeltNews": [],
       "gdeltCheckedAt": null
     },
-    "Walsall": {
-      "name": "Walsall",
-      "checkedAt": "2026-11-26T20:52:01.520Z",
+    "VfL Osnabruck": {
+      "name": "VfL Osnabruck",
+      "checkedAt": "2026-11-28T19:13:50.006Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": null,
+      "officialUrl": null,
+      "entityUrl": "https://www.wikidata.org/wiki/Q127433429",
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "Vitória de Guimaraes": {
+      "name": "Vitória de Guimaraes",
+      "checkedAt": "2026-11-28T19:14:01.257Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -846,21 +1368,9 @@
       "gdeltNews": [],
       "gdeltCheckedAt": null
     },
-    "Werder Bremen": {
-      "name": "Werder Bremen",
-      "checkedAt": "2026-11-26T20:52:03.471Z",
-      "newsStatus": "empty",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": "https://www.wikidata.org/wiki/Q127433425",
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "Willem II": {
-      "name": "Willem II",
-      "checkedAt": "2026-11-26T20:52:09.915Z",
+    "Waasland-Beveren": {
+      "name": "Waasland-Beveren",
+      "checkedAt": "2026-11-28T19:14:02.047Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -872,7 +1382,7 @@
     },
     "Wycombe Wanderers": {
       "name": "Wycombe Wanderers",
-      "checkedAt": "2026-11-26T20:52:10.716Z",
+      "checkedAt": "2026-11-28T19:14:02.761Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -884,7 +1394,7 @@
     },
     "York City": {
       "name": "York City",
-      "checkedAt": "2026-11-26T20:52:11.449Z",
+      "checkedAt": "2026-11-28T19:14:03.531Z",
       "newsStatus": "empty",
       "news": [],
       "image": null,
@@ -894,9 +1404,44 @@
       "gdeltNews": [],
       "gdeltCheckedAt": null
     },
+    "Zulte-Waregem": {
+      "name": "Zulte-Waregem",
+      "checkedAt": "2026-11-28T19:14:09.569Z",
+      "newsStatus": "empty",
+      "news": [],
+      "image": null,
+      "officialUrl": null,
+      "entityUrl": null,
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "1. FC Heidenheim 1846": {
+      "name": "1. FC Heidenheim 1846",
+      "checkedAt": "2026-11-28T19:14:10.280Z",
+      "newsStatus": "error",
+      "news": [],
+      "image": {
+        "url": "/team-media/f3ef79280fbe2ba49e12.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Voith-Arena.jpg",
+        "author": "1846Hoirna",
+        "license": "CC BY-SA",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "1. FC Heidenheim 1846 — stade Voith-Arena: Voith-Arena",
+        "kind": "stadium",
+        "date": "2011-04-06T00:00:00.000Z",
+        "title": "File:Voith-Arena.jpg",
+        "cachedAt": "2026-11-22T10:39:27.459Z"
+      },
+      "officialUrl": null,
+      "entityUrl": null,
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": "2026-10-23T18:53:02.274Z"
+    },
     "1. FC Magdeburg": {
       "name": "1. FC Magdeburg",
-      "checkedAt": "2026-11-26T20:52:17.448Z",
+      "checkedAt": "2026-11-28T19:14:10.280Z",
       "newsStatus": "error",
       "news": [],
       "image": {
@@ -917,9 +1462,21 @@
       "gdeltNews": [],
       "gdeltCheckedAt": "2026-11-15T07:42:23.095Z"
     },
+    "1. FC Nürnberg": {
+      "name": "1. FC Nürnberg",
+      "checkedAt": "2026-11-28T19:14:10.280Z",
+      "newsStatus": "error",
+      "news": [],
+      "image": null,
+      "officialUrl": null,
+      "entityUrl": null,
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
     "Aberdeen": {
       "name": "Aberdeen",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
+      "checkedAt": "2026-11-28T19:14:10.280Z",
       "newsStatus": "error",
       "news": [],
       "image": null,
@@ -931,7 +1488,7 @@
     },
     "Abha": {
       "name": "Abha",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
+      "checkedAt": "2026-11-28T19:14:10.280Z",
       "newsStatus": "error",
       "news": [],
       "image": null,
@@ -941,32 +1498,9 @@
       "gdeltNews": [],
       "gdeltCheckedAt": null
     },
-    "AC Milan": {
-      "name": "AC Milan",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": {
-        "url": "/team-media/75bf0334912a080c168d.jpg",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stadio_Meazza_2021_3.jpg",
-        "author": "Prelvini",
-        "license": "CC BY-SA",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-        "caption": "AC Milan — stade Giuseppe Meazza Stadium: Stadio Giuseppe Meazza",
-        "kind": "stadium",
-        "date": "2021-05-07T19:48:58.000Z",
-        "title": "File:Stadio Meazza 2021 3.jpg",
-        "cachedAt": "2026-11-22T10:39:41.934Z"
-      },
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": "2026-10-31T05:48:21.302Z"
-    },
     "AEK Athens": {
       "name": "AEK Athens",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
+      "checkedAt": "2026-11-28T19:14:10.280Z",
       "newsStatus": "error",
       "news": [],
       "image": null,
@@ -978,7 +1512,7 @@
     },
     "AFC Bournemouth": {
       "name": "AFC Bournemouth",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
+      "checkedAt": "2026-11-28T19:14:10.280Z",
       "newsStatus": "error",
       "news": [],
       "image": null,
@@ -990,7 +1524,7 @@
     },
     "AGF": {
       "name": "AGF",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
+      "checkedAt": "2026-11-28T19:14:10.280Z",
       "newsStatus": "error",
       "news": [],
       "image": null,
@@ -999,34 +1533,10 @@
       "sourceVersion": "open-news-v2-no-rss",
       "gdeltNews": [],
       "gdeltCheckedAt": null
-    },
-    "Águila": {
-      "name": "Águila",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": "2026-11-15T10:18:00.428Z"
     },
     "Al Ahli": {
       "name": "Al Ahli",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "Al Diriyah": {
-      "name": "Al Diriyah",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
+      "checkedAt": "2026-11-28T19:14:10.280Z",
       "newsStatus": "error",
       "news": [],
       "image": null,
@@ -1038,7 +1548,7 @@
     },
     "Al Faisaly": {
       "name": "Al Faisaly",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
+      "checkedAt": "2026-11-28T19:14:10.280Z",
       "newsStatus": "error",
       "news": [],
       "image": null,
@@ -1050,7 +1560,67 @@
     },
     "Al Fateh": {
       "name": "Al Fateh",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
+      "checkedAt": "2026-11-28T19:14:10.280Z",
+      "newsStatus": "error",
+      "news": [],
+      "image": null,
+      "officialUrl": null,
+      "entityUrl": null,
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "Al Fayha": {
+      "name": "Al Fayha",
+      "checkedAt": "2026-11-28T19:14:10.280Z",
+      "newsStatus": "error",
+      "news": [],
+      "image": null,
+      "officialUrl": null,
+      "entityUrl": null,
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "Al Hazem": {
+      "name": "Al Hazem",
+      "checkedAt": "2026-11-28T19:14:10.280Z",
+      "newsStatus": "error",
+      "news": [],
+      "image": null,
+      "officialUrl": null,
+      "entityUrl": null,
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "Al Ittihad": {
+      "name": "Al Ittihad",
+      "checkedAt": "2026-11-28T19:14:10.280Z",
+      "newsStatus": "error",
+      "news": [],
+      "image": null,
+      "officialUrl": null,
+      "entityUrl": null,
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "Al Khaleej": {
+      "name": "Al Khaleej",
+      "checkedAt": "2026-11-28T19:14:10.280Z",
+      "newsStatus": "error",
+      "news": [],
+      "image": null,
+      "officialUrl": null,
+      "entityUrl": null,
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "Al Kholood": {
+      "name": "Al Kholood",
+      "checkedAt": "2026-11-28T19:14:10.280Z",
       "newsStatus": "error",
       "news": [],
       "image": null,
@@ -1062,7 +1632,7 @@
     },
     "Al Nassr": {
       "name": "Al Nassr",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
+      "checkedAt": "2026-11-28T19:14:10.280Z",
       "newsStatus": "error",
       "news": [],
       "image": {
@@ -1083,9 +1653,9 @@
       "gdeltNews": [],
       "gdeltCheckedAt": null
     },
-    "Al Riyadh": {
-      "name": "Al Riyadh",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
+    "Al Qadsiah": {
+      "name": "Al Qadsiah",
+      "checkedAt": "2026-11-28T19:14:10.281Z",
       "newsStatus": "error",
       "news": [],
       "image": null,
@@ -1095,9 +1665,21 @@
       "gdeltNews": [],
       "gdeltCheckedAt": null
     },
-    "Al Shabab": {
-      "name": "Al Shabab",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
+    "Al Riyadh": {
+      "name": "Al Riyadh",
+      "checkedAt": "2026-11-28T19:14:10.281Z",
+      "newsStatus": "error",
+      "news": [],
+      "image": null,
+      "officialUrl": null,
+      "entityUrl": null,
+      "sourceVersion": "open-news-v2-no-rss",
+      "gdeltNews": [],
+      "gdeltCheckedAt": null
+    },
+    "Al Taawoun": {
+      "name": "Al Taawoun",
+      "checkedAt": "2026-11-28T19:14:10.281Z",
       "newsStatus": "error",
       "news": [],
       "image": null,
@@ -1109,7 +1691,7 @@
     },
     "Albacete": {
       "name": "Albacete",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
+      "checkedAt": "2026-11-28T19:14:10.281Z",
       "newsStatus": "error",
       "news": [],
       "image": null,
@@ -1121,7 +1703,7 @@
     },
     "Alianza FC": {
       "name": "Alianza FC",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
+      "checkedAt": "2026-11-28T19:14:10.281Z",
       "newsStatus": "error",
       "news": [],
       "image": null,
@@ -1133,7 +1715,7 @@
     },
     "Almería": {
       "name": "Almería",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
+      "checkedAt": "2026-11-28T19:14:10.281Z",
       "newsStatus": "error",
       "news": [],
       "image": null,
@@ -1145,7 +1727,7 @@
     },
     "Almirante Brown": {
       "name": "Almirante Brown",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
+      "checkedAt": "2026-11-28T19:14:10.281Z",
       "newsStatus": "error",
       "news": [],
       "image": null,
@@ -1157,7 +1739,7 @@
     },
     "Always Ready": {
       "name": "Always Ready",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
+      "checkedAt": "2026-11-28T19:14:10.281Z",
       "newsStatus": "error",
       "news": [],
       "image": null,
@@ -1169,7 +1751,7 @@
     },
     "Anderlecht": {
       "name": "Anderlecht",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
+      "checkedAt": "2026-11-28T19:14:10.281Z",
       "newsStatus": "error",
       "news": [],
       "image": null,
@@ -1181,7 +1763,7 @@
     },
     "Andorra": {
       "name": "Andorra",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
+      "checkedAt": "2026-11-28T19:14:10.281Z",
       "newsStatus": "error",
       "news": [],
       "image": null,
@@ -1193,7 +1775,7 @@
     },
     "Annecy": {
       "name": "Annecy",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
+      "checkedAt": "2026-11-28T19:14:10.281Z",
       "newsStatus": "error",
       "news": [],
       "image": null,
@@ -1205,7 +1787,7 @@
     },
     "Antwerp": {
       "name": "Antwerp",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
+      "checkedAt": "2026-11-28T19:14:10.281Z",
       "newsStatus": "error",
       "news": [],
       "image": null,
@@ -1217,7 +1799,7 @@
     },
     "Ararat-Armenia": {
       "name": "Ararat-Armenia",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
+      "checkedAt": "2026-11-28T19:14:10.281Z",
       "newsStatus": "error",
       "news": [],
       "image": null,
@@ -1229,7 +1811,7 @@
     },
     "Arezzo": {
       "name": "Arezzo",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
+      "checkedAt": "2026-11-28T19:14:10.281Z",
       "newsStatus": "error",
       "news": [],
       "image": null,
@@ -1241,7 +1823,7 @@
     },
     "Argentina": {
       "name": "Argentina",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
+      "checkedAt": "2026-11-28T19:14:10.281Z",
       "newsStatus": "error",
       "news": [],
       "image": null,
@@ -1253,7 +1835,7 @@
     },
     "Arminia Bielefeld": {
       "name": "Arminia Bielefeld",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
+      "checkedAt": "2026-11-28T19:14:10.281Z",
       "newsStatus": "error",
       "news": [],
       "image": null,
@@ -1265,7 +1847,7 @@
     },
     "Arsenal": {
       "name": "Arsenal",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
+      "checkedAt": "2026-11-28T19:14:10.281Z",
       "newsStatus": "error",
       "news": [],
       "image": null,
@@ -1277,7 +1859,7 @@
     },
     "AS Monaco": {
       "name": "AS Monaco",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
+      "checkedAt": "2026-11-28T19:14:10.281Z",
       "newsStatus": "error",
       "news": [],
       "image": null,
@@ -1289,7 +1871,7 @@
     },
     "AS Nancy Lorraine": {
       "name": "AS Nancy Lorraine",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
+      "checkedAt": "2026-11-28T19:14:10.281Z",
       "newsStatus": "error",
       "news": [],
       "image": null,
@@ -1301,7 +1883,7 @@
     },
     "Ascoli": {
       "name": "Ascoli",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
+      "checkedAt": "2026-11-28T19:14:10.281Z",
       "newsStatus": "error",
       "news": [],
       "image": null,
@@ -1311,9 +1893,9 @@
       "gdeltNews": [],
       "gdeltCheckedAt": null
     },
-    "Athletic": {
-      "name": "Athletic",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
+    "Aston Villa": {
+      "name": "Aston Villa",
+      "checkedAt": "2026-11-28T19:14:10.281Z",
       "newsStatus": "error",
       "news": [],
       "image": null,
@@ -1321,11 +1903,11 @@
       "entityUrl": null,
       "sourceVersion": "open-news-v2-no-rss",
       "gdeltNews": [],
-      "gdeltCheckedAt": null
+      "gdeltCheckedAt": "2026-10-30T21:32:04.674Z"
     },
     "Athletic Club": {
       "name": "Athletic Club",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
+      "checkedAt": "2026-11-28T19:14:10.281Z",
       "newsStatus": "error",
       "news": [],
       "image": null,
@@ -1337,7 +1919,7 @@
     },
     "Atlanta": {
       "name": "Atlanta",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
+      "checkedAt": "2026-11-28T19:14:10.281Z",
       "newsStatus": "error",
       "news": [],
       "image": null,
@@ -1349,7 +1931,7 @@
     },
     "Atletico Balboa": {
       "name": "Atletico Balboa",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
+      "checkedAt": "2026-11-28T19:14:10.281Z",
       "newsStatus": "error",
       "news": [],
       "image": null,
@@ -1361,7 +1943,7 @@
     },
     "Atlético Goianiense": {
       "name": "Atlético Goianiense",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
+      "checkedAt": "2026-11-28T19:14:10.281Z",
       "newsStatus": "error",
       "news": [],
       "image": null,
@@ -1371,32 +1953,9 @@
       "gdeltNews": [],
       "gdeltCheckedAt": null
     },
-    "Atlético Madrid": {
-      "name": "Atlético Madrid",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": {
-        "url": "/team-media/bd646f2cac4018143555.jpg",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wanda-Metropolitano.jpg",
-        "author": "Fernandopascullo",
-        "license": "CC BY-SA",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-        "caption": "Atlético Madrid — stade Metropolitano Stadium: Panoramic view of the Wanda Metropolitano stadium, home of Atlético de Madrid .",
-        "kind": "stadium",
-        "date": "2018-02-10T12:26:50.000Z",
-        "title": "File:Wanda-Metropolitano.jpg",
-        "cachedAt": "2026-11-25T07:28:26.118Z"
-      },
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
     "Australia": {
       "name": "Australia",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
+      "checkedAt": "2026-11-28T19:14:10.281Z",
       "newsStatus": "error",
       "news": [],
       "image": null,
@@ -1408,7 +1967,7 @@
     },
     "Austria Lustenau": {
       "name": "Austria Lustenau",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
+      "checkedAt": "2026-11-28T19:14:10.281Z",
       "newsStatus": "error",
       "news": [],
       "image": null,
@@ -1420,7 +1979,7 @@
     },
     "Austria Vienna": {
       "name": "Austria Vienna",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
+      "checkedAt": "2026-11-28T19:14:10.281Z",
       "newsStatus": "error",
       "news": [],
       "image": null,
@@ -1432,511 +1991,7 @@
     },
     "Avispa Fukuoka": {
       "name": "Avispa Fukuoka",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "AZ Alkmaar": {
-      "name": "AZ Alkmaar",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "Azerbaijan": {
-      "name": "Azerbaijan",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "Barnet": {
-      "name": "Barnet",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "Bayern Munich": {
-      "name": "Bayern Munich",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "Benfica": {
-      "name": "Benfica",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "Besiktas": {
-      "name": "Besiktas",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "Birmingham City": {
-      "name": "Birmingham City",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "BK Häcken": {
-      "name": "BK Häcken",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "Blackburn Rovers": {
-      "name": "Blackburn Rovers",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "Bolivia": {
-      "name": "Bolivia",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "Bolton Wanderers": {
-      "name": "Bolton Wanderers",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "Borussia Dortmund": {
-      "name": "Borussia Dortmund",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "Boulogne": {
-      "name": "Boulogne",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "Brentford": {
-      "name": "Brentford",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "Brest": {
-      "name": "Brest",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "Brighton & Hove Albion": {
-      "name": "Brighton & Hove Albion",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "Burnley": {
-      "name": "Burnley",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "C.D. Platense": {
-      "name": "C.D. Platense",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "Cacahuatique": {
-      "name": "Cacahuatique",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "Cádiz": {
-      "name": "Cádiz",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "Cagliari": {
-      "name": "Cagliari",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "Cardiff City": {
-      "name": "Cardiff City",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "Castellón": {
-      "name": "Castellón",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "Catanzaro": {
-      "name": "Catanzaro",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "CD FAS": {
-      "name": "CD FAS",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "CD Municipal Limeño": {
-      "name": "CD Municipal Limeño",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "Celta Vigo": {
-      "name": "Celta Vigo",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "Celtic": {
-      "name": "Celtic",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "Cercle Brugge KSV": {
-      "name": "Cercle Brugge KSV",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "Cerezo Osaka": {
-      "name": "Cerezo Osaka",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "Cesena": {
-      "name": "Cesena",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "Ceuta": {
-      "name": "Ceuta",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "Chile": {
-      "name": "Chile",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "Ciudad de Bolívar": {
-      "name": "Ciudad de Bolívar",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "Clermont Foot": {
-      "name": "Clermont Foot",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "Colchester United": {
-      "name": "Colchester United",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "Colombia": {
-      "name": "Colombia",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "Columbus Crew": {
-      "name": "Columbus Crew",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "Como": {
-      "name": "Como",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "Córdoba": {
-      "name": "Córdoba",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "Costa Rica": {
-      "name": "Costa Rica",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
-      "newsStatus": "error",
-      "news": [],
-      "image": null,
-      "officialUrl": null,
-      "entityUrl": null,
-      "sourceVersion": "open-news-v2-no-rss",
-      "gdeltNews": [],
-      "gdeltCheckedAt": null
-    },
-    "Crawley Town": {
-      "name": "Crawley Town",
-      "checkedAt": "2026-11-26T20:52:17.449Z",
+      "checkedAt": "2026-11-28T19:14:10.281Z",
       "newsStatus": "error",
       "news": [],
       "image": null,
