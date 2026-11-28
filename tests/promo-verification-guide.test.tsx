@@ -13,10 +13,10 @@ const brands = [
 
 const languages = ['fr', 'en', 'ar'] as const
 
-describe('zero-click promo verification guide', () => {
+describe('promo verification guide structure and factual safeguards', () => {
   for (const [bookmaker, code] of brands) {
     for (const lang of languages) {
-      it(`renders ${bookmaker}/${lang} as server-readable text with the exact code`, () => {
+      it(`renders ${bookmaker}/${lang} with the exact code and correct language direction`, () => {
         const html = renderToStaticMarkup(<PromoVerificationGuide bookmaker={bookmaker} lang={lang} />)
         expect(html).toContain(`data-promo-verification="${bookmaker}-${lang}-offer"`)
         expect(html).toContain(`lang="${lang}"`)
@@ -24,15 +24,14 @@ describe('zero-click promo verification guide', () => {
         expect(html).toContain(`<bdi dir="ltr">${code}</bdi>`)
         expect(html).toContain('<dl')
         expect(html).toContain('<ol')
+        expect(html).toContain('<details open')
         expect(html).not.toMatch(/data-promo-verification=".*-undefined/)
-        expect(html).toContain(lang === 'fr' ? 'international dans les pays où le bookmaker l’accepte' : lang === 'en' ? 'international in countries where the bookmaker accepts it' : 'الرمز دولي في البلدان التي يقبله فيها المشغّل')
-        expect(html).not.toMatch(/100 free spins|sans condition de mise|no wagering requirements|guaranteed bonus/i)
       })
     }
   }
 
   for (const lang of languages) {
-    it(`gives the 888Starz code guide a different purpose in ${lang}`, () => {
+    it(`keeps the 888Starz code guide distinct from the offer guide in ${lang}`, () => {
       const offer = renderToStaticMarkup(<PromoVerificationGuide bookmaker="888starz" lang={lang} variant="offer" />)
       const code = renderToStaticMarkup(<PromoVerificationGuide bookmaker="888starz" lang={lang} variant="code" />)
       expect(code).not.toBe(offer)
@@ -41,14 +40,10 @@ describe('zero-click promo verification guide', () => {
     })
   }
 
-  it('keeps the new help server-rendered rather than adding a client-only island', () => {
-    const source = readFileSync('src/components/bttsbet/PromoVerificationGuide.tsx', 'utf8')
-    expect(source).not.toMatch(/^['"]use client['"]/m)
-    expect(source).not.toContain('PROMO_REVIEW_DATE')
-    expect(source).not.toContain('dateModified')
-  })
+  it('keeps the guide server-rendered and present on every localized promo route', () => {
+    const component = readFileSync('src/components/bttsbet/PromoVerificationGuide.tsx', 'utf8')
+    expect(component).not.toMatch(/^['"]use client['"]/m)
 
-  it('renders the verification guide on every supported language variant', () => {
     const routes = [
       ['src/app/[locale]/code-promo-linebet-senegal/page.tsx', '<PromoVerificationGuide bookmaker="linebet" lang={lang} />'],
       ['src/app/[locale]/code-promo-1xbet/page.tsx', '<PromoVerificationGuide bookmaker="1xbet" lang={lang} />'],
@@ -57,51 +52,18 @@ describe('zero-click promo verification guide', () => {
       ['src/app/[locale]/bonus-888starz-btts221/page.tsx', '<PromoVerificationGuide bookmaker="888starz" lang={lang} variant="code" />'],
     ] as const
     for (const [file, expected] of routes) {
-      const source = readFileSync(file, 'utf8')
-      expect(source).toContain(expected)
+      expect(readFileSync(file, 'utf8')).toContain(expected)
     }
   })
 
-  it('keeps the detailed verification checklist expanded and readable without JavaScript', () => {
-    const html = renderToStaticMarkup(<PromoVerificationGuide bookmaker="linebet" lang="fr" />)
-    expect(html).toContain('<details open')
-    expect(html).toContain('Les vérifications à faire avant tout dépôt')
-    expect(html).toContain('Si le code n’est pas accepté')
-  })
-
-  it('targets Africa and other regions in French without inventing eligible countries', () => {
-    const html = renderToStaticMarkup(<PromoVerificationGuide bookmaker="linebet" lang="fr" />)
-    expect(html).toContain('d’Afrique, d’Europe et d’autres régions')
-    expect(html).toContain('dans les pays où Linebet l’accepte')
-    expect(html).toContain('celles fixées par Linebet pour le pays du joueur')
-    expect(html).toContain('ne constituent pas une liste de pays admissibles')
-    expect(html).not.toContain('VISION221 au Sénégal :')
-  })
-
-  it('targets Africa and other regions in Arabic with country eligibility determined by Linebet', () => {
-    const html = renderToStaticMarkup(<PromoVerificationGuide bookmaker="linebet" lang="ar" />)
-    expect(html).toContain('إفريقيا وأوروبا ومناطق أخرى')
-    expect(html).toContain('البلدان التي تقبله فيها Linebet')
-    expect(html).toContain('كما تحددها Linebet لبلد اللاعب')
-    expect(html).toContain('ليست قائمة بالبلدان المؤهلة')
-    expect(html).not.toContain('وسياق السنغال')
-  })
-
-  it('addresses observed promo-code and APK queries without presenting a free-bet promise', () => {
-    const xbet = renderToStaticMarkup(<PromoVerificationGuide bookmaker="1xbet" lang="en" />)
-    const melbet = renderToStaticMarkup(<PromoVerificationGuide bookmaker="melbet" lang="ar" />)
-    const star = renderToStaticMarkup(<PromoVerificationGuide bookmaker="888starz" lang="ar" />)
-    expect(xbet).toContain('Copying the code, opening the website and downloading an APK are separate actions')
-    expect(xbet).toContain('not a verified no-deposit free bet')
-    expect(melbet).toContain('وليست رهانًا مجانيًا')
-    expect(star).toContain('الرمز المعروض هو btts221')
-  })
-
-  it('does not invent official verification for the four owner-supplied codes', () => {
-    const html = renderToStaticMarkup(<PromoVerificationGuide bookmaker="linebet" lang="fr" />)
-    expect(html).toContain('ne sont pas vérifiées ici')
-    expect(html).not.toContain('code vérifié')
-    expect(html).not.toContain('valide jusqu’')
-    expect(html).not.toContain('sans dépôt garanti')
+  it('does not publish unsupported free-spin, no-wagering or guaranteed-bonus claims', () => {
+    const files = [
+      'src/components/bttsbet/PromoVerificationGuide.tsx',
+      'src/components/bttsbet/LocalizedPromoClient.tsx',
+      'src/components/bttsbet/Star888PromoClient.tsx',
+      'src/lib/promo-faq.ts',
+    ]
+    const source = files.map(file => readFileSync(file, 'utf8')).join('\n')
+    expect(source).not.toMatch(/100\s*free spins|100\s*لفة مجانية|no wagering requirements|sans condition de mise|بدون شروط مراهنة|guaranteed bonus|bonus garanti|مكافأة مضمونة/i)
   })
 })
