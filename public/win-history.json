@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-11-28T01:00:17.849Z",
+  "generatedAt": "2026-11-28T11:15:14.532Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,18 +15,18 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 689,
-    "won": 537,
-    "lost": 152,
-    "pending": 82,
-    "unverifiable": 320,
-    "archivedTotal": 1091,
+    "total": 691,
+    "won": 538,
+    "lost": 153,
+    "pending": 89,
+    "unverifiable": 321,
+    "archivedTotal": 1101,
     "rate": 77.9,
     "gold": {
-      "total": 538,
-      "won": 427,
-      "lost": 111,
-      "rate": 79.4
+      "total": 540,
+      "won": 428,
+      "lost": 112,
+      "rate": 79.3
     },
     "standard": {
       "total": 151,
@@ -36,26 +36,19 @@
     },
     "byType": {
       "btts": {
-        "total": 529,
+        "total": 530,
         "won": 419,
-        "lost": 110,
-        "rate": 79.2
+        "lost": 111,
+        "rate": 79.1
       },
       "over25": {
-        "total": 160,
-        "won": 118,
+        "total": 161,
+        "won": 119,
         "lost": 42,
-        "rate": 73.8
+        "rate": 73.9
       }
     },
     "trend14": [
-      {
-        "date": "2026-11-11",
-        "total": 2,
-        "won": 2,
-        "lost": 0,
-        "rate": 100
-      },
       {
         "date": "2026-11-12",
         "total": 3,
@@ -142,10 +135,17 @@
       },
       {
         "date": "2026-11-27",
-        "total": 16,
+        "total": 17,
         "won": 10,
-        "lost": 6,
-        "rate": 62.5
+        "lost": 7,
+        "rate": 58.8
+      },
+      {
+        "date": "2026-11-28",
+        "total": 1,
+        "won": 1,
+        "lost": 0,
+        "rate": 100
       }
     ],
     "period": {
@@ -155,6 +155,32 @@
     }
   },
   "history": [
+    {
+      "date": "2026-11-28",
+      "match": "Kyoto Sanga vs Cerezo Osaka",
+      "league": "Japanese J.League",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.72,
+      "status": "WON",
+      "finalScore": "4-1",
+      "verifiedAt": "2026-11-28T11:11:18.120Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-27",
+      "match": "Vila Nova vs Atlético Goianiense",
+      "league": "Brazilian Serie B",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.55,
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-11-28T11:11:58.315Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
     {
       "date": "2026-11-27",
       "match": "Levante vs Racing Santander",
