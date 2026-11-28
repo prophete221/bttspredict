@@ -15,7 +15,6 @@ const OPEN_GRAPH_DESCRIPTION = 'Code Melbet Bttswin : bonus 300 %, cashback et b
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  keywords: ['code promo Melbet', 'code promo Melbet Bttswin', 'Melbet promo code', 'Bttswin', 'Melbet cashback 300%'],
   alternates: {
     canonical: PAGE_URL,
     languages: {
