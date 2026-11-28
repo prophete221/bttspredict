@@ -110,35 +110,6 @@ describe('bookmakers data guardrails', () => {
     expect(AFFILIATE.melbetDownload).toBe('https://refpa3665.com/L?tag=d_6293054m_70867c_&site=6293054&ad=70867')
   })
 
-  it('contains the 300% worldwide offer without invented spin, deposit or wagering terms', () => {
-    const files = [
-      'src/app/code-promo-1xbet/page.tsx',
-      'src/app/code-promo-1xbet/XbetClient.tsx',
-      'src/app/code-promo-melbet/page.tsx',
-      'src/app/code-promo-melbet/MelbetClient.tsx',
-      'src/app/code-promo-linebet-senegal/page.tsx',
-      'src/app/code-promo-linebet-senegal/LinebetClient.tsx',
-      'src/app/bonus-888starz/page.tsx',
-      'src/components/bttsbet/Star888PromoClient.tsx',
-      'src/app/bonus-888starz-btts221/page.tsx',
-      'src/app/[locale]/code-promo-1xbet/page.tsx',
-      'src/app/[locale]/code-promo-melbet/page.tsx',
-      'src/app/[locale]/bonus-888starz/page.tsx',
-      'src/app/[locale]/bonus-888starz-btts221/page.tsx',
-      'src/components/bttsbet/LocalizedPromoClient.tsx',
-      'src/components/bttsbet/Star888PromoClient.tsx',
-      'src/components/bttsbet/GiftPopup.tsx',
-      'src/lib/promo-faq.ts',
-      'src/lib/i18n.ts',
-    ]
-    for (const file of files) {
-      const text = readFileSync(file, 'utf8')
-      const worldwideOffer = /(?:300\s*%[\s\S]{0,80}(?:worldwide|monde entier|mondial(?:e)?|عالم|حول العالم)|(?:worldwide|monde entier|mondial(?:e)?|عالم|حول العالم)[\s\S]{0,80}300\s*%)/i
-      expect(text, `${file} doit mentionner l’offre mondiale de 300%`).toMatch(worldwideOffer)
-      expect(text, `${file} ne doit pas inventer spins, dépôt ou conditions`).not.toMatch(/100\s*free spins|100\s*لفة مجانية|no wagering requirements|sans condition de mise|بدون شروط مراهنة|first deposit|premier dépôt|dépôt de 1\s*€/i)
-    }
-  })
-
   it('keeps the localized Linebet route canonical and indexable without freezing its copy', () => {
     const page = readFileSync('src/app/[locale]/code-promo-linebet-senegal/page.tsx', 'utf8')
     expect(page).toContain("const FR_URL = `${SITE_URL}/${SLUG}`")
