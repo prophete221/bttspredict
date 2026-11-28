@@ -20,7 +20,7 @@ const FAQ: Record<PromoBookmakerId, PromoFaqByLang> = {
       { q: 'Que faire si Linebet refuse le code ?', a: 'Vérifiez l’orthographe et les majuscules, puis contrôlez l’éligibilité de votre pays et de votre compte auprès de Linebet. Si l’offre reste incertaine, contactez son assistance avant de déposer.' },
     ],
     en: [
-      { q: 'What is the Linebet promo code?', a: 'The exact code presented by BTTSPredict is VISION221. It is offered worldwide, subject to Linebet's availability and eligibility rules for each country and account; check the local terms directly with Linebet before depositing.' },
+      { q: 'What is the Linebet promo code?', a: 'The exact code presented by BTTSPredict is VISION221 (case-sensitive). The code VISION221 is offered worldwide, subject to Linebet’s availability and eligibility rules for each country and account; check the local terms directly with Linebet before depositing.' },
       { q: 'What benefits are associated with VISION221?', a: 'The offer presented includes a 300% worldwide deposit bonus, cashback and weekly bonuses. Check the detailed terms with Linebet.' },
       { q: 'Is VISION221 only for Senegal?', a: 'No. VISION221 is presented as an international offer. Linebet still determines availability and eligibility for each country and account.' },
       { q: 'How do I use the VISION221 code?', a: 'Copy VISION221 exactly, review the offer on Linebet and make sure the code and terms are recognised before depositing. BTTSPredict cannot apply a code to your account.' },
