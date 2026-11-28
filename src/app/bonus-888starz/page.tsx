@@ -12,7 +12,7 @@ const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'bonus-888starz'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
 const TITLE = 'Code promo 888Starz btts221 : bonus 300 % + cashback'
-const DESCRIPTION = 'Copiez btts221 : bonus de dépôt 300 %, cashback et bonus hebdomadaires. Guide d’utilisation et conditions à vérifier chez 888Starz. 18+.'
+const DESCRIPTION = 'Code promo 888Starz : btts221. Copiez le code et suivez les étapes pour vérifier son application, l’offre affichée et les conditions avant tout dépôt. 18+.'
 const OPEN_GRAPH_TITLE = TITLE
 const OPEN_GRAPH_DESCRIPTION = 'Code 888Starz btts221 : bonus de dépôt 300 %, cashback et bonus hebdomadaires. Découvrez comment utiliser le code et vérifier les conditions. 18+.'
 
