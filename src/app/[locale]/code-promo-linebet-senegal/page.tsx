@@ -22,9 +22,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params
   const isEnglish = locale === 'en'
   if (!isEnglish && locale !== 'ar') return {}
-  const title = isEnglish ? 'Linebet Promo Code VISION221: 300% + Cashback' : 'رمز Linebet VISION221: مكافأة 300% واسترداد نقدي'
+  const title = isEnglish ? 'Linebet Promo Code VISION221: Worldwide 300% + Cashback' : 'رمز Linebet الترويجي VISION221: مكافأة 300% واسترداد نقدي'
   const description = isEnglish
-    ? 'Copy VISION221: 300% deposit bonus, cashback and weekly bonuses. See how to use the Linebet code and check current terms. 18+.'
+    ? 'Copy VISION221: worldwide 300% deposit bonus, cashback and weekly bonuses. Check local terms with Linebet before depositing. 18+.'
     : 'انسخ VISION221: مكافأة إيداع 300% واسترداد نقدي ومكافآت أسبوعية. تعرّف على طريقة استخدام الرمز وشروط Linebet. للبالغين 18+.'
   return {
     title,
