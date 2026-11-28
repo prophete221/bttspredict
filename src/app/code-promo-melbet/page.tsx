@@ -8,10 +8,10 @@ import { checkSeo } from '@/lib/seo'
 const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'code-promo-melbet'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
-const TITLE = 'Code promo Melbet Bttswin : 300 % + cashback'
-const DESCRIPTION = 'Code promo Melbet Bttswin valable dans le monde entier : bonus de dépôt de 300 %, cashback et bonus hebdomadaires. 18+.'
+const TITLE = 'Code promo Melbet Bttswin : bonus 300 % + cashback'
+const DESCRIPTION = 'Copiez Bttswin : bonus de dépôt 300 %, cashback et bonus hebdomadaires. Guide d’utilisation et conditions à vérifier chez Melbet. 18+.'
 const OPEN_GRAPH_TITLE = 'Code promo Melbet Bttswin : 300 % + cashback'
-const OPEN_GRAPH_DESCRIPTION = 'Le code Melbet Bttswin fonctionne dans le monde entier. L’offre comprend un bonus de dépôt de 300 %, du cashback et des bonus hebdomadaires. 18+.'
+const OPEN_GRAPH_DESCRIPTION = 'Code Melbet Bttswin : bonus de dépôt 300 %, cashback et bonus hebdomadaires. Découvrez comment utiliser le code et vérifier les conditions chez Melbet. 18+.'
 
 if (process.env.NODE_ENV === 'production') checkSeo(SLUG, TITLE, DESCRIPTION)
 
