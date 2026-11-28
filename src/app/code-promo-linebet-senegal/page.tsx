@@ -3,7 +3,6 @@ import { Navbar, Footer } from '@/components/bttsbet'
 import LinebetClient from './LinebetClient'
 import PromoVerificationGuide from '@/components/bttsbet/PromoVerificationGuide'
 import { buildPromoFaqJsonLd } from '@/lib/promo-faq'
-import { checkSeo } from '@/lib/seo'
 
 const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'code-promo-linebet-senegal'
@@ -12,8 +11,6 @@ const TITLE = 'Code promo Linebet VISION221 : 300 % + cashback'
 const DESCRIPTION = 'Copiez VISION221 : bonus de dépôt 300 %, cashback et bonus hebdomadaires. Guide d’utilisation et conditions à vérifier chez Linebet. 18+.'
 const OPEN_GRAPH_TITLE = TITLE
 const OPEN_GRAPH_DESCRIPTION = DESCRIPTION
-
-if (process.env.NODE_ENV === 'production') checkSeo(SLUG, TITLE, DESCRIPTION)
 
 export const metadata: Metadata = {
   title: TITLE,
