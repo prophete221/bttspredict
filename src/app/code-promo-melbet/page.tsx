@@ -3,7 +3,6 @@ import { Navbar, Footer } from '@/components/bttsbet'
 import MelbetClient from './MelbetClient'
 import PromoVerificationGuide from '@/components/bttsbet/PromoVerificationGuide'
 import { buildPromoFaqJsonLd } from '@/lib/promo-faq'
-import { checkSeo } from '@/lib/seo'
 
 const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'code-promo-melbet'
@@ -12,8 +11,6 @@ const TITLE = 'Code promo Melbet Bttswin : bonus 300 % + cashback'
 const DESCRIPTION = 'Copiez Bttswin : bonus de dépôt mondial de 300 %, cashback et bonus hebdomadaires. Guide d’utilisation et conditions à vérifier chez Melbet. 18+.'
 const OPEN_GRAPH_TITLE = 'Code promo Melbet Bttswin : 300 % + cashback'
 const OPEN_GRAPH_DESCRIPTION = 'Code Melbet Bttswin : bonus 300 %, cashback et bonus hebdomadaires. Mode d’emploi et conditions à vérifier chez Melbet. 18+.'
-
-if (process.env.NODE_ENV === 'production') checkSeo(SLUG, TITLE, DESCRIPTION)
 
 export const metadata: Metadata = {
   title: TITLE,
