@@ -31,7 +31,7 @@ const hash = (value: string) => createHash('sha256').update(value).digest('hex')
 // Owner-approved 2026-11-24: heroTitle2 gains a non-breaking space in "Over\u00A02.5"
 // (FR/EN/AR) so the phrase never splits across lines on mobile; rendered copy is identical.
 
-describe('owner-requested SEO preservation', () => {
+describe('SEO preservation for non-promo routes', () => {
   it.each(Object.entries(frozenFiles))('preserves %s byte for byte', (file, expected) => {
     let source = readFileSync(file, 'utf8')
     // Owner-approved 2026-11-09: only Aviator + eleven competitions + index
@@ -84,14 +84,6 @@ describe('owner-requested SEO preservation', () => {
       source = source.replace(updatedComment, '// URLs à soumettre (25 URLs du sitemap)\n')
     }
     expect(hash(source)).toBe(expected)
-  })
-  it('keeps the Linebet localized route canonical and indexable while allowing unrestricted promo copy', () => {
-    const source = readFileSync('src/app/[locale]/code-promo-linebet-senegal/page.tsx', 'utf8')
-    expect(source).toContain("const FR_URL = `${SITE_URL}/${SLUG}`")
-    expect(source).toContain("const EN_URL = `${SITE_URL}/en/${SLUG}`")
-    expect(source).toContain("const AR_URL = `${SITE_URL}/ar/${SLUG}`")
-    expect(source).toContain("canonical: isEnglish ? EN_URL : AR_URL")
-    expect(source).toContain("robots: { index: true, follow: true }")
   })
 
   it('keeps localized Linebet URLs canonical and indexable without freezing promo wording', () => {
