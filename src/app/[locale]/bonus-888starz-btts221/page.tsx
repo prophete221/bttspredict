@@ -30,9 +30,6 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title,
     description,
-    keywords: isEnglish
-      ? ['888Starz btts221', '888Starz promo code', '888Starz 300% worldwide']
-      : ['888Starz btts221', 'رمز 888Starz الترويجي', '888Starz 300% حول العالم'],
     alternates: {
       canonical: isEnglish ? EN_URL : AR_URL,
       languages: { fr: FR_URL, en: EN_URL, ar: AR_URL, 'x-default': FR_URL },
