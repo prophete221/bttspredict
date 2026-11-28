@@ -22251,7 +22251,9 @@
       "prediction": "Oui",
       "proba": 0.72,
       "confidence": 72,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-11-28T20:37:39.906Z"
     },
     {
       "id": "sccambuu-vs-spartaro-2026-11-28",
@@ -22645,7 +22647,9 @@
       "prediction": "Oui",
       "proba": 0.73,
       "confidence": 73,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-28T20:38:10.374Z"
     },
     {
       "id": "eibar-vs-burgos-2026-11-28",
@@ -22842,7 +22846,9 @@
       "prediction": "Oui",
       "proba": 0.7,
       "confidence": 70,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-11-28T20:37:39.907Z"
     },
     {
       "id": "ipswicht-vs-astonvil-2026-11-28",
@@ -23039,7 +23045,9 @@
       "prediction": "Oui",
       "proba": 0.65,
       "confidence": 65,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-11-28T20:37:39.907Z"
     },
     {
       "id": "deportiv-vs-barcelon-2026-11-29",
@@ -30078,7 +30086,9 @@
       "prediction": "Oui",
       "proba": 0.68,
       "confidence": 68,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-28T20:37:39.907Z"
     },
     {
       "id": "asroma-vs-monza-2026-11-29",
