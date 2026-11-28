@@ -8,8 +8,8 @@ import { checkSeo } from '@/lib/seo'
 const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'code-promo-1xbet'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
-const TITLE = 'Code promo 1xBet vipbtts : bonus mondial 300 %'
-const DESCRIPTION = 'Code promo 1xBet vipbtts : bonus de dépôt mondial de 300 %, cashback et bonus hebdomadaires. Guide du code et modalités à vérifier. 18+.'
+const TITLE = 'Code promo 1xBet vipbtts : 300 % + cashback'
+const DESCRIPTION = 'Copiez vipbtts : bonus de dépôt 300 %, cashback et bonus hebdomadaires. Guide d’utilisation et conditions à vérifier chez 1xBet. 18+.'
 const OPEN_GRAPH_TITLE = TITLE
 const OPEN_GRAPH_DESCRIPTION = DESCRIPTION
 
