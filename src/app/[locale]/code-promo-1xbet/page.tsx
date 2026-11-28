@@ -24,8 +24,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   if (!isEnglish && locale !== 'ar') return {}
   const title = isEnglish ? '1xBet Promo Code vipbtts: 300% + Cashback' : 'رمز 1xBet vipbtts: مكافأة 300% واسترداد نقدي'
   const description = isEnglish
-    ? 'Copy vipbtts: 300% deposit bonus, cashback and weekly bonuses. Learn how to use the 1xBet code and check the current terms. 18+.'
-    : 'انسخ vipbtts: مكافأة إيداع 300% واسترداد نقدي ومكافآت أسبوعية. تعرّف على طريقة استخدام الرمز وشروط 1xBet. للبالغين 18+.'
+    ? 'Looking for a 1xBet promo code? Copy vipbtts, review the advertised benefits and confirm the offer terms before depositing. 18+.'
+    : 'برومو كود 1xBet هو vipbtts. انسخ الرمز كما هو، وراجع المزايا المعلنة، ثم تحقق من شروط العرض قبل الإيداع. +18.'
   return {
     title,
     description,
