@@ -29,9 +29,6 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title,
     description,
-    keywords: isEnglish
-      ? ['Melbet promo code', 'Melbet promo code Bttswin', 'Bttswin', 'Melbet cashback 300%']
-      : ['رمز Melbet الترويجي', 'رمز Melbet Bttswin', 'Bttswin', 'Melbet 300% استرداد نقدي'],
     alternates: {
       canonical: isEnglish ? EN_URL : AR_URL,
       languages: { fr: FR_URL, en: EN_URL, ar: AR_URL, 'x-default': FR_URL },
