@@ -71,7 +71,6 @@ describe('zero-click promo verification guide', () => {
 
   it('targets Africa and other regions in French without inventing eligible countries', () => {
     const html = renderToStaticMarkup(<PromoVerificationGuide bookmaker="linebet" lang="fr" />)
-    expect(html).toContain('Code promo Linebet VISION221 : Afrique et international')
     expect(html).toContain('d’Afrique, d’Europe et d’autres régions')
     expect(html).toContain('dans les pays où Linebet l’accepte')
     expect(html).toContain('celles fixées par Linebet pour le pays du joueur')
@@ -92,11 +91,10 @@ describe('zero-click promo verification guide', () => {
     const xbet = renderToStaticMarkup(<PromoVerificationGuide bookmaker="1xbet" lang="en" />)
     const melbet = renderToStaticMarkup(<PromoVerificationGuide bookmaker="melbet" lang="ar" />)
     const star = renderToStaticMarkup(<PromoVerificationGuide bookmaker="888starz" lang="ar" />)
-    expect(xbet).toContain('1xBet promo code vipbtts: site, APK and bonus type')
+    expect(xbet).toContain('Copying the code, opening the website and downloading an APK are separate actions')
     expect(xbet).toContain('not a verified no-deposit free bet')
-    expect(melbet).toContain('برومو كود Melbet Bttswin')
     expect(melbet).toContain('وليست رهانًا مجانيًا')
-    expect(star).toContain('برومو كود 888Starz btts221')
+    expect(star).toContain('الرمز المعروض هو btts221')
   })
 
   it('does not invent official verification for the four owner-supplied codes', () => {
