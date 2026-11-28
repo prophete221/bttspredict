@@ -22,10 +22,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params
   const isEnglish = locale === 'en'
   if (!isEnglish && locale !== 'ar') return {}
-  const title = isEnglish ? '1xBet Promo Code vipbtts: 300% Worldwide Bonus' : 'رمز 1xBet الترويجي vipbtts: مكافأة عالمية 300%'
+  const title = isEnglish ? '1xBet Promo Code vipbtts: 300% + Cashback' : 'رمز 1xBet vipbtts: مكافأة 300% واسترداد نقدي'
   const description = isEnglish
-    ? '1xBet code vipbtts works worldwide. The offer includes a 300% deposit bonus, cashback and weekly bonuses. 18+.'
-    : 'يعمل رمز 1xBet vipbtts حول العالم. يشمل العرض مكافأة إيداع بنسبة 300%، واستردادًا نقديًا ومكافآت أسبوعية. 18+.'
+    ? 'Copy vipbtts: 300% deposit bonus, cashback and weekly bonuses. Learn how to use the 1xBet code and check the current terms. 18+.'
+    : 'انسخ vipbtts: مكافأة إيداع 300% واسترداد نقدي ومكافآت أسبوعية. تعرّف على طريقة استخدام الرمز وشروط 1xBet. للبالغين 18+.'
   return {
     title,
     description,
