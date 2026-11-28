@@ -65,17 +65,12 @@ describe('Promo page integrity', () => {
     expect(client).not.toMatch(/réservé(?:e)? au Sénégal|uniquement au Sénégal/i)
   })
 
-  it('keeps the affiliate disclosure visible on all promo clients', () => {
-    const files = [
-      'src/app/code-promo-1xbet/XbetClient.tsx',
-      'src/app/code-promo-melbet/MelbetClient.tsx',
-      'src/app/code-promo-linebet-senegal/LinebetClient.tsx',
-      'src/components/bttsbet/Star888PromoClient.tsx',
-    ]
-    for (const file of files) {
-      const source = readFileSync(resolve(ROOT, file), 'utf8')
-      expect(source).toMatch(/affiliateDisclosure|data-affiliate-disclosure/)
-    }
+  it('keeps affiliate disclosure in the shared promo shell and the standalone 888Starz client', () => {
+    const shell = readFileSync(resolve(ROOT, 'src/components/bttsbet/PromoLandingShell.tsx'), 'utf8')
+    expect(shell).toMatch(/affiliateDisclosure|data-affiliate-disclosure/)
+
+    const star888 = readFileSync(resolve(ROOT, 'src/components/bttsbet/Star888PromoClient.tsx'), 'utf8')
+    expect(star888).toMatch(/affiliateDisclosure|data-affiliate-disclosure/)
   })
 })
 
