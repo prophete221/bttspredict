@@ -81,7 +81,7 @@ const COPY: Record<Lang, {
   ar: {
     dir: 'rtl',
     badge: 'عرض 888Starz',
-    title: 'رمز 888Starz btts221: مكافأة 300% واسترداد نقدي',
+    title: 'برومو كود 888Starz btts221: مكافأة 300% واسترداد نقدي',
     positioning: 'يعمل رمز 888Starz ‏btts221 حول العالم. يشمل العرض مكافأة إيداع عالمية بنسبة 300%، واستردادًا نقديًا ومكافآت أسبوعية. راجع الشروط السارية لدى 888Starz.',
     offer: 'مكافأة إيداع عالمية 300%',
     highlights: ['استرداد نقدي', 'مكافآت أسبوعية', 'الرمز الدقيق: btts221'],
@@ -115,7 +115,7 @@ const CODE_COPY: Record<Lang, Pick<typeof COPY.fr, 'title' | 'positioning' | 'of
     offer: '300% Worldwide Deposit Bonus',
   },
   ar: {
-    title: 'رمز 888Starz btts221: أين وكيفية إدخاله',
+    title: 'برومو كود 888Starz btts221: أين تدخله وكيف تتحقق من العرض',
     positioning: 'يعمل رمز 888Starz ‏btts221 حول العالم. يشمل العرض مكافأة إيداع عالمية بنسبة 300%، واستردادًا نقديًا ومكافآت أسبوعية. راجع الشروط لدى 888Starz.',
     offer: 'مكافأة إيداع عالمية 300%',
   },
