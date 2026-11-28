@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import { buildPromoFaqJsonLd } from '@/lib/promo-faq'
-import { checkSeo } from '@/lib/seo'
 import PromoVerificationGuide from '@/components/bttsbet/PromoVerificationGuide'
 
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
@@ -14,8 +13,6 @@ const TITLE = 'Code 888Starz btts221 : où le saisir et vérifier l’offre'
 const DESCRIPTION = 'Où saisir btts221 ? Suivez les étapes pour utiliser le code 888Starz, vérifier son application et consulter les conditions. 18+.'
 const OPEN_GRAPH_TITLE = TITLE
 const OPEN_GRAPH_DESCRIPTION = 'Guide 888Starz btts221 : où saisir le code, comment vérifier son application et quelles conditions consulter avant de l’utiliser. 18+.'
-
-if (process.env.NODE_ENV === 'production') checkSeo(SLUG, TITLE, DESCRIPTION)
 
 export const metadata: Metadata = {
   title: TITLE,
