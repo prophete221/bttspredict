@@ -29,9 +29,6 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title,
     description,
-    keywords: isEnglish
-      ? ['Linebet promo code', 'Linebet promo code VISION221', 'Linebet Senegal promo code', 'VISION221', 'Linebet 300% worldwide']
-      : ['رمز Linebet الترويجي', 'رمز Linebet VISION221', 'VISION221', 'Linebet 300% حول العالم'],
     alternates: {
       canonical: isEnglish ? EN_URL : AR_URL,
       languages: { fr: FR_URL, en: EN_URL, ar: AR_URL, 'x-default': FR_URL },
