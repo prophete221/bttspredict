@@ -9889,7 +9889,9 @@
       "prediction": "Oui",
       "proba": 0.78,
       "confidence": 78,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-11-28T00:57:59.025Z"
     },
     {
       "id": "fcheiden-vs-fcnrnber-2026-11-27",
@@ -10085,7 +10087,9 @@
       "prediction": "Oui",
       "proba": 0.72,
       "confidence": 72,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-11-28T00:57:59.026Z"
     },
     {
       "id": "legans-vs-cdsabade-2026-11-27",
@@ -10281,7 +10285,9 @@
       "prediction": "Oui",
       "proba": 0.68,
       "confidence": 68,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-0",
+      "verifiedAt": "2026-11-28T00:57:59.026Z"
     },
     {
       "id": "alqadsia-vs-alfayha-2026-11-27",

@@ -15888,7 +15888,9 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-0",
+      "verifiedAt": "2026-11-28T00:57:59.022Z"
     },
     {
       "id": "werderbr-vs-borussia-2026-11-27",
@@ -16084,7 +16086,9 @@
       "prediction": "Oui",
       "proba": 0.6,
       "confidence": 60,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-3",
+      "verifiedAt": "2026-11-28T00:57:59.022Z"
     },
     {
       "id": "levante-vs-racingsa-2026-11-27",
@@ -16281,7 +16285,9 @@
       "prediction": "Oui",
       "proba": 0.6,
       "confidence": 60,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-3",
+      "verifiedAt": "2026-11-28T00:57:59.022Z"
     },
     {
       "id": "alkholoo-vs-alkhalee-2026-11-27",
@@ -16660,7 +16666,9 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-11-28T00:57:59.022Z"
     },
     {
       "id": "brest-vs-parisfc-2026-11-27",
@@ -16857,7 +16865,9 @@
       "prediction": "Oui",
       "proba": 0.52,
       "confidence": 52,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-28T00:57:59.022Z"
     },
     {
       "id": "vilanova-vs-atlticog-2026-11-27",
@@ -17251,7 +17261,9 @@
       "prediction": "Oui",
       "proba": 0.55,
       "confidence": 55,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-11-28T00:57:59.023Z"
     },
     {
       "id": "atlanta-vs-ciudadde-2026-11-27",
@@ -17629,7 +17641,9 @@
       "prediction": "Oui",
       "proba": 0.55,
       "confidence": 55,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-11-28T00:57:59.024Z"
     },
     {
       "id": "grazerak-vs-scrheind-2026-11-27",
@@ -17826,7 +17840,9 @@
       "prediction": "Oui",
       "proba": 0.65,
       "confidence": 65,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-3",
+      "verifiedAt": "2026-11-28T00:57:59.024Z"
     },
     {
       "id": "maritimo-vs-cdnacion-2026-11-27",
@@ -18007,7 +18023,9 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-28T00:57:59.024Z"
     },
     {
       "id": "creweale-vs-grimsbyt-2026-11-28",
@@ -24928,7 +24946,9 @@
       "prediction": "Oui",
       "proba": 0.78,
       "confidence": 78,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-11-28T00:57:59.025Z"
     },
     {
       "id": "fcheiden-vs-fcnrnber-2026-11-27",
@@ -25124,7 +25144,9 @@
       "prediction": "Oui",
       "proba": 0.72,
       "confidence": 72,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-11-28T00:57:59.026Z"
     },
     {
       "id": "legans-vs-cdsabade-2026-11-27",
@@ -25320,7 +25342,9 @@
       "prediction": "Oui",
       "proba": 0.68,
       "confidence": 68,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-0",
+      "verifiedAt": "2026-11-28T00:57:59.026Z"
     },
     {
       "id": "alittiha-vs-neomsc-2026-11-27",
@@ -25699,7 +25723,9 @@
       "prediction": "Non",
       "proba": 0.52,
       "confidence": 52,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-0",
+      "verifiedAt": "2026-11-28T00:57:59.022Z"
     },
     {
       "id": "vilanova-vs-atlticog-2026-11-27",
@@ -26079,7 +26105,9 @@
       "prediction": "Oui",
       "proba": 0.55,
       "confidence": 55,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-11-28T00:57:59.027Z"
     },
     {
       "id": "atlanta-vs-ciudadde-2026-11-27",
@@ -26459,7 +26487,9 @@
       "ai_source": "gemini-stats-v1",
       "ai_model": "gemini-3.5-flash-lite",
       "ai_response_status": "abstain",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-11-28T00:57:59.024Z"
     },
     {
       "id": "charlott-vs-chicagof-2026-11-28",
