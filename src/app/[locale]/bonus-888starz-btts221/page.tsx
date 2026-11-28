@@ -23,16 +23,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params
   const isEnglish = locale === 'en'
   if (!isEnglish && locale !== 'ar') notFound()
-  const title = isEnglish ? 'How to Use 888Starz Promo Code btts221' : 'كيفية استخدام الرمز الترويجي 888Starz btts221'
+  const title = isEnglish ? '888Starz btts221 Code: Where to Enter It' : 'برومو كود 888Starz btts221: أين تدخله وكيف تتحقق من العرض'
   const description = isEnglish
-    ? 'Learn where to enter 888Starz code btts221 and how to check whether the offer is applied. Confirm eligibility and terms with 888Starz. 18+.'
-    : 'تعرف على مكان إدخال الرمز 888Starz btts221 وكيفية التحقق من تطبيق العرض. تحقق من الأهلية والشروط لدى 888Starz. للبالغين 18+.'
+    ? 'Where do you enter 888Starz code btts221? Follow the steps to find the promo field, confirm the code was applied and review the offer terms. 18+.'
+    : 'أين تدخل رمز 888Starz btts221؟ اتبع الخطوات للعثور على خانة الرمز والتحقق من تطبيقه ومراجعة شروط العرض. +18.'
   return {
     title,
     description,
-    keywords: isEnglish
-      ? ['888Starz btts221', '888Starz promo code', '888Starz 300% worldwide']
-      : ['888Starz btts221', 'رمز 888Starz الترويجي', '888Starz 300% حول العالم'],
     alternates: {
       canonical: isEnglish ? EN_URL : AR_URL,
       languages: { fr: FR_URL, en: EN_URL, ar: AR_URL, 'x-default': FR_URL },
@@ -89,7 +86,7 @@ export default async function LocalizedBtts221Page({ params }: { params: Promise
     <>
       {localizedStructuredData(lang).map((schema, index) => <script key={index} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />)}
       <Btts221PromoClient lang={lang} />
-      {lang === 'en' && <PromoVerificationGuide bookmaker="888starz" lang="en" variant="code" />}
+      <PromoVerificationGuide bookmaker="888starz" lang={lang} variant="code" />
     </>
   )
 }

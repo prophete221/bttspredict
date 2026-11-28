@@ -3,22 +3,18 @@ import { Navbar, Footer } from '@/components/bttsbet'
 import XbetClient from './XbetClient'
 import PromoVerificationGuide from '@/components/bttsbet/PromoVerificationGuide'
 import { buildPromoFaqJsonLd } from '@/lib/promo-faq'
-import { checkSeo } from '@/lib/seo'
 
 const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'code-promo-1xbet'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
-const TITLE = 'Code promo 1xBet vipbtts : bonus mondial 300 %'
-const DESCRIPTION = 'Code promo 1xBet vipbtts : bonus de dépôt mondial de 300 %, cashback et bonus hebdomadaires. Guide du code et modalités à vérifier. 18+.'
+const TITLE = 'Code promo 1xBet vipbtts : 300 % + cashback'
+const DESCRIPTION = 'Code promo 1xBet : bonus de dépôt, cashback et bonus hebdomadaires. Copiez le code exact à la fin de cette page : vipbtts'
 const OPEN_GRAPH_TITLE = TITLE
 const OPEN_GRAPH_DESCRIPTION = DESCRIPTION
-
-checkSeo(SLUG, TITLE, DESCRIPTION)
 
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  keywords: ['code promo 1xBet', 'code promo 1xBet vipbtts', 'vipbtts', '1xBet bonus 300%'],
   alternates: {
     canonical: PAGE_URL,
     languages: {

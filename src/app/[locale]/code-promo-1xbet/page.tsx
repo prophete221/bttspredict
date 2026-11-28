@@ -22,16 +22,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params
   const isEnglish = locale === 'en'
   if (!isEnglish && locale !== 'ar') return {}
-  const title = isEnglish ? '1xBet Promo Code vipbtts: 300% Worldwide Bonus' : 'رمز 1xBet الترويجي vipbtts: مكافأة عالمية 300%'
+  const title = isEnglish ? '1xBet Promo Code vipbtts: 300% + Cashback' : 'برومو كود 1xBet vipbtts: مكافأة 300% واسترداد نقدي'
   const description = isEnglish
-    ? '1xBet code vipbtts works worldwide. The offer includes a 300% deposit bonus, cashback and weekly bonuses. 18+.'
-    : 'يعمل رمز 1xBet vipbtts حول العالم. يشمل العرض مكافأة إيداع بنسبة 300%، واستردادًا نقديًا ومكافآت أسبوعية. 18+.'
+    ? '1xBet promo code vipbtts: 300% deposit bonus, cashback and weekly bonuses. This is not a verified free-bet or no-deposit offer; check your account terms before depositing. 18+.'
+    : 'برومو كود 1xBet هو vipbtts: مكافأة إيداع 300% واسترداد نقدي ومكافآت أسبوعية. ليس رهانًا مجانيًا مؤكدًا أو عرضًا دون إيداع؛ تحقق من الشروط قبل الإيداع. +18.'
   return {
     title,
     description,
-    keywords: isEnglish
-      ? ['1xBet promo code', '1xBet promo code vipbtts', 'vipbtts', '1xBet 300% worldwide']
-      : ['رمز 1xBet الترويجي', 'رمز 1xBet vipbtts', 'vipbtts', '1xBet 300% حول العالم'],
     alternates: {
       canonical: isEnglish ? EN_URL : AR_URL,
       languages: { fr: FR_URL, en: EN_URL, ar: AR_URL, 'x-default': FR_URL },
@@ -59,7 +56,7 @@ export default async function Localized1xbetPage({ params }: { params: Promise<{
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <LocalizedPromoClient bookmaker="1xbet" />
-      {lang === 'en' && <PromoVerificationGuide bookmaker="1xbet" lang="en" />}
+      <PromoVerificationGuide bookmaker="1xbet" lang={lang} />
     </>
   )
 }

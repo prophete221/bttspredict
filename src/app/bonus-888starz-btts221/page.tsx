@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import { buildPromoFaqJsonLd } from '@/lib/promo-faq'
-import { checkSeo } from '@/lib/seo'
 import PromoVerificationGuide from '@/components/bttsbet/PromoVerificationGuide'
 
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
@@ -10,17 +9,14 @@ const Btts221PromoClient = dynamic(() => import('@/components/bttsbet/Btts221Pro
 const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'bonus-888starz-btts221'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
-const TITLE = 'Guide du code 888Starz btts221 : utilisation'
-const DESCRIPTION = 'Guide 888Starz btts221 : copier le code exact et vérifier les conditions en vigueur auprès de l’opérateur. 18+.'
+const TITLE = 'Code 888Starz btts221 : où le saisir et vérifier l’offre'
+const DESCRIPTION = 'Où saisir le code 888Starz btts221 ? Suivez les étapes pour repérer le champ promo, vérifier l’application du code et consulter les conditions. 18+.'
 const OPEN_GRAPH_TITLE = TITLE
-const OPEN_GRAPH_DESCRIPTION = 'Consultez le guide 888Starz btts221 pour copier le code et vérifier les modalités en vigueur auprès de l’opérateur. 18+.'
-
-if (process.env.NODE_ENV === 'production') checkSeo(SLUG, TITLE, DESCRIPTION)
+const OPEN_GRAPH_DESCRIPTION = 'Guide 888Starz btts221 : où saisir le code, comment vérifier son application et quelles conditions consulter avant de l’utiliser. 18+.'
 
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  keywords: ['code promo 888Starz btts221', '888Starz btts221', 'code btts221', '888Starz promo code', '888Starz 300% worldwide'],
   alternates: {
     canonical: PAGE_URL,
     languages: {

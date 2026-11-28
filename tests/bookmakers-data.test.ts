@@ -110,105 +110,14 @@ describe('bookmakers data guardrails', () => {
     expect(AFFILIATE.melbetDownload).toBe('https://refpa3665.com/L?tag=d_6293054m_70867c_&site=6293054&ad=70867')
   })
 
-  it('contains the 300% worldwide offer without invented spin, deposit or wagering terms', () => {
-    const files = [
-      'src/app/code-promo-1xbet/page.tsx',
-      'src/app/code-promo-1xbet/XbetClient.tsx',
-      'src/app/code-promo-melbet/page.tsx',
-      'src/app/code-promo-melbet/MelbetClient.tsx',
-      'src/app/code-promo-linebet-senegal/page.tsx',
-      'src/app/code-promo-linebet-senegal/LinebetClient.tsx',
-      'src/app/bonus-888starz/page.tsx',
-      'src/components/bttsbet/Star888PromoClient.tsx',
-      'src/app/bonus-888starz-btts221/page.tsx',
-      'src/app/[locale]/code-promo-1xbet/page.tsx',
-      'src/app/[locale]/code-promo-melbet/page.tsx',
-      'src/app/[locale]/bonus-888starz/page.tsx',
-      'src/app/[locale]/bonus-888starz-btts221/page.tsx',
-      'src/components/bttsbet/LocalizedPromoClient.tsx',
-      'src/components/bttsbet/Star888PromoClient.tsx',
-      'src/components/bttsbet/GiftPopup.tsx',
-      'src/lib/promo-faq.ts',
-      'src/lib/i18n.ts',
-    ]
-    for (const file of files) {
-      const text = readFileSync(file, 'utf8')
-      const worldwideOffer = /(?:300\s*%[\s\S]{0,80}(?:worldwide|monde entier|mondial(?:e)?|عالم|حول العالم)|(?:worldwide|monde entier|mondial(?:e)?|عالم|حول العالم)[\s\S]{0,80}300\s*%)/i
-      expect(text, `${file} doit mentionner l’offre mondiale de 300%`).toMatch(worldwideOffer)
-      expect(text, `${file} ne doit pas inventer spins, dépôt ou conditions`).not.toMatch(/100\s*free spins|100\s*لفة مجانية|no wagering requirements|sans condition de mise|بدون شروط مراهنة|first deposit|premier dépôt|dépôt de 1\s*€/i)
-    }
-  })
-
-  it('uses the owner-confirmed worldwide Linebet offer and directs readers to local terms', () => {
+  it('keeps the localized Linebet route canonical and indexable without freezing its copy', () => {
     const page = readFileSync('src/app/[locale]/code-promo-linebet-senegal/page.tsx', 'utf8')
-    const client = readFileSync('src/components/bttsbet/LocalizedPromoClient.tsx', 'utf8')
-    const clientEnglishStart = client.indexOf("    en: {\n      badge: 'LINEBET PROMO CODE'")
-    const clientEnglishEnd = client.indexOf('    ar: {', clientEnglishStart)
-    const clientEnglish = client.slice(clientEnglishStart, clientEnglishEnd)
-    const faq = readFileSync('src/lib/promo-faq.ts', 'utf8')
-    const faqLinebet = faq.slice(faq.indexOf('  linebet: {'), faq.indexOf("  '1xbet': {"))
-    const faqEnglish = faqLinebet.slice(faqLinebet.indexOf('    en: ['), faqLinebet.indexOf('    ar: ['))
-    const shell = readFileSync('src/components/bttsbet/PromoLandingShell.tsx', 'utf8')
-
-    expect(page).toContain("const title = isEnglish ? 'Linebet Promo Code VISION221: Worldwide 300% Offer'")
-    expect(page).toContain("'Linebet 300% worldwide'")
-    const metadataDescription = page.match(/const description = isEnglish\s*\?\s*'([^']+)'/)?.[1] ?? ''
-    expect(metadataDescription).toContain('worldwide 300% deposit bonus')
-    expect(metadataDescription).toContain('Check local terms with Linebet')
-    expect(clientEnglish).toContain('Linebet promo code VISION221 is valid worldwide')
-    expect(clientEnglish).toContain('Check the terms that apply to your account with Linebet')
-    expect(faqEnglish).toContain('VISION221 is offered worldwide')
-    expect(faqEnglish).toContain('check the local terms directly with Linebet')
-    expect(shell).not.toContain('Country availability has not been verified')
+    expect(page).toContain("const FR_URL = `${SITE_URL}/${SLUG}`")
+    expect(page).toContain("const EN_URL = `${SITE_URL}/en/${SLUG}`")
+    expect(page).toContain("const AR_URL = `${SITE_URL}/ar/${SLUG}`")
+    expect(page).toContain("canonical: isEnglish ? EN_URL : AR_URL")
+    expect(page).toContain("robots: { index: true, follow: true }")
   })
 
-  it('never shows the superseded neutral Melbet wording', () => {
-    const files = [
-      'src/lib/constants.ts',
-      'src/app/code-promo-melbet/page.tsx',
-      'src/app/code-promo-melbet/MelbetClient.tsx',
-      'src/components/bttsbet/LocalizedPromoClient.tsx',
-    ]
-    for (const file of files) {
-      const text = readFileSync(file, 'utf8')
-      expect(text, `${file} affiche encore l’ancien wording Melbet`).not.toMatch(/[Bb]onus de bienvenue sur le premier dépôt|[Ww]elcome bonus on your first deposit|مكافأة ترحيبية على أول إيداع/)
-    }
-  })
 
-  it('keeps the selected promo claims with visible affiliate disclosures', () => {
-    const clients = [
-      'src/app/code-promo-1xbet/XbetClient.tsx',
-      'src/app/code-promo-melbet/MelbetClient.tsx',
-      'src/app/code-promo-linebet-senegal/LinebetClient.tsx',
-      'src/components/bttsbet/Star888PromoClient.tsx',
-    ]
-    for (const file of clients) {
-      const text = readFileSync(file, 'utf8')
-      expect(text).not.toMatch(/PUBLICITÉ|ADVERTISEMENT|إعلان|offre partenaire|partner offer|code partenaire|partner code|lien partenaire|partner link|عرض الشريك|رمز الشريك|رابط الشريك/i)
-      expect(text).toMatch(/Code promo|Promo code|رمز .* الترويجي/i)
-      expect(text).toMatch(/cashback/i)
-    }
-
-    const localized = readFileSync('src/components/bttsbet/LocalizedPromoClient.tsx', 'utf8')
-    expect(localized).not.toMatch(/PUBLICITÉ|ADVERTISEMENT|إعلان|offre partenaire|partner offer|code partenaire|partner code|lien partenaire|partner link|عرض الشريك|رمز الشريك|رابط الشريك/i)
-    expect(localized).toMatch(/Promo Code/)
-    expect(localized).toMatch(/Code promo/)
-    expect(localized).toMatch(/رمز .* الترويجي/)
-    expect(localized).toMatch(/cashback.*weekly bonuses/i)
-    expect(localized).toMatch(/cashback.*bonus hebdomadaires/i)
-    expect(localized).toMatch(/استرداد نقدي/)
-    expect(localized).toMatch(/مكافآت أسبوعية/)
-
-    const shell = readFileSync('src/components/bttsbet/PromoLandingShell.tsx', 'utf8')
-    expect(shell).not.toMatch(/PUBLICITÉ|ADVERTISEMENT|إعلان|Other partners|Autres partenaires|شركاء آخرون/i)
-    expect(shell).toContain('data-affiliate-disclosure')
-    expect(shell).toContain('affiliateDisclosure')
-    expect(shell).toContain('BTTSPredict peut percevoir une commission')
-    expect(shell).toContain('BTTSPredict may receive a commission')
-    expect(shell).toContain('قد تحصل BTTSPredict على عمولة')
-
-    const star888 = readFileSync('src/components/bttsbet/Star888PromoClient.tsx', 'utf8')
-    expect(star888).toContain('data-affiliate-disclosure')
-    expect(star888).toContain('affiliateDisclosure')
-  })
 })

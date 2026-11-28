@@ -122,7 +122,7 @@ export default function PromoVerificationGuide({ bookmaker, lang, variant = 'off
         <p className="mb-2 text-xs font-semibold text-[#63D471]">{info.name} · <bdi dir="ltr">{info.code}</bdi></p>
         <h2 id={headingId} className="text-lg font-bold sm:text-xl">{focus.title}</h2>
         <p className="mt-2 text-xs leading-5 text-[#A4A4A4]">{focus.body}</p>
-        <details className="mt-5 overflow-hidden rounded-xl border border-white/10 bg-[#151515]">
+        <details open className="mt-5 overflow-hidden rounded-xl border border-white/10 bg-[#151515]">
           <summary className="cursor-pointer px-4 py-3 text-sm font-semibold text-white">
             {lang === 'fr' ? 'Conditions et vérifications' : lang === 'en' ? 'Terms and checks' : 'الشروط والتحقق'}
           </summary>
