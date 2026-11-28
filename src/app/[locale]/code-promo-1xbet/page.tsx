@@ -59,7 +59,7 @@ export default async function Localized1xbetPage({ params }: { params: Promise<{
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <LocalizedPromoClient bookmaker="1xbet" />
-      {lang === 'en' && <PromoVerificationGuide bookmaker="1xbet" lang="en" />}
+      <PromoVerificationGuide bookmaker="1xbet" lang={lang} />
     </>
   )
 }

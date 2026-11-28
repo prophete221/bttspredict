@@ -59,7 +59,7 @@ export default async function Localized888StarzPage({ params }: { params: Promis
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <LocalizedPromoClient bookmaker="888starz" />
-      {lang === 'ar' && <PromoVerificationGuide bookmaker="888starz" lang="ar" variant="offer" />}
+      <PromoVerificationGuide bookmaker="888starz" lang={lang} variant="offer" />
     </>
   )
 }

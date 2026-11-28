@@ -59,7 +59,7 @@ export default async function LocalizedLinebetPage({ params }: { params: Promise
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <LocalizedPromoClient bookmaker="linebet" />
-      {lang === 'ar' && <PromoVerificationGuide bookmaker="linebet" lang="ar" />}
+      <PromoVerificationGuide bookmaker="linebet" lang={lang} />
     </>
   )
 }

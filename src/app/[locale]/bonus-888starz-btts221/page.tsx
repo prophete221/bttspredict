@@ -89,7 +89,7 @@ export default async function LocalizedBtts221Page({ params }: { params: Promise
     <>
       {localizedStructuredData(lang).map((schema, index) => <script key={index} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />)}
       <Btts221PromoClient lang={lang} />
-      {lang === 'en' && <PromoVerificationGuide bookmaker="888starz" lang="en" variant="code" />}
+      <PromoVerificationGuide bookmaker="888starz" lang={lang} variant="code" />
     </>
   )
 }

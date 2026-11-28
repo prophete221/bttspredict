@@ -48,15 +48,25 @@ describe('zero-click promo verification guide', () => {
     expect(source).not.toContain('dateModified')
   })
 
-  it('does not add the guide to protected Linebet EN or unverified sibling locales', () => {
-    const linebet = readFileSync('src/app/[locale]/code-promo-linebet-senegal/page.tsx', 'utf8')
-    const xbet = readFileSync('src/app/[locale]/code-promo-1xbet/page.tsx', 'utf8')
-    const main888 = readFileSync('src/app/[locale]/bonus-888starz/page.tsx', 'utf8')
-    const code888 = readFileSync('src/app/[locale]/bonus-888starz-btts221/page.tsx', 'utf8')
-    expect(linebet).toMatch(/lang === 'ar' && <PromoVerificationGuide/)
-    expect(xbet).toMatch(/lang === 'en' && <PromoVerificationGuide/)
-    expect(main888).toMatch(/lang === 'ar' && <PromoVerificationGuide/)
-    expect(code888).toMatch(/lang === 'en' && <PromoVerificationGuide/)
+  it('renders the verification guide on every supported language variant', () => {
+    const routes = [
+      ['src/app/[locale]/code-promo-linebet-senegal/page.tsx', '<PromoVerificationGuide bookmaker="linebet" lang={lang} />'],
+      ['src/app/[locale]/code-promo-1xbet/page.tsx', '<PromoVerificationGuide bookmaker="1xbet" lang={lang} />'],
+      ['src/app/[locale]/code-promo-melbet/page.tsx', '<PromoVerificationGuide bookmaker="melbet" lang={lang} />'],
+      ['src/app/[locale]/bonus-888starz/page.tsx', '<PromoVerificationGuide bookmaker="888starz" lang={lang} variant="offer" />'],
+      ['src/app/[locale]/bonus-888starz-btts221/page.tsx', '<PromoVerificationGuide bookmaker="888starz" lang={lang} variant="code" />'],
+    ] as const
+    for (const [file, expected] of routes) {
+      const source = readFileSync(file, 'utf8')
+      expect(source).toContain(expected)
+    }
+  })
+
+  it('keeps the detailed verification checklist expanded and readable without JavaScript', () => {
+    const html = renderToStaticMarkup(<PromoVerificationGuide bookmaker="linebet" lang="fr" />)
+    expect(html).toContain('<details open')
+    expect(html).toContain('Les vérifications à faire avant tout dépôt')
+    expect(html).toContain('Si le code n’est pas accepté')
   })
 
   it('targets Africa and other regions in French without inventing eligible countries', () => {
