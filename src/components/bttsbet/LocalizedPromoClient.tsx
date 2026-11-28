@@ -177,7 +177,7 @@ const LOCALIZED_COPY: Record<Exclude<BookmakerId, '888starz'>, Record<'fr' | 'en
     },
     ar: {
       badge: 'دليل Melbet',
-      title: 'رمز Melbet Bttswin: مكافأة 300% واسترداد نقدي',
+      title: 'برومو كود Melbet Bttswin: مكافأة 300% واسترداد نقدي',
       intro: 'يعمل رمز Melbet ‏Bttswin حول العالم. يشمل العرض مكافأة إيداع بنسبة 300%، واستردادًا نقديًا ومكافآت أسبوعية. انسخ Bttswin مع الانتباه إلى أن الحرف الأول B كبير.',
       offerHeadline: 'مكافأة Melbet والاسترداد النقدي',
       offerSub: 'مكافأة إيداع عالمية 300% · استرداد نقدي · مكافآت أسبوعية.',
