@@ -15,7 +15,6 @@ const OPEN_GRAPH_DESCRIPTION = DESCRIPTION
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  keywords: ['code promo Linebet', 'code promo Linebet VISION221', 'Linebet promo code', 'code promo Linebet Sénégal', 'VISION221', 'Linebet 300% worldwide'],
   alternates: {
     canonical: PAGE_URL,
     languages: {
