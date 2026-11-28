@@ -8,7 +8,7 @@ const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'code-promo-1xbet'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
 const TITLE = 'Code promo 1xBet vipbtts : 300 % + cashback'
-const DESCRIPTION = 'Code promo 1xBet : vipbtts. Copiez le code exact, découvrez les avantages annoncés et vérifiez l’offre et ses conditions avant tout dépôt. 18+.'
+const DESCRIPTION = 'Code promo 1xBet : bonus de dépôt, cashback et bonus hebdomadaires. Copiez le code exact à la fin de cette page : vipbtts'
 const OPEN_GRAPH_TITLE = TITLE
 const OPEN_GRAPH_DESCRIPTION = DESCRIPTION
 
