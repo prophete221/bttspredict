@@ -15,7 +15,6 @@ const OPEN_GRAPH_DESCRIPTION = DESCRIPTION
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  keywords: ['code promo 1xBet', 'code promo 1xBet vipbtts', 'vipbtts', '1xBet bonus 300%'],
   alternates: {
     canonical: PAGE_URL,
     languages: {
